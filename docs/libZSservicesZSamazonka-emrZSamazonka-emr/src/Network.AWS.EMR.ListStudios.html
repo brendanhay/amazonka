@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListStudios' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679387049"><span id="local-6989586621679387050"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStudios"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-var">ListStudios</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStudios%27"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-var">ListStudios'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679387058"><span id="local-6989586621679387059"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStudios"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-var">ListStudios</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStudios%27"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-var">ListStudios'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token that indicates the set of results to retrieve.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Amarker%3AListStudios%27"><span class="annot"><span class="annottext">ListStudios -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3Amarker%3AListStudios%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387043"><span id="local-6989586621679387045"><span class="annot"><span class="annottext">ListStudios -&gt; ListStudios -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387052"><span id="local-6989586621679387054"><span class="annot"><span class="annottext">ListStudios -&gt; ListStudios -&gt; Bool
 (ListStudios -&gt; ListStudios -&gt; Bool)
 -&gt; (ListStudios -&gt; ListStudios -&gt; Bool) -&gt; Eq ListStudios
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStudios -&gt; ListStudios -&gt; Bool
 == :: ListStudios -&gt; ListStudios -&gt; Bool
 $c== :: ListStudios -&gt; ListStudios -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387034"><span id="local-6989586621679387036"><span id="local-6989586621679387038"><span id="local-6989586621679387040"><span class="annot"><span class="annottext">ReadPrec [ListStudios]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387043"><span id="local-6989586621679387045"><span id="local-6989586621679387047"><span id="local-6989586621679387049"><span class="annot"><span class="annottext">ReadPrec [ListStudios]
 ReadPrec ListStudios
 Int -&gt; ReadS ListStudios
 ReadS [ListStudios]
@@ -85,7 +85,7 @@ readList :: ReadS [ListStudios]
 $creadList :: ReadS [ListStudios]
 readsPrec :: Int -&gt; ReadS ListStudios
 $creadsPrec :: Int -&gt; ReadS ListStudios
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387027"><span id="local-6989586621679387029"><span id="local-6989586621679387031"><span class="annot"><span class="annottext">Int -&gt; ListStudios -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387036"><span id="local-6989586621679387038"><span id="local-6989586621679387040"><span class="annot"><span class="annottext">Int -&gt; ListStudios -&gt; ShowS
 [ListStudios] -&gt; ShowS
 ListStudios -&gt; String
 (Int -&gt; ListStudios -&gt; ShowS)
@@ -137,28 +137,28 @@ forall a. Maybe a
 -&gt; (ListStudios -&gt; Maybe Text -&gt; ListStudios)
 -&gt; Lens ListStudios ListStudios (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-type">ListStudios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387021"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-type">ListStudios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387030"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListStudios' :: ListStudios -&gt; Maybe Text
-</span><a href="#local-6989586621679387021"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387021"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387020"><span class="annot"><span class="annottext">s :: ListStudios
-</span><a href="#local-6989586621679387020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-type">ListStudios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387019"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudios
-</span><a href="#local-6989586621679387020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListStudios' :: Maybe Text
+</span><a href="#local-6989586621679387030"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387030"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387029"><span class="annot"><span class="annottext">s :: ListStudios
+</span><a href="#local-6989586621679387029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-type">ListStudios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387028"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudios
+</span><a href="#local-6989586621679387029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListStudios' :: Maybe Text
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3Amarker%3AListStudios%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679387015"><span class="annot"><span class="annottext">page :: ListStudios -&gt; AWSResponse ListStudios -&gt; Maybe ListStudios
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679387013"><span class="annot"><span class="annottext">ListStudios
-</span><a href="#local-6989586621679387013"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679387012"><span class="annot"><span class="annottext">AWSResponse ListStudios
-</span><a href="#local-6989586621679387012"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679387024"><span class="annot"><span class="annottext">page :: ListStudios -&gt; AWSResponse ListStudios -&gt; Maybe ListStudios
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679387022"><span class="annot"><span class="annottext">ListStudios
+</span><a href="#local-6989586621679387022"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679387021"><span class="annot"><span class="annottext">AWSResponse ListStudios
+</span><a href="#local-6989586621679387021"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-82"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStudios
 ListStudiosResponse
-</span><a href="#local-6989586621679387012"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387021"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">ListStudiosResponse
 -&gt; Getting (First Text) ListStudiosResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -184,7 +184,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-87"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStudios
 ListStudiosResponse
-</span><a href="#local-6989586621679387012"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387021"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">ListStudiosResponse
 -&gt; Getting
      (First [StudioSummary]) ListStudiosResponse [StudioSummary]
@@ -224,7 +224,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">ListStudios
-</span><a href="#local-6989586621679387013"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679387022"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">ListStudios -&gt; (ListStudios -&gt; ListStudios) -&gt; ListStudios
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -237,7 +237,7 @@ Lens ListStudios ListStudios (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStudios
 ListStudiosResponse
-</span><a href="#local-6989586621679387012"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387021"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">ListStudiosResponse
 -&gt; Getting (First Text) ListStudiosResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -257,12 +257,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679387002"><span class="annot"><span class="annottext">request :: ListStudios -&gt; Request ListStudios
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679387011"><span class="annot"><span class="annottext">request :: ListStudios -&gt; Request ListStudios
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListStudios -&gt; Request ListStudios
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679386998"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679387007"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListStudios
 -&gt; ClientResponse ClientBody
@@ -286,10 +286,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386995"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386995"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386994"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386994"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386993"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387004"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387003"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387003"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387002"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe [StudioSummary] -&gt; Maybe Text -&gt; Int -&gt; ListStudiosResponse
 </span><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-var">ListStudiosResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [StudioSummary] -&gt; Maybe Text -&gt; Int -&gt; ListStudiosResponse)
@@ -297,7 +297,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListStudiosResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [StudioSummary]))
+</span><a href="#local-6989586621679387002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [StudioSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Studios&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [StudioSummary]))
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListStudiosResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679387002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,15 +323,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386995"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387004"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386984"><span id="local-6989586621679386986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386993"><span id="local-6989586621679386995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679386977"><span class="annot"><span class="annottext">toHeaders :: ListStudios -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679386986"><span class="annot"><span class="annottext">toHeaders :: ListStudios -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStudios -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -358,12 +358,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386967"><span id="local-6989586621679386969"><span id="local-6989586621679386971"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679386965"><span class="annot"><span class="annottext">toJSON :: ListStudios -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-type">ListStudios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386963"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386976"><span id="local-6989586621679386978"><span id="local-6989586621679386980"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679386974"><span class="annot"><span class="annottext">toJSON :: ListStudios -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios%27"><span class="hs-identifier hs-type">ListStudios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386972"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListStudios' :: ListStudios -&gt; Maybe Text
-</span><a href="#local-6989586621679386963"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386972"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -375,18 +375,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386963"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679386972"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679386957"><span class="annot"><span class="annottext">toPath :: ListStudios -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679386966"><span class="annot"><span class="annottext">toPath :: ListStudios -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListStudios -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudios"><span class="hs-identifier hs-type">ListStudios</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679386953"><span class="annot"><span class="annottext">toQuery :: ListStudios -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679386962"><span class="annot"><span class="annottext">toQuery :: ListStudios -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListStudios -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -394,7 +394,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newListStudiosResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679386950"><span id="local-6989586621679386951"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStudiosResponse"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-var">ListStudiosResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStudiosResponse%27"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-var">ListStudiosResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679386959"><span id="local-6989586621679386960"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStudiosResponse"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-var">ListStudiosResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStudiosResponse%27"><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-var">ListStudiosResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of Studio summary objects.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3Astudios%3AListStudiosResponse%27"><span class="annot"><span class="annottext">ListStudiosResponse -&gt; Maybe [StudioSummary]
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3Astudios%3AListStudiosResponse%27"><span class="hs-identifier hs-var hs-var">studios</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -405,7 +405,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStudiosResponse%27"><span class="annot"><span class="annottext">ListStudiosResponse -&gt; Int
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3AhttpStatus%3AListStudiosResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386943"><span id="local-6989586621679386945"><span class="annot"><span class="annottext">ListStudiosResponse -&gt; ListStudiosResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386952"><span id="local-6989586621679386954"><span class="annot"><span class="annottext">ListStudiosResponse -&gt; ListStudiosResponse -&gt; Bool
 (ListStudiosResponse -&gt; ListStudiosResponse -&gt; Bool)
 -&gt; (ListStudiosResponse -&gt; ListStudiosResponse -&gt; Bool)
 -&gt; Eq ListStudiosResponse
@@ -414,7 +414,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStudiosResponse -&gt; ListStudiosResponse -&gt; Bool
 == :: ListStudiosResponse -&gt; ListStudiosResponse -&gt; Bool
 $c== :: ListStudiosResponse -&gt; ListStudiosResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386935"><span id="local-6989586621679386937"><span id="local-6989586621679386939"><span id="local-6989586621679386941"><span class="annot"><span class="annottext">ReadPrec [ListStudiosResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386944"><span id="local-6989586621679386946"><span id="local-6989586621679386948"><span id="local-6989586621679386950"><span class="annot"><span class="annottext">ReadPrec [ListStudiosResponse]
 ReadPrec ListStudiosResponse
 Int -&gt; ReadS ListStudiosResponse
 ReadS [ListStudiosResponse]
@@ -434,7 +434,7 @@ readList :: ReadS [ListStudiosResponse]
 $creadList :: ReadS [ListStudiosResponse]
 readsPrec :: Int -&gt; ReadS ListStudiosResponse
 $creadsPrec :: Int -&gt; ReadS ListStudiosResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386929"><span id="local-6989586621679386931"><span id="local-6989586621679386933"><span class="annot"><span class="annottext">Int -&gt; ListStudiosResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386938"><span id="local-6989586621679386940"><span id="local-6989586621679386942"><span class="annot"><span class="annottext">Int -&gt; ListStudiosResponse -&gt; ShowS
 [ListStudiosResponse] -&gt; ShowS
 ListStudiosResponse -&gt; String
 (Int -&gt; ListStudiosResponse -&gt; ShowS)
@@ -478,8 +478,8 @@ $cfrom :: forall x. ListStudiosResponse -&gt; Rep ListStudiosResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newListStudiosResponse"><span class="annot"><span class="annottext">newListStudiosResponse :: Int -&gt; ListStudiosResponse
-</span><a href="Network.AWS.EMR.ListStudios.html#newListStudiosResponse"><span class="hs-identifier hs-var hs-var">newListStudiosResponse</span></a></span></span><span> </span><span id="local-6989586621679386926"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386926"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.ListStudios.html#newListStudiosResponse"><span class="hs-identifier hs-var hs-var">newListStudiosResponse</span></a></span></span><span> </span><span id="local-6989586621679386935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">ListStudiosResponse' :: Maybe [StudioSummary] -&gt; Maybe Text -&gt; Int -&gt; ListStudiosResponse
 </span><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:studios:ListStudiosResponse' :: Maybe [StudioSummary]
@@ -492,7 +492,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStudiosResponse' :: Int
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3AhttpStatus%3AListStudiosResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386926"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The list of Studio summary objects.</span><span>
@@ -504,16 +504,16 @@ forall a. Maybe a
     -&gt; Maybe [StudioSummary] -&gt; ListStudiosResponse)
 -&gt; Lens' ListStudiosResponse (Maybe [StudioSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386925"><span class="annot"><span class="annottext">Maybe [StudioSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386934"><span class="annot"><span class="annottext">Maybe [StudioSummary]
 studios :: Maybe [StudioSummary]
 $sel:studios:ListStudiosResponse' :: ListStudiosResponse -&gt; Maybe [StudioSummary]
-</span><a href="#local-6989586621679386925"><span class="hs-identifier hs-var hs-var">studios</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StudioSummary]
-</span><a href="#local-6989586621679386925"><span class="hs-identifier hs-var">studios</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386924"><span class="annot"><span class="annottext">s :: ListStudiosResponse
-</span><a href="#local-6989586621679386924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386923"><span class="annot"><span class="annottext">Maybe [StudioSummary]
-</span><a href="#local-6989586621679386923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudiosResponse
-</span><a href="#local-6989586621679386924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studios:ListStudiosResponse' :: Maybe [StudioSummary]
+</span><a href="#local-6989586621679386934"><span class="hs-identifier hs-var hs-var">studios</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StudioSummary]
+</span><a href="#local-6989586621679386934"><span class="hs-identifier hs-var">studios</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386933"><span class="annot"><span class="annottext">s :: ListStudiosResponse
+</span><a href="#local-6989586621679386933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386932"><span class="annot"><span class="annottext">Maybe [StudioSummary]
+</span><a href="#local-6989586621679386932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudiosResponse
+</span><a href="#local-6989586621679386933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studios:ListStudiosResponse' :: Maybe [StudioSummary]
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3Astudios%3AListStudiosResponse%27"><span class="hs-identifier hs-var">studios</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StudioSummary]
-</span><a href="#local-6989586621679386923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StudioSummary] -&gt; f (Maybe [StudioSummary]))
+</span><a href="#local-6989586621679386932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StudioSummary] -&gt; f (Maybe [StudioSummary]))
  -&gt; ListStudiosResponse -&gt; f ListStudiosResponse)
 -&gt; ((Maybe [StudioSummary] -&gt; f (Maybe [StudioSummary]))
     -&gt; Maybe [StudioSummary] -&gt; f (Maybe [StudioSummary]))
@@ -544,16 +544,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListStudiosResponse -&gt; Maybe Text -&gt; ListStudiosResponse)
 -&gt; Lens' ListStudiosResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386920"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386929"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListStudiosResponse' :: ListStudiosResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679386920"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386920"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386919"><span class="annot"><span class="annottext">s :: ListStudiosResponse
-</span><a href="#local-6989586621679386919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386918"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudiosResponse
-</span><a href="#local-6989586621679386919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListStudiosResponse' :: Maybe Text
+</span><a href="#local-6989586621679386929"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386929"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386928"><span class="annot"><span class="annottext">s :: ListStudiosResponse
+</span><a href="#local-6989586621679386928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudiosResponse
+</span><a href="#local-6989586621679386928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListStudiosResponse' :: Maybe Text
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3Amarker%3AListStudiosResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#listStudiosResponse_httpStatus"><span class="hs-identifier hs-type">listStudiosResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -562,16 +562,16 @@ $sel:marker:ListStudiosResponse' :: ListStudiosResponse -&gt; Maybe Text
 -&gt; (ListStudiosResponse -&gt; Int -&gt; ListStudiosResponse)
 -&gt; Lens ListStudiosResponse ListStudiosResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386917"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386926"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListStudiosResponse' :: ListStudiosResponse -&gt; Int
-</span><a href="#local-6989586621679386917"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386917"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386916"><span class="annot"><span class="annottext">s :: ListStudiosResponse
-</span><a href="#local-6989586621679386916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386915"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudiosResponse
-</span><a href="#local-6989586621679386916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStudiosResponse' :: Int
+</span><a href="#local-6989586621679386926"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386926"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386925"><span class="annot"><span class="annottext">s :: ListStudiosResponse
+</span><a href="#local-6989586621679386925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse%27"><span class="hs-identifier hs-type">ListStudiosResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStudiosResponse
+</span><a href="#local-6989586621679386925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStudiosResponse' :: Int
 </span><a href="Network.AWS.EMR.ListStudios.html#%24sel%3AhttpStatus%3AListStudiosResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListStudios.html#ListStudiosResponse"><span class="hs-identifier hs-type">ListStudiosResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

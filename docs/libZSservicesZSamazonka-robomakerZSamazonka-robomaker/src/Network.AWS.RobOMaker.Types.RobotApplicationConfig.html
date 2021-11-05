@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.RobotApplicationConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.RobotApplicationConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.LaunchConfig.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types.LaunchConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Tool.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types.Tool</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.UploadConfiguration.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types.UploadConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Application configuration information for a robot.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRobotApplicationConfig' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679372924"><span id="local-6989586621679372925"></span></span><span class="hs-keyword">data</span><span> </span><span id="RobotApplicationConfig"><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-var">RobotApplicationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RobotApplicationConfig%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-var">RobotApplicationConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean indicating whether to use default upload configurations. By</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- default, @.ros@ and @.gazebo@ files are uploaded when the application</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- terminates and all ROS topics will be recorded.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- If you set this value, you must specify an @outputLocation@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AuseDefaultUploadConfigurations%3ARobotApplicationConfig%27"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; Maybe Bool
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuseDefaultUploadConfigurations%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var hs-var">useDefaultUploadConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A Boolean indicating whether to use default robot application tools. The</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- default tools are rviz, rqt, terminal and rosbag record. The default is</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @False@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AuseDefaultTools%3ARobotApplicationConfig%27"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; Maybe Bool
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuseDefaultTools%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var hs-var">useDefaultTools</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The version of the robot application.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AapplicationVersion%3ARobotApplicationConfig%27"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AapplicationVersion%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var hs-var">applicationVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The upload configurations for the robot application.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AuploadConfigurations%3ARobotApplicationConfig%27"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; Maybe [UploadConfiguration]
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuploadConfigurations%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var hs-var">uploadConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.UploadConfiguration.html#UploadConfiguration"><span class="hs-identifier hs-type">UploadConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Information about tools configured for the robot application.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atools%3ARobotApplicationConfig%27"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; Maybe [Tool]
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3Atools%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var hs-var">tools</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Tool.html#Tool"><span class="hs-identifier hs-type">Tool</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The application information for the robot application.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aapplication%3ARobotApplicationConfig%27"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3Aapplication%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The launch configuration for the robot application.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlaunchConfig%3ARobotApplicationConfig%27"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; LaunchConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AlaunchConfig%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var hs-var">launchConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.LaunchConfig.html#LaunchConfig"><span class="hs-identifier hs-type">LaunchConfig</span></a></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372912"><span id="local-6989586621679372914"><span class="annot"><span class="annottext">RobotApplicationConfig -&gt; RobotApplicationConfig -&gt; Bool
+(RobotApplicationConfig -&gt; RobotApplicationConfig -&gt; Bool)
+-&gt; (RobotApplicationConfig -&gt; RobotApplicationConfig -&gt; Bool)
+-&gt; Eq RobotApplicationConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RobotApplicationConfig -&gt; RobotApplicationConfig -&gt; Bool
+$c/= :: RobotApplicationConfig -&gt; RobotApplicationConfig -&gt; Bool
+== :: RobotApplicationConfig -&gt; RobotApplicationConfig -&gt; Bool
+$c== :: RobotApplicationConfig -&gt; RobotApplicationConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372903"><span id="local-6989586621679372905"><span id="local-6989586621679372907"><span id="local-6989586621679372909"><span class="annot"><span class="annottext">ReadPrec [RobotApplicationConfig]
+ReadPrec RobotApplicationConfig
+Int -&gt; ReadS RobotApplicationConfig
+ReadS [RobotApplicationConfig]
+(Int -&gt; ReadS RobotApplicationConfig)
+-&gt; ReadS [RobotApplicationConfig]
+-&gt; ReadPrec RobotApplicationConfig
+-&gt; ReadPrec [RobotApplicationConfig]
+-&gt; Read RobotApplicationConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RobotApplicationConfig]
+$creadListPrec :: ReadPrec [RobotApplicationConfig]
+readPrec :: ReadPrec RobotApplicationConfig
+$creadPrec :: ReadPrec RobotApplicationConfig
+readList :: ReadS [RobotApplicationConfig]
+$creadList :: ReadS [RobotApplicationConfig]
+readsPrec :: Int -&gt; ReadS RobotApplicationConfig
+$creadsPrec :: Int -&gt; ReadS RobotApplicationConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372896"><span id="local-6989586621679372898"><span id="local-6989586621679372900"><span class="annot"><span class="annottext">Int -&gt; RobotApplicationConfig -&gt; ShowS
+[RobotApplicationConfig] -&gt; ShowS
+RobotApplicationConfig -&gt; String
+(Int -&gt; RobotApplicationConfig -&gt; ShowS)
+-&gt; (RobotApplicationConfig -&gt; String)
+-&gt; ([RobotApplicationConfig] -&gt; ShowS)
+-&gt; Show RobotApplicationConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RobotApplicationConfig] -&gt; ShowS
+$cshowList :: [RobotApplicationConfig] -&gt; ShowS
+show :: RobotApplicationConfig -&gt; String
+$cshow :: RobotApplicationConfig -&gt; String
+showsPrec :: Int -&gt; RobotApplicationConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; RobotApplicationConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RobotApplicationConfig -&gt; Rep RobotApplicationConfig x)
+-&gt; (forall x.
+    Rep RobotApplicationConfig x -&gt; RobotApplicationConfig)
+-&gt; Generic RobotApplicationConfig
+forall x. Rep RobotApplicationConfig x -&gt; RobotApplicationConfig
+forall x. RobotApplicationConfig -&gt; Rep RobotApplicationConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RobotApplicationConfig x -&gt; RobotApplicationConfig
+$cfrom :: forall x. RobotApplicationConfig -&gt; Rep RobotApplicationConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'RobotApplicationConfig' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'useDefaultUploadConfigurations', 'robotApplicationConfig_useDefaultUploadConfigurations' - A Boolean indicating whether to use default upload configurations. By</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- default, @.ros@ and @.gazebo@ files are uploaded when the application</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- terminates and all ROS topics will be recorded.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- If you set this value, you must specify an @outputLocation@.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'useDefaultTools', 'robotApplicationConfig_useDefaultTools' - A Boolean indicating whether to use default robot application tools. The</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- default tools are rviz, rqt, terminal and rosbag record. The default is</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @False@.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'applicationVersion', 'robotApplicationConfig_applicationVersion' - The version of the robot application.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'uploadConfigurations', 'robotApplicationConfig_uploadConfigurations' - The upload configurations for the robot application.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'tools', 'robotApplicationConfig_tools' - Information about tools configured for the robot application.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'application', 'robotApplicationConfig_application' - The application information for the robot application.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'launchConfig', 'robotApplicationConfig_launchConfig' - The launch configuration for the robot application.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#newRobotApplicationConfig"><span class="hs-identifier hs-type">newRobotApplicationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'application'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'launchConfig'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.LaunchConfig.html#LaunchConfig"><span class="hs-identifier hs-type">LaunchConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span>
+</span><span id="line-89"></span><span id="newRobotApplicationConfig"><span class="annot"><span class="annottext">newRobotApplicationConfig :: Text -&gt; LaunchConfig -&gt; RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#newRobotApplicationConfig"><span class="hs-identifier hs-var hs-var">newRobotApplicationConfig</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679372890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372890"><span class="hs-identifier hs-var">pApplication_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679372889"><span class="annot"><span class="annottext">LaunchConfig
+</span><a href="#local-6989586621679372889"><span class="hs-identifier hs-var">pLaunchConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">RobotApplicationConfig' :: Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [UploadConfiguration]
+-&gt; Maybe [Tool]
+-&gt; Text
+-&gt; LaunchConfig
+-&gt; RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:useDefaultUploadConfigurations:RobotApplicationConfig' :: Maybe Bool
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuseDefaultUploadConfigurations%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">useDefaultUploadConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:useDefaultTools:RobotApplicationConfig' :: Maybe Bool
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuseDefaultTools%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">useDefaultTools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationVersion:RobotApplicationConfig' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AapplicationVersion%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">applicationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:uploadConfigurations:RobotApplicationConfig' :: Maybe [UploadConfiguration]
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuploadConfigurations%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">uploadConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UploadConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:tools:RobotApplicationConfig' :: Maybe [Tool]
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3Atools%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">tools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tool]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:application:RobotApplicationConfig' :: Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3Aapplication%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372890"><span class="hs-identifier hs-var">pApplication_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:launchConfig:RobotApplicationConfig' :: LaunchConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AlaunchConfig%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">launchConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LaunchConfig
+</span><a href="#local-6989586621679372889"><span class="hs-identifier hs-var">pLaunchConfig_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A Boolean indicating whether to use default upload configurations. By</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- default, @.ros@ and @.gazebo@ files are uploaded when the application</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- terminates and all ROS topics will be recorded.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- If you set this value, you must specify an @outputLocation@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_useDefaultUploadConfigurations"><span class="hs-identifier hs-type">robotApplicationConfig_useDefaultUploadConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="robotApplicationConfig_useDefaultUploadConfigurations"><span class="annot"><span class="annottext">robotApplicationConfig_useDefaultUploadConfigurations :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_useDefaultUploadConfigurations"><span class="hs-identifier hs-var hs-var">robotApplicationConfig_useDefaultUploadConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RobotApplicationConfig -&gt; Maybe Bool)
+-&gt; (RobotApplicationConfig -&gt; Maybe Bool -&gt; RobotApplicationConfig)
+-&gt; Lens
+     RobotApplicationConfig
+     RobotApplicationConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372885"><span class="annot"><span class="annottext">Maybe Bool
+useDefaultUploadConfigurations :: Maybe Bool
+$sel:useDefaultUploadConfigurations:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679372885"><span class="hs-identifier hs-var hs-var">useDefaultUploadConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372885"><span class="hs-identifier hs-var">useDefaultUploadConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372884"><span class="annot"><span class="annottext">s :: RobotApplicationConfig
+</span><a href="#local-6989586621679372884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372883"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotApplicationConfig
+</span><a href="#local-6989586621679372884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDefaultUploadConfigurations:RobotApplicationConfig' :: Maybe Bool
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuseDefaultUploadConfigurations%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">useDefaultUploadConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A Boolean indicating whether to use default robot application tools. The</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- default tools are rviz, rqt, terminal and rosbag record. The default is</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @False@.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_useDefaultTools"><span class="hs-identifier hs-type">robotApplicationConfig_useDefaultTools</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="robotApplicationConfig_useDefaultTools"><span class="annot"><span class="annottext">robotApplicationConfig_useDefaultTools :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_useDefaultTools"><span class="hs-identifier hs-var hs-var">robotApplicationConfig_useDefaultTools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RobotApplicationConfig -&gt; Maybe Bool)
+-&gt; (RobotApplicationConfig -&gt; Maybe Bool -&gt; RobotApplicationConfig)
+-&gt; Lens
+     RobotApplicationConfig
+     RobotApplicationConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372881"><span class="annot"><span class="annottext">Maybe Bool
+useDefaultTools :: Maybe Bool
+$sel:useDefaultTools:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679372881"><span class="hs-identifier hs-var hs-var">useDefaultTools</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372881"><span class="hs-identifier hs-var">useDefaultTools</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372880"><span class="annot"><span class="annottext">s :: RobotApplicationConfig
+</span><a href="#local-6989586621679372880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372879"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotApplicationConfig
+</span><a href="#local-6989586621679372880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDefaultTools:RobotApplicationConfig' :: Maybe Bool
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuseDefaultTools%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">useDefaultTools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The version of the robot application.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_applicationVersion"><span class="hs-identifier hs-type">robotApplicationConfig_applicationVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="robotApplicationConfig_applicationVersion"><span class="annot"><span class="annottext">robotApplicationConfig_applicationVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_applicationVersion"><span class="hs-identifier hs-var hs-var">robotApplicationConfig_applicationVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RobotApplicationConfig -&gt; Maybe Text)
+-&gt; (RobotApplicationConfig -&gt; Maybe Text -&gt; RobotApplicationConfig)
+-&gt; Lens
+     RobotApplicationConfig
+     RobotApplicationConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372877"><span class="annot"><span class="annottext">Maybe Text
+applicationVersion :: Maybe Text
+$sel:applicationVersion:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679372877"><span class="hs-identifier hs-var hs-var">applicationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372877"><span class="hs-identifier hs-var">applicationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372876"><span class="annot"><span class="annottext">s :: RobotApplicationConfig
+</span><a href="#local-6989586621679372876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372875"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotApplicationConfig
+</span><a href="#local-6989586621679372876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationVersion:RobotApplicationConfig' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AapplicationVersion%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">applicationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The upload configurations for the robot application.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_uploadConfigurations"><span class="hs-identifier hs-type">robotApplicationConfig_uploadConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.UploadConfiguration.html#UploadConfiguration"><span class="hs-identifier hs-type">UploadConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="robotApplicationConfig_uploadConfigurations"><span class="annot"><span class="annottext">robotApplicationConfig_uploadConfigurations :: (Maybe [UploadConfiguration] -&gt; f (Maybe [UploadConfiguration]))
+-&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_uploadConfigurations"><span class="hs-identifier hs-var hs-var">robotApplicationConfig_uploadConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RobotApplicationConfig -&gt; Maybe [UploadConfiguration])
+-&gt; (RobotApplicationConfig
+    -&gt; Maybe [UploadConfiguration] -&gt; RobotApplicationConfig)
+-&gt; Lens
+     RobotApplicationConfig
+     RobotApplicationConfig
+     (Maybe [UploadConfiguration])
+     (Maybe [UploadConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372873"><span class="annot"><span class="annottext">Maybe [UploadConfiguration]
+uploadConfigurations :: Maybe [UploadConfiguration]
+$sel:uploadConfigurations:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe [UploadConfiguration]
+</span><a href="#local-6989586621679372873"><span class="hs-identifier hs-var hs-var">uploadConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UploadConfiguration]
+</span><a href="#local-6989586621679372873"><span class="hs-identifier hs-var">uploadConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372872"><span class="annot"><span class="annottext">s :: RobotApplicationConfig
+</span><a href="#local-6989586621679372872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372871"><span class="annot"><span class="annottext">Maybe [UploadConfiguration]
+</span><a href="#local-6989586621679372871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotApplicationConfig
+</span><a href="#local-6989586621679372872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadConfigurations:RobotApplicationConfig' :: Maybe [UploadConfiguration]
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AuploadConfigurations%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">uploadConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UploadConfiguration]
+</span><a href="#local-6989586621679372871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UploadConfiguration] -&gt; f (Maybe [UploadConfiguration]))
+ -&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig)
+-&gt; ((Maybe [UploadConfiguration]
+     -&gt; f (Maybe [UploadConfiguration]))
+    -&gt; Maybe [UploadConfiguration] -&gt; f (Maybe [UploadConfiguration]))
+-&gt; (Maybe [UploadConfiguration] -&gt; f (Maybe [UploadConfiguration]))
+-&gt; RobotApplicationConfig
+-&gt; f RobotApplicationConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UploadConfiguration]
+  [UploadConfiguration]
+  [UploadConfiguration]
+  [UploadConfiguration]
+-&gt; Iso
+     (Maybe [UploadConfiguration])
+     (Maybe [UploadConfiguration])
+     (Maybe [UploadConfiguration])
+     (Maybe [UploadConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UploadConfiguration]
+  [UploadConfiguration]
+  [UploadConfiguration]
+  [UploadConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Information about tools configured for the robot application.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_tools"><span class="hs-identifier hs-type">robotApplicationConfig_tools</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Tool.html#Tool"><span class="hs-identifier hs-type">Tool</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="robotApplicationConfig_tools"><span class="annot"><span class="annottext">robotApplicationConfig_tools :: (Maybe [Tool] -&gt; f (Maybe [Tool]))
+-&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_tools"><span class="hs-identifier hs-var hs-var">robotApplicationConfig_tools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RobotApplicationConfig -&gt; Maybe [Tool])
+-&gt; (RobotApplicationConfig
+    -&gt; Maybe [Tool] -&gt; RobotApplicationConfig)
+-&gt; Lens
+     RobotApplicationConfig
+     RobotApplicationConfig
+     (Maybe [Tool])
+     (Maybe [Tool])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372866"><span class="annot"><span class="annottext">Maybe [Tool]
+tools :: Maybe [Tool]
+$sel:tools:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe [Tool]
+</span><a href="#local-6989586621679372866"><span class="hs-identifier hs-var hs-var">tools</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tool]
+</span><a href="#local-6989586621679372866"><span class="hs-identifier hs-var">tools</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372865"><span class="annot"><span class="annottext">s :: RobotApplicationConfig
+</span><a href="#local-6989586621679372865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372864"><span class="annot"><span class="annottext">Maybe [Tool]
+</span><a href="#local-6989586621679372864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotApplicationConfig
+</span><a href="#local-6989586621679372865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tools:RobotApplicationConfig' :: Maybe [Tool]
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3Atools%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">tools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tool]
+</span><a href="#local-6989586621679372864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tool] -&gt; f (Maybe [Tool]))
+ -&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig)
+-&gt; ((Maybe [Tool] -&gt; f (Maybe [Tool]))
+    -&gt; Maybe [Tool] -&gt; f (Maybe [Tool]))
+-&gt; (Maybe [Tool] -&gt; f (Maybe [Tool]))
+-&gt; RobotApplicationConfig
+-&gt; f RobotApplicationConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tool] [Tool] [Tool] [Tool]
+-&gt; Iso (Maybe [Tool]) (Maybe [Tool]) (Maybe [Tool]) (Maybe [Tool])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tool] [Tool] [Tool] [Tool]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The application information for the robot application.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_application"><span class="hs-identifier hs-type">robotApplicationConfig_application</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="robotApplicationConfig_application"><span class="annot"><span class="annottext">robotApplicationConfig_application :: (Text -&gt; f Text)
+-&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_application"><span class="hs-identifier hs-var hs-var">robotApplicationConfig_application</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RobotApplicationConfig -&gt; Text)
+-&gt; (RobotApplicationConfig -&gt; Text -&gt; RobotApplicationConfig)
+-&gt; Lens RobotApplicationConfig RobotApplicationConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372862"><span class="annot"><span class="annottext">Text
+application :: Text
+$sel:application:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Text
+</span><a href="#local-6989586621679372862"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372862"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372861"><span class="annot"><span class="annottext">s :: RobotApplicationConfig
+</span><a href="#local-6989586621679372861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotApplicationConfig
+</span><a href="#local-6989586621679372861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:RobotApplicationConfig' :: Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3Aapplication%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The launch configuration for the robot application.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_launchConfig"><span class="hs-identifier hs-type">robotApplicationConfig_launchConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.LaunchConfig.html#LaunchConfig"><span class="hs-identifier hs-type">LaunchConfig</span></a></span><span>
+</span><span id="line-135"></span><span id="robotApplicationConfig_launchConfig"><span class="annot"><span class="annottext">robotApplicationConfig_launchConfig :: (LaunchConfig -&gt; f LaunchConfig)
+-&gt; RobotApplicationConfig -&gt; f RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#robotApplicationConfig_launchConfig"><span class="hs-identifier hs-var hs-var">robotApplicationConfig_launchConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RobotApplicationConfig -&gt; LaunchConfig)
+-&gt; (RobotApplicationConfig
+    -&gt; LaunchConfig -&gt; RobotApplicationConfig)
+-&gt; Lens
+     RobotApplicationConfig
+     RobotApplicationConfig
+     LaunchConfig
+     LaunchConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372858"><span class="annot"><span class="annottext">LaunchConfig
+launchConfig :: LaunchConfig
+$sel:launchConfig:RobotApplicationConfig' :: RobotApplicationConfig -&gt; LaunchConfig
+</span><a href="#local-6989586621679372858"><span class="hs-identifier hs-var hs-var">launchConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchConfig
+</span><a href="#local-6989586621679372858"><span class="hs-identifier hs-var">launchConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372857"><span class="annot"><span class="annottext">s :: RobotApplicationConfig
+</span><a href="#local-6989586621679372857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372856"><span class="annot"><span class="annottext">LaunchConfig
+</span><a href="#local-6989586621679372856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotApplicationConfig
+</span><a href="#local-6989586621679372857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchConfig:RobotApplicationConfig' :: LaunchConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#%24sel%3AlaunchConfig%3ARobotApplicationConfig%27"><span class="hs-identifier hs-var">launchConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LaunchConfig
+</span><a href="#local-6989586621679372856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372853"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679372851"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RobotApplicationConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RobotApplicationConfig)
+-&gt; Value
+-&gt; Parser RobotApplicationConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RobotApplicationConfig&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372848"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [UploadConfiguration]
+-&gt; Maybe [Tool]
+-&gt; Text
+-&gt; LaunchConfig
+-&gt; RobotApplicationConfig
+</span><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-var">RobotApplicationConfig'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe [UploadConfiguration]
+ -&gt; Maybe [Tool]
+ -&gt; Text
+ -&gt; LaunchConfig
+ -&gt; RobotApplicationConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe [UploadConfiguration]
+      -&gt; Maybe [Tool]
+      -&gt; Text
+      -&gt; LaunchConfig
+      -&gt; RobotApplicationConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useDefaultUploadConfigurations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe [UploadConfiguration]
+   -&gt; Maybe [Tool]
+   -&gt; Text
+   -&gt; LaunchConfig
+   -&gt; RobotApplicationConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [UploadConfiguration]
+      -&gt; Maybe [Tool]
+      -&gt; Text
+      -&gt; LaunchConfig
+      -&gt; RobotApplicationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useDefaultTools&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [UploadConfiguration]
+   -&gt; Maybe [Tool]
+   -&gt; Text
+   -&gt; LaunchConfig
+   -&gt; RobotApplicationConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [UploadConfiguration]
+      -&gt; Maybe [Tool] -&gt; Text -&gt; LaunchConfig -&gt; RobotApplicationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [UploadConfiguration]
+   -&gt; Maybe [Tool] -&gt; Text -&gt; LaunchConfig -&gt; RobotApplicationConfig)
+-&gt; Parser (Maybe [UploadConfiguration])
+-&gt; Parser
+     (Maybe [Tool] -&gt; Text -&gt; LaunchConfig -&gt; RobotApplicationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UploadConfiguration]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadConfigurations&quot;</span></span><span>
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UploadConfiguration]))
+-&gt; Maybe [UploadConfiguration]
+-&gt; Parser (Maybe [UploadConfiguration])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UploadConfiguration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Tool] -&gt; Text -&gt; LaunchConfig -&gt; RobotApplicationConfig)
+-&gt; Parser (Maybe [Tool])
+-&gt; Parser (Text -&gt; LaunchConfig -&gt; RobotApplicationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tool]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tools&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tool]))
+-&gt; Maybe [Tool] -&gt; Parser (Maybe [Tool])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tool]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; LaunchConfig -&gt; RobotApplicationConfig)
+-&gt; Parser Text -&gt; Parser (LaunchConfig -&gt; RobotApplicationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;application&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (LaunchConfig -&gt; RobotApplicationConfig)
+-&gt; Parser LaunchConfig -&gt; Parser RobotApplicationConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LaunchConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372840"><span id="local-6989586621679372842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372829"><span id="local-6989586621679372831"><span id="local-6989586621679372833"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig"><span class="hs-identifier hs-type">RobotApplicationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679372827"><span class="annot"><span class="annottext">toJSON :: RobotApplicationConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationConfig.html#RobotApplicationConfig%27"><span class="hs-identifier hs-type">RobotApplicationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372819"><span id="local-6989586621679372820"><span id="local-6989586621679372821"><span id="local-6989586621679372822"><span id="local-6989586621679372823"><span id="local-6989586621679372824"><span id="local-6989586621679372825"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Tool]
+Maybe [UploadConfiguration]
+Maybe Text
+Text
+LaunchConfig
+launchConfig :: LaunchConfig
+application :: Text
+tools :: Maybe [Tool]
+uploadConfigurations :: Maybe [UploadConfiguration]
+applicationVersion :: Maybe Text
+useDefaultTools :: Maybe Bool
+useDefaultUploadConfigurations :: Maybe Bool
+$sel:launchConfig:RobotApplicationConfig' :: RobotApplicationConfig -&gt; LaunchConfig
+$sel:application:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Text
+$sel:tools:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe [Tool]
+$sel:uploadConfigurations:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe [UploadConfiguration]
+$sel:applicationVersion:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe Text
+$sel:useDefaultTools:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe Bool
+$sel:useDefaultUploadConfigurations:RobotApplicationConfig' :: RobotApplicationConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679372819"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useDefaultUploadConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372825"><span class="hs-identifier hs-var">useDefaultUploadConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useDefaultTools&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679372824"><span class="hs-identifier hs-var">useDefaultTools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372823"><span class="hs-identifier hs-var">applicationVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [UploadConfiguration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">([UploadConfiguration] -&gt; Pair)
+-&gt; Maybe [UploadConfiguration] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UploadConfiguration]
+</span><a href="#local-6989586621679372822"><span class="hs-identifier hs-var">uploadConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tools&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tool] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tool] -&gt; Pair) -&gt; Maybe [Tool] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tool]
+</span><a href="#local-6989586621679372821"><span class="hs-identifier hs-var">tools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;application&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372820"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LaunchConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LaunchConfig
+</span><a href="#local-6989586621679372819"><span class="hs-identifier hs-var">launchConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span></pre></body></html>

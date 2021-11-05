@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation"><span class="hs-identifier">FirewallDomainImportOperation</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation_REPLACE"><span class="hs-identifier">FirewallDomainImportOperation_REPLACE</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679282106"><span id="local-6989586621679282107"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FirewallDomainImportOperation"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation"><span class="hs-identifier hs-var">FirewallDomainImportOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FirewallDomainImportOperation%27"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation%27"><span class="hs-identifier hs-var">FirewallDomainImportOperation'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFirewallDomainImportOperation"><span class="annot"><span class="annottext">FirewallDomainImportOperation -&gt; Text
+</span><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#fromFirewallDomainImportOperation"><span class="hs-identifier hs-var hs-var">fromFirewallDomainImportOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282098"><span id="local-6989586621679282100"><span id="local-6989586621679282102"><span class="annot"><span class="annottext">Int -&gt; FirewallDomainImportOperation -&gt; ShowS
+[FirewallDomainImportOperation] -&gt; ShowS
+FirewallDomainImportOperation -&gt; String
+(Int -&gt; FirewallDomainImportOperation -&gt; ShowS)
+-&gt; (FirewallDomainImportOperation -&gt; String)
+-&gt; ([FirewallDomainImportOperation] -&gt; ShowS)
+-&gt; Show FirewallDomainImportOperation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FirewallDomainImportOperation] -&gt; ShowS
+$cshowList :: [FirewallDomainImportOperation] -&gt; ShowS
+show :: FirewallDomainImportOperation -&gt; String
+$cshow :: FirewallDomainImportOperation -&gt; String
+showsPrec :: Int -&gt; FirewallDomainImportOperation -&gt; ShowS
+$cshowsPrec :: Int -&gt; FirewallDomainImportOperation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679282089"><span id="local-6989586621679282091"><span id="local-6989586621679282093"><span id="local-6989586621679282095"><span class="annot"><span class="annottext">ReadPrec [FirewallDomainImportOperation]
+ReadPrec FirewallDomainImportOperation
+Int -&gt; ReadS FirewallDomainImportOperation
+ReadS [FirewallDomainImportOperation]
+(Int -&gt; ReadS FirewallDomainImportOperation)
+-&gt; ReadS [FirewallDomainImportOperation]
+-&gt; ReadPrec FirewallDomainImportOperation
+-&gt; ReadPrec [FirewallDomainImportOperation]
+-&gt; Read FirewallDomainImportOperation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FirewallDomainImportOperation]
+$creadListPrec :: ReadPrec [FirewallDomainImportOperation]
+readPrec :: ReadPrec FirewallDomainImportOperation
+$creadPrec :: ReadPrec FirewallDomainImportOperation
+readList :: ReadS [FirewallDomainImportOperation]
+$creadList :: ReadS [FirewallDomainImportOperation]
+readsPrec :: Int -&gt; ReadS FirewallDomainImportOperation
+$creadsPrec :: Int -&gt; ReadS FirewallDomainImportOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679282084"><span id="local-6989586621679282086"><span class="annot"><span class="annottext">FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+(FirewallDomainImportOperation
+ -&gt; FirewallDomainImportOperation -&gt; Bool)
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; Bool)
+-&gt; Eq FirewallDomainImportOperation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+$c/= :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+== :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+$c== :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679282068"><span id="local-6989586621679282070"><span id="local-6989586621679282072"><span id="local-6989586621679282074"><span id="local-6989586621679282076"><span id="local-6989586621679282078"><span id="local-6989586621679282080"><span class="annot"><span class="annottext">Eq FirewallDomainImportOperation
+Eq FirewallDomainImportOperation
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; Ordering)
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; Bool)
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; Bool)
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; Bool)
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; Bool)
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; FirewallDomainImportOperation)
+-&gt; (FirewallDomainImportOperation
+    -&gt; FirewallDomainImportOperation -&gt; FirewallDomainImportOperation)
+-&gt; Ord FirewallDomainImportOperation
+FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Ordering
+FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; FirewallDomainImportOperation
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; FirewallDomainImportOperation
+$cmin :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; FirewallDomainImportOperation
+max :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; FirewallDomainImportOperation
+$cmax :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; FirewallDomainImportOperation
+&gt;= :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+$c&gt;= :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+&gt; :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+$c&gt; :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+&lt;= :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+$c&lt;= :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+&lt; :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+$c&lt; :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Bool
+compare :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Ordering
+$ccompare :: FirewallDomainImportOperation
+-&gt; FirewallDomainImportOperation -&gt; Ordering
+$cp1Ord :: Eq FirewallDomainImportOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FirewallDomainImportOperation
+ -&gt; Rep FirewallDomainImportOperation x)
+-&gt; (forall x.
+    Rep FirewallDomainImportOperation x
+    -&gt; FirewallDomainImportOperation)
+-&gt; Generic FirewallDomainImportOperation
+forall x.
+Rep FirewallDomainImportOperation x
+-&gt; FirewallDomainImportOperation
+forall x.
+FirewallDomainImportOperation
+-&gt; Rep FirewallDomainImportOperation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FirewallDomainImportOperation x
+-&gt; FirewallDomainImportOperation
+$cfrom :: forall x.
+FirewallDomainImportOperation
+-&gt; Rep FirewallDomainImportOperation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282060"><span id="local-6989586621679282062"><span class="annot"><span class="annottext">Int -&gt; FirewallDomainImportOperation -&gt; Int
+FirewallDomainImportOperation -&gt; Int
+(Int -&gt; FirewallDomainImportOperation -&gt; Int)
+-&gt; (FirewallDomainImportOperation -&gt; Int)
+-&gt; Hashable FirewallDomainImportOperation
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FirewallDomainImportOperation -&gt; Int
+$chash :: FirewallDomainImportOperation -&gt; Int
+hashWithSalt :: Int -&gt; FirewallDomainImportOperation -&gt; Int
+$chashWithSalt :: Int -&gt; FirewallDomainImportOperation -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679282057"><span class="annot"><span class="annottext">FirewallDomainImportOperation -&gt; ()
+(FirewallDomainImportOperation -&gt; ())
+-&gt; NFData FirewallDomainImportOperation
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FirewallDomainImportOperation -&gt; ()
+$crnf :: FirewallDomainImportOperation -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679282054"><span class="annot"><span class="annottext">Text -&gt; Either String FirewallDomainImportOperation
+(Text -&gt; Either String FirewallDomainImportOperation)
+-&gt; FromText FirewallDomainImportOperation
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FirewallDomainImportOperation
+$cfromText :: Text -&gt; Either String FirewallDomainImportOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679282051"><span class="annot"><span class="annottext">FirewallDomainImportOperation -&gt; Text
+(FirewallDomainImportOperation -&gt; Text)
+-&gt; ToText FirewallDomainImportOperation
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FirewallDomainImportOperation -&gt; Text
+$ctoText :: FirewallDomainImportOperation -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679282048"><span class="annot"><span class="annottext">FirewallDomainImportOperation -&gt; ByteString
+(FirewallDomainImportOperation -&gt; ByteString)
+-&gt; ToByteString FirewallDomainImportOperation
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FirewallDomainImportOperation -&gt; ByteString
+$ctoBS :: FirewallDomainImportOperation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679282045"><span class="annot"><span class="annottext">FirewallDomainImportOperation -&gt; ByteStringBuilder
+(FirewallDomainImportOperation -&gt; ByteStringBuilder)
+-&gt; ToLog FirewallDomainImportOperation
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FirewallDomainImportOperation -&gt; ByteStringBuilder
+$cbuild :: FirewallDomainImportOperation -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679282042"><span class="annot"><span class="annottext">HeaderName -&gt; FirewallDomainImportOperation -&gt; [Header]
+(HeaderName -&gt; FirewallDomainImportOperation -&gt; [Header])
+-&gt; ToHeader FirewallDomainImportOperation
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FirewallDomainImportOperation -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FirewallDomainImportOperation -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679282039"><span class="annot"><span class="annottext">FirewallDomainImportOperation -&gt; QueryString
+(FirewallDomainImportOperation -&gt; QueryString)
+-&gt; ToQuery FirewallDomainImportOperation
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FirewallDomainImportOperation -&gt; QueryString
+$ctoQuery :: FirewallDomainImportOperation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679282034"><span id="local-6989586621679282036"><span class="annot"><span class="annottext">Value -&gt; Parser [FirewallDomainImportOperation]
+Value -&gt; Parser FirewallDomainImportOperation
+(Value -&gt; Parser FirewallDomainImportOperation)
+-&gt; (Value -&gt; Parser [FirewallDomainImportOperation])
+-&gt; FromJSON FirewallDomainImportOperation
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FirewallDomainImportOperation]
+$cparseJSONList :: Value -&gt; Parser [FirewallDomainImportOperation]
+parseJSON :: Value -&gt; Parser FirewallDomainImportOperation
+$cparseJSON :: Value -&gt; Parser FirewallDomainImportOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679282029"><span id="local-6989586621679282031"><span class="annot"><span class="annottext">FromJSONKeyFunction [FirewallDomainImportOperation]
+FromJSONKeyFunction FirewallDomainImportOperation
+FromJSONKeyFunction FirewallDomainImportOperation
+-&gt; FromJSONKeyFunction [FirewallDomainImportOperation]
+-&gt; FromJSONKey FirewallDomainImportOperation
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FirewallDomainImportOperation]
+$cfromJSONKeyList :: FromJSONKeyFunction [FirewallDomainImportOperation]
+fromJSONKey :: FromJSONKeyFunction FirewallDomainImportOperation
+$cfromJSONKey :: FromJSONKeyFunction FirewallDomainImportOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679282020"><span id="local-6989586621679282022"><span id="local-6989586621679282024"><span id="local-6989586621679282026"><span class="annot"><span class="annottext">[FirewallDomainImportOperation] -&gt; Encoding
+[FirewallDomainImportOperation] -&gt; Value
+FirewallDomainImportOperation -&gt; Encoding
+FirewallDomainImportOperation -&gt; Value
+(FirewallDomainImportOperation -&gt; Value)
+-&gt; (FirewallDomainImportOperation -&gt; Encoding)
+-&gt; ([FirewallDomainImportOperation] -&gt; Value)
+-&gt; ([FirewallDomainImportOperation] -&gt; Encoding)
+-&gt; ToJSON FirewallDomainImportOperation
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FirewallDomainImportOperation] -&gt; Encoding
+$ctoEncodingList :: [FirewallDomainImportOperation] -&gt; Encoding
+toJSONList :: [FirewallDomainImportOperation] -&gt; Value
+$ctoJSONList :: [FirewallDomainImportOperation] -&gt; Value
+toEncoding :: FirewallDomainImportOperation -&gt; Encoding
+$ctoEncoding :: FirewallDomainImportOperation -&gt; Encoding
+toJSON :: FirewallDomainImportOperation -&gt; Value
+$ctoJSON :: FirewallDomainImportOperation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679282015"><span id="local-6989586621679282017"><span class="annot"><span class="annottext">ToJSONKeyFunction [FirewallDomainImportOperation]
+ToJSONKeyFunction FirewallDomainImportOperation
+ToJSONKeyFunction FirewallDomainImportOperation
+-&gt; ToJSONKeyFunction [FirewallDomainImportOperation]
+-&gt; ToJSONKey FirewallDomainImportOperation
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FirewallDomainImportOperation]
+$ctoJSONKeyList :: ToJSONKeyFunction [FirewallDomainImportOperation]
+toJSONKey :: ToJSONKeyFunction FirewallDomainImportOperation
+$ctoJSONKey :: ToJSONKeyFunction FirewallDomainImportOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679282012"><span class="annot"><span class="annottext">[Node] -&gt; Either String FirewallDomainImportOperation
+([Node] -&gt; Either String FirewallDomainImportOperation)
+-&gt; FromXML FirewallDomainImportOperation
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FirewallDomainImportOperation
+$cparseXML :: [Node] -&gt; Either String FirewallDomainImportOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679282009"><span class="annot"><span class="annottext">FirewallDomainImportOperation -&gt; XML
+(FirewallDomainImportOperation -&gt; XML)
+-&gt; ToXML FirewallDomainImportOperation
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FirewallDomainImportOperation -&gt; XML
+$ctoXML :: FirewallDomainImportOperation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation_REPLACE"><span class="hs-identifier hs-type">FirewallDomainImportOperation_REPLACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation"><span class="hs-identifier hs-type">FirewallDomainImportOperation</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFirewallDomainImportOperation_REPLACE"><span id="%24mFirewallDomainImportOperation_REPLACE"><span id="FirewallDomainImportOperation_REPLACE"><span class="annot"><span class="annottext">$bFirewallDomainImportOperation_REPLACE :: FirewallDomainImportOperation
+$mFirewallDomainImportOperation_REPLACE :: forall r.
+FirewallDomainImportOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#%24bFirewallDomainImportOperation_REPLACE"><span class="hs-identifier hs-var hs-var hs-var">FirewallDomainImportOperation_REPLACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation%27"><span class="hs-identifier hs-type">FirewallDomainImportOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REPLACE&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation_REPLACE"><span class="hs-pragma hs-type">FirewallDomainImportOperation_REPLACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation.html#FirewallDomainImportOperation%27"><span class="hs-pragma hs-type">FirewallDomainImportOperation'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

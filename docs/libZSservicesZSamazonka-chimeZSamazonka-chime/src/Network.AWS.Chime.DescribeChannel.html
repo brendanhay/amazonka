@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.DescribeChannel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the full details of a channel in an Amazon Chime @AppInstance@.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- The @x-amz-chime-bearer@ request header is mandatory. Use the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @AppInstanceUserArn@ of the user that makes the API call as the value in</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the header.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.DescribeChannel</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier">DescribeChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#newDescribeChannel"><span class="hs-identifier">newDescribeChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannel_chimeBearer"><span class="hs-identifier">describeChannel_chimeBearer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannel_channelArn"><span class="hs-identifier">describeChannel_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier">DescribeChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#newDescribeChannelResponse"><span class="hs-identifier">newDescribeChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannelResponse_channel"><span class="hs-identifier">describeChannelResponse_channel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannelResponse_httpStatus"><span class="hs-identifier">describeChannelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeChannel' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679545493"><span id="local-6989586621679545494"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeChannel"><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-var">DescribeChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeChannel%27"><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-var">DescribeChannel'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AchimeBearer%3ADescribeChannel%27"><span class="annot"><span class="annottext">DescribeChannel -&gt; Maybe Text
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AchimeBearer%3ADescribeChannel%27"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AchannelArn%3ADescribeChannel%27"><span class="annot"><span class="annottext">DescribeChannel -&gt; Text
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AchannelArn%3ADescribeChannel%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679545486"><span id="local-6989586621679545488"><span class="annot"><span class="annottext">DescribeChannel -&gt; DescribeChannel -&gt; Bool
+(DescribeChannel -&gt; DescribeChannel -&gt; Bool)
+-&gt; (DescribeChannel -&gt; DescribeChannel -&gt; Bool)
+-&gt; Eq DescribeChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeChannel -&gt; DescribeChannel -&gt; Bool
+$c/= :: DescribeChannel -&gt; DescribeChannel -&gt; Bool
+== :: DescribeChannel -&gt; DescribeChannel -&gt; Bool
+$c== :: DescribeChannel -&gt; DescribeChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545477"><span id="local-6989586621679545479"><span id="local-6989586621679545481"><span id="local-6989586621679545483"><span class="annot"><span class="annottext">ReadPrec [DescribeChannel]
+ReadPrec DescribeChannel
+Int -&gt; ReadS DescribeChannel
+ReadS [DescribeChannel]
+(Int -&gt; ReadS DescribeChannel)
+-&gt; ReadS [DescribeChannel]
+-&gt; ReadPrec DescribeChannel
+-&gt; ReadPrec [DescribeChannel]
+-&gt; Read DescribeChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeChannel]
+$creadListPrec :: ReadPrec [DescribeChannel]
+readPrec :: ReadPrec DescribeChannel
+$creadPrec :: ReadPrec DescribeChannel
+readList :: ReadS [DescribeChannel]
+$creadList :: ReadS [DescribeChannel]
+readsPrec :: Int -&gt; ReadS DescribeChannel
+$creadsPrec :: Int -&gt; ReadS DescribeChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545470"><span id="local-6989586621679545472"><span id="local-6989586621679545474"><span class="annot"><span class="annottext">Int -&gt; DescribeChannel -&gt; ShowS
+[DescribeChannel] -&gt; ShowS
+DescribeChannel -&gt; String
+(Int -&gt; DescribeChannel -&gt; ShowS)
+-&gt; (DescribeChannel -&gt; String)
+-&gt; ([DescribeChannel] -&gt; ShowS)
+-&gt; Show DescribeChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeChannel] -&gt; ShowS
+$cshowList :: [DescribeChannel] -&gt; ShowS
+show :: DescribeChannel -&gt; String
+$cshow :: DescribeChannel -&gt; String
+showsPrec :: Int -&gt; DescribeChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeChannel -&gt; Rep DescribeChannel x)
+-&gt; (forall x. Rep DescribeChannel x -&gt; DescribeChannel)
+-&gt; Generic DescribeChannel
+forall x. Rep DescribeChannel x -&gt; DescribeChannel
+forall x. DescribeChannel -&gt; Rep DescribeChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeChannel x -&gt; DescribeChannel
+$cfrom :: forall x. DescribeChannel -&gt; Rep DescribeChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeChannel' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'chimeBearer', 'describeChannel_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'channelArn', 'describeChannel_channelArn' - The ARN of the channel.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#newDescribeChannel"><span class="hs-identifier hs-type">newDescribeChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'channelArn'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span>
+</span><span id="line-78"></span><span id="newDescribeChannel"><span class="annot"><span class="annottext">newDescribeChannel :: Text -&gt; DescribeChannel
+</span><a href="Network.AWS.Chime.DescribeChannel.html#newDescribeChannel"><span class="hs-identifier hs-var hs-var">newDescribeChannel</span></a></span></span><span> </span><span id="local-6989586621679545465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679545465"><span class="hs-identifier hs-var">pChannelArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DescribeChannel' :: Maybe Text -&gt; Text -&gt; DescribeChannel
+</span><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-type">DescribeChannel'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:chimeBearer:DescribeChannel' :: Maybe Text
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AchimeBearer%3ADescribeChannel%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelArn:DescribeChannel' :: Text
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AchannelArn%3ADescribeChannel%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679545465"><span class="hs-identifier hs-var">pChannelArn_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannel_chimeBearer"><span class="hs-identifier hs-type">describeChannel_chimeBearer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="describeChannel_chimeBearer"><span class="annot"><span class="annottext">describeChannel_chimeBearer :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeChannel -&gt; f DescribeChannel
+</span><a href="Network.AWS.Chime.DescribeChannel.html#describeChannel_chimeBearer"><span class="hs-identifier hs-var hs-var">describeChannel_chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannel -&gt; Maybe Text)
+-&gt; (DescribeChannel -&gt; Maybe Text -&gt; DescribeChannel)
+-&gt; Lens DescribeChannel DescribeChannel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-type">DescribeChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545462"><span class="annot"><span class="annottext">Maybe Text
+chimeBearer :: Maybe Text
+$sel:chimeBearer:DescribeChannel' :: DescribeChannel -&gt; Maybe Text
+</span><a href="#local-6989586621679545462"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679545462"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679545461"><span class="annot"><span class="annottext">s :: DescribeChannel
+</span><a href="#local-6989586621679545461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-type">DescribeChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679545460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679545460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannel
+</span><a href="#local-6989586621679545461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chimeBearer:DescribeChannel' :: Maybe Text
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AchimeBearer%3ADescribeChannel%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679545460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannel_channelArn"><span class="hs-identifier hs-type">describeChannel_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="describeChannel_channelArn"><span class="annot"><span class="annottext">describeChannel_channelArn :: (Text -&gt; f Text) -&gt; DescribeChannel -&gt; f DescribeChannel
+</span><a href="Network.AWS.Chime.DescribeChannel.html#describeChannel_channelArn"><span class="hs-identifier hs-var hs-var">describeChannel_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannel -&gt; Text)
+-&gt; (DescribeChannel -&gt; Text -&gt; DescribeChannel)
+-&gt; Lens DescribeChannel DescribeChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-type">DescribeChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545459"><span class="annot"><span class="annottext">Text
+channelArn :: Text
+$sel:channelArn:DescribeChannel' :: DescribeChannel -&gt; Text
+</span><a href="#local-6989586621679545459"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679545459"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679545458"><span class="annot"><span class="annottext">s :: DescribeChannel
+</span><a href="#local-6989586621679545458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-type">DescribeChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679545457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679545457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannel
+</span><a href="#local-6989586621679545458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:DescribeChannel' :: Text
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AchannelArn%3ADescribeChannel%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679545457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-type">DescribeChannelResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679545453"><span class="annot"><span class="annottext">request :: DescribeChannel -&gt; Request DescribeChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeChannel -&gt; Request DescribeChannel
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679545449"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeChannel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeChannel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeChannel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679545446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679545446"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679545445"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679545445"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679545444"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679545444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Channel -&gt; Int -&gt; DescribeChannelResponse
+</span><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse%27"><span class="hs-identifier hs-var">DescribeChannelResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Channel -&gt; Int -&gt; DescribeChannelResponse)
+-&gt; Either String (Maybe Channel)
+-&gt; Either String (Int -&gt; DescribeChannelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679545444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Channel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Channel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeChannelResponse)
+-&gt; Either String Int -&gt; Either String DescribeChannelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679545446"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679545436"><span id="local-6989586621679545438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679545433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679545429"><span class="annot"><span class="annottext">toHeaders :: DescribeChannel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-type">DescribeChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545426"><span id="local-6989586621679545427"><span class="annot"><span class="annottext">Maybe Text
+Text
+channelArn :: Text
+chimeBearer :: Maybe Text
+$sel:channelArn:DescribeChannel' :: DescribeChannel -&gt; Text
+$sel:chimeBearer:DescribeChannel' :: DescribeChannel -&gt; Maybe Text
+</span><a href="#local-6989586621679545426"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-chime-bearer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679545427"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679545422"><span class="annot"><span class="annottext">toPath :: DescribeChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel%27"><span class="hs-identifier hs-type">DescribeChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545419"><span id="local-6989586621679545420"><span class="annot"><span class="annottext">Maybe Text
+Text
+channelArn :: Text
+chimeBearer :: Maybe Text
+$sel:channelArn:DescribeChannel' :: DescribeChannel -&gt; Text
+$sel:chimeBearer:DescribeChannel' :: DescribeChannel -&gt; Maybe Text
+</span><a href="#local-6989586621679545419"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679545419"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannel"><span class="hs-identifier hs-type">DescribeChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679545415"><span class="annot"><span class="annottext">toQuery :: DescribeChannel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeChannel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newDescribeChannelResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679545411"><span id="local-6989586621679545412"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeChannelResponse"><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-var">DescribeChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeChannelResponse%27"><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse%27"><span class="hs-identifier hs-var">DescribeChannelResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The channel details.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3Achannel%3ADescribeChannelResponse%27"><span class="annot"><span class="annottext">DescribeChannelResponse -&gt; Maybe Channel
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3Achannel%3ADescribeChannelResponse%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeChannelResponse%27"><span class="annot"><span class="annottext">DescribeChannelResponse -&gt; Int
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AhttpStatus%3ADescribeChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679545405"><span id="local-6989586621679545407"><span class="annot"><span class="annottext">DescribeChannelResponse -&gt; DescribeChannelResponse -&gt; Bool
+(DescribeChannelResponse -&gt; DescribeChannelResponse -&gt; Bool)
+-&gt; (DescribeChannelResponse -&gt; DescribeChannelResponse -&gt; Bool)
+-&gt; Eq DescribeChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeChannelResponse -&gt; DescribeChannelResponse -&gt; Bool
+$c/= :: DescribeChannelResponse -&gt; DescribeChannelResponse -&gt; Bool
+== :: DescribeChannelResponse -&gt; DescribeChannelResponse -&gt; Bool
+$c== :: DescribeChannelResponse -&gt; DescribeChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545399"><span id="local-6989586621679545401"><span id="local-6989586621679545403"><span class="annot"><span class="annottext">Int -&gt; DescribeChannelResponse -&gt; ShowS
+[DescribeChannelResponse] -&gt; ShowS
+DescribeChannelResponse -&gt; String
+(Int -&gt; DescribeChannelResponse -&gt; ShowS)
+-&gt; (DescribeChannelResponse -&gt; String)
+-&gt; ([DescribeChannelResponse] -&gt; ShowS)
+-&gt; Show DescribeChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeChannelResponse] -&gt; ShowS
+$cshowList :: [DescribeChannelResponse] -&gt; ShowS
+show :: DescribeChannelResponse -&gt; String
+$cshow :: DescribeChannelResponse -&gt; String
+showsPrec :: Int -&gt; DescribeChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeChannelResponse -&gt; Rep DescribeChannelResponse x)
+-&gt; (forall x.
+    Rep DescribeChannelResponse x -&gt; DescribeChannelResponse)
+-&gt; Generic DescribeChannelResponse
+forall x. Rep DescribeChannelResponse x -&gt; DescribeChannelResponse
+forall x. DescribeChannelResponse -&gt; Rep DescribeChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeChannelResponse x -&gt; DescribeChannelResponse
+$cfrom :: forall x. DescribeChannelResponse -&gt; Rep DescribeChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'DescribeChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'channel', 'describeChannelResponse_channel' - The channel details.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'describeChannelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#newDescribeChannelResponse"><span class="hs-identifier hs-type">newDescribeChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-type">DescribeChannelResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newDescribeChannelResponse"><span class="annot"><span class="annottext">newDescribeChannelResponse :: Int -&gt; DescribeChannelResponse
+</span><a href="Network.AWS.Chime.DescribeChannel.html#newDescribeChannelResponse"><span class="hs-identifier hs-var hs-var">newDescribeChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679545396"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679545396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DescribeChannelResponse' :: Maybe Channel -&gt; Int -&gt; DescribeChannelResponse
+</span><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse%27"><span class="hs-identifier hs-type">DescribeChannelResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channel:DescribeChannelResponse' :: Maybe Channel
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3Achannel%3ADescribeChannelResponse%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeChannelResponse' :: Int
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AhttpStatus%3ADescribeChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679545396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The channel details.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannelResponse_channel"><span class="hs-identifier hs-type">describeChannelResponse_channel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-type">DescribeChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="describeChannelResponse_channel"><span class="annot"><span class="annottext">describeChannelResponse_channel :: (Maybe Channel -&gt; f (Maybe Channel))
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+</span><a href="Network.AWS.Chime.DescribeChannel.html#describeChannelResponse_channel"><span class="hs-identifier hs-var hs-var">describeChannelResponse_channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannelResponse -&gt; Maybe Channel)
+-&gt; (DescribeChannelResponse
+    -&gt; Maybe Channel -&gt; DescribeChannelResponse)
+-&gt; Lens
+     DescribeChannelResponse
+     DescribeChannelResponse
+     (Maybe Channel)
+     (Maybe Channel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse%27"><span class="hs-identifier hs-type">DescribeChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545395"><span class="annot"><span class="annottext">Maybe Channel
+channel :: Maybe Channel
+$sel:channel:DescribeChannelResponse' :: DescribeChannelResponse -&gt; Maybe Channel
+</span><a href="#local-6989586621679545395"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
+</span><a href="#local-6989586621679545395"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679545394"><span class="annot"><span class="annottext">s :: DescribeChannelResponse
+</span><a href="#local-6989586621679545394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse%27"><span class="hs-identifier hs-type">DescribeChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679545393"><span class="annot"><span class="annottext">Maybe Channel
+</span><a href="#local-6989586621679545393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannelResponse
+</span><a href="#local-6989586621679545394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:DescribeChannelResponse' :: Maybe Channel
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3Achannel%3ADescribeChannelResponse%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
+</span><a href="#local-6989586621679545393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-type">DescribeChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#describeChannelResponse_httpStatus"><span class="hs-identifier hs-type">describeChannelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-type">DescribeChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="describeChannelResponse_httpStatus"><span class="annot"><span class="annottext">describeChannelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeChannelResponse -&gt; f DescribeChannelResponse
+</span><a href="Network.AWS.Chime.DescribeChannel.html#describeChannelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeChannelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannelResponse -&gt; Int)
+-&gt; (DescribeChannelResponse -&gt; Int -&gt; DescribeChannelResponse)
+-&gt; Lens DescribeChannelResponse DescribeChannelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse%27"><span class="hs-identifier hs-type">DescribeChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545392"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeChannelResponse' :: DescribeChannelResponse -&gt; Int
+</span><a href="#local-6989586621679545392"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679545392"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679545391"><span class="annot"><span class="annottext">s :: DescribeChannelResponse
+</span><a href="#local-6989586621679545391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse%27"><span class="hs-identifier hs-type">DescribeChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679545390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679545390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannelResponse
+</span><a href="#local-6989586621679545391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeChannelResponse' :: Int
+</span><a href="Network.AWS.Chime.DescribeChannel.html#%24sel%3AhttpStatus%3ADescribeChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679545390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-type">DescribeChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679545388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DescribeChannel.html#DescribeChannelResponse"><span class="hs-identifier hs-type">DescribeChannelResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Detailed information about an activity type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newActivityTypeInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679347922"><span id="local-6989586621679347923"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTypeInfo"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-var">ActivityTypeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTypeInfo%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-var">ActivityTypeInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679347931"><span id="local-6989586621679347932"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTypeInfo"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-var">ActivityTypeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTypeInfo%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-var">ActivityTypeInfo'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If DEPRECATED, the date and time DeprecateActivityType was called.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AdeprecationDate%3AActivityTypeInfo%27"><span class="annot"><span class="annottext">ActivityTypeInfo -&gt; Maybe POSIX
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3AdeprecationDate%3AActivityTypeInfo%27"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreationDate%3AActivityTypeInfo%27"><span class="annot"><span class="annottext">ActivityTypeInfo -&gt; POSIX
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3AcreationDate%3AActivityTypeInfo%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347912"><span id="local-6989586621679347914"><span class="annot"><span class="annottext">ActivityTypeInfo -&gt; ActivityTypeInfo -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347921"><span id="local-6989586621679347923"><span class="annot"><span class="annottext">ActivityTypeInfo -&gt; ActivityTypeInfo -&gt; Bool
 (ActivityTypeInfo -&gt; ActivityTypeInfo -&gt; Bool)
 -&gt; (ActivityTypeInfo -&gt; ActivityTypeInfo -&gt; Bool)
 -&gt; Eq ActivityTypeInfo
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivityTypeInfo -&gt; ActivityTypeInfo -&gt; Bool
 == :: ActivityTypeInfo -&gt; ActivityTypeInfo -&gt; Bool
 $c== :: ActivityTypeInfo -&gt; ActivityTypeInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347903"><span id="local-6989586621679347905"><span id="local-6989586621679347907"><span id="local-6989586621679347909"><span class="annot"><span class="annottext">ReadPrec [ActivityTypeInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347912"><span id="local-6989586621679347914"><span id="local-6989586621679347916"><span id="local-6989586621679347918"><span class="annot"><span class="annottext">ReadPrec [ActivityTypeInfo]
 ReadPrec ActivityTypeInfo
 Int -&gt; ReadS ActivityTypeInfo
 ReadS [ActivityTypeInfo]
@@ -75,7 +75,7 @@ readList :: ReadS [ActivityTypeInfo]
 $creadList :: ReadS [ActivityTypeInfo]
 readsPrec :: Int -&gt; ReadS ActivityTypeInfo
 $creadsPrec :: Int -&gt; ReadS ActivityTypeInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347896"><span id="local-6989586621679347898"><span id="local-6989586621679347900"><span class="annot"><span class="annottext">Int -&gt; ActivityTypeInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347905"><span id="local-6989586621679347907"><span id="local-6989586621679347909"><span class="annot"><span class="annottext">Int -&gt; ActivityTypeInfo -&gt; ShowS
 [ActivityTypeInfo] -&gt; ShowS
 ActivityTypeInfo -&gt; String
 (Int -&gt; ActivityTypeInfo -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. ActivityTypeInfo -&gt; Rep ActivityTypeInfo x
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span>
 </span><span id="line-72"></span><span id="newActivityTypeInfo"><span class="annot"><span class="annottext">newActivityTypeInfo :: ActivityType -&gt; RegistrationStatus -&gt; UTCTime -&gt; ActivityTypeInfo
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#newActivityTypeInfo"><span class="hs-identifier hs-var hs-var">newActivityTypeInfo</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679347890"><span class="annot"><span class="annottext">ActivityType
-</span><a href="#local-6989586621679347890"><span class="hs-identifier hs-var">pActivityType_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679347889"><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679347889"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679347888"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679347888"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679347899"><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679347899"><span class="hs-identifier hs-var">pActivityType_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679347898"><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679347898"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679347897"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679347897"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">ActivityTypeInfo' :: Maybe POSIX
 -&gt; Maybe Text
 -&gt; ActivityType
@@ -153,10 +153,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:activityType:ActivityTypeInfo' :: ActivityType
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3AactivityType%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">activityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityType
-</span><a href="#local-6989586621679347890"><span class="hs-identifier hs-var">pActivityType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347899"><span class="hs-identifier hs-var">pActivityType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:ActivityTypeInfo' :: RegistrationStatus
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3Astatus%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679347889"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347898"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:ActivityTypeInfo' :: POSIX
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3AcreationDate%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -165,7 +165,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679347888"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
+</span><a href="#local-6989586621679347897"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | If DEPRECATED, the date and time DeprecateActivityType was called.</span><span>
@@ -177,16 +177,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      ActivityTypeInfo ActivityTypeInfo (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347882"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347891"><span class="annot"><span class="annottext">Maybe POSIX
 deprecationDate :: Maybe POSIX
 $sel:deprecationDate:ActivityTypeInfo' :: ActivityTypeInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679347882"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679347882"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347881"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
-</span><a href="#local-6989586621679347881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347880"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679347880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
-</span><a href="#local-6989586621679347881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecationDate:ActivityTypeInfo' :: Maybe POSIX
+</span><a href="#local-6989586621679347891"><span class="hs-identifier hs-var hs-var">deprecationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679347891"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347890"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
+</span><a href="#local-6989586621679347890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347889"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679347889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679347890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecationDate:ActivityTypeInfo' :: Maybe POSIX
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3AdeprecationDate%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">deprecationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679347880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679347889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ActivityTypeInfo -&gt; f ActivityTypeInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -211,16 +211,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ActivityTypeInfo -&gt; Maybe Text -&gt; ActivityTypeInfo)
 -&gt; Lens ActivityTypeInfo ActivityTypeInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347876"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347885"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ActivityTypeInfo' :: ActivityTypeInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679347876"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347876"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347875"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
-</span><a href="#local-6989586621679347875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347874"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
-</span><a href="#local-6989586621679347875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ActivityTypeInfo' :: Maybe Text
+</span><a href="#local-6989586621679347885"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347885"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347884"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
+</span><a href="#local-6989586621679347884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679347884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ActivityTypeInfo' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3Adescription%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The ActivityType type structure representing the activity type.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#activityTypeInfo_activityType"><span class="hs-identifier hs-type">activityTypeInfo_activityType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityType.html#ActivityType"><span class="hs-identifier hs-type">ActivityType</span></a></span><span>
@@ -230,16 +230,16 @@ $sel:description:ActivityTypeInfo' :: ActivityTypeInfo -&gt; Maybe Text
 -&gt; (ActivityTypeInfo -&gt; ActivityType -&gt; ActivityTypeInfo)
 -&gt; Lens ActivityTypeInfo ActivityTypeInfo ActivityType ActivityType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347872"><span class="annot"><span class="annottext">ActivityType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347881"><span class="annot"><span class="annottext">ActivityType
 activityType :: ActivityType
 $sel:activityType:ActivityTypeInfo' :: ActivityTypeInfo -&gt; ActivityType
-</span><a href="#local-6989586621679347872"><span class="hs-identifier hs-var hs-var">activityType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityType
-</span><a href="#local-6989586621679347872"><span class="hs-identifier hs-var">activityType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347871"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
-</span><a href="#local-6989586621679347871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347870"><span class="annot"><span class="annottext">ActivityType
-</span><a href="#local-6989586621679347870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
-</span><a href="#local-6989586621679347871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityType:ActivityTypeInfo' :: ActivityType
+</span><a href="#local-6989586621679347881"><span class="hs-identifier hs-var hs-var">activityType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679347881"><span class="hs-identifier hs-var">activityType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347880"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
+</span><a href="#local-6989586621679347880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347879"><span class="annot"><span class="annottext">ActivityType
+</span><a href="#local-6989586621679347879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679347880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityType:ActivityTypeInfo' :: ActivityType
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3AactivityType%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">activityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityType
-</span><a href="#local-6989586621679347870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The current status of the activity type.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#activityTypeInfo_status"><span class="hs-identifier hs-type">activityTypeInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span>
@@ -253,16 +253,16 @@ $sel:activityType:ActivityTypeInfo' :: ActivityTypeInfo -&gt; ActivityType
      RegistrationStatus
      RegistrationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347868"><span class="annot"><span class="annottext">RegistrationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347877"><span class="annot"><span class="annottext">RegistrationStatus
 status :: RegistrationStatus
 $sel:status:ActivityTypeInfo' :: ActivityTypeInfo -&gt; RegistrationStatus
-</span><a href="#local-6989586621679347868"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679347868"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347867"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
-</span><a href="#local-6989586621679347867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347866"><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679347866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
-</span><a href="#local-6989586621679347867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ActivityTypeInfo' :: RegistrationStatus
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347876"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
+</span><a href="#local-6989586621679347876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347875"><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679347875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679347876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ActivityTypeInfo' :: RegistrationStatus
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3Astatus%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679347866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The date and time this activity type was created through</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- RegisterActivityType.</span><span>
@@ -272,16 +272,16 @@ $sel:status:ActivityTypeInfo' :: ActivityTypeInfo -&gt; RegistrationStatus
 -&gt; (ActivityTypeInfo -&gt; POSIX -&gt; ActivityTypeInfo)
 -&gt; Lens ActivityTypeInfo ActivityTypeInfo POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347864"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347873"><span class="annot"><span class="annottext">POSIX
 creationDate :: POSIX
 $sel:creationDate:ActivityTypeInfo' :: ActivityTypeInfo -&gt; POSIX
-</span><a href="#local-6989586621679347864"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679347864"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347863"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
-</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347862"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679347862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
-</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ActivityTypeInfo' :: POSIX
+</span><a href="#local-6989586621679347873"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679347873"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347872"><span class="annot"><span class="annottext">s :: ActivityTypeInfo
+</span><a href="#local-6989586621679347872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo%27"><span class="hs-identifier hs-type">ActivityTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347871"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679347871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTypeInfo
+</span><a href="#local-6989586621679347872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ActivityTypeInfo' :: POSIX
 </span><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#%24sel%3AcreationDate%3AActivityTypeInfo%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679347862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActivityTypeInfo -&gt; f ActivityTypeInfo)
+</span><a href="#local-6989586621679347871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActivityTypeInfo -&gt; f ActivityTypeInfo)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ActivityTypeInfo
@@ -291,8 +291,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347859"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679347857"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTypeInfo
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347868"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679347866"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTypeInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActivityTypeInfo)
@@ -302,8 +302,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActivityTypeInfo&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347854"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347854"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347863"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
 -&gt; ActivityType
@@ -323,7 +323,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ActivityType -&gt; RegistrationStatus -&gt; POSIX -&gt; ActivityTypeInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deprecationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (ActivityType -&gt; RegistrationStatus -&gt; POSIX -&gt; ActivityTypeInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,7 +345,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (RegistrationStatus -&gt; POSIX -&gt; ActivityTypeInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActivityType
+</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActivityType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;activityType&quot;</span></span><span class="hs-special">)</span><span>
@@ -353,7 +353,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RegistrationStatus -&gt; Parser (POSIX -&gt; ActivityTypeInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RegistrationStatus
+</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RegistrationStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -361,13 +361,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ActivityTypeInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679347863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347847"><span id="local-6989586621679347849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347856"><span id="local-6989586621679347858"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTypeInfo.html#ActivityTypeInfo"><span class="hs-identifier hs-type">ActivityTypeInfo</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

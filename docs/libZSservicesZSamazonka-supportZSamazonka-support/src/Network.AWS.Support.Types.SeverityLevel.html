@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the /AWS Support User Guide/.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSeverityLevel' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679171203"><span id="local-6989586621679171204"></span></span><span class="hs-keyword">data</span><span> </span><span id="SeverityLevel"><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-var">SeverityLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SeverityLevel%27"><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-var">SeverityLevel'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679171212"><span id="local-6989586621679171213"></span></span><span class="hs-keyword">data</span><span> </span><span id="SeverityLevel"><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-var">SeverityLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SeverityLevel%27"><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-var">SeverityLevel'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the severity level that corresponds to the severity level</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- code.</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Acode%3ASeverityLevel%27"><span class="annot"><span class="annottext">SeverityLevel -&gt; Maybe Text
 </span><a href="Network.AWS.Support.Types.SeverityLevel.html#%24sel%3Acode%3ASeverityLevel%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171196"><span id="local-6989586621679171198"><span class="annot"><span class="annottext">SeverityLevel -&gt; SeverityLevel -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171205"><span id="local-6989586621679171207"><span class="annot"><span class="annottext">SeverityLevel -&gt; SeverityLevel -&gt; Bool
 (SeverityLevel -&gt; SeverityLevel -&gt; Bool)
 -&gt; (SeverityLevel -&gt; SeverityLevel -&gt; Bool) -&gt; Eq SeverityLevel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SeverityLevel -&gt; SeverityLevel -&gt; Bool
 == :: SeverityLevel -&gt; SeverityLevel -&gt; Bool
 $c== :: SeverityLevel -&gt; SeverityLevel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171187"><span id="local-6989586621679171189"><span id="local-6989586621679171191"><span id="local-6989586621679171193"><span class="annot"><span class="annottext">ReadPrec [SeverityLevel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171196"><span id="local-6989586621679171198"><span id="local-6989586621679171200"><span id="local-6989586621679171202"><span class="annot"><span class="annottext">ReadPrec [SeverityLevel]
 ReadPrec SeverityLevel
 Int -&gt; ReadS SeverityLevel
 ReadS [SeverityLevel]
@@ -89,7 +89,7 @@ readList :: ReadS [SeverityLevel]
 $creadList :: ReadS [SeverityLevel]
 readsPrec :: Int -&gt; ReadS SeverityLevel
 $creadsPrec :: Int -&gt; ReadS SeverityLevel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171180"><span id="local-6989586621679171182"><span id="local-6989586621679171184"><span class="annot"><span class="annottext">Int -&gt; SeverityLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171189"><span id="local-6989586621679171191"><span id="local-6989586621679171193"><span class="annot"><span class="annottext">Int -&gt; SeverityLevel -&gt; ShowS
 [SeverityLevel] -&gt; ShowS
 SeverityLevel -&gt; String
 (Int -&gt; SeverityLevel -&gt; ShowS)
@@ -193,16 +193,16 @@ forall a. Maybe a
 -&gt; (SeverityLevel -&gt; Maybe Text -&gt; SeverityLevel)
 -&gt; Lens SeverityLevel SeverityLevel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171171"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171180"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:SeverityLevel' :: SeverityLevel -&gt; Maybe Text
-</span><a href="#local-6989586621679171171"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171171"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171170"><span class="annot"><span class="annottext">s :: SeverityLevel
-</span><a href="#local-6989586621679171170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171169"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeverityLevel
-</span><a href="#local-6989586621679171170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SeverityLevel' :: Maybe Text
+</span><a href="#local-6989586621679171180"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171180"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171179"><span class="annot"><span class="annottext">s :: SeverityLevel
+</span><a href="#local-6989586621679171179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeverityLevel
+</span><a href="#local-6989586621679171179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SeverityLevel' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.SeverityLevel.html#%24sel%3Aname%3ASeverityLevel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679171178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The code for case severity level.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
@@ -213,19 +213,19 @@ $sel:name:SeverityLevel' :: SeverityLevel -&gt; Maybe Text
 -&gt; (SeverityLevel -&gt; Maybe Text -&gt; SeverityLevel)
 -&gt; Lens SeverityLevel SeverityLevel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171167"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171176"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:SeverityLevel' :: SeverityLevel -&gt; Maybe Text
-</span><a href="#local-6989586621679171167"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171167"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171166"><span class="annot"><span class="annottext">s :: SeverityLevel
-</span><a href="#local-6989586621679171166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171165"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeverityLevel
-</span><a href="#local-6989586621679171166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:SeverityLevel' :: Maybe Text
+</span><a href="#local-6989586621679171176"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171176"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171175"><span class="annot"><span class="annottext">s :: SeverityLevel
+</span><a href="#local-6989586621679171175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-type">SeverityLevel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeverityLevel
+</span><a href="#local-6989586621679171175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:SeverityLevel' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.SeverityLevel.html#%24sel%3Acode%3ASeverityLevel%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679171174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171162"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679171160"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SeverityLevel
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171171"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679171169"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SeverityLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SeverityLevel)
@@ -235,28 +235,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SeverityLevel&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171157"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171166"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171166"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SeverityLevel
 </span><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel%27"><span class="hs-identifier hs-var">SeverityLevel'</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SeverityLevel)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SeverityLevel)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679171166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SeverityLevel)
 -&gt; Parser (Maybe Text) -&gt; Parser SeverityLevel
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679171166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171151"><span id="local-6989586621679171153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171160"><span id="local-6989586621679171162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SeverityLevel.html#SeverityLevel"><span class="hs-identifier hs-type">SeverityLevel</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

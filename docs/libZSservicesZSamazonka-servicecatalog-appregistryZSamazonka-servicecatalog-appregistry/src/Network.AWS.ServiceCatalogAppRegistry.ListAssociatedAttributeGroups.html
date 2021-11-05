@@ -1,0 +1,760 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all attribute groups that are associated with specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- application. Results are paginated.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#newListAssociatedAttributeGroups"><span class="hs-identifier">newListAssociatedAttributeGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_nextToken"><span class="hs-identifier">listAssociatedAttributeGroups_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_maxResults"><span class="hs-identifier">listAssociatedAttributeGroups_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_application"><span class="hs-identifier">listAssociatedAttributeGroups_application</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier">ListAssociatedAttributeGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#newListAssociatedAttributeGroupsResponse"><span class="hs-identifier">newListAssociatedAttributeGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_attributeGroups"><span class="hs-identifier">listAssociatedAttributeGroupsResponse_attributeGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_nextToken"><span class="hs-identifier">listAssociatedAttributeGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_httpStatus"><span class="hs-identifier">listAssociatedAttributeGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedAttributeGroups' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679181609"><span id="local-6989586621679181610"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedAttributeGroups"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-var">ListAssociatedAttributeGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedAttributeGroups%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var">ListAssociatedAttributeGroups'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedAttributeGroups%27"><span class="annot"><span class="annottext">ListAssociatedAttributeGroups -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AnextToken%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAssociatedAttributeGroups%27"><span class="annot"><span class="annottext">ListAssociatedAttributeGroups -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AmaxResults%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name or ID of the application.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aapplication%3AListAssociatedAttributeGroups%27"><span class="annot"><span class="annottext">ListAssociatedAttributeGroups -&gt; Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3Aapplication%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181601"><span id="local-6989586621679181603"><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+-&gt; ListAssociatedAttributeGroups -&gt; Bool
+(ListAssociatedAttributeGroups
+ -&gt; ListAssociatedAttributeGroups -&gt; Bool)
+-&gt; (ListAssociatedAttributeGroups
+    -&gt; ListAssociatedAttributeGroups -&gt; Bool)
+-&gt; Eq ListAssociatedAttributeGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssociatedAttributeGroups
+-&gt; ListAssociatedAttributeGroups -&gt; Bool
+$c/= :: ListAssociatedAttributeGroups
+-&gt; ListAssociatedAttributeGroups -&gt; Bool
+== :: ListAssociatedAttributeGroups
+-&gt; ListAssociatedAttributeGroups -&gt; Bool
+$c== :: ListAssociatedAttributeGroups
+-&gt; ListAssociatedAttributeGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181592"><span id="local-6989586621679181594"><span id="local-6989586621679181596"><span id="local-6989586621679181598"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedAttributeGroups]
+ReadPrec ListAssociatedAttributeGroups
+Int -&gt; ReadS ListAssociatedAttributeGroups
+ReadS [ListAssociatedAttributeGroups]
+(Int -&gt; ReadS ListAssociatedAttributeGroups)
+-&gt; ReadS [ListAssociatedAttributeGroups]
+-&gt; ReadPrec ListAssociatedAttributeGroups
+-&gt; ReadPrec [ListAssociatedAttributeGroups]
+-&gt; Read ListAssociatedAttributeGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssociatedAttributeGroups]
+$creadListPrec :: ReadPrec [ListAssociatedAttributeGroups]
+readPrec :: ReadPrec ListAssociatedAttributeGroups
+$creadPrec :: ReadPrec ListAssociatedAttributeGroups
+readList :: ReadS [ListAssociatedAttributeGroups]
+$creadList :: ReadS [ListAssociatedAttributeGroups]
+readsPrec :: Int -&gt; ReadS ListAssociatedAttributeGroups
+$creadsPrec :: Int -&gt; ReadS ListAssociatedAttributeGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181585"><span id="local-6989586621679181587"><span id="local-6989586621679181589"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedAttributeGroups -&gt; ShowS
+[ListAssociatedAttributeGroups] -&gt; ShowS
+ListAssociatedAttributeGroups -&gt; String
+(Int -&gt; ListAssociatedAttributeGroups -&gt; ShowS)
+-&gt; (ListAssociatedAttributeGroups -&gt; String)
+-&gt; ([ListAssociatedAttributeGroups] -&gt; ShowS)
+-&gt; Show ListAssociatedAttributeGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssociatedAttributeGroups] -&gt; ShowS
+$cshowList :: [ListAssociatedAttributeGroups] -&gt; ShowS
+show :: ListAssociatedAttributeGroups -&gt; String
+$cshow :: ListAssociatedAttributeGroups -&gt; String
+showsPrec :: Int -&gt; ListAssociatedAttributeGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssociatedAttributeGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAssociatedAttributeGroups
+ -&gt; Rep ListAssociatedAttributeGroups x)
+-&gt; (forall x.
+    Rep ListAssociatedAttributeGroups x
+    -&gt; ListAssociatedAttributeGroups)
+-&gt; Generic ListAssociatedAttributeGroups
+forall x.
+Rep ListAssociatedAttributeGroups x
+-&gt; ListAssociatedAttributeGroups
+forall x.
+ListAssociatedAttributeGroups
+-&gt; Rep ListAssociatedAttributeGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAssociatedAttributeGroups x
+-&gt; ListAssociatedAttributeGroups
+$cfrom :: forall x.
+ListAssociatedAttributeGroups
+-&gt; Rep ListAssociatedAttributeGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListAssociatedAttributeGroups' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedAttributeGroups_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'listAssociatedAttributeGroups_maxResults' - The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'application', 'listAssociatedAttributeGroups_application' - The name or ID of the application.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#newListAssociatedAttributeGroups"><span class="hs-identifier hs-type">newListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'application'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span>
+</span><span id="line-87"></span><span id="newListAssociatedAttributeGroups"><span class="annot"><span class="annottext">newListAssociatedAttributeGroups :: Text -&gt; ListAssociatedAttributeGroups
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#newListAssociatedAttributeGroups"><span class="hs-identifier hs-var hs-var">newListAssociatedAttributeGroups</span></a></span></span><span> </span><span id="local-6989586621679181580"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181580"><span class="hs-identifier hs-var">pApplication_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroups' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; ListAssociatedAttributeGroups
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedAttributeGroups' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AnextToken%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAssociatedAttributeGroups' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AmaxResults%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:application:ListAssociatedAttributeGroups' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3Aapplication%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181580"><span class="hs-identifier hs-var">pApplication_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_nextToken"><span class="hs-identifier hs-type">listAssociatedAttributeGroups_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listAssociatedAttributeGroups_nextToken"><span class="annot"><span class="annottext">listAssociatedAttributeGroups_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssociatedAttributeGroups -&gt; f ListAssociatedAttributeGroups
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedAttributeGroups_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedAttributeGroups -&gt; Maybe Text)
+-&gt; (ListAssociatedAttributeGroups
+    -&gt; Maybe Text -&gt; ListAssociatedAttributeGroups)
+-&gt; Lens
+     ListAssociatedAttributeGroups
+     ListAssociatedAttributeGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181578"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679181578"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181578"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181577"><span class="annot"><span class="annottext">s :: ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedAttributeGroups' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AnextToken%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_maxResults"><span class="hs-identifier hs-type">listAssociatedAttributeGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listAssociatedAttributeGroups_maxResults"><span class="annot"><span class="annottext">listAssociatedAttributeGroups_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAssociatedAttributeGroups -&gt; f ListAssociatedAttributeGroups
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_maxResults"><span class="hs-identifier hs-var hs-var">listAssociatedAttributeGroups_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedAttributeGroups -&gt; Maybe Natural)
+-&gt; (ListAssociatedAttributeGroups
+    -&gt; Maybe Natural -&gt; ListAssociatedAttributeGroups)
+-&gt; Lens
+     ListAssociatedAttributeGroups
+     ListAssociatedAttributeGroups
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181575"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Maybe Natural
+</span><a href="#local-6989586621679181575"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181575"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181574"><span class="annot"><span class="annottext">s :: ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181573"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAssociatedAttributeGroups' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AmaxResults%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name or ID of the application.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_application"><span class="hs-identifier hs-type">listAssociatedAttributeGroups_application</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="listAssociatedAttributeGroups_application"><span class="annot"><span class="annottext">listAssociatedAttributeGroups_application :: (Text -&gt; f Text)
+-&gt; ListAssociatedAttributeGroups -&gt; f ListAssociatedAttributeGroups
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_application"><span class="hs-identifier hs-var hs-var">listAssociatedAttributeGroups_application</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedAttributeGroups -&gt; Text)
+-&gt; (ListAssociatedAttributeGroups
+    -&gt; Text -&gt; ListAssociatedAttributeGroups)
+-&gt; Lens
+     ListAssociatedAttributeGroups
+     ListAssociatedAttributeGroups
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181572"><span class="annot"><span class="annottext">Text
+application :: Text
+$sel:application:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Text
+</span><a href="#local-6989586621679181572"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181572"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181571"><span class="annot"><span class="annottext">s :: ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181570"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:ListAssociatedAttributeGroups' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3Aapplication%3AListAssociatedAttributeGroups%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679181566"><span class="annot"><span class="annottext">page :: ListAssociatedAttributeGroups
+-&gt; AWSResponse ListAssociatedAttributeGroups
+-&gt; Maybe ListAssociatedAttributeGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679181564"><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181564"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679181563"><span class="annot"><span class="annottext">AWSResponse ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181563"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedAttributeGroups
+ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181563"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse
+-&gt; Getting (First Text) ListAssociatedAttributeGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAssociatedAttributeGroupsResponse
+-&gt; Const (First Text) ListAssociatedAttributeGroupsResponse
+Lens' ListAssociatedAttributeGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_nextToken"><span class="hs-identifier hs-var">listAssociatedAttributeGroupsResponse_nextToken</span></a></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAssociatedAttributeGroupsResponse
+ -&gt; Const (First Text) ListAssociatedAttributeGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAssociatedAttributeGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAssociatedAttributeGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedAttributeGroups
+ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181563"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse
+-&gt; Getting
+     (First [Text]) ListAssociatedAttributeGroupsResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListAssociatedAttributeGroupsResponse
+-&gt; Const (First [Text]) ListAssociatedAttributeGroupsResponse
+Lens' ListAssociatedAttributeGroupsResponse (Maybe [Text])
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_attributeGroups"><span class="hs-identifier hs-var">listAssociatedAttributeGroupsResponse_attributeGroups</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListAssociatedAttributeGroupsResponse
+ -&gt; Const (First [Text]) ListAssociatedAttributeGroupsResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting
+     (First [Text]) ListAssociatedAttributeGroupsResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAssociatedAttributeGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+-&gt; Maybe ListAssociatedAttributeGroups
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAssociatedAttributeGroups
+ -&gt; Maybe ListAssociatedAttributeGroups)
+-&gt; ListAssociatedAttributeGroups
+-&gt; Maybe ListAssociatedAttributeGroups
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+</span><a href="#local-6989586621679181564"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroups
+-&gt; (ListAssociatedAttributeGroups -&gt; ListAssociatedAttributeGroups)
+-&gt; ListAssociatedAttributeGroups
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAssociatedAttributeGroups
+-&gt; Identity ListAssociatedAttributeGroups
+Lens
+  ListAssociatedAttributeGroups
+  ListAssociatedAttributeGroups
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroups_nextToken"><span class="hs-identifier hs-var">listAssociatedAttributeGroups_nextToken</span></a></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAssociatedAttributeGroups
+ -&gt; Identity ListAssociatedAttributeGroups)
+-&gt; Maybe Text
+-&gt; ListAssociatedAttributeGroups
+-&gt; ListAssociatedAttributeGroups
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedAttributeGroups
+ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181563"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse
+-&gt; Getting (First Text) ListAssociatedAttributeGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAssociatedAttributeGroupsResponse
+-&gt; Const (First Text) ListAssociatedAttributeGroupsResponse
+Lens' ListAssociatedAttributeGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_nextToken"><span class="hs-identifier hs-var">listAssociatedAttributeGroupsResponse_nextToken</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAssociatedAttributeGroupsResponse
+ -&gt; Const (First Text) ListAssociatedAttributeGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAssociatedAttributeGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679181553"><span class="annot"><span class="annottext">request :: ListAssociatedAttributeGroups
+-&gt; Request ListAssociatedAttributeGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListAssociatedAttributeGroups
+-&gt; Request ListAssociatedAttributeGroups
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679181549"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAssociatedAttributeGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAssociatedAttributeGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAssociatedAttributeGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAssociatedAttributeGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAssociatedAttributeGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181546"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181545"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181545"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181544"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text -&gt; Int -&gt; ListAssociatedAttributeGroupsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">ListAssociatedAttributeGroupsResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedAttributeGroupsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListAssociatedAttributeGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributeGroups&quot;</span></span><span>
+</span><span id="line-144"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListAssociatedAttributeGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListAssociatedAttributeGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAssociatedAttributeGroupsResponse)
+-&gt; Either String Int
+-&gt; Either String ListAssociatedAttributeGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181546"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679181535"><span id="local-6989586621679181537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679181528"><span class="annot"><span class="annottext">toHeaders :: ListAssociatedAttributeGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssociatedAttributeGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679181522"><span class="annot"><span class="annottext">toPath :: ListAssociatedAttributeGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181518"><span id="local-6989586621679181519"><span id="local-6989586621679181520"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+application :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:application:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Text
+$sel:maxResults:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Maybe Natural
+$sel:nextToken:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679181518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/applications/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181518"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/attribute-groups&quot;</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679181514"><span class="annot"><span class="annottext">toQuery :: ListAssociatedAttributeGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroups%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181510"><span id="local-6989586621679181511"><span id="local-6989586621679181512"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+application :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:application:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Text
+$sel:maxResults:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Maybe Natural
+$sel:nextToken:ListAssociatedAttributeGroups' :: ListAssociatedAttributeGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679181510"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181512"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181511"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedAttributeGroupsResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679181507"><span id="local-6989586621679181508"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedAttributeGroupsResponse"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-var">ListAssociatedAttributeGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedAttributeGroupsResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">ListAssociatedAttributeGroupsResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of attribute group IDs.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AattributeGroups%3AListAssociatedAttributeGroupsResponse%27"><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AattributeGroups%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var hs-var">attributeGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedAttributeGroupsResponse%27"><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AnextToken%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAssociatedAttributeGroupsResponse%27"><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AhttpStatus%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181500"><span id="local-6989586621679181502"><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse
+-&gt; ListAssociatedAttributeGroupsResponse -&gt; Bool
+(ListAssociatedAttributeGroupsResponse
+ -&gt; ListAssociatedAttributeGroupsResponse -&gt; Bool)
+-&gt; (ListAssociatedAttributeGroupsResponse
+    -&gt; ListAssociatedAttributeGroupsResponse -&gt; Bool)
+-&gt; Eq ListAssociatedAttributeGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssociatedAttributeGroupsResponse
+-&gt; ListAssociatedAttributeGroupsResponse -&gt; Bool
+$c/= :: ListAssociatedAttributeGroupsResponse
+-&gt; ListAssociatedAttributeGroupsResponse -&gt; Bool
+== :: ListAssociatedAttributeGroupsResponse
+-&gt; ListAssociatedAttributeGroupsResponse -&gt; Bool
+$c== :: ListAssociatedAttributeGroupsResponse
+-&gt; ListAssociatedAttributeGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181492"><span id="local-6989586621679181494"><span id="local-6989586621679181496"><span id="local-6989586621679181498"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedAttributeGroupsResponse]
+ReadPrec ListAssociatedAttributeGroupsResponse
+Int -&gt; ReadS ListAssociatedAttributeGroupsResponse
+ReadS [ListAssociatedAttributeGroupsResponse]
+(Int -&gt; ReadS ListAssociatedAttributeGroupsResponse)
+-&gt; ReadS [ListAssociatedAttributeGroupsResponse]
+-&gt; ReadPrec ListAssociatedAttributeGroupsResponse
+-&gt; ReadPrec [ListAssociatedAttributeGroupsResponse]
+-&gt; Read ListAssociatedAttributeGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssociatedAttributeGroupsResponse]
+$creadListPrec :: ReadPrec [ListAssociatedAttributeGroupsResponse]
+readPrec :: ReadPrec ListAssociatedAttributeGroupsResponse
+$creadPrec :: ReadPrec ListAssociatedAttributeGroupsResponse
+readList :: ReadS [ListAssociatedAttributeGroupsResponse]
+$creadList :: ReadS [ListAssociatedAttributeGroupsResponse]
+readsPrec :: Int -&gt; ReadS ListAssociatedAttributeGroupsResponse
+$creadsPrec :: Int -&gt; ReadS ListAssociatedAttributeGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181486"><span id="local-6989586621679181488"><span id="local-6989586621679181490"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedAttributeGroupsResponse -&gt; ShowS
+[ListAssociatedAttributeGroupsResponse] -&gt; ShowS
+ListAssociatedAttributeGroupsResponse -&gt; String
+(Int -&gt; ListAssociatedAttributeGroupsResponse -&gt; ShowS)
+-&gt; (ListAssociatedAttributeGroupsResponse -&gt; String)
+-&gt; ([ListAssociatedAttributeGroupsResponse] -&gt; ShowS)
+-&gt; Show ListAssociatedAttributeGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssociatedAttributeGroupsResponse] -&gt; ShowS
+$cshowList :: [ListAssociatedAttributeGroupsResponse] -&gt; ShowS
+show :: ListAssociatedAttributeGroupsResponse -&gt; String
+$cshow :: ListAssociatedAttributeGroupsResponse -&gt; String
+showsPrec :: Int -&gt; ListAssociatedAttributeGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssociatedAttributeGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAssociatedAttributeGroupsResponse
+ -&gt; Rep ListAssociatedAttributeGroupsResponse x)
+-&gt; (forall x.
+    Rep ListAssociatedAttributeGroupsResponse x
+    -&gt; ListAssociatedAttributeGroupsResponse)
+-&gt; Generic ListAssociatedAttributeGroupsResponse
+forall x.
+Rep ListAssociatedAttributeGroupsResponse x
+-&gt; ListAssociatedAttributeGroupsResponse
+forall x.
+ListAssociatedAttributeGroupsResponse
+-&gt; Rep ListAssociatedAttributeGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAssociatedAttributeGroupsResponse x
+-&gt; ListAssociatedAttributeGroupsResponse
+$cfrom :: forall x.
+ListAssociatedAttributeGroupsResponse
+-&gt; Rep ListAssociatedAttributeGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Create a value of 'ListAssociatedAttributeGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'attributeGroups', 'listAssociatedAttributeGroupsResponse_attributeGroups' - A list of attribute group IDs.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedAttributeGroupsResponse_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'httpStatus', 'listAssociatedAttributeGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#newListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">newListAssociatedAttributeGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newListAssociatedAttributeGroupsResponse"><span class="annot"><span class="annottext">newListAssociatedAttributeGroupsResponse :: Int -&gt; ListAssociatedAttributeGroupsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#newListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-var hs-var">newListAssociatedAttributeGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679181483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse' :: Maybe [Text]
+-&gt; Maybe Text -&gt; Int -&gt; ListAssociatedAttributeGroupsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeGroups:ListAssociatedAttributeGroupsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AattributeGroups%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">attributeGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedAttributeGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AnextToken%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedAttributeGroupsResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AhttpStatus%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | A list of attribute group IDs.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_attributeGroups"><span class="hs-identifier hs-type">listAssociatedAttributeGroupsResponse_attributeGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listAssociatedAttributeGroupsResponse_attributeGroups"><span class="annot"><span class="annottext">listAssociatedAttributeGroupsResponse_attributeGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListAssociatedAttributeGroupsResponse
+-&gt; f ListAssociatedAttributeGroupsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_attributeGroups"><span class="hs-identifier hs-var hs-var">listAssociatedAttributeGroupsResponse_attributeGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedAttributeGroupsResponse -&gt; Maybe [Text])
+-&gt; (ListAssociatedAttributeGroupsResponse
+    -&gt; Maybe [Text] -&gt; ListAssociatedAttributeGroupsResponse)
+-&gt; Lens' ListAssociatedAttributeGroupsResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181482"><span class="annot"><span class="annottext">Maybe [Text]
+attributeGroups :: Maybe [Text]
+$sel:attributeGroups:ListAssociatedAttributeGroupsResponse' :: ListAssociatedAttributeGroupsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679181482"><span class="hs-identifier hs-var hs-var">attributeGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679181482"><span class="hs-identifier hs-var">attributeGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181481"><span class="annot"><span class="annottext">s :: ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181480"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679181480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeGroups:ListAssociatedAttributeGroupsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AattributeGroups%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">attributeGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679181480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListAssociatedAttributeGroupsResponse
+ -&gt; f ListAssociatedAttributeGroupsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListAssociatedAttributeGroupsResponse
+-&gt; f ListAssociatedAttributeGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_nextToken"><span class="hs-identifier hs-type">listAssociatedAttributeGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="listAssociatedAttributeGroupsResponse_nextToken"><span class="annot"><span class="annottext">listAssociatedAttributeGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssociatedAttributeGroupsResponse
+-&gt; f ListAssociatedAttributeGroupsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedAttributeGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedAttributeGroupsResponse -&gt; Maybe Text)
+-&gt; (ListAssociatedAttributeGroupsResponse
+    -&gt; Maybe Text -&gt; ListAssociatedAttributeGroupsResponse)
+-&gt; Lens' ListAssociatedAttributeGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181477"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssociatedAttributeGroupsResponse' :: ListAssociatedAttributeGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181477"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181477"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181476"><span class="annot"><span class="annottext">s :: ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedAttributeGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AnextToken%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_httpStatus"><span class="hs-identifier hs-type">listAssociatedAttributeGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span id="listAssociatedAttributeGroupsResponse_httpStatus"><span class="annot"><span class="annottext">listAssociatedAttributeGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAssociatedAttributeGroupsResponse
+-&gt; f ListAssociatedAttributeGroupsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#listAssociatedAttributeGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAssociatedAttributeGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedAttributeGroupsResponse -&gt; Int)
+-&gt; (ListAssociatedAttributeGroupsResponse
+    -&gt; Int -&gt; ListAssociatedAttributeGroupsResponse)
+-&gt; Lens
+     ListAssociatedAttributeGroupsResponse
+     ListAssociatedAttributeGroupsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181474"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAssociatedAttributeGroupsResponse' :: ListAssociatedAttributeGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679181474"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181474"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181473"><span class="annot"><span class="annottext">s :: ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181472"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedAttributeGroupsResponse
+</span><a href="#local-6989586621679181473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedAttributeGroupsResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#%24sel%3AhttpStatus%3AListAssociatedAttributeGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679181470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.html#ListAssociatedAttributeGroupsResponse"><span class="hs-identifier hs-type">ListAssociatedAttributeGroupsResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

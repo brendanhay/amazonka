@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A field and direction for ordered output.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOrderByElement' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679204876"><span id="local-6989586621679204877"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrderByElement"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-var">OrderByElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrderByElement%27"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-var">OrderByElement'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679204885"><span id="local-6989586621679204886"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrderByElement"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-var">OrderByElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrderByElement%27"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-var">OrderByElement'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ordering direction.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsortOrder%3AOrderByElement%27"><span class="annot"><span class="annottext">OrderByElement -&gt; Maybe OrderString
 </span><a href="Network.AWS.Discovery.Types.OrderByElement.html#%24sel%3AsortOrder%3AOrderByElement%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderString.html#OrderString"><span class="hs-identifier hs-type">OrderString</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfieldName%3AOrderByElement%27"><span class="annot"><span class="annottext">OrderByElement -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.OrderByElement.html#%24sel%3AfieldName%3AOrderByElement%27"><span class="hs-identifier hs-var hs-var">fieldName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204869"><span id="local-6989586621679204871"><span class="annot"><span class="annottext">OrderByElement -&gt; OrderByElement -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204878"><span id="local-6989586621679204880"><span class="annot"><span class="annottext">OrderByElement -&gt; OrderByElement -&gt; Bool
 (OrderByElement -&gt; OrderByElement -&gt; Bool)
 -&gt; (OrderByElement -&gt; OrderByElement -&gt; Bool) -&gt; Eq OrderByElement
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OrderByElement -&gt; OrderByElement -&gt; Bool
 == :: OrderByElement -&gt; OrderByElement -&gt; Bool
 $c== :: OrderByElement -&gt; OrderByElement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204860"><span id="local-6989586621679204862"><span id="local-6989586621679204864"><span id="local-6989586621679204866"><span class="annot"><span class="annottext">ReadPrec [OrderByElement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204869"><span id="local-6989586621679204871"><span id="local-6989586621679204873"><span id="local-6989586621679204875"><span class="annot"><span class="annottext">ReadPrec [OrderByElement]
 ReadPrec OrderByElement
 Int -&gt; ReadS OrderByElement
 ReadS [OrderByElement]
@@ -63,7 +63,7 @@ readList :: ReadS [OrderByElement]
 $creadList :: ReadS [OrderByElement]
 readsPrec :: Int -&gt; ReadS OrderByElement
 $creadsPrec :: Int -&gt; ReadS OrderByElement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204853"><span id="local-6989586621679204855"><span id="local-6989586621679204857"><span class="annot"><span class="annottext">Int -&gt; OrderByElement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204862"><span id="local-6989586621679204864"><span id="local-6989586621679204866"><span class="annot"><span class="annottext">Int -&gt; OrderByElement -&gt; ShowS
 [OrderByElement] -&gt; ShowS
 OrderByElement -&gt; String
 (Int -&gt; OrderByElement -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. OrderByElement -&gt; Rep OrderByElement x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span><span>
 </span><span id="line-53"></span><span id="newOrderByElement"><span class="annot"><span class="annottext">newOrderByElement :: Text -&gt; OrderByElement
-</span><a href="Network.AWS.Discovery.Types.OrderByElement.html#newOrderByElement"><span class="hs-identifier hs-var hs-var">newOrderByElement</span></a></span></span><span> </span><span id="local-6989586621679204847"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204847"><span class="hs-identifier hs-var">pFieldName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.Types.OrderByElement.html#newOrderByElement"><span class="hs-identifier hs-var hs-var">newOrderByElement</span></a></span></span><span> </span><span id="local-6989586621679204856"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204856"><span class="hs-identifier hs-var">pFieldName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">OrderByElement' :: Maybe OrderString -&gt; Text -&gt; OrderByElement
 </span><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortOrder:OrderByElement' :: Maybe OrderString
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:fieldName:OrderByElement' :: Text
 </span><a href="Network.AWS.Discovery.Types.OrderByElement.html#%24sel%3AfieldName%3AOrderByElement%27"><span class="hs-identifier hs-var">fieldName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204847"><span class="hs-identifier hs-var">pFieldName_</span></a></span><span>
+</span><a href="#local-6989586621679204856"><span class="hs-identifier hs-var">pFieldName_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | Ordering direction.</span><span>
@@ -130,16 +130,16 @@ forall a. Maybe a
      (Maybe OrderString)
      (Maybe OrderString)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204843"><span class="annot"><span class="annottext">Maybe OrderString
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204852"><span class="annot"><span class="annottext">Maybe OrderString
 sortOrder :: Maybe OrderString
 $sel:sortOrder:OrderByElement' :: OrderByElement -&gt; Maybe OrderString
-</span><a href="#local-6989586621679204843"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderString
-</span><a href="#local-6989586621679204843"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204842"><span class="annot"><span class="annottext">s :: OrderByElement
-</span><a href="#local-6989586621679204842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204841"><span class="annot"><span class="annottext">Maybe OrderString
-</span><a href="#local-6989586621679204841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrderByElement
-</span><a href="#local-6989586621679204842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:OrderByElement' :: Maybe OrderString
+</span><a href="#local-6989586621679204852"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderString
+</span><a href="#local-6989586621679204852"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204851"><span class="annot"><span class="annottext">s :: OrderByElement
+</span><a href="#local-6989586621679204851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204850"><span class="annot"><span class="annottext">Maybe OrderString
+</span><a href="#local-6989586621679204850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrderByElement
+</span><a href="#local-6989586621679204851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:OrderByElement' :: Maybe OrderString
 </span><a href="Network.AWS.Discovery.Types.OrderByElement.html#%24sel%3AsortOrder%3AOrderByElement%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderString
-</span><a href="#local-6989586621679204841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The field on which to order.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#orderByElement_fieldName"><span class="hs-identifier hs-type">orderByElement_fieldName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -148,30 +148,30 @@ $sel:sortOrder:OrderByElement' :: OrderByElement -&gt; Maybe OrderString
 -&gt; (OrderByElement -&gt; Text -&gt; OrderByElement)
 -&gt; Lens OrderByElement OrderByElement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204839"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204848"><span class="annot"><span class="annottext">Text
 fieldName :: Text
 $sel:fieldName:OrderByElement' :: OrderByElement -&gt; Text
-</span><a href="#local-6989586621679204839"><span class="hs-identifier hs-var hs-var">fieldName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204839"><span class="hs-identifier hs-var">fieldName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204838"><span class="annot"><span class="annottext">s :: OrderByElement
-</span><a href="#local-6989586621679204838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204837"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrderByElement
-</span><a href="#local-6989586621679204838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldName:OrderByElement' :: Text
+</span><a href="#local-6989586621679204848"><span class="hs-identifier hs-var hs-var">fieldName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204848"><span class="hs-identifier hs-var">fieldName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204847"><span class="annot"><span class="annottext">s :: OrderByElement
+</span><a href="#local-6989586621679204847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrderByElement
+</span><a href="#local-6989586621679204847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldName:OrderByElement' :: Text
 </span><a href="Network.AWS.Discovery.Types.OrderByElement.html#%24sel%3AfieldName%3AOrderByElement%27"><span class="hs-identifier hs-var">fieldName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204833"><span id="local-6989586621679204835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204842"><span id="local-6989586621679204844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204822"><span id="local-6989586621679204824"><span id="local-6989586621679204826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679204820"><span class="annot"><span class="annottext">toJSON :: OrderByElement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204817"><span id="local-6989586621679204818"><span class="annot"><span class="annottext">Maybe OrderString
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204831"><span id="local-6989586621679204833"><span id="local-6989586621679204835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement"><span class="hs-identifier hs-type">OrderByElement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679204829"><span class="annot"><span class="annottext">toJSON :: OrderByElement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.OrderByElement.html#OrderByElement%27"><span class="hs-identifier hs-type">OrderByElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204826"><span id="local-6989586621679204827"><span class="annot"><span class="annottext">Maybe OrderString
 Text
 fieldName :: Text
 sortOrder :: Maybe OrderString
 $sel:fieldName:OrderByElement' :: OrderByElement -&gt; Text
 $sel:sortOrder:OrderByElement' :: OrderByElement -&gt; Maybe OrderString
-</span><a href="#local-6989586621679204817"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679204826"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,14 +183,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderString -&gt; Pair) -&gt; Maybe OrderString -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderString
-</span><a href="#local-6989586621679204818"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204827"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fieldName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204817"><span class="hs-identifier hs-var">fieldName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204826"><span class="hs-identifier hs-var">fieldName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

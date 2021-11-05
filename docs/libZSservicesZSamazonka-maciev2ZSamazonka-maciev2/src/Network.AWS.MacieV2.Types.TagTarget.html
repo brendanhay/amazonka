@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.TagTarget</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.TagTarget</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget"><span class="hs-identifier">TagTarget</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget_S3_OBJECT"><span class="hs-identifier">TagTarget_S3_OBJECT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | The type of object to apply a tag-based condition to. Valid values are:</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679399506"><span id="local-6989586621679399507"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TagTarget"><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget"><span class="hs-identifier hs-var">TagTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagTarget%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget%27"><span class="hs-identifier hs-var">TagTarget'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTagTarget"><span class="annot"><span class="annottext">TagTarget -&gt; Text
+</span><a href="Network.AWS.MacieV2.Types.TagTarget.html#fromTagTarget"><span class="hs-identifier hs-var hs-var">fromTagTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399498"><span id="local-6989586621679399500"><span id="local-6989586621679399502"><span class="annot"><span class="annottext">Int -&gt; TagTarget -&gt; ShowS
+[TagTarget] -&gt; ShowS
+TagTarget -&gt; String
+(Int -&gt; TagTarget -&gt; ShowS)
+-&gt; (TagTarget -&gt; String)
+-&gt; ([TagTarget] -&gt; ShowS)
+-&gt; Show TagTarget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagTarget] -&gt; ShowS
+$cshowList :: [TagTarget] -&gt; ShowS
+show :: TagTarget -&gt; String
+$cshow :: TagTarget -&gt; String
+showsPrec :: Int -&gt; TagTarget -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679399489"><span id="local-6989586621679399491"><span id="local-6989586621679399493"><span id="local-6989586621679399495"><span class="annot"><span class="annottext">ReadPrec [TagTarget]
+ReadPrec TagTarget
+Int -&gt; ReadS TagTarget
+ReadS [TagTarget]
+(Int -&gt; ReadS TagTarget)
+-&gt; ReadS [TagTarget]
+-&gt; ReadPrec TagTarget
+-&gt; ReadPrec [TagTarget]
+-&gt; Read TagTarget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagTarget]
+$creadListPrec :: ReadPrec [TagTarget]
+readPrec :: ReadPrec TagTarget
+$creadPrec :: ReadPrec TagTarget
+readList :: ReadS [TagTarget]
+$creadList :: ReadS [TagTarget]
+readsPrec :: Int -&gt; ReadS TagTarget
+$creadsPrec :: Int -&gt; ReadS TagTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679399484"><span id="local-6989586621679399486"><span class="annot"><span class="annottext">TagTarget -&gt; TagTarget -&gt; Bool
+(TagTarget -&gt; TagTarget -&gt; Bool)
+-&gt; (TagTarget -&gt; TagTarget -&gt; Bool) -&gt; Eq TagTarget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagTarget -&gt; TagTarget -&gt; Bool
+$c/= :: TagTarget -&gt; TagTarget -&gt; Bool
+== :: TagTarget -&gt; TagTarget -&gt; Bool
+$c== :: TagTarget -&gt; TagTarget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679399468"><span id="local-6989586621679399470"><span id="local-6989586621679399472"><span id="local-6989586621679399474"><span id="local-6989586621679399476"><span id="local-6989586621679399478"><span id="local-6989586621679399480"><span class="annot"><span class="annottext">Eq TagTarget
+Eq TagTarget
+-&gt; (TagTarget -&gt; TagTarget -&gt; Ordering)
+-&gt; (TagTarget -&gt; TagTarget -&gt; Bool)
+-&gt; (TagTarget -&gt; TagTarget -&gt; Bool)
+-&gt; (TagTarget -&gt; TagTarget -&gt; Bool)
+-&gt; (TagTarget -&gt; TagTarget -&gt; Bool)
+-&gt; (TagTarget -&gt; TagTarget -&gt; TagTarget)
+-&gt; (TagTarget -&gt; TagTarget -&gt; TagTarget)
+-&gt; Ord TagTarget
+TagTarget -&gt; TagTarget -&gt; Bool
+TagTarget -&gt; TagTarget -&gt; Ordering
+TagTarget -&gt; TagTarget -&gt; TagTarget
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TagTarget -&gt; TagTarget -&gt; TagTarget
+$cmin :: TagTarget -&gt; TagTarget -&gt; TagTarget
+max :: TagTarget -&gt; TagTarget -&gt; TagTarget
+$cmax :: TagTarget -&gt; TagTarget -&gt; TagTarget
+&gt;= :: TagTarget -&gt; TagTarget -&gt; Bool
+$c&gt;= :: TagTarget -&gt; TagTarget -&gt; Bool
+&gt; :: TagTarget -&gt; TagTarget -&gt; Bool
+$c&gt; :: TagTarget -&gt; TagTarget -&gt; Bool
+&lt;= :: TagTarget -&gt; TagTarget -&gt; Bool
+$c&lt;= :: TagTarget -&gt; TagTarget -&gt; Bool
+&lt; :: TagTarget -&gt; TagTarget -&gt; Bool
+$c&lt; :: TagTarget -&gt; TagTarget -&gt; Bool
+compare :: TagTarget -&gt; TagTarget -&gt; Ordering
+$ccompare :: TagTarget -&gt; TagTarget -&gt; Ordering
+$cp1Ord :: Eq TagTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TagTarget -&gt; Rep TagTarget x)
+-&gt; (forall x. Rep TagTarget x -&gt; TagTarget) -&gt; Generic TagTarget
+forall x. Rep TagTarget x -&gt; TagTarget
+forall x. TagTarget -&gt; Rep TagTarget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TagTarget x -&gt; TagTarget
+$cfrom :: forall x. TagTarget -&gt; Rep TagTarget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399460"><span id="local-6989586621679399462"><span class="annot"><span class="annottext">Int -&gt; TagTarget -&gt; Int
+TagTarget -&gt; Int
+(Int -&gt; TagTarget -&gt; Int)
+-&gt; (TagTarget -&gt; Int) -&gt; Hashable TagTarget
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TagTarget -&gt; Int
+$chash :: TagTarget -&gt; Int
+hashWithSalt :: Int -&gt; TagTarget -&gt; Int
+$chashWithSalt :: Int -&gt; TagTarget -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679399457"><span class="annot"><span class="annottext">TagTarget -&gt; ()
+(TagTarget -&gt; ()) -&gt; NFData TagTarget
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TagTarget -&gt; ()
+$crnf :: TagTarget -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679399454"><span class="annot"><span class="annottext">Text -&gt; Either String TagTarget
+(Text -&gt; Either String TagTarget) -&gt; FromText TagTarget
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TagTarget
+$cfromText :: Text -&gt; Either String TagTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679399451"><span class="annot"><span class="annottext">TagTarget -&gt; Text
+(TagTarget -&gt; Text) -&gt; ToText TagTarget
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TagTarget -&gt; Text
+$ctoText :: TagTarget -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679399448"><span class="annot"><span class="annottext">TagTarget -&gt; ByteString
+(TagTarget -&gt; ByteString) -&gt; ToByteString TagTarget
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TagTarget -&gt; ByteString
+$ctoBS :: TagTarget -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679399445"><span class="annot"><span class="annottext">TagTarget -&gt; ByteStringBuilder
+(TagTarget -&gt; ByteStringBuilder) -&gt; ToLog TagTarget
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TagTarget -&gt; ByteStringBuilder
+$cbuild :: TagTarget -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679399442"><span class="annot"><span class="annottext">HeaderName -&gt; TagTarget -&gt; [Header]
+(HeaderName -&gt; TagTarget -&gt; [Header]) -&gt; ToHeader TagTarget
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TagTarget -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TagTarget -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679399439"><span class="annot"><span class="annottext">TagTarget -&gt; QueryString
+(TagTarget -&gt; QueryString) -&gt; ToQuery TagTarget
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TagTarget -&gt; QueryString
+$ctoQuery :: TagTarget -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679399434"><span id="local-6989586621679399436"><span class="annot"><span class="annottext">Value -&gt; Parser [TagTarget]
+Value -&gt; Parser TagTarget
+(Value -&gt; Parser TagTarget)
+-&gt; (Value -&gt; Parser [TagTarget]) -&gt; FromJSON TagTarget
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TagTarget]
+$cparseJSONList :: Value -&gt; Parser [TagTarget]
+parseJSON :: Value -&gt; Parser TagTarget
+$cparseJSON :: Value -&gt; Parser TagTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679399429"><span id="local-6989586621679399431"><span class="annot"><span class="annottext">FromJSONKeyFunction [TagTarget]
+FromJSONKeyFunction TagTarget
+FromJSONKeyFunction TagTarget
+-&gt; FromJSONKeyFunction [TagTarget] -&gt; FromJSONKey TagTarget
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TagTarget]
+$cfromJSONKeyList :: FromJSONKeyFunction [TagTarget]
+fromJSONKey :: FromJSONKeyFunction TagTarget
+$cfromJSONKey :: FromJSONKeyFunction TagTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679399420"><span id="local-6989586621679399422"><span id="local-6989586621679399424"><span id="local-6989586621679399426"><span class="annot"><span class="annottext">[TagTarget] -&gt; Encoding
+[TagTarget] -&gt; Value
+TagTarget -&gt; Encoding
+TagTarget -&gt; Value
+(TagTarget -&gt; Value)
+-&gt; (TagTarget -&gt; Encoding)
+-&gt; ([TagTarget] -&gt; Value)
+-&gt; ([TagTarget] -&gt; Encoding)
+-&gt; ToJSON TagTarget
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TagTarget] -&gt; Encoding
+$ctoEncodingList :: [TagTarget] -&gt; Encoding
+toJSONList :: [TagTarget] -&gt; Value
+$ctoJSONList :: [TagTarget] -&gt; Value
+toEncoding :: TagTarget -&gt; Encoding
+$ctoEncoding :: TagTarget -&gt; Encoding
+toJSON :: TagTarget -&gt; Value
+$ctoJSON :: TagTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679399415"><span id="local-6989586621679399417"><span class="annot"><span class="annottext">ToJSONKeyFunction [TagTarget]
+ToJSONKeyFunction TagTarget
+ToJSONKeyFunction TagTarget
+-&gt; ToJSONKeyFunction [TagTarget] -&gt; ToJSONKey TagTarget
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TagTarget]
+$ctoJSONKeyList :: ToJSONKeyFunction [TagTarget]
+toJSONKey :: ToJSONKeyFunction TagTarget
+$ctoJSONKey :: ToJSONKeyFunction TagTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679399412"><span class="annot"><span class="annottext">[Node] -&gt; Either String TagTarget
+([Node] -&gt; Either String TagTarget) -&gt; FromXML TagTarget
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TagTarget
+$cparseXML :: [Node] -&gt; Either String TagTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679399409"><span class="annot"><span class="annottext">TagTarget -&gt; XML
+(TagTarget -&gt; XML) -&gt; ToXML TagTarget
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TagTarget -&gt; XML
+$ctoXML :: TagTarget -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget_S3_OBJECT"><span class="hs-identifier hs-type">TagTarget_S3_OBJECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget"><span class="hs-identifier hs-type">TagTarget</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTagTarget_S3_OBJECT"><span id="%24mTagTarget_S3_OBJECT"><span id="TagTarget_S3_OBJECT"><span class="annot"><span class="annottext">$bTagTarget_S3_OBJECT :: TagTarget
+$mTagTarget_S3_OBJECT :: forall r. TagTarget -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.TagTarget.html#%24bTagTarget_S3_OBJECT"><span class="hs-identifier hs-var hs-var hs-var">TagTarget_S3_OBJECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget%27"><span class="hs-identifier hs-type">TagTarget'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3_OBJECT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget_S3_OBJECT"><span class="hs-pragma hs-type">TagTarget_S3_OBJECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget%27"><span class="hs-pragma hs-type">TagTarget'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

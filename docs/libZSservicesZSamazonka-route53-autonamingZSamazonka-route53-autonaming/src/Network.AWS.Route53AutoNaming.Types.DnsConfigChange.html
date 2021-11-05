@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- DNS records that Cloud Map creates when you register an instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDnsConfigChange' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679222391"><span id="local-6989586621679222392"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsConfigChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-var">DnsConfigChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsConfigChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-var">DnsConfigChange'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679222400"><span id="local-6989586621679222401"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsConfigChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-var">DnsConfigChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsConfigChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-var">DnsConfigChange'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array that contains one @DnsRecord@ object for each Route 53 record</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- that you want Cloud Map to create when you register an instance.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdnsRecords%3ADnsConfigChange%27"><span class="annot"><span class="annottext">DnsConfigChange -&gt; [DnsRecord]
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#%24sel%3AdnsRecords%3ADnsConfigChange%27"><span class="hs-identifier hs-var hs-var">dnsRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222385"><span id="local-6989586621679222387"><span class="annot"><span class="annottext">DnsConfigChange -&gt; DnsConfigChange -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222394"><span id="local-6989586621679222396"><span class="annot"><span class="annottext">DnsConfigChange -&gt; DnsConfigChange -&gt; Bool
 (DnsConfigChange -&gt; DnsConfigChange -&gt; Bool)
 -&gt; (DnsConfigChange -&gt; DnsConfigChange -&gt; Bool)
 -&gt; Eq DnsConfigChange
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DnsConfigChange -&gt; DnsConfigChange -&gt; Bool
 == :: DnsConfigChange -&gt; DnsConfigChange -&gt; Bool
 $c== :: DnsConfigChange -&gt; DnsConfigChange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222376"><span id="local-6989586621679222378"><span id="local-6989586621679222380"><span id="local-6989586621679222382"><span class="annot"><span class="annottext">ReadPrec [DnsConfigChange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222385"><span id="local-6989586621679222387"><span id="local-6989586621679222389"><span id="local-6989586621679222391"><span class="annot"><span class="annottext">ReadPrec [DnsConfigChange]
 ReadPrec DnsConfigChange
 Int -&gt; ReadS DnsConfigChange
 ReadS [DnsConfigChange]
@@ -63,7 +63,7 @@ readList :: ReadS [DnsConfigChange]
 $creadList :: ReadS [DnsConfigChange]
 readsPrec :: Int -&gt; ReadS DnsConfigChange
 $creadsPrec :: Int -&gt; ReadS DnsConfigChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222369"><span id="local-6989586621679222371"><span id="local-6989586621679222373"><span class="annot"><span class="annottext">Int -&gt; DnsConfigChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222378"><span id="local-6989586621679222380"><span id="local-6989586621679222382"><span class="annot"><span class="annottext">Int -&gt; DnsConfigChange -&gt; ShowS
 [DnsConfigChange] -&gt; ShowS
 DnsConfigChange -&gt; String
 (Int -&gt; DnsConfigChange -&gt; ShowS)
@@ -118,16 +118,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DnsConfigChange -&gt; [DnsRecord] -&gt; DnsConfigChange)
 -&gt; Lens DnsConfigChange DnsConfigChange [DnsRecord] [DnsRecord]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-type">DnsConfigChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222360"><span class="annot"><span class="annottext">[DnsRecord]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-type">DnsConfigChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222369"><span class="annot"><span class="annottext">[DnsRecord]
 dnsRecords :: [DnsRecord]
 $sel:dnsRecords:DnsConfigChange' :: DnsConfigChange -&gt; [DnsRecord]
-</span><a href="#local-6989586621679222360"><span class="hs-identifier hs-var hs-var">dnsRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DnsRecord]
-</span><a href="#local-6989586621679222360"><span class="hs-identifier hs-var">dnsRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222359"><span class="annot"><span class="annottext">s :: DnsConfigChange
-</span><a href="#local-6989586621679222359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-type">DnsConfigChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222358"><span class="annot"><span class="annottext">[DnsRecord]
-</span><a href="#local-6989586621679222358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsConfigChange
-</span><a href="#local-6989586621679222359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsRecords:DnsConfigChange' :: [DnsRecord]
+</span><a href="#local-6989586621679222369"><span class="hs-identifier hs-var hs-var">dnsRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DnsRecord]
+</span><a href="#local-6989586621679222369"><span class="hs-identifier hs-var">dnsRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222368"><span class="annot"><span class="annottext">s :: DnsConfigChange
+</span><a href="#local-6989586621679222368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-type">DnsConfigChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222367"><span class="annot"><span class="annottext">[DnsRecord]
+</span><a href="#local-6989586621679222367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsConfigChange
+</span><a href="#local-6989586621679222368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsRecords:DnsConfigChange' :: [DnsRecord]
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#%24sel%3AdnsRecords%3ADnsConfigChange%27"><span class="hs-identifier hs-var">dnsRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DnsRecord]
-</span><a href="#local-6989586621679222358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DnsRecord] -&gt; f [DnsRecord])
+</span><a href="#local-6989586621679222367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DnsRecord] -&gt; f [DnsRecord])
  -&gt; DnsConfigChange -&gt; f DnsConfigChange)
 -&gt; (([DnsRecord] -&gt; f [DnsRecord]) -&gt; [DnsRecord] -&gt; f [DnsRecord])
 -&gt; ([DnsRecord] -&gt; f [DnsRecord])
@@ -138,16 +138,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222352"><span id="local-6989586621679222354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222361"><span id="local-6989586621679222363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222341"><span id="local-6989586621679222343"><span id="local-6989586621679222345"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679222339"><span class="annot"><span class="annottext">toJSON :: DnsConfigChange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-type">DnsConfigChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222337"><span class="annot"><span class="annottext">[DnsRecord]
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222350"><span id="local-6989586621679222352"><span id="local-6989586621679222354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange"><span class="hs-identifier hs-type">DnsConfigChange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679222348"><span class="annot"><span class="annottext">toJSON :: DnsConfigChange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsConfigChange.html#DnsConfigChange%27"><span class="hs-identifier hs-type">DnsConfigChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222346"><span class="annot"><span class="annottext">[DnsRecord]
 dnsRecords :: [DnsRecord]
 $sel:dnsRecords:DnsConfigChange' :: DnsConfigChange -&gt; [DnsRecord]
-</span><a href="#local-6989586621679222337"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222346"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -159,6 +159,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DnsRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DnsRecord] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[DnsRecord]
-</span><a href="#local-6989586621679222337"><span class="hs-identifier hs-var">dnsRecords</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679222346"><span class="hs-identifier hs-var">dnsRecords</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span></pre></body></html>

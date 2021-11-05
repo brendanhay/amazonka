@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | The input for the GetTopicRule operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetTopicRule' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679830510"><span id="local-6989586621679830511"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicRule"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-var">GetTopicRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicRule%27"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-var">GetTopicRule'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679830519"><span id="local-6989586621679830520"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicRule"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-var">GetTopicRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicRule%27"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-var">GetTopicRule'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the rule.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AruleName%3AGetTopicRule%27"><span class="annot"><span class="annottext">GetTopicRule -&gt; Text
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3AruleName%3AGetTopicRule%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830504"><span id="local-6989586621679830506"><span class="annot"><span class="annottext">GetTopicRule -&gt; GetTopicRule -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830513"><span id="local-6989586621679830515"><span class="annot"><span class="annottext">GetTopicRule -&gt; GetTopicRule -&gt; Bool
 (GetTopicRule -&gt; GetTopicRule -&gt; Bool)
 -&gt; (GetTopicRule -&gt; GetTopicRule -&gt; Bool) -&gt; Eq GetTopicRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTopicRule -&gt; GetTopicRule -&gt; Bool
 == :: GetTopicRule -&gt; GetTopicRule -&gt; Bool
 $c== :: GetTopicRule -&gt; GetTopicRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830495"><span id="local-6989586621679830497"><span id="local-6989586621679830499"><span id="local-6989586621679830501"><span class="annot"><span class="annottext">ReadPrec [GetTopicRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830504"><span id="local-6989586621679830506"><span id="local-6989586621679830508"><span id="local-6989586621679830510"><span class="annot"><span class="annottext">ReadPrec [GetTopicRule]
 ReadPrec GetTopicRule
 Int -&gt; ReadS GetTopicRule
 ReadS [GetTopicRule]
@@ -87,7 +87,7 @@ readList :: ReadS [GetTopicRule]
 $creadList :: ReadS [GetTopicRule]
 readsPrec :: Int -&gt; ReadS GetTopicRule
 $creadsPrec :: Int -&gt; ReadS GetTopicRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830488"><span id="local-6989586621679830490"><span id="local-6989586621679830492"><span class="annot"><span class="annottext">Int -&gt; GetTopicRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830497"><span id="local-6989586621679830499"><span id="local-6989586621679830501"><span class="annot"><span class="annottext">Int -&gt; GetTopicRule -&gt; ShowS
 [GetTopicRule] -&gt; ShowS
 GetTopicRule -&gt; String
 (Int -&gt; GetTopicRule -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. GetTopicRule -&gt; Rep GetTopicRule x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span>
 </span><span id="line-76"></span><span id="newGetTopicRule"><span class="annot"><span class="annottext">newGetTopicRule :: Text -&gt; GetTopicRule
-</span><a href="Network.AWS.IoT.GetTopicRule.html#newGetTopicRule"><span class="hs-identifier hs-var hs-var">newGetTopicRule</span></a></span></span><span> </span><span id="local-6989586621679830483"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830483"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetTopicRule.html#newGetTopicRule"><span class="hs-identifier hs-var hs-var">newGetTopicRule</span></a></span></span><span> </span><span id="local-6989586621679830492"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679830492"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetTopicRule' :: Text -&gt; GetTopicRule
 </span><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-type">GetTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:GetTopicRule' :: Text
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3AruleName%3AGetTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830483"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679830492"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The name of the rule.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#getTopicRule_ruleName"><span class="hs-identifier hs-type">getTopicRule_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -141,25 +141,25 @@ $cfrom :: forall x. GetTopicRule -&gt; Rep GetTopicRule x
 -&gt; (GetTopicRule -&gt; Text -&gt; GetTopicRule)
 -&gt; Lens GetTopicRule GetTopicRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-type">GetTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830480"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-type">GetTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830489"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 $sel:ruleName:GetTopicRule' :: GetTopicRule -&gt; Text
-</span><a href="#local-6989586621679830480"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830480"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830479"><span class="annot"><span class="annottext">s :: GetTopicRule
-</span><a href="#local-6989586621679830479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-type">GetTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830478"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRule
-</span><a href="#local-6989586621679830479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:GetTopicRule' :: Text
+</span><a href="#local-6989586621679830489"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679830489"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830488"><span class="annot"><span class="annottext">s :: GetTopicRule
+</span><a href="#local-6989586621679830488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-type">GetTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830487"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679830487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRule
+</span><a href="#local-6989586621679830488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:GetTopicRule' :: Text
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3AruleName%3AGetTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679830474"><span class="annot"><span class="annottext">request :: GetTopicRule -&gt; Request GetTopicRule
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679830483"><span class="annot"><span class="annottext">request :: GetTopicRule -&gt; Request GetTopicRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTopicRule -&gt; Request GetTopicRule
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679830470"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679830479"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTopicRule
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679830467"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830467"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679830466"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679830466"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679830465"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830465"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679830476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830476"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679830475"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679830475"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679830474"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679830474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe TopicRule -&gt; Maybe Text -&gt; Int -&gt; GetTopicRuleResponse
 </span><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-var">GetTopicRuleResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TopicRule -&gt; Maybe Text -&gt; Int -&gt; GetTopicRuleResponse)
@@ -194,7 +194,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetTopicRuleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TopicRule)
+</span><a href="#local-6989586621679830474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TopicRule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rule&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,7 +203,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetTopicRuleResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679830474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ruleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,15 +215,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830467"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830476"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830457"><span id="local-6989586621679830459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830466"><span id="local-6989586621679830468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679830450"><span class="annot"><span class="annottext">toHeaders :: GetTopicRule -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679830459"><span class="annot"><span class="annottext">toHeaders :: GetTopicRule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTopicRule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -231,21 +231,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679830445"><span class="annot"><span class="annottext">toPath :: GetTopicRule -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-type">GetTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830443"><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679830454"><span class="annot"><span class="annottext">toPath :: GetTopicRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule%27"><span class="hs-identifier hs-type">GetTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830452"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 $sel:ruleName:GetTopicRule' :: GetTopicRule -&gt; Text
-</span><a href="#local-6989586621679830443"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679830452"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/rules/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830443"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679830452"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRule"><span class="hs-identifier hs-type">GetTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679830439"><span class="annot"><span class="annottext">toQuery :: GetTopicRule -&gt; QueryString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679830448"><span class="annot"><span class="annottext">toQuery :: GetTopicRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTopicRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-109"></span><span class="hs-comment">-- | The output from the GetTopicRule operation.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- /See:/ 'newGetTopicRuleResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679830436"><span id="local-6989586621679830437"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicRuleResponse"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-var">GetTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicRuleResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-var">GetTopicRuleResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679830445"><span id="local-6989586621679830446"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicRuleResponse"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-var">GetTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicRuleResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-var">GetTopicRuleResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rule.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3Arule%3AGetTopicRuleResponse%27"><span class="annot"><span class="annottext">GetTopicRuleResponse -&gt; Maybe TopicRule
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3Arule%3AGetTopicRuleResponse%27"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRule.html#TopicRule"><span class="hs-identifier hs-type">TopicRule</span></a></span><span class="hs-special">,</span><span>
@@ -266,7 +266,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTopicRuleResponse%27"><span class="annot"><span class="annottext">GetTopicRuleResponse -&gt; Int
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3AhttpStatus%3AGetTopicRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830429"><span id="local-6989586621679830431"><span class="annot"><span class="annottext">GetTopicRuleResponse -&gt; GetTopicRuleResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830438"><span id="local-6989586621679830440"><span class="annot"><span class="annottext">GetTopicRuleResponse -&gt; GetTopicRuleResponse -&gt; Bool
 (GetTopicRuleResponse -&gt; GetTopicRuleResponse -&gt; Bool)
 -&gt; (GetTopicRuleResponse -&gt; GetTopicRuleResponse -&gt; Bool)
 -&gt; Eq GetTopicRuleResponse
@@ -275,7 +275,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTopicRuleResponse -&gt; GetTopicRuleResponse -&gt; Bool
 == :: GetTopicRuleResponse -&gt; GetTopicRuleResponse -&gt; Bool
 $c== :: GetTopicRuleResponse -&gt; GetTopicRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830421"><span id="local-6989586621679830423"><span id="local-6989586621679830425"><span id="local-6989586621679830427"><span class="annot"><span class="annottext">ReadPrec [GetTopicRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830430"><span id="local-6989586621679830432"><span id="local-6989586621679830434"><span id="local-6989586621679830436"><span class="annot"><span class="annottext">ReadPrec [GetTopicRuleResponse]
 ReadPrec GetTopicRuleResponse
 Int -&gt; ReadS GetTopicRuleResponse
 ReadS [GetTopicRuleResponse]
@@ -295,7 +295,7 @@ readList :: ReadS [GetTopicRuleResponse]
 $creadList :: ReadS [GetTopicRuleResponse]
 readsPrec :: Int -&gt; ReadS GetTopicRuleResponse
 $creadsPrec :: Int -&gt; ReadS GetTopicRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830415"><span id="local-6989586621679830417"><span id="local-6989586621679830419"><span class="annot"><span class="annottext">Int -&gt; GetTopicRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830424"><span id="local-6989586621679830426"><span id="local-6989586621679830428"><span class="annot"><span class="annottext">Int -&gt; GetTopicRuleResponse -&gt; ShowS
 [GetTopicRuleResponse] -&gt; ShowS
 GetTopicRuleResponse -&gt; String
 (Int -&gt; GetTopicRuleResponse -&gt; ShowS)
@@ -339,8 +339,8 @@ $cfrom :: forall x. GetTopicRuleResponse -&gt; Rep GetTopicRuleResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newGetTopicRuleResponse"><span class="annot"><span class="annottext">newGetTopicRuleResponse :: Int -&gt; GetTopicRuleResponse
-</span><a href="Network.AWS.IoT.GetTopicRule.html#newGetTopicRuleResponse"><span class="hs-identifier hs-var hs-var">newGetTopicRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679830412"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830412"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetTopicRule.html#newGetTopicRuleResponse"><span class="hs-identifier hs-var hs-var">newGetTopicRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679830421"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">GetTopicRuleResponse' :: Maybe TopicRule -&gt; Maybe Text -&gt; Int -&gt; GetTopicRuleResponse
 </span><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rule:GetTopicRuleResponse' :: Maybe TopicRule
@@ -353,7 +353,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTopicRuleResponse' :: Int
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3AhttpStatus%3AGetTopicRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830412"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679830421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The rule.</span><span>
@@ -369,16 +369,16 @@ forall a. Maybe a
      (Maybe TopicRule)
      (Maybe TopicRule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830411"><span class="annot"><span class="annottext">Maybe TopicRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830420"><span class="annot"><span class="annottext">Maybe TopicRule
 rule :: Maybe TopicRule
 $sel:rule:GetTopicRuleResponse' :: GetTopicRuleResponse -&gt; Maybe TopicRule
-</span><a href="#local-6989586621679830411"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TopicRule
-</span><a href="#local-6989586621679830411"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830410"><span class="annot"><span class="annottext">s :: GetTopicRuleResponse
-</span><a href="#local-6989586621679830410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830409"><span class="annot"><span class="annottext">Maybe TopicRule
-</span><a href="#local-6989586621679830409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRuleResponse
-</span><a href="#local-6989586621679830410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:GetTopicRuleResponse' :: Maybe TopicRule
+</span><a href="#local-6989586621679830420"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TopicRule
+</span><a href="#local-6989586621679830420"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830419"><span class="annot"><span class="annottext">s :: GetTopicRuleResponse
+</span><a href="#local-6989586621679830419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830418"><span class="annot"><span class="annottext">Maybe TopicRule
+</span><a href="#local-6989586621679830418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRuleResponse
+</span><a href="#local-6989586621679830419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:GetTopicRuleResponse' :: Maybe TopicRule
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3Arule%3AGetTopicRuleResponse%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TopicRule
-</span><a href="#local-6989586621679830409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The rule ARN.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#getTopicRuleResponse_ruleArn"><span class="hs-identifier hs-type">getTopicRuleResponse_ruleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -389,16 +389,16 @@ $sel:rule:GetTopicRuleResponse' :: GetTopicRuleResponse -&gt; Maybe TopicRule
 -&gt; Lens
      GetTopicRuleResponse GetTopicRuleResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830408"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830417"><span class="annot"><span class="annottext">Maybe Text
 ruleArn :: Maybe Text
 $sel:ruleArn:GetTopicRuleResponse' :: GetTopicRuleResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679830408"><span class="hs-identifier hs-var hs-var">ruleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830408"><span class="hs-identifier hs-var">ruleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830407"><span class="annot"><span class="annottext">s :: GetTopicRuleResponse
-</span><a href="#local-6989586621679830407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830406"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRuleResponse
-</span><a href="#local-6989586621679830407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleArn:GetTopicRuleResponse' :: Maybe Text
+</span><a href="#local-6989586621679830417"><span class="hs-identifier hs-var hs-var">ruleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830417"><span class="hs-identifier hs-var">ruleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830416"><span class="annot"><span class="annottext">s :: GetTopicRuleResponse
+</span><a href="#local-6989586621679830416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830415"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRuleResponse
+</span><a href="#local-6989586621679830416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleArn:GetTopicRuleResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3AruleArn%3AGetTopicRuleResponse%27"><span class="hs-identifier hs-var">ruleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#getTopicRuleResponse_httpStatus"><span class="hs-identifier hs-type">getTopicRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -407,16 +407,16 @@ $sel:ruleArn:GetTopicRuleResponse' :: GetTopicRuleResponse -&gt; Maybe Text
 -&gt; (GetTopicRuleResponse -&gt; Int -&gt; GetTopicRuleResponse)
 -&gt; Lens GetTopicRuleResponse GetTopicRuleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830405"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830414"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTopicRuleResponse' :: GetTopicRuleResponse -&gt; Int
-</span><a href="#local-6989586621679830405"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830405"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830404"><span class="annot"><span class="annottext">s :: GetTopicRuleResponse
-</span><a href="#local-6989586621679830404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830403"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRuleResponse
-</span><a href="#local-6989586621679830404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTopicRuleResponse' :: Int
+</span><a href="#local-6989586621679830414"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830414"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830413"><span class="annot"><span class="annottext">s :: GetTopicRuleResponse
+</span><a href="#local-6989586621679830413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse%27"><span class="hs-identifier hs-type">GetTopicRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830412"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicRuleResponse
+</span><a href="#local-6989586621679830413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTopicRuleResponse' :: Int
 </span><a href="Network.AWS.IoT.GetTopicRule.html#%24sel%3AhttpStatus%3AGetTopicRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetTopicRule.html#GetTopicRuleResponse"><span class="hs-identifier hs-type">GetTopicRuleResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

@@ -125,7 +125,7 @@
 </span><span id="line-125"></span><span class="hs-comment">-- | Represents the input of a @Query@ operation.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newQuery' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679387774"><span id="local-6989586621679387775"></span></span><span class="hs-keyword">data</span><span> </span><span id="Query"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-var">Query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Query%27"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-var">Query'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679387783"><span id="local-6989586621679387784"></span></span><span class="hs-keyword">data</span><span> </span><span id="Query"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-var">Query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Query%27"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-var">Query'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions&gt;</span><span>
@@ -421,14 +421,14 @@
 </span><span id="line-405"></span><span>    </span><span id="%24sel%3AtableName%3AQuery%27"><span class="annot"><span class="annottext">Query -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AtableName%3AQuery%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-406"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-407"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387752"><span id="local-6989586621679387754"><span class="annot"><span class="annottext">Query -&gt; Query -&gt; Bool
+</span><span id="line-407"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387761"><span id="local-6989586621679387763"><span class="annot"><span class="annottext">Query -&gt; Query -&gt; Bool
 (Query -&gt; Query -&gt; Bool) -&gt; (Query -&gt; Query -&gt; Bool) -&gt; Eq Query
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Query -&gt; Query -&gt; Bool
 $c/= :: Query -&gt; Query -&gt; Bool
 == :: Query -&gt; Query -&gt; Bool
 $c== :: Query -&gt; Query -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387743"><span id="local-6989586621679387745"><span id="local-6989586621679387747"><span id="local-6989586621679387749"><span class="annot"><span class="annottext">ReadPrec [Query]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387752"><span id="local-6989586621679387754"><span id="local-6989586621679387756"><span id="local-6989586621679387758"><span class="annot"><span class="annottext">ReadPrec [Query]
 ReadPrec Query
 Int -&gt; ReadS Query
 ReadS [Query]
@@ -448,7 +448,7 @@ readList :: ReadS [Query]
 $creadList :: ReadS [Query]
 readsPrec :: Int -&gt; ReadS Query
 $creadsPrec :: Int -&gt; ReadS Query
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387736"><span id="local-6989586621679387738"><span id="local-6989586621679387740"><span class="annot"><span class="annottext">Int -&gt; Query -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387745"><span id="local-6989586621679387747"><span id="local-6989586621679387749"><span class="annot"><span class="annottext">Int -&gt; Query -&gt; ShowS
 [Query] -&gt; ShowS
 Query -&gt; String
 (Int -&gt; Query -&gt; ShowS)
@@ -761,8 +761,8 @@ $cfrom :: forall x. Query -&gt; Rep Query x
 </span><span id="line-696"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-697"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span>
 </span><span id="line-698"></span><span id="newQuery"><span class="annot"><span class="annottext">newQuery :: Text -&gt; Query
-</span><a href="Network.AWS.DynamoDB.Query.html#newQuery"><span class="hs-identifier hs-var hs-var">newQuery</span></a></span></span><span> </span><span id="local-6989586621679387731"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Query.html#newQuery"><span class="hs-identifier hs-var hs-var">newQuery</span></a></span></span><span> </span><span id="local-6989586621679387740"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387740"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-699"></span><span>  </span><span class="annot"><span class="annottext">Query' :: Maybe (HashMap Text Condition)
 -&gt; Maybe Text
 -&gt; Maybe (NonEmpty Text)
@@ -848,7 +848,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-716"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:Query' :: Text
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AtableName%3AQuery%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><a href="#local-6989586621679387740"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
 </span><span id="line-717"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-718"></span><span>
 </span><span id="line-719"></span><span class="hs-comment">-- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For</span><span>
@@ -867,16 +867,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Condition))
      (Maybe (HashMap Text Condition))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387729"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387738"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
 keyConditions :: Maybe (HashMap Text Condition)
 $sel:keyConditions:Query' :: Query -&gt; Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387729"><span class="hs-identifier hs-var hs-var">keyConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387729"><span class="hs-identifier hs-var">keyConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387728"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387727"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyConditions:Query' :: Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387738"><span class="hs-identifier hs-var hs-var">keyConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387738"><span class="hs-identifier hs-var">keyConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387737"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387736"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyConditions:Query' :: Maybe (HashMap Text Condition)
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AkeyConditions%3AQuery%27"><span class="hs-identifier hs-var">keyConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
   -&gt; f (Maybe (HashMap Text Condition)))
  -&gt; Query -&gt; f Query)
 -&gt; ((Maybe (HashMap Text Condition)
@@ -926,16 +926,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Query -&gt; Maybe Text -&gt; Query)
 -&gt; Lens Query Query (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387723"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387732"><span class="annot"><span class="annottext">Maybe Text
 projectionExpression :: Maybe Text
 $sel:projectionExpression:Query' :: Query -&gt; Maybe Text
-</span><a href="#local-6989586621679387723"><span class="hs-identifier hs-var hs-var">projectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387723"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387722"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387721"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionExpression:Query' :: Maybe Text
+</span><a href="#local-6989586621679387732"><span class="hs-identifier hs-var hs-var">projectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387732"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387731"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387730"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionExpression:Query' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AprojectionExpression%3AQuery%27"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-739"></span><span>
 </span><span id="line-740"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more</span><span>
 </span><span id="line-741"></span><span class="hs-comment">-- information, see</span><span>
@@ -948,16 +948,16 @@ $sel:projectionExpression:Query' :: Query -&gt; Maybe Text
 -&gt; (Query -&gt; Maybe (NonEmpty Text) -&gt; Query)
 -&gt; Lens Query Query (Maybe (NonEmpty Text)) (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387720"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387729"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 attributesToGet :: Maybe (NonEmpty Text)
 $sel:attributesToGet:Query' :: Query -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387720"><span class="hs-identifier hs-var hs-var">attributesToGet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387720"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387719"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387718"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesToGet:Query' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679387729"><span class="hs-identifier hs-var hs-var">attributesToGet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679387729"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387728"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387727"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679387727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesToGet:Query' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AattributesToGet%3AQuery%27"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679387727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; Query -&gt; f Query)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -1025,16 +1025,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      Query Query (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387717"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387726"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 expressionAttributeNames :: Maybe (HashMap Text Text)
 $sel:expressionAttributeNames:Query' :: Query -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679387717"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679387717"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387716"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387715"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Query' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679387726"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679387726"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387725"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387724"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679387724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Query' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AexpressionAttributeNames%3AQuery%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679387724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Query -&gt; f Query)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -1083,16 +1083,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Query -&gt; Maybe Text -&gt; Query)
 -&gt; Lens Query Query (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387714"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387723"><span class="annot"><span class="annottext">Maybe Text
 filterExpression :: Maybe Text
 $sel:filterExpression:Query' :: Query -&gt; Maybe Text
-</span><a href="#local-6989586621679387714"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387714"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387713"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387712"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:Query' :: Maybe Text
+</span><a href="#local-6989586621679387723"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387723"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387722"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:Query' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AfilterExpression%3AQuery%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-803"></span><span>
 </span><span id="line-804"></span><span class="hs-comment">-- | This is a legacy parameter. Use @FilterExpression@ instead. For more</span><span>
 </span><span id="line-805"></span><span class="hs-comment">-- information, see</span><span>
@@ -1110,16 +1110,16 @@ $sel:filterExpression:Query' :: Query -&gt; Maybe Text
      (Maybe (HashMap Text Condition))
      (Maybe (HashMap Text Condition))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387711"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387720"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
 queryFilter :: Maybe (HashMap Text Condition)
 $sel:queryFilter:Query' :: Query -&gt; Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387711"><span class="hs-identifier hs-var hs-var">queryFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387711"><span class="hs-identifier hs-var">queryFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387710"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387709"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryFilter:Query' :: Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387720"><span class="hs-identifier hs-var hs-var">queryFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387720"><span class="hs-identifier hs-var">queryFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387719"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387718"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryFilter:Query' :: Maybe (HashMap Text Condition)
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AqueryFilter%3AQuery%27"><span class="hs-identifier hs-var">queryFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679387718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
   -&gt; f (Maybe (HashMap Text Condition)))
  -&gt; Query -&gt; f Query)
 -&gt; ((Maybe (HashMap Text Condition)
@@ -1165,16 +1165,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Query -&gt; Maybe Bool -&gt; Query)
 -&gt; Lens Query Query (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387708"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387717"><span class="annot"><span class="annottext">Maybe Bool
 consistentRead :: Maybe Bool
 $sel:consistentRead:Query' :: Query -&gt; Maybe Bool
-</span><a href="#local-6989586621679387708"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387708"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387707"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387706"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:Query' :: Maybe Bool
+</span><a href="#local-6989586621679387717"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387717"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387716"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387715"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:Query' :: Maybe Bool
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AconsistentRead%3AQuery%27"><span class="hs-identifier hs-var">consistentRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-820"></span><span>
 </span><span id="line-821"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
 </span><span id="line-822"></span><span class="hs-comment">--</span><span>
@@ -1207,16 +1207,16 @@ $sel:consistentRead:Query' :: Query -&gt; Maybe Bool
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387705"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387714"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
 $sel:expressionAttributeValues:Query' :: Query -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387705"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387705"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387704"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387703"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Query' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387714"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387714"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387713"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387712"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Query' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AexpressionAttributeValues%3AQuery%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; Query -&gt; f Query)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -1261,16 +1261,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ReturnConsumedCapacity)
      (Maybe ReturnConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387702"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387711"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:returnConsumedCapacity:Query' :: Query -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679387702"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679387702"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387701"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387700"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679387700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:Query' :: Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679387711"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679387711"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387710"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387709"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679387709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:Query' :: Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AreturnConsumedCapacity%3AQuery%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679387700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-846"></span><span>
 </span><span id="line-847"></span><span class="hs-comment">-- | Specifies the order for index traversal: If @true@ (default), the</span><span>
 </span><span id="line-848"></span><span class="hs-comment">-- traversal is performed in ascending order; if @false@, the traversal is</span><span>
@@ -1293,16 +1293,16 @@ $sel:returnConsumedCapacity:Query' :: Query -&gt; Maybe ReturnConsumedCapacity
 -&gt; (Query -&gt; Maybe Bool -&gt; Query)
 -&gt; Lens Query Query (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387699"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387708"><span class="annot"><span class="annottext">Maybe Bool
 scanIndexForward :: Maybe Bool
 $sel:scanIndexForward:Query' :: Query -&gt; Maybe Bool
-</span><a href="#local-6989586621679387699"><span class="hs-identifier hs-var hs-var">scanIndexForward</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387699"><span class="hs-identifier hs-var">scanIndexForward</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387698"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387697"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanIndexForward:Query' :: Maybe Bool
+</span><a href="#local-6989586621679387708"><span class="hs-identifier hs-var hs-var">scanIndexForward</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387708"><span class="hs-identifier hs-var">scanIndexForward</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387707"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387706"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanIndexForward:Query' :: Maybe Bool
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AscanIndexForward%3AQuery%27"><span class="hs-identifier hs-var">scanIndexForward</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-864"></span><span>
 </span><span id="line-865"></span><span class="hs-comment">-- | The maximum number of items to evaluate (not necessarily the number of</span><span>
 </span><span id="line-866"></span><span class="hs-comment">-- matching items). If DynamoDB processes the number of items up to the</span><span>
@@ -1322,16 +1322,16 @@ $sel:scanIndexForward:Query' :: Query -&gt; Maybe Bool
 -&gt; (Query -&gt; Maybe Natural -&gt; Query)
 -&gt; Lens Query Query (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387696"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387705"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:Query' :: Query -&gt; Maybe Natural
-</span><a href="#local-6989586621679387696"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679387696"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387695"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387694"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679387694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:Query' :: Maybe Natural
+</span><a href="#local-6989586621679387705"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679387705"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387704"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387703"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679387703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:Query' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3Alimit%3AQuery%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679387694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-879"></span><span>
 </span><span id="line-880"></span><span class="hs-comment">-- | The attributes to be returned in the result. You can retrieve all item</span><span>
 </span><span id="line-881"></span><span class="hs-comment">-- attributes, specific item attributes, the count of matching items, or in</span><span>
@@ -1384,16 +1384,16 @@ $sel:limit:Query' :: Query -&gt; Maybe Natural
 -&gt; (Query -&gt; Maybe Select -&gt; Query)
 -&gt; Lens Query Query (Maybe Select) (Maybe Select)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387693"><span class="annot"><span class="annottext">Maybe Select
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387702"><span class="annot"><span class="annottext">Maybe Select
 select :: Maybe Select
 $sel:select:Query' :: Query -&gt; Maybe Select
-</span><a href="#local-6989586621679387693"><span class="hs-identifier hs-var hs-var">select</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679387693"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387692"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387691"><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:select:Query' :: Maybe Select
+</span><a href="#local-6989586621679387702"><span class="hs-identifier hs-var hs-var">select</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Select
+</span><a href="#local-6989586621679387702"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387701"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387700"><span class="annot"><span class="annottext">Maybe Select
+</span><a href="#local-6989586621679387700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:select:Query' :: Maybe Select
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3Aselect%3AQuery%27"><span class="hs-identifier hs-var">select</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-927"></span><span>
 </span><span id="line-928"></span><span class="hs-comment">-- | The condition that specifies the key values for items to be retrieved by</span><span>
 </span><span id="line-929"></span><span class="hs-comment">-- the @Query@ action.</span><span>
@@ -1475,16 +1475,16 @@ $sel:select:Query' :: Query -&gt; Maybe Select
 -&gt; (Query -&gt; Maybe Text -&gt; Query)
 -&gt; Lens Query Query (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387690"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387699"><span class="annot"><span class="annottext">Maybe Text
 keyConditionExpression :: Maybe Text
 $sel:keyConditionExpression:Query' :: Query -&gt; Maybe Text
-</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var hs-var">keyConditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var">keyConditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387689"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387688"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyConditionExpression:Query' :: Maybe Text
+</span><a href="#local-6989586621679387699"><span class="hs-identifier hs-var hs-var">keyConditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387699"><span class="hs-identifier hs-var">keyConditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387698"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387697"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyConditionExpression:Query' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AkeyConditionExpression%3AQuery%27"><span class="hs-identifier hs-var">keyConditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1004"></span><span>
 </span><span id="line-1005"></span><span class="hs-comment">-- | This is a legacy parameter. Use @FilterExpression@ instead. For more</span><span>
 </span><span id="line-1006"></span><span class="hs-comment">-- information, see</span><span>
@@ -1498,16 +1498,16 @@ $sel:keyConditionExpression:Query' :: Query -&gt; Maybe Text
 -&gt; Lens
      Query Query (Maybe ConditionalOperator) (Maybe ConditionalOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387687"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387696"><span class="annot"><span class="annottext">Maybe ConditionalOperator
 conditionalOperator :: Maybe ConditionalOperator
 $sel:conditionalOperator:Query' :: Query -&gt; Maybe ConditionalOperator
-</span><a href="#local-6989586621679387687"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679387687"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387686"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387685"><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679387685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:Query' :: Maybe ConditionalOperator
+</span><a href="#local-6989586621679387696"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679387696"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387695"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387694"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679387694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:Query' :: Maybe ConditionalOperator
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AconditionalOperator%3AQuery%27"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679387685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1011"></span><span>
 </span><span id="line-1012"></span><span class="hs-comment">-- | The primary key of the first item that this operation will evaluate. Use</span><span>
 </span><span id="line-1013"></span><span class="hs-comment">-- the value that was returned for @LastEvaluatedKey@ in the previous</span><span>
@@ -1527,16 +1527,16 @@ $sel:conditionalOperator:Query' :: Query -&gt; Maybe ConditionalOperator
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387684"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387693"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 exclusiveStartKey :: Maybe (HashMap Text AttributeValue)
 $sel:exclusiveStartKey:Query' :: Query -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387684"><span class="hs-identifier hs-var hs-var">exclusiveStartKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387684"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387683"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387682"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartKey:Query' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387693"><span class="hs-identifier hs-var hs-var">exclusiveStartKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387693"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387692"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387691"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartKey:Query' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AexclusiveStartKey%3AQuery%27"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; Query -&gt; f Query)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -1578,16 +1578,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Query -&gt; Maybe Text -&gt; Query)
 -&gt; Lens Query Query (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387681"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387690"><span class="annot"><span class="annottext">Maybe Text
 indexName :: Maybe Text
 $sel:indexName:Query' :: Query -&gt; Maybe Text
-</span><a href="#local-6989586621679387681"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387681"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387680"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387679"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:Query' :: Maybe Text
+</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387689"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:Query' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AindexName%3AQuery%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1026"></span><span>
 </span><span id="line-1027"></span><span class="hs-comment">-- | The name of the table containing the requested items.</span><span>
 </span><span id="line-1028"></span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#query_tableName"><span class="hs-identifier hs-type">query_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -1595,28 +1595,28 @@ $sel:indexName:Query' :: Query -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Query.html#query_tableName"><span class="hs-identifier hs-var hs-var">query_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Query -&gt; Text)
 -&gt; (Query -&gt; Text -&gt; Query) -&gt; Lens Query Query Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387678"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387687"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:Query' :: Query -&gt; Text
-</span><a href="#local-6989586621679387678"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387678"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387677"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679387677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387676"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Query' :: Text
+</span><a href="#local-6989586621679387687"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387687"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387686"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679387686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Query' :: Text
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AtableName%3AQuery%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1030"></span><span>
 </span><span id="line-1031"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1032"></span><span>  </span><span id="local-6989586621679387672"><span class="annot"><span class="annottext">page :: Query -&gt; AWSResponse Query -&gt; Maybe Query
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679387670"><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387670"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679387669"><span class="annot"><span class="annottext">AWSResponse Query
-</span><a href="#local-6989586621679387669"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-1032"></span><span>  </span><span id="local-6989586621679387681"><span class="annot"><span class="annottext">page :: Query -&gt; AWSResponse Query -&gt; Maybe Query
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679387679"><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679387679"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679387678"><span class="annot"><span class="annottext">AWSResponse Query
+</span><a href="#local-6989586621679387678"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-1033"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue) -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-1034"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse Query
 QueryResponse
-</span><a href="#local-6989586621679387669"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387678"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-1035"></span><span>            </span><span class="annot"><span class="annottext">QueryResponse
 -&gt; Getting
      (First (HashMap Text AttributeValue))
@@ -1672,7 +1672,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-1040"></span><span>        </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679387670"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679387679"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-1041"></span><span>          </span><span class="annot"><span class="annottext">Query -&gt; (Query -&gt; Query) -&gt; Query
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe (HashMap Text AttributeValue)
@@ -1691,7 +1691,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse Query
 QueryResponse
-</span><a href="#local-6989586621679387669"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387678"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-1043"></span><span>          </span><span class="annot"><span class="annottext">QueryResponse
 -&gt; Getting
      (First (HashMap Text AttributeValue))
@@ -1738,12 +1738,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-1044"></span><span>
 </span><span id="line-1045"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-1046"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span>
-</span><span id="line-1047"></span><span>  </span><span id="local-6989586621679387660"><span class="annot"><span class="annottext">request :: Query -&gt; Request Query
+</span><span id="line-1047"></span><span>  </span><span id="local-6989586621679387669"><span class="annot"><span class="annottext">request :: Query -&gt; Request Query
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Query -&gt; Request Query
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-1048"></span><span>  </span><span id="local-6989586621679387656"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-1048"></span><span>  </span><span id="local-6989586621679387665"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Query
 -&gt; ClientResponse ClientBody
@@ -1765,10 +1765,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-1050"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387653"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387653"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387652"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387652"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387651"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387651"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-1050"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387662"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387662"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387661"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387661"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387660"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-1051"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -1795,7 +1795,7 @@ MonadResource m =&gt;
       -&gt; QueryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -1827,7 +1827,7 @@ forall a. Monoid a =&gt; a
       -&gt; QueryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679387660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
@@ -1845,7 +1845,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe ConsumedCapacity -&gt; Int -&gt; QueryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679387660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScannedCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -1857,7 +1857,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe ConsumedCapacity -&gt; Int -&gt; QueryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [HashMap Text AttributeValue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -1874,7 +1874,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; QueryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
+</span><a href="#local-6989586621679387660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -1886,15 +1886,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387653"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387662"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-1060"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-1061"></span><span>
-</span><span id="line-1062"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387642"><span id="local-6989586621679387644"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span><span>
+</span><span id="line-1062"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387651"><span id="local-6989586621679387653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span><span>
 </span><span id="line-1063"></span><span>
-</span><span id="line-1064"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387639"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span><span>
+</span><span id="line-1064"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span><span>
 </span><span id="line-1065"></span><span>
 </span><span id="line-1066"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1067"></span><span>  </span><span id="local-6989586621679387635"><span class="annot"><span class="annottext">toHeaders :: Query -&gt; ResponseHeaders
+</span><span id="line-1067"></span><span>  </span><span id="local-6989586621679387644"><span class="annot"><span class="annottext">toHeaders :: Query -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1068"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Query -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1919,9 +1919,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-1076"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-1077"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-1078"></span><span>
-</span><span id="line-1079"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387625"><span id="local-6989586621679387627"><span id="local-6989586621679387629"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1080"></span><span>  </span><span id="local-6989586621679387623"><span class="annot"><span class="annottext">toJSON :: Query -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387605"><span id="local-6989586621679387606"><span id="local-6989586621679387607"><span id="local-6989586621679387608"><span id="local-6989586621679387609"><span id="local-6989586621679387610"><span id="local-6989586621679387611"><span id="local-6989586621679387612"><span id="local-6989586621679387613"><span id="local-6989586621679387614"><span id="local-6989586621679387615"><span id="local-6989586621679387616"><span id="local-6989586621679387617"><span id="local-6989586621679387618"><span id="local-6989586621679387619"><span id="local-6989586621679387620"><span id="local-6989586621679387621"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-1079"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387634"><span id="local-6989586621679387636"><span id="local-6989586621679387638"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-1080"></span><span>  </span><span id="local-6989586621679387632"><span class="annot"><span class="annottext">toJSON :: Query -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387614"><span id="local-6989586621679387615"><span id="local-6989586621679387616"><span id="local-6989586621679387617"><span id="local-6989586621679387618"><span id="local-6989586621679387619"><span id="local-6989586621679387620"><span id="local-6989586621679387621"><span id="local-6989586621679387622"><span id="local-6989586621679387623"><span id="local-6989586621679387624"><span id="local-6989586621679387625"><span id="local-6989586621679387626"><span id="local-6989586621679387627"><span id="local-6989586621679387628"><span id="local-6989586621679387629"><span id="local-6989586621679387630"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe (NonEmpty Text)
 Maybe Text
@@ -1966,7 +1966,7 @@ $sel:expressionAttributeNames:Query' :: Query -&gt; Maybe (HashMap Text Text)
 $sel:attributesToGet:Query' :: Query -&gt; Maybe (NonEmpty Text)
 $sel:projectionExpression:Query' :: Query -&gt; Maybe Text
 $sel:keyConditions:Query' :: Query -&gt; Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387605"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387614"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1081"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-1082"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1979,7 +1979,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Condition) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387621"><span class="hs-identifier hs-var">keyConditions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387630"><span class="hs-identifier hs-var">keyConditions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1084"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProjectionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1987,7 +1987,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1085"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387620"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387629"><span class="hs-identifier hs-var">projectionExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1086"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributesToGet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1995,7 +1995,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1087"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387619"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387628"><span class="hs-identifier hs-var">attributesToGet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1088"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2004,7 +2004,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679387618"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387627"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1090"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FilterExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2012,7 +2012,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1091"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387617"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387626"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1092"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Condition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2020,7 +2020,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Condition) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679387616"><span class="hs-identifier hs-var">queryFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387625"><span class="hs-identifier hs-var">queryFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1093"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsistentRead&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2028,7 +2028,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1094"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387615"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387624"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1095"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2037,7 +2037,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387614"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387623"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1097"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnConsumedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnConsumedCapacity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2046,7 +2046,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679387613"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387622"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1099"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScanIndexForward&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2054,21 +2054,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1100"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679387612"><span class="hs-identifier hs-var">scanIndexForward</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387621"><span class="hs-identifier hs-var">scanIndexForward</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679387611"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387620"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Select&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Select -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Select -&gt; Pair) -&gt; Maybe Select -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Select
-</span><a href="#local-6989586621679387610"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387619"><span class="hs-identifier hs-var">select</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyConditionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2076,7 +2076,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1104"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387609"><span class="hs-identifier hs-var">keyConditionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387618"><span class="hs-identifier hs-var">keyConditionExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionalOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConditionalOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2085,7 +2085,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConditionalOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679387608"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387617"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExclusiveStartKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2094,33 +2094,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387607"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387616"><span class="hs-identifier hs-var">exclusiveStartKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387606"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387615"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387605"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387614"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-1112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-1113"></span><span>
 </span><span id="line-1114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1115"></span><span>  </span><span id="local-6989586621679387599"><span class="annot"><span class="annottext">toPath :: Query -&gt; ByteString
+</span><span id="line-1115"></span><span>  </span><span id="local-6989586621679387608"><span class="annot"><span class="annottext">toPath :: Query -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Query -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-1116"></span><span>
 </span><span id="line-1117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1118"></span><span>  </span><span id="local-6989586621679387595"><span class="annot"><span class="annottext">toQuery :: Query -&gt; QueryString
+</span><span id="line-1118"></span><span>  </span><span id="local-6989586621679387604"><span class="annot"><span class="annottext">toQuery :: Query -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; Query -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -2130,7 +2130,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-1120"></span><span class="hs-comment">-- | Represents the output of a @Query@ operation.</span><span>
 </span><span id="line-1121"></span><span class="hs-comment">--</span><span>
 </span><span id="line-1122"></span><span class="hs-comment">-- /See:/ 'newQueryResponse' smart constructor.</span><span>
-</span><span id="line-1123"></span><span id="local-6989586621679387592"><span id="local-6989586621679387593"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryResponse"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-var">QueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-var">QueryResponse'</span></a></span></span><span>
+</span><span id="line-1123"></span><span id="local-6989586621679387601"><span id="local-6989586621679387602"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryResponse"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-var">QueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-var">QueryResponse'</span></a></span></span><span>
 </span><span id="line-1124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The primary key of the item where the operation stopped, inclusive of</span><span>
 </span><span id="line-1125"></span><span>    </span><span class="hs-comment">-- the previous result set. Use this value to start a new operation,</span><span>
 </span><span id="line-1126"></span><span>    </span><span class="hs-comment">-- excluding this value in the new request.</span><span>
@@ -2181,7 +2181,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-1166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AQueryResponse%27"><span class="annot"><span class="annottext">QueryResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AhttpStatus%3AQueryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-1167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-1168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387582"><span id="local-6989586621679387584"><span class="annot"><span class="annottext">QueryResponse -&gt; QueryResponse -&gt; Bool
+</span><span id="line-1168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387591"><span id="local-6989586621679387593"><span class="annot"><span class="annottext">QueryResponse -&gt; QueryResponse -&gt; Bool
 (QueryResponse -&gt; QueryResponse -&gt; Bool)
 -&gt; (QueryResponse -&gt; QueryResponse -&gt; Bool) -&gt; Eq QueryResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -2189,7 +2189,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueryResponse -&gt; QueryResponse -&gt; Bool
 == :: QueryResponse -&gt; QueryResponse -&gt; Bool
 $c== :: QueryResponse -&gt; QueryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387574"><span id="local-6989586621679387576"><span id="local-6989586621679387578"><span id="local-6989586621679387580"><span class="annot"><span class="annottext">ReadPrec [QueryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387583"><span id="local-6989586621679387585"><span id="local-6989586621679387587"><span id="local-6989586621679387589"><span class="annot"><span class="annottext">ReadPrec [QueryResponse]
 ReadPrec QueryResponse
 Int -&gt; ReadS QueryResponse
 ReadS [QueryResponse]
@@ -2209,7 +2209,7 @@ readList :: ReadS [QueryResponse]
 $creadList :: ReadS [QueryResponse]
 readsPrec :: Int -&gt; ReadS QueryResponse
 $creadsPrec :: Int -&gt; ReadS QueryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387568"><span id="local-6989586621679387570"><span id="local-6989586621679387572"><span class="annot"><span class="annottext">Int -&gt; QueryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387577"><span id="local-6989586621679387579"><span id="local-6989586621679387581"><span class="annot"><span class="annottext">Int -&gt; QueryResponse -&gt; ShowS
 [QueryResponse] -&gt; ShowS
 QueryResponse -&gt; String
 (Int -&gt; QueryResponse -&gt; ShowS)
@@ -2290,8 +2290,8 @@ $cfrom :: forall x. QueryResponse -&gt; Rep QueryResponse x
 </span><span id="line-1222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-1223"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span>
 </span><span id="line-1224"></span><span id="newQueryResponse"><span class="annot"><span class="annottext">newQueryResponse :: Int -&gt; QueryResponse
-</span><a href="Network.AWS.DynamoDB.Query.html#newQueryResponse"><span class="hs-identifier hs-var hs-var">newQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679387565"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Query.html#newQueryResponse"><span class="hs-identifier hs-var hs-var">newQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679387574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1225"></span><span>  </span><span class="annot"><span class="annottext">QueryResponse' :: Maybe (HashMap Text AttributeValue)
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -2322,7 +2322,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-1231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:QueryResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AhttpStatus%3AQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679387574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-1232"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-1233"></span><span>
 </span><span id="line-1234"></span><span class="hs-comment">-- | The primary key of the item where the operation stopped, inclusive of</span><span>
@@ -2344,16 +2344,16 @@ forall a. Maybe a
     -&gt; Maybe (HashMap Text AttributeValue) -&gt; QueryResponse)
 -&gt; Lens' QueryResponse (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387564"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387573"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 lastEvaluatedKey :: Maybe (HashMap Text AttributeValue)
 $sel:lastEvaluatedKey:QueryResponse' :: QueryResponse -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387564"><span class="hs-identifier hs-var hs-var">lastEvaluatedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387564"><span class="hs-identifier hs-var">lastEvaluatedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387563"><span class="annot"><span class="annottext">s :: QueryResponse
-</span><a href="#local-6989586621679387563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387562"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
-</span><a href="#local-6989586621679387563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedKey:QueryResponse' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387573"><span class="hs-identifier hs-var hs-var">lastEvaluatedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387573"><span class="hs-identifier hs-var">lastEvaluatedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387572"><span class="annot"><span class="annottext">s :: QueryResponse
+</span><a href="#local-6989586621679387572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387571"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
+</span><a href="#local-6989586621679387572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedKey:QueryResponse' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AlastEvaluatedKey%3AQueryResponse%27"><span class="hs-identifier hs-var">lastEvaluatedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; QueryResponse -&gt; f QueryResponse)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -2400,16 +2400,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (QueryResponse -&gt; Maybe Int -&gt; QueryResponse)
 -&gt; Lens QueryResponse QueryResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387561"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387570"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:QueryResponse' :: QueryResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679387561"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679387561"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387560"><span class="annot"><span class="annottext">s :: QueryResponse
-</span><a href="#local-6989586621679387560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387559"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679387559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
-</span><a href="#local-6989586621679387560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:QueryResponse' :: Maybe Int
+</span><a href="#local-6989586621679387570"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679387570"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387569"><span class="annot"><span class="annottext">s :: QueryResponse
+</span><a href="#local-6989586621679387569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387568"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679387568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
+</span><a href="#local-6989586621679387569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:QueryResponse' :: Maybe Int
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3Acount%3AQueryResponse%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679387559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1257"></span><span>
 </span><span id="line-1258"></span><span class="hs-comment">-- | The number of items evaluated, before any @QueryFilter@ is applied. A</span><span>
 </span><span id="line-1259"></span><span class="hs-comment">-- high @ScannedCount@ value with few, or no, @Count@ results indicates an</span><span>
@@ -2425,16 +2425,16 @@ $sel:count:QueryResponse' :: QueryResponse -&gt; Maybe Int
 -&gt; (QueryResponse -&gt; Maybe Int -&gt; QueryResponse)
 -&gt; Lens QueryResponse QueryResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387558"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387567"><span class="annot"><span class="annottext">Maybe Int
 scannedCount :: Maybe Int
 $sel:scannedCount:QueryResponse' :: QueryResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679387558"><span class="hs-identifier hs-var hs-var">scannedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679387558"><span class="hs-identifier hs-var">scannedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387557"><span class="annot"><span class="annottext">s :: QueryResponse
-</span><a href="#local-6989586621679387557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387556"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679387556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
-</span><a href="#local-6989586621679387557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scannedCount:QueryResponse' :: Maybe Int
+</span><a href="#local-6989586621679387567"><span class="hs-identifier hs-var hs-var">scannedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679387567"><span class="hs-identifier hs-var">scannedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387566"><span class="annot"><span class="annottext">s :: QueryResponse
+</span><a href="#local-6989586621679387566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387565"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679387565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
+</span><a href="#local-6989586621679387566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scannedCount:QueryResponse' :: Maybe Int
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AscannedCount%3AQueryResponse%27"><span class="hs-identifier hs-var">scannedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679387556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1268"></span><span>
 </span><span id="line-1269"></span><span class="hs-comment">-- | An array of item attributes that match the query criteria. Each element</span><span>
 </span><span id="line-1270"></span><span class="hs-comment">-- in this array consists of an attribute name and the value for that</span><span>
@@ -2452,16 +2452,16 @@ $sel:scannedCount:QueryResponse' :: QueryResponse -&gt; Maybe Int
      (Maybe [HashMap Text AttributeValue])
      (Maybe [HashMap Text AttributeValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387555"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387564"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
 items :: Maybe [HashMap Text AttributeValue]
 $sel:items:QueryResponse' :: QueryResponse -&gt; Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679387555"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679387555"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387554"><span class="annot"><span class="annottext">s :: QueryResponse
-</span><a href="#local-6989586621679387554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387553"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679387553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
-</span><a href="#local-6989586621679387554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:QueryResponse' :: Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679387564"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679387564"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387563"><span class="annot"><span class="annottext">s :: QueryResponse
+</span><a href="#local-6989586621679387563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387562"><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679387562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
+</span><a href="#local-6989586621679387563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:QueryResponse' :: Maybe [HashMap Text AttributeValue]
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3Aitems%3AQueryResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text AttributeValue]
-</span><a href="#local-6989586621679387553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text AttributeValue]
+</span><a href="#local-6989586621679387562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text AttributeValue]
   -&gt; f (Maybe [HashMap Text AttributeValue]))
  -&gt; QueryResponse -&gt; f QueryResponse)
 -&gt; ((Maybe [HashMap Text AttributeValue]
@@ -2512,16 +2512,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ConsumedCapacity)
      (Maybe ConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387552"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387561"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
 consumedCapacity :: Maybe ConsumedCapacity
 $sel:consumedCapacity:QueryResponse' :: QueryResponse -&gt; Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387552"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387552"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387551"><span class="annot"><span class="annottext">s :: QueryResponse
-</span><a href="#local-6989586621679387551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387550"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
-</span><a href="#local-6989586621679387551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:QueryResponse' :: Maybe ConsumedCapacity
+</span><a href="#local-6989586621679387561"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679387561"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387560"><span class="annot"><span class="annottext">s :: QueryResponse
+</span><a href="#local-6989586621679387560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387559"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679387559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
+</span><a href="#local-6989586621679387560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:QueryResponse' :: Maybe ConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AconsumedCapacity%3AQueryResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1284"></span><span>
 </span><span id="line-1285"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-1286"></span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#queryResponse_httpStatus"><span class="hs-identifier hs-type">queryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -2530,16 +2530,16 @@ $sel:consumedCapacity:QueryResponse' :: QueryResponse -&gt; Maybe ConsumedCapaci
 -&gt; (QueryResponse -&gt; Int -&gt; QueryResponse)
 -&gt; Lens QueryResponse QueryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387549"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387558"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:QueryResponse' :: QueryResponse -&gt; Int
-</span><a href="#local-6989586621679387549"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387549"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387548"><span class="annot"><span class="annottext">s :: QueryResponse
-</span><a href="#local-6989586621679387548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387547"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
-</span><a href="#local-6989586621679387548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:QueryResponse' :: Int
+</span><a href="#local-6989586621679387558"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387558"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387557"><span class="annot"><span class="annottext">s :: QueryResponse
+</span><a href="#local-6989586621679387557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse%27"><span class="hs-identifier hs-type">QueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387556"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryResponse
+</span><a href="#local-6989586621679387557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:QueryResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.Query.html#%24sel%3AhttpStatus%3AQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1288"></span><span>
-</span><span id="line-1289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span></span><span>
+</span><span id="line-1289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Query.html#QueryResponse"><span class="hs-identifier hs-type">QueryResponse</span></a></span></span><span>
 </span><span id="line-1290"></span></pre></body></html>

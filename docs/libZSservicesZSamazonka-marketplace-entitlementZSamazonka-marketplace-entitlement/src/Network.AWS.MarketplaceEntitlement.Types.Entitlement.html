@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- database.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEntitlement' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679139366"><span id="local-6989586621679139367"></span></span><span class="hs-keyword">data</span><span> </span><span id="Entitlement"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-var">Entitlement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Entitlement%27"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-var">Entitlement'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679139375"><span id="local-6989586621679139376"></span></span><span class="hs-keyword">data</span><span> </span><span id="Entitlement"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-var">Entitlement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Entitlement%27"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-var">Entitlement'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dimension for which the given entitlement applies. Dimensions</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- represent categories of capacity in a product and are specified when the</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- product is listed in AWS Marketplace.</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AproductCode%3AEntitlement%27"><span class="annot"><span class="annottext">Entitlement -&gt; Maybe Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#%24sel%3AproductCode%3AEntitlement%27"><span class="hs-identifier hs-var hs-var">productCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139356"><span id="local-6989586621679139358"><span class="annot"><span class="annottext">Entitlement -&gt; Entitlement -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139365"><span id="local-6989586621679139367"><span class="annot"><span class="annottext">Entitlement -&gt; Entitlement -&gt; Bool
 (Entitlement -&gt; Entitlement -&gt; Bool)
 -&gt; (Entitlement -&gt; Entitlement -&gt; Bool) -&gt; Eq Entitlement
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Entitlement -&gt; Entitlement -&gt; Bool
 == :: Entitlement -&gt; Entitlement -&gt; Bool
 $c== :: Entitlement -&gt; Entitlement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139347"><span id="local-6989586621679139349"><span id="local-6989586621679139351"><span id="local-6989586621679139353"><span class="annot"><span class="annottext">ReadPrec [Entitlement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139356"><span id="local-6989586621679139358"><span id="local-6989586621679139360"><span id="local-6989586621679139362"><span class="annot"><span class="annottext">ReadPrec [Entitlement]
 ReadPrec Entitlement
 Int -&gt; ReadS Entitlement
 ReadS [Entitlement]
@@ -86,7 +86,7 @@ readList :: ReadS [Entitlement]
 $creadList :: ReadS [Entitlement]
 readsPrec :: Int -&gt; ReadS Entitlement
 $creadsPrec :: Int -&gt; ReadS Entitlement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139340"><span id="local-6989586621679139342"><span id="local-6989586621679139344"><span class="annot"><span class="annottext">Int -&gt; Entitlement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139349"><span id="local-6989586621679139351"><span id="local-6989586621679139353"><span class="annot"><span class="annottext">Int -&gt; Entitlement -&gt; ShowS
 [Entitlement] -&gt; ShowS
 Entitlement -&gt; String
 (Int -&gt; Entitlement -&gt; ShowS)
@@ -182,16 +182,16 @@ forall a. Maybe a
 -&gt; (Entitlement -&gt; Maybe Text -&gt; Entitlement)
 -&gt; Lens Entitlement Entitlement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139331"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139340"><span class="annot"><span class="annottext">Maybe Text
 dimension :: Maybe Text
 $sel:dimension:Entitlement' :: Entitlement -&gt; Maybe Text
-</span><a href="#local-6989586621679139331"><span class="hs-identifier hs-var hs-var">dimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139331"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139330"><span class="annot"><span class="annottext">s :: Entitlement
-</span><a href="#local-6989586621679139330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139329"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
-</span><a href="#local-6989586621679139330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimension:Entitlement' :: Maybe Text
+</span><a href="#local-6989586621679139340"><span class="hs-identifier hs-var hs-var">dimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139340"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139339"><span class="annot"><span class="annottext">s :: Entitlement
+</span><a href="#local-6989586621679139339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
+</span><a href="#local-6989586621679139339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimension:Entitlement' :: Maybe Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#%24sel%3Adimension%3AEntitlement%27"><span class="hs-identifier hs-var">dimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679139338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The EntitlementValue represents the amount of capacity that the customer</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- is entitled to for the product.</span><span>
@@ -206,16 +206,16 @@ $sel:dimension:Entitlement' :: Entitlement -&gt; Maybe Text
      (Maybe EntitlementValue)
      (Maybe EntitlementValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139327"><span class="annot"><span class="annottext">Maybe EntitlementValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139336"><span class="annot"><span class="annottext">Maybe EntitlementValue
 value :: Maybe EntitlementValue
 $sel:value:Entitlement' :: Entitlement -&gt; Maybe EntitlementValue
-</span><a href="#local-6989586621679139327"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntitlementValue
-</span><a href="#local-6989586621679139327"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139326"><span class="annot"><span class="annottext">s :: Entitlement
-</span><a href="#local-6989586621679139326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139325"><span class="annot"><span class="annottext">Maybe EntitlementValue
-</span><a href="#local-6989586621679139325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
-</span><a href="#local-6989586621679139326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Entitlement' :: Maybe EntitlementValue
+</span><a href="#local-6989586621679139336"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntitlementValue
+</span><a href="#local-6989586621679139336"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139335"><span class="annot"><span class="annottext">s :: Entitlement
+</span><a href="#local-6989586621679139335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139334"><span class="annot"><span class="annottext">Maybe EntitlementValue
+</span><a href="#local-6989586621679139334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
+</span><a href="#local-6989586621679139335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Entitlement' :: Maybe EntitlementValue
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#%24sel%3Avalue%3AEntitlement%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntitlementValue
-</span><a href="#local-6989586621679139325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679139334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The expiration date represents the minimum date through which this</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- entitlement is expected to remain valid. For contractual products listed</span><span>
@@ -230,16 +230,16 @@ $sel:value:Entitlement' :: Entitlement -&gt; Maybe EntitlementValue
 -&gt; (Entitlement -&gt; Maybe POSIX -&gt; Entitlement)
 -&gt; Lens Entitlement Entitlement (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139323"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139332"><span class="annot"><span class="annottext">Maybe POSIX
 expirationDate :: Maybe POSIX
 $sel:expirationDate:Entitlement' :: Entitlement -&gt; Maybe POSIX
-</span><a href="#local-6989586621679139323"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679139323"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139322"><span class="annot"><span class="annottext">s :: Entitlement
-</span><a href="#local-6989586621679139322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139321"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679139321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
-</span><a href="#local-6989586621679139322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationDate:Entitlement' :: Maybe POSIX
+</span><a href="#local-6989586621679139332"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679139332"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139331"><span class="annot"><span class="annottext">s :: Entitlement
+</span><a href="#local-6989586621679139331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139330"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679139330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
+</span><a href="#local-6989586621679139331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationDate:Entitlement' :: Maybe POSIX
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#%24sel%3AexpirationDate%3AEntitlement%27"><span class="hs-identifier hs-var">expirationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679139321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Entitlement -&gt; f Entitlement)
+</span><a href="#local-6989586621679139330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Entitlement -&gt; f Entitlement)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -264,16 +264,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Entitlement -&gt; Maybe Text -&gt; Entitlement)
 -&gt; Lens Entitlement Entitlement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139316"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139325"><span class="annot"><span class="annottext">Maybe Text
 customerIdentifier :: Maybe Text
 $sel:customerIdentifier:Entitlement' :: Entitlement -&gt; Maybe Text
-</span><a href="#local-6989586621679139316"><span class="hs-identifier hs-var hs-var">customerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139316"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139315"><span class="annot"><span class="annottext">s :: Entitlement
-</span><a href="#local-6989586621679139315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139314"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
-</span><a href="#local-6989586621679139315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerIdentifier:Entitlement' :: Maybe Text
+</span><a href="#local-6989586621679139325"><span class="hs-identifier hs-var hs-var">customerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139325"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139324"><span class="annot"><span class="annottext">s :: Entitlement
+</span><a href="#local-6989586621679139324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
+</span><a href="#local-6989586621679139324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerIdentifier:Entitlement' :: Maybe Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#%24sel%3AcustomerIdentifier%3AEntitlement%27"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679139323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The product code for which the given entitlement applies. Product codes</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- are provided by AWS Marketplace when the product listing is created.</span><span>
@@ -283,19 +283,19 @@ $sel:customerIdentifier:Entitlement' :: Entitlement -&gt; Maybe Text
 -&gt; (Entitlement -&gt; Maybe Text -&gt; Entitlement)
 -&gt; Lens Entitlement Entitlement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139312"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139321"><span class="annot"><span class="annottext">Maybe Text
 productCode :: Maybe Text
 $sel:productCode:Entitlement' :: Entitlement -&gt; Maybe Text
-</span><a href="#local-6989586621679139312"><span class="hs-identifier hs-var hs-var">productCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139312"><span class="hs-identifier hs-var">productCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139311"><span class="annot"><span class="annottext">s :: Entitlement
-</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139310"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
-</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productCode:Entitlement' :: Maybe Text
+</span><a href="#local-6989586621679139321"><span class="hs-identifier hs-var hs-var">productCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139321"><span class="hs-identifier hs-var">productCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139320"><span class="annot"><span class="annottext">s :: Entitlement
+</span><a href="#local-6989586621679139320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement%27"><span class="hs-identifier hs-type">Entitlement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entitlement
+</span><a href="#local-6989586621679139320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productCode:Entitlement' :: Maybe Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#%24sel%3AproductCode%3AEntitlement%27"><span class="hs-identifier hs-var">productCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679139319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139307"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679139305"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Entitlement
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139316"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679139314"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Entitlement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Entitlement) -&gt; Value -&gt; Parser Entitlement
@@ -303,8 +303,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Entitlement&quot;</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679139302"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139302"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679139311"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe EntitlementValue
 -&gt; Maybe POSIX
@@ -324,7 +324,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Entitlement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimension&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Entitlement)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntitlementValue)
+</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntitlementValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
@@ -344,7 +344,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Entitlement)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpirationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -352,7 +352,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Entitlement)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomerIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -360,13 +360,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Entitlement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679139311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProductCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139296"><span id="local-6989586621679139298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139305"><span id="local-6989586621679139307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

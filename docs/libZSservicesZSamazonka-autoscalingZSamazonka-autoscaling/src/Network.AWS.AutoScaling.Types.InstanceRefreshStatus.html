@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679326923"><span id="local-6989586621679326924"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceRefreshStatus"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-var">InstanceRefreshStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRefreshStatus%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-var">InstanceRefreshStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679326932"><span id="local-6989586621679326933"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceRefreshStatus"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-var">InstanceRefreshStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRefreshStatus%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-var">InstanceRefreshStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceRefreshStatus"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#fromInstanceRefreshStatus"><span class="hs-identifier hs-var hs-var">fromInstanceRefreshStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326915"><span id="local-6989586621679326917"><span id="local-6989586621679326919"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326924"><span id="local-6989586621679326926"><span id="local-6989586621679326928"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshStatus -&gt; ShowS
 [InstanceRefreshStatus] -&gt; ShowS
 InstanceRefreshStatus -&gt; String
 (Int -&gt; InstanceRefreshStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: InstanceRefreshStatus -&gt; String
 showsPrec :: Int -&gt; InstanceRefreshStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceRefreshStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679326906"><span id="local-6989586621679326908"><span id="local-6989586621679326910"><span id="local-6989586621679326912"><span class="annot"><span class="annottext">ReadPrec [InstanceRefreshStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679326915"><span id="local-6989586621679326917"><span id="local-6989586621679326919"><span id="local-6989586621679326921"><span class="annot"><span class="annottext">ReadPrec [InstanceRefreshStatus]
 ReadPrec InstanceRefreshStatus
 Int -&gt; ReadS InstanceRefreshStatus
 ReadS [InstanceRefreshStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [InstanceRefreshStatus]
 readsPrec :: Int -&gt; ReadS InstanceRefreshStatus
 $creadsPrec :: Int -&gt; ReadS InstanceRefreshStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679326901"><span id="local-6989586621679326903"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679326910"><span id="local-6989586621679326912"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
 (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
 -&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
 -&gt; Eq InstanceRefreshStatus
@@ -86,7 +86,7 @@ $c/= :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
 == :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
 $c== :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679326885"><span id="local-6989586621679326887"><span id="local-6989586621679326889"><span id="local-6989586621679326891"><span id="local-6989586621679326893"><span id="local-6989586621679326895"><span id="local-6989586621679326897"><span class="annot"><span class="annottext">Eq InstanceRefreshStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679326894"><span id="local-6989586621679326896"><span id="local-6989586621679326898"><span id="local-6989586621679326900"><span id="local-6989586621679326902"><span id="local-6989586621679326904"><span id="local-6989586621679326906"><span class="annot"><span class="annottext">Eq InstanceRefreshStatus
 Eq InstanceRefreshStatus
 -&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Ordering)
 -&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. InstanceRefreshStatus -&gt; Rep InstanceRefreshStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326877"><span id="local-6989586621679326879"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326886"><span id="local-6989586621679326888"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshStatus -&gt; Int
 InstanceRefreshStatus -&gt; Int
 (Int -&gt; InstanceRefreshStatus -&gt; Int)
 -&gt; (InstanceRefreshStatus -&gt; Int) -&gt; Hashable InstanceRefreshStatus
@@ -154,54 +154,54 @@ $chash :: InstanceRefreshStatus -&gt; Int
 hashWithSalt :: Int -&gt; InstanceRefreshStatus -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceRefreshStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326874"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326883"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ()
 (InstanceRefreshStatus -&gt; ()) -&gt; NFData InstanceRefreshStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceRefreshStatus -&gt; ()
 $crnf :: InstanceRefreshStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326871"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceRefreshStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326880"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceRefreshStatus
 (Text -&gt; Either String InstanceRefreshStatus)
 -&gt; FromText InstanceRefreshStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceRefreshStatus
 $cfromText :: Text -&gt; Either String InstanceRefreshStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326868"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326877"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; Text
 (InstanceRefreshStatus -&gt; Text) -&gt; ToText InstanceRefreshStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceRefreshStatus -&gt; Text
 $ctoText :: InstanceRefreshStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326865"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326874"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ByteString
 (InstanceRefreshStatus -&gt; ByteString)
 -&gt; ToByteString InstanceRefreshStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceRefreshStatus -&gt; ByteString
 $ctoBS :: InstanceRefreshStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326862"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326871"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ByteStringBuilder
 (InstanceRefreshStatus -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceRefreshStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceRefreshStatus -&gt; ByteStringBuilder
 $cbuild :: InstanceRefreshStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326859"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceRefreshStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326868"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceRefreshStatus -&gt; [Header]
 (HeaderName -&gt; InstanceRefreshStatus -&gt; [Header])
 -&gt; ToHeader InstanceRefreshStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceRefreshStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceRefreshStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326856"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326865"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; QueryString
 (InstanceRefreshStatus -&gt; QueryString)
 -&gt; ToQuery InstanceRefreshStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceRefreshStatus -&gt; QueryString
 $ctoQuery :: InstanceRefreshStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326851"><span id="local-6989586621679326853"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceRefreshStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326860"><span id="local-6989586621679326862"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceRefreshStatus]
 Value -&gt; Parser InstanceRefreshStatus
 (Value -&gt; Parser InstanceRefreshStatus)
 -&gt; (Value -&gt; Parser [InstanceRefreshStatus])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceRefreshStatus]
 parseJSON :: Value -&gt; Parser InstanceRefreshStatus
 $cparseJSON :: Value -&gt; Parser InstanceRefreshStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326846"><span id="local-6989586621679326848"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceRefreshStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326855"><span id="local-6989586621679326857"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceRefreshStatus]
 FromJSONKeyFunction InstanceRefreshStatus
 FromJSONKeyFunction InstanceRefreshStatus
 -&gt; FromJSONKeyFunction [InstanceRefreshStatus]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceRefreshStatus]
 fromJSONKey :: FromJSONKeyFunction InstanceRefreshStatus
 $cfromJSONKey :: FromJSONKeyFunction InstanceRefreshStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326837"><span id="local-6989586621679326839"><span id="local-6989586621679326841"><span id="local-6989586621679326843"><span class="annot"><span class="annottext">[InstanceRefreshStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326846"><span id="local-6989586621679326848"><span id="local-6989586621679326850"><span id="local-6989586621679326852"><span class="annot"><span class="annottext">[InstanceRefreshStatus] -&gt; Encoding
 [InstanceRefreshStatus] -&gt; Value
 InstanceRefreshStatus -&gt; Encoding
 InstanceRefreshStatus -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: InstanceRefreshStatus -&gt; Encoding
 toJSON :: InstanceRefreshStatus -&gt; Value
 $ctoJSON :: InstanceRefreshStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326832"><span id="local-6989586621679326834"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceRefreshStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326841"><span id="local-6989586621679326843"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceRefreshStatus]
 ToJSONKeyFunction InstanceRefreshStatus
 ToJSONKeyFunction InstanceRefreshStatus
 -&gt; ToJSONKeyFunction [InstanceRefreshStatus]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceRefreshStatus]
 toJSONKey :: ToJSONKeyFunction InstanceRefreshStatus
 $ctoJSONKey :: ToJSONKeyFunction InstanceRefreshStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679326829"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceRefreshStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679326838"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceRefreshStatus
 ([Node] -&gt; Either String InstanceRefreshStatus)
 -&gt; FromXML InstanceRefreshStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceRefreshStatus
 $cparseXML :: [Node] -&gt; Either String InstanceRefreshStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679326826"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679326835"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; XML
 (InstanceRefreshStatus -&gt; XML) -&gt; ToXML InstanceRefreshStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceRefreshStatus -&gt; XML

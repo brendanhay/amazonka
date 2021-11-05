@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Contains the parameters for GetPipelineDefinition.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetPipelineDefinition' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679179515"><span id="local-6989586621679179516"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPipelineDefinition"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-var">GetPipelineDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPipelineDefinition%27"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-var">GetPipelineDefinition'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679179524"><span id="local-6989586621679179525"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPipelineDefinition"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-var">GetPipelineDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPipelineDefinition%27"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-var">GetPipelineDefinition'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the pipeline definition to retrieve. Set this parameter</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- to @latest@ (default) to use the last definition saved to the pipeline</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- or @active@ to use the last definition that was activated.</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3ApipelineId%3AGetPipelineDefinition%27"><span class="annot"><span class="annottext">GetPipelineDefinition -&gt; Text
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3ApipelineId%3AGetPipelineDefinition%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179508"><span id="local-6989586621679179510"><span class="annot"><span class="annottext">GetPipelineDefinition -&gt; GetPipelineDefinition -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179517"><span id="local-6989586621679179519"><span class="annot"><span class="annottext">GetPipelineDefinition -&gt; GetPipelineDefinition -&gt; Bool
 (GetPipelineDefinition -&gt; GetPipelineDefinition -&gt; Bool)
 -&gt; (GetPipelineDefinition -&gt; GetPipelineDefinition -&gt; Bool)
 -&gt; Eq GetPipelineDefinition
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPipelineDefinition -&gt; GetPipelineDefinition -&gt; Bool
 == :: GetPipelineDefinition -&gt; GetPipelineDefinition -&gt; Bool
 $c== :: GetPipelineDefinition -&gt; GetPipelineDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179499"><span id="local-6989586621679179501"><span id="local-6989586621679179503"><span id="local-6989586621679179505"><span class="annot"><span class="annottext">ReadPrec [GetPipelineDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179508"><span id="local-6989586621679179510"><span id="local-6989586621679179512"><span id="local-6989586621679179514"><span class="annot"><span class="annottext">ReadPrec [GetPipelineDefinition]
 ReadPrec GetPipelineDefinition
 Int -&gt; ReadS GetPipelineDefinition
 ReadS [GetPipelineDefinition]
@@ -93,7 +93,7 @@ readList :: ReadS [GetPipelineDefinition]
 $creadList :: ReadS [GetPipelineDefinition]
 readsPrec :: Int -&gt; ReadS GetPipelineDefinition
 $creadsPrec :: Int -&gt; ReadS GetPipelineDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179492"><span id="local-6989586621679179494"><span id="local-6989586621679179496"><span class="annot"><span class="annottext">Int -&gt; GetPipelineDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179501"><span id="local-6989586621679179503"><span id="local-6989586621679179505"><span class="annot"><span class="annottext">Int -&gt; GetPipelineDefinition -&gt; ShowS
 [GetPipelineDefinition] -&gt; ShowS
 GetPipelineDefinition -&gt; String
 (Int -&gt; GetPipelineDefinition -&gt; ShowS)
@@ -137,8 +137,8 @@ $cfrom :: forall x. GetPipelineDefinition -&gt; Rep GetPipelineDefinition x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span>
 </span><span id="line-84"></span><span id="newGetPipelineDefinition"><span class="annot"><span class="annottext">newGetPipelineDefinition :: Text -&gt; GetPipelineDefinition
-</span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#newGetPipelineDefinition"><span class="hs-identifier hs-var hs-var">newGetPipelineDefinition</span></a></span></span><span> </span><span id="local-6989586621679179487"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179487"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#newGetPipelineDefinition"><span class="hs-identifier hs-var hs-var">newGetPipelineDefinition</span></a></span></span><span> </span><span id="local-6989586621679179496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179496"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetPipelineDefinition' :: Maybe Text -&gt; Text -&gt; GetPipelineDefinition
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:version:GetPipelineDefinition' :: Maybe Text
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineId:GetPipelineDefinition' :: Text
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3ApipelineId%3AGetPipelineDefinition%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179487"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
+</span><a href="#local-6989586621679179496"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The version of the pipeline definition to retrieve. Set this parameter</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179484"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179493"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:GetPipelineDefinition' :: GetPipelineDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679179484"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179484"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179483"><span class="annot"><span class="annottext">s :: GetPipelineDefinition
-</span><a href="#local-6989586621679179483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179482"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinition
-</span><a href="#local-6989586621679179483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetPipelineDefinition' :: Maybe Text
+</span><a href="#local-6989586621679179493"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179493"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179492"><span class="annot"><span class="annottext">s :: GetPipelineDefinition
+</span><a href="#local-6989586621679179492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinition
+</span><a href="#local-6989586621679179492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetPipelineDefinition' :: Maybe Text
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3Aversion%3AGetPipelineDefinition%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The ID of the pipeline.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#getPipelineDefinition_pipelineId"><span class="hs-identifier hs-type">getPipelineDefinition_pipelineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -183,27 +183,27 @@ $sel:version:GetPipelineDefinition' :: GetPipelineDefinition -&gt; Maybe Text
 -&gt; (GetPipelineDefinition -&gt; Text -&gt; GetPipelineDefinition)
 -&gt; Lens GetPipelineDefinition GetPipelineDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179481"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179490"><span class="annot"><span class="annottext">Text
 pipelineId :: Text
 $sel:pipelineId:GetPipelineDefinition' :: GetPipelineDefinition -&gt; Text
-</span><a href="#local-6989586621679179481"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179481"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179480"><span class="annot"><span class="annottext">s :: GetPipelineDefinition
-</span><a href="#local-6989586621679179480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179479"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinition
-</span><a href="#local-6989586621679179480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:GetPipelineDefinition' :: Text
+</span><a href="#local-6989586621679179490"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179490"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179489"><span class="annot"><span class="annottext">s :: GetPipelineDefinition
+</span><a href="#local-6989586621679179489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179488"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinition
+</span><a href="#local-6989586621679179489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:GetPipelineDefinition' :: Text
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3ApipelineId%3AGetPipelineDefinition%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679179475"><span class="annot"><span class="annottext">request :: GetPipelineDefinition -&gt; Request GetPipelineDefinition
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679179484"><span class="annot"><span class="annottext">request :: GetPipelineDefinition -&gt; Request GetPipelineDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPipelineDefinition -&gt; Request GetPipelineDefinition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DataPipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679179471"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679179480"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetPipelineDefinition
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179468"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179468"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179467"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679179467"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179466"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179477"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179476"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179476"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179475"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PipelineObject]
 -&gt; Maybe [ParameterObject]
 -&gt; Maybe [ParameterValue]
@@ -251,7 +251,7 @@ MonadResource m =&gt;
       -&gt; Maybe [ParameterValue] -&gt; Int -&gt; GetPipelineDefinitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PipelineObject]))
+</span><a href="#local-6989586621679179475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PipelineObject]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineObjects&quot;</span></span><span>
@@ -272,7 +272,7 @@ forall a. Monoid a =&gt; a
      (Maybe [ParameterValue] -&gt; Int -&gt; GetPipelineDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ParameterObject]))
+</span><a href="#local-6989586621679179475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ParameterObject]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;parameterObjects&quot;</span></span><span>
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetPipelineDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ParameterValue]))
+</span><a href="#local-6989586621679179475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ParameterValue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;parameterValues&quot;</span></span><span>
@@ -310,15 +310,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179468"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179477"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179457"><span id="local-6989586621679179459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179466"><span id="local-6989586621679179468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679179450"><span class="annot"><span class="annottext">toHeaders :: GetPipelineDefinition -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679179459"><span class="annot"><span class="annottext">toHeaders :: GetPipelineDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPipelineDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -345,15 +345,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179440"><span id="local-6989586621679179442"><span id="local-6989586621679179444"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679179438"><span class="annot"><span class="annottext">toJSON :: GetPipelineDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179435"><span id="local-6989586621679179436"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179449"><span id="local-6989586621679179451"><span id="local-6989586621679179453"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679179447"><span class="annot"><span class="annottext">toJSON :: GetPipelineDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition%27"><span class="hs-identifier hs-type">GetPipelineDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179444"><span id="local-6989586621679179445"><span class="annot"><span class="annottext">Maybe Text
 Text
 pipelineId :: Text
 version :: Maybe Text
 $sel:pipelineId:GetPipelineDefinition' :: GetPipelineDefinition -&gt; Text
 $sel:version:GetPipelineDefinition' :: GetPipelineDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679179435"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679179444"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -365,26 +365,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179436"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179445"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179435"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179444"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679179429"><span class="annot"><span class="annottext">toPath :: GetPipelineDefinition -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679179438"><span class="annot"><span class="annottext">toPath :: GetPipelineDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPipelineDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinition"><span class="hs-identifier hs-type">GetPipelineDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679179425"><span class="annot"><span class="annottext">toQuery :: GetPipelineDefinition -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679179434"><span class="annot"><span class="annottext">toQuery :: GetPipelineDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPipelineDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -394,7 +394,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span class="hs-comment">-- | Contains the output of GetPipelineDefinition.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newGetPipelineDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679179422"><span id="local-6989586621679179423"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPipelineDefinitionResponse"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-var">GetPipelineDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPipelineDefinitionResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var">GetPipelineDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679179431"><span id="local-6989586621679179432"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPipelineDefinitionResponse"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-var">GetPipelineDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPipelineDefinitionResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var">GetPipelineDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The objects defined in the pipeline.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3ApipelineObjects%3AGetPipelineDefinitionResponse%27"><span class="annot"><span class="annottext">GetPipelineDefinitionResponse -&gt; Maybe [PipelineObject]
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3ApipelineObjects%3AGetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineObjects</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -408,7 +408,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPipelineDefinitionResponse%27"><span class="annot"><span class="annottext">GetPipelineDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3AhttpStatus%3AGetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179414"><span id="local-6989586621679179416"><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179423"><span id="local-6989586621679179425"><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
 -&gt; GetPipelineDefinitionResponse -&gt; Bool
 (GetPipelineDefinitionResponse
  -&gt; GetPipelineDefinitionResponse -&gt; Bool)
@@ -424,7 +424,7 @@ $c/= :: GetPipelineDefinitionResponse
 -&gt; GetPipelineDefinitionResponse -&gt; Bool
 $c== :: GetPipelineDefinitionResponse
 -&gt; GetPipelineDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179406"><span id="local-6989586621679179408"><span id="local-6989586621679179410"><span id="local-6989586621679179412"><span class="annot"><span class="annottext">ReadPrec [GetPipelineDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179415"><span id="local-6989586621679179417"><span id="local-6989586621679179419"><span id="local-6989586621679179421"><span class="annot"><span class="annottext">ReadPrec [GetPipelineDefinitionResponse]
 ReadPrec GetPipelineDefinitionResponse
 Int -&gt; ReadS GetPipelineDefinitionResponse
 ReadS [GetPipelineDefinitionResponse]
@@ -444,7 +444,7 @@ readList :: ReadS [GetPipelineDefinitionResponse]
 $creadList :: ReadS [GetPipelineDefinitionResponse]
 readsPrec :: Int -&gt; ReadS GetPipelineDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS GetPipelineDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179400"><span id="local-6989586621679179402"><span id="local-6989586621679179404"><span class="annot"><span class="annottext">Int -&gt; GetPipelineDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179409"><span id="local-6989586621679179411"><span id="local-6989586621679179413"><span class="annot"><span class="annottext">Int -&gt; GetPipelineDefinitionResponse -&gt; ShowS
 [GetPipelineDefinitionResponse] -&gt; ShowS
 GetPipelineDefinitionResponse -&gt; String
 (Int -&gt; GetPipelineDefinitionResponse -&gt; ShowS)
@@ -502,8 +502,8 @@ GetPipelineDefinitionResponse
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span>
 </span><span id="line-189"></span><span id="newGetPipelineDefinitionResponse"><span class="annot"><span class="annottext">newGetPipelineDefinitionResponse :: Int -&gt; GetPipelineDefinitionResponse
-</span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#newGetPipelineDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetPipelineDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679179397"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179397"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#newGetPipelineDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetPipelineDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679179406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse' :: Maybe [PipelineObject]
 -&gt; Maybe [ParameterObject]
 -&gt; Maybe [ParameterValue]
@@ -525,7 +525,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPipelineDefinitionResponse' :: Int
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3AhttpStatus%3AGetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179397"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679179406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The objects defined in the pipeline.</span><span>
@@ -541,16 +541,16 @@ forall a. Maybe a
      (Maybe [PipelineObject])
      (Maybe [PipelineObject])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179396"><span class="annot"><span class="annottext">Maybe [PipelineObject]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179405"><span class="annot"><span class="annottext">Maybe [PipelineObject]
 pipelineObjects :: Maybe [PipelineObject]
 $sel:pipelineObjects:GetPipelineDefinitionResponse' :: GetPipelineDefinitionResponse -&gt; Maybe [PipelineObject]
-</span><a href="#local-6989586621679179396"><span class="hs-identifier hs-var hs-var">pipelineObjects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineObject]
-</span><a href="#local-6989586621679179396"><span class="hs-identifier hs-var">pipelineObjects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179395"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179394"><span class="annot"><span class="annottext">Maybe [PipelineObject]
-</span><a href="#local-6989586621679179394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineObjects:GetPipelineDefinitionResponse' :: Maybe [PipelineObject]
+</span><a href="#local-6989586621679179405"><span class="hs-identifier hs-var hs-var">pipelineObjects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineObject]
+</span><a href="#local-6989586621679179405"><span class="hs-identifier hs-var">pipelineObjects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179404"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179403"><span class="annot"><span class="annottext">Maybe [PipelineObject]
+</span><a href="#local-6989586621679179403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineObjects:GetPipelineDefinitionResponse' :: Maybe [PipelineObject]
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3ApipelineObjects%3AGetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var">pipelineObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineObject]
-</span><a href="#local-6989586621679179394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelineObject] -&gt; f (Maybe [PipelineObject]))
+</span><a href="#local-6989586621679179403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelineObject] -&gt; f (Maybe [PipelineObject]))
  -&gt; GetPipelineDefinitionResponse
  -&gt; f GetPipelineDefinitionResponse)
 -&gt; ((Maybe [PipelineObject] -&gt; f (Maybe [PipelineObject]))
@@ -587,16 +587,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ParameterObject])
      (Maybe [ParameterObject])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179390"><span class="annot"><span class="annottext">Maybe [ParameterObject]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179399"><span class="annot"><span class="annottext">Maybe [ParameterObject]
 parameterObjects :: Maybe [ParameterObject]
 $sel:parameterObjects:GetPipelineDefinitionResponse' :: GetPipelineDefinitionResponse -&gt; Maybe [ParameterObject]
-</span><a href="#local-6989586621679179390"><span class="hs-identifier hs-var hs-var">parameterObjects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterObject]
-</span><a href="#local-6989586621679179390"><span class="hs-identifier hs-var">parameterObjects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179389"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179388"><span class="annot"><span class="annottext">Maybe [ParameterObject]
-</span><a href="#local-6989586621679179388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterObjects:GetPipelineDefinitionResponse' :: Maybe [ParameterObject]
+</span><a href="#local-6989586621679179399"><span class="hs-identifier hs-var hs-var">parameterObjects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterObject]
+</span><a href="#local-6989586621679179399"><span class="hs-identifier hs-var">parameterObjects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179398"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179397"><span class="annot"><span class="annottext">Maybe [ParameterObject]
+</span><a href="#local-6989586621679179397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterObjects:GetPipelineDefinitionResponse' :: Maybe [ParameterObject]
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3AparameterObjects%3AGetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var">parameterObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterObject]
-</span><a href="#local-6989586621679179388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParameterObject] -&gt; f (Maybe [ParameterObject]))
+</span><a href="#local-6989586621679179397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParameterObject] -&gt; f (Maybe [ParameterObject]))
  -&gt; GetPipelineDefinitionResponse
  -&gt; f GetPipelineDefinitionResponse)
 -&gt; ((Maybe [ParameterObject] -&gt; f (Maybe [ParameterObject]))
@@ -639,16 +639,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ParameterValue])
      (Maybe [ParameterValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179387"><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179396"><span class="annot"><span class="annottext">Maybe [ParameterValue]
 parameterValues :: Maybe [ParameterValue]
 $sel:parameterValues:GetPipelineDefinitionResponse' :: GetPipelineDefinitionResponse -&gt; Maybe [ParameterValue]
-</span><a href="#local-6989586621679179387"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
-</span><a href="#local-6989586621679179387"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179386"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179385"><span class="annot"><span class="annottext">Maybe [ParameterValue]
-</span><a href="#local-6989586621679179385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValues:GetPipelineDefinitionResponse' :: Maybe [ParameterValue]
+</span><a href="#local-6989586621679179396"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><a href="#local-6989586621679179396"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179395"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179394"><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><a href="#local-6989586621679179394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValues:GetPipelineDefinitionResponse' :: Maybe [ParameterValue]
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3AparameterValues%3AGetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var">parameterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
-</span><a href="#local-6989586621679179385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
+</span><a href="#local-6989586621679179394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
  -&gt; GetPipelineDefinitionResponse
  -&gt; f GetPipelineDefinitionResponse)
 -&gt; ((Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
@@ -682,16 +682,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      GetPipelineDefinitionResponse GetPipelineDefinitionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179384"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179393"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetPipelineDefinitionResponse' :: GetPipelineDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679179384"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179384"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179383"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179382"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
-</span><a href="#local-6989586621679179383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPipelineDefinitionResponse' :: Int
+</span><a href="#local-6989586621679179393"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179393"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179392"><span class="annot"><span class="annottext">s :: GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse%27"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179391"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPipelineDefinitionResponse
+</span><a href="#local-6989586621679179392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPipelineDefinitionResponse' :: Int
 </span><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#%24sel%3AhttpStatus%3AGetPipelineDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.GetPipelineDefinition.html#GetPipelineDefinitionResponse"><span class="hs-identifier hs-type">GetPipelineDefinitionResponse</span></a></span></span><span>
 </span><span id="line-215"></span></pre></body></html>

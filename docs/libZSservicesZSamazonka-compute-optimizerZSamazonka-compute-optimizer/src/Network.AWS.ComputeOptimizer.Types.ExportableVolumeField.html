@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.ExportableVolumeField</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.ExportableVolumeField</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier">ExportableVolumeField</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_AccountId"><span class="hs-identifier">ExportableVolumeField_AccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS"><span class="hs-identifier">ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput"><span class="hs-identifier">ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS"><span class="hs-identifier">ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput"><span class="hs-identifier">ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeSize"><span class="hs-identifier">ExportableVolumeField_CurrentConfigurationVolumeSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeType"><span class="hs-identifier">ExportableVolumeField_CurrentConfigurationVolumeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentMonthlyPrice"><span class="hs-identifier">ExportableVolumeField_CurrentMonthlyPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_Finding"><span class="hs-identifier">ExportableVolumeField_Finding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_LastRefreshTimestamp"><span class="hs-identifier">ExportableVolumeField_LastRefreshTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_LookbackPeriodInDays"><span class="hs-identifier">ExportableVolumeField_LookbackPeriodInDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeType"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsConfigurationVolumeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsMonthlyPrice"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsMonthlyPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsPerformanceRisk"><span class="hs-identifier">ExportableVolumeField_RecommendationOptionsPerformanceRisk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum"><span class="hs-identifier">ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum"><span class="hs-identifier">ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum"><span class="hs-identifier">ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum"><span class="hs-identifier">ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_VolumeArn"><span class="hs-identifier">ExportableVolumeField_VolumeArn</span></a></span><span>
+</span><span id="line-47"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679237459"><span id="local-6989586621679237460"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportableVolumeField"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-var">ExportableVolumeField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportableVolumeField%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-var">ExportableVolumeField'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExportableVolumeField"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#fromExportableVolumeField"><span class="hs-identifier hs-var hs-var">fromExportableVolumeField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237451"><span id="local-6989586621679237453"><span id="local-6989586621679237455"><span class="annot"><span class="annottext">Int -&gt; ExportableVolumeField -&gt; ShowS
+[ExportableVolumeField] -&gt; ShowS
+ExportableVolumeField -&gt; String
+(Int -&gt; ExportableVolumeField -&gt; ShowS)
+-&gt; (ExportableVolumeField -&gt; String)
+-&gt; ([ExportableVolumeField] -&gt; ShowS)
+-&gt; Show ExportableVolumeField
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportableVolumeField] -&gt; ShowS
+$cshowList :: [ExportableVolumeField] -&gt; ShowS
+show :: ExportableVolumeField -&gt; String
+$cshow :: ExportableVolumeField -&gt; String
+showsPrec :: Int -&gt; ExportableVolumeField -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportableVolumeField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679237442"><span id="local-6989586621679237444"><span id="local-6989586621679237446"><span id="local-6989586621679237448"><span class="annot"><span class="annottext">ReadPrec [ExportableVolumeField]
+ReadPrec ExportableVolumeField
+Int -&gt; ReadS ExportableVolumeField
+ReadS [ExportableVolumeField]
+(Int -&gt; ReadS ExportableVolumeField)
+-&gt; ReadS [ExportableVolumeField]
+-&gt; ReadPrec ExportableVolumeField
+-&gt; ReadPrec [ExportableVolumeField]
+-&gt; Read ExportableVolumeField
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportableVolumeField]
+$creadListPrec :: ReadPrec [ExportableVolumeField]
+readPrec :: ReadPrec ExportableVolumeField
+$creadPrec :: ReadPrec ExportableVolumeField
+readList :: ReadS [ExportableVolumeField]
+$creadList :: ReadS [ExportableVolumeField]
+readsPrec :: Int -&gt; ReadS ExportableVolumeField
+$creadsPrec :: Int -&gt; ReadS ExportableVolumeField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679237437"><span id="local-6989586621679237439"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+(ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool)
+-&gt; (ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool)
+-&gt; Eq ExportableVolumeField
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+$c/= :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+== :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+$c== :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679237421"><span id="local-6989586621679237423"><span id="local-6989586621679237425"><span id="local-6989586621679237427"><span id="local-6989586621679237429"><span id="local-6989586621679237431"><span id="local-6989586621679237433"><span class="annot"><span class="annottext">Eq ExportableVolumeField
+Eq ExportableVolumeField
+-&gt; (ExportableVolumeField -&gt; ExportableVolumeField -&gt; Ordering)
+-&gt; (ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool)
+-&gt; (ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool)
+-&gt; (ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool)
+-&gt; (ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool)
+-&gt; (ExportableVolumeField
+    -&gt; ExportableVolumeField -&gt; ExportableVolumeField)
+-&gt; (ExportableVolumeField
+    -&gt; ExportableVolumeField -&gt; ExportableVolumeField)
+-&gt; Ord ExportableVolumeField
+ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+ExportableVolumeField -&gt; ExportableVolumeField -&gt; Ordering
+ExportableVolumeField
+-&gt; ExportableVolumeField -&gt; ExportableVolumeField
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExportableVolumeField
+-&gt; ExportableVolumeField -&gt; ExportableVolumeField
+$cmin :: ExportableVolumeField
+-&gt; ExportableVolumeField -&gt; ExportableVolumeField
+max :: ExportableVolumeField
+-&gt; ExportableVolumeField -&gt; ExportableVolumeField
+$cmax :: ExportableVolumeField
+-&gt; ExportableVolumeField -&gt; ExportableVolumeField
+&gt;= :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+$c&gt;= :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+&gt; :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+$c&gt; :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+&lt;= :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+$c&lt;= :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+&lt; :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+$c&lt; :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Bool
+compare :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Ordering
+$ccompare :: ExportableVolumeField -&gt; ExportableVolumeField -&gt; Ordering
+$cp1Ord :: Eq ExportableVolumeField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExportableVolumeField -&gt; Rep ExportableVolumeField x)
+-&gt; (forall x. Rep ExportableVolumeField x -&gt; ExportableVolumeField)
+-&gt; Generic ExportableVolumeField
+forall x. Rep ExportableVolumeField x -&gt; ExportableVolumeField
+forall x. ExportableVolumeField -&gt; Rep ExportableVolumeField x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExportableVolumeField x -&gt; ExportableVolumeField
+$cfrom :: forall x. ExportableVolumeField -&gt; Rep ExportableVolumeField x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237413"><span id="local-6989586621679237415"><span class="annot"><span class="annottext">Int -&gt; ExportableVolumeField -&gt; Int
+ExportableVolumeField -&gt; Int
+(Int -&gt; ExportableVolumeField -&gt; Int)
+-&gt; (ExportableVolumeField -&gt; Int) -&gt; Hashable ExportableVolumeField
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExportableVolumeField -&gt; Int
+$chash :: ExportableVolumeField -&gt; Int
+hashWithSalt :: Int -&gt; ExportableVolumeField -&gt; Int
+$chashWithSalt :: Int -&gt; ExportableVolumeField -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679237410"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; ()
+(ExportableVolumeField -&gt; ()) -&gt; NFData ExportableVolumeField
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExportableVolumeField -&gt; ()
+$crnf :: ExportableVolumeField -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679237407"><span class="annot"><span class="annottext">Text -&gt; Either String ExportableVolumeField
+(Text -&gt; Either String ExportableVolumeField)
+-&gt; FromText ExportableVolumeField
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExportableVolumeField
+$cfromText :: Text -&gt; Either String ExportableVolumeField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679237404"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; Text
+(ExportableVolumeField -&gt; Text) -&gt; ToText ExportableVolumeField
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExportableVolumeField -&gt; Text
+$ctoText :: ExportableVolumeField -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679237401"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; ByteString
+(ExportableVolumeField -&gt; ByteString)
+-&gt; ToByteString ExportableVolumeField
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExportableVolumeField -&gt; ByteString
+$ctoBS :: ExportableVolumeField -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679237398"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; ByteStringBuilder
+(ExportableVolumeField -&gt; ByteStringBuilder)
+-&gt; ToLog ExportableVolumeField
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExportableVolumeField -&gt; ByteStringBuilder
+$cbuild :: ExportableVolumeField -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679237395"><span class="annot"><span class="annottext">HeaderName -&gt; ExportableVolumeField -&gt; [Header]
+(HeaderName -&gt; ExportableVolumeField -&gt; [Header])
+-&gt; ToHeader ExportableVolumeField
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExportableVolumeField -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExportableVolumeField -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679237392"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; QueryString
+(ExportableVolumeField -&gt; QueryString)
+-&gt; ToQuery ExportableVolumeField
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExportableVolumeField -&gt; QueryString
+$ctoQuery :: ExportableVolumeField -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679237387"><span id="local-6989586621679237389"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportableVolumeField]
+Value -&gt; Parser ExportableVolumeField
+(Value -&gt; Parser ExportableVolumeField)
+-&gt; (Value -&gt; Parser [ExportableVolumeField])
+-&gt; FromJSON ExportableVolumeField
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExportableVolumeField]
+$cparseJSONList :: Value -&gt; Parser [ExportableVolumeField]
+parseJSON :: Value -&gt; Parser ExportableVolumeField
+$cparseJSON :: Value -&gt; Parser ExportableVolumeField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679237382"><span id="local-6989586621679237384"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportableVolumeField]
+FromJSONKeyFunction ExportableVolumeField
+FromJSONKeyFunction ExportableVolumeField
+-&gt; FromJSONKeyFunction [ExportableVolumeField]
+-&gt; FromJSONKey ExportableVolumeField
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExportableVolumeField]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExportableVolumeField]
+fromJSONKey :: FromJSONKeyFunction ExportableVolumeField
+$cfromJSONKey :: FromJSONKeyFunction ExportableVolumeField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679237373"><span id="local-6989586621679237375"><span id="local-6989586621679237377"><span id="local-6989586621679237379"><span class="annot"><span class="annottext">[ExportableVolumeField] -&gt; Encoding
+[ExportableVolumeField] -&gt; Value
+ExportableVolumeField -&gt; Encoding
+ExportableVolumeField -&gt; Value
+(ExportableVolumeField -&gt; Value)
+-&gt; (ExportableVolumeField -&gt; Encoding)
+-&gt; ([ExportableVolumeField] -&gt; Value)
+-&gt; ([ExportableVolumeField] -&gt; Encoding)
+-&gt; ToJSON ExportableVolumeField
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExportableVolumeField] -&gt; Encoding
+$ctoEncodingList :: [ExportableVolumeField] -&gt; Encoding
+toJSONList :: [ExportableVolumeField] -&gt; Value
+$ctoJSONList :: [ExportableVolumeField] -&gt; Value
+toEncoding :: ExportableVolumeField -&gt; Encoding
+$ctoEncoding :: ExportableVolumeField -&gt; Encoding
+toJSON :: ExportableVolumeField -&gt; Value
+$ctoJSON :: ExportableVolumeField -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679237368"><span id="local-6989586621679237370"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportableVolumeField]
+ToJSONKeyFunction ExportableVolumeField
+ToJSONKeyFunction ExportableVolumeField
+-&gt; ToJSONKeyFunction [ExportableVolumeField]
+-&gt; ToJSONKey ExportableVolumeField
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExportableVolumeField]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExportableVolumeField]
+toJSONKey :: ToJSONKeyFunction ExportableVolumeField
+$ctoJSONKey :: ToJSONKeyFunction ExportableVolumeField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679237365"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportableVolumeField
+([Node] -&gt; Either String ExportableVolumeField)
+-&gt; FromXML ExportableVolumeField
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExportableVolumeField
+$cparseXML :: [Node] -&gt; Either String ExportableVolumeField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679237362"><span class="annot"><span class="annottext">ExportableVolumeField -&gt; XML
+(ExportableVolumeField -&gt; XML) -&gt; ToXML ExportableVolumeField
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExportableVolumeField -&gt; XML
+$ctoXML :: ExportableVolumeField -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_AccountId"><span class="hs-identifier hs-type">ExportableVolumeField_AccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_AccountId"><span id="%24mExportableVolumeField_AccountId"><span id="ExportableVolumeField_AccountId"><span class="annot"><span class="annottext">$bExportableVolumeField_AccountId :: ExportableVolumeField
+$mExportableVolumeField_AccountId :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_AccountId"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_AccountId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AccountId&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS"><span class="hs-identifier hs-type">ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS"><span id="%24mExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS"><span id="ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS"><span class="annot"><span class="annottext">$bExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS :: ExportableVolumeField
+$mExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationVolumeBaselineIOPS&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput"><span class="hs-identifier hs-type">ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput"><span id="%24mExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput"><span id="ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput"><span class="annot"><span class="annottext">$bExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput :: ExportableVolumeField
+$mExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationVolumeBaselineThroughput&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS"><span class="hs-identifier hs-type">ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_CurrentConfigurationVolumeBurstIOPS"><span id="%24mExportableVolumeField_CurrentConfigurationVolumeBurstIOPS"><span id="ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS"><span class="annot"><span class="annottext">$bExportableVolumeField_CurrentConfigurationVolumeBurstIOPS :: ExportableVolumeField
+$mExportableVolumeField_CurrentConfigurationVolumeBurstIOPS :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_CurrentConfigurationVolumeBurstIOPS"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationVolumeBurstIOPS&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput"><span class="hs-identifier hs-type">ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_CurrentConfigurationVolumeBurstThroughput"><span id="%24mExportableVolumeField_CurrentConfigurationVolumeBurstThroughput"><span id="ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput"><span class="annot"><span class="annottext">$bExportableVolumeField_CurrentConfigurationVolumeBurstThroughput :: ExportableVolumeField
+$mExportableVolumeField_CurrentConfigurationVolumeBurstThroughput :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_CurrentConfigurationVolumeBurstThroughput"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationVolumeBurstThroughput&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeSize"><span class="hs-identifier hs-type">ExportableVolumeField_CurrentConfigurationVolumeSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_CurrentConfigurationVolumeSize"><span id="%24mExportableVolumeField_CurrentConfigurationVolumeSize"><span id="ExportableVolumeField_CurrentConfigurationVolumeSize"><span class="annot"><span class="annottext">$bExportableVolumeField_CurrentConfigurationVolumeSize :: ExportableVolumeField
+$mExportableVolumeField_CurrentConfigurationVolumeSize :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_CurrentConfigurationVolumeSize"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_CurrentConfigurationVolumeSize</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationVolumeSize&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeType"><span class="hs-identifier hs-type">ExportableVolumeField_CurrentConfigurationVolumeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_CurrentConfigurationVolumeType"><span id="%24mExportableVolumeField_CurrentConfigurationVolumeType"><span id="ExportableVolumeField_CurrentConfigurationVolumeType"><span class="annot"><span class="annottext">$bExportableVolumeField_CurrentConfigurationVolumeType :: ExportableVolumeField
+$mExportableVolumeField_CurrentConfigurationVolumeType :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_CurrentConfigurationVolumeType"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_CurrentConfigurationVolumeType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationVolumeType&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentMonthlyPrice"><span class="hs-identifier hs-type">ExportableVolumeField_CurrentMonthlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_CurrentMonthlyPrice"><span id="%24mExportableVolumeField_CurrentMonthlyPrice"><span id="ExportableVolumeField_CurrentMonthlyPrice"><span class="annot"><span class="annottext">$bExportableVolumeField_CurrentMonthlyPrice :: ExportableVolumeField
+$mExportableVolumeField_CurrentMonthlyPrice :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_CurrentMonthlyPrice"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_CurrentMonthlyPrice</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentMonthlyPrice&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_Finding"><span class="hs-identifier hs-type">ExportableVolumeField_Finding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_Finding"><span id="%24mExportableVolumeField_Finding"><span id="ExportableVolumeField_Finding"><span class="annot"><span class="annottext">$bExportableVolumeField_Finding :: ExportableVolumeField
+$mExportableVolumeField_Finding :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_Finding"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_Finding</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Finding&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_LastRefreshTimestamp"><span class="hs-identifier hs-type">ExportableVolumeField_LastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_LastRefreshTimestamp"><span id="%24mExportableVolumeField_LastRefreshTimestamp"><span id="ExportableVolumeField_LastRefreshTimestamp"><span class="annot"><span class="annottext">$bExportableVolumeField_LastRefreshTimestamp :: ExportableVolumeField
+$mExportableVolumeField_LastRefreshTimestamp :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_LastRefreshTimestamp"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_LastRefreshTimestamp</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LastRefreshTimestamp&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_LookbackPeriodInDays"><span class="hs-identifier hs-type">ExportableVolumeField_LookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_LookbackPeriodInDays"><span id="%24mExportableVolumeField_LookbackPeriodInDays"><span id="ExportableVolumeField_LookbackPeriodInDays"><span class="annot"><span class="annottext">$bExportableVolumeField_LookbackPeriodInDays :: ExportableVolumeField
+$mExportableVolumeField_LookbackPeriodInDays :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_LookbackPeriodInDays"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_LookbackPeriodInDays</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LookbackPeriodInDays&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS"><span id="%24mExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS"><span id="ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsConfigurationVolumeBaselineIOPS&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput"><span id="%24mExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput"><span id="ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsConfigurationVolumeBaselineThroughput&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS"><span id="%24mExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS"><span id="ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsConfigurationVolumeBurstIOPS&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput"><span id="%24mExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput"><span id="ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsConfigurationVolumeBurstThroughput&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeSize"><span id="%24mExportableVolumeField_RecommendationOptionsConfigurationVolumeSize"><span id="ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsConfigurationVolumeSize :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsConfigurationVolumeSize :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeSize"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsConfigurationVolumeSize&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeType"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeType"><span id="%24mExportableVolumeField_RecommendationOptionsConfigurationVolumeType"><span id="ExportableVolumeField_RecommendationOptionsConfigurationVolumeType"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsConfigurationVolumeType :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsConfigurationVolumeType :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsConfigurationVolumeType"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsConfigurationVolumeType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsConfigurationVolumeType&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsMonthlyPrice"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsMonthlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsMonthlyPrice"><span id="%24mExportableVolumeField_RecommendationOptionsMonthlyPrice"><span id="ExportableVolumeField_RecommendationOptionsMonthlyPrice"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsMonthlyPrice :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsMonthlyPrice :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsMonthlyPrice"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsMonthlyPrice</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsMonthlyPrice&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsPerformanceRisk"><span class="hs-identifier hs-type">ExportableVolumeField_RecommendationOptionsPerformanceRisk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_RecommendationOptionsPerformanceRisk"><span id="%24mExportableVolumeField_RecommendationOptionsPerformanceRisk"><span id="ExportableVolumeField_RecommendationOptionsPerformanceRisk"><span class="annot"><span class="annottext">$bExportableVolumeField_RecommendationOptionsPerformanceRisk :: ExportableVolumeField
+$mExportableVolumeField_RecommendationOptionsPerformanceRisk :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_RecommendationOptionsPerformanceRisk"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_RecommendationOptionsPerformanceRisk</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsPerformanceRisk&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum"><span class="hs-identifier hs-type">ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum"><span id="%24mExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum"><span id="ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum"><span class="annot"><span class="annottext">$bExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum :: ExportableVolumeField
+$mExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsVolumeReadBytesPerSecondMaximum&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum"><span class="hs-identifier hs-type">ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum"><span id="%24mExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum"><span id="ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum"><span class="annot"><span class="annottext">$bExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum :: ExportableVolumeField
+$mExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsVolumeReadOpsPerSecondMaximum&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum"><span class="hs-identifier hs-type">ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum"><span id="%24mExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum"><span id="ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum"><span class="annot"><span class="annottext">$bExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum :: ExportableVolumeField
+$mExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsVolumeWriteBytesPerSecondMaximum&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum"><span class="hs-identifier hs-type">ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum"><span id="%24mExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum"><span id="ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum"><span class="annot"><span class="annottext">$bExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum :: ExportableVolumeField
+$mExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsVolumeWriteOpsPerSecondMaximum&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_VolumeArn"><span class="hs-identifier hs-type">ExportableVolumeField_VolumeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField"><span class="hs-identifier hs-type">ExportableVolumeField</span></a></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableVolumeField_VolumeArn"><span id="%24mExportableVolumeField_VolumeArn"><span id="ExportableVolumeField_VolumeArn"><span class="annot"><span class="annottext">$bExportableVolumeField_VolumeArn :: ExportableVolumeField
+$mExportableVolumeField_VolumeArn :: forall r.
+ExportableVolumeField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#%24bExportableVolumeField_VolumeArn"><span class="hs-identifier hs-var hs-var hs-var">ExportableVolumeField_VolumeArn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-identifier hs-type">ExportableVolumeField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VolumeArn&quot;</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_AccountId"><span class="hs-pragma hs-type">ExportableVolumeField_AccountId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS"><span class="hs-pragma hs-type">ExportableVolumeField_CurrentConfigurationVolumeBaselineIOPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput"><span class="hs-pragma hs-type">ExportableVolumeField_CurrentConfigurationVolumeBaselineThroughput</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS"><span class="hs-pragma hs-type">ExportableVolumeField_CurrentConfigurationVolumeBurstIOPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput"><span class="hs-pragma hs-type">ExportableVolumeField_CurrentConfigurationVolumeBurstThroughput</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeSize"><span class="hs-pragma hs-type">ExportableVolumeField_CurrentConfigurationVolumeSize</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentConfigurationVolumeType"><span class="hs-pragma hs-type">ExportableVolumeField_CurrentConfigurationVolumeType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_CurrentMonthlyPrice"><span class="hs-pragma hs-type">ExportableVolumeField_CurrentMonthlyPrice</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_Finding"><span class="hs-pragma hs-type">ExportableVolumeField_Finding</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_LastRefreshTimestamp"><span class="hs-pragma hs-type">ExportableVolumeField_LastRefreshTimestamp</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_LookbackPeriodInDays"><span class="hs-pragma hs-type">ExportableVolumeField_LookbackPeriodInDays</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineIOPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBaselineThroughput</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstIOPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeBurstThroughput</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeSize</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsConfigurationVolumeType"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsConfigurationVolumeType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsMonthlyPrice"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsMonthlyPrice</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_RecommendationOptionsPerformanceRisk"><span class="hs-pragma hs-type">ExportableVolumeField_RecommendationOptionsPerformanceRisk</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum"><span class="hs-pragma hs-type">ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum"><span class="hs-pragma hs-type">ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum"><span class="hs-pragma hs-type">ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum"><span class="hs-pragma hs-type">ExportableVolumeField_UtilizationMetricsVolumeWriteOpsPerSecondMaximum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField_VolumeArn"><span class="hs-pragma hs-type">ExportableVolumeField_VolumeArn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableVolumeField.html#ExportableVolumeField%27"><span class="hs-pragma hs-type">ExportableVolumeField'</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-181"></span></pre></body></html>

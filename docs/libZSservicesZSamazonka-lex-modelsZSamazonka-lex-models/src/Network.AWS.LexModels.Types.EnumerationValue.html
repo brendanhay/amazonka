@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- -   stuffed</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newEnumerationValue' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679310210"><span id="local-6989586621679310211"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnumerationValue"><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-var">EnumerationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnumerationValue%27"><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-var">EnumerationValue'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679310219"><span id="local-6989586621679310220"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnumerationValue"><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-var">EnumerationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnumerationValue%27"><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-var">EnumerationValue'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Additional values related to the slot type value.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Asynonyms%3AEnumerationValue%27"><span class="annot"><span class="annottext">EnumerationValue -&gt; Maybe [Text]
 </span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#%24sel%3Asynonyms%3AEnumerationValue%27"><span class="hs-identifier hs-var hs-var">synonyms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Avalue%3AEnumerationValue%27"><span class="annot"><span class="annottext">EnumerationValue -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#%24sel%3Avalue%3AEnumerationValue%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310203"><span id="local-6989586621679310205"><span class="annot"><span class="annottext">EnumerationValue -&gt; EnumerationValue -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310212"><span id="local-6989586621679310214"><span class="annot"><span class="annottext">EnumerationValue -&gt; EnumerationValue -&gt; Bool
 (EnumerationValue -&gt; EnumerationValue -&gt; Bool)
 -&gt; (EnumerationValue -&gt; EnumerationValue -&gt; Bool)
 -&gt; Eq EnumerationValue
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnumerationValue -&gt; EnumerationValue -&gt; Bool
 == :: EnumerationValue -&gt; EnumerationValue -&gt; Bool
 $c== :: EnumerationValue -&gt; EnumerationValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310194"><span id="local-6989586621679310196"><span id="local-6989586621679310198"><span id="local-6989586621679310200"><span class="annot"><span class="annottext">ReadPrec [EnumerationValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310203"><span id="local-6989586621679310205"><span id="local-6989586621679310207"><span id="local-6989586621679310209"><span class="annot"><span class="annottext">ReadPrec [EnumerationValue]
 ReadPrec EnumerationValue
 Int -&gt; ReadS EnumerationValue
 ReadS [EnumerationValue]
@@ -74,7 +74,7 @@ readList :: ReadS [EnumerationValue]
 $creadList :: ReadS [EnumerationValue]
 readsPrec :: Int -&gt; ReadS EnumerationValue
 $creadsPrec :: Int -&gt; ReadS EnumerationValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310187"><span id="local-6989586621679310189"><span id="local-6989586621679310191"><span class="annot"><span class="annottext">Int -&gt; EnumerationValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310196"><span id="local-6989586621679310198"><span id="local-6989586621679310200"><span class="annot"><span class="annottext">Int -&gt; EnumerationValue -&gt; ShowS
 [EnumerationValue] -&gt; ShowS
 EnumerationValue -&gt; String
 (Int -&gt; EnumerationValue -&gt; ShowS)
@@ -116,8 +116,8 @@ $cfrom :: forall x. EnumerationValue -&gt; Rep EnumerationValue x
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span><span>
 </span><span id="line-63"></span><span id="newEnumerationValue"><span class="annot"><span class="annottext">newEnumerationValue :: Text -&gt; EnumerationValue
-</span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#newEnumerationValue"><span class="hs-identifier hs-var hs-var">newEnumerationValue</span></a></span></span><span> </span><span id="local-6989586621679310181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310181"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#newEnumerationValue"><span class="hs-identifier hs-var hs-var">newEnumerationValue</span></a></span></span><span> </span><span id="local-6989586621679310190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310190"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">EnumerationValue' :: Maybe [Text] -&gt; Text -&gt; EnumerationValue
 </span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:synonyms:EnumerationValue' :: Maybe [Text]
@@ -126,7 +126,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:EnumerationValue' :: Text
 </span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#%24sel%3Avalue%3AEnumerationValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310181"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679310190"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Additional values related to the slot type value.</span><span>
@@ -138,16 +138,16 @@ forall a. Maybe a
 -&gt; Lens
      EnumerationValue EnumerationValue (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310177"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310186"><span class="annot"><span class="annottext">Maybe [Text]
 synonyms :: Maybe [Text]
 $sel:synonyms:EnumerationValue' :: EnumerationValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679310177"><span class="hs-identifier hs-var hs-var">synonyms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679310177"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310176"><span class="annot"><span class="annottext">s :: EnumerationValue
-</span><a href="#local-6989586621679310176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310175"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679310175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnumerationValue
-</span><a href="#local-6989586621679310176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:synonyms:EnumerationValue' :: Maybe [Text]
+</span><a href="#local-6989586621679310186"><span class="hs-identifier hs-var hs-var">synonyms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679310186"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310185"><span class="annot"><span class="annottext">s :: EnumerationValue
+</span><a href="#local-6989586621679310185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310184"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679310184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnumerationValue
+</span><a href="#local-6989586621679310185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:synonyms:EnumerationValue' :: Maybe [Text]
 </span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#%24sel%3Asynonyms%3AEnumerationValue%27"><span class="hs-identifier hs-var">synonyms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679310175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679310184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; EnumerationValue -&gt; f EnumerationValue)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -171,19 +171,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (EnumerationValue -&gt; Text -&gt; EnumerationValue)
 -&gt; Lens EnumerationValue EnumerationValue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310170"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310179"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:EnumerationValue' :: EnumerationValue -&gt; Text
-</span><a href="#local-6989586621679310170"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310170"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310169"><span class="annot"><span class="annottext">s :: EnumerationValue
-</span><a href="#local-6989586621679310169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310168"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnumerationValue
-</span><a href="#local-6989586621679310169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EnumerationValue' :: Text
+</span><a href="#local-6989586621679310179"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310179"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310178"><span class="annot"><span class="annottext">s :: EnumerationValue
+</span><a href="#local-6989586621679310178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310177"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnumerationValue
+</span><a href="#local-6989586621679310178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EnumerationValue' :: Text
 </span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#%24sel%3Avalue%3AEnumerationValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310165"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679310163"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnumerationValue
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310174"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679310172"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnumerationValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EnumerationValue)
@@ -193,15 +193,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EnumerationValue&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310160"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310169"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Text -&gt; EnumerationValue
 </span><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-var">EnumerationValue'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Text -&gt; EnumerationValue)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Text -&gt; EnumerationValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679310169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;synonyms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -214,25 +214,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser EnumerationValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679310169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310152"><span id="local-6989586621679310154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310161"><span id="local-6989586621679310163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310141"><span id="local-6989586621679310143"><span id="local-6989586621679310145"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679310139"><span class="annot"><span class="annottext">toJSON :: EnumerationValue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310136"><span id="local-6989586621679310137"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310150"><span id="local-6989586621679310152"><span id="local-6989586621679310154"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue"><span class="hs-identifier hs-type">EnumerationValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679310148"><span class="annot"><span class="annottext">toJSON :: EnumerationValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.EnumerationValue.html#EnumerationValue%27"><span class="hs-identifier hs-type">EnumerationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310145"><span id="local-6989586621679310146"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 value :: Text
 synonyms :: Maybe [Text]
 $sel:value:EnumerationValue' :: EnumerationValue -&gt; Text
 $sel:synonyms:EnumerationValue' :: EnumerationValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679310136"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310145"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,14 +244,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679310137"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310146"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310136"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310145"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

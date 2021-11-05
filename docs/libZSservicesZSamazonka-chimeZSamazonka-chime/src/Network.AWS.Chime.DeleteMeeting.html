@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.DeleteMeeting</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified Amazon Chime SDK meeting. The operation deletes</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- all attendees, disconnects all clients, and prevents new clients from</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- joining the meeting. For more information about the Amazon Chime SDK,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /Amazon Chime Developer Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.DeleteMeeting</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier">DeleteMeeting</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#newDeleteMeeting"><span class="hs-identifier">newDeleteMeeting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#deleteMeeting_meetingId"><span class="hs-identifier">deleteMeeting_meetingId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse"><span class="hs-identifier">DeleteMeetingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#newDeleteMeetingResponse"><span class="hs-identifier">newDeleteMeetingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteMeeting' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679548416"><span id="local-6989586621679548417"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMeeting"><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-var">DeleteMeeting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMeeting%27"><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting%27"><span class="hs-identifier hs-var">DeleteMeeting'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AmeetingId%3ADeleteMeeting%27"><span class="annot"><span class="annottext">DeleteMeeting -&gt; Text
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#%24sel%3AmeetingId%3ADeleteMeeting%27"><span class="hs-identifier hs-var hs-var">meetingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548410"><span id="local-6989586621679548412"><span class="annot"><span class="annottext">DeleteMeeting -&gt; DeleteMeeting -&gt; Bool
+(DeleteMeeting -&gt; DeleteMeeting -&gt; Bool)
+-&gt; (DeleteMeeting -&gt; DeleteMeeting -&gt; Bool) -&gt; Eq DeleteMeeting
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteMeeting -&gt; DeleteMeeting -&gt; Bool
+$c/= :: DeleteMeeting -&gt; DeleteMeeting -&gt; Bool
+== :: DeleteMeeting -&gt; DeleteMeeting -&gt; Bool
+$c== :: DeleteMeeting -&gt; DeleteMeeting -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548401"><span id="local-6989586621679548403"><span id="local-6989586621679548405"><span id="local-6989586621679548407"><span class="annot"><span class="annottext">ReadPrec [DeleteMeeting]
+ReadPrec DeleteMeeting
+Int -&gt; ReadS DeleteMeeting
+ReadS [DeleteMeeting]
+(Int -&gt; ReadS DeleteMeeting)
+-&gt; ReadS [DeleteMeeting]
+-&gt; ReadPrec DeleteMeeting
+-&gt; ReadPrec [DeleteMeeting]
+-&gt; Read DeleteMeeting
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteMeeting]
+$creadListPrec :: ReadPrec [DeleteMeeting]
+readPrec :: ReadPrec DeleteMeeting
+$creadPrec :: ReadPrec DeleteMeeting
+readList :: ReadS [DeleteMeeting]
+$creadList :: ReadS [DeleteMeeting]
+readsPrec :: Int -&gt; ReadS DeleteMeeting
+$creadsPrec :: Int -&gt; ReadS DeleteMeeting
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548394"><span id="local-6989586621679548396"><span id="local-6989586621679548398"><span class="annot"><span class="annottext">Int -&gt; DeleteMeeting -&gt; ShowS
+[DeleteMeeting] -&gt; ShowS
+DeleteMeeting -&gt; String
+(Int -&gt; DeleteMeeting -&gt; ShowS)
+-&gt; (DeleteMeeting -&gt; String)
+-&gt; ([DeleteMeeting] -&gt; ShowS)
+-&gt; Show DeleteMeeting
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteMeeting] -&gt; ShowS
+$cshowList :: [DeleteMeeting] -&gt; ShowS
+show :: DeleteMeeting -&gt; String
+$cshow :: DeleteMeeting -&gt; String
+showsPrec :: Int -&gt; DeleteMeeting -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteMeeting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteMeeting -&gt; Rep DeleteMeeting x)
+-&gt; (forall x. Rep DeleteMeeting x -&gt; DeleteMeeting)
+-&gt; Generic DeleteMeeting
+forall x. Rep DeleteMeeting x -&gt; DeleteMeeting
+forall x. DeleteMeeting -&gt; Rep DeleteMeeting x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteMeeting x -&gt; DeleteMeeting
+$cfrom :: forall x. DeleteMeeting -&gt; Rep DeleteMeeting x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteMeeting' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'meetingId', 'deleteMeeting_meetingId' - The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#newDeleteMeeting"><span class="hs-identifier hs-type">newDeleteMeeting</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'meetingId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span>
+</span><span id="line-70"></span><span id="newDeleteMeeting"><span class="annot"><span class="annottext">newDeleteMeeting :: Text -&gt; DeleteMeeting
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#newDeleteMeeting"><span class="hs-identifier hs-var hs-var">newDeleteMeeting</span></a></span></span><span> </span><span id="local-6989586621679548389"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679548389"><span class="hs-identifier hs-var">pMeetingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteMeeting' :: Text -&gt; DeleteMeeting
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting%27"><span class="hs-identifier hs-type">DeleteMeeting'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meetingId:DeleteMeeting' :: Text
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#%24sel%3AmeetingId%3ADeleteMeeting%27"><span class="hs-identifier hs-var">meetingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679548389"><span class="hs-identifier hs-var">pMeetingId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The Amazon Chime SDK meeting ID.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#deleteMeeting_meetingId"><span class="hs-identifier hs-type">deleteMeeting_meetingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="deleteMeeting_meetingId"><span class="annot"><span class="annottext">deleteMeeting_meetingId :: (Text -&gt; f Text) -&gt; DeleteMeeting -&gt; f DeleteMeeting
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#deleteMeeting_meetingId"><span class="hs-identifier hs-var hs-var">deleteMeeting_meetingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMeeting -&gt; Text)
+-&gt; (DeleteMeeting -&gt; Text -&gt; DeleteMeeting)
+-&gt; Lens DeleteMeeting DeleteMeeting Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting%27"><span class="hs-identifier hs-type">DeleteMeeting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548386"><span class="annot"><span class="annottext">Text
+meetingId :: Text
+$sel:meetingId:DeleteMeeting' :: DeleteMeeting -&gt; Text
+</span><a href="#local-6989586621679548386"><span class="hs-identifier hs-var hs-var">meetingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679548386"><span class="hs-identifier hs-var">meetingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548385"><span class="annot"><span class="annottext">s :: DeleteMeeting
+</span><a href="#local-6989586621679548385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting%27"><span class="hs-identifier hs-type">DeleteMeeting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679548384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMeeting
+</span><a href="#local-6989586621679548385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meetingId:DeleteMeeting' :: Text
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#%24sel%3AmeetingId%3ADeleteMeeting%27"><span class="hs-identifier hs-var">meetingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679548384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse"><span class="hs-identifier hs-type">DeleteMeetingResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679548380"><span class="annot"><span class="annottext">request :: DeleteMeeting -&gt; Request DeleteMeeting
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMeeting -&gt; Request DeleteMeeting
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679548376"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteMeeting
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteMeeting)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteMeeting
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteMeeting
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteMeeting)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteMeeting
+DeleteMeetingResponse
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse%27"><span class="hs-identifier hs-var">DeleteMeetingResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548369"><span id="local-6989586621679548371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679548362"><span class="annot"><span class="annottext">toHeaders :: DeleteMeeting -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteMeeting -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679548357"><span class="annot"><span class="annottext">toPath :: DeleteMeeting -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting%27"><span class="hs-identifier hs-type">DeleteMeeting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548355"><span class="annot"><span class="annottext">Text
+meetingId :: Text
+$sel:meetingId:DeleteMeeting' :: DeleteMeeting -&gt; Text
+</span><a href="#local-6989586621679548355"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/meetings/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679548355"><span class="hs-identifier hs-var">meetingId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeeting"><span class="hs-identifier hs-type">DeleteMeeting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679548351"><span class="annot"><span class="annottext">toQuery :: DeleteMeeting -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMeeting -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newDeleteMeetingResponse' smart constructor.</span><span>
+</span><span id="line-100"></span><span id="local-6989586621679548348"><span id="local-6989586621679548349"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMeetingResponse"><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse"><span class="hs-identifier hs-var">DeleteMeetingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMeetingResponse%27"><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse%27"><span class="hs-identifier hs-var">DeleteMeetingResponse'</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548344"><span id="local-6989586621679548346"><span class="annot"><span class="annottext">DeleteMeetingResponse -&gt; DeleteMeetingResponse -&gt; Bool
+(DeleteMeetingResponse -&gt; DeleteMeetingResponse -&gt; Bool)
+-&gt; (DeleteMeetingResponse -&gt; DeleteMeetingResponse -&gt; Bool)
+-&gt; Eq DeleteMeetingResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteMeetingResponse -&gt; DeleteMeetingResponse -&gt; Bool
+$c/= :: DeleteMeetingResponse -&gt; DeleteMeetingResponse -&gt; Bool
+== :: DeleteMeetingResponse -&gt; DeleteMeetingResponse -&gt; Bool
+$c== :: DeleteMeetingResponse -&gt; DeleteMeetingResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548336"><span id="local-6989586621679548338"><span id="local-6989586621679548340"><span id="local-6989586621679548342"><span class="annot"><span class="annottext">ReadPrec [DeleteMeetingResponse]
+ReadPrec DeleteMeetingResponse
+Int -&gt; ReadS DeleteMeetingResponse
+ReadS [DeleteMeetingResponse]
+(Int -&gt; ReadS DeleteMeetingResponse)
+-&gt; ReadS [DeleteMeetingResponse]
+-&gt; ReadPrec DeleteMeetingResponse
+-&gt; ReadPrec [DeleteMeetingResponse]
+-&gt; Read DeleteMeetingResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteMeetingResponse]
+$creadListPrec :: ReadPrec [DeleteMeetingResponse]
+readPrec :: ReadPrec DeleteMeetingResponse
+$creadPrec :: ReadPrec DeleteMeetingResponse
+readList :: ReadS [DeleteMeetingResponse]
+$creadList :: ReadS [DeleteMeetingResponse]
+readsPrec :: Int -&gt; ReadS DeleteMeetingResponse
+$creadsPrec :: Int -&gt; ReadS DeleteMeetingResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548330"><span id="local-6989586621679548332"><span id="local-6989586621679548334"><span class="annot"><span class="annottext">Int -&gt; DeleteMeetingResponse -&gt; ShowS
+[DeleteMeetingResponse] -&gt; ShowS
+DeleteMeetingResponse -&gt; String
+(Int -&gt; DeleteMeetingResponse -&gt; ShowS)
+-&gt; (DeleteMeetingResponse -&gt; String)
+-&gt; ([DeleteMeetingResponse] -&gt; ShowS)
+-&gt; Show DeleteMeetingResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteMeetingResponse] -&gt; ShowS
+$cshowList :: [DeleteMeetingResponse] -&gt; ShowS
+show :: DeleteMeetingResponse -&gt; String
+$cshow :: DeleteMeetingResponse -&gt; String
+showsPrec :: Int -&gt; DeleteMeetingResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteMeetingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteMeetingResponse -&gt; Rep DeleteMeetingResponse x)
+-&gt; (forall x. Rep DeleteMeetingResponse x -&gt; DeleteMeetingResponse)
+-&gt; Generic DeleteMeetingResponse
+forall x. Rep DeleteMeetingResponse x -&gt; DeleteMeetingResponse
+forall x. DeleteMeetingResponse -&gt; Rep DeleteMeetingResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteMeetingResponse x -&gt; DeleteMeetingResponse
+$cfrom :: forall x. DeleteMeetingResponse -&gt; Rep DeleteMeetingResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Create a value of 'DeleteMeetingResponse' with all optional fields omitted.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#newDeleteMeetingResponse"><span class="hs-identifier hs-type">newDeleteMeetingResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse"><span class="hs-identifier hs-type">DeleteMeetingResponse</span></a></span><span>
+</span><span id="line-111"></span><span id="newDeleteMeetingResponse"><span class="annot"><span class="annottext">newDeleteMeetingResponse :: DeleteMeetingResponse
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#newDeleteMeetingResponse"><span class="hs-identifier hs-var hs-var">newDeleteMeetingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteMeetingResponse
+</span><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse%27"><span class="hs-identifier hs-var">DeleteMeetingResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteMeeting.html#DeleteMeetingResponse"><span class="hs-identifier hs-type">DeleteMeetingResponse</span></a></span></span><span>
+</span><span id="line-114"></span></pre></body></html>

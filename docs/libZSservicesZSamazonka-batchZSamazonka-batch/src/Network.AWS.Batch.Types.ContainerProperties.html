@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- container that\'s launched as part of a job.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newContainerProperties' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679265901"><span id="local-6989586621679265902"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerProperties"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-var">ContainerProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerProperties%27"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-var">ContainerProperties'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679265910"><span id="local-6989586621679265911"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerProperties"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-var">ContainerProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerProperties%27"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-var">ContainerProperties'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The image used to start a container. This string is passed directly to</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the Docker daemon. Images in the Docker Hub registry are available by</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- default. Other repositories are specified with</span><span>
@@ -274,7 +274,7 @@
 </span><span id="line-255"></span><span>    </span><span id="%24sel%3AnetworkConfiguration%3AContainerProperties%27"><span class="annot"><span class="annottext">ContainerProperties -&gt; Maybe NetworkConfiguration
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AnetworkConfiguration%3AContainerProperties%27"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span><span>
 </span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265876"><span id="local-6989586621679265878"><span class="annot"><span class="annottext">ContainerProperties -&gt; ContainerProperties -&gt; Bool
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265885"><span id="local-6989586621679265887"><span class="annot"><span class="annottext">ContainerProperties -&gt; ContainerProperties -&gt; Bool
 (ContainerProperties -&gt; ContainerProperties -&gt; Bool)
 -&gt; (ContainerProperties -&gt; ContainerProperties -&gt; Bool)
 -&gt; Eq ContainerProperties
@@ -283,7 +283,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerProperties -&gt; ContainerProperties -&gt; Bool
 == :: ContainerProperties -&gt; ContainerProperties -&gt; Bool
 $c== :: ContainerProperties -&gt; ContainerProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265867"><span id="local-6989586621679265869"><span id="local-6989586621679265871"><span id="local-6989586621679265873"><span class="annot"><span class="annottext">ReadPrec [ContainerProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265876"><span id="local-6989586621679265878"><span id="local-6989586621679265880"><span id="local-6989586621679265882"><span class="annot"><span class="annottext">ReadPrec [ContainerProperties]
 ReadPrec ContainerProperties
 Int -&gt; ReadS ContainerProperties
 ReadS [ContainerProperties]
@@ -303,7 +303,7 @@ readList :: ReadS [ContainerProperties]
 $creadList :: ReadS [ContainerProperties]
 readsPrec :: Int -&gt; ReadS ContainerProperties
 $creadsPrec :: Int -&gt; ReadS ContainerProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265860"><span id="local-6989586621679265862"><span id="local-6989586621679265864"><span class="annot"><span class="annottext">Int -&gt; ContainerProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265869"><span id="local-6989586621679265871"><span id="local-6989586621679265873"><span class="annot"><span class="annottext">Int -&gt; ContainerProperties -&gt; ShowS
 [ContainerProperties] -&gt; ShowS
 ContainerProperties -&gt; String
 (Int -&gt; ContainerProperties -&gt; ShowS)
@@ -696,16 +696,16 @@ forall a. Maybe a
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265851"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265860"><span class="annot"><span class="annottext">Maybe Text
 image :: Maybe Text
 $sel:image:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679265851"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265851"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265850"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265849"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ContainerProperties' :: Maybe Text
+</span><a href="#local-6989586621679265860"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265860"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265859"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265858"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ContainerProperties' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Aimage%3AContainerProperties%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-538"></span><span>
 </span><span id="line-539"></span><span class="hs-comment">-- | The command that\'s passed to the container. This parameter maps to</span><span>
 </span><span id="line-540"></span><span class="hs-comment">-- @Cmd@ in the</span><span>
@@ -727,16 +727,16 @@ $sel:image:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265847"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265856"><span class="annot"><span class="annottext">Maybe [Text]
 command :: Maybe [Text]
 $sel:command:ContainerProperties' :: ContainerProperties -&gt; Maybe [Text]
-</span><a href="#local-6989586621679265847"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265847"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265846"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265845"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:ContainerProperties' :: Maybe [Text]
+</span><a href="#local-6989586621679265856"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679265856"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265855"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265854"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679265854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:ContainerProperties' :: Maybe [Text]
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Acommand%3AContainerProperties%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679265854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ContainerProperties -&gt; f ContainerProperties)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -767,16 +767,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Secret])
      (Maybe [Secret])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265840"><span class="annot"><span class="annottext">Maybe [Secret]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265849"><span class="annot"><span class="annottext">Maybe [Secret]
 secrets :: Maybe [Secret]
 $sel:secrets:ContainerProperties' :: ContainerProperties -&gt; Maybe [Secret]
-</span><a href="#local-6989586621679265840"><span class="hs-identifier hs-var hs-var">secrets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679265840"><span class="hs-identifier hs-var">secrets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265839"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265838"><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679265838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secrets:ContainerProperties' :: Maybe [Secret]
+</span><a href="#local-6989586621679265849"><span class="hs-identifier hs-var hs-var">secrets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
+</span><a href="#local-6989586621679265849"><span class="hs-identifier hs-var">secrets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265848"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265847"><span class="annot"><span class="annottext">Maybe [Secret]
+</span><a href="#local-6989586621679265847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secrets:ContainerProperties' :: Maybe [Secret]
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Asecrets%3AContainerProperties%27"><span class="hs-identifier hs-var">secrets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679265838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Secret] -&gt; f (Maybe [Secret]))
+</span><a href="#local-6989586621679265847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Secret] -&gt; f (Maybe [Secret]))
  -&gt; ContainerProperties -&gt; f ContainerProperties)
 -&gt; ((Maybe [Secret] -&gt; f (Maybe [Secret]))
     -&gt; Maybe [Secret] -&gt; f (Maybe [Secret]))
@@ -819,16 +819,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [KeyValuePair])
      (Maybe [KeyValuePair])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265836"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265845"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
 environment :: Maybe [KeyValuePair]
 $sel:environment:ContainerProperties' :: ContainerProperties -&gt; Maybe [KeyValuePair]
-</span><a href="#local-6989586621679265836"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
-</span><a href="#local-6989586621679265836"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265835"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265834"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
-</span><a href="#local-6989586621679265834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:ContainerProperties' :: Maybe [KeyValuePair]
+</span><a href="#local-6989586621679265845"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679265845"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265844"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265843"><span class="annot"><span class="annottext">Maybe [KeyValuePair]
+</span><a href="#local-6989586621679265843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:ContainerProperties' :: Maybe [KeyValuePair]
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Aenvironment%3AContainerProperties%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
-</span><a href="#local-6989586621679265834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
+</span><a href="#local-6989586621679265843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
  -&gt; ContainerProperties -&gt; f ContainerProperties)
 -&gt; ((Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
     -&gt; Maybe [KeyValuePair] -&gt; f (Maybe [KeyValuePair]))
@@ -870,16 +870,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Ulimit])
      (Maybe [Ulimit])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265832"><span class="annot"><span class="annottext">Maybe [Ulimit]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265841"><span class="annot"><span class="annottext">Maybe [Ulimit]
 ulimits :: Maybe [Ulimit]
 $sel:ulimits:ContainerProperties' :: ContainerProperties -&gt; Maybe [Ulimit]
-</span><a href="#local-6989586621679265832"><span class="hs-identifier hs-var hs-var">ulimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ulimit]
-</span><a href="#local-6989586621679265832"><span class="hs-identifier hs-var">ulimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265831"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265830"><span class="annot"><span class="annottext">Maybe [Ulimit]
-</span><a href="#local-6989586621679265830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ulimits:ContainerProperties' :: Maybe [Ulimit]
+</span><a href="#local-6989586621679265841"><span class="hs-identifier hs-var hs-var">ulimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ulimit]
+</span><a href="#local-6989586621679265841"><span class="hs-identifier hs-var">ulimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265840"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265839"><span class="annot"><span class="annottext">Maybe [Ulimit]
+</span><a href="#local-6989586621679265839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ulimits:ContainerProperties' :: Maybe [Ulimit]
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Aulimits%3AContainerProperties%27"><span class="hs-identifier hs-var">ulimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Ulimit]
-</span><a href="#local-6989586621679265830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ulimit] -&gt; f (Maybe [Ulimit]))
+</span><a href="#local-6989586621679265839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ulimit] -&gt; f (Maybe [Ulimit]))
  -&gt; ContainerProperties -&gt; f ContainerProperties)
 -&gt; ((Maybe [Ulimit] -&gt; f (Maybe [Ulimit]))
     -&gt; Maybe [Ulimit] -&gt; f (Maybe [Ulimit]))
@@ -910,16 +910,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265828"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265837"><span class="annot"><span class="annottext">Maybe Text
 executionRoleArn :: Maybe Text
 $sel:executionRoleArn:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679265828"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265828"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265827"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265826"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:ContainerProperties' :: Maybe Text
+</span><a href="#local-6989586621679265837"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265837"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265836"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:ContainerProperties' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AexecutionRoleArn%3AContainerProperties%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-593"></span><span>
 </span><span id="line-594"></span><span class="hs-comment">-- | When this parameter is true, the container is given elevated permissions</span><span>
 </span><span id="line-595"></span><span class="hs-comment">-- on the host container instance (similar to the @root@ user). This</span><span>
@@ -941,16 +941,16 @@ $sel:executionRoleArn:ContainerProperties' :: ContainerProperties -&gt; Maybe Te
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265824"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265833"><span class="annot"><span class="annottext">Maybe Bool
 privileged :: Maybe Bool
 $sel:privileged:ContainerProperties' :: ContainerProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679265824"><span class="hs-identifier hs-var hs-var">privileged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265824"><span class="hs-identifier hs-var">privileged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265823"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265822"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privileged:ContainerProperties' :: Maybe Bool
+</span><a href="#local-6989586621679265833"><span class="hs-identifier hs-var hs-var">privileged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679265833"><span class="hs-identifier hs-var">privileged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265832"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265831"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679265831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privileged:ContainerProperties' :: Maybe Bool
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Aprivileged%3AContainerProperties%27"><span class="hs-identifier hs-var">privileged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-608"></span><span>
 </span><span id="line-609"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that the container can</span><span>
 </span><span id="line-610"></span><span class="hs-comment">-- assume for Amazon Web Services permissions. For more information, see</span><span>
@@ -964,16 +964,16 @@ $sel:privileged:ContainerProperties' :: ContainerProperties -&gt; Maybe Bool
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265820"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265829"><span class="annot"><span class="annottext">Maybe Text
 jobRoleArn :: Maybe Text
 $sel:jobRoleArn:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679265820"><span class="hs-identifier hs-var hs-var">jobRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265820"><span class="hs-identifier hs-var">jobRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265819"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265818"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobRoleArn:ContainerProperties' :: Maybe Text
+</span><a href="#local-6989586621679265829"><span class="hs-identifier hs-var hs-var">jobRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265829"><span class="hs-identifier hs-var">jobRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265828"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobRoleArn:ContainerProperties' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AjobRoleArn%3AContainerProperties%27"><span class="hs-identifier hs-var">jobRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-615"></span><span>
 </span><span id="line-616"></span><span class="hs-comment">-- | The type and amount of resources to assign to a container. The supported</span><span>
 </span><span id="line-617"></span><span class="hs-comment">-- resources include @GPU@, @MEMORY@, and @VCPU@.</span><span>
@@ -989,16 +989,16 @@ $sel:jobRoleArn:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
      (Maybe [ResourceRequirement])
      (Maybe [ResourceRequirement])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265816"><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265825"><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
 resourceRequirements :: Maybe [ResourceRequirement]
 $sel:resourceRequirements:ContainerProperties' :: ContainerProperties -&gt; Maybe [ResourceRequirement]
-</span><a href="#local-6989586621679265816"><span class="hs-identifier hs-var hs-var">resourceRequirements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
-</span><a href="#local-6989586621679265816"><span class="hs-identifier hs-var">resourceRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265815"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265814"><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
-</span><a href="#local-6989586621679265814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRequirements:ContainerProperties' :: Maybe [ResourceRequirement]
+</span><a href="#local-6989586621679265825"><span class="hs-identifier hs-var hs-var">resourceRequirements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
+</span><a href="#local-6989586621679265825"><span class="hs-identifier hs-var">resourceRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265824"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265823"><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
+</span><a href="#local-6989586621679265823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRequirements:ContainerProperties' :: Maybe [ResourceRequirement]
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AresourceRequirements%3AContainerProperties%27"><span class="hs-identifier hs-var">resourceRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
-</span><a href="#local-6989586621679265814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceRequirement] -&gt; f (Maybe [ResourceRequirement]))
+</span><a href="#local-6989586621679265823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceRequirement] -&gt; f (Maybe [ResourceRequirement]))
  -&gt; ContainerProperties -&gt; f ContainerProperties)
 -&gt; ((Maybe [ResourceRequirement]
      -&gt; f (Maybe [ResourceRequirement]))
@@ -1041,16 +1041,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265812"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265821"><span class="annot"><span class="annottext">Maybe Text
 instanceType :: Maybe Text
 $sel:instanceType:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679265812"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265812"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265811"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265810"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ContainerProperties' :: Maybe Text
+</span><a href="#local-6989586621679265821"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265821"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265820"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265819"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ContainerProperties' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AinstanceType%3AContainerProperties%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-628"></span><span>
 </span><span id="line-629"></span><span class="hs-comment">-- | This parameter indicates the memory hard limit (in MiB) for a container.</span><span>
 </span><span id="line-630"></span><span class="hs-comment">-- If your container attempts to exceed the specified number, it\'s</span><span>
@@ -1082,16 +1082,16 @@ $sel:instanceType:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265808"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265817"><span class="annot"><span class="annottext">Maybe Int
 memory :: Maybe Int
 $sel:memory:ContainerProperties' :: ContainerProperties -&gt; Maybe Int
-</span><a href="#local-6989586621679265808"><span class="hs-identifier hs-var hs-var">memory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265808"><span class="hs-identifier hs-var">memory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265807"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265806"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memory:ContainerProperties' :: Maybe Int
+</span><a href="#local-6989586621679265817"><span class="hs-identifier hs-var hs-var">memory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265817"><span class="hs-identifier hs-var">memory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265816"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265815"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memory:ContainerProperties' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Amemory%3AContainerProperties%27"><span class="hs-identifier hs-var">memory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-653"></span><span>
 </span><span id="line-654"></span><span class="hs-comment">-- | The user name to use inside the container. This parameter maps to @User@</span><span>
 </span><span id="line-655"></span><span class="hs-comment">-- in the</span><span>
@@ -1108,16 +1108,16 @@ $sel:memory:ContainerProperties' :: ContainerProperties -&gt; Maybe Int
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265804"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265813"><span class="annot"><span class="annottext">Maybe Text
 user :: Maybe Text
 $sel:user:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679265804"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265804"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265803"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265802"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:ContainerProperties' :: Maybe Text
+</span><a href="#local-6989586621679265813"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265813"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265812"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265811"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:ContainerProperties' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Auser%3AContainerProperties%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-663"></span><span>
 </span><span id="line-664"></span><span class="hs-comment">-- | The log configuration specification for the container.</span><span>
 </span><span id="line-665"></span><span class="hs-comment">--</span><span>
@@ -1164,16 +1164,16 @@ $sel:user:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
      (Maybe LogConfiguration)
      (Maybe LogConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265800"><span class="annot"><span class="annottext">Maybe LogConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265809"><span class="annot"><span class="annottext">Maybe LogConfiguration
 logConfiguration :: Maybe LogConfiguration
 $sel:logConfiguration:ContainerProperties' :: ContainerProperties -&gt; Maybe LogConfiguration
-</span><a href="#local-6989586621679265800"><span class="hs-identifier hs-var hs-var">logConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfiguration
-</span><a href="#local-6989586621679265800"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265799"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265798"><span class="annot"><span class="annottext">Maybe LogConfiguration
-</span><a href="#local-6989586621679265798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logConfiguration:ContainerProperties' :: Maybe LogConfiguration
+</span><a href="#local-6989586621679265809"><span class="hs-identifier hs-var hs-var">logConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfiguration
+</span><a href="#local-6989586621679265809"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265808"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265807"><span class="annot"><span class="annottext">Maybe LogConfiguration
+</span><a href="#local-6989586621679265807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logConfiguration:ContainerProperties' :: Maybe LogConfiguration
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AlogConfiguration%3AContainerProperties%27"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfiguration
-</span><a href="#local-6989586621679265798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-699"></span><span>
 </span><span id="line-700"></span><span class="hs-comment">-- | Linux-specific modifications that are applied to the container, such as</span><span>
 </span><span id="line-701"></span><span class="hs-comment">-- details for device mappings.</span><span>
@@ -1189,16 +1189,16 @@ $sel:logConfiguration:ContainerProperties' :: ContainerProperties -&gt; Maybe Lo
      (Maybe LinuxParameters)
      (Maybe LinuxParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265796"><span class="annot"><span class="annottext">Maybe LinuxParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265805"><span class="annot"><span class="annottext">Maybe LinuxParameters
 linuxParameters :: Maybe LinuxParameters
 $sel:linuxParameters:ContainerProperties' :: ContainerProperties -&gt; Maybe LinuxParameters
-</span><a href="#local-6989586621679265796"><span class="hs-identifier hs-var hs-var">linuxParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinuxParameters
-</span><a href="#local-6989586621679265796"><span class="hs-identifier hs-var">linuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265795"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265794"><span class="annot"><span class="annottext">Maybe LinuxParameters
-</span><a href="#local-6989586621679265794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linuxParameters:ContainerProperties' :: Maybe LinuxParameters
+</span><a href="#local-6989586621679265805"><span class="hs-identifier hs-var hs-var">linuxParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinuxParameters
+</span><a href="#local-6989586621679265805"><span class="hs-identifier hs-var">linuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265804"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265803"><span class="annot"><span class="annottext">Maybe LinuxParameters
+</span><a href="#local-6989586621679265803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linuxParameters:ContainerProperties' :: Maybe LinuxParameters
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AlinuxParameters%3AContainerProperties%27"><span class="hs-identifier hs-var">linuxParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinuxParameters
-</span><a href="#local-6989586621679265794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-704"></span><span>
 </span><span id="line-705"></span><span class="hs-comment">-- | The mount points for data volumes in your container. This parameter maps</span><span>
 </span><span id="line-706"></span><span class="hs-comment">-- to @Volumes@ in the</span><span>
@@ -1219,16 +1219,16 @@ $sel:linuxParameters:ContainerProperties' :: ContainerProperties -&gt; Maybe Lin
      (Maybe [MountPoint])
      (Maybe [MountPoint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265792"><span class="annot"><span class="annottext">Maybe [MountPoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265801"><span class="annot"><span class="annottext">Maybe [MountPoint]
 mountPoints :: Maybe [MountPoint]
 $sel:mountPoints:ContainerProperties' :: ContainerProperties -&gt; Maybe [MountPoint]
-</span><a href="#local-6989586621679265792"><span class="hs-identifier hs-var hs-var">mountPoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MountPoint]
-</span><a href="#local-6989586621679265792"><span class="hs-identifier hs-var">mountPoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265791"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265790"><span class="annot"><span class="annottext">Maybe [MountPoint]
-</span><a href="#local-6989586621679265790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mountPoints:ContainerProperties' :: Maybe [MountPoint]
+</span><a href="#local-6989586621679265801"><span class="hs-identifier hs-var hs-var">mountPoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MountPoint]
+</span><a href="#local-6989586621679265801"><span class="hs-identifier hs-var">mountPoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265800"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265799"><span class="annot"><span class="annottext">Maybe [MountPoint]
+</span><a href="#local-6989586621679265799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mountPoints:ContainerProperties' :: Maybe [MountPoint]
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AmountPoints%3AContainerProperties%27"><span class="hs-identifier hs-var">mountPoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MountPoint]
-</span><a href="#local-6989586621679265790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MountPoint] -&gt; f (Maybe [MountPoint]))
+</span><a href="#local-6989586621679265799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MountPoint] -&gt; f (Maybe [MountPoint]))
  -&gt; ContainerProperties -&gt; f ContainerProperties)
 -&gt; ((Maybe [MountPoint] -&gt; f (Maybe [MountPoint]))
     -&gt; Maybe [MountPoint] -&gt; f (Maybe [MountPoint]))
@@ -1265,16 +1265,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe FargatePlatformConfiguration)
      (Maybe FargatePlatformConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265788"><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265797"><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
 fargatePlatformConfiguration :: Maybe FargatePlatformConfiguration
 $sel:fargatePlatformConfiguration:ContainerProperties' :: ContainerProperties -&gt; Maybe FargatePlatformConfiguration
-</span><a href="#local-6989586621679265788"><span class="hs-identifier hs-var hs-var">fargatePlatformConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
-</span><a href="#local-6989586621679265788"><span class="hs-identifier hs-var">fargatePlatformConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265787"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265786"><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
-</span><a href="#local-6989586621679265786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargatePlatformConfiguration:ContainerProperties' :: Maybe FargatePlatformConfiguration
+</span><a href="#local-6989586621679265797"><span class="hs-identifier hs-var hs-var">fargatePlatformConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
+</span><a href="#local-6989586621679265797"><span class="hs-identifier hs-var">fargatePlatformConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265796"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265795"><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
+</span><a href="#local-6989586621679265795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargatePlatformConfiguration:ContainerProperties' :: Maybe FargatePlatformConfiguration
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AfargatePlatformConfiguration%3AContainerProperties%27"><span class="hs-identifier hs-var">fargatePlatformConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
-</span><a href="#local-6989586621679265786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-720"></span><span>
 </span><span id="line-721"></span><span class="hs-comment">-- | The number of vCPUs reserved for the job. Each vCPU is equivalent to</span><span>
 </span><span id="line-722"></span><span class="hs-comment">-- 1,024 CPU shares. This parameter maps to @CpuShares@ in the</span><span>
@@ -1303,16 +1303,16 @@ $sel:fargatePlatformConfiguration:ContainerProperties' :: ContainerProperties -&
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265784"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265793"><span class="annot"><span class="annottext">Maybe Int
 vcpus :: Maybe Int
 $sel:vcpus:ContainerProperties' :: ContainerProperties -&gt; Maybe Int
-</span><a href="#local-6989586621679265784"><span class="hs-identifier hs-var hs-var">vcpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265784"><span class="hs-identifier hs-var">vcpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265783"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265782"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vcpus:ContainerProperties' :: Maybe Int
+</span><a href="#local-6989586621679265793"><span class="hs-identifier hs-var hs-var">vcpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265793"><span class="hs-identifier hs-var">vcpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265792"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265791"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vcpus:ContainerProperties' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Avcpus%3AContainerProperties%27"><span class="hs-identifier hs-var">vcpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-742"></span><span>
 </span><span id="line-743"></span><span class="hs-comment">-- | When this parameter is true, the container is given read-only access to</span><span>
 </span><span id="line-744"></span><span class="hs-comment">-- its root file system. This parameter maps to @ReadonlyRootfs@ in the</span><span>
@@ -1328,16 +1328,16 @@ $sel:vcpus:ContainerProperties' :: ContainerProperties -&gt; Maybe Int
 -&gt; Lens
      ContainerProperties ContainerProperties (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265780"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265789"><span class="annot"><span class="annottext">Maybe Bool
 readonlyRootFilesystem :: Maybe Bool
 $sel:readonlyRootFilesystem:ContainerProperties' :: ContainerProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679265780"><span class="hs-identifier hs-var hs-var">readonlyRootFilesystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265780"><span class="hs-identifier hs-var">readonlyRootFilesystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265779"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265778"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readonlyRootFilesystem:ContainerProperties' :: Maybe Bool
+</span><a href="#local-6989586621679265789"><span class="hs-identifier hs-var hs-var">readonlyRootFilesystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679265789"><span class="hs-identifier hs-var">readonlyRootFilesystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265788"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265787"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679265787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readonlyRootFilesystem:ContainerProperties' :: Maybe Bool
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AreadonlyRootFilesystem%3AContainerProperties%27"><span class="hs-identifier hs-var">readonlyRootFilesystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-751"></span><span>
 </span><span id="line-752"></span><span class="hs-comment">-- | A list of data volumes used in a job.</span><span>
 </span><span id="line-753"></span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#containerProperties_volumes"><span class="hs-identifier hs-type">containerProperties_volumes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -1351,16 +1351,16 @@ $sel:readonlyRootFilesystem:ContainerProperties' :: ContainerProperties -&gt; Ma
      (Maybe [Volume])
      (Maybe [Volume])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265776"><span class="annot"><span class="annottext">Maybe [Volume]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265785"><span class="annot"><span class="annottext">Maybe [Volume]
 volumes :: Maybe [Volume]
 $sel:volumes:ContainerProperties' :: ContainerProperties -&gt; Maybe [Volume]
-</span><a href="#local-6989586621679265776"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Volume]
-</span><a href="#local-6989586621679265776"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265775"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265774"><span class="annot"><span class="annottext">Maybe [Volume]
-</span><a href="#local-6989586621679265774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumes:ContainerProperties' :: Maybe [Volume]
+</span><a href="#local-6989586621679265785"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Volume]
+</span><a href="#local-6989586621679265785"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265784"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265783"><span class="annot"><span class="annottext">Maybe [Volume]
+</span><a href="#local-6989586621679265783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumes:ContainerProperties' :: Maybe [Volume]
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3Avolumes%3AContainerProperties%27"><span class="hs-identifier hs-var">volumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Volume]
-</span><a href="#local-6989586621679265774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Volume] -&gt; f (Maybe [Volume]))
+</span><a href="#local-6989586621679265783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Volume] -&gt; f (Maybe [Volume]))
  -&gt; ContainerProperties -&gt; f ContainerProperties)
 -&gt; ((Maybe [Volume] -&gt; f (Maybe [Volume]))
     -&gt; Maybe [Volume] -&gt; f (Maybe [Volume]))
@@ -1393,19 +1393,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe NetworkConfiguration)
      (Maybe NetworkConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265772"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265781"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
 networkConfiguration :: Maybe NetworkConfiguration
 $sel:networkConfiguration:ContainerProperties' :: ContainerProperties -&gt; Maybe NetworkConfiguration
-</span><a href="#local-6989586621679265772"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679265772"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265771"><span class="annot"><span class="annottext">s :: ContainerProperties
-</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265770"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679265770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
-</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:ContainerProperties' :: Maybe NetworkConfiguration
+</span><a href="#local-6989586621679265781"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679265781"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265780"><span class="annot"><span class="annottext">s :: ContainerProperties
+</span><a href="#local-6989586621679265780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265779"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679265779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerProperties
+</span><a href="#local-6989586621679265780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:ContainerProperties' :: Maybe NetworkConfiguration
 </span><a href="Network.AWS.Batch.Types.ContainerProperties.html#%24sel%3AnetworkConfiguration%3AContainerProperties%27"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679265770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-761"></span><span>
-</span><span id="line-762"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265767"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-763"></span><span>  </span><span id="local-6989586621679265765"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerProperties
+</span><span id="line-762"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265776"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-763"></span><span>  </span><span id="local-6989586621679265774"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-764"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerProperties)
@@ -1415,8 +1415,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-765"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerProperties&quot;</span></span><span>
-</span><span id="line-766"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265762"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-766"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265771"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-767"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe [Secret]
@@ -1484,7 +1484,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;image&quot;</span></span><span class="hs-special">)</span><span>
@@ -1532,7 +1532,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -1583,7 +1583,7 @@ forall a. Monoid a =&gt; a
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Secret]))
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Secret]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;secrets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Secret]))
@@ -1632,7 +1632,7 @@ forall a. Monoid a =&gt; a
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [KeyValuePair]))
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [KeyValuePair]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [KeyValuePair]))
@@ -1679,7 +1679,7 @@ forall a. Monoid a =&gt; a
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Ulimit]))
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Ulimit]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ulimits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Ulimit]))
@@ -1724,7 +1724,7 @@ forall a. Monoid a =&gt; a
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -1762,7 +1762,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;privileged&quot;</span></span><span class="hs-special">)</span><span>
@@ -1798,7 +1798,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -1832,7 +1832,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceRequirement]))
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceRequirement]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceRequirements&quot;</span></span><span>
@@ -1872,7 +1872,7 @@ forall a. Monoid a =&gt; a
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -1902,7 +1902,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;memory&quot;</span></span><span class="hs-special">)</span><span>
@@ -1930,7 +1930,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;user&quot;</span></span><span class="hs-special">)</span><span>
@@ -1956,7 +1956,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogConfiguration)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -1980,7 +1980,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LinuxParameters)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LinuxParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;linuxParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -2002,7 +2002,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MountPoint]))
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MountPoint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mountPoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MountPoint]))
@@ -2027,7 +2027,7 @@ forall a. Monoid a =&gt; a
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FargatePlatformConfiguration)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FargatePlatformConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fargatePlatformConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -2045,7 +2045,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vcpus&quot;</span></span><span class="hs-special">)</span><span>
@@ -2060,7 +2060,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe NetworkConfiguration -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;readonlyRootFilesystem&quot;</span></span><span class="hs-special">)</span><span>
@@ -2071,7 +2071,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe NetworkConfiguration -&gt; ContainerProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Volume]))
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Volume]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;volumes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Volume]))
@@ -2085,19 +2085,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser ContainerProperties
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkConfiguration)
+</span><a href="#local-6989586621679265771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-790"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-791"></span><span>
-</span><span id="line-792"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265755"><span id="local-6989586621679265757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span></span><span>
+</span><span id="line-792"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265764"><span id="local-6989586621679265766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span></span><span>
 </span><span id="line-793"></span><span>
-</span><span id="line-794"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span><span>
+</span><span id="line-794"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span><span>
 </span><span id="line-795"></span><span>
-</span><span id="line-796"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265744"><span id="local-6989586621679265746"><span id="local-6989586621679265748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-797"></span><span>  </span><span id="local-6989586621679265742"><span class="annot"><span class="annottext">toJSON :: ContainerProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265721"><span id="local-6989586621679265722"><span id="local-6989586621679265723"><span id="local-6989586621679265724"><span id="local-6989586621679265725"><span id="local-6989586621679265726"><span id="local-6989586621679265727"><span id="local-6989586621679265728"><span id="local-6989586621679265729"><span id="local-6989586621679265730"><span id="local-6989586621679265731"><span id="local-6989586621679265732"><span id="local-6989586621679265733"><span id="local-6989586621679265734"><span id="local-6989586621679265735"><span id="local-6989586621679265736"><span id="local-6989586621679265737"><span id="local-6989586621679265738"><span id="local-6989586621679265739"><span id="local-6989586621679265740"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-796"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265753"><span id="local-6989586621679265755"><span id="local-6989586621679265757"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-797"></span><span>  </span><span id="local-6989586621679265751"><span class="annot"><span class="annottext">toJSON :: ContainerProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties%27"><span class="hs-identifier hs-type">ContainerProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265730"><span id="local-6989586621679265731"><span id="local-6989586621679265732"><span id="local-6989586621679265733"><span id="local-6989586621679265734"><span id="local-6989586621679265735"><span id="local-6989586621679265736"><span id="local-6989586621679265737"><span id="local-6989586621679265738"><span id="local-6989586621679265739"><span id="local-6989586621679265740"><span id="local-6989586621679265741"><span id="local-6989586621679265742"><span id="local-6989586621679265743"><span id="local-6989586621679265744"><span id="local-6989586621679265745"><span id="local-6989586621679265746"><span id="local-6989586621679265747"><span id="local-6989586621679265748"><span id="local-6989586621679265749"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Text]
 Maybe [KeyValuePair]
@@ -2151,7 +2151,7 @@ $sel:environment:ContainerProperties' :: ContainerProperties -&gt; Maybe [KeyVal
 $sel:secrets:ContainerProperties' :: ContainerProperties -&gt; Maybe [Secret]
 $sel:command:ContainerProperties' :: ContainerProperties -&gt; Maybe [Text]
 $sel:image:ContainerProperties' :: ContainerProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679265721"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679265730"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-798"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-799"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -2163,35 +2163,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265740"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265749"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-801"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265739"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265748"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-802"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;secrets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Secret] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Secret] -&gt; Pair) -&gt; Maybe [Secret] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679265738"><span class="hs-identifier hs-var">secrets</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265747"><span class="hs-identifier hs-var">secrets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-803"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [KeyValuePair] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([KeyValuePair] -&gt; Pair) -&gt; Maybe [KeyValuePair] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValuePair]
-</span><a href="#local-6989586621679265737"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265746"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-804"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ulimits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Ulimit] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Ulimit] -&gt; Pair) -&gt; Maybe [Ulimit] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Ulimit]
-</span><a href="#local-6989586621679265736"><span class="hs-identifier hs-var">ulimits</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265745"><span class="hs-identifier hs-var">ulimits</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-805"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2199,21 +2199,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-806"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265735"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265744"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-807"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;privileged&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265734"><span class="hs-identifier hs-var">privileged</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265743"><span class="hs-identifier hs-var">privileged</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-808"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265733"><span class="hs-identifier hs-var">jobRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265742"><span class="hs-identifier hs-var">jobRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-809"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceRequirements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourceRequirement] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2222,28 +2222,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ResourceRequirement] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceRequirement]
-</span><a href="#local-6989586621679265732"><span class="hs-identifier hs-var">resourceRequirements</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265741"><span class="hs-identifier hs-var">resourceRequirements</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-811"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265731"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265740"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-812"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;memory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265730"><span class="hs-identifier hs-var">memory</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265739"><span class="hs-identifier hs-var">memory</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-813"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;user&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265729"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265738"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-814"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2251,7 +2251,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-815"></span><span>              </span><span class="annot"><span class="annottext">(LogConfiguration -&gt; Pair) -&gt; Maybe LogConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogConfiguration
-</span><a href="#local-6989586621679265728"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265737"><span class="hs-identifier hs-var">logConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-816"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;linuxParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LinuxParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2259,14 +2259,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-817"></span><span>              </span><span class="annot"><span class="annottext">(LinuxParameters -&gt; Pair) -&gt; Maybe LinuxParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LinuxParameters
-</span><a href="#local-6989586621679265727"><span class="hs-identifier hs-var">linuxParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265736"><span class="hs-identifier hs-var">linuxParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-818"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mountPoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MountPoint] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([MountPoint] -&gt; Pair) -&gt; Maybe [MountPoint] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MountPoint]
-</span><a href="#local-6989586621679265726"><span class="hs-identifier hs-var">mountPoints</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265735"><span class="hs-identifier hs-var">mountPoints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-819"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fargatePlatformConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FargatePlatformConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2275,14 +2275,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FargatePlatformConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FargatePlatformConfiguration
-</span><a href="#local-6989586621679265725"><span class="hs-identifier hs-var">fargatePlatformConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265734"><span class="hs-identifier hs-var">fargatePlatformConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-821"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vcpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265724"><span class="hs-identifier hs-var">vcpus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265733"><span class="hs-identifier hs-var">vcpus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-822"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;readonlyRootFilesystem&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2290,14 +2290,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-823"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265723"><span class="hs-identifier hs-var">readonlyRootFilesystem</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265732"><span class="hs-identifier hs-var">readonlyRootFilesystem</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-824"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;volumes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Volume] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Volume] -&gt; Pair) -&gt; Maybe [Volume] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Volume]
-</span><a href="#local-6989586621679265722"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265731"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-825"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2306,7 +2306,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NetworkConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679265721"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679265730"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span>
 </span><span id="line-827"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-828"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-829"></span></pre></body></html>

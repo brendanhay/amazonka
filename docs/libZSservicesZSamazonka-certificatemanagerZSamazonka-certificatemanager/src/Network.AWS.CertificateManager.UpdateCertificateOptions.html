@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUpdateCertificateOptions' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679194139"><span id="local-6989586621679194140"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCertificateOptions"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-var">UpdateCertificateOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCertificateOptions%27"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-var">UpdateCertificateOptions'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679194148"><span id="local-6989586621679194149"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCertificateOptions"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-var">UpdateCertificateOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCertificateOptions%27"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-var">UpdateCertificateOptions'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN of the requested certificate to update. This must be of the form:</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @arn:aws:acm:us-east-1:account:certificate\/12345678-1234-1234-1234-123456789012 @</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Aoptions%3AUpdateCertificateOptions%27"><span class="annot"><span class="annottext">UpdateCertificateOptions -&gt; CertificateOptions
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#%24sel%3Aoptions%3AUpdateCertificateOptions%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194132"><span id="local-6989586621679194134"><span class="annot"><span class="annottext">UpdateCertificateOptions -&gt; UpdateCertificateOptions -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194141"><span id="local-6989586621679194143"><span class="annot"><span class="annottext">UpdateCertificateOptions -&gt; UpdateCertificateOptions -&gt; Bool
 (UpdateCertificateOptions -&gt; UpdateCertificateOptions -&gt; Bool)
 -&gt; (UpdateCertificateOptions -&gt; UpdateCertificateOptions -&gt; Bool)
 -&gt; Eq UpdateCertificateOptions
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCertificateOptions -&gt; UpdateCertificateOptions -&gt; Bool
 == :: UpdateCertificateOptions -&gt; UpdateCertificateOptions -&gt; Bool
 $c== :: UpdateCertificateOptions -&gt; UpdateCertificateOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194123"><span id="local-6989586621679194125"><span id="local-6989586621679194127"><span id="local-6989586621679194129"><span class="annot"><span class="annottext">ReadPrec [UpdateCertificateOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194132"><span id="local-6989586621679194134"><span id="local-6989586621679194136"><span id="local-6989586621679194138"><span class="annot"><span class="annottext">ReadPrec [UpdateCertificateOptions]
 ReadPrec UpdateCertificateOptions
 Int -&gt; ReadS UpdateCertificateOptions
 ReadS [UpdateCertificateOptions]
@@ -91,7 +91,7 @@ readList :: ReadS [UpdateCertificateOptions]
 $creadList :: ReadS [UpdateCertificateOptions]
 readsPrec :: Int -&gt; ReadS UpdateCertificateOptions
 $creadsPrec :: Int -&gt; ReadS UpdateCertificateOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194116"><span id="local-6989586621679194118"><span id="local-6989586621679194120"><span class="annot"><span class="annottext">Int -&gt; UpdateCertificateOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194125"><span id="local-6989586621679194127"><span id="local-6989586621679194129"><span class="annot"><span class="annottext">Int -&gt; UpdateCertificateOptions -&gt; ShowS
 [UpdateCertificateOptions] -&gt; ShowS
 UpdateCertificateOptions -&gt; String
 (Int -&gt; UpdateCertificateOptions -&gt; ShowS)
@@ -149,19 +149,19 @@ UpdateCertificateOptions -&gt; Rep UpdateCertificateOptions x
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span>
 </span><span id="line-89"></span><span id="newUpdateCertificateOptions"><span class="annot"><span class="annottext">newUpdateCertificateOptions :: Text -&gt; CertificateOptions -&gt; UpdateCertificateOptions
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#newUpdateCertificateOptions"><span class="hs-identifier hs-var hs-var">newUpdateCertificateOptions</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679194111"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194111"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679194110"><span class="annot"><span class="annottext">CertificateOptions
-</span><a href="#local-6989586621679194110"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679194120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194120"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679194119"><span class="annot"><span class="annottext">CertificateOptions
+</span><a href="#local-6989586621679194119"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">UpdateCertificateOptions' :: Text -&gt; CertificateOptions -&gt; UpdateCertificateOptions
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateArn:UpdateCertificateOptions' :: Text
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#%24sel%3AcertificateArn%3AUpdateCertificateOptions%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194111"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194120"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:options:UpdateCertificateOptions' :: CertificateOptions
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#%24sel%3Aoptions%3AUpdateCertificateOptions%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CertificateOptions
-</span><a href="#local-6989586621679194110"><span class="hs-identifier hs-var">pOptions_</span></a></span><span>
+</span><a href="#local-6989586621679194119"><span class="hs-identifier hs-var">pOptions_</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | ARN of the requested certificate to update. This must be of the form:</span><span>
@@ -174,16 +174,16 @@ UpdateCertificateOptions -&gt; Rep UpdateCertificateOptions x
 -&gt; (UpdateCertificateOptions -&gt; Text -&gt; UpdateCertificateOptions)
 -&gt; Lens UpdateCertificateOptions UpdateCertificateOptions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194107"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194116"><span class="annot"><span class="annottext">Text
 certificateArn :: Text
 $sel:certificateArn:UpdateCertificateOptions' :: UpdateCertificateOptions -&gt; Text
-</span><a href="#local-6989586621679194107"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194107"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194106"><span class="annot"><span class="annottext">s :: UpdateCertificateOptions
-</span><a href="#local-6989586621679194106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCertificateOptions
-</span><a href="#local-6989586621679194106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:UpdateCertificateOptions' :: Text
+</span><a href="#local-6989586621679194116"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194116"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194115"><span class="annot"><span class="annottext">s :: UpdateCertificateOptions
+</span><a href="#local-6989586621679194115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCertificateOptions
+</span><a href="#local-6989586621679194115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:UpdateCertificateOptions' :: Text
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#%24sel%3AcertificateArn%3AUpdateCertificateOptions%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Use to update the options for your certificate. Currently, you can</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- specify whether to add your certificate to a transparency log.</span><span>
@@ -203,28 +203,28 @@ $sel:certificateArn:UpdateCertificateOptions' :: UpdateCertificateOptions -&gt; 
      CertificateOptions
      CertificateOptions
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194104"><span class="annot"><span class="annottext">CertificateOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194113"><span class="annot"><span class="annottext">CertificateOptions
 options :: CertificateOptions
 $sel:options:UpdateCertificateOptions' :: UpdateCertificateOptions -&gt; CertificateOptions
-</span><a href="#local-6989586621679194104"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateOptions
-</span><a href="#local-6989586621679194104"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194103"><span class="annot"><span class="annottext">s :: UpdateCertificateOptions
-</span><a href="#local-6989586621679194103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194102"><span class="annot"><span class="annottext">CertificateOptions
-</span><a href="#local-6989586621679194102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCertificateOptions
-</span><a href="#local-6989586621679194103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:UpdateCertificateOptions' :: CertificateOptions
+</span><a href="#local-6989586621679194113"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateOptions
+</span><a href="#local-6989586621679194113"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194112"><span class="annot"><span class="annottext">s :: UpdateCertificateOptions
+</span><a href="#local-6989586621679194112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194111"><span class="annot"><span class="annottext">CertificateOptions
+</span><a href="#local-6989586621679194111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCertificateOptions
+</span><a href="#local-6989586621679194112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:UpdateCertificateOptions' :: CertificateOptions
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#%24sel%3Aoptions%3AUpdateCertificateOptions%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CertificateOptions
-</span><a href="#local-6989586621679194102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse"><span class="hs-identifier hs-type">UpdateCertificateOptionsResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679194098"><span class="annot"><span class="annottext">request :: UpdateCertificateOptions -&gt; Request UpdateCertificateOptions
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679194107"><span class="annot"><span class="annottext">request :: UpdateCertificateOptions -&gt; Request UpdateCertificateOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateCertificateOptions -&gt; Request UpdateCertificateOptions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679194094"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679194103"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateCertificateOptions
 -&gt; ClientResponse ClientBody
@@ -251,12 +251,12 @@ AWSResponse a
 UpdateCertificateOptionsResponse
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse%27"><span class="hs-identifier hs-var">UpdateCertificateOptionsResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194087"><span id="local-6989586621679194089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194096"><span id="local-6989586621679194098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679194080"><span class="annot"><span class="annottext">toHeaders :: UpdateCertificateOptions -&gt; [Header]
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679194089"><span class="annot"><span class="annottext">toHeaders :: UpdateCertificateOptions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateCertificateOptions -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -283,15 +283,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194070"><span id="local-6989586621679194072"><span id="local-6989586621679194074"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679194068"><span class="annot"><span class="annottext">toJSON :: UpdateCertificateOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194065"><span id="local-6989586621679194066"><span class="annot"><span class="annottext">Text
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194079"><span id="local-6989586621679194081"><span id="local-6989586621679194083"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679194077"><span class="annot"><span class="annottext">toJSON :: UpdateCertificateOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions%27"><span class="hs-identifier hs-type">UpdateCertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194074"><span id="local-6989586621679194075"><span class="annot"><span class="annottext">Text
 CertificateOptions
 options :: CertificateOptions
 certificateArn :: Text
 $sel:options:UpdateCertificateOptions' :: UpdateCertificateOptions -&gt; CertificateOptions
 $sel:certificateArn:UpdateCertificateOptions' :: UpdateCertificateOptions -&gt; Text
-</span><a href="#local-6989586621679194065"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679194074"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,26 +304,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194066"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194075"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Options&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CertificateOptions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CertificateOptions
-</span><a href="#local-6989586621679194065"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194074"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679194059"><span class="annot"><span class="annottext">toPath :: UpdateCertificateOptions -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679194068"><span class="annot"><span class="annottext">toPath :: UpdateCertificateOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateCertificateOptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptions"><span class="hs-identifier hs-type">UpdateCertificateOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679194055"><span class="annot"><span class="annottext">toQuery :: UpdateCertificateOptions -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679194064"><span class="annot"><span class="annottext">toQuery :: UpdateCertificateOptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCertificateOptions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -331,10 +331,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newUpdateCertificateOptionsResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679194052"><span id="local-6989586621679194053"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCertificateOptionsResponse"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse"><span class="hs-identifier hs-var">UpdateCertificateOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCertificateOptionsResponse%27"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse%27"><span class="hs-identifier hs-var">UpdateCertificateOptionsResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679194061"><span id="local-6989586621679194062"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCertificateOptionsResponse"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse"><span class="hs-identifier hs-var">UpdateCertificateOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCertificateOptionsResponse%27"><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse%27"><span class="hs-identifier hs-var">UpdateCertificateOptionsResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194048"><span id="local-6989586621679194050"><span class="annot"><span class="annottext">UpdateCertificateOptionsResponse
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194057"><span id="local-6989586621679194059"><span class="annot"><span class="annottext">UpdateCertificateOptionsResponse
 -&gt; UpdateCertificateOptionsResponse -&gt; Bool
 (UpdateCertificateOptionsResponse
  -&gt; UpdateCertificateOptionsResponse -&gt; Bool)
@@ -350,7 +350,7 @@ $c/= :: UpdateCertificateOptionsResponse
 -&gt; UpdateCertificateOptionsResponse -&gt; Bool
 $c== :: UpdateCertificateOptionsResponse
 -&gt; UpdateCertificateOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194040"><span id="local-6989586621679194042"><span id="local-6989586621679194044"><span id="local-6989586621679194046"><span class="annot"><span class="annottext">ReadPrec [UpdateCertificateOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194049"><span id="local-6989586621679194051"><span id="local-6989586621679194053"><span id="local-6989586621679194055"><span class="annot"><span class="annottext">ReadPrec [UpdateCertificateOptionsResponse]
 ReadPrec UpdateCertificateOptionsResponse
 Int -&gt; ReadS UpdateCertificateOptionsResponse
 ReadS [UpdateCertificateOptionsResponse]
@@ -370,7 +370,7 @@ readList :: ReadS [UpdateCertificateOptionsResponse]
 $creadList :: ReadS [UpdateCertificateOptionsResponse]
 readsPrec :: Int -&gt; ReadS UpdateCertificateOptionsResponse
 $creadsPrec :: Int -&gt; ReadS UpdateCertificateOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194034"><span id="local-6989586621679194036"><span id="local-6989586621679194038"><span class="annot"><span class="annottext">Int -&gt; UpdateCertificateOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194043"><span id="local-6989586621679194045"><span id="local-6989586621679194047"><span class="annot"><span class="annottext">Int -&gt; UpdateCertificateOptionsResponse -&gt; ShowS
 [UpdateCertificateOptionsResponse] -&gt; ShowS
 UpdateCertificateOptionsResponse -&gt; String
 (Int -&gt; UpdateCertificateOptionsResponse -&gt; ShowS)
@@ -420,6 +420,6 @@ UpdateCertificateOptionsResponse
 </span><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse%27"><span class="hs-identifier hs-var">UpdateCertificateOptionsResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679194030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679194039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManager.UpdateCertificateOptions.html#UpdateCertificateOptionsResponse"><span class="hs-identifier hs-type">UpdateCertificateOptionsResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

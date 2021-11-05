@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | The input argument to the CancelSteps operation.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newCancelSteps' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679393689"><span id="local-6989586621679393690"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelSteps"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-var">CancelSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelSteps%27"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-var">CancelSteps'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679393698"><span id="local-6989586621679393699"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelSteps"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-var">CancelSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelSteps%27"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-var">CancelSteps'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The option to choose to cancel @RUNNING@ steps. By default, the value is</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @SEND_INTERRUPT@.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AstepCancellationOption%3ACancelSteps%27"><span class="annot"><span class="annottext">CancelSteps -&gt; Maybe StepCancellationOption
@@ -72,7 +72,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AstepIds%3ACancelSteps%27"><span class="annot"><span class="annottext">CancelSteps -&gt; [Text]
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AstepIds%3ACancelSteps%27"><span class="hs-identifier hs-var hs-var">stepIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393681"><span id="local-6989586621679393683"><span class="annot"><span class="annottext">CancelSteps -&gt; CancelSteps -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393690"><span id="local-6989586621679393692"><span class="annot"><span class="annottext">CancelSteps -&gt; CancelSteps -&gt; Bool
 (CancelSteps -&gt; CancelSteps -&gt; Bool)
 -&gt; (CancelSteps -&gt; CancelSteps -&gt; Bool) -&gt; Eq CancelSteps
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelSteps -&gt; CancelSteps -&gt; Bool
 == :: CancelSteps -&gt; CancelSteps -&gt; Bool
 $c== :: CancelSteps -&gt; CancelSteps -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393672"><span id="local-6989586621679393674"><span id="local-6989586621679393676"><span id="local-6989586621679393678"><span class="annot"><span class="annottext">ReadPrec [CancelSteps]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393681"><span id="local-6989586621679393683"><span id="local-6989586621679393685"><span id="local-6989586621679393687"><span class="annot"><span class="annottext">ReadPrec [CancelSteps]
 ReadPrec CancelSteps
 Int -&gt; ReadS CancelSteps
 ReadS [CancelSteps]
@@ -100,7 +100,7 @@ readList :: ReadS [CancelSteps]
 $creadList :: ReadS [CancelSteps]
 readsPrec :: Int -&gt; ReadS CancelSteps
 $creadsPrec :: Int -&gt; ReadS CancelSteps
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393665"><span id="local-6989586621679393667"><span id="local-6989586621679393669"><span class="annot"><span class="annottext">Int -&gt; CancelSteps -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393674"><span id="local-6989586621679393676"><span id="local-6989586621679393678"><span class="annot"><span class="annottext">Int -&gt; CancelSteps -&gt; ShowS
 [CancelSteps] -&gt; ShowS
 CancelSteps -&gt; String
 (Int -&gt; CancelSteps -&gt; ShowS)
@@ -147,8 +147,8 @@ $cfrom :: forall x. CancelSteps -&gt; Rep CancelSteps x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span>
 </span><span id="line-94"></span><span id="newCancelSteps"><span class="annot"><span class="annottext">newCancelSteps :: Text -&gt; CancelSteps
-</span><a href="Network.AWS.EMR.CancelSteps.html#newCancelSteps"><span class="hs-identifier hs-var hs-var">newCancelSteps</span></a></span></span><span> </span><span id="local-6989586621679393660"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393660"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.CancelSteps.html#newCancelSteps"><span class="hs-identifier hs-var hs-var">newCancelSteps</span></a></span></span><span> </span><span id="local-6989586621679393669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393669"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">CancelSteps' :: Maybe StepCancellationOption -&gt; Text -&gt; [Text] -&gt; CancelSteps
 </span><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stepCancellationOption:CancelSteps' :: Maybe StepCancellationOption
@@ -158,7 +158,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterId:CancelSteps' :: Text
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AclusterId%3ACancelSteps%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393660"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393669"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:stepIds:CancelSteps' :: [Text]
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AstepIds%3ACancelSteps%27"><span class="hs-identifier hs-var">stepIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -178,16 +178,16 @@ forall a. Monoid a =&gt; a
      (Maybe StepCancellationOption)
      (Maybe StepCancellationOption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393657"><span class="annot"><span class="annottext">Maybe StepCancellationOption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393666"><span class="annot"><span class="annottext">Maybe StepCancellationOption
 stepCancellationOption :: Maybe StepCancellationOption
 $sel:stepCancellationOption:CancelSteps' :: CancelSteps -&gt; Maybe StepCancellationOption
-</span><a href="#local-6989586621679393657"><span class="hs-identifier hs-var hs-var">stepCancellationOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepCancellationOption
-</span><a href="#local-6989586621679393657"><span class="hs-identifier hs-var">stepCancellationOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393656"><span class="annot"><span class="annottext">s :: CancelSteps
-</span><a href="#local-6989586621679393656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393655"><span class="annot"><span class="annottext">Maybe StepCancellationOption
-</span><a href="#local-6989586621679393655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelSteps
-</span><a href="#local-6989586621679393656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepCancellationOption:CancelSteps' :: Maybe StepCancellationOption
+</span><a href="#local-6989586621679393666"><span class="hs-identifier hs-var hs-var">stepCancellationOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepCancellationOption
+</span><a href="#local-6989586621679393666"><span class="hs-identifier hs-var">stepCancellationOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393665"><span class="annot"><span class="annottext">s :: CancelSteps
+</span><a href="#local-6989586621679393665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393664"><span class="annot"><span class="annottext">Maybe StepCancellationOption
+</span><a href="#local-6989586621679393664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelSteps
+</span><a href="#local-6989586621679393665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepCancellationOption:CancelSteps' :: Maybe StepCancellationOption
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AstepCancellationOption%3ACancelSteps%27"><span class="hs-identifier hs-var">stepCancellationOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepCancellationOption
-</span><a href="#local-6989586621679393655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The @ClusterID@ for the specified steps that will be canceled. Use</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- RunJobFlow and ListClusters to get ClusterIDs.</span><span>
@@ -197,16 +197,16 @@ $sel:stepCancellationOption:CancelSteps' :: CancelSteps -&gt; Maybe StepCancella
 -&gt; (CancelSteps -&gt; Text -&gt; CancelSteps)
 -&gt; Lens CancelSteps CancelSteps Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393654"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393663"><span class="annot"><span class="annottext">Text
 clusterId :: Text
 $sel:clusterId:CancelSteps' :: CancelSteps -&gt; Text
-</span><a href="#local-6989586621679393654"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393654"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393653"><span class="annot"><span class="annottext">s :: CancelSteps
-</span><a href="#local-6989586621679393653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393652"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelSteps
-</span><a href="#local-6989586621679393653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:CancelSteps' :: Text
+</span><a href="#local-6989586621679393663"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393663"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393662"><span class="annot"><span class="annottext">s :: CancelSteps
+</span><a href="#local-6989586621679393662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393661"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelSteps
+</span><a href="#local-6989586621679393662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:CancelSteps' :: Text
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AclusterId%3ACancelSteps%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The list of @StepIDs@ to cancel. Use ListSteps to get steps and their</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- states for the specified cluster.</span><span>
@@ -216,16 +216,16 @@ $sel:clusterId:CancelSteps' :: CancelSteps -&gt; Text
 -&gt; (CancelSteps -&gt; [Text] -&gt; CancelSteps)
 -&gt; Lens CancelSteps CancelSteps [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393651"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393660"><span class="annot"><span class="annottext">[Text]
 stepIds :: [Text]
 $sel:stepIds:CancelSteps' :: CancelSteps -&gt; [Text]
-</span><a href="#local-6989586621679393651"><span class="hs-identifier hs-var hs-var">stepIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679393651"><span class="hs-identifier hs-var">stepIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393650"><span class="annot"><span class="annottext">s :: CancelSteps
-</span><a href="#local-6989586621679393650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393649"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679393649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelSteps
-</span><a href="#local-6989586621679393650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepIds:CancelSteps' :: [Text]
+</span><a href="#local-6989586621679393660"><span class="hs-identifier hs-var hs-var">stepIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679393660"><span class="hs-identifier hs-var">stepIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393659"><span class="annot"><span class="annottext">s :: CancelSteps
+</span><a href="#local-6989586621679393659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393658"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679393658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelSteps
+</span><a href="#local-6989586621679393659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepIds:CancelSteps' :: [Text]
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AstepIds%3ACancelSteps%27"><span class="hs-identifier hs-var">stepIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679393649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CancelSteps -&gt; f CancelSteps)
+</span><a href="#local-6989586621679393658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CancelSteps -&gt; f CancelSteps)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; CancelSteps
@@ -237,12 +237,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679393643"><span class="annot"><span class="annottext">request :: CancelSteps -&gt; Request CancelSteps
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679393652"><span class="annot"><span class="annottext">request :: CancelSteps -&gt; Request CancelSteps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelSteps -&gt; Request CancelSteps
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679393639"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679393648"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CancelSteps
 -&gt; ClientResponse ClientBody
@@ -266,10 +266,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393636"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393636"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393635"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393635"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393634"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393645"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393645"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393644"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393644"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393643"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393643"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CancelStepsInfo] -&gt; Int -&gt; CancelStepsResponse
 </span><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-var">CancelStepsResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CancelStepsInfo] -&gt; Int -&gt; CancelStepsResponse)
@@ -277,7 +277,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CancelStepsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CancelStepsInfo]))
+</span><a href="#local-6989586621679393643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CancelStepsInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CancelStepsInfoList&quot;</span></span><span>
@@ -297,15 +297,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393636"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393645"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393625"><span id="local-6989586621679393627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393634"><span id="local-6989586621679393636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679393618"><span class="annot"><span class="annottext">toHeaders :: CancelSteps -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679393627"><span class="annot"><span class="annottext">toHeaders :: CancelSteps -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelSteps -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -332,9 +332,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393608"><span id="local-6989586621679393610"><span id="local-6989586621679393612"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679393606"><span class="annot"><span class="annottext">toJSON :: CancelSteps -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393602"><span id="local-6989586621679393603"><span id="local-6989586621679393604"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393617"><span id="local-6989586621679393619"><span id="local-6989586621679393621"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679393615"><span class="annot"><span class="annottext">toJSON :: CancelSteps -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps%27"><span class="hs-identifier hs-type">CancelSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393611"><span id="local-6989586621679393612"><span id="local-6989586621679393613"><span class="annot"><span class="annottext">[Text]
 Maybe StepCancellationOption
 Text
 stepIds :: [Text]
@@ -343,7 +343,7 @@ stepCancellationOption :: Maybe StepCancellationOption
 $sel:stepIds:CancelSteps' :: CancelSteps -&gt; [Text]
 $sel:clusterId:CancelSteps' :: CancelSteps -&gt; Text
 $sel:stepCancellationOption:CancelSteps' :: CancelSteps -&gt; Maybe StepCancellationOption
-</span><a href="#local-6989586621679393602"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393611"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -357,33 +357,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe StepCancellationOption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StepCancellationOption
-</span><a href="#local-6989586621679393604"><span class="hs-identifier hs-var">stepCancellationOption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393613"><span class="hs-identifier hs-var">stepCancellationOption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393603"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393612"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StepIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679393602"><span class="hs-identifier hs-var">stepIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393611"><span class="hs-identifier hs-var">stepIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679393596"><span class="annot"><span class="annottext">toPath :: CancelSteps -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679393605"><span class="annot"><span class="annottext">toPath :: CancelSteps -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelSteps -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelSteps"><span class="hs-identifier hs-type">CancelSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679393592"><span class="annot"><span class="annottext">toQuery :: CancelSteps -&gt; QueryString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679393601"><span class="annot"><span class="annottext">toQuery :: CancelSteps -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelSteps -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -393,7 +393,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-166"></span><span class="hs-comment">-- | The output for the CancelSteps operation.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- /See:/ 'newCancelStepsResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679393589"><span id="local-6989586621679393590"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelStepsResponse"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-var">CancelStepsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelStepsResponse%27"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-var">CancelStepsResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679393598"><span id="local-6989586621679393599"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelStepsResponse"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-var">CancelStepsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelStepsResponse%27"><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-var">CancelStepsResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of CancelStepsInfo, which shows the status of specified cancel</span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-comment">-- requests for each @StepID@ specified.</span><span>
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AcancelStepsInfoList%3ACancelStepsResponse%27"><span class="annot"><span class="annottext">CancelStepsResponse -&gt; Maybe [CancelStepsInfo]
@@ -402,7 +402,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelStepsResponse%27"><span class="annot"><span class="annottext">CancelStepsResponse -&gt; Int
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AhttpStatus%3ACancelStepsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393583"><span id="local-6989586621679393585"><span class="annot"><span class="annottext">CancelStepsResponse -&gt; CancelStepsResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393592"><span id="local-6989586621679393594"><span class="annot"><span class="annottext">CancelStepsResponse -&gt; CancelStepsResponse -&gt; Bool
 (CancelStepsResponse -&gt; CancelStepsResponse -&gt; Bool)
 -&gt; (CancelStepsResponse -&gt; CancelStepsResponse -&gt; Bool)
 -&gt; Eq CancelStepsResponse
@@ -411,7 +411,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelStepsResponse -&gt; CancelStepsResponse -&gt; Bool
 == :: CancelStepsResponse -&gt; CancelStepsResponse -&gt; Bool
 $c== :: CancelStepsResponse -&gt; CancelStepsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393575"><span id="local-6989586621679393577"><span id="local-6989586621679393579"><span id="local-6989586621679393581"><span class="annot"><span class="annottext">ReadPrec [CancelStepsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393584"><span id="local-6989586621679393586"><span id="local-6989586621679393588"><span id="local-6989586621679393590"><span class="annot"><span class="annottext">ReadPrec [CancelStepsResponse]
 ReadPrec CancelStepsResponse
 Int -&gt; ReadS CancelStepsResponse
 ReadS [CancelStepsResponse]
@@ -431,7 +431,7 @@ readList :: ReadS [CancelStepsResponse]
 $creadList :: ReadS [CancelStepsResponse]
 readsPrec :: Int -&gt; ReadS CancelStepsResponse
 $creadsPrec :: Int -&gt; ReadS CancelStepsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393569"><span id="local-6989586621679393571"><span id="local-6989586621679393573"><span class="annot"><span class="annottext">Int -&gt; CancelStepsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393578"><span id="local-6989586621679393580"><span id="local-6989586621679393582"><span class="annot"><span class="annottext">Int -&gt; CancelStepsResponse -&gt; ShowS
 [CancelStepsResponse] -&gt; ShowS
 CancelStepsResponse -&gt; String
 (Int -&gt; CancelStepsResponse -&gt; ShowS)
@@ -474,8 +474,8 @@ $cfrom :: forall x. CancelStepsResponse -&gt; Rep CancelStepsResponse x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newCancelStepsResponse"><span class="annot"><span class="annottext">newCancelStepsResponse :: Int -&gt; CancelStepsResponse
-</span><a href="Network.AWS.EMR.CancelSteps.html#newCancelStepsResponse"><span class="hs-identifier hs-var hs-var">newCancelStepsResponse</span></a></span></span><span> </span><span id="local-6989586621679393566"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393566"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.CancelSteps.html#newCancelStepsResponse"><span class="hs-identifier hs-var hs-var">newCancelStepsResponse</span></a></span></span><span> </span><span id="local-6989586621679393575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">CancelStepsResponse' :: Maybe [CancelStepsInfo] -&gt; Int -&gt; CancelStepsResponse
 </span><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cancelStepsInfoList:CancelStepsResponse' :: Maybe [CancelStepsInfo]
@@ -485,7 +485,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelStepsResponse' :: Int
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AhttpStatus%3ACancelStepsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393566"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679393575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | A list of CancelStepsInfo, which shows the status of specified cancel</span><span>
@@ -502,16 +502,16 @@ forall a. Maybe a
      (Maybe [CancelStepsInfo])
      (Maybe [CancelStepsInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393565"><span class="annot"><span class="annottext">Maybe [CancelStepsInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393574"><span class="annot"><span class="annottext">Maybe [CancelStepsInfo]
 cancelStepsInfoList :: Maybe [CancelStepsInfo]
 $sel:cancelStepsInfoList:CancelStepsResponse' :: CancelStepsResponse -&gt; Maybe [CancelStepsInfo]
-</span><a href="#local-6989586621679393565"><span class="hs-identifier hs-var hs-var">cancelStepsInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CancelStepsInfo]
-</span><a href="#local-6989586621679393565"><span class="hs-identifier hs-var">cancelStepsInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393564"><span class="annot"><span class="annottext">s :: CancelStepsResponse
-</span><a href="#local-6989586621679393564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393563"><span class="annot"><span class="annottext">Maybe [CancelStepsInfo]
-</span><a href="#local-6989586621679393563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelStepsResponse
-</span><a href="#local-6989586621679393564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cancelStepsInfoList:CancelStepsResponse' :: Maybe [CancelStepsInfo]
+</span><a href="#local-6989586621679393574"><span class="hs-identifier hs-var hs-var">cancelStepsInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CancelStepsInfo]
+</span><a href="#local-6989586621679393574"><span class="hs-identifier hs-var">cancelStepsInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393573"><span class="annot"><span class="annottext">s :: CancelStepsResponse
+</span><a href="#local-6989586621679393573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393572"><span class="annot"><span class="annottext">Maybe [CancelStepsInfo]
+</span><a href="#local-6989586621679393572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelStepsResponse
+</span><a href="#local-6989586621679393573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cancelStepsInfoList:CancelStepsResponse' :: Maybe [CancelStepsInfo]
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AcancelStepsInfoList%3ACancelStepsResponse%27"><span class="hs-identifier hs-var">cancelStepsInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CancelStepsInfo]
-</span><a href="#local-6989586621679393563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CancelStepsInfo] -&gt; f (Maybe [CancelStepsInfo]))
+</span><a href="#local-6989586621679393572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CancelStepsInfo] -&gt; f (Maybe [CancelStepsInfo]))
  -&gt; CancelStepsResponse -&gt; f CancelStepsResponse)
 -&gt; ((Maybe [CancelStepsInfo] -&gt; f (Maybe [CancelStepsInfo]))
     -&gt; Maybe [CancelStepsInfo] -&gt; f (Maybe [CancelStepsInfo]))
@@ -547,16 +547,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CancelStepsResponse -&gt; Int -&gt; CancelStepsResponse)
 -&gt; Lens CancelStepsResponse CancelStepsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393561"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393570"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CancelStepsResponse' :: CancelStepsResponse -&gt; Int
-</span><a href="#local-6989586621679393561"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393561"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393560"><span class="annot"><span class="annottext">s :: CancelStepsResponse
-</span><a href="#local-6989586621679393560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393559"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelStepsResponse
-</span><a href="#local-6989586621679393560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelStepsResponse' :: Int
+</span><a href="#local-6989586621679393570"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393570"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393569"><span class="annot"><span class="annottext">s :: CancelStepsResponse
+</span><a href="#local-6989586621679393569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse%27"><span class="hs-identifier hs-type">CancelStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelStepsResponse
+</span><a href="#local-6989586621679393569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelStepsResponse' :: Int
 </span><a href="Network.AWS.EMR.CancelSteps.html#%24sel%3AhttpStatus%3ACancelStepsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.CancelSteps.html#CancelStepsResponse"><span class="hs-identifier hs-type">CancelStepsResponse</span></a></span></span><span>
 </span><span id="line-211"></span></pre></body></html>

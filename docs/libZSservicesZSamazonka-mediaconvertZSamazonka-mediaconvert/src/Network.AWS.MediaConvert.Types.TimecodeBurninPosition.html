@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- specify the location the burned-in timecode on output video.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621680009358"><span id="local-6989586621680009359"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimecodeBurninPosition"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition"><span class="hs-identifier hs-var">TimecodeBurninPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeBurninPosition%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition%27"><span class="hs-identifier hs-var">TimecodeBurninPosition'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621680009367"><span id="local-6989586621680009368"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimecodeBurninPosition"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition"><span class="hs-identifier hs-var">TimecodeBurninPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeBurninPosition%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition%27"><span class="hs-identifier hs-var">TimecodeBurninPosition'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimecodeBurninPosition"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#fromTimecodeBurninPosition"><span class="hs-identifier hs-var hs-var">fromTimecodeBurninPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009350"><span id="local-6989586621680009352"><span id="local-6989586621680009354"><span class="annot"><span class="annottext">Int -&gt; TimecodeBurninPosition -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009359"><span id="local-6989586621680009361"><span id="local-6989586621680009363"><span class="annot"><span class="annottext">Int -&gt; TimecodeBurninPosition -&gt; ShowS
 [TimecodeBurninPosition] -&gt; ShowS
 TimecodeBurninPosition -&gt; String
 (Int -&gt; TimecodeBurninPosition -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: TimecodeBurninPosition -&gt; String
 showsPrec :: Int -&gt; TimecodeBurninPosition -&gt; ShowS
 $cshowsPrec :: Int -&gt; TimecodeBurninPosition -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680009341"><span id="local-6989586621680009343"><span id="local-6989586621680009345"><span id="local-6989586621680009347"><span class="annot"><span class="annottext">ReadPrec [TimecodeBurninPosition]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680009350"><span id="local-6989586621680009352"><span id="local-6989586621680009354"><span id="local-6989586621680009356"><span class="annot"><span class="annottext">ReadPrec [TimecodeBurninPosition]
 ReadPrec TimecodeBurninPosition
 Int -&gt; ReadS TimecodeBurninPosition
 ReadS [TimecodeBurninPosition]
@@ -81,7 +81,7 @@ $creadList :: ReadS [TimecodeBurninPosition]
 readsPrec :: Int -&gt; ReadS TimecodeBurninPosition
 $creadsPrec :: Int -&gt; ReadS TimecodeBurninPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680009336"><span id="local-6989586621680009338"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680009345"><span id="local-6989586621680009347"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool
 (TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool)
 -&gt; (TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool)
 -&gt; Eq TimecodeBurninPosition
@@ -91,7 +91,7 @@ $c/= :: TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool
 == :: TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool
 $c== :: TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680009320"><span id="local-6989586621680009322"><span id="local-6989586621680009324"><span id="local-6989586621680009326"><span id="local-6989586621680009328"><span id="local-6989586621680009330"><span id="local-6989586621680009332"><span class="annot"><span class="annottext">Eq TimecodeBurninPosition
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680009329"><span id="local-6989586621680009331"><span id="local-6989586621680009333"><span id="local-6989586621680009335"><span id="local-6989586621680009337"><span id="local-6989586621680009339"><span id="local-6989586621680009341"><span class="annot"><span class="annottext">Eq TimecodeBurninPosition
 Eq TimecodeBurninPosition
 -&gt; (TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Ordering)
 -&gt; (TimecodeBurninPosition -&gt; TimecodeBurninPosition -&gt; Bool)
@@ -150,7 +150,7 @@ $cfrom :: forall x. TimecodeBurninPosition -&gt; Rep TimecodeBurninPosition x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009312"><span id="local-6989586621680009314"><span class="annot"><span class="annottext">Int -&gt; TimecodeBurninPosition -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009321"><span id="local-6989586621680009323"><span class="annot"><span class="annottext">Int -&gt; TimecodeBurninPosition -&gt; Int
 TimecodeBurninPosition -&gt; Int
 (Int -&gt; TimecodeBurninPosition -&gt; Int)
 -&gt; (TimecodeBurninPosition -&gt; Int)
@@ -161,54 +161,54 @@ $chash :: TimecodeBurninPosition -&gt; Int
 hashWithSalt :: Int -&gt; TimecodeBurninPosition -&gt; Int
 $chashWithSalt :: Int -&gt; TimecodeBurninPosition -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680009309"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680009318"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; ()
 (TimecodeBurninPosition -&gt; ()) -&gt; NFData TimecodeBurninPosition
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TimecodeBurninPosition -&gt; ()
 $crnf :: TimecodeBurninPosition -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680009306"><span class="annot"><span class="annottext">Text -&gt; Either String TimecodeBurninPosition
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680009315"><span class="annot"><span class="annottext">Text -&gt; Either String TimecodeBurninPosition
 (Text -&gt; Either String TimecodeBurninPosition)
 -&gt; FromText TimecodeBurninPosition
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TimecodeBurninPosition
 $cfromText :: Text -&gt; Either String TimecodeBurninPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680009303"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680009312"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; Text
 (TimecodeBurninPosition -&gt; Text) -&gt; ToText TimecodeBurninPosition
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TimecodeBurninPosition -&gt; Text
 $ctoText :: TimecodeBurninPosition -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680009300"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680009309"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; ByteString
 (TimecodeBurninPosition -&gt; ByteString)
 -&gt; ToByteString TimecodeBurninPosition
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TimecodeBurninPosition -&gt; ByteString
 $ctoBS :: TimecodeBurninPosition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680009297"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680009306"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; ByteStringBuilder
 (TimecodeBurninPosition -&gt; ByteStringBuilder)
 -&gt; ToLog TimecodeBurninPosition
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TimecodeBurninPosition -&gt; ByteStringBuilder
 $cbuild :: TimecodeBurninPosition -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680009294"><span class="annot"><span class="annottext">HeaderName -&gt; TimecodeBurninPosition -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680009303"><span class="annot"><span class="annottext">HeaderName -&gt; TimecodeBurninPosition -&gt; [Header]
 (HeaderName -&gt; TimecodeBurninPosition -&gt; [Header])
 -&gt; ToHeader TimecodeBurninPosition
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TimecodeBurninPosition -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TimecodeBurninPosition -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680009291"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680009300"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; QueryString
 (TimecodeBurninPosition -&gt; QueryString)
 -&gt; ToQuery TimecodeBurninPosition
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TimecodeBurninPosition -&gt; QueryString
 $ctoQuery :: TimecodeBurninPosition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680009286"><span id="local-6989586621680009288"><span class="annot"><span class="annottext">Value -&gt; Parser [TimecodeBurninPosition]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680009295"><span id="local-6989586621680009297"><span class="annot"><span class="annottext">Value -&gt; Parser [TimecodeBurninPosition]
 Value -&gt; Parser TimecodeBurninPosition
 (Value -&gt; Parser TimecodeBurninPosition)
 -&gt; (Value -&gt; Parser [TimecodeBurninPosition])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [TimecodeBurninPosition]
 parseJSON :: Value -&gt; Parser TimecodeBurninPosition
 $cparseJSON :: Value -&gt; Parser TimecodeBurninPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680009281"><span id="local-6989586621680009283"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimecodeBurninPosition]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680009290"><span id="local-6989586621680009292"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimecodeBurninPosition]
 FromJSONKeyFunction TimecodeBurninPosition
 FromJSONKeyFunction TimecodeBurninPosition
 -&gt; FromJSONKeyFunction [TimecodeBurninPosition]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TimecodeBurninPosition]
 fromJSONKey :: FromJSONKeyFunction TimecodeBurninPosition
 $cfromJSONKey :: FromJSONKeyFunction TimecodeBurninPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680009272"><span id="local-6989586621680009274"><span id="local-6989586621680009276"><span id="local-6989586621680009278"><span class="annot"><span class="annottext">[TimecodeBurninPosition] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680009281"><span id="local-6989586621680009283"><span id="local-6989586621680009285"><span id="local-6989586621680009287"><span class="annot"><span class="annottext">[TimecodeBurninPosition] -&gt; Encoding
 [TimecodeBurninPosition] -&gt; Value
 TimecodeBurninPosition -&gt; Encoding
 TimecodeBurninPosition -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: TimecodeBurninPosition -&gt; Encoding
 toJSON :: TimecodeBurninPosition -&gt; Value
 $ctoJSON :: TimecodeBurninPosition -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680009267"><span id="local-6989586621680009269"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimecodeBurninPosition]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680009276"><span id="local-6989586621680009278"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimecodeBurninPosition]
 ToJSONKeyFunction TimecodeBurninPosition
 ToJSONKeyFunction TimecodeBurninPosition
 -&gt; ToJSONKeyFunction [TimecodeBurninPosition]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TimecodeBurninPosition]
 toJSONKey :: ToJSONKeyFunction TimecodeBurninPosition
 $ctoJSONKey :: ToJSONKeyFunction TimecodeBurninPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680009264"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimecodeBurninPosition
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680009273"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimecodeBurninPosition
 ([Node] -&gt; Either String TimecodeBurninPosition)
 -&gt; FromXML TimecodeBurninPosition
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TimecodeBurninPosition
 $cparseXML :: [Node] -&gt; Either String TimecodeBurninPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680009261"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680009270"><span class="annot"><span class="annottext">TimecodeBurninPosition -&gt; XML
 (TimecodeBurninPosition -&gt; XML) -&gt; ToXML TimecodeBurninPosition
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TimecodeBurninPosition -&gt; XML

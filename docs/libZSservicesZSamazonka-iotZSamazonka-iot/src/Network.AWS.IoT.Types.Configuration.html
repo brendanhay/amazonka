@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newConfiguration' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679781929"><span id="local-6989586621679781930"></span></span><span class="hs-keyword">data</span><span> </span><span id="Configuration"><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-var">Configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Configuration%27"><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679781938"><span id="local-6989586621679781939"></span></span><span class="hs-keyword">data</span><span> </span><span id="Configuration"><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-var">Configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Configuration%27"><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | True to enable the configuration.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aenabled%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.Types.Configuration.html#%24sel%3Aenabled%3AConfiguration%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781923"><span id="local-6989586621679781925"><span class="annot"><span class="annottext">Configuration -&gt; Configuration -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781932"><span id="local-6989586621679781934"><span class="annot"><span class="annottext">Configuration -&gt; Configuration -&gt; Bool
 (Configuration -&gt; Configuration -&gt; Bool)
 -&gt; (Configuration -&gt; Configuration -&gt; Bool) -&gt; Eq Configuration
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Configuration -&gt; Configuration -&gt; Bool
 == :: Configuration -&gt; Configuration -&gt; Bool
 $c== :: Configuration -&gt; Configuration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781914"><span id="local-6989586621679781916"><span id="local-6989586621679781918"><span id="local-6989586621679781920"><span class="annot"><span class="annottext">ReadPrec [Configuration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781923"><span id="local-6989586621679781925"><span id="local-6989586621679781927"><span id="local-6989586621679781929"><span class="annot"><span class="annottext">ReadPrec [Configuration]
 ReadPrec Configuration
 Int -&gt; ReadS Configuration
 ReadS [Configuration]
@@ -59,7 +59,7 @@ readList :: ReadS [Configuration]
 $creadList :: ReadS [Configuration]
 readsPrec :: Int -&gt; ReadS Configuration
 $creadsPrec :: Int -&gt; ReadS Configuration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781907"><span id="local-6989586621679781909"><span id="local-6989586621679781911"><span class="annot"><span class="annottext">Int -&gt; Configuration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781916"><span id="local-6989586621679781918"><span id="local-6989586621679781920"><span class="annot"><span class="annottext">Int -&gt; Configuration -&gt; ShowS
 [Configuration] -&gt; ShowS
 Configuration -&gt; String
 (Int -&gt; Configuration -&gt; ShowS)
@@ -111,19 +111,19 @@ forall a. Maybe a
 -&gt; (Configuration -&gt; Maybe Bool -&gt; Configuration)
 -&gt; Lens Configuration Configuration (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781898"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781907"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:Configuration' :: Configuration -&gt; Maybe Bool
-</span><a href="#local-6989586621679781898"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679781898"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781897"><span class="annot"><span class="annottext">s :: Configuration
-</span><a href="#local-6989586621679781897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781896"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679781896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
-</span><a href="#local-6989586621679781897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:Configuration' :: Maybe Bool
+</span><a href="#local-6989586621679781907"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679781907"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781906"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679781906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781905"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679781905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679781906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:Configuration' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.Configuration.html#%24sel%3Aenabled%3AConfiguration%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679781896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781893"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679781891"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Configuration
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781902"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679781900"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Configuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Configuration)
@@ -133,29 +133,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Configuration&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781888"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781897"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679781897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Configuration
 </span><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Configuration)
 -&gt; Parser (Maybe Bool) -&gt; Parser Configuration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679781897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781882"><span id="local-6989586621679781884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781891"><span id="local-6989586621679781893"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781871"><span id="local-6989586621679781873"><span id="local-6989586621679781875"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679781869"><span class="annot"><span class="annottext">toJSON :: Configuration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781867"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781880"><span id="local-6989586621679781882"><span id="local-6989586621679781884"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679781878"><span class="annot"><span class="annottext">toJSON :: Configuration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781876"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:Configuration' :: Configuration -&gt; Maybe Bool
-</span><a href="#local-6989586621679781867"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679781876"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -167,6 +167,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679781867"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679781876"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

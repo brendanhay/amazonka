@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679277952"><span id="local-6989586621679277953"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutorType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorType.html#ExecutorType"><span class="hs-identifier hs-var">ExecutorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutorType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorType.html#ExecutorType%27"><span class="hs-identifier hs-var">ExecutorType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679277961"><span id="local-6989586621679277962"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutorType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorType.html#ExecutorType"><span class="hs-identifier hs-var">ExecutorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutorType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorType.html#ExecutorType%27"><span class="hs-identifier hs-var">ExecutorType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutorType"><span class="annot"><span class="annottext">ExecutorType -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ExecutorType.html#fromExecutorType"><span class="hs-identifier hs-var hs-var">fromExecutorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277944"><span id="local-6989586621679277946"><span id="local-6989586621679277948"><span class="annot"><span class="annottext">Int -&gt; ExecutorType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277953"><span id="local-6989586621679277955"><span id="local-6989586621679277957"><span class="annot"><span class="annottext">Int -&gt; ExecutorType -&gt; ShowS
 [ExecutorType] -&gt; ShowS
 ExecutorType -&gt; String
 (Int -&gt; ExecutorType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ExecutorType -&gt; String
 showsPrec :: Int -&gt; ExecutorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExecutorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679277935"><span id="local-6989586621679277937"><span id="local-6989586621679277939"><span id="local-6989586621679277941"><span class="annot"><span class="annottext">ReadPrec [ExecutorType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679277944"><span id="local-6989586621679277946"><span id="local-6989586621679277948"><span id="local-6989586621679277950"><span class="annot"><span class="annottext">ReadPrec [ExecutorType]
 ReadPrec ExecutorType
 Int -&gt; ReadS ExecutorType
 ReadS [ExecutorType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ExecutorType]
 readsPrec :: Int -&gt; ReadS ExecutorType
 $creadsPrec :: Int -&gt; ReadS ExecutorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679277930"><span id="local-6989586621679277932"><span class="annot"><span class="annottext">ExecutorType -&gt; ExecutorType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679277939"><span id="local-6989586621679277941"><span class="annot"><span class="annottext">ExecutorType -&gt; ExecutorType -&gt; Bool
 (ExecutorType -&gt; ExecutorType -&gt; Bool)
 -&gt; (ExecutorType -&gt; ExecutorType -&gt; Bool) -&gt; Eq ExecutorType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ExecutorType -&gt; ExecutorType -&gt; Bool
 == :: ExecutorType -&gt; ExecutorType -&gt; Bool
 $c== :: ExecutorType -&gt; ExecutorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679277914"><span id="local-6989586621679277916"><span id="local-6989586621679277918"><span id="local-6989586621679277920"><span id="local-6989586621679277922"><span id="local-6989586621679277924"><span id="local-6989586621679277926"><span class="annot"><span class="annottext">Eq ExecutorType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679277923"><span id="local-6989586621679277925"><span id="local-6989586621679277927"><span id="local-6989586621679277929"><span id="local-6989586621679277931"><span id="local-6989586621679277933"><span id="local-6989586621679277935"><span class="annot"><span class="annottext">Eq ExecutorType
 Eq ExecutorType
 -&gt; (ExecutorType -&gt; ExecutorType -&gt; Ordering)
 -&gt; (ExecutorType -&gt; ExecutorType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ExecutorType -&gt; Rep ExecutorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277906"><span id="local-6989586621679277908"><span class="annot"><span class="annottext">Int -&gt; ExecutorType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277915"><span id="local-6989586621679277917"><span class="annot"><span class="annottext">Int -&gt; ExecutorType -&gt; Int
 ExecutorType -&gt; Int
 (Int -&gt; ExecutorType -&gt; Int)
 -&gt; (ExecutorType -&gt; Int) -&gt; Hashable ExecutorType
@@ -142,49 +142,49 @@ $chash :: ExecutorType -&gt; Int
 hashWithSalt :: Int -&gt; ExecutorType -&gt; Int
 $chashWithSalt :: Int -&gt; ExecutorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679277903"><span class="annot"><span class="annottext">ExecutorType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679277912"><span class="annot"><span class="annottext">ExecutorType -&gt; ()
 (ExecutorType -&gt; ()) -&gt; NFData ExecutorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExecutorType -&gt; ()
 $crnf :: ExecutorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679277900"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutorType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679277909"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutorType
 (Text -&gt; Either String ExecutorType) -&gt; FromText ExecutorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExecutorType
 $cfromText :: Text -&gt; Either String ExecutorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679277897"><span class="annot"><span class="annottext">ExecutorType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679277906"><span class="annot"><span class="annottext">ExecutorType -&gt; Text
 (ExecutorType -&gt; Text) -&gt; ToText ExecutorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExecutorType -&gt; Text
 $ctoText :: ExecutorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679277894"><span class="annot"><span class="annottext">ExecutorType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679277903"><span class="annot"><span class="annottext">ExecutorType -&gt; ByteString
 (ExecutorType -&gt; ByteString) -&gt; ToByteString ExecutorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExecutorType -&gt; ByteString
 $ctoBS :: ExecutorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679277891"><span class="annot"><span class="annottext">ExecutorType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679277900"><span class="annot"><span class="annottext">ExecutorType -&gt; ByteStringBuilder
 (ExecutorType -&gt; ByteStringBuilder) -&gt; ToLog ExecutorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExecutorType -&gt; ByteStringBuilder
 $cbuild :: ExecutorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679277888"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutorType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679277897"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutorType -&gt; [Header]
 (HeaderName -&gt; ExecutorType -&gt; [Header]) -&gt; ToHeader ExecutorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExecutorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExecutorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679277885"><span class="annot"><span class="annottext">ExecutorType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679277894"><span class="annot"><span class="annottext">ExecutorType -&gt; QueryString
 (ExecutorType -&gt; QueryString) -&gt; ToQuery ExecutorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExecutorType -&gt; QueryString
 $ctoQuery :: ExecutorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679277880"><span id="local-6989586621679277882"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutorType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679277889"><span id="local-6989586621679277891"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutorType]
 Value -&gt; Parser ExecutorType
 (Value -&gt; Parser ExecutorType)
 -&gt; (Value -&gt; Parser [ExecutorType]) -&gt; FromJSON ExecutorType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ExecutorType]
 parseJSON :: Value -&gt; Parser ExecutorType
 $cparseJSON :: Value -&gt; Parser ExecutorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679277875"><span id="local-6989586621679277877"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutorType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679277884"><span id="local-6989586621679277886"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutorType]
 FromJSONKeyFunction ExecutorType
 FromJSONKeyFunction ExecutorType
 -&gt; FromJSONKeyFunction [ExecutorType] -&gt; FromJSONKey ExecutorType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExecutorType]
 fromJSONKey :: FromJSONKeyFunction ExecutorType
 $cfromJSONKey :: FromJSONKeyFunction ExecutorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679277866"><span id="local-6989586621679277868"><span id="local-6989586621679277870"><span id="local-6989586621679277872"><span class="annot"><span class="annottext">[ExecutorType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679277875"><span id="local-6989586621679277877"><span id="local-6989586621679277879"><span id="local-6989586621679277881"><span class="annot"><span class="annottext">[ExecutorType] -&gt; Encoding
 [ExecutorType] -&gt; Value
 ExecutorType -&gt; Encoding
 ExecutorType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ExecutorType -&gt; Encoding
 toJSON :: ExecutorType -&gt; Value
 $ctoJSON :: ExecutorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679277861"><span id="local-6989586621679277863"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679277870"><span id="local-6989586621679277872"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutorType]
 ToJSONKeyFunction ExecutorType
 ToJSONKeyFunction ExecutorType
 -&gt; ToJSONKeyFunction [ExecutorType] -&gt; ToJSONKey ExecutorType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExecutorType]
 toJSONKey :: ToJSONKeyFunction ExecutorType
 $ctoJSONKey :: ToJSONKeyFunction ExecutorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679277858"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutorType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679277867"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutorType
 ([Node] -&gt; Either String ExecutorType) -&gt; FromXML ExecutorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExecutorType
 $cparseXML :: [Node] -&gt; Either String ExecutorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679277855"><span class="annot"><span class="annottext">ExecutorType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679277864"><span class="annot"><span class="annottext">ExecutorType -&gt; XML
 (ExecutorType -&gt; XML) -&gt; ToXML ExecutorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExecutorType -&gt; XML

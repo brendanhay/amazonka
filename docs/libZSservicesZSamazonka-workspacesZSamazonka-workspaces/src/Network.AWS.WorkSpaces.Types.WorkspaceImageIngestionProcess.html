@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679275925"><span id="local-6989586621679275926"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceImageIngestionProcess"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess.html#WorkspaceImageIngestionProcess"><span class="hs-identifier hs-var">WorkspaceImageIngestionProcess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceImageIngestionProcess%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess.html#WorkspaceImageIngestionProcess%27"><span class="hs-identifier hs-var">WorkspaceImageIngestionProcess'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679275934"><span id="local-6989586621679275935"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceImageIngestionProcess"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess.html#WorkspaceImageIngestionProcess"><span class="hs-identifier hs-var">WorkspaceImageIngestionProcess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceImageIngestionProcess%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess.html#WorkspaceImageIngestionProcess%27"><span class="hs-identifier hs-var">WorkspaceImageIngestionProcess'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkspaceImageIngestionProcess"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess.html#fromWorkspaceImageIngestionProcess"><span class="hs-identifier hs-var hs-var">fromWorkspaceImageIngestionProcess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275917"><span id="local-6989586621679275919"><span id="local-6989586621679275921"><span class="annot"><span class="annottext">Int -&gt; WorkspaceImageIngestionProcess -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275926"><span id="local-6989586621679275928"><span id="local-6989586621679275930"><span class="annot"><span class="annottext">Int -&gt; WorkspaceImageIngestionProcess -&gt; ShowS
 [WorkspaceImageIngestionProcess] -&gt; ShowS
 WorkspaceImageIngestionProcess -&gt; String
 (Int -&gt; WorkspaceImageIngestionProcess -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: WorkspaceImageIngestionProcess -&gt; String
 showsPrec :: Int -&gt; WorkspaceImageIngestionProcess -&gt; ShowS
 $cshowsPrec :: Int -&gt; WorkspaceImageIngestionProcess -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679275908"><span id="local-6989586621679275910"><span id="local-6989586621679275912"><span id="local-6989586621679275914"><span class="annot"><span class="annottext">ReadPrec [WorkspaceImageIngestionProcess]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679275917"><span id="local-6989586621679275919"><span id="local-6989586621679275921"><span id="local-6989586621679275923"><span class="annot"><span class="annottext">ReadPrec [WorkspaceImageIngestionProcess]
 ReadPrec WorkspaceImageIngestionProcess
 Int -&gt; ReadS WorkspaceImageIngestionProcess
 ReadS [WorkspaceImageIngestionProcess]
@@ -74,7 +74,7 @@ $creadList :: ReadS [WorkspaceImageIngestionProcess]
 readsPrec :: Int -&gt; ReadS WorkspaceImageIngestionProcess
 $creadsPrec :: Int -&gt; ReadS WorkspaceImageIngestionProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679275903"><span id="local-6989586621679275905"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679275912"><span id="local-6989586621679275914"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess
 -&gt; WorkspaceImageIngestionProcess -&gt; Bool
 (WorkspaceImageIngestionProcess
  -&gt; WorkspaceImageIngestionProcess -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: WorkspaceImageIngestionProcess
 $c== :: WorkspaceImageIngestionProcess
 -&gt; WorkspaceImageIngestionProcess -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679275887"><span id="local-6989586621679275889"><span id="local-6989586621679275891"><span id="local-6989586621679275893"><span id="local-6989586621679275895"><span id="local-6989586621679275897"><span id="local-6989586621679275899"><span class="annot"><span class="annottext">Eq WorkspaceImageIngestionProcess
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679275896"><span id="local-6989586621679275898"><span id="local-6989586621679275900"><span id="local-6989586621679275902"><span id="local-6989586621679275904"><span id="local-6989586621679275906"><span id="local-6989586621679275908"><span class="annot"><span class="annottext">Eq WorkspaceImageIngestionProcess
 Eq WorkspaceImageIngestionProcess
 -&gt; (WorkspaceImageIngestionProcess
     -&gt; WorkspaceImageIngestionProcess -&gt; Ordering)
@@ -180,7 +180,7 @@ WorkspaceImageIngestionProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275879"><span id="local-6989586621679275881"><span class="annot"><span class="annottext">Int -&gt; WorkspaceImageIngestionProcess -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275888"><span id="local-6989586621679275890"><span class="annot"><span class="annottext">Int -&gt; WorkspaceImageIngestionProcess -&gt; Int
 WorkspaceImageIngestionProcess -&gt; Int
 (Int -&gt; WorkspaceImageIngestionProcess -&gt; Int)
 -&gt; (WorkspaceImageIngestionProcess -&gt; Int)
@@ -191,56 +191,56 @@ $chash :: WorkspaceImageIngestionProcess -&gt; Int
 hashWithSalt :: Int -&gt; WorkspaceImageIngestionProcess -&gt; Int
 $chashWithSalt :: Int -&gt; WorkspaceImageIngestionProcess -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275876"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275885"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; ()
 (WorkspaceImageIngestionProcess -&gt; ())
 -&gt; NFData WorkspaceImageIngestionProcess
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WorkspaceImageIngestionProcess -&gt; ()
 $crnf :: WorkspaceImageIngestionProcess -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275873"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceImageIngestionProcess
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275882"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceImageIngestionProcess
 (Text -&gt; Either String WorkspaceImageIngestionProcess)
 -&gt; FromText WorkspaceImageIngestionProcess
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WorkspaceImageIngestionProcess
 $cfromText :: Text -&gt; Either String WorkspaceImageIngestionProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275870"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275879"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; Text
 (WorkspaceImageIngestionProcess -&gt; Text)
 -&gt; ToText WorkspaceImageIngestionProcess
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WorkspaceImageIngestionProcess -&gt; Text
 $ctoText :: WorkspaceImageIngestionProcess -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275867"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275876"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; ByteString
 (WorkspaceImageIngestionProcess -&gt; ByteString)
 -&gt; ToByteString WorkspaceImageIngestionProcess
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WorkspaceImageIngestionProcess -&gt; ByteString
 $ctoBS :: WorkspaceImageIngestionProcess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275864"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275873"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; ByteStringBuilder
 (WorkspaceImageIngestionProcess -&gt; ByteStringBuilder)
 -&gt; ToLog WorkspaceImageIngestionProcess
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WorkspaceImageIngestionProcess -&gt; ByteStringBuilder
 $cbuild :: WorkspaceImageIngestionProcess -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275861"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceImageIngestionProcess -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275870"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceImageIngestionProcess -&gt; [Header]
 (HeaderName -&gt; WorkspaceImageIngestionProcess -&gt; [Header])
 -&gt; ToHeader WorkspaceImageIngestionProcess
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WorkspaceImageIngestionProcess -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WorkspaceImageIngestionProcess -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275858"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275867"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; QueryString
 (WorkspaceImageIngestionProcess -&gt; QueryString)
 -&gt; ToQuery WorkspaceImageIngestionProcess
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WorkspaceImageIngestionProcess -&gt; QueryString
 $ctoQuery :: WorkspaceImageIngestionProcess -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275853"><span id="local-6989586621679275855"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceImageIngestionProcess]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275862"><span id="local-6989586621679275864"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceImageIngestionProcess]
 Value -&gt; Parser WorkspaceImageIngestionProcess
 (Value -&gt; Parser WorkspaceImageIngestionProcess)
 -&gt; (Value -&gt; Parser [WorkspaceImageIngestionProcess])
@@ -252,7 +252,7 @@ $cparseJSONList :: Value -&gt; Parser [WorkspaceImageIngestionProcess]
 parseJSON :: Value -&gt; Parser WorkspaceImageIngestionProcess
 $cparseJSON :: Value -&gt; Parser WorkspaceImageIngestionProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275848"><span id="local-6989586621679275850"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceImageIngestionProcess]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275857"><span id="local-6989586621679275859"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceImageIngestionProcess]
 FromJSONKeyFunction WorkspaceImageIngestionProcess
 FromJSONKeyFunction WorkspaceImageIngestionProcess
 -&gt; FromJSONKeyFunction [WorkspaceImageIngestionProcess]
@@ -264,7 +264,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WorkspaceImageIngestionProcess]
 fromJSONKey :: FromJSONKeyFunction WorkspaceImageIngestionProcess
 $cfromJSONKey :: FromJSONKeyFunction WorkspaceImageIngestionProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275839"><span id="local-6989586621679275841"><span id="local-6989586621679275843"><span id="local-6989586621679275845"><span class="annot"><span class="annottext">[WorkspaceImageIngestionProcess] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275848"><span id="local-6989586621679275850"><span id="local-6989586621679275852"><span id="local-6989586621679275854"><span class="annot"><span class="annottext">[WorkspaceImageIngestionProcess] -&gt; Encoding
 [WorkspaceImageIngestionProcess] -&gt; Value
 WorkspaceImageIngestionProcess -&gt; Encoding
 WorkspaceImageIngestionProcess -&gt; Value
@@ -288,7 +288,7 @@ $ctoEncoding :: WorkspaceImageIngestionProcess -&gt; Encoding
 toJSON :: WorkspaceImageIngestionProcess -&gt; Value
 $ctoJSON :: WorkspaceImageIngestionProcess -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679275834"><span id="local-6989586621679275836"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceImageIngestionProcess]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679275843"><span id="local-6989586621679275845"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceImageIngestionProcess]
 ToJSONKeyFunction WorkspaceImageIngestionProcess
 ToJSONKeyFunction WorkspaceImageIngestionProcess
 -&gt; ToJSONKeyFunction [WorkspaceImageIngestionProcess]
@@ -300,14 +300,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WorkspaceImageIngestionProcess]
 toJSONKey :: ToJSONKeyFunction WorkspaceImageIngestionProcess
 $ctoJSONKey :: ToJSONKeyFunction WorkspaceImageIngestionProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679275831"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceImageIngestionProcess
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679275840"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceImageIngestionProcess
 ([Node] -&gt; Either String WorkspaceImageIngestionProcess)
 -&gt; FromXML WorkspaceImageIngestionProcess
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WorkspaceImageIngestionProcess
 $cparseXML :: [Node] -&gt; Either String WorkspaceImageIngestionProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679275828"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679275837"><span class="annot"><span class="annottext">WorkspaceImageIngestionProcess -&gt; XML
 (WorkspaceImageIngestionProcess -&gt; XML)
 -&gt; ToXML WorkspaceImageIngestionProcess
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a CloudWatch dashboard.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCloudWatchDashboard' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679398205"><span id="local-6989586621679398206"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchDashboard"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-var">CloudWatchDashboard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchDashboard%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard%27"><span class="hs-identifier hs-var">CloudWatchDashboard'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679398214"><span id="local-6989586621679398215"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchDashboard"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-var">CloudWatchDashboard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchDashboard%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard%27"><span class="hs-identifier hs-var">CloudWatchDashboard'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the CloudWatch dashboard.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ACloudWatchDashboard%27"><span class="annot"><span class="annottext">CloudWatchDashboard -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#%24sel%3Aname%3ACloudWatchDashboard%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398199"><span id="local-6989586621679398201"><span class="annot"><span class="annottext">CloudWatchDashboard -&gt; CloudWatchDashboard -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398208"><span id="local-6989586621679398210"><span class="annot"><span class="annottext">CloudWatchDashboard -&gt; CloudWatchDashboard -&gt; Bool
 (CloudWatchDashboard -&gt; CloudWatchDashboard -&gt; Bool)
 -&gt; (CloudWatchDashboard -&gt; CloudWatchDashboard -&gt; Bool)
 -&gt; Eq CloudWatchDashboard
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudWatchDashboard -&gt; CloudWatchDashboard -&gt; Bool
 == :: CloudWatchDashboard -&gt; CloudWatchDashboard -&gt; Bool
 $c== :: CloudWatchDashboard -&gt; CloudWatchDashboard -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398190"><span id="local-6989586621679398192"><span id="local-6989586621679398194"><span id="local-6989586621679398196"><span class="annot"><span class="annottext">ReadPrec [CloudWatchDashboard]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398199"><span id="local-6989586621679398201"><span id="local-6989586621679398203"><span id="local-6989586621679398205"><span class="annot"><span class="annottext">ReadPrec [CloudWatchDashboard]
 ReadPrec CloudWatchDashboard
 Int -&gt; ReadS CloudWatchDashboard
 ReadS [CloudWatchDashboard]
@@ -60,7 +60,7 @@ readList :: ReadS [CloudWatchDashboard]
 $creadList :: ReadS [CloudWatchDashboard]
 readsPrec :: Int -&gt; ReadS CloudWatchDashboard
 $creadsPrec :: Int -&gt; ReadS CloudWatchDashboard
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398183"><span id="local-6989586621679398185"><span id="local-6989586621679398187"><span class="annot"><span class="annottext">Int -&gt; CloudWatchDashboard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398192"><span id="local-6989586621679398194"><span id="local-6989586621679398196"><span class="annot"><span class="annottext">Int -&gt; CloudWatchDashboard -&gt; ShowS
 [CloudWatchDashboard] -&gt; ShowS
 CloudWatchDashboard -&gt; String
 (Int -&gt; CloudWatchDashboard -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      CloudWatchDashboard CloudWatchDashboard (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard%27"><span class="hs-identifier hs-type">CloudWatchDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398174"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard%27"><span class="hs-identifier hs-type">CloudWatchDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398183"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CloudWatchDashboard' :: CloudWatchDashboard -&gt; Maybe Text
-</span><a href="#local-6989586621679398174"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398174"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398173"><span class="annot"><span class="annottext">s :: CloudWatchDashboard
-</span><a href="#local-6989586621679398173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard%27"><span class="hs-identifier hs-type">CloudWatchDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398172"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDashboard
-</span><a href="#local-6989586621679398173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CloudWatchDashboard' :: Maybe Text
+</span><a href="#local-6989586621679398183"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398183"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398182"><span class="annot"><span class="annottext">s :: CloudWatchDashboard
+</span><a href="#local-6989586621679398182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard%27"><span class="hs-identifier hs-type">CloudWatchDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDashboard
+</span><a href="#local-6989586621679398182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CloudWatchDashboard' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#%24sel%3Aname%3ACloudWatchDashboard%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679398181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398169"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679398167"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchDashboard
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398178"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679398176"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchDashboard
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchDashboard)
@@ -136,20 +136,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchDashboard&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679398164"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398164"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679398173"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679398173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; CloudWatchDashboard
 </span><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard%27"><span class="hs-identifier hs-var">CloudWatchDashboard'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CloudWatchDashboard)
 -&gt; Parser (Maybe Text) -&gt; Parser CloudWatchDashboard
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679398173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398158"><span id="local-6989586621679398160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398167"><span id="local-6989586621679398169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CloudWatchDashboard.html#CloudWatchDashboard"><span class="hs-identifier hs-type">CloudWatchDashboard</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon Connect Administrator Guide/.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newHistoricalMetric' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679405764"><span id="local-6989586621679405765"></span></span><span class="hs-keyword">data</span><span> </span><span id="HistoricalMetric"><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-var">HistoricalMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoricalMetric%27"><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-var">HistoricalMetric'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679405773"><span id="local-6989586621679405774"></span></span><span class="hs-keyword">data</span><span> </span><span id="HistoricalMetric"><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-var">HistoricalMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoricalMetric%27"><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-var">HistoricalMetric'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3AHistoricalMetric%27"><span class="annot"><span class="annottext">HistoricalMetric -&gt; Maybe HistoricalMetricName
 </span><a href="Network.AWS.Connect.Types.HistoricalMetric.html#%24sel%3Aname%3AHistoricalMetric%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetricName.html#HistoricalMetricName"><span class="hs-identifier hs-type">HistoricalMetricName</span></a></span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Astatistic%3AHistoricalMetric%27"><span class="annot"><span class="annottext">HistoricalMetric -&gt; Maybe Statistic
 </span><a href="Network.AWS.Connect.Types.HistoricalMetric.html#%24sel%3Astatistic%3AHistoricalMetric%27"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Statistic.html#Statistic"><span class="hs-identifier hs-type">Statistic</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405755"><span id="local-6989586621679405757"><span class="annot"><span class="annottext">HistoricalMetric -&gt; HistoricalMetric -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405764"><span id="local-6989586621679405766"><span class="annot"><span class="annottext">HistoricalMetric -&gt; HistoricalMetric -&gt; Bool
 (HistoricalMetric -&gt; HistoricalMetric -&gt; Bool)
 -&gt; (HistoricalMetric -&gt; HistoricalMetric -&gt; Bool)
 -&gt; Eq HistoricalMetric
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HistoricalMetric -&gt; HistoricalMetric -&gt; Bool
 == :: HistoricalMetric -&gt; HistoricalMetric -&gt; Bool
 $c== :: HistoricalMetric -&gt; HistoricalMetric -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405746"><span id="local-6989586621679405748"><span id="local-6989586621679405750"><span id="local-6989586621679405752"><span class="annot"><span class="annottext">ReadPrec [HistoricalMetric]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405755"><span id="local-6989586621679405757"><span id="local-6989586621679405759"><span id="local-6989586621679405761"><span class="annot"><span class="annottext">ReadPrec [HistoricalMetric]
 ReadPrec HistoricalMetric
 Int -&gt; ReadS HistoricalMetric
 ReadS [HistoricalMetric]
@@ -76,7 +76,7 @@ readList :: ReadS [HistoricalMetric]
 $creadList :: ReadS [HistoricalMetric]
 readsPrec :: Int -&gt; ReadS HistoricalMetric
 $creadsPrec :: Int -&gt; ReadS HistoricalMetric
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405739"><span id="local-6989586621679405741"><span id="local-6989586621679405743"><span class="annot"><span class="annottext">Int -&gt; HistoricalMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405748"><span id="local-6989586621679405750"><span id="local-6989586621679405752"><span class="annot"><span class="annottext">Int -&gt; HistoricalMetric -&gt; ShowS
 [HistoricalMetric] -&gt; ShowS
 HistoricalMetric -&gt; String
 (Int -&gt; HistoricalMetric -&gt; ShowS)
@@ -158,16 +158,16 @@ forall a. Maybe a
      (Maybe HistoricalMetricName)
      (Maybe HistoricalMetricName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405730"><span class="annot"><span class="annottext">Maybe HistoricalMetricName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405739"><span class="annot"><span class="annottext">Maybe HistoricalMetricName
 name :: Maybe HistoricalMetricName
 $sel:name:HistoricalMetric' :: HistoricalMetric -&gt; Maybe HistoricalMetricName
-</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HistoricalMetricName
-</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405729"><span class="annot"><span class="annottext">s :: HistoricalMetric
-</span><a href="#local-6989586621679405729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405728"><span class="annot"><span class="annottext">Maybe HistoricalMetricName
-</span><a href="#local-6989586621679405728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
-</span><a href="#local-6989586621679405729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:HistoricalMetric' :: Maybe HistoricalMetricName
+</span><a href="#local-6989586621679405739"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HistoricalMetricName
+</span><a href="#local-6989586621679405739"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405738"><span class="annot"><span class="annottext">s :: HistoricalMetric
+</span><a href="#local-6989586621679405738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405737"><span class="annot"><span class="annottext">Maybe HistoricalMetricName
+</span><a href="#local-6989586621679405737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
+</span><a href="#local-6989586621679405738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:HistoricalMetric' :: Maybe HistoricalMetricName
 </span><a href="Network.AWS.Connect.Types.HistoricalMetric.html#%24sel%3Aname%3AHistoricalMetric%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HistoricalMetricName
-</span><a href="#local-6989586621679405728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The threshold for the metric, used with service level metrics.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#historicalMetric_threshold"><span class="hs-identifier hs-type">historicalMetric_threshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Threshold.html#Threshold"><span class="hs-identifier hs-type">Threshold</span></a></span><span class="hs-special">)</span><span>
@@ -181,16 +181,16 @@ $sel:name:HistoricalMetric' :: HistoricalMetric -&gt; Maybe HistoricalMetricName
      (Maybe Threshold)
      (Maybe Threshold)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405726"><span class="annot"><span class="annottext">Maybe Threshold
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405735"><span class="annot"><span class="annottext">Maybe Threshold
 threshold :: Maybe Threshold
 $sel:threshold:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Threshold
-</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Threshold
-</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405725"><span class="annot"><span class="annottext">s :: HistoricalMetric
-</span><a href="#local-6989586621679405725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405724"><span class="annot"><span class="annottext">Maybe Threshold
-</span><a href="#local-6989586621679405724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
-</span><a href="#local-6989586621679405725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:HistoricalMetric' :: Maybe Threshold
+</span><a href="#local-6989586621679405735"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Threshold
+</span><a href="#local-6989586621679405735"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405734"><span class="annot"><span class="annottext">s :: HistoricalMetric
+</span><a href="#local-6989586621679405734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405733"><span class="annot"><span class="annottext">Maybe Threshold
+</span><a href="#local-6989586621679405733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
+</span><a href="#local-6989586621679405734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:HistoricalMetric' :: Maybe Threshold
 </span><a href="Network.AWS.Connect.Types.HistoricalMetric.html#%24sel%3Athreshold%3AHistoricalMetric%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Threshold
-</span><a href="#local-6989586621679405724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The unit for the metric.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#historicalMetric_unit"><span class="hs-identifier hs-type">historicalMetric_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span class="hs-special">)</span><span>
@@ -200,16 +200,16 @@ $sel:threshold:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Threshold
 -&gt; (HistoricalMetric -&gt; Maybe Unit -&gt; HistoricalMetric)
 -&gt; Lens HistoricalMetric HistoricalMetric (Maybe Unit) (Maybe Unit)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405722"><span class="annot"><span class="annottext">Maybe Unit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405731"><span class="annot"><span class="annottext">Maybe Unit
 unit :: Maybe Unit
 $sel:unit:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Unit
-</span><a href="#local-6989586621679405722"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679405722"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405721"><span class="annot"><span class="annottext">s :: HistoricalMetric
-</span><a href="#local-6989586621679405721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405720"><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679405720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
-</span><a href="#local-6989586621679405721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:HistoricalMetric' :: Maybe Unit
+</span><a href="#local-6989586621679405731"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679405731"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405730"><span class="annot"><span class="annottext">s :: HistoricalMetric
+</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405729"><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679405729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
+</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:HistoricalMetric' :: Maybe Unit
 </span><a href="Network.AWS.Connect.Types.HistoricalMetric.html#%24sel%3Aunit%3AHistoricalMetric%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679405720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The statistic for the metric.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#historicalMetric_statistic"><span class="hs-identifier hs-type">historicalMetric_statistic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Statistic.html#Statistic"><span class="hs-identifier hs-type">Statistic</span></a></span><span class="hs-special">)</span><span>
@@ -223,19 +223,19 @@ $sel:unit:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Unit
      (Maybe Statistic)
      (Maybe Statistic)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405718"><span class="annot"><span class="annottext">Maybe Statistic
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405727"><span class="annot"><span class="annottext">Maybe Statistic
 statistic :: Maybe Statistic
 $sel:statistic:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Statistic
-</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
-</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405717"><span class="annot"><span class="annottext">s :: HistoricalMetric
-</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405716"><span class="annot"><span class="annottext">Maybe Statistic
-</span><a href="#local-6989586621679405716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
-</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistic:HistoricalMetric' :: Maybe Statistic
+</span><a href="#local-6989586621679405727"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679405727"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405726"><span class="annot"><span class="annottext">s :: HistoricalMetric
+</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405725"><span class="annot"><span class="annottext">Maybe Statistic
+</span><a href="#local-6989586621679405725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoricalMetric
+</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistic:HistoricalMetric' :: Maybe Statistic
 </span><a href="Network.AWS.Connect.Types.HistoricalMetric.html#%24sel%3Astatistic%3AHistoricalMetric%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
-</span><a href="#local-6989586621679405716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405713"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679405711"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HistoricalMetric
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679405720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HistoricalMetric
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HistoricalMetric)
@@ -245,8 +245,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HistoricalMetric&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405708"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe HistoricalMetricName
 -&gt; Maybe Threshold
 -&gt; Maybe Unit
@@ -264,7 +264,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Unit -&gt; Maybe Statistic -&gt; HistoricalMetric)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HistoricalMetricName)
+</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HistoricalMetricName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,7 +275,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Unit -&gt; Maybe Statistic -&gt; HistoricalMetric)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Threshold)
+</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Threshold)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Threshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -284,7 +284,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Statistic -&gt; HistoricalMetric)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Unit)
+</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Unit)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,19 +292,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Statistic) -&gt; Parser HistoricalMetric
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Statistic)
+</span><a href="#local-6989586621679405717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Statistic)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Statistic&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405702"><span id="local-6989586621679405704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405711"><span id="local-6989586621679405713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405691"><span id="local-6989586621679405693"><span id="local-6989586621679405695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679405689"><span class="annot"><span class="annottext">toJSON :: HistoricalMetric -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405684"><span id="local-6989586621679405685"><span id="local-6989586621679405686"><span id="local-6989586621679405687"><span class="annot"><span class="annottext">Maybe HistoricalMetricName
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405700"><span id="local-6989586621679405702"><span id="local-6989586621679405704"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric"><span class="hs-identifier hs-type">HistoricalMetric</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679405698"><span class="annot"><span class="annottext">toJSON :: HistoricalMetric -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HistoricalMetric.html#HistoricalMetric%27"><span class="hs-identifier hs-type">HistoricalMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405693"><span id="local-6989586621679405694"><span id="local-6989586621679405695"><span id="local-6989586621679405696"><span class="annot"><span class="annottext">Maybe HistoricalMetricName
 Maybe Statistic
 Maybe Threshold
 Maybe Unit
@@ -316,7 +316,7 @@ $sel:statistic:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Statistic
 $sel:unit:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Unit
 $sel:threshold:HistoricalMetric' :: HistoricalMetric -&gt; Maybe Threshold
 $sel:name:HistoricalMetric' :: HistoricalMetric -&gt; Maybe HistoricalMetricName
-</span><a href="#local-6989586621679405684"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679405693"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -329,28 +329,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe HistoricalMetricName -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HistoricalMetricName
-</span><a href="#local-6989586621679405687"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405696"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Threshold -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Threshold -&gt; Pair) -&gt; Maybe Threshold -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Threshold
-</span><a href="#local-6989586621679405686"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405695"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Unit -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Unit -&gt; Pair) -&gt; Maybe Unit -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679405685"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405694"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Statistic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Statistic -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Statistic -&gt; Pair) -&gt; Maybe Statistic -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Statistic
-</span><a href="#local-6989586621679405684"><span class="hs-identifier hs-var">statistic</span></a></span><span>
+</span><a href="#local-6989586621679405693"><span class="hs-identifier hs-var">statistic</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

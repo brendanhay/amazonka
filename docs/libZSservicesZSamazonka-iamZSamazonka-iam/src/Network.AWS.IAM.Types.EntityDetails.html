@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- GetServiceLastAccessedDetailsWithEntities operation.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newEntityDetails' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679427506"><span id="local-6989586621679427507"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntityDetails"><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-var">EntityDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityDetails%27"><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-var">EntityDetails'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679427515"><span id="local-6989586621679427516"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntityDetails"><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-var">EntityDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityDetails%27"><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-var">EntityDetails'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- authenticated entity last attempted to access Amazon Web Services.</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AentityInfo%3AEntityDetails%27"><span class="annot"><span class="annottext">EntityDetails -&gt; EntityInfo
 </span><a href="Network.AWS.IAM.Types.EntityDetails.html#%24sel%3AentityInfo%3AEntityDetails%27"><span class="hs-identifier hs-var hs-var">entityInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityInfo.html#EntityInfo"><span class="hs-identifier hs-type">EntityInfo</span></a></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427499"><span id="local-6989586621679427501"><span class="annot"><span class="annottext">EntityDetails -&gt; EntityDetails -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427508"><span id="local-6989586621679427510"><span class="annot"><span class="annottext">EntityDetails -&gt; EntityDetails -&gt; Bool
 (EntityDetails -&gt; EntityDetails -&gt; Bool)
 -&gt; (EntityDetails -&gt; EntityDetails -&gt; Bool) -&gt; Eq EntityDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EntityDetails -&gt; EntityDetails -&gt; Bool
 == :: EntityDetails -&gt; EntityDetails -&gt; Bool
 $c== :: EntityDetails -&gt; EntityDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427490"><span id="local-6989586621679427492"><span id="local-6989586621679427494"><span id="local-6989586621679427496"><span class="annot"><span class="annottext">ReadPrec [EntityDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427499"><span id="local-6989586621679427501"><span id="local-6989586621679427503"><span id="local-6989586621679427505"><span class="annot"><span class="annottext">ReadPrec [EntityDetails]
 ReadPrec EntityDetails
 Int -&gt; ReadS EntityDetails
 ReadS [EntityDetails]
@@ -76,7 +76,7 @@ readList :: ReadS [EntityDetails]
 $creadList :: ReadS [EntityDetails]
 readsPrec :: Int -&gt; ReadS EntityDetails
 $creadsPrec :: Int -&gt; ReadS EntityDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427483"><span id="local-6989586621679427485"><span id="local-6989586621679427487"><span class="annot"><span class="annottext">Int -&gt; EntityDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427492"><span id="local-6989586621679427494"><span id="local-6989586621679427496"><span class="annot"><span class="annottext">Int -&gt; EntityDetails -&gt; ShowS
 [EntityDetails] -&gt; ShowS
 EntityDetails -&gt; String
 (Int -&gt; EntityDetails -&gt; ShowS)
@@ -126,8 +126,8 @@ $cfrom :: forall x. EntityDetails -&gt; Rep EntityDetails x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityInfo.html#EntityInfo"><span class="hs-identifier hs-type">EntityInfo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span><span>
 </span><span id="line-74"></span><span id="newEntityDetails"><span class="annot"><span class="annottext">newEntityDetails :: EntityInfo -&gt; EntityDetails
-</span><a href="Network.AWS.IAM.Types.EntityDetails.html#newEntityDetails"><span class="hs-identifier hs-var hs-var">newEntityDetails</span></a></span></span><span> </span><span id="local-6989586621679427477"><span class="annot"><span class="annottext">EntityInfo
-</span><a href="#local-6989586621679427477"><span class="hs-identifier hs-var">pEntityInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.Types.EntityDetails.html#newEntityDetails"><span class="hs-identifier hs-var hs-var">newEntityDetails</span></a></span></span><span> </span><span id="local-6989586621679427486"><span class="annot"><span class="annottext">EntityInfo
+</span><a href="#local-6989586621679427486"><span class="hs-identifier hs-var">pEntityInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">EntityDetails' :: Maybe ISO8601 -&gt; EntityInfo -&gt; EntityDetails
 </span><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastAuthenticated:EntityDetails' :: Maybe ISO8601
@@ -136,7 +136,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityInfo:EntityDetails' :: EntityInfo
 </span><a href="Network.AWS.IAM.Types.EntityDetails.html#%24sel%3AentityInfo%3AEntityDetails%27"><span class="hs-identifier hs-var">entityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EntityInfo
-</span><a href="#local-6989586621679427477"><span class="hs-identifier hs-var">pEntityInfo_</span></a></span><span>
+</span><a href="#local-6989586621679427486"><span class="hs-identifier hs-var">pEntityInfo_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The date and time,</span><span>
@@ -154,16 +154,16 @@ forall a. Maybe a
 -&gt; (EntityDetails -&gt; Maybe ISO8601 -&gt; EntityDetails)
 -&gt; Lens EntityDetails EntityDetails (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427473"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427482"><span class="annot"><span class="annottext">Maybe ISO8601
 lastAuthenticated :: Maybe ISO8601
 $sel:lastAuthenticated:EntityDetails' :: EntityDetails -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679427473"><span class="hs-identifier hs-var hs-var">lastAuthenticated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679427473"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427472"><span class="annot"><span class="annottext">s :: EntityDetails
-</span><a href="#local-6989586621679427472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427471"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679427471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityDetails
-</span><a href="#local-6989586621679427472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticated:EntityDetails' :: Maybe ISO8601
+</span><a href="#local-6989586621679427482"><span class="hs-identifier hs-var hs-var">lastAuthenticated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679427482"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427481"><span class="annot"><span class="annottext">s :: EntityDetails
+</span><a href="#local-6989586621679427481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427480"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679427480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityDetails
+</span><a href="#local-6989586621679427481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticated:EntityDetails' :: Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.EntityDetails.html#%24sel%3AlastAuthenticated%3AEntityDetails%27"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679427471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679427480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; EntityDetails -&gt; f EntityDetails)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -189,21 +189,21 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (EntityDetails -&gt; EntityInfo -&gt; EntityDetails)
 -&gt; Lens EntityDetails EntityDetails EntityInfo EntityInfo
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427466"><span class="annot"><span class="annottext">EntityInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427475"><span class="annot"><span class="annottext">EntityInfo
 entityInfo :: EntityInfo
 $sel:entityInfo:EntityDetails' :: EntityDetails -&gt; EntityInfo
-</span><a href="#local-6989586621679427466"><span class="hs-identifier hs-var hs-var">entityInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityInfo
-</span><a href="#local-6989586621679427466"><span class="hs-identifier hs-var">entityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427465"><span class="annot"><span class="annottext">s :: EntityDetails
-</span><a href="#local-6989586621679427465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427464"><span class="annot"><span class="annottext">EntityInfo
-</span><a href="#local-6989586621679427464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityDetails
-</span><a href="#local-6989586621679427465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityInfo:EntityDetails' :: EntityInfo
+</span><a href="#local-6989586621679427475"><span class="hs-identifier hs-var hs-var">entityInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityInfo
+</span><a href="#local-6989586621679427475"><span class="hs-identifier hs-var">entityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427474"><span class="annot"><span class="annottext">s :: EntityDetails
+</span><a href="#local-6989586621679427474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-type">EntityDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427473"><span class="annot"><span class="annottext">EntityInfo
+</span><a href="#local-6989586621679427473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityDetails
+</span><a href="#local-6989586621679427474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityInfo:EntityDetails' :: EntityInfo
 </span><a href="Network.AWS.IAM.Types.EntityDetails.html#%24sel%3AentityInfo%3AEntityDetails%27"><span class="hs-identifier hs-var">entityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EntityInfo
-</span><a href="#local-6989586621679427464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679427473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679427461"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EntityDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679427459"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679427470"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EntityDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679427468"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679427468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601 -&gt; EntityInfo -&gt; EntityDetails
 </span><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails%27"><span class="hs-identifier hs-var">EntityDetails'</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601 -&gt; EntityInfo -&gt; EntityDetails)
@@ -211,7 +211,7 @@ $sel:entityInfo:EntityDetails' :: EntityDetails -&gt; EntityInfo
 -&gt; Either String (EntityInfo -&gt; EntityDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679427468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastAuthenticated&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,12 +219,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String EntityInfo -&gt; Either String EntityDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String EntityInfo
+</span><a href="#local-6989586621679427468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String EntityInfo
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EntityInfo&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427452"><span id="local-6989586621679427454"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427461"><span id="local-6989586621679427463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.EntityDetails.html#EntityDetails"><span class="hs-identifier hs-type">EntityDetails</span></a></span></span><span>
 </span><span id="line-105"></span></pre></body></html>

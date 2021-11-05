@@ -96,7 +96,7 @@
 </span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | /See:/ 'newPutComplianceItems' smart constructor.</span><span>
-</span><span id="line-99"></span><span id="local-6989586621679828637"><span id="local-6989586621679828638"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutComplianceItems"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-var">PutComplianceItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutComplianceItems%27"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-var">PutComplianceItems'</span></a></span></span><span>
+</span><span id="line-99"></span><span id="local-6989586621679828646"><span id="local-6989586621679828647"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutComplianceItems"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-var">PutComplianceItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutComplianceItems%27"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-var">PutComplianceItems'</span></a></span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The mode for uploading compliance items. You can specify @COMPLETE@ or</span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-comment">-- @PARTIAL@. In @COMPLETE@ mode, the system overwrites all existing</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">-- compliance information for the resource. You must provide a full list of</span><span>
@@ -139,7 +139,7 @@
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Aitems%3APutComplianceItems%27"><span class="annot"><span class="annottext">PutComplianceItems -&gt; [ComplianceItemEntry]
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3Aitems%3APutComplianceItems%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828625"><span id="local-6989586621679828627"><span class="annot"><span class="annottext">PutComplianceItems -&gt; PutComplianceItems -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828634"><span id="local-6989586621679828636"><span class="annot"><span class="annottext">PutComplianceItems -&gt; PutComplianceItems -&gt; Bool
 (PutComplianceItems -&gt; PutComplianceItems -&gt; Bool)
 -&gt; (PutComplianceItems -&gt; PutComplianceItems -&gt; Bool)
 -&gt; Eq PutComplianceItems
@@ -148,7 +148,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutComplianceItems -&gt; PutComplianceItems -&gt; Bool
 == :: PutComplianceItems -&gt; PutComplianceItems -&gt; Bool
 $c== :: PutComplianceItems -&gt; PutComplianceItems -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828616"><span id="local-6989586621679828618"><span id="local-6989586621679828620"><span id="local-6989586621679828622"><span class="annot"><span class="annottext">ReadPrec [PutComplianceItems]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828625"><span id="local-6989586621679828627"><span id="local-6989586621679828629"><span id="local-6989586621679828631"><span class="annot"><span class="annottext">ReadPrec [PutComplianceItems]
 ReadPrec PutComplianceItems
 Int -&gt; ReadS PutComplianceItems
 ReadS [PutComplianceItems]
@@ -168,7 +168,7 @@ readList :: ReadS [PutComplianceItems]
 $creadList :: ReadS [PutComplianceItems]
 readsPrec :: Int -&gt; ReadS PutComplianceItems
 $creadsPrec :: Int -&gt; ReadS PutComplianceItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828609"><span id="local-6989586621679828611"><span id="local-6989586621679828613"><span class="annot"><span class="annottext">Int -&gt; PutComplianceItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828618"><span id="local-6989586621679828620"><span id="local-6989586621679828622"><span class="annot"><span class="annottext">Int -&gt; PutComplianceItems -&gt; ShowS
 [PutComplianceItems] -&gt; ShowS
 PutComplianceItems -&gt; String
 (Int -&gt; PutComplianceItems -&gt; ShowS)
@@ -248,14 +248,14 @@ $cfrom :: forall x. PutComplianceItems -&gt; Rep PutComplianceItems x
 </span><span id="line-188"></span><span id="newPutComplianceItems"><span class="annot"><span class="annottext">newPutComplianceItems :: Text
 -&gt; Text -&gt; Text -&gt; ComplianceExecutionSummary -&gt; PutComplianceItems
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#newPutComplianceItems"><span class="hs-identifier hs-var hs-var">newPutComplianceItems</span></a></span></span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679828604"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828604"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679828603"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828603"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679828602"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828602"><span class="hs-identifier hs-var">pComplianceType_</span></a></span></span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679828601"><span class="annot"><span class="annottext">ComplianceExecutionSummary
-</span><a href="#local-6989586621679828601"><span class="hs-identifier hs-var">pExecutionSummary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679828613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828613"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679828612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828612"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679828611"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828611"><span class="hs-identifier hs-var">pComplianceType_</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679828610"><span class="annot"><span class="annottext">ComplianceExecutionSummary
+</span><a href="#local-6989586621679828610"><span class="hs-identifier hs-var">pExecutionSummary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">PutComplianceItems' :: Maybe ComplianceUploadType
 -&gt; Maybe Text
 -&gt; Text
@@ -275,16 +275,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:PutComplianceItems' :: Text
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AresourceId%3APutComplianceItems%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828604"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828613"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:PutComplianceItems' :: Text
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AresourceType%3APutComplianceItems%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828603"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828612"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceType:PutComplianceItems' :: Text
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AcomplianceType%3APutComplianceItems%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828602"><span class="hs-identifier hs-var">pComplianceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828611"><span class="hs-identifier hs-var">pComplianceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionSummary:PutComplianceItems' :: ComplianceExecutionSummary
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AexecutionSummary%3APutComplianceItems%27"><span class="hs-identifier hs-var">executionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceExecutionSummary
-</span><a href="#local-6989586621679828601"><span class="hs-identifier hs-var">pExecutionSummary_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828610"><span class="hs-identifier hs-var">pExecutionSummary_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:items:PutComplianceItems' :: [ComplianceItemEntry]
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3Aitems%3APutComplianceItems%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ComplianceItemEntry]
 forall a. Monoid a =&gt; a
@@ -314,16 +314,16 @@ forall a. Monoid a =&gt; a
      (Maybe ComplianceUploadType)
      (Maybe ComplianceUploadType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828598"><span class="annot"><span class="annottext">Maybe ComplianceUploadType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828607"><span class="annot"><span class="annottext">Maybe ComplianceUploadType
 uploadType :: Maybe ComplianceUploadType
 $sel:uploadType:PutComplianceItems' :: PutComplianceItems -&gt; Maybe ComplianceUploadType
-</span><a href="#local-6989586621679828598"><span class="hs-identifier hs-var hs-var">uploadType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceUploadType
-</span><a href="#local-6989586621679828598"><span class="hs-identifier hs-var">uploadType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828597"><span class="annot"><span class="annottext">s :: PutComplianceItems
-</span><a href="#local-6989586621679828597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828596"><span class="annot"><span class="annottext">Maybe ComplianceUploadType
-</span><a href="#local-6989586621679828596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
-</span><a href="#local-6989586621679828597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadType:PutComplianceItems' :: Maybe ComplianceUploadType
+</span><a href="#local-6989586621679828607"><span class="hs-identifier hs-var hs-var">uploadType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceUploadType
+</span><a href="#local-6989586621679828607"><span class="hs-identifier hs-var">uploadType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828606"><span class="annot"><span class="annottext">s :: PutComplianceItems
+</span><a href="#local-6989586621679828606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828605"><span class="annot"><span class="annottext">Maybe ComplianceUploadType
+</span><a href="#local-6989586621679828605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
+</span><a href="#local-6989586621679828606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadType:PutComplianceItems' :: Maybe ComplianceUploadType
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AuploadType%3APutComplianceItems%27"><span class="hs-identifier hs-var">uploadType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceUploadType
-</span><a href="#local-6989586621679828596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | MD5 or SHA-256 content hash. The content hash is used to determine if</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- existing information should be overwritten or ignored. If the content</span><span>
@@ -336,16 +336,16 @@ $sel:uploadType:PutComplianceItems' :: PutComplianceItems -&gt; Maybe Compliance
 -&gt; Lens
      PutComplianceItems PutComplianceItems (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828595"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828604"><span class="annot"><span class="annottext">Maybe Text
 itemContentHash :: Maybe Text
 $sel:itemContentHash:PutComplianceItems' :: PutComplianceItems -&gt; Maybe Text
-</span><a href="#local-6989586621679828595"><span class="hs-identifier hs-var hs-var">itemContentHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828595"><span class="hs-identifier hs-var">itemContentHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828594"><span class="annot"><span class="annottext">s :: PutComplianceItems
-</span><a href="#local-6989586621679828594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828593"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
-</span><a href="#local-6989586621679828594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemContentHash:PutComplianceItems' :: Maybe Text
+</span><a href="#local-6989586621679828604"><span class="hs-identifier hs-var hs-var">itemContentHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828604"><span class="hs-identifier hs-var">itemContentHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828603"><span class="annot"><span class="annottext">s :: PutComplianceItems
+</span><a href="#local-6989586621679828603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
+</span><a href="#local-6989586621679828603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemContentHash:PutComplianceItems' :: Maybe Text
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AitemContentHash%3APutComplianceItems%27"><span class="hs-identifier hs-var">itemContentHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | Specify an ID for this resource. For a managed instance, this is the</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- instance ID.</span><span>
@@ -355,16 +355,16 @@ $sel:itemContentHash:PutComplianceItems' :: PutComplianceItems -&gt; Maybe Text
 -&gt; (PutComplianceItems -&gt; Text -&gt; PutComplianceItems)
 -&gt; Lens PutComplianceItems PutComplianceItems Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828592"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828601"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:PutComplianceItems' :: PutComplianceItems -&gt; Text
-</span><a href="#local-6989586621679828592"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828592"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828591"><span class="annot"><span class="annottext">s :: PutComplianceItems
-</span><a href="#local-6989586621679828591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828590"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
-</span><a href="#local-6989586621679828591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:PutComplianceItems' :: Text
+</span><a href="#local-6989586621679828601"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828601"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828600"><span class="annot"><span class="annottext">s :: PutComplianceItems
+</span><a href="#local-6989586621679828600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
+</span><a href="#local-6989586621679828600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:PutComplianceItems' :: Text
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AresourceId%3APutComplianceItems%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | Specify the type of resource. @ManagedInstance@ is currently the only</span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- supported resource type.</span><span>
@@ -374,16 +374,16 @@ $sel:resourceId:PutComplianceItems' :: PutComplianceItems -&gt; Text
 -&gt; (PutComplianceItems -&gt; Text -&gt; PutComplianceItems)
 -&gt; Lens PutComplianceItems PutComplianceItems Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828589"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828598"><span class="annot"><span class="annottext">Text
 resourceType :: Text
 $sel:resourceType:PutComplianceItems' :: PutComplianceItems -&gt; Text
-</span><a href="#local-6989586621679828589"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828589"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828588"><span class="annot"><span class="annottext">s :: PutComplianceItems
-</span><a href="#local-6989586621679828588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828587"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
-</span><a href="#local-6989586621679828588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:PutComplianceItems' :: Text
+</span><a href="#local-6989586621679828598"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828598"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828597"><span class="annot"><span class="annottext">s :: PutComplianceItems
+</span><a href="#local-6989586621679828597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
+</span><a href="#local-6989586621679828597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:PutComplianceItems' :: Text
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AresourceType%3APutComplianceItems%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | Specify the compliance type. For example, specify Association (for a</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- State Manager association), Patch, or Custom:@string@.</span><span>
@@ -393,16 +393,16 @@ $sel:resourceType:PutComplianceItems' :: PutComplianceItems -&gt; Text
 -&gt; (PutComplianceItems -&gt; Text -&gt; PutComplianceItems)
 -&gt; Lens PutComplianceItems PutComplianceItems Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828586"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828595"><span class="annot"><span class="annottext">Text
 complianceType :: Text
 $sel:complianceType:PutComplianceItems' :: PutComplianceItems -&gt; Text
-</span><a href="#local-6989586621679828586"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828586"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828585"><span class="annot"><span class="annottext">s :: PutComplianceItems
-</span><a href="#local-6989586621679828585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828584"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
-</span><a href="#local-6989586621679828585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:PutComplianceItems' :: Text
+</span><a href="#local-6989586621679828595"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828595"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828594"><span class="annot"><span class="annottext">s :: PutComplianceItems
+</span><a href="#local-6989586621679828594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
+</span><a href="#local-6989586621679828594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:PutComplianceItems' :: Text
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AcomplianceType%3APutComplianceItems%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | A summary of the call execution that includes an execution ID, the type</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- of execution (for example, @Command@), and the date\/time of the</span><span>
@@ -420,16 +420,16 @@ $sel:complianceType:PutComplianceItems' :: PutComplianceItems -&gt; Text
      ComplianceExecutionSummary
      ComplianceExecutionSummary
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828583"><span class="annot"><span class="annottext">ComplianceExecutionSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828592"><span class="annot"><span class="annottext">ComplianceExecutionSummary
 executionSummary :: ComplianceExecutionSummary
 $sel:executionSummary:PutComplianceItems' :: PutComplianceItems -&gt; ComplianceExecutionSummary
-</span><a href="#local-6989586621679828583"><span class="hs-identifier hs-var hs-var">executionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceExecutionSummary
-</span><a href="#local-6989586621679828583"><span class="hs-identifier hs-var">executionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828582"><span class="annot"><span class="annottext">s :: PutComplianceItems
-</span><a href="#local-6989586621679828582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828581"><span class="annot"><span class="annottext">ComplianceExecutionSummary
-</span><a href="#local-6989586621679828581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
-</span><a href="#local-6989586621679828582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionSummary:PutComplianceItems' :: ComplianceExecutionSummary
+</span><a href="#local-6989586621679828592"><span class="hs-identifier hs-var hs-var">executionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceExecutionSummary
+</span><a href="#local-6989586621679828592"><span class="hs-identifier hs-var">executionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828591"><span class="annot"><span class="annottext">s :: PutComplianceItems
+</span><a href="#local-6989586621679828591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828590"><span class="annot"><span class="annottext">ComplianceExecutionSummary
+</span><a href="#local-6989586621679828590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
+</span><a href="#local-6989586621679828591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionSummary:PutComplianceItems' :: ComplianceExecutionSummary
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AexecutionSummary%3APutComplianceItems%27"><span class="hs-identifier hs-var">executionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceExecutionSummary
-</span><a href="#local-6989586621679828581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | Information about the compliance as defined by the resource type. For</span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- example, for a patch compliance type, @Items@ includes information about</span><span>
@@ -446,16 +446,16 @@ $sel:executionSummary:PutComplianceItems' :: PutComplianceItems -&gt; Compliance
      [ComplianceItemEntry]
      [ComplianceItemEntry]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828580"><span class="annot"><span class="annottext">[ComplianceItemEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828589"><span class="annot"><span class="annottext">[ComplianceItemEntry]
 items :: [ComplianceItemEntry]
 $sel:items:PutComplianceItems' :: PutComplianceItems -&gt; [ComplianceItemEntry]
-</span><a href="#local-6989586621679828580"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ComplianceItemEntry]
-</span><a href="#local-6989586621679828580"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828579"><span class="annot"><span class="annottext">s :: PutComplianceItems
-</span><a href="#local-6989586621679828579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828578"><span class="annot"><span class="annottext">[ComplianceItemEntry]
-</span><a href="#local-6989586621679828578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
-</span><a href="#local-6989586621679828579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:PutComplianceItems' :: [ComplianceItemEntry]
+</span><a href="#local-6989586621679828589"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ComplianceItemEntry]
+</span><a href="#local-6989586621679828589"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828588"><span class="annot"><span class="annottext">s :: PutComplianceItems
+</span><a href="#local-6989586621679828588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828587"><span class="annot"><span class="annottext">[ComplianceItemEntry]
+</span><a href="#local-6989586621679828587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItems
+</span><a href="#local-6989586621679828588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:PutComplianceItems' :: [ComplianceItemEntry]
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3Aitems%3APutComplianceItems%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ComplianceItemEntry]
-</span><a href="#local-6989586621679828578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ComplianceItemEntry] -&gt; f [ComplianceItemEntry])
+</span><a href="#local-6989586621679828587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ComplianceItemEntry] -&gt; f [ComplianceItemEntry])
  -&gt; PutComplianceItems -&gt; f PutComplianceItems)
 -&gt; (([ComplianceItemEntry] -&gt; f [ComplianceItemEntry])
     -&gt; [ComplianceItemEntry] -&gt; f [ComplianceItemEntry])
@@ -472,12 +472,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-252"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-253"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-254"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-type">PutComplianceItemsResponse</span></a></span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679828572"><span class="annot"><span class="annottext">request :: PutComplianceItems -&gt; Request PutComplianceItems
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679828581"><span class="annot"><span class="annottext">request :: PutComplianceItems -&gt; Request PutComplianceItems
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutComplianceItems -&gt; Request PutComplianceItems
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679828568"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679828577"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutComplianceItems
 -&gt; ClientResponse ClientBody
@@ -503,10 +503,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828565"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828565"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828564"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679828564"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828563"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679828563"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828574"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828573"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679828573"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828572"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679828572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-259"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutComplianceItemsResponse
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-var">PutComplianceItemsResponse'</span></a></span><span>
 </span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutComplianceItemsResponse)
@@ -517,15 +517,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828565"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828574"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828556"><span id="local-6989586621679828558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span></span></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828565"><span id="local-6989586621679828567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span></span></span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span></span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-268"></span><span>  </span><span id="local-6989586621679828549"><span class="annot"><span class="annottext">toHeaders :: PutComplianceItems -&gt; ResponseHeaders
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679828558"><span class="annot"><span class="annottext">toHeaders :: PutComplianceItems -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutComplianceItems -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -552,9 +552,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-279"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-280"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828539"><span id="local-6989586621679828541"><span id="local-6989586621679828543"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679828537"><span class="annot"><span class="annottext">toJSON :: PutComplianceItems -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828529"><span id="local-6989586621679828530"><span id="local-6989586621679828531"><span id="local-6989586621679828532"><span id="local-6989586621679828533"><span id="local-6989586621679828534"><span id="local-6989586621679828535"><span class="annot"><span class="annottext">[ComplianceItemEntry]
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828548"><span id="local-6989586621679828550"><span id="local-6989586621679828552"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679828546"><span class="annot"><span class="annottext">toJSON :: PutComplianceItems -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems%27"><span class="hs-identifier hs-type">PutComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828538"><span id="local-6989586621679828539"><span id="local-6989586621679828540"><span id="local-6989586621679828541"><span id="local-6989586621679828542"><span id="local-6989586621679828543"><span id="local-6989586621679828544"><span class="annot"><span class="annottext">[ComplianceItemEntry]
 Maybe Text
 Maybe ComplianceUploadType
 Text
@@ -573,7 +573,7 @@ $sel:resourceType:PutComplianceItems' :: PutComplianceItems -&gt; Text
 $sel:resourceId:PutComplianceItems' :: PutComplianceItems -&gt; Text
 $sel:itemContentHash:PutComplianceItems' :: PutComplianceItems -&gt; Maybe Text
 $sel:uploadType:PutComplianceItems' :: PutComplianceItems -&gt; Maybe ComplianceUploadType
-</span><a href="#local-6989586621679828529"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679828538"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-285"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -586,7 +586,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ComplianceUploadType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceUploadType
-</span><a href="#local-6989586621679828535"><span class="hs-identifier hs-var">uploadType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828544"><span class="hs-identifier hs-var">uploadType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ItemContentHash&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -594,21 +594,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-288"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828534"><span class="hs-identifier hs-var">itemContentHash</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828543"><span class="hs-identifier hs-var">itemContentHash</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828533"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828542"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828532"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828541"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -616,7 +616,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828531"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828540"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -624,26 +624,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ExecutionSummary&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceExecutionSummary -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComplianceExecutionSummary
-</span><a href="#local-6989586621679828530"><span class="hs-identifier hs-var">executionSummary</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828539"><span class="hs-identifier hs-var">executionSummary</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ComplianceItemEntry] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ComplianceItemEntry]
-</span><a href="#local-6989586621679828529"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828538"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-297"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-300"></span><span>  </span><span id="local-6989586621679828523"><span class="annot"><span class="annottext">toPath :: PutComplianceItems -&gt; ByteString
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679828532"><span class="annot"><span class="annottext">toPath :: PutComplianceItems -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutComplianceItems -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItems"><span class="hs-identifier hs-type">PutComplianceItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-303"></span><span>  </span><span id="local-6989586621679828519"><span class="annot"><span class="annottext">toQuery :: PutComplianceItems -&gt; QueryString
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679828528"><span class="annot"><span class="annottext">toQuery :: PutComplianceItems -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutComplianceItems -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -651,12 +651,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | /See:/ 'newPutComplianceItemsResponse' smart constructor.</span><span>
-</span><span id="line-306"></span><span id="local-6989586621679828516"><span id="local-6989586621679828517"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutComplianceItemsResponse"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-var">PutComplianceItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutComplianceItemsResponse%27"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-var">PutComplianceItemsResponse'</span></a></span></span><span>
+</span><span id="line-306"></span><span id="local-6989586621679828525"><span id="local-6989586621679828526"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutComplianceItemsResponse"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-var">PutComplianceItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutComplianceItemsResponse%27"><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-var">PutComplianceItemsResponse'</span></a></span></span><span>
 </span><span id="line-307"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-308"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutComplianceItemsResponse%27"><span class="annot"><span class="annottext">PutComplianceItemsResponse -&gt; Int
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AhttpStatus%3APutComplianceItemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-309"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-310"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828511"><span id="local-6989586621679828513"><span class="annot"><span class="annottext">PutComplianceItemsResponse -&gt; PutComplianceItemsResponse -&gt; Bool
+</span><span id="line-310"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828520"><span id="local-6989586621679828522"><span class="annot"><span class="annottext">PutComplianceItemsResponse -&gt; PutComplianceItemsResponse -&gt; Bool
 (PutComplianceItemsResponse -&gt; PutComplianceItemsResponse -&gt; Bool)
 -&gt; (PutComplianceItemsResponse
     -&gt; PutComplianceItemsResponse -&gt; Bool)
@@ -666,7 +666,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutComplianceItemsResponse -&gt; PutComplianceItemsResponse -&gt; Bool
 == :: PutComplianceItemsResponse -&gt; PutComplianceItemsResponse -&gt; Bool
 $c== :: PutComplianceItemsResponse -&gt; PutComplianceItemsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828503"><span id="local-6989586621679828505"><span id="local-6989586621679828507"><span id="local-6989586621679828509"><span class="annot"><span class="annottext">ReadPrec [PutComplianceItemsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828512"><span id="local-6989586621679828514"><span id="local-6989586621679828516"><span id="local-6989586621679828518"><span class="annot"><span class="annottext">ReadPrec [PutComplianceItemsResponse]
 ReadPrec PutComplianceItemsResponse
 Int -&gt; ReadS PutComplianceItemsResponse
 ReadS [PutComplianceItemsResponse]
@@ -686,7 +686,7 @@ readList :: ReadS [PutComplianceItemsResponse]
 $creadList :: ReadS [PutComplianceItemsResponse]
 readsPrec :: Int -&gt; ReadS PutComplianceItemsResponse
 $creadsPrec :: Int -&gt; ReadS PutComplianceItemsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828497"><span id="local-6989586621679828499"><span id="local-6989586621679828501"><span class="annot"><span class="annottext">Int -&gt; PutComplianceItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828506"><span id="local-6989586621679828508"><span id="local-6989586621679828510"><span class="annot"><span class="annottext">Int -&gt; PutComplianceItemsResponse -&gt; ShowS
 [PutComplianceItemsResponse] -&gt; ShowS
 PutComplianceItemsResponse -&gt; String
 (Int -&gt; PutComplianceItemsResponse -&gt; ShowS)
@@ -732,14 +732,14 @@ PutComplianceItemsResponse -&gt; Rep PutComplianceItemsResponse x
 </span><span id="line-323"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-324"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-type">PutComplianceItemsResponse</span></a></span><span>
 </span><span id="line-325"></span><span id="newPutComplianceItemsResponse"><span class="annot"><span class="annottext">newPutComplianceItemsResponse :: Int -&gt; PutComplianceItemsResponse
-</span><a href="Network.AWS.SSM.PutComplianceItems.html#newPutComplianceItemsResponse"><span class="hs-identifier hs-var hs-var">newPutComplianceItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679828494"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.PutComplianceItems.html#newPutComplianceItemsResponse"><span class="hs-identifier hs-var hs-var">newPutComplianceItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679828503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-326"></span><span>  </span><span class="annot"><span class="annottext">PutComplianceItemsResponse' :: Int -&gt; PutComplianceItemsResponse
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-type">PutComplianceItemsResponse'</span></a></span><span>
 </span><span id="line-327"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutComplianceItemsResponse' :: Int
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AhttpStatus%3APutComplianceItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679828503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-329"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-330"></span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -752,16 +752,16 @@ PutComplianceItemsResponse -&gt; Rep PutComplianceItemsResponse x
 -&gt; Lens
      PutComplianceItemsResponse PutComplianceItemsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-type">PutComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828493"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-type">PutComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828502"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutComplianceItemsResponse' :: PutComplianceItemsResponse -&gt; Int
-</span><a href="#local-6989586621679828493"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828493"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828492"><span class="annot"><span class="annottext">s :: PutComplianceItemsResponse
-</span><a href="#local-6989586621679828492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-type">PutComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828491"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItemsResponse
-</span><a href="#local-6989586621679828492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutComplianceItemsResponse' :: Int
+</span><a href="#local-6989586621679828502"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828502"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828501"><span class="annot"><span class="annottext">s :: PutComplianceItemsResponse
+</span><a href="#local-6989586621679828501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse%27"><span class="hs-identifier hs-type">PutComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutComplianceItemsResponse
+</span><a href="#local-6989586621679828501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutComplianceItemsResponse' :: Int
 </span><a href="Network.AWS.SSM.PutComplianceItems.html#%24sel%3AhttpStatus%3APutComplianceItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-type">PutComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-type">PutComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
-</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-type">PutComplianceItemsResponse</span></a></span></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutComplianceItems.html#PutComplianceItemsResponse"><span class="hs-identifier hs-type">PutComplianceItemsResponse</span></a></span></span><span>
 </span><span id="line-336"></span></pre></body></html>

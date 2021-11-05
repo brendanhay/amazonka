@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679322891"><span id="local-6989586621679322892"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContentModerationSortBy"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationSortBy.html#ContentModerationSortBy"><span class="hs-identifier hs-var">ContentModerationSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentModerationSortBy%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationSortBy.html#ContentModerationSortBy%27"><span class="hs-identifier hs-var">ContentModerationSortBy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679322900"><span id="local-6989586621679322901"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContentModerationSortBy"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationSortBy.html#ContentModerationSortBy"><span class="hs-identifier hs-var">ContentModerationSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentModerationSortBy%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationSortBy.html#ContentModerationSortBy%27"><span class="hs-identifier hs-var">ContentModerationSortBy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContentModerationSortBy"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.ContentModerationSortBy.html#fromContentModerationSortBy"><span class="hs-identifier hs-var hs-var">fromContentModerationSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322883"><span id="local-6989586621679322885"><span id="local-6989586621679322887"><span class="annot"><span class="annottext">Int -&gt; ContentModerationSortBy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322892"><span id="local-6989586621679322894"><span id="local-6989586621679322896"><span class="annot"><span class="annottext">Int -&gt; ContentModerationSortBy -&gt; ShowS
 [ContentModerationSortBy] -&gt; ShowS
 ContentModerationSortBy -&gt; String
 (Int -&gt; ContentModerationSortBy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContentModerationSortBy -&gt; String
 showsPrec :: Int -&gt; ContentModerationSortBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContentModerationSortBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679322874"><span id="local-6989586621679322876"><span id="local-6989586621679322878"><span id="local-6989586621679322880"><span class="annot"><span class="annottext">ReadPrec [ContentModerationSortBy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679322883"><span id="local-6989586621679322885"><span id="local-6989586621679322887"><span id="local-6989586621679322889"><span class="annot"><span class="annottext">ReadPrec [ContentModerationSortBy]
 ReadPrec ContentModerationSortBy
 Int -&gt; ReadS ContentModerationSortBy
 ReadS [ContentModerationSortBy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContentModerationSortBy]
 readsPrec :: Int -&gt; ReadS ContentModerationSortBy
 $creadsPrec :: Int -&gt; ReadS ContentModerationSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679322869"><span id="local-6989586621679322871"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679322878"><span id="local-6989586621679322880"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool
 (ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool)
 -&gt; (ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool)
 -&gt; Eq ContentModerationSortBy
@@ -82,7 +82,7 @@ $c/= :: ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool
 == :: ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool
 $c== :: ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679322853"><span id="local-6989586621679322855"><span id="local-6989586621679322857"><span id="local-6989586621679322859"><span id="local-6989586621679322861"><span id="local-6989586621679322863"><span id="local-6989586621679322865"><span class="annot"><span class="annottext">Eq ContentModerationSortBy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679322862"><span id="local-6989586621679322864"><span id="local-6989586621679322866"><span id="local-6989586621679322868"><span id="local-6989586621679322870"><span id="local-6989586621679322872"><span id="local-6989586621679322874"><span class="annot"><span class="annottext">Eq ContentModerationSortBy
 Eq ContentModerationSortBy
 -&gt; (ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Ordering)
 -&gt; (ContentModerationSortBy -&gt; ContentModerationSortBy -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ContentModerationSortBy -&gt; Rep ContentModerationSortBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322845"><span id="local-6989586621679322847"><span class="annot"><span class="annottext">Int -&gt; ContentModerationSortBy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322854"><span id="local-6989586621679322856"><span class="annot"><span class="annottext">Int -&gt; ContentModerationSortBy -&gt; Int
 ContentModerationSortBy -&gt; Int
 (Int -&gt; ContentModerationSortBy -&gt; Int)
 -&gt; (ContentModerationSortBy -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: ContentModerationSortBy -&gt; Int
 hashWithSalt :: Int -&gt; ContentModerationSortBy -&gt; Int
 $chashWithSalt :: Int -&gt; ContentModerationSortBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679322842"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679322851"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ()
 (ContentModerationSortBy -&gt; ()) -&gt; NFData ContentModerationSortBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContentModerationSortBy -&gt; ()
 $crnf :: ContentModerationSortBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679322839"><span class="annot"><span class="annottext">Text -&gt; Either String ContentModerationSortBy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679322848"><span class="annot"><span class="annottext">Text -&gt; Either String ContentModerationSortBy
 (Text -&gt; Either String ContentModerationSortBy)
 -&gt; FromText ContentModerationSortBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContentModerationSortBy
 $cfromText :: Text -&gt; Either String ContentModerationSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679322836"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679322845"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; Text
 (ContentModerationSortBy -&gt; Text) -&gt; ToText ContentModerationSortBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContentModerationSortBy -&gt; Text
 $ctoText :: ContentModerationSortBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679322833"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679322842"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ByteString
 (ContentModerationSortBy -&gt; ByteString)
 -&gt; ToByteString ContentModerationSortBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContentModerationSortBy -&gt; ByteString
 $ctoBS :: ContentModerationSortBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679322830"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679322839"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; ByteStringBuilder
 (ContentModerationSortBy -&gt; ByteStringBuilder)
 -&gt; ToLog ContentModerationSortBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContentModerationSortBy -&gt; ByteStringBuilder
 $cbuild :: ContentModerationSortBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679322827"><span class="annot"><span class="annottext">HeaderName -&gt; ContentModerationSortBy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679322836"><span class="annot"><span class="annottext">HeaderName -&gt; ContentModerationSortBy -&gt; [Header]
 (HeaderName -&gt; ContentModerationSortBy -&gt; [Header])
 -&gt; ToHeader ContentModerationSortBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContentModerationSortBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContentModerationSortBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679322824"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679322833"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; QueryString
 (ContentModerationSortBy -&gt; QueryString)
 -&gt; ToQuery ContentModerationSortBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContentModerationSortBy -&gt; QueryString
 $ctoQuery :: ContentModerationSortBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679322819"><span id="local-6989586621679322821"><span class="annot"><span class="annottext">Value -&gt; Parser [ContentModerationSortBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679322828"><span id="local-6989586621679322830"><span class="annot"><span class="annottext">Value -&gt; Parser [ContentModerationSortBy]
 Value -&gt; Parser ContentModerationSortBy
 (Value -&gt; Parser ContentModerationSortBy)
 -&gt; (Value -&gt; Parser [ContentModerationSortBy])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [ContentModerationSortBy]
 parseJSON :: Value -&gt; Parser ContentModerationSortBy
 $cparseJSON :: Value -&gt; Parser ContentModerationSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679322814"><span id="local-6989586621679322816"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContentModerationSortBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679322823"><span id="local-6989586621679322825"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContentModerationSortBy]
 FromJSONKeyFunction ContentModerationSortBy
 FromJSONKeyFunction ContentModerationSortBy
 -&gt; FromJSONKeyFunction [ContentModerationSortBy]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContentModerationSortBy]
 fromJSONKey :: FromJSONKeyFunction ContentModerationSortBy
 $cfromJSONKey :: FromJSONKeyFunction ContentModerationSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679322805"><span id="local-6989586621679322807"><span id="local-6989586621679322809"><span id="local-6989586621679322811"><span class="annot"><span class="annottext">[ContentModerationSortBy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679322814"><span id="local-6989586621679322816"><span id="local-6989586621679322818"><span id="local-6989586621679322820"><span class="annot"><span class="annottext">[ContentModerationSortBy] -&gt; Encoding
 [ContentModerationSortBy] -&gt; Value
 ContentModerationSortBy -&gt; Encoding
 ContentModerationSortBy -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: ContentModerationSortBy -&gt; Encoding
 toJSON :: ContentModerationSortBy -&gt; Value
 $ctoJSON :: ContentModerationSortBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679322800"><span id="local-6989586621679322802"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContentModerationSortBy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679322809"><span id="local-6989586621679322811"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContentModerationSortBy]
 ToJSONKeyFunction ContentModerationSortBy
 ToJSONKeyFunction ContentModerationSortBy
 -&gt; ToJSONKeyFunction [ContentModerationSortBy]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContentModerationSortBy]
 toJSONKey :: ToJSONKeyFunction ContentModerationSortBy
 $ctoJSONKey :: ToJSONKeyFunction ContentModerationSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679322797"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContentModerationSortBy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679322806"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContentModerationSortBy
 ([Node] -&gt; Either String ContentModerationSortBy)
 -&gt; FromXML ContentModerationSortBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContentModerationSortBy
 $cparseXML :: [Node] -&gt; Either String ContentModerationSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679322794"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679322803"><span class="annot"><span class="annottext">ContentModerationSortBy -&gt; XML
 (ContentModerationSortBy -&gt; XML) -&gt; ToXML ContentModerationSortBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContentModerationSortBy -&gt; XML

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679219897"><span id="local-6989586621679219898"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthStatusFilter"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthStatusFilter.html#HealthStatusFilter"><span class="hs-identifier hs-var">HealthStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthStatusFilter%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthStatusFilter.html#HealthStatusFilter%27"><span class="hs-identifier hs-var">HealthStatusFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679219906"><span id="local-6989586621679219907"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthStatusFilter"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthStatusFilter.html#HealthStatusFilter"><span class="hs-identifier hs-var">HealthStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthStatusFilter%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthStatusFilter.html#HealthStatusFilter%27"><span class="hs-identifier hs-var">HealthStatusFilter'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHealthStatusFilter"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthStatusFilter.html#fromHealthStatusFilter"><span class="hs-identifier hs-var hs-var">fromHealthStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219889"><span id="local-6989586621679219891"><span id="local-6989586621679219893"><span class="annot"><span class="annottext">Int -&gt; HealthStatusFilter -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219898"><span id="local-6989586621679219900"><span id="local-6989586621679219902"><span class="annot"><span class="annottext">Int -&gt; HealthStatusFilter -&gt; ShowS
 [HealthStatusFilter] -&gt; ShowS
 HealthStatusFilter -&gt; String
 (Int -&gt; HealthStatusFilter -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: HealthStatusFilter -&gt; String
 showsPrec :: Int -&gt; HealthStatusFilter -&gt; ShowS
 $cshowsPrec :: Int -&gt; HealthStatusFilter -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679219880"><span id="local-6989586621679219882"><span id="local-6989586621679219884"><span id="local-6989586621679219886"><span class="annot"><span class="annottext">ReadPrec [HealthStatusFilter]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679219889"><span id="local-6989586621679219891"><span id="local-6989586621679219893"><span id="local-6989586621679219895"><span class="annot"><span class="annottext">ReadPrec [HealthStatusFilter]
 ReadPrec HealthStatusFilter
 Int -&gt; ReadS HealthStatusFilter
 ReadS [HealthStatusFilter]
@@ -74,7 +74,7 @@ $creadList :: ReadS [HealthStatusFilter]
 readsPrec :: Int -&gt; ReadS HealthStatusFilter
 $creadsPrec :: Int -&gt; ReadS HealthStatusFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679219875"><span id="local-6989586621679219877"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679219884"><span id="local-6989586621679219886"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool
 (HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool)
 -&gt; (HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool)
 -&gt; Eq HealthStatusFilter
@@ -84,7 +84,7 @@ $c/= :: HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool
 == :: HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool
 $c== :: HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679219859"><span id="local-6989586621679219861"><span id="local-6989586621679219863"><span id="local-6989586621679219865"><span id="local-6989586621679219867"><span id="local-6989586621679219869"><span id="local-6989586621679219871"><span class="annot"><span class="annottext">Eq HealthStatusFilter
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679219868"><span id="local-6989586621679219870"><span id="local-6989586621679219872"><span id="local-6989586621679219874"><span id="local-6989586621679219876"><span id="local-6989586621679219878"><span id="local-6989586621679219880"><span class="annot"><span class="annottext">Eq HealthStatusFilter
 Eq HealthStatusFilter
 -&gt; (HealthStatusFilter -&gt; HealthStatusFilter -&gt; Ordering)
 -&gt; (HealthStatusFilter -&gt; HealthStatusFilter -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. HealthStatusFilter -&gt; Rep HealthStatusFilter x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219851"><span id="local-6989586621679219853"><span class="annot"><span class="annottext">Int -&gt; HealthStatusFilter -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219860"><span id="local-6989586621679219862"><span class="annot"><span class="annottext">Int -&gt; HealthStatusFilter -&gt; Int
 HealthStatusFilter -&gt; Int
 (Int -&gt; HealthStatusFilter -&gt; Int)
 -&gt; (HealthStatusFilter -&gt; Int) -&gt; Hashable HealthStatusFilter
@@ -145,53 +145,53 @@ $chash :: HealthStatusFilter -&gt; Int
 hashWithSalt :: Int -&gt; HealthStatusFilter -&gt; Int
 $chashWithSalt :: Int -&gt; HealthStatusFilter -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219848"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219857"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; ()
 (HealthStatusFilter -&gt; ()) -&gt; NFData HealthStatusFilter
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HealthStatusFilter -&gt; ()
 $crnf :: HealthStatusFilter -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219845"><span class="annot"><span class="annottext">Text -&gt; Either String HealthStatusFilter
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219854"><span class="annot"><span class="annottext">Text -&gt; Either String HealthStatusFilter
 (Text -&gt; Either String HealthStatusFilter)
 -&gt; FromText HealthStatusFilter
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HealthStatusFilter
 $cfromText :: Text -&gt; Either String HealthStatusFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219842"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219851"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; Text
 (HealthStatusFilter -&gt; Text) -&gt; ToText HealthStatusFilter
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HealthStatusFilter -&gt; Text
 $ctoText :: HealthStatusFilter -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219839"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219848"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; ByteString
 (HealthStatusFilter -&gt; ByteString)
 -&gt; ToByteString HealthStatusFilter
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HealthStatusFilter -&gt; ByteString
 $ctoBS :: HealthStatusFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219836"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219845"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; ByteStringBuilder
 (HealthStatusFilter -&gt; ByteStringBuilder)
 -&gt; ToLog HealthStatusFilter
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HealthStatusFilter -&gt; ByteStringBuilder
 $cbuild :: HealthStatusFilter -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219833"><span class="annot"><span class="annottext">HeaderName -&gt; HealthStatusFilter -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219842"><span class="annot"><span class="annottext">HeaderName -&gt; HealthStatusFilter -&gt; [Header]
 (HeaderName -&gt; HealthStatusFilter -&gt; [Header])
 -&gt; ToHeader HealthStatusFilter
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HealthStatusFilter -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HealthStatusFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219830"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219839"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; QueryString
 (HealthStatusFilter -&gt; QueryString) -&gt; ToQuery HealthStatusFilter
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HealthStatusFilter -&gt; QueryString
 $ctoQuery :: HealthStatusFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219825"><span id="local-6989586621679219827"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthStatusFilter]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219834"><span id="local-6989586621679219836"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthStatusFilter]
 Value -&gt; Parser HealthStatusFilter
 (Value -&gt; Parser HealthStatusFilter)
 -&gt; (Value -&gt; Parser [HealthStatusFilter])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [HealthStatusFilter]
 parseJSON :: Value -&gt; Parser HealthStatusFilter
 $cparseJSON :: Value -&gt; Parser HealthStatusFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219820"><span id="local-6989586621679219822"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthStatusFilter]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219829"><span id="local-6989586621679219831"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthStatusFilter]
 FromJSONKeyFunction HealthStatusFilter
 FromJSONKeyFunction HealthStatusFilter
 -&gt; FromJSONKeyFunction [HealthStatusFilter]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HealthStatusFilter]
 fromJSONKey :: FromJSONKeyFunction HealthStatusFilter
 $cfromJSONKey :: FromJSONKeyFunction HealthStatusFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219811"><span id="local-6989586621679219813"><span id="local-6989586621679219815"><span id="local-6989586621679219817"><span class="annot"><span class="annottext">[HealthStatusFilter] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219820"><span id="local-6989586621679219822"><span id="local-6989586621679219824"><span id="local-6989586621679219826"><span class="annot"><span class="annottext">[HealthStatusFilter] -&gt; Encoding
 [HealthStatusFilter] -&gt; Value
 HealthStatusFilter -&gt; Encoding
 HealthStatusFilter -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: HealthStatusFilter -&gt; Encoding
 toJSON :: HealthStatusFilter -&gt; Value
 $ctoJSON :: HealthStatusFilter -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679219806"><span id="local-6989586621679219808"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthStatusFilter]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679219815"><span id="local-6989586621679219817"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthStatusFilter]
 ToJSONKeyFunction HealthStatusFilter
 ToJSONKeyFunction HealthStatusFilter
 -&gt; ToJSONKeyFunction [HealthStatusFilter]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HealthStatusFilter]
 toJSONKey :: ToJSONKeyFunction HealthStatusFilter
 $ctoJSONKey :: ToJSONKeyFunction HealthStatusFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679219803"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthStatusFilter
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679219812"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthStatusFilter
 ([Node] -&gt; Either String HealthStatusFilter)
 -&gt; FromXML HealthStatusFilter
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HealthStatusFilter
 $cparseXML :: [Node] -&gt; Either String HealthStatusFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679219800"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679219809"><span class="annot"><span class="annottext">HealthStatusFilter -&gt; XML
 (HealthStatusFilter -&gt; XML) -&gt; ToXML HealthStatusFilter
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HealthStatusFilter -&gt; XML

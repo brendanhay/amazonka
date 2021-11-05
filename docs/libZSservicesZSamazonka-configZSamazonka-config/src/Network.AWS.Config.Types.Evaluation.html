@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- complies with the Config rule that it was evaluated against.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEvaluation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679399782"><span id="local-6989586621679399783"></span></span><span class="hs-keyword">data</span><span> </span><span id="Evaluation"><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-var">Evaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Evaluation%27"><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-var">Evaluation'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679399791"><span id="local-6989586621679399792"></span></span><span class="hs-keyword">data</span><span> </span><span id="Evaluation"><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-var">Evaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Evaluation%27"><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-var">Evaluation'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Supplementary information about how the evaluation determined the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- compliance.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aannotation%3AEvaluation%27"><span class="annot"><span class="annottext">Evaluation -&gt; Maybe Text
@@ -60,7 +60,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AorderingTimestamp%3AEvaluation%27"><span class="annot"><span class="annottext">Evaluation -&gt; POSIX
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AorderingTimestamp%3AEvaluation%27"><span class="hs-identifier hs-var hs-var">orderingTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399772"><span id="local-6989586621679399774"><span class="annot"><span class="annottext">Evaluation -&gt; Evaluation -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399781"><span id="local-6989586621679399783"><span class="annot"><span class="annottext">Evaluation -&gt; Evaluation -&gt; Bool
 (Evaluation -&gt; Evaluation -&gt; Bool)
 -&gt; (Evaluation -&gt; Evaluation -&gt; Bool) -&gt; Eq Evaluation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Evaluation -&gt; Evaluation -&gt; Bool
 == :: Evaluation -&gt; Evaluation -&gt; Bool
 $c== :: Evaluation -&gt; Evaluation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399763"><span id="local-6989586621679399765"><span id="local-6989586621679399767"><span id="local-6989586621679399769"><span class="annot"><span class="annottext">ReadPrec [Evaluation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399772"><span id="local-6989586621679399774"><span id="local-6989586621679399776"><span id="local-6989586621679399778"><span class="annot"><span class="annottext">ReadPrec [Evaluation]
 ReadPrec Evaluation
 Int -&gt; ReadS Evaluation
 ReadS [Evaluation]
@@ -88,7 +88,7 @@ readList :: ReadS [Evaluation]
 $creadList :: ReadS [Evaluation]
 readsPrec :: Int -&gt; ReadS Evaluation
 $creadsPrec :: Int -&gt; ReadS Evaluation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399756"><span id="local-6989586621679399758"><span id="local-6989586621679399760"><span class="annot"><span class="annottext">Int -&gt; Evaluation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399765"><span id="local-6989586621679399767"><span id="local-6989586621679399769"><span class="annot"><span class="annottext">Int -&gt; Evaluation -&gt; ShowS
 [Evaluation] -&gt; ShowS
 Evaluation -&gt; String
 (Int -&gt; Evaluation -&gt; ShowS)
@@ -157,14 +157,14 @@ $cfrom :: forall x. Evaluation -&gt; Rep Evaluation x
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span>
 </span><span id="line-102"></span><span id="newEvaluation"><span class="annot"><span class="annottext">newEvaluation :: Text -&gt; Text -&gt; ComplianceType -&gt; UTCTime -&gt; Evaluation
 </span><a href="Network.AWS.Config.Types.Evaluation.html#newEvaluation"><span class="hs-identifier hs-var hs-var">newEvaluation</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679399750"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399750"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679399749"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399749"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679399748"><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679399748"><span class="hs-identifier hs-var">pComplianceType_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679399747"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679399747"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679399759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399759"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679399758"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399758"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679399757"><span class="annot"><span class="annottext">ComplianceType
+</span><a href="#local-6989586621679399757"><span class="hs-identifier hs-var">pComplianceType_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679399756"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679399756"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Evaluation' :: Maybe Text -&gt; Text -&gt; Text -&gt; ComplianceType -&gt; POSIX -&gt; Evaluation
 </span><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:annotation:Evaluation' :: Maybe Text
@@ -173,13 +173,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceResourceType:Evaluation' :: Text
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AcomplianceResourceType%3AEvaluation%27"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399750"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399759"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceResourceId:Evaluation' :: Text
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AcomplianceResourceId%3AEvaluation%27"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399749"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399758"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceType:Evaluation' :: ComplianceType
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AcomplianceType%3AEvaluation%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679399748"><span class="hs-identifier hs-var">pComplianceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399757"><span class="hs-identifier hs-var">pComplianceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:orderingTimestamp:Evaluation' :: POSIX
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AorderingTimestamp%3AEvaluation%27"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -189,7 +189,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679399747"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span><span>
+</span><a href="#local-6989586621679399756"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Supplementary information about how the evaluation determined the</span><span>
@@ -200,16 +200,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Evaluation -&gt; Maybe Text -&gt; Evaluation)
 -&gt; Lens Evaluation Evaluation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399741"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399750"><span class="annot"><span class="annottext">Maybe Text
 annotation :: Maybe Text
 $sel:annotation:Evaluation' :: Evaluation -&gt; Maybe Text
-</span><a href="#local-6989586621679399741"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399741"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399740"><span class="annot"><span class="annottext">s :: Evaluation
-</span><a href="#local-6989586621679399740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399739"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
-</span><a href="#local-6989586621679399740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotation:Evaluation' :: Maybe Text
+</span><a href="#local-6989586621679399750"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399750"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399749"><span class="annot"><span class="annottext">s :: Evaluation
+</span><a href="#local-6989586621679399749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399748"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679399749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotation:Evaluation' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3Aannotation%3AEvaluation%27"><span class="hs-identifier hs-var">annotation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The type of Amazon Web Services resource that was evaluated.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#evaluation_complianceResourceType"><span class="hs-identifier hs-type">evaluation_complianceResourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -218,16 +218,16 @@ $sel:annotation:Evaluation' :: Evaluation -&gt; Maybe Text
 -&gt; (Evaluation -&gt; Text -&gt; Evaluation)
 -&gt; Lens Evaluation Evaluation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399737"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399746"><span class="annot"><span class="annottext">Text
 complianceResourceType :: Text
 $sel:complianceResourceType:Evaluation' :: Evaluation -&gt; Text
-</span><a href="#local-6989586621679399737"><span class="hs-identifier hs-var hs-var">complianceResourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399737"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399736"><span class="annot"><span class="annottext">s :: Evaluation
-</span><a href="#local-6989586621679399736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399735"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
-</span><a href="#local-6989586621679399736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceType:Evaluation' :: Text
+</span><a href="#local-6989586621679399746"><span class="hs-identifier hs-var hs-var">complianceResourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399746"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399745"><span class="annot"><span class="annottext">s :: Evaluation
+</span><a href="#local-6989586621679399745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679399745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceType:Evaluation' :: Text
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AcomplianceResourceType%3AEvaluation%27"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The ID of the Amazon Web Services resource that was evaluated.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#evaluation_complianceResourceId"><span class="hs-identifier hs-type">evaluation_complianceResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -236,16 +236,16 @@ $sel:complianceResourceType:Evaluation' :: Evaluation -&gt; Text
 -&gt; (Evaluation -&gt; Text -&gt; Evaluation)
 -&gt; Lens Evaluation Evaluation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399733"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399742"><span class="annot"><span class="annottext">Text
 complianceResourceId :: Text
 $sel:complianceResourceId:Evaluation' :: Evaluation -&gt; Text
-</span><a href="#local-6989586621679399733"><span class="hs-identifier hs-var hs-var">complianceResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399733"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399732"><span class="annot"><span class="annottext">s :: Evaluation
-</span><a href="#local-6989586621679399732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399731"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
-</span><a href="#local-6989586621679399732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceId:Evaluation' :: Text
+</span><a href="#local-6989586621679399742"><span class="hs-identifier hs-var hs-var">complianceResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399742"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399741"><span class="annot"><span class="annottext">s :: Evaluation
+</span><a href="#local-6989586621679399741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399740"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679399741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceId:Evaluation' :: Text
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AcomplianceResourceId%3AEvaluation%27"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Indicates whether the Amazon Web Services resource complies with the</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- Config rule that it was evaluated against.</span><span>
@@ -264,16 +264,16 @@ $sel:complianceResourceId:Evaluation' :: Evaluation -&gt; Text
 -&gt; (Evaluation -&gt; ComplianceType -&gt; Evaluation)
 -&gt; Lens Evaluation Evaluation ComplianceType ComplianceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399729"><span class="annot"><span class="annottext">ComplianceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399738"><span class="annot"><span class="annottext">ComplianceType
 complianceType :: ComplianceType
 $sel:complianceType:Evaluation' :: Evaluation -&gt; ComplianceType
-</span><a href="#local-6989586621679399729"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679399729"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399728"><span class="annot"><span class="annottext">s :: Evaluation
-</span><a href="#local-6989586621679399728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399727"><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679399727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
-</span><a href="#local-6989586621679399728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:Evaluation' :: ComplianceType
+</span><a href="#local-6989586621679399738"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceType
+</span><a href="#local-6989586621679399738"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399737"><span class="annot"><span class="annottext">s :: Evaluation
+</span><a href="#local-6989586621679399737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399736"><span class="annot"><span class="annottext">ComplianceType
+</span><a href="#local-6989586621679399736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679399737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:Evaluation' :: ComplianceType
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AcomplianceType%3AEvaluation%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679399727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The time of the event in Config that triggered the evaluation. For</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- event-based evaluations, the time indicates when Config created the</span><span>
@@ -286,16 +286,16 @@ $sel:complianceType:Evaluation' :: Evaluation -&gt; ComplianceType
 -&gt; (Evaluation -&gt; POSIX -&gt; Evaluation)
 -&gt; Lens Evaluation Evaluation POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399725"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399734"><span class="annot"><span class="annottext">POSIX
 orderingTimestamp :: POSIX
 $sel:orderingTimestamp:Evaluation' :: Evaluation -&gt; POSIX
-</span><a href="#local-6989586621679399725"><span class="hs-identifier hs-var hs-var">orderingTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679399725"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399724"><span class="annot"><span class="annottext">s :: Evaluation
-</span><a href="#local-6989586621679399724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399723"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
-</span><a href="#local-6989586621679399724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderingTimestamp:Evaluation' :: POSIX
+</span><a href="#local-6989586621679399734"><span class="hs-identifier hs-var hs-var">orderingTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679399734"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399733"><span class="annot"><span class="annottext">s :: Evaluation
+</span><a href="#local-6989586621679399733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399732"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679399732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evaluation
+</span><a href="#local-6989586621679399733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderingTimestamp:Evaluation' :: POSIX
 </span><a href="Network.AWS.Config.Types.Evaluation.html#%24sel%3AorderingTimestamp%3AEvaluation%27"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Evaluation -&gt; f Evaluation)
+</span><a href="#local-6989586621679399732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Evaluation -&gt; f Evaluation)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Evaluation
@@ -305,8 +305,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679399717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Evaluation
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399728"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679399726"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Evaluation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Evaluation) -&gt; Value -&gt; Parser Evaluation
@@ -314,8 +314,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Evaluation&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399714"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399723"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; ComplianceType -&gt; POSIX -&gt; Evaluation
 </span><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-var">Evaluation'</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -324,7 +324,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; ComplianceType -&gt; POSIX -&gt; Evaluation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Annotation&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,7 +333,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; ComplianceType -&gt; POSIX -&gt; Evaluation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceResourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,7 +341,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (ComplianceType -&gt; POSIX -&gt; Evaluation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,26 +349,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ComplianceType -&gt; Parser (POSIX -&gt; Evaluation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComplianceType
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComplianceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Evaluation) -&gt; Parser POSIX -&gt; Parser Evaluation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrderingTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399707"><span id="local-6989586621679399709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399716"><span id="local-6989586621679399718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399696"><span id="local-6989586621679399698"><span id="local-6989586621679399700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679399694"><span class="annot"><span class="annottext">toJSON :: Evaluation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399688"><span id="local-6989586621679399689"><span id="local-6989586621679399690"><span id="local-6989586621679399691"><span id="local-6989586621679399692"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399705"><span id="local-6989586621679399707"><span id="local-6989586621679399709"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation"><span class="hs-identifier hs-type">Evaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679399703"><span class="annot"><span class="annottext">toJSON :: Evaluation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Evaluation.html#Evaluation%27"><span class="hs-identifier hs-type">Evaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399697"><span id="local-6989586621679399698"><span id="local-6989586621679399699"><span id="local-6989586621679399700"><span id="local-6989586621679399701"><span class="annot"><span class="annottext">Maybe Text
 Text
 POSIX
 ComplianceType
@@ -382,7 +382,7 @@ $sel:complianceType:Evaluation' :: Evaluation -&gt; ComplianceType
 $sel:complianceResourceId:Evaluation' :: Evaluation -&gt; Text
 $sel:complianceResourceType:Evaluation' :: Evaluation -&gt; Text
 $sel:annotation:Evaluation' :: Evaluation -&gt; Maybe Text
-</span><a href="#local-6989586621679399688"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679399697"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -394,7 +394,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399692"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399701"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -403,7 +403,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-175"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399691"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span>
+</span><a href="#local-6989586621679399700"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span>
 </span><span id="line-176"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -413,7 +413,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-179"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399690"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span>
+</span><a href="#local-6989586621679399699"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span>
 </span><span id="line-180"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -422,7 +422,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679399689"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399698"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -430,7 +430,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrderingTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679399688"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399697"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- only if the target is an Batch job.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBatchArrayProperties' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679299414"><span id="local-6989586621679299415"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchArrayProperties"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-var">BatchArrayProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchArrayProperties%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-var">BatchArrayProperties'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679299423"><span id="local-6989586621679299424"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchArrayProperties"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-var">BatchArrayProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchArrayProperties%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-var">BatchArrayProperties'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the array, if this is an array batch job. Valid values are</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- integers between 2 and 10,000.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Asize%3ABatchArrayProperties%27"><span class="annot"><span class="annottext">BatchArrayProperties -&gt; Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#%24sel%3Asize%3ABatchArrayProperties%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299408"><span id="local-6989586621679299410"><span class="annot"><span class="annottext">BatchArrayProperties -&gt; BatchArrayProperties -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299417"><span id="local-6989586621679299419"><span class="annot"><span class="annottext">BatchArrayProperties -&gt; BatchArrayProperties -&gt; Bool
 (BatchArrayProperties -&gt; BatchArrayProperties -&gt; Bool)
 -&gt; (BatchArrayProperties -&gt; BatchArrayProperties -&gt; Bool)
 -&gt; Eq BatchArrayProperties
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchArrayProperties -&gt; BatchArrayProperties -&gt; Bool
 == :: BatchArrayProperties -&gt; BatchArrayProperties -&gt; Bool
 $c== :: BatchArrayProperties -&gt; BatchArrayProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299399"><span id="local-6989586621679299401"><span id="local-6989586621679299403"><span id="local-6989586621679299405"><span class="annot"><span class="annottext">ReadPrec [BatchArrayProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299408"><span id="local-6989586621679299410"><span id="local-6989586621679299412"><span id="local-6989586621679299414"><span class="annot"><span class="annottext">ReadPrec [BatchArrayProperties]
 ReadPrec BatchArrayProperties
 Int -&gt; ReadS BatchArrayProperties
 ReadS [BatchArrayProperties]
@@ -64,7 +64,7 @@ readList :: ReadS [BatchArrayProperties]
 $creadList :: ReadS [BatchArrayProperties]
 readsPrec :: Int -&gt; ReadS BatchArrayProperties
 $creadsPrec :: Int -&gt; ReadS BatchArrayProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299392"><span id="local-6989586621679299394"><span id="local-6989586621679299396"><span class="annot"><span class="annottext">Int -&gt; BatchArrayProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299401"><span id="local-6989586621679299403"><span id="local-6989586621679299405"><span class="annot"><span class="annottext">Int -&gt; BatchArrayProperties -&gt; ShowS
 [BatchArrayProperties] -&gt; ShowS
 BatchArrayProperties -&gt; String
 (Int -&gt; BatchArrayProperties -&gt; ShowS)
@@ -120,19 +120,19 @@ forall a. Maybe a
 -&gt; Lens
      BatchArrayProperties BatchArrayProperties (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-type">BatchArrayProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299383"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-type">BatchArrayProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299392"><span class="annot"><span class="annottext">Maybe Int
 size :: Maybe Int
 $sel:size:BatchArrayProperties' :: BatchArrayProperties -&gt; Maybe Int
-</span><a href="#local-6989586621679299383"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299383"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299382"><span class="annot"><span class="annottext">s :: BatchArrayProperties
-</span><a href="#local-6989586621679299382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-type">BatchArrayProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299381"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchArrayProperties
-</span><a href="#local-6989586621679299382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:BatchArrayProperties' :: Maybe Int
+</span><a href="#local-6989586621679299392"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299392"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299391"><span class="annot"><span class="annottext">s :: BatchArrayProperties
+</span><a href="#local-6989586621679299391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-type">BatchArrayProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299390"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchArrayProperties
+</span><a href="#local-6989586621679299391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:BatchArrayProperties' :: Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#%24sel%3Asize%3ABatchArrayProperties%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679299376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchArrayProperties
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299387"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679299385"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchArrayProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchArrayProperties)
@@ -142,30 +142,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchArrayProperties&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299373"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299382"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; BatchArrayProperties
 </span><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-var">BatchArrayProperties'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; BatchArrayProperties)
 -&gt; Parser (Maybe Int) -&gt; Parser BatchArrayProperties
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679299382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299367"><span id="local-6989586621679299369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299376"><span id="local-6989586621679299378"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299356"><span id="local-6989586621679299358"><span id="local-6989586621679299360"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679299354"><span class="annot"><span class="annottext">toJSON :: BatchArrayProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-type">BatchArrayProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299352"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299365"><span id="local-6989586621679299367"><span id="local-6989586621679299369"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties"><span class="hs-identifier hs-type">BatchArrayProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679299363"><span class="annot"><span class="annottext">toJSON :: BatchArrayProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchArrayProperties.html#BatchArrayProperties%27"><span class="hs-identifier hs-type">BatchArrayProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299361"><span class="annot"><span class="annottext">Maybe Int
 size :: Maybe Int
 $sel:size:BatchArrayProperties' :: BatchArrayProperties -&gt; Maybe Int
-</span><a href="#local-6989586621679299352"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299361"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -177,6 +177,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299352"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679299361"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

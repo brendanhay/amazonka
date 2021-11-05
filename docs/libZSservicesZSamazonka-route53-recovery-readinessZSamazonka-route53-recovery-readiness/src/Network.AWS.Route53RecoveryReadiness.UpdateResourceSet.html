@@ -1,0 +1,797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryReadiness.UpdateResourceSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing Resource Set.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.UpdateResourceSet</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier">UpdateResourceSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#newUpdateResourceSet"><span class="hs-identifier">newUpdateResourceSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resourceSetName"><span class="hs-identifier">updateResourceSet_resourceSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resourceSetType"><span class="hs-identifier">updateResourceSet_resourceSetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resources"><span class="hs-identifier">updateResourceSet_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier">UpdateResourceSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#newUpdateResourceSetResponse"><span class="hs-identifier">newUpdateResourceSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetName"><span class="hs-identifier">updateResourceSetResponse_resourceSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetType"><span class="hs-identifier">updateResourceSetResponse_resourceSetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resources"><span class="hs-identifier">updateResourceSetResponse_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetArn"><span class="hs-identifier">updateResourceSetResponse_resourceSetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_tags"><span class="hs-identifier">updateResourceSetResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_httpStatus"><span class="hs-identifier">updateResourceSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.html"><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | configuration for the desired</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newUpdateResourceSet' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679208533"><span id="local-6989586621679208534"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateResourceSet"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-var">UpdateResourceSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateResourceSet%27"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-var">UpdateResourceSet'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ResourceSet to update</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AresourceSetName%3AUpdateResourceSet%27"><span class="annot"><span class="annottext">UpdateResourceSet -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetName%3AUpdateResourceSet%27"><span class="hs-identifier hs-var hs-var">resourceSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | AWS Resource Type of the resources in the ResourceSet</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceSetType%3AUpdateResourceSet%27"><span class="annot"><span class="annottext">UpdateResourceSet -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetType%3AUpdateResourceSet%27"><span class="hs-identifier hs-var hs-var">resourceSetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A list of Resource objects</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aresources%3AUpdateResourceSet%27"><span class="annot"><span class="annottext">UpdateResourceSet -&gt; [Resource]
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Aresources%3AUpdateResourceSet%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208525"><span id="local-6989586621679208527"><span class="annot"><span class="annottext">UpdateResourceSet -&gt; UpdateResourceSet -&gt; Bool
+(UpdateResourceSet -&gt; UpdateResourceSet -&gt; Bool)
+-&gt; (UpdateResourceSet -&gt; UpdateResourceSet -&gt; Bool)
+-&gt; Eq UpdateResourceSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateResourceSet -&gt; UpdateResourceSet -&gt; Bool
+$c/= :: UpdateResourceSet -&gt; UpdateResourceSet -&gt; Bool
+== :: UpdateResourceSet -&gt; UpdateResourceSet -&gt; Bool
+$c== :: UpdateResourceSet -&gt; UpdateResourceSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208516"><span id="local-6989586621679208518"><span id="local-6989586621679208520"><span id="local-6989586621679208522"><span class="annot"><span class="annottext">ReadPrec [UpdateResourceSet]
+ReadPrec UpdateResourceSet
+Int -&gt; ReadS UpdateResourceSet
+ReadS [UpdateResourceSet]
+(Int -&gt; ReadS UpdateResourceSet)
+-&gt; ReadS [UpdateResourceSet]
+-&gt; ReadPrec UpdateResourceSet
+-&gt; ReadPrec [UpdateResourceSet]
+-&gt; Read UpdateResourceSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateResourceSet]
+$creadListPrec :: ReadPrec [UpdateResourceSet]
+readPrec :: ReadPrec UpdateResourceSet
+$creadPrec :: ReadPrec UpdateResourceSet
+readList :: ReadS [UpdateResourceSet]
+$creadList :: ReadS [UpdateResourceSet]
+readsPrec :: Int -&gt; ReadS UpdateResourceSet
+$creadsPrec :: Int -&gt; ReadS UpdateResourceSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208509"><span id="local-6989586621679208511"><span id="local-6989586621679208513"><span class="annot"><span class="annottext">Int -&gt; UpdateResourceSet -&gt; ShowS
+[UpdateResourceSet] -&gt; ShowS
+UpdateResourceSet -&gt; String
+(Int -&gt; UpdateResourceSet -&gt; ShowS)
+-&gt; (UpdateResourceSet -&gt; String)
+-&gt; ([UpdateResourceSet] -&gt; ShowS)
+-&gt; Show UpdateResourceSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateResourceSet] -&gt; ShowS
+$cshowList :: [UpdateResourceSet] -&gt; ShowS
+show :: UpdateResourceSet -&gt; String
+$cshow :: UpdateResourceSet -&gt; String
+showsPrec :: Int -&gt; UpdateResourceSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateResourceSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateResourceSet -&gt; Rep UpdateResourceSet x)
+-&gt; (forall x. Rep UpdateResourceSet x -&gt; UpdateResourceSet)
+-&gt; Generic UpdateResourceSet
+forall x. Rep UpdateResourceSet x -&gt; UpdateResourceSet
+forall x. UpdateResourceSet -&gt; Rep UpdateResourceSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateResourceSet x -&gt; UpdateResourceSet
+$cfrom :: forall x. UpdateResourceSet -&gt; Rep UpdateResourceSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'UpdateResourceSet' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'resourceSetName', 'updateResourceSet_resourceSetName' - The ResourceSet to update</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'resourceSetType', 'updateResourceSet_resourceSetType' - AWS Resource Type of the resources in the ResourceSet</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'resources', 'updateResourceSet_resources' - A list of Resource objects</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#newUpdateResourceSet"><span class="hs-identifier hs-type">newUpdateResourceSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'resourceSetName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'resourceSetType'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span>
+</span><span id="line-87"></span><span id="newUpdateResourceSet"><span class="annot"><span class="annottext">newUpdateResourceSet :: Text -&gt; Text -&gt; UpdateResourceSet
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#newUpdateResourceSet"><span class="hs-identifier hs-var hs-var">newUpdateResourceSet</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679208504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208504"><span class="hs-identifier hs-var">pResourceSetName_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679208503"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208503"><span class="hs-identifier hs-var">pResourceSetType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">UpdateResourceSet' :: Text -&gt; Text -&gt; [Resource] -&gt; UpdateResourceSet
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceSetName:UpdateResourceSet' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetName%3AUpdateResourceSet%27"><span class="hs-identifier hs-var">resourceSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208504"><span class="hs-identifier hs-var">pResourceSetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceSetType:UpdateResourceSet' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetType%3AUpdateResourceSet%27"><span class="hs-identifier hs-var">resourceSetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208503"><span class="hs-identifier hs-var">pResourceSetType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:resources:UpdateResourceSet' :: [Resource]
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Aresources%3AUpdateResourceSet%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Resource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ResourceSet to update</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resourceSetName"><span class="hs-identifier hs-type">updateResourceSet_resourceSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="updateResourceSet_resourceSetName"><span class="annot"><span class="annottext">updateResourceSet_resourceSetName :: (Text -&gt; f Text) -&gt; UpdateResourceSet -&gt; f UpdateResourceSet
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resourceSetName"><span class="hs-identifier hs-var hs-var">updateResourceSet_resourceSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSet -&gt; Text)
+-&gt; (UpdateResourceSet -&gt; Text -&gt; UpdateResourceSet)
+-&gt; Lens UpdateResourceSet UpdateResourceSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208500"><span class="annot"><span class="annottext">Text
+resourceSetName :: Text
+$sel:resourceSetName:UpdateResourceSet' :: UpdateResourceSet -&gt; Text
+</span><a href="#local-6989586621679208500"><span class="hs-identifier hs-var hs-var">resourceSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208500"><span class="hs-identifier hs-var">resourceSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208499"><span class="annot"><span class="annottext">s :: UpdateResourceSet
+</span><a href="#local-6989586621679208499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSet
+</span><a href="#local-6989586621679208499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceSetName:UpdateResourceSet' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetName%3AUpdateResourceSet%27"><span class="hs-identifier hs-var">resourceSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | AWS Resource Type of the resources in the ResourceSet</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resourceSetType"><span class="hs-identifier hs-type">updateResourceSet_resourceSetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="updateResourceSet_resourceSetType"><span class="annot"><span class="annottext">updateResourceSet_resourceSetType :: (Text -&gt; f Text) -&gt; UpdateResourceSet -&gt; f UpdateResourceSet
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resourceSetType"><span class="hs-identifier hs-var hs-var">updateResourceSet_resourceSetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSet -&gt; Text)
+-&gt; (UpdateResourceSet -&gt; Text -&gt; UpdateResourceSet)
+-&gt; Lens UpdateResourceSet UpdateResourceSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208497"><span class="annot"><span class="annottext">Text
+resourceSetType :: Text
+$sel:resourceSetType:UpdateResourceSet' :: UpdateResourceSet -&gt; Text
+</span><a href="#local-6989586621679208497"><span class="hs-identifier hs-var hs-var">resourceSetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208497"><span class="hs-identifier hs-var">resourceSetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208496"><span class="annot"><span class="annottext">s :: UpdateResourceSet
+</span><a href="#local-6989586621679208496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208495"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSet
+</span><a href="#local-6989586621679208496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceSetType:UpdateResourceSet' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetType%3AUpdateResourceSet%27"><span class="hs-identifier hs-var">resourceSetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A list of Resource objects</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resources"><span class="hs-identifier hs-type">updateResourceSet_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span id="updateResourceSet_resources"><span class="annot"><span class="annottext">updateResourceSet_resources :: ([Resource] -&gt; f [Resource])
+-&gt; UpdateResourceSet -&gt; f UpdateResourceSet
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSet_resources"><span class="hs-identifier hs-var hs-var">updateResourceSet_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSet -&gt; [Resource])
+-&gt; (UpdateResourceSet -&gt; [Resource] -&gt; UpdateResourceSet)
+-&gt; Lens UpdateResourceSet UpdateResourceSet [Resource] [Resource]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208494"><span class="annot"><span class="annottext">[Resource]
+resources :: [Resource]
+$sel:resources:UpdateResourceSet' :: UpdateResourceSet -&gt; [Resource]
+</span><a href="#local-6989586621679208494"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Resource]
+</span><a href="#local-6989586621679208494"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208493"><span class="annot"><span class="annottext">s :: UpdateResourceSet
+</span><a href="#local-6989586621679208493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208492"><span class="annot"><span class="annottext">[Resource]
+</span><a href="#local-6989586621679208492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSet
+</span><a href="#local-6989586621679208493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:UpdateResourceSet' :: [Resource]
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Aresources%3AUpdateResourceSet%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Resource]
+</span><a href="#local-6989586621679208492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Resource] -&gt; f [Resource])
+ -&gt; UpdateResourceSet -&gt; f UpdateResourceSet)
+-&gt; (([Resource] -&gt; f [Resource]) -&gt; [Resource] -&gt; f [Resource])
+-&gt; ([Resource] -&gt; f [Resource])
+-&gt; UpdateResourceSet
+-&gt; f UpdateResourceSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Resource] -&gt; f [Resource]) -&gt; [Resource] -&gt; f [Resource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679208486"><span class="annot"><span class="annottext">request :: UpdateResourceSet -&gt; Request UpdateResourceSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateResourceSet -&gt; Request UpdateResourceSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679208482"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateResourceSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateResourceSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateResourceSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateResourceSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateResourceSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208479"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679208478"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679208478"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679208477"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208477"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Resource]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-var">UpdateResourceSetResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Resource]
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; UpdateResourceSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; UpdateResourceSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceSetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; UpdateResourceSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Resource]
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; UpdateResourceSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceSetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Resource]
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; UpdateResourceSetResponse)
+-&gt; Either String (Maybe [Resource])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateResourceSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Resource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Resource]))
+-&gt; Maybe [Resource] -&gt; Either String (Maybe [Resource])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateResourceSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateResourceSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceSetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateResourceSetResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; UpdateResourceSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateResourceSetResponse)
+-&gt; Either String Int -&gt; Either String UpdateResourceSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208479"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208468"><span id="local-6989586621679208470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679208461"><span class="annot"><span class="annottext">toHeaders :: UpdateResourceSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateResourceSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208451"><span id="local-6989586621679208453"><span id="local-6989586621679208455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679208449"><span class="annot"><span class="annottext">toJSON :: UpdateResourceSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208445"><span id="local-6989586621679208446"><span id="local-6989586621679208447"><span class="annot"><span class="annottext">[Resource]
+Text
+resources :: [Resource]
+resourceSetType :: Text
+resourceSetName :: Text
+$sel:resources:UpdateResourceSet' :: UpdateResourceSet -&gt; [Resource]
+$sel:resourceSetType:UpdateResourceSet' :: UpdateResourceSet -&gt; Text
+$sel:resourceSetName:UpdateResourceSet' :: UpdateResourceSet -&gt; Text
+</span><a href="#local-6989586621679208445"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceSetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208446"><span class="hs-identifier hs-var">resourceSetType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Resource] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Resource]
+</span><a href="#local-6989586621679208445"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679208439"><span class="annot"><span class="annottext">toPath :: UpdateResourceSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet%27"><span class="hs-identifier hs-type">UpdateResourceSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208435"><span id="local-6989586621679208436"><span id="local-6989586621679208437"><span class="annot"><span class="annottext">[Resource]
+Text
+resources :: [Resource]
+resourceSetType :: Text
+resourceSetName :: Text
+$sel:resources:UpdateResourceSet' :: UpdateResourceSet -&gt; [Resource]
+$sel:resourceSetType:UpdateResourceSet' :: UpdateResourceSet -&gt; Text
+$sel:resourceSetName:UpdateResourceSet' :: UpdateResourceSet -&gt; Text
+</span><a href="#local-6989586621679208435"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/resourcesets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208437"><span class="hs-identifier hs-var">resourceSetName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSet"><span class="hs-identifier hs-type">UpdateResourceSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679208431"><span class="annot"><span class="annottext">toQuery :: UpdateResourceSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateResourceSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newUpdateResourceSetResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679208428"><span id="local-6989586621679208429"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateResourceSetResponse"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-var">UpdateResourceSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateResourceSetResponse%27"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-var">UpdateResourceSetResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the ResourceSet</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AresourceSetName%3AUpdateResourceSetResponse%27"><span class="annot"><span class="annottext">UpdateResourceSetResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetName%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var hs-var">resourceSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | AWS Resource Type of the resources in the ResourceSet</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AresourceSetType%3AUpdateResourceSetResponse%27"><span class="annot"><span class="annottext">UpdateResourceSetResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetType%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var hs-var">resourceSetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | A list of Resource objects</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Aresources%3AUpdateResourceSetResponse%27"><span class="annot"><span class="annottext">UpdateResourceSetResponse -&gt; Maybe [Resource]
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Aresources%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The arn for the ResourceSet</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AresourceSetArn%3AUpdateResourceSetResponse%27"><span class="annot"><span class="annottext">UpdateResourceSetResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetArn%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var hs-var">resourceSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Atags%3AUpdateResourceSetResponse%27"><span class="annot"><span class="annottext">UpdateResourceSetResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Atags%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateResourceSetResponse%27"><span class="annot"><span class="annottext">UpdateResourceSetResponse -&gt; Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AhttpStatus%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208418"><span id="local-6989586621679208420"><span class="annot"><span class="annottext">UpdateResourceSetResponse -&gt; UpdateResourceSetResponse -&gt; Bool
+(UpdateResourceSetResponse -&gt; UpdateResourceSetResponse -&gt; Bool)
+-&gt; (UpdateResourceSetResponse -&gt; UpdateResourceSetResponse -&gt; Bool)
+-&gt; Eq UpdateResourceSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateResourceSetResponse -&gt; UpdateResourceSetResponse -&gt; Bool
+$c/= :: UpdateResourceSetResponse -&gt; UpdateResourceSetResponse -&gt; Bool
+== :: UpdateResourceSetResponse -&gt; UpdateResourceSetResponse -&gt; Bool
+$c== :: UpdateResourceSetResponse -&gt; UpdateResourceSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208410"><span id="local-6989586621679208412"><span id="local-6989586621679208414"><span id="local-6989586621679208416"><span class="annot"><span class="annottext">ReadPrec [UpdateResourceSetResponse]
+ReadPrec UpdateResourceSetResponse
+Int -&gt; ReadS UpdateResourceSetResponse
+ReadS [UpdateResourceSetResponse]
+(Int -&gt; ReadS UpdateResourceSetResponse)
+-&gt; ReadS [UpdateResourceSetResponse]
+-&gt; ReadPrec UpdateResourceSetResponse
+-&gt; ReadPrec [UpdateResourceSetResponse]
+-&gt; Read UpdateResourceSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateResourceSetResponse]
+$creadListPrec :: ReadPrec [UpdateResourceSetResponse]
+readPrec :: ReadPrec UpdateResourceSetResponse
+$creadPrec :: ReadPrec UpdateResourceSetResponse
+readList :: ReadS [UpdateResourceSetResponse]
+$creadList :: ReadS [UpdateResourceSetResponse]
+readsPrec :: Int -&gt; ReadS UpdateResourceSetResponse
+$creadsPrec :: Int -&gt; ReadS UpdateResourceSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208404"><span id="local-6989586621679208406"><span id="local-6989586621679208408"><span class="annot"><span class="annottext">Int -&gt; UpdateResourceSetResponse -&gt; ShowS
+[UpdateResourceSetResponse] -&gt; ShowS
+UpdateResourceSetResponse -&gt; String
+(Int -&gt; UpdateResourceSetResponse -&gt; ShowS)
+-&gt; (UpdateResourceSetResponse -&gt; String)
+-&gt; ([UpdateResourceSetResponse] -&gt; ShowS)
+-&gt; Show UpdateResourceSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateResourceSetResponse] -&gt; ShowS
+$cshowList :: [UpdateResourceSetResponse] -&gt; ShowS
+show :: UpdateResourceSetResponse -&gt; String
+$cshow :: UpdateResourceSetResponse -&gt; String
+showsPrec :: Int -&gt; UpdateResourceSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateResourceSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateResourceSetResponse -&gt; Rep UpdateResourceSetResponse x)
+-&gt; (forall x.
+    Rep UpdateResourceSetResponse x -&gt; UpdateResourceSetResponse)
+-&gt; Generic UpdateResourceSetResponse
+forall x.
+Rep UpdateResourceSetResponse x -&gt; UpdateResourceSetResponse
+forall x.
+UpdateResourceSetResponse -&gt; Rep UpdateResourceSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateResourceSetResponse x -&gt; UpdateResourceSetResponse
+$cfrom :: forall x.
+UpdateResourceSetResponse -&gt; Rep UpdateResourceSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'UpdateResourceSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'resourceSetName', 'updateResourceSetResponse_resourceSetName' - The name of the ResourceSet</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'resourceSetType', 'updateResourceSetResponse_resourceSetType' - AWS Resource Type of the resources in the ResourceSet</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'resources', 'updateResourceSetResponse_resources' - A list of Resource objects</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'resourceSetArn', 'updateResourceSetResponse_resourceSetArn' - The arn for the ResourceSet</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'tags', 'updateResourceSetResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'updateResourceSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#newUpdateResourceSetResponse"><span class="hs-identifier hs-type">newUpdateResourceSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newUpdateResourceSetResponse"><span class="annot"><span class="annottext">newUpdateResourceSetResponse :: Int -&gt; UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#newUpdateResourceSetResponse"><span class="hs-identifier hs-var hs-var">newUpdateResourceSetResponse</span></a></span></span><span> </span><span id="local-6989586621679208401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">UpdateResourceSetResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Resource]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceSetName:UpdateResourceSetResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetName%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resourceSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceSetType:UpdateResourceSetResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetType%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resourceSetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:resources:UpdateResourceSetResponse' :: Maybe [Resource]
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Aresources%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceSetArn:UpdateResourceSetResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetArn%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resourceSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:UpdateResourceSetResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Atags%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateResourceSetResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AhttpStatus%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The name of the ResourceSet</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetName"><span class="hs-identifier hs-type">updateResourceSetResponse_resourceSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="updateResourceSetResponse_resourceSetName"><span class="annot"><span class="annottext">updateResourceSetResponse_resourceSetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetName"><span class="hs-identifier hs-var hs-var">updateResourceSetResponse_resourceSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSetResponse -&gt; Maybe Text)
+-&gt; (UpdateResourceSetResponse
+    -&gt; Maybe Text -&gt; UpdateResourceSetResponse)
+-&gt; Lens
+     UpdateResourceSetResponse
+     UpdateResourceSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208400"><span class="annot"><span class="annottext">Maybe Text
+resourceSetName :: Maybe Text
+$sel:resourceSetName:UpdateResourceSetResponse' :: UpdateResourceSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679208400"><span class="hs-identifier hs-var hs-var">resourceSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208400"><span class="hs-identifier hs-var">resourceSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208399"><span class="annot"><span class="annottext">s :: UpdateResourceSetResponse
+</span><a href="#local-6989586621679208399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSetResponse
+</span><a href="#local-6989586621679208399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceSetName:UpdateResourceSetResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetName%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resourceSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | AWS Resource Type of the resources in the ResourceSet</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetType"><span class="hs-identifier hs-type">updateResourceSetResponse_resourceSetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="updateResourceSetResponse_resourceSetType"><span class="annot"><span class="annottext">updateResourceSetResponse_resourceSetType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetType"><span class="hs-identifier hs-var hs-var">updateResourceSetResponse_resourceSetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSetResponse -&gt; Maybe Text)
+-&gt; (UpdateResourceSetResponse
+    -&gt; Maybe Text -&gt; UpdateResourceSetResponse)
+-&gt; Lens
+     UpdateResourceSetResponse
+     UpdateResourceSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208397"><span class="annot"><span class="annottext">Maybe Text
+resourceSetType :: Maybe Text
+$sel:resourceSetType:UpdateResourceSetResponse' :: UpdateResourceSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679208397"><span class="hs-identifier hs-var hs-var">resourceSetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208397"><span class="hs-identifier hs-var">resourceSetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208396"><span class="annot"><span class="annottext">s :: UpdateResourceSetResponse
+</span><a href="#local-6989586621679208396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSetResponse
+</span><a href="#local-6989586621679208396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceSetType:UpdateResourceSetResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetType%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resourceSetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | A list of Resource objects</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resources"><span class="hs-identifier hs-type">updateResourceSetResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="updateResourceSetResponse_resources"><span class="annot"><span class="annottext">updateResourceSetResponse_resources :: (Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resources"><span class="hs-identifier hs-var hs-var">updateResourceSetResponse_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSetResponse -&gt; Maybe [Resource])
+-&gt; (UpdateResourceSetResponse
+    -&gt; Maybe [Resource] -&gt; UpdateResourceSetResponse)
+-&gt; Lens
+     UpdateResourceSetResponse
+     UpdateResourceSetResponse
+     (Maybe [Resource])
+     (Maybe [Resource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208394"><span class="annot"><span class="annottext">Maybe [Resource]
+resources :: Maybe [Resource]
+$sel:resources:UpdateResourceSetResponse' :: UpdateResourceSetResponse -&gt; Maybe [Resource]
+</span><a href="#local-6989586621679208394"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679208394"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208393"><span class="annot"><span class="annottext">s :: UpdateResourceSetResponse
+</span><a href="#local-6989586621679208393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208392"><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679208392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSetResponse
+</span><a href="#local-6989586621679208393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:UpdateResourceSetResponse' :: Maybe [Resource]
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Aresources%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679208392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Resource] -&gt; f (Maybe [Resource]))
+ -&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse)
+-&gt; ((Maybe [Resource] -&gt; f (Maybe [Resource]))
+    -&gt; Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; (Maybe [Resource] -&gt; f (Maybe [Resource]))
+-&gt; UpdateResourceSetResponse
+-&gt; f UpdateResourceSetResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Resource] [Resource] [Resource] [Resource]
+-&gt; Iso
+     (Maybe [Resource])
+     (Maybe [Resource])
+     (Maybe [Resource])
+     (Maybe [Resource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Resource] [Resource] [Resource] [Resource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The arn for the ResourceSet</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetArn"><span class="hs-identifier hs-type">updateResourceSetResponse_resourceSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="updateResourceSetResponse_resourceSetArn"><span class="annot"><span class="annottext">updateResourceSetResponse_resourceSetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_resourceSetArn"><span class="hs-identifier hs-var hs-var">updateResourceSetResponse_resourceSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSetResponse -&gt; Maybe Text)
+-&gt; (UpdateResourceSetResponse
+    -&gt; Maybe Text -&gt; UpdateResourceSetResponse)
+-&gt; Lens
+     UpdateResourceSetResponse
+     UpdateResourceSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208390"><span class="annot"><span class="annottext">Maybe Text
+resourceSetArn :: Maybe Text
+$sel:resourceSetArn:UpdateResourceSetResponse' :: UpdateResourceSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679208390"><span class="hs-identifier hs-var hs-var">resourceSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208390"><span class="hs-identifier hs-var">resourceSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208389"><span class="annot"><span class="annottext">s :: UpdateResourceSetResponse
+</span><a href="#local-6989586621679208389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208388"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSetResponse
+</span><a href="#local-6989586621679208389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceSetArn:UpdateResourceSetResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AresourceSetArn%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">resourceSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_tags"><span class="hs-identifier hs-type">updateResourceSetResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="updateResourceSetResponse_tags"><span class="annot"><span class="annottext">updateResourceSetResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_tags"><span class="hs-identifier hs-var hs-var">updateResourceSetResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSetResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateResourceSetResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateResourceSetResponse)
+-&gt; Lens
+     UpdateResourceSetResponse
+     UpdateResourceSetResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208387"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:UpdateResourceSetResponse' :: UpdateResourceSetResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679208387"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679208387"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208386"><span class="annot"><span class="annottext">s :: UpdateResourceSetResponse
+</span><a href="#local-6989586621679208386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208385"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679208385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSetResponse
+</span><a href="#local-6989586621679208386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UpdateResourceSetResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3Atags%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679208385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateResourceSetResponse
+-&gt; f UpdateResourceSetResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_httpStatus"><span class="hs-identifier hs-type">updateResourceSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span id="updateResourceSetResponse_httpStatus"><span class="annot"><span class="annottext">updateResourceSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateResourceSetResponse -&gt; f UpdateResourceSetResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#updateResourceSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateResourceSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceSetResponse -&gt; Int)
+-&gt; (UpdateResourceSetResponse -&gt; Int -&gt; UpdateResourceSetResponse)
+-&gt; Lens UpdateResourceSetResponse UpdateResourceSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208384"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateResourceSetResponse' :: UpdateResourceSetResponse -&gt; Int
+</span><a href="#local-6989586621679208384"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208384"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208383"><span class="annot"><span class="annottext">s :: UpdateResourceSetResponse
+</span><a href="#local-6989586621679208383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse%27"><span class="hs-identifier hs-type">UpdateResourceSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceSetResponse
+</span><a href="#local-6989586621679208383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateResourceSetResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#%24sel%3AhttpStatus%3AUpdateResourceSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679208382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.UpdateResourceSet.html#UpdateResourceSetResponse"><span class="hs-identifier hs-type">UpdateResourceSetResponse</span></a></span></span><span>
+</span><span id="line-234"></span></pre></body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode"><span class="hs-identifier">AccessPreviewStatusReasonCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode_INTERNAL_ERROR"><span class="hs-identifier">AccessPreviewStatusReasonCode_INTERNAL_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode_INVALID_CONFIGURATION"><span class="hs-identifier">AccessPreviewStatusReasonCode_INVALID_CONFIGURATION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679243942"><span id="local-6989586621679243943"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessPreviewStatusReasonCode"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode"><span class="hs-identifier hs-var">AccessPreviewStatusReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessPreviewStatusReasonCode%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode%27"><span class="hs-identifier hs-var">AccessPreviewStatusReasonCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccessPreviewStatusReasonCode"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#fromAccessPreviewStatusReasonCode"><span class="hs-identifier hs-var hs-var">fromAccessPreviewStatusReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243934"><span id="local-6989586621679243936"><span id="local-6989586621679243938"><span class="annot"><span class="annottext">Int -&gt; AccessPreviewStatusReasonCode -&gt; ShowS
+[AccessPreviewStatusReasonCode] -&gt; ShowS
+AccessPreviewStatusReasonCode -&gt; String
+(Int -&gt; AccessPreviewStatusReasonCode -&gt; ShowS)
+-&gt; (AccessPreviewStatusReasonCode -&gt; String)
+-&gt; ([AccessPreviewStatusReasonCode] -&gt; ShowS)
+-&gt; Show AccessPreviewStatusReasonCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessPreviewStatusReasonCode] -&gt; ShowS
+$cshowList :: [AccessPreviewStatusReasonCode] -&gt; ShowS
+show :: AccessPreviewStatusReasonCode -&gt; String
+$cshow :: AccessPreviewStatusReasonCode -&gt; String
+showsPrec :: Int -&gt; AccessPreviewStatusReasonCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessPreviewStatusReasonCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679243925"><span id="local-6989586621679243927"><span id="local-6989586621679243929"><span id="local-6989586621679243931"><span class="annot"><span class="annottext">ReadPrec [AccessPreviewStatusReasonCode]
+ReadPrec AccessPreviewStatusReasonCode
+Int -&gt; ReadS AccessPreviewStatusReasonCode
+ReadS [AccessPreviewStatusReasonCode]
+(Int -&gt; ReadS AccessPreviewStatusReasonCode)
+-&gt; ReadS [AccessPreviewStatusReasonCode]
+-&gt; ReadPrec AccessPreviewStatusReasonCode
+-&gt; ReadPrec [AccessPreviewStatusReasonCode]
+-&gt; Read AccessPreviewStatusReasonCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccessPreviewStatusReasonCode]
+$creadListPrec :: ReadPrec [AccessPreviewStatusReasonCode]
+readPrec :: ReadPrec AccessPreviewStatusReasonCode
+$creadPrec :: ReadPrec AccessPreviewStatusReasonCode
+readList :: ReadS [AccessPreviewStatusReasonCode]
+$creadList :: ReadS [AccessPreviewStatusReasonCode]
+readsPrec :: Int -&gt; ReadS AccessPreviewStatusReasonCode
+$creadsPrec :: Int -&gt; ReadS AccessPreviewStatusReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679243920"><span id="local-6989586621679243922"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+(AccessPreviewStatusReasonCode
+ -&gt; AccessPreviewStatusReasonCode -&gt; Bool)
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; Bool)
+-&gt; Eq AccessPreviewStatusReasonCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+$c/= :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+== :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+$c== :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679243904"><span id="local-6989586621679243906"><span id="local-6989586621679243908"><span id="local-6989586621679243910"><span id="local-6989586621679243912"><span id="local-6989586621679243914"><span id="local-6989586621679243916"><span class="annot"><span class="annottext">Eq AccessPreviewStatusReasonCode
+Eq AccessPreviewStatusReasonCode
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; Ordering)
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; Bool)
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; Bool)
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; Bool)
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; Bool)
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; AccessPreviewStatusReasonCode)
+-&gt; (AccessPreviewStatusReasonCode
+    -&gt; AccessPreviewStatusReasonCode -&gt; AccessPreviewStatusReasonCode)
+-&gt; Ord AccessPreviewStatusReasonCode
+AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Ordering
+AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; AccessPreviewStatusReasonCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; AccessPreviewStatusReasonCode
+$cmin :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; AccessPreviewStatusReasonCode
+max :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; AccessPreviewStatusReasonCode
+$cmax :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; AccessPreviewStatusReasonCode
+&gt;= :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+$c&gt;= :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+&gt; :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+$c&gt; :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+&lt;= :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+$c&lt;= :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+&lt; :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+$c&lt; :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Bool
+compare :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Ordering
+$ccompare :: AccessPreviewStatusReasonCode
+-&gt; AccessPreviewStatusReasonCode -&gt; Ordering
+$cp1Ord :: Eq AccessPreviewStatusReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AccessPreviewStatusReasonCode
+ -&gt; Rep AccessPreviewStatusReasonCode x)
+-&gt; (forall x.
+    Rep AccessPreviewStatusReasonCode x
+    -&gt; AccessPreviewStatusReasonCode)
+-&gt; Generic AccessPreviewStatusReasonCode
+forall x.
+Rep AccessPreviewStatusReasonCode x
+-&gt; AccessPreviewStatusReasonCode
+forall x.
+AccessPreviewStatusReasonCode
+-&gt; Rep AccessPreviewStatusReasonCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AccessPreviewStatusReasonCode x
+-&gt; AccessPreviewStatusReasonCode
+$cfrom :: forall x.
+AccessPreviewStatusReasonCode
+-&gt; Rep AccessPreviewStatusReasonCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243896"><span id="local-6989586621679243898"><span class="annot"><span class="annottext">Int -&gt; AccessPreviewStatusReasonCode -&gt; Int
+AccessPreviewStatusReasonCode -&gt; Int
+(Int -&gt; AccessPreviewStatusReasonCode -&gt; Int)
+-&gt; (AccessPreviewStatusReasonCode -&gt; Int)
+-&gt; Hashable AccessPreviewStatusReasonCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccessPreviewStatusReasonCode -&gt; Int
+$chash :: AccessPreviewStatusReasonCode -&gt; Int
+hashWithSalt :: Int -&gt; AccessPreviewStatusReasonCode -&gt; Int
+$chashWithSalt :: Int -&gt; AccessPreviewStatusReasonCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679243893"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode -&gt; ()
+(AccessPreviewStatusReasonCode -&gt; ())
+-&gt; NFData AccessPreviewStatusReasonCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccessPreviewStatusReasonCode -&gt; ()
+$crnf :: AccessPreviewStatusReasonCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679243890"><span class="annot"><span class="annottext">Text -&gt; Either String AccessPreviewStatusReasonCode
+(Text -&gt; Either String AccessPreviewStatusReasonCode)
+-&gt; FromText AccessPreviewStatusReasonCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccessPreviewStatusReasonCode
+$cfromText :: Text -&gt; Either String AccessPreviewStatusReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679243887"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode -&gt; Text
+(AccessPreviewStatusReasonCode -&gt; Text)
+-&gt; ToText AccessPreviewStatusReasonCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccessPreviewStatusReasonCode -&gt; Text
+$ctoText :: AccessPreviewStatusReasonCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243884"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode -&gt; ByteString
+(AccessPreviewStatusReasonCode -&gt; ByteString)
+-&gt; ToByteString AccessPreviewStatusReasonCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccessPreviewStatusReasonCode -&gt; ByteString
+$ctoBS :: AccessPreviewStatusReasonCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243881"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode -&gt; ByteStringBuilder
+(AccessPreviewStatusReasonCode -&gt; ByteStringBuilder)
+-&gt; ToLog AccessPreviewStatusReasonCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccessPreviewStatusReasonCode -&gt; ByteStringBuilder
+$cbuild :: AccessPreviewStatusReasonCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243878"><span class="annot"><span class="annottext">HeaderName -&gt; AccessPreviewStatusReasonCode -&gt; [Header]
+(HeaderName -&gt; AccessPreviewStatusReasonCode -&gt; [Header])
+-&gt; ToHeader AccessPreviewStatusReasonCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccessPreviewStatusReasonCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccessPreviewStatusReasonCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243875"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode -&gt; QueryString
+(AccessPreviewStatusReasonCode -&gt; QueryString)
+-&gt; ToQuery AccessPreviewStatusReasonCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccessPreviewStatusReasonCode -&gt; QueryString
+$ctoQuery :: AccessPreviewStatusReasonCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243870"><span id="local-6989586621679243872"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessPreviewStatusReasonCode]
+Value -&gt; Parser AccessPreviewStatusReasonCode
+(Value -&gt; Parser AccessPreviewStatusReasonCode)
+-&gt; (Value -&gt; Parser [AccessPreviewStatusReasonCode])
+-&gt; FromJSON AccessPreviewStatusReasonCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccessPreviewStatusReasonCode]
+$cparseJSONList :: Value -&gt; Parser [AccessPreviewStatusReasonCode]
+parseJSON :: Value -&gt; Parser AccessPreviewStatusReasonCode
+$cparseJSON :: Value -&gt; Parser AccessPreviewStatusReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243865"><span id="local-6989586621679243867"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessPreviewStatusReasonCode]
+FromJSONKeyFunction AccessPreviewStatusReasonCode
+FromJSONKeyFunction AccessPreviewStatusReasonCode
+-&gt; FromJSONKeyFunction [AccessPreviewStatusReasonCode]
+-&gt; FromJSONKey AccessPreviewStatusReasonCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccessPreviewStatusReasonCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccessPreviewStatusReasonCode]
+fromJSONKey :: FromJSONKeyFunction AccessPreviewStatusReasonCode
+$cfromJSONKey :: FromJSONKeyFunction AccessPreviewStatusReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243856"><span id="local-6989586621679243858"><span id="local-6989586621679243860"><span id="local-6989586621679243862"><span class="annot"><span class="annottext">[AccessPreviewStatusReasonCode] -&gt; Encoding
+[AccessPreviewStatusReasonCode] -&gt; Value
+AccessPreviewStatusReasonCode -&gt; Encoding
+AccessPreviewStatusReasonCode -&gt; Value
+(AccessPreviewStatusReasonCode -&gt; Value)
+-&gt; (AccessPreviewStatusReasonCode -&gt; Encoding)
+-&gt; ([AccessPreviewStatusReasonCode] -&gt; Value)
+-&gt; ([AccessPreviewStatusReasonCode] -&gt; Encoding)
+-&gt; ToJSON AccessPreviewStatusReasonCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccessPreviewStatusReasonCode] -&gt; Encoding
+$ctoEncodingList :: [AccessPreviewStatusReasonCode] -&gt; Encoding
+toJSONList :: [AccessPreviewStatusReasonCode] -&gt; Value
+$ctoJSONList :: [AccessPreviewStatusReasonCode] -&gt; Value
+toEncoding :: AccessPreviewStatusReasonCode -&gt; Encoding
+$ctoEncoding :: AccessPreviewStatusReasonCode -&gt; Encoding
+toJSON :: AccessPreviewStatusReasonCode -&gt; Value
+$ctoJSON :: AccessPreviewStatusReasonCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243851"><span id="local-6989586621679243853"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessPreviewStatusReasonCode]
+ToJSONKeyFunction AccessPreviewStatusReasonCode
+ToJSONKeyFunction AccessPreviewStatusReasonCode
+-&gt; ToJSONKeyFunction [AccessPreviewStatusReasonCode]
+-&gt; ToJSONKey AccessPreviewStatusReasonCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccessPreviewStatusReasonCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccessPreviewStatusReasonCode]
+toJSONKey :: ToJSONKeyFunction AccessPreviewStatusReasonCode
+$ctoJSONKey :: ToJSONKeyFunction AccessPreviewStatusReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243848"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessPreviewStatusReasonCode
+([Node] -&gt; Either String AccessPreviewStatusReasonCode)
+-&gt; FromXML AccessPreviewStatusReasonCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccessPreviewStatusReasonCode
+$cparseXML :: [Node] -&gt; Either String AccessPreviewStatusReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243845"><span class="annot"><span class="annottext">AccessPreviewStatusReasonCode -&gt; XML
+(AccessPreviewStatusReasonCode -&gt; XML)
+-&gt; ToXML AccessPreviewStatusReasonCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccessPreviewStatusReasonCode -&gt; XML
+$ctoXML :: AccessPreviewStatusReasonCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode_INTERNAL_ERROR"><span class="hs-identifier hs-type">AccessPreviewStatusReasonCode_INTERNAL_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode"><span class="hs-identifier hs-type">AccessPreviewStatusReasonCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessPreviewStatusReasonCode_INTERNAL_ERROR"><span id="%24mAccessPreviewStatusReasonCode_INTERNAL_ERROR"><span id="AccessPreviewStatusReasonCode_INTERNAL_ERROR"><span class="annot"><span class="annottext">$bAccessPreviewStatusReasonCode_INTERNAL_ERROR :: AccessPreviewStatusReasonCode
+$mAccessPreviewStatusReasonCode_INTERNAL_ERROR :: forall r.
+AccessPreviewStatusReasonCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#%24bAccessPreviewStatusReasonCode_INTERNAL_ERROR"><span class="hs-identifier hs-var hs-var hs-var">AccessPreviewStatusReasonCode_INTERNAL_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode%27"><span class="hs-identifier hs-type">AccessPreviewStatusReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_ERROR&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode_INVALID_CONFIGURATION"><span class="hs-identifier hs-type">AccessPreviewStatusReasonCode_INVALID_CONFIGURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode"><span class="hs-identifier hs-type">AccessPreviewStatusReasonCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessPreviewStatusReasonCode_INVALID_CONFIGURATION"><span id="%24mAccessPreviewStatusReasonCode_INVALID_CONFIGURATION"><span id="AccessPreviewStatusReasonCode_INVALID_CONFIGURATION"><span class="annot"><span class="annottext">$bAccessPreviewStatusReasonCode_INVALID_CONFIGURATION :: AccessPreviewStatusReasonCode
+$mAccessPreviewStatusReasonCode_INVALID_CONFIGURATION :: forall r.
+AccessPreviewStatusReasonCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#%24bAccessPreviewStatusReasonCode_INVALID_CONFIGURATION"><span class="hs-identifier hs-var hs-var hs-var">AccessPreviewStatusReasonCode_INVALID_CONFIGURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode%27"><span class="hs-identifier hs-type">AccessPreviewStatusReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INVALID_CONFIGURATION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode_INTERNAL_ERROR"><span class="hs-pragma hs-type">AccessPreviewStatusReasonCode_INTERNAL_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode_INVALID_CONFIGURATION"><span class="hs-pragma hs-type">AccessPreviewStatusReasonCode_INVALID_CONFIGURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode.html#AccessPreviewStatusReasonCode%27"><span class="hs-pragma hs-type">AccessPreviewStatusReasonCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

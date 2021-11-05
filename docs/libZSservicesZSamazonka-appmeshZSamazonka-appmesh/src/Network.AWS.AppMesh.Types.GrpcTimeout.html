@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.GrpcTimeout</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.GrpcTimeout</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.Duration.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.Duration</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGrpcTimeout' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679325768"><span id="local-6989586621679325769"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrpcTimeout"><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-var">GrpcTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrpcTimeout%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-var">GrpcTimeout'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents an idle timeout. An idle timeout bounds the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- amount of time that a connection may be idle. The default value is none.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aidle%3AGrpcTimeout%27"><span class="annot"><span class="annottext">GrpcTimeout -&gt; Maybe Duration
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#%24sel%3Aidle%3AGrpcTimeout%27"><span class="hs-identifier hs-var hs-var">idle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | An object that represents a per request timeout. The default value is 15</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- seconds. If you set a higher timeout, then make sure that the higher</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- value is set for each App Mesh resource in a conversation. For example,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- if a virtual node backend uses a virtual router provider to route to</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- another virtual node, then the timeout should be greater than 15 seconds</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- for the source and destination virtual node and the route.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AperRequest%3AGrpcTimeout%27"><span class="annot"><span class="annottext">GrpcTimeout -&gt; Maybe Duration
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#%24sel%3AperRequest%3AGrpcTimeout%27"><span class="hs-identifier hs-var hs-var">perRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325761"><span id="local-6989586621679325763"><span class="annot"><span class="annottext">GrpcTimeout -&gt; GrpcTimeout -&gt; Bool
+(GrpcTimeout -&gt; GrpcTimeout -&gt; Bool)
+-&gt; (GrpcTimeout -&gt; GrpcTimeout -&gt; Bool) -&gt; Eq GrpcTimeout
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrpcTimeout -&gt; GrpcTimeout -&gt; Bool
+$c/= :: GrpcTimeout -&gt; GrpcTimeout -&gt; Bool
+== :: GrpcTimeout -&gt; GrpcTimeout -&gt; Bool
+$c== :: GrpcTimeout -&gt; GrpcTimeout -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325752"><span id="local-6989586621679325754"><span id="local-6989586621679325756"><span id="local-6989586621679325758"><span class="annot"><span class="annottext">ReadPrec [GrpcTimeout]
+ReadPrec GrpcTimeout
+Int -&gt; ReadS GrpcTimeout
+ReadS [GrpcTimeout]
+(Int -&gt; ReadS GrpcTimeout)
+-&gt; ReadS [GrpcTimeout]
+-&gt; ReadPrec GrpcTimeout
+-&gt; ReadPrec [GrpcTimeout]
+-&gt; Read GrpcTimeout
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrpcTimeout]
+$creadListPrec :: ReadPrec [GrpcTimeout]
+readPrec :: ReadPrec GrpcTimeout
+$creadPrec :: ReadPrec GrpcTimeout
+readList :: ReadS [GrpcTimeout]
+$creadList :: ReadS [GrpcTimeout]
+readsPrec :: Int -&gt; ReadS GrpcTimeout
+$creadsPrec :: Int -&gt; ReadS GrpcTimeout
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325745"><span id="local-6989586621679325747"><span id="local-6989586621679325749"><span class="annot"><span class="annottext">Int -&gt; GrpcTimeout -&gt; ShowS
+[GrpcTimeout] -&gt; ShowS
+GrpcTimeout -&gt; String
+(Int -&gt; GrpcTimeout -&gt; ShowS)
+-&gt; (GrpcTimeout -&gt; String)
+-&gt; ([GrpcTimeout] -&gt; ShowS)
+-&gt; Show GrpcTimeout
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrpcTimeout] -&gt; ShowS
+$cshowList :: [GrpcTimeout] -&gt; ShowS
+show :: GrpcTimeout -&gt; String
+$cshow :: GrpcTimeout -&gt; String
+showsPrec :: Int -&gt; GrpcTimeout -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrpcTimeout -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GrpcTimeout -&gt; Rep GrpcTimeout x)
+-&gt; (forall x. Rep GrpcTimeout x -&gt; GrpcTimeout)
+-&gt; Generic GrpcTimeout
+forall x. Rep GrpcTimeout x -&gt; GrpcTimeout
+forall x. GrpcTimeout -&gt; Rep GrpcTimeout x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrpcTimeout x -&gt; GrpcTimeout
+$cfrom :: forall x. GrpcTimeout -&gt; Rep GrpcTimeout x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'GrpcTimeout' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'idle', 'grpcTimeout_idle' - An object that represents an idle timeout. An idle timeout bounds the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- amount of time that a connection may be idle. The default value is none.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'perRequest', 'grpcTimeout_perRequest' - An object that represents a per request timeout. The default value is 15</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- seconds. If you set a higher timeout, then make sure that the higher</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- value is set for each App Mesh resource in a conversation. For example,</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- if a virtual node backend uses a virtual router provider to route to</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- another virtual node, then the timeout should be greater than 15 seconds</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for the source and destination virtual node and the route.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#newGrpcTimeout"><span class="hs-identifier hs-type">newGrpcTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span><span>
+</span><span id="line-63"></span><span id="newGrpcTimeout"><span class="annot"><span class="annottext">newGrpcTimeout :: GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#newGrpcTimeout"><span class="hs-identifier hs-var hs-var">newGrpcTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">GrpcTimeout' :: Maybe Duration -&gt; Maybe Duration -&gt; GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-type">GrpcTimeout'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:idle:GrpcTimeout' :: Maybe Duration
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#%24sel%3Aidle%3AGrpcTimeout%27"><span class="hs-identifier hs-var">idle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:perRequest:GrpcTimeout' :: Maybe Duration
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#%24sel%3AperRequest%3AGrpcTimeout%27"><span class="hs-identifier hs-var">perRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | An object that represents an idle timeout. An idle timeout bounds the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- amount of time that a connection may be idle. The default value is none.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#grpcTimeout_idle"><span class="hs-identifier hs-type">grpcTimeout_idle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="grpcTimeout_idle"><span class="annot"><span class="annottext">grpcTimeout_idle :: (Maybe Duration -&gt; f (Maybe Duration))
+-&gt; GrpcTimeout -&gt; f GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#grpcTimeout_idle"><span class="hs-identifier hs-var hs-var">grpcTimeout_idle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrpcTimeout -&gt; Maybe Duration)
+-&gt; (GrpcTimeout -&gt; Maybe Duration -&gt; GrpcTimeout)
+-&gt; Lens GrpcTimeout GrpcTimeout (Maybe Duration) (Maybe Duration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-type">GrpcTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325736"><span class="annot"><span class="annottext">Maybe Duration
+idle :: Maybe Duration
+$sel:idle:GrpcTimeout' :: GrpcTimeout -&gt; Maybe Duration
+</span><a href="#local-6989586621679325736"><span class="hs-identifier hs-var hs-var">idle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325736"><span class="hs-identifier hs-var">idle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325735"><span class="annot"><span class="annottext">s :: GrpcTimeout
+</span><a href="#local-6989586621679325735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-type">GrpcTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325734"><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrpcTimeout
+</span><a href="#local-6989586621679325735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idle:GrpcTimeout' :: Maybe Duration
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#%24sel%3Aidle%3AGrpcTimeout%27"><span class="hs-identifier hs-var">idle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | An object that represents a per request timeout. The default value is 15</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- seconds. If you set a higher timeout, then make sure that the higher</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- value is set for each App Mesh resource in a conversation. For example,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- if a virtual node backend uses a virtual router provider to route to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- another virtual node, then the timeout should be greater than 15 seconds</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for the source and destination virtual node and the route.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#grpcTimeout_perRequest"><span class="hs-identifier hs-type">grpcTimeout_perRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="grpcTimeout_perRequest"><span class="annot"><span class="annottext">grpcTimeout_perRequest :: (Maybe Duration -&gt; f (Maybe Duration))
+-&gt; GrpcTimeout -&gt; f GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#grpcTimeout_perRequest"><span class="hs-identifier hs-var hs-var">grpcTimeout_perRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrpcTimeout -&gt; Maybe Duration)
+-&gt; (GrpcTimeout -&gt; Maybe Duration -&gt; GrpcTimeout)
+-&gt; Lens GrpcTimeout GrpcTimeout (Maybe Duration) (Maybe Duration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-type">GrpcTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325732"><span class="annot"><span class="annottext">Maybe Duration
+perRequest :: Maybe Duration
+$sel:perRequest:GrpcTimeout' :: GrpcTimeout -&gt; Maybe Duration
+</span><a href="#local-6989586621679325732"><span class="hs-identifier hs-var hs-var">perRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325732"><span class="hs-identifier hs-var">perRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325731"><span class="annot"><span class="annottext">s :: GrpcTimeout
+</span><a href="#local-6989586621679325731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-type">GrpcTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325730"><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrpcTimeout
+</span><a href="#local-6989586621679325731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:perRequest:GrpcTimeout' :: Maybe Duration
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#%24sel%3AperRequest%3AGrpcTimeout%27"><span class="hs-identifier hs-var">perRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325727"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679325725"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GrpcTimeout
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GrpcTimeout) -&gt; Value -&gt; Parser GrpcTimeout
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GrpcTimeout&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325722"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325722"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Duration -&gt; Maybe Duration -&gt; GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-var">GrpcTimeout'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Duration -&gt; Maybe Duration -&gt; GrpcTimeout)
+-&gt; Parser (Maybe Duration)
+-&gt; Parser (Maybe Duration -&gt; GrpcTimeout)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Duration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;idle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Duration -&gt; GrpcTimeout)
+-&gt; Parser (Maybe Duration) -&gt; Parser GrpcTimeout
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Duration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;perRequest&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325716"><span id="local-6989586621679325718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325705"><span id="local-6989586621679325707"><span id="local-6989586621679325709"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679325703"><span class="annot"><span class="annottext">toJSON :: GrpcTimeout -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout%27"><span class="hs-identifier hs-type">GrpcTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325700"><span id="local-6989586621679325701"><span class="annot"><span class="annottext">Maybe Duration
+perRequest :: Maybe Duration
+idle :: Maybe Duration
+$sel:perRequest:GrpcTimeout' :: GrpcTimeout -&gt; Maybe Duration
+$sel:idle:GrpcTimeout' :: GrpcTimeout -&gt; Maybe Duration
+</span><a href="#local-6989586621679325700"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;idle&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Duration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Duration -&gt; Pair) -&gt; Maybe Duration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325701"><span class="hs-identifier hs-var">idle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;perRequest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Duration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Duration -&gt; Pair) -&gt; Maybe Duration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679325700"><span class="hs-identifier hs-var">perRequest</span></a></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span></pre></body></html>

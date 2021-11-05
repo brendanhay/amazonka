@@ -1,0 +1,1044 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FinSpaceData.Types.ChangesetInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FinSpaceData.Types.ChangesetInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangeType.html"><span class="hs-identifier">Network.AWS.FinSpaceData.Types.ChangeType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetStatus.html"><span class="hs-identifier">Network.AWS.FinSpaceData.Types.ChangesetStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ErrorInfo.html"><span class="hs-identifier">Network.AWS.FinSpaceData.Types.ErrorInfo</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.FormatType.html"><span class="hs-identifier">Network.AWS.FinSpaceData.Types.FormatType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.SourceType.html"><span class="hs-identifier">Network.AWS.FinSpaceData.Types.SourceType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | A changeset is unit of data in a dataset.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newChangesetInfo' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679152612"><span id="local-6989586621679152613"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangesetInfo"><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-var">ChangesetInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangesetInfo%27"><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-var">ChangesetInfo'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of changeset creation operation.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe ChangesetStatus
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3Astatus%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetStatus.html#ChangesetStatus"><span class="hs-identifier hs-type">ChangesetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Type of the data source from which the files to create the changeset are</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- sourced.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @S3@ - Amazon S3.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsourceType%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe SourceType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AsourceType%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Source path from which the files to create the changeset are sourced.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsourceParams%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AsourceParams%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">sourceParams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Tags associated with the changeset.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AchangesetLabels%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangesetLabels%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">changesetLabels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Unique identifier of the changeset that is updated a changeset.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AupdatedByChangesetId%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AupdatedByChangesetId%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">updatedByChangesetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the FinSpace dataset in which the changeset is</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdatasetId%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AdatasetId%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">datasetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Structure of the source file(s).</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AformatParams%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AformatParams%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">formatParams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The timestamp at which the changeset was created in FinSpace.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcreateTimestamp%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe POSIX
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AcreateTimestamp%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Unique identifier for a changeset.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aid%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3Aid%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Format type of the input files loaded into the changeset.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AformatType%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe FormatType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AformatType%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">formatType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.FormatType.html#FormatType"><span class="hs-identifier hs-type">FormatType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Unique identifier of the changeset that is updated.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AupdatesChangesetId%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AupdatesChangesetId%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">updatesChangesetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Change type indicates how a changeset is applied to a dataset.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @REPLACE@ - Changeset is considered as a replacement to all prior</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     loaded changesets.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @APPEND@ - Changeset is considered as an addition to the end of all</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     prior loaded changesets.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @MODIFY@ - Changeset is considered as a replacement to a specific</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     prior ingested changeset.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AchangeType%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe ChangeType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangeType%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">changeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The structure with error messages.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AerrorInfo%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe ErrorInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AerrorInfo%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The ARN identifier of the changeset.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AchangesetArn%3AChangesetInfo%27"><span class="annot"><span class="annottext">ChangesetInfo -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangesetArn%3AChangesetInfo%27"><span class="hs-identifier hs-var hs-var">changesetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152593"><span id="local-6989586621679152595"><span class="annot"><span class="annottext">ChangesetInfo -&gt; ChangesetInfo -&gt; Bool
+(ChangesetInfo -&gt; ChangesetInfo -&gt; Bool)
+-&gt; (ChangesetInfo -&gt; ChangesetInfo -&gt; Bool) -&gt; Eq ChangesetInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChangesetInfo -&gt; ChangesetInfo -&gt; Bool
+$c/= :: ChangesetInfo -&gt; ChangesetInfo -&gt; Bool
+== :: ChangesetInfo -&gt; ChangesetInfo -&gt; Bool
+$c== :: ChangesetInfo -&gt; ChangesetInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152584"><span id="local-6989586621679152586"><span id="local-6989586621679152588"><span id="local-6989586621679152590"><span class="annot"><span class="annottext">ReadPrec [ChangesetInfo]
+ReadPrec ChangesetInfo
+Int -&gt; ReadS ChangesetInfo
+ReadS [ChangesetInfo]
+(Int -&gt; ReadS ChangesetInfo)
+-&gt; ReadS [ChangesetInfo]
+-&gt; ReadPrec ChangesetInfo
+-&gt; ReadPrec [ChangesetInfo]
+-&gt; Read ChangesetInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChangesetInfo]
+$creadListPrec :: ReadPrec [ChangesetInfo]
+readPrec :: ReadPrec ChangesetInfo
+$creadPrec :: ReadPrec ChangesetInfo
+readList :: ReadS [ChangesetInfo]
+$creadList :: ReadS [ChangesetInfo]
+readsPrec :: Int -&gt; ReadS ChangesetInfo
+$creadsPrec :: Int -&gt; ReadS ChangesetInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152577"><span id="local-6989586621679152579"><span id="local-6989586621679152581"><span class="annot"><span class="annottext">Int -&gt; ChangesetInfo -&gt; ShowS
+[ChangesetInfo] -&gt; ShowS
+ChangesetInfo -&gt; String
+(Int -&gt; ChangesetInfo -&gt; ShowS)
+-&gt; (ChangesetInfo -&gt; String)
+-&gt; ([ChangesetInfo] -&gt; ShowS)
+-&gt; Show ChangesetInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChangesetInfo] -&gt; ShowS
+$cshowList :: [ChangesetInfo] -&gt; ShowS
+show :: ChangesetInfo -&gt; String
+$cshow :: ChangesetInfo -&gt; String
+showsPrec :: Int -&gt; ChangesetInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChangesetInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ChangesetInfo -&gt; Rep ChangesetInfo x)
+-&gt; (forall x. Rep ChangesetInfo x -&gt; ChangesetInfo)
+-&gt; Generic ChangesetInfo
+forall x. Rep ChangesetInfo x -&gt; ChangesetInfo
+forall x. ChangesetInfo -&gt; Rep ChangesetInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChangesetInfo x -&gt; ChangesetInfo
+$cfrom :: forall x. ChangesetInfo -&gt; Rep ChangesetInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'ChangesetInfo' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'status', 'changesetInfo_status' - The status of changeset creation operation.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'sourceType', 'changesetInfo_sourceType' - Type of the data source from which the files to create the changeset are</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- sourced.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   @S3@ - Amazon S3.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'sourceParams', 'changesetInfo_sourceParams' - Source path from which the files to create the changeset are sourced.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'changesetLabels', 'changesetInfo_changesetLabels' - Tags associated with the changeset.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'updatedByChangesetId', 'changesetInfo_updatedByChangesetId' - Unique identifier of the changeset that is updated a changeset.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'datasetId', 'changesetInfo_datasetId' - The unique identifier for the FinSpace dataset in which the changeset is</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'formatParams', 'changesetInfo_formatParams' - Structure of the source file(s).</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'createTimestamp', 'changesetInfo_createTimestamp' - The timestamp at which the changeset was created in FinSpace.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'id', 'changesetInfo_id' - Unique identifier for a changeset.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'formatType', 'changesetInfo_formatType' - Format type of the input files loaded into the changeset.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'updatesChangesetId', 'changesetInfo_updatesChangesetId' - Unique identifier of the changeset that is updated.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'changeType', 'changesetInfo_changeType' - Change type indicates how a changeset is applied to a dataset.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @REPLACE@ - Changeset is considered as a replacement to all prior</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     loaded changesets.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @APPEND@ - Changeset is considered as an addition to the end of all</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     prior loaded changesets.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   @MODIFY@ - Changeset is considered as a replacement to a specific</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     prior ingested changeset.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'errorInfo', 'changesetInfo_errorInfo' - The structure with error messages.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'changesetArn', 'changesetInfo_changesetArn' - The ARN identifier of the changeset.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#newChangesetInfo"><span class="hs-identifier hs-type">newChangesetInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span>
+</span><span id="line-129"></span><span id="newChangesetInfo"><span class="annot"><span class="annottext">newChangesetInfo :: ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#newChangesetInfo"><span class="hs-identifier hs-var hs-var">newChangesetInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">ChangesetInfo' :: Maybe ChangesetStatus
+-&gt; Maybe SourceType
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe FormatType
+-&gt; Maybe Text
+-&gt; Maybe ChangeType
+-&gt; Maybe ErrorInfo
+-&gt; Maybe Text
+-&gt; ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ChangesetInfo' :: Maybe ChangesetStatus
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3Astatus%3AChangesetInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangesetStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:ChangesetInfo' :: Maybe SourceType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AsourceType%3AChangesetInfo%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceParams:ChangesetInfo' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AsourceParams%3AChangesetInfo%27"><span class="hs-identifier hs-var">sourceParams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:changesetLabels:ChangesetInfo' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangesetLabels%3AChangesetInfo%27"><span class="hs-identifier hs-var">changesetLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedByChangesetId:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AupdatedByChangesetId%3AChangesetInfo%27"><span class="hs-identifier hs-var">updatedByChangesetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetId:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AdatasetId%3AChangesetInfo%27"><span class="hs-identifier hs-var">datasetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:formatParams:ChangesetInfo' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AformatParams%3AChangesetInfo%27"><span class="hs-identifier hs-var">formatParams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTimestamp:ChangesetInfo' :: Maybe POSIX
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AcreateTimestamp%3AChangesetInfo%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3Aid%3AChangesetInfo%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:formatType:ChangesetInfo' :: Maybe FormatType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AformatType%3AChangesetInfo%27"><span class="hs-identifier hs-var">formatType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FormatType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatesChangesetId:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AupdatesChangesetId%3AChangesetInfo%27"><span class="hs-identifier hs-var">updatesChangesetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeType:ChangesetInfo' :: Maybe ChangeType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangeType%3AChangesetInfo%27"><span class="hs-identifier hs-var">changeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorInfo:ChangesetInfo' :: Maybe ErrorInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AerrorInfo%3AChangesetInfo%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:changesetArn:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangesetArn%3AChangesetInfo%27"><span class="hs-identifier hs-var">changesetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The status of changeset creation operation.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_status"><span class="hs-identifier hs-type">changesetInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetStatus.html#ChangesetStatus"><span class="hs-identifier hs-type">ChangesetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="changesetInfo_status"><span class="annot"><span class="annottext">changesetInfo_status :: (Maybe ChangesetStatus -&gt; f (Maybe ChangesetStatus))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_status"><span class="hs-identifier hs-var hs-var">changesetInfo_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe ChangesetStatus)
+-&gt; (ChangesetInfo -&gt; Maybe ChangesetStatus -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo
+     ChangesetInfo
+     (Maybe ChangesetStatus)
+     (Maybe ChangesetStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152568"><span class="annot"><span class="annottext">Maybe ChangesetStatus
+status :: Maybe ChangesetStatus
+$sel:status:ChangesetInfo' :: ChangesetInfo -&gt; Maybe ChangesetStatus
+</span><a href="#local-6989586621679152568"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangesetStatus
+</span><a href="#local-6989586621679152568"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152567"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152566"><span class="annot"><span class="annottext">Maybe ChangesetStatus
+</span><a href="#local-6989586621679152566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ChangesetInfo' :: Maybe ChangesetStatus
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3Astatus%3AChangesetInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangesetStatus
+</span><a href="#local-6989586621679152566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Type of the data source from which the files to create the changeset are</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- sourced.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @S3@ - Amazon S3.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_sourceType"><span class="hs-identifier hs-type">changesetInfo_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="changesetInfo_sourceType"><span class="annot"><span class="annottext">changesetInfo_sourceType :: (Maybe SourceType -&gt; f (Maybe SourceType))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_sourceType"><span class="hs-identifier hs-var hs-var">changesetInfo_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe SourceType)
+-&gt; (ChangesetInfo -&gt; Maybe SourceType -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo ChangesetInfo (Maybe SourceType) (Maybe SourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152564"><span class="annot"><span class="annottext">Maybe SourceType
+sourceType :: Maybe SourceType
+$sel:sourceType:ChangesetInfo' :: ChangesetInfo -&gt; Maybe SourceType
+</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152563"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152562"><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679152562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:ChangesetInfo' :: Maybe SourceType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AsourceType%3AChangesetInfo%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679152562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Source path from which the files to create the changeset are sourced.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_sourceParams"><span class="hs-identifier hs-type">changesetInfo_sourceParams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="changesetInfo_sourceParams"><span class="annot"><span class="annottext">changesetInfo_sourceParams :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_sourceParams"><span class="hs-identifier hs-var hs-var">changesetInfo_sourceParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe (HashMap Text Text))
+-&gt; (ChangesetInfo -&gt; Maybe (HashMap Text Text) -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo
+     ChangesetInfo
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152560"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+sourceParams :: Maybe (HashMap Text Text)
+$sel:sourceParams:ChangesetInfo' :: ChangesetInfo -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152560"><span class="hs-identifier hs-var hs-var">sourceParams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152560"><span class="hs-identifier hs-var">sourceParams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152559"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152558"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceParams:ChangesetInfo' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AsourceParams%3AChangesetInfo%27"><span class="hs-identifier hs-var">sourceParams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ChangesetInfo -&gt; f ChangesetInfo)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ChangesetInfo
+-&gt; f ChangesetInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Tags associated with the changeset.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_changesetLabels"><span class="hs-identifier hs-type">changesetInfo_changesetLabels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="changesetInfo_changesetLabels"><span class="annot"><span class="annottext">changesetInfo_changesetLabels :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_changesetLabels"><span class="hs-identifier hs-var hs-var">changesetInfo_changesetLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe (HashMap Text Text))
+-&gt; (ChangesetInfo -&gt; Maybe (HashMap Text Text) -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo
+     ChangesetInfo
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152553"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+changesetLabels :: Maybe (HashMap Text Text)
+$sel:changesetLabels:ChangesetInfo' :: ChangesetInfo -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152553"><span class="hs-identifier hs-var hs-var">changesetLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152553"><span class="hs-identifier hs-var">changesetLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152552"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152551"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changesetLabels:ChangesetInfo' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangesetLabels%3AChangesetInfo%27"><span class="hs-identifier hs-var">changesetLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ChangesetInfo -&gt; f ChangesetInfo)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ChangesetInfo
+-&gt; f ChangesetInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Unique identifier of the changeset that is updated a changeset.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_updatedByChangesetId"><span class="hs-identifier hs-type">changesetInfo_updatedByChangesetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="changesetInfo_updatedByChangesetId"><span class="annot"><span class="annottext">changesetInfo_updatedByChangesetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_updatedByChangesetId"><span class="hs-identifier hs-var hs-var">changesetInfo_updatedByChangesetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe Text)
+-&gt; (ChangesetInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+-&gt; Lens ChangesetInfo ChangesetInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152549"><span class="annot"><span class="annottext">Maybe Text
+updatedByChangesetId :: Maybe Text
+$sel:updatedByChangesetId:ChangesetInfo' :: ChangesetInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679152549"><span class="hs-identifier hs-var hs-var">updatedByChangesetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152549"><span class="hs-identifier hs-var">updatedByChangesetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152548"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152547"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedByChangesetId:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AupdatedByChangesetId%3AChangesetInfo%27"><span class="hs-identifier hs-var">updatedByChangesetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The unique identifier for the FinSpace dataset in which the changeset is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_datasetId"><span class="hs-identifier hs-type">changesetInfo_datasetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="changesetInfo_datasetId"><span class="annot"><span class="annottext">changesetInfo_datasetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_datasetId"><span class="hs-identifier hs-var hs-var">changesetInfo_datasetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe Text)
+-&gt; (ChangesetInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+-&gt; Lens ChangesetInfo ChangesetInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152545"><span class="annot"><span class="annottext">Maybe Text
+datasetId :: Maybe Text
+$sel:datasetId:ChangesetInfo' :: ChangesetInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679152545"><span class="hs-identifier hs-var hs-var">datasetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152545"><span class="hs-identifier hs-var">datasetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152544"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetId:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AdatasetId%3AChangesetInfo%27"><span class="hs-identifier hs-var">datasetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Structure of the source file(s).</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_formatParams"><span class="hs-identifier hs-type">changesetInfo_formatParams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="changesetInfo_formatParams"><span class="annot"><span class="annottext">changesetInfo_formatParams :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_formatParams"><span class="hs-identifier hs-var hs-var">changesetInfo_formatParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe (HashMap Text Text))
+-&gt; (ChangesetInfo -&gt; Maybe (HashMap Text Text) -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo
+     ChangesetInfo
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152541"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+formatParams :: Maybe (HashMap Text Text)
+$sel:formatParams:ChangesetInfo' :: ChangesetInfo -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152541"><span class="hs-identifier hs-var hs-var">formatParams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152541"><span class="hs-identifier hs-var">formatParams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152540"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152539"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatParams:ChangesetInfo' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AformatParams%3AChangesetInfo%27"><span class="hs-identifier hs-var">formatParams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ChangesetInfo -&gt; f ChangesetInfo)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ChangesetInfo
+-&gt; f ChangesetInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The timestamp at which the changeset was created in FinSpace.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_createTimestamp"><span class="hs-identifier hs-type">changesetInfo_createTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="changesetInfo_createTimestamp"><span class="annot"><span class="annottext">changesetInfo_createTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_createTimestamp"><span class="hs-identifier hs-var hs-var">changesetInfo_createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe POSIX)
+-&gt; (ChangesetInfo -&gt; Maybe POSIX -&gt; ChangesetInfo)
+-&gt; Lens ChangesetInfo ChangesetInfo (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152537"><span class="annot"><span class="annottext">Maybe POSIX
+createTimestamp :: Maybe POSIX
+$sel:createTimestamp:ChangesetInfo' :: ChangesetInfo -&gt; Maybe POSIX
+</span><a href="#local-6989586621679152537"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152537"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152536"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152535"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTimestamp:ChangesetInfo' :: Maybe POSIX
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AcreateTimestamp%3AChangesetInfo%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ChangesetInfo -&gt; f ChangesetInfo)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChangesetInfo
+-&gt; f ChangesetInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Unique identifier for a changeset.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_id"><span class="hs-identifier hs-type">changesetInfo_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="changesetInfo_id"><span class="annot"><span class="annottext">changesetInfo_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_id"><span class="hs-identifier hs-var hs-var">changesetInfo_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe Text)
+-&gt; (ChangesetInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+-&gt; Lens ChangesetInfo ChangesetInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152532"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ChangesetInfo' :: ChangesetInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679152532"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152532"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152531"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3Aid%3AChangesetInfo%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Format type of the input files loaded into the changeset.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_formatType"><span class="hs-identifier hs-type">changesetInfo_formatType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.FormatType.html#FormatType"><span class="hs-identifier hs-type">FormatType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="changesetInfo_formatType"><span class="annot"><span class="annottext">changesetInfo_formatType :: (Maybe FormatType -&gt; f (Maybe FormatType))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_formatType"><span class="hs-identifier hs-var hs-var">changesetInfo_formatType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe FormatType)
+-&gt; (ChangesetInfo -&gt; Maybe FormatType -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo ChangesetInfo (Maybe FormatType) (Maybe FormatType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152528"><span class="annot"><span class="annottext">Maybe FormatType
+formatType :: Maybe FormatType
+$sel:formatType:ChangesetInfo' :: ChangesetInfo -&gt; Maybe FormatType
+</span><a href="#local-6989586621679152528"><span class="hs-identifier hs-var hs-var">formatType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FormatType
+</span><a href="#local-6989586621679152528"><span class="hs-identifier hs-var">formatType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152527"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152526"><span class="annot"><span class="annottext">Maybe FormatType
+</span><a href="#local-6989586621679152526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatType:ChangesetInfo' :: Maybe FormatType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AformatType%3AChangesetInfo%27"><span class="hs-identifier hs-var">formatType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FormatType
+</span><a href="#local-6989586621679152526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | Unique identifier of the changeset that is updated.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_updatesChangesetId"><span class="hs-identifier hs-type">changesetInfo_updatesChangesetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="changesetInfo_updatesChangesetId"><span class="annot"><span class="annottext">changesetInfo_updatesChangesetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_updatesChangesetId"><span class="hs-identifier hs-var hs-var">changesetInfo_updatesChangesetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe Text)
+-&gt; (ChangesetInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+-&gt; Lens ChangesetInfo ChangesetInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152524"><span class="annot"><span class="annottext">Maybe Text
+updatesChangesetId :: Maybe Text
+$sel:updatesChangesetId:ChangesetInfo' :: ChangesetInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679152524"><span class="hs-identifier hs-var hs-var">updatesChangesetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152524"><span class="hs-identifier hs-var">updatesChangesetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152523"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152522"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatesChangesetId:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AupdatesChangesetId%3AChangesetInfo%27"><span class="hs-identifier hs-var">updatesChangesetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Change type indicates how a changeset is applied to a dataset.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   @REPLACE@ - Changeset is considered as a replacement to all prior</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     loaded changesets.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   @APPEND@ - Changeset is considered as an addition to the end of all</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     prior loaded changesets.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   @MODIFY@ - Changeset is considered as a replacement to a specific</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     prior ingested changeset.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_changeType"><span class="hs-identifier hs-type">changesetInfo_changeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="changesetInfo_changeType"><span class="annot"><span class="annottext">changesetInfo_changeType :: (Maybe ChangeType -&gt; f (Maybe ChangeType))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_changeType"><span class="hs-identifier hs-var hs-var">changesetInfo_changeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe ChangeType)
+-&gt; (ChangesetInfo -&gt; Maybe ChangeType -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo ChangesetInfo (Maybe ChangeType) (Maybe ChangeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152520"><span class="annot"><span class="annottext">Maybe ChangeType
+changeType :: Maybe ChangeType
+$sel:changeType:ChangesetInfo' :: ChangesetInfo -&gt; Maybe ChangeType
+</span><a href="#local-6989586621679152520"><span class="hs-identifier hs-var hs-var">changeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679152520"><span class="hs-identifier hs-var">changeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152519"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152518"><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679152518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeType:ChangesetInfo' :: Maybe ChangeType
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangeType%3AChangesetInfo%27"><span class="hs-identifier hs-var">changeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679152518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The structure with error messages.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_errorInfo"><span class="hs-identifier hs-type">changesetInfo_errorInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="changesetInfo_errorInfo"><span class="annot"><span class="annottext">changesetInfo_errorInfo :: (Maybe ErrorInfo -&gt; f (Maybe ErrorInfo))
+-&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_errorInfo"><span class="hs-identifier hs-var hs-var">changesetInfo_errorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe ErrorInfo)
+-&gt; (ChangesetInfo -&gt; Maybe ErrorInfo -&gt; ChangesetInfo)
+-&gt; Lens
+     ChangesetInfo ChangesetInfo (Maybe ErrorInfo) (Maybe ErrorInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152516"><span class="annot"><span class="annottext">Maybe ErrorInfo
+errorInfo :: Maybe ErrorInfo
+$sel:errorInfo:ChangesetInfo' :: ChangesetInfo -&gt; Maybe ErrorInfo
+</span><a href="#local-6989586621679152516"><span class="hs-identifier hs-var hs-var">errorInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679152516"><span class="hs-identifier hs-var">errorInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152515"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152514"><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679152514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorInfo:ChangesetInfo' :: Maybe ErrorInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AerrorInfo%3AChangesetInfo%27"><span class="hs-identifier hs-var">errorInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorInfo
+</span><a href="#local-6989586621679152514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The ARN identifier of the changeset.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_changesetArn"><span class="hs-identifier hs-type">changesetInfo_changesetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="changesetInfo_changesetArn"><span class="annot"><span class="annottext">changesetInfo_changesetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ChangesetInfo -&gt; f ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#changesetInfo_changesetArn"><span class="hs-identifier hs-var hs-var">changesetInfo_changesetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangesetInfo -&gt; Maybe Text)
+-&gt; (ChangesetInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+-&gt; Lens ChangesetInfo ChangesetInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152512"><span class="annot"><span class="annottext">Maybe Text
+changesetArn :: Maybe Text
+$sel:changesetArn:ChangesetInfo' :: ChangesetInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679152512"><span class="hs-identifier hs-var hs-var">changesetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152512"><span class="hs-identifier hs-var">changesetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152511"><span class="annot"><span class="annottext">s :: ChangesetInfo
+</span><a href="#local-6989586621679152511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-type">ChangesetInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangesetInfo
+</span><a href="#local-6989586621679152511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changesetArn:ChangesetInfo' :: Maybe Text
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#%24sel%3AchangesetArn%3AChangesetInfo%27"><span class="hs-identifier hs-var">changesetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152507"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679152505"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChangesetInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChangesetInfo)
+-&gt; Value
+-&gt; Parser ChangesetInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChangesetInfo&quot;</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152502"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChangesetStatus
+-&gt; Maybe SourceType
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe FormatType
+-&gt; Maybe Text
+-&gt; Maybe ChangeType
+-&gt; Maybe ErrorInfo
+-&gt; Maybe Text
+-&gt; ChangesetInfo
+</span><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo%27"><span class="hs-identifier hs-var">ChangesetInfo'</span></a></span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChangesetStatus
+ -&gt; Maybe SourceType
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe FormatType
+ -&gt; Maybe Text
+ -&gt; Maybe ChangeType
+ -&gt; Maybe ErrorInfo
+ -&gt; Maybe Text
+ -&gt; ChangesetInfo)
+-&gt; Parser (Maybe ChangesetStatus)
+-&gt; Parser
+     (Maybe SourceType
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangesetStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SourceType
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe SourceType)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceParams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;changesetLabels&quot;</span></span><span>
+</span><span id="line-226"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-227"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;updatedByChangesetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;formatParams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FormatType
+      -&gt; Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FormatType
+   -&gt; Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe FormatType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ChangeType
+      -&gt; Maybe ErrorInfo
+      -&gt; Maybe Text
+      -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FormatType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;formatType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ChangeType
+   -&gt; Maybe ErrorInfo
+   -&gt; Maybe Text
+   -&gt; ChangesetInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ChangeType
+      -&gt; Maybe ErrorInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;updatesChangesetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChangeType
+   -&gt; Maybe ErrorInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+-&gt; Parser (Maybe ChangeType)
+-&gt; Parser (Maybe ErrorInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;changeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ErrorInfo -&gt; Maybe Text -&gt; ChangesetInfo)
+-&gt; Parser (Maybe ErrorInfo) -&gt; Parser (Maybe Text -&gt; ChangesetInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ChangesetInfo)
+-&gt; Parser (Maybe Text) -&gt; Parser ChangesetInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;changesetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152495"><span id="local-6989586621679152497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span></span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpaceData.Types.ChangesetInfo.html#ChangesetInfo"><span class="hs-identifier hs-type">ChangesetInfo</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

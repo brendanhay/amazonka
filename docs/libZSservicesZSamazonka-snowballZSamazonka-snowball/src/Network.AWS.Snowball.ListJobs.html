@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.html"><span class="hs-identifier">Network.AWS.Snowball.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListJobs' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679228642"><span id="local-6989586621679228643"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobs"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-var">ListJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobs%27"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-var">ListJobs'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679228651"><span id="local-6989586621679228652"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobs"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-var">ListJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobs%27"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-var">ListJobs'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | HTTP requests are stateless. To identify what object comes \&quot;next\&quot; in</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the list of @JobListEntry@ objects, you have the option of specifying</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @NextToken@ as the starting point for your returned list.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Natural
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AmaxResults%3AListJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228635"><span id="local-6989586621679228637"><span class="annot"><span class="annottext">ListJobs -&gt; ListJobs -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228644"><span id="local-6989586621679228646"><span class="annot"><span class="annottext">ListJobs -&gt; ListJobs -&gt; Bool
 (ListJobs -&gt; ListJobs -&gt; Bool)
 -&gt; (ListJobs -&gt; ListJobs -&gt; Bool) -&gt; Eq ListJobs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobs -&gt; ListJobs -&gt; Bool
 == :: ListJobs -&gt; ListJobs -&gt; Bool
 $c== :: ListJobs -&gt; ListJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228626"><span id="local-6989586621679228628"><span id="local-6989586621679228630"><span id="local-6989586621679228632"><span class="annot"><span class="annottext">ReadPrec [ListJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228635"><span id="local-6989586621679228637"><span id="local-6989586621679228639"><span id="local-6989586621679228641"><span class="annot"><span class="annottext">ReadPrec [ListJobs]
 ReadPrec ListJobs
 Int -&gt; ReadS ListJobs
 ReadS [ListJobs]
@@ -94,7 +94,7 @@ readList :: ReadS [ListJobs]
 $creadList :: ReadS [ListJobs]
 readsPrec :: Int -&gt; ReadS ListJobs
 $creadsPrec :: Int -&gt; ReadS ListJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228619"><span id="local-6989586621679228621"><span id="local-6989586621679228623"><span class="annot"><span class="annottext">Int -&gt; ListJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228628"><span id="local-6989586621679228630"><span id="local-6989586621679228632"><span class="annot"><span class="annottext">Int -&gt; ListJobs -&gt; ShowS
 [ListJobs] -&gt; ShowS
 ListJobs -&gt; String
 (Int -&gt; ListJobs -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Maybe a
 -&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228613"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228622"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679228613"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228613"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228612"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679228612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228611"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679228612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobs' :: Maybe Text
+</span><a href="#local-6989586621679228622"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228622"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228621"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679228621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228620"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679228621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobs' :: Maybe Text
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AnextToken%3AListJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The number of @JobListEntry@ objects to return.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#listJobs_maxResults"><span class="hs-identifier hs-type">listJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -173,28 +173,28 @@ $sel:nextToken:ListJobs' :: ListJobs -&gt; Maybe Text
 -&gt; (ListJobs -&gt; Maybe Natural -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228610"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228619"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListJobs' :: ListJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679228610"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228610"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228609"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679228609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228608"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679228609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobs' :: Maybe Natural
+</span><a href="#local-6989586621679228619"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228619"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228618"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679228618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228617"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679228618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobs' :: Maybe Natural
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AmaxResults%3AListJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679228604"><span class="annot"><span class="annottext">page :: ListJobs -&gt; AWSResponse ListJobs -&gt; Maybe ListJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679228602"><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679228602"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679228601"><span class="annot"><span class="annottext">AWSResponse ListJobs
-</span><a href="#local-6989586621679228601"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679228613"><span class="annot"><span class="annottext">page :: ListJobs -&gt; AWSResponse ListJobs -&gt; Maybe ListJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679228611"><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679228611"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679228610"><span class="annot"><span class="annottext">AWSResponse ListJobs
+</span><a href="#local-6989586621679228610"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679228601"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228610"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First Text) ListJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -220,7 +220,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679228601"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228610"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First [JobListEntry]) ListJobsResponse [JobListEntry]
 -&gt; Maybe [JobListEntry]
@@ -256,7 +256,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679228602"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679228611"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">ListJobs -&gt; (ListJobs -&gt; ListJobs) -&gt; ListJobs
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -269,7 +269,7 @@ Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679228601"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228610"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First Text) ListJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -289,12 +289,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679228591"><span class="annot"><span class="annottext">request :: ListJobs -&gt; Request ListJobs
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679228600"><span class="annot"><span class="annottext">request :: ListJobs -&gt; Request ListJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListJobs -&gt; Request ListJobs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Snowball.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679228587"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679228596"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJobs
 -&gt; ClientResponse ClientBody
@@ -318,10 +318,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228584"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228584"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228583"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679228583"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228582"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228582"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228593"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228593"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228592"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679228592"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228591"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228591"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobListEntry] -&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse
 </span><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [JobListEntry] -&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse)
@@ -329,7 +329,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [JobListEntry]))
+</span><a href="#local-6989586621679228591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [JobListEntry]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobListEntries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobListEntry]))
@@ -343,7 +343,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListJobsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679228591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,15 +355,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228584"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228593"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228573"><span id="local-6989586621679228575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228582"><span id="local-6989586621679228584"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679228566"><span class="annot"><span class="annottext">toHeaders :: ListJobs -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679228575"><span class="annot"><span class="annottext">toHeaders :: ListJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -390,15 +390,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228556"><span id="local-6989586621679228558"><span id="local-6989586621679228560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679228554"><span class="annot"><span class="annottext">toJSON :: ListJobs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228551"><span id="local-6989586621679228552"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228565"><span id="local-6989586621679228567"><span id="local-6989586621679228569"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679228563"><span class="annot"><span class="annottext">toJSON :: ListJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228560"><span id="local-6989586621679228561"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListJobs' :: ListJobs -&gt; Maybe Natural
 $sel:nextToken:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679228551"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679228560"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -410,26 +410,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228552"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228561"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228551"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679228560"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679228545"><span class="annot"><span class="annottext">toPath :: ListJobs -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679228554"><span class="annot"><span class="annottext">toPath :: ListJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679228541"><span class="annot"><span class="annottext">toQuery :: ListJobs -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679228550"><span class="annot"><span class="annottext">toQuery :: ListJobs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListJobs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -437,7 +437,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newListJobsResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679228538"><span id="local-6989586621679228539"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsResponse"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-var">ListJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsResponse%27"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679228547"><span id="local-6989586621679228548"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsResponse"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-var">ListJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsResponse%27"><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a</span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-comment">-- value that indicates whether the job is a job part, in the case of</span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-comment">-- export jobs.</span><span>
@@ -452,7 +452,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Int
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228531"><span id="local-6989586621679228533"><span class="annot"><span class="annottext">ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228540"><span id="local-6989586621679228542"><span class="annot"><span class="annottext">ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 (ListJobsResponse -&gt; ListJobsResponse -&gt; Bool)
 -&gt; (ListJobsResponse -&gt; ListJobsResponse -&gt; Bool)
 -&gt; Eq ListJobsResponse
@@ -461,7 +461,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 == :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 $c== :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228523"><span id="local-6989586621679228525"><span id="local-6989586621679228527"><span id="local-6989586621679228529"><span class="annot"><span class="annottext">ReadPrec [ListJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228532"><span id="local-6989586621679228534"><span id="local-6989586621679228536"><span id="local-6989586621679228538"><span class="annot"><span class="annottext">ReadPrec [ListJobsResponse]
 ReadPrec ListJobsResponse
 Int -&gt; ReadS ListJobsResponse
 ReadS [ListJobsResponse]
@@ -481,7 +481,7 @@ readList :: ReadS [ListJobsResponse]
 $creadList :: ReadS [ListJobsResponse]
 readsPrec :: Int -&gt; ReadS ListJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228517"><span id="local-6989586621679228519"><span id="local-6989586621679228521"><span class="annot"><span class="annottext">Int -&gt; ListJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228526"><span id="local-6989586621679228528"><span id="local-6989586621679228530"><span class="annot"><span class="annottext">Int -&gt; ListJobsResponse -&gt; ShowS
 [ListJobsResponse] -&gt; ShowS
 ListJobsResponse -&gt; String
 (Int -&gt; ListJobsResponse -&gt; ShowS)
@@ -529,8 +529,8 @@ $cfrom :: forall x. ListJobsResponse -&gt; Rep ListJobsResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newListJobsResponse"><span class="annot"><span class="annottext">newListJobsResponse :: Int -&gt; ListJobsResponse
-</span><a href="Network.AWS.Snowball.ListJobs.html#newListJobsResponse"><span class="hs-identifier hs-var hs-var">newListJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679228514"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Snowball.ListJobs.html#newListJobsResponse"><span class="hs-identifier hs-var hs-var">newListJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679228523"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">ListJobsResponse' :: Maybe [JobListEntry] -&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse
 </span><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobListEntries:ListJobsResponse' :: Maybe [JobListEntry]
@@ -543,7 +543,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679228523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a</span><span>
@@ -556,16 +556,16 @@ forall a. Maybe a
 -&gt; (ListJobsResponse -&gt; Maybe [JobListEntry] -&gt; ListJobsResponse)
 -&gt; Lens' ListJobsResponse (Maybe [JobListEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228513"><span class="annot"><span class="annottext">Maybe [JobListEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228522"><span class="annot"><span class="annottext">Maybe [JobListEntry]
 jobListEntries :: Maybe [JobListEntry]
 $sel:jobListEntries:ListJobsResponse' :: ListJobsResponse -&gt; Maybe [JobListEntry]
-</span><a href="#local-6989586621679228513"><span class="hs-identifier hs-var hs-var">jobListEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobListEntry]
-</span><a href="#local-6989586621679228513"><span class="hs-identifier hs-var">jobListEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228512"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679228512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228511"><span class="annot"><span class="annottext">Maybe [JobListEntry]
-</span><a href="#local-6989586621679228511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679228512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobListEntries:ListJobsResponse' :: Maybe [JobListEntry]
+</span><a href="#local-6989586621679228522"><span class="hs-identifier hs-var hs-var">jobListEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobListEntry]
+</span><a href="#local-6989586621679228522"><span class="hs-identifier hs-var">jobListEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228521"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679228521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228520"><span class="annot"><span class="annottext">Maybe [JobListEntry]
+</span><a href="#local-6989586621679228520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679228521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobListEntries:ListJobsResponse' :: Maybe [JobListEntry]
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AjobListEntries%3AListJobsResponse%27"><span class="hs-identifier hs-var">jobListEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobListEntry]
-</span><a href="#local-6989586621679228511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobListEntry] -&gt; f (Maybe [JobListEntry]))
+</span><a href="#local-6989586621679228520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobListEntry] -&gt; f (Maybe [JobListEntry]))
  -&gt; ListJobsResponse -&gt; f ListJobsResponse)
 -&gt; ((Maybe [JobListEntry] -&gt; f (Maybe [JobListEntry]))
     -&gt; Maybe [JobListEntry] -&gt; f (Maybe [JobListEntry]))
@@ -596,16 +596,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListJobsResponse -&gt; Maybe Text -&gt; ListJobsResponse)
 -&gt; Lens' ListJobsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228508"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228517"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJobsResponse' :: ListJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679228508"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228508"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228507"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679228507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228506"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679228507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobsResponse' :: Maybe Text
+</span><a href="#local-6989586621679228517"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228517"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228516"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679228516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679228516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobsResponse' :: Maybe Text
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AnextToken%3AListJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#listJobsResponse_httpStatus"><span class="hs-identifier hs-type">listJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -614,16 +614,16 @@ $sel:nextToken:ListJobsResponse' :: ListJobsResponse -&gt; Maybe Text
 -&gt; (ListJobsResponse -&gt; Int -&gt; ListJobsResponse)
 -&gt; Lens ListJobsResponse ListJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228505"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228514"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJobsResponse' :: ListJobsResponse -&gt; Int
-</span><a href="#local-6989586621679228505"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228505"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228504"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679228504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228503"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679228504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
+</span><a href="#local-6989586621679228514"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228514"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228513"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679228513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679228513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
 </span><a href="Network.AWS.Snowball.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

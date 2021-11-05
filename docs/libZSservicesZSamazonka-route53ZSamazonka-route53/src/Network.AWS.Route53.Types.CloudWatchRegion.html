@@ -55,13 +55,13 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span id="local-6989586621679293410"><span id="local-6989586621679293411"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchRegion"><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchRegion.html#CloudWatchRegion"><span class="hs-identifier hs-var">CloudWatchRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchRegion%27"><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchRegion.html#CloudWatchRegion%27"><span class="hs-identifier hs-var">CloudWatchRegion'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679293419"><span id="local-6989586621679293420"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchRegion"><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchRegion.html#CloudWatchRegion"><span class="hs-identifier hs-var">CloudWatchRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchRegion%27"><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchRegion.html#CloudWatchRegion%27"><span class="hs-identifier hs-var">CloudWatchRegion'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudWatchRegion"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; Text
 </span><a href="Network.AWS.Route53.Types.CloudWatchRegion.html#fromCloudWatchRegion"><span class="hs-identifier hs-var hs-var">fromCloudWatchRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293402"><span id="local-6989586621679293404"><span id="local-6989586621679293406"><span class="annot"><span class="annottext">Int -&gt; CloudWatchRegion -&gt; ShowS
+</span><span id="line-63"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293411"><span id="local-6989586621679293413"><span id="local-6989586621679293415"><span class="annot"><span class="annottext">Int -&gt; CloudWatchRegion -&gt; ShowS
 [CloudWatchRegion] -&gt; ShowS
 CloudWatchRegion -&gt; String
 (Int -&gt; CloudWatchRegion -&gt; ShowS)
@@ -77,7 +77,7 @@ $cshow :: CloudWatchRegion -&gt; String
 showsPrec :: Int -&gt; CloudWatchRegion -&gt; ShowS
 $cshowsPrec :: Int -&gt; CloudWatchRegion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679293393"><span id="local-6989586621679293395"><span id="local-6989586621679293397"><span id="local-6989586621679293399"><span class="annot"><span class="annottext">ReadPrec [CloudWatchRegion]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679293402"><span id="local-6989586621679293404"><span id="local-6989586621679293406"><span id="local-6989586621679293408"><span class="annot"><span class="annottext">ReadPrec [CloudWatchRegion]
 ReadPrec CloudWatchRegion
 Int -&gt; ReadS CloudWatchRegion
 ReadS [CloudWatchRegion]
@@ -98,7 +98,7 @@ $creadList :: ReadS [CloudWatchRegion]
 readsPrec :: Int -&gt; ReadS CloudWatchRegion
 $creadsPrec :: Int -&gt; ReadS CloudWatchRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679293388"><span id="local-6989586621679293390"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679293397"><span id="local-6989586621679293399"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool
 (CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool)
 -&gt; (CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool)
 -&gt; Eq CloudWatchRegion
@@ -108,7 +108,7 @@ $c/= :: CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool
 == :: CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool
 $c== :: CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679293372"><span id="local-6989586621679293374"><span id="local-6989586621679293376"><span id="local-6989586621679293378"><span id="local-6989586621679293380"><span id="local-6989586621679293382"><span id="local-6989586621679293384"><span class="annot"><span class="annottext">Eq CloudWatchRegion
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679293381"><span id="local-6989586621679293383"><span id="local-6989586621679293385"><span id="local-6989586621679293387"><span id="local-6989586621679293389"><span id="local-6989586621679293391"><span id="local-6989586621679293393"><span class="annot"><span class="annottext">Eq CloudWatchRegion
 Eq CloudWatchRegion
 -&gt; (CloudWatchRegion -&gt; CloudWatchRegion -&gt; Ordering)
 -&gt; (CloudWatchRegion -&gt; CloudWatchRegion -&gt; Bool)
@@ -159,7 +159,7 @@ $cfrom :: forall x. CloudWatchRegion -&gt; Rep CloudWatchRegion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293364"><span id="local-6989586621679293366"><span class="annot"><span class="annottext">Int -&gt; CloudWatchRegion -&gt; Int
+</span><span id="line-70"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293373"><span id="local-6989586621679293375"><span class="annot"><span class="annottext">Int -&gt; CloudWatchRegion -&gt; Int
 CloudWatchRegion -&gt; Int
 (Int -&gt; CloudWatchRegion -&gt; Int)
 -&gt; (CloudWatchRegion -&gt; Int) -&gt; Hashable CloudWatchRegion
@@ -169,51 +169,51 @@ $chash :: CloudWatchRegion -&gt; Int
 hashWithSalt :: Int -&gt; CloudWatchRegion -&gt; Int
 $chashWithSalt :: Int -&gt; CloudWatchRegion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679293361"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; ()
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679293370"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; ()
 (CloudWatchRegion -&gt; ()) -&gt; NFData CloudWatchRegion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CloudWatchRegion -&gt; ()
 $crnf :: CloudWatchRegion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679293358"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchRegion
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679293367"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchRegion
 (Text -&gt; Either String CloudWatchRegion)
 -&gt; FromText CloudWatchRegion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CloudWatchRegion
 $cfromText :: Text -&gt; Either String CloudWatchRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679293355"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; Text
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679293364"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; Text
 (CloudWatchRegion -&gt; Text) -&gt; ToText CloudWatchRegion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CloudWatchRegion -&gt; Text
 $ctoText :: CloudWatchRegion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679293352"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; ByteString
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679293361"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; ByteString
 (CloudWatchRegion -&gt; ByteString) -&gt; ToByteString CloudWatchRegion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CloudWatchRegion -&gt; ByteString
 $ctoBS :: CloudWatchRegion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679293349"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; ByteStringBuilder
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679293358"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; ByteStringBuilder
 (CloudWatchRegion -&gt; ByteStringBuilder) -&gt; ToLog CloudWatchRegion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CloudWatchRegion -&gt; ByteStringBuilder
 $cbuild :: CloudWatchRegion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679293346"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchRegion -&gt; [Header]
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679293355"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchRegion -&gt; [Header]
 (HeaderName -&gt; CloudWatchRegion -&gt; [Header])
 -&gt; ToHeader CloudWatchRegion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CloudWatchRegion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CloudWatchRegion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679293343"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; QueryString
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679293352"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; QueryString
 (CloudWatchRegion -&gt; QueryString) -&gt; ToQuery CloudWatchRegion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CloudWatchRegion -&gt; QueryString
 $ctoQuery :: CloudWatchRegion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679293338"><span id="local-6989586621679293340"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchRegion]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679293347"><span id="local-6989586621679293349"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchRegion]
 Value -&gt; Parser CloudWatchRegion
 (Value -&gt; Parser CloudWatchRegion)
 -&gt; (Value -&gt; Parser [CloudWatchRegion])
@@ -225,7 +225,7 @@ $cparseJSONList :: Value -&gt; Parser [CloudWatchRegion]
 parseJSON :: Value -&gt; Parser CloudWatchRegion
 $cparseJSON :: Value -&gt; Parser CloudWatchRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679293333"><span id="local-6989586621679293335"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchRegion]
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679293342"><span id="local-6989586621679293344"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchRegion]
 FromJSONKeyFunction CloudWatchRegion
 FromJSONKeyFunction CloudWatchRegion
 -&gt; FromJSONKeyFunction [CloudWatchRegion]
@@ -237,7 +237,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CloudWatchRegion]
 fromJSONKey :: FromJSONKeyFunction CloudWatchRegion
 $cfromJSONKey :: FromJSONKeyFunction CloudWatchRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679293324"><span id="local-6989586621679293326"><span id="local-6989586621679293328"><span id="local-6989586621679293330"><span class="annot"><span class="annottext">[CloudWatchRegion] -&gt; Encoding
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679293333"><span id="local-6989586621679293335"><span id="local-6989586621679293337"><span id="local-6989586621679293339"><span class="annot"><span class="annottext">[CloudWatchRegion] -&gt; Encoding
 [CloudWatchRegion] -&gt; Value
 CloudWatchRegion -&gt; Encoding
 CloudWatchRegion -&gt; Value
@@ -261,7 +261,7 @@ $ctoEncoding :: CloudWatchRegion -&gt; Encoding
 toJSON :: CloudWatchRegion -&gt; Value
 $ctoJSON :: CloudWatchRegion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679293319"><span id="local-6989586621679293321"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchRegion]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679293328"><span id="local-6989586621679293330"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchRegion]
 ToJSONKeyFunction CloudWatchRegion
 ToJSONKeyFunction CloudWatchRegion
 -&gt; ToJSONKeyFunction [CloudWatchRegion]
@@ -273,14 +273,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CloudWatchRegion]
 toJSONKey :: ToJSONKeyFunction CloudWatchRegion
 $ctoJSONKey :: ToJSONKeyFunction CloudWatchRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679293316"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchRegion
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679293325"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchRegion
 ([Node] -&gt; Either String CloudWatchRegion)
 -&gt; FromXML CloudWatchRegion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CloudWatchRegion
 $cparseXML :: [Node] -&gt; Either String CloudWatchRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679293313"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; XML
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679293322"><span class="annot"><span class="annottext">CloudWatchRegion -&gt; XML
 (CloudWatchRegion -&gt; XML) -&gt; ToXML CloudWatchRegion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CloudWatchRegion -&gt; XML

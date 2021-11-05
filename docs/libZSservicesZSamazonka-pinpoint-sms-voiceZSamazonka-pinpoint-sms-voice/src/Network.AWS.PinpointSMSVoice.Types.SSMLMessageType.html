@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.PinpointSMSVoice.Types.SSMLMessageType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.PinpointSMSVoice.Types.SSMLMessageType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that defines a message that contains SSML-formatted text.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSSMLMessageType' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679150792"><span id="local-6989586621679150793"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSMLMessageType"><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-var">SSMLMessageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSMLMessageType%27"><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-var">SSMLMessageType'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language to use when delivering the message. For a complete list of</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- supported languages, see the Amazon Polly Developer Guide.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlanguageCode%3ASSMLMessageType%27"><span class="annot"><span class="annottext">SSMLMessageType -&gt; Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3AlanguageCode%3ASSMLMessageType%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The SSML-formatted text to deliver to the recipient.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atext%3ASSMLMessageType%27"><span class="annot"><span class="annottext">SSMLMessageType -&gt; Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3Atext%3ASSMLMessageType%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the voice that you want to use to deliver the message. For a</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- complete list of supported voices, see the Amazon Polly Developer Guide.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvoiceId%3ASSMLMessageType%27"><span class="annot"><span class="annottext">SSMLMessageType -&gt; Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3AvoiceId%3ASSMLMessageType%27"><span class="hs-identifier hs-var hs-var">voiceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679150784"><span id="local-6989586621679150786"><span class="annot"><span class="annottext">SSMLMessageType -&gt; SSMLMessageType -&gt; Bool
+(SSMLMessageType -&gt; SSMLMessageType -&gt; Bool)
+-&gt; (SSMLMessageType -&gt; SSMLMessageType -&gt; Bool)
+-&gt; Eq SSMLMessageType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SSMLMessageType -&gt; SSMLMessageType -&gt; Bool
+$c/= :: SSMLMessageType -&gt; SSMLMessageType -&gt; Bool
+== :: SSMLMessageType -&gt; SSMLMessageType -&gt; Bool
+$c== :: SSMLMessageType -&gt; SSMLMessageType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150775"><span id="local-6989586621679150777"><span id="local-6989586621679150779"><span id="local-6989586621679150781"><span class="annot"><span class="annottext">ReadPrec [SSMLMessageType]
+ReadPrec SSMLMessageType
+Int -&gt; ReadS SSMLMessageType
+ReadS [SSMLMessageType]
+(Int -&gt; ReadS SSMLMessageType)
+-&gt; ReadS [SSMLMessageType]
+-&gt; ReadPrec SSMLMessageType
+-&gt; ReadPrec [SSMLMessageType]
+-&gt; Read SSMLMessageType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SSMLMessageType]
+$creadListPrec :: ReadPrec [SSMLMessageType]
+readPrec :: ReadPrec SSMLMessageType
+$creadPrec :: ReadPrec SSMLMessageType
+readList :: ReadS [SSMLMessageType]
+$creadList :: ReadS [SSMLMessageType]
+readsPrec :: Int -&gt; ReadS SSMLMessageType
+$creadsPrec :: Int -&gt; ReadS SSMLMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150768"><span id="local-6989586621679150770"><span id="local-6989586621679150772"><span class="annot"><span class="annottext">Int -&gt; SSMLMessageType -&gt; ShowS
+[SSMLMessageType] -&gt; ShowS
+SSMLMessageType -&gt; String
+(Int -&gt; SSMLMessageType -&gt; ShowS)
+-&gt; (SSMLMessageType -&gt; String)
+-&gt; ([SSMLMessageType] -&gt; ShowS)
+-&gt; Show SSMLMessageType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SSMLMessageType] -&gt; ShowS
+$cshowList :: [SSMLMessageType] -&gt; ShowS
+show :: SSMLMessageType -&gt; String
+$cshow :: SSMLMessageType -&gt; String
+showsPrec :: Int -&gt; SSMLMessageType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SSMLMessageType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SSMLMessageType -&gt; Rep SSMLMessageType x)
+-&gt; (forall x. Rep SSMLMessageType x -&gt; SSMLMessageType)
+-&gt; Generic SSMLMessageType
+forall x. Rep SSMLMessageType x -&gt; SSMLMessageType
+forall x. SSMLMessageType -&gt; Rep SSMLMessageType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SSMLMessageType x -&gt; SSMLMessageType
+$cfrom :: forall x. SSMLMessageType -&gt; Rep SSMLMessageType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'SSMLMessageType' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'languageCode', 'sSMLMessageType_languageCode' - The language to use when delivering the message. For a complete list of</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- supported languages, see the Amazon Polly Developer Guide.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'text', 'sSMLMessageType_text' - The SSML-formatted text to deliver to the recipient.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'voiceId', 'sSMLMessageType_voiceId' - The name of the voice that you want to use to deliver the message. For a</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- complete list of supported voices, see the Amazon Polly Developer Guide.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#newSSMLMessageType"><span class="hs-identifier hs-type">newSSMLMessageType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span><span>
+</span><span id="line-58"></span><span id="newSSMLMessageType"><span class="annot"><span class="annottext">newSSMLMessageType :: SSMLMessageType
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#newSSMLMessageType"><span class="hs-identifier hs-var hs-var">newSSMLMessageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">SSMLMessageType' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SSMLMessageType
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:SSMLMessageType' :: Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3AlanguageCode%3ASSMLMessageType%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:text:SSMLMessageType' :: Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3Atext%3ASSMLMessageType%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:voiceId:SSMLMessageType' :: Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3AvoiceId%3ASSMLMessageType%27"><span class="hs-identifier hs-var">voiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The language to use when delivering the message. For a complete list of</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- supported languages, see the Amazon Polly Developer Guide.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#sSMLMessageType_languageCode"><span class="hs-identifier hs-type">sSMLMessageType_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="sSMLMessageType_languageCode"><span class="annot"><span class="annottext">sSMLMessageType_languageCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SSMLMessageType -&gt; f SSMLMessageType
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#sSMLMessageType_languageCode"><span class="hs-identifier hs-var hs-var">sSMLMessageType_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SSMLMessageType -&gt; Maybe Text)
+-&gt; (SSMLMessageType -&gt; Maybe Text -&gt; SSMLMessageType)
+-&gt; Lens SSMLMessageType SSMLMessageType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150759"><span class="annot"><span class="annottext">Maybe Text
+languageCode :: Maybe Text
+$sel:languageCode:SSMLMessageType' :: SSMLMessageType -&gt; Maybe Text
+</span><a href="#local-6989586621679150759"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150759"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150758"><span class="annot"><span class="annottext">s :: SSMLMessageType
+</span><a href="#local-6989586621679150758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSMLMessageType
+</span><a href="#local-6989586621679150758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:SSMLMessageType' :: Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3AlanguageCode%3ASSMLMessageType%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The SSML-formatted text to deliver to the recipient.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#sSMLMessageType_text"><span class="hs-identifier hs-type">sSMLMessageType_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="sSMLMessageType_text"><span class="annot"><span class="annottext">sSMLMessageType_text :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SSMLMessageType -&gt; f SSMLMessageType
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#sSMLMessageType_text"><span class="hs-identifier hs-var hs-var">sSMLMessageType_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SSMLMessageType -&gt; Maybe Text)
+-&gt; (SSMLMessageType -&gt; Maybe Text -&gt; SSMLMessageType)
+-&gt; Lens SSMLMessageType SSMLMessageType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150755"><span class="annot"><span class="annottext">Maybe Text
+text :: Maybe Text
+$sel:text:SSMLMessageType' :: SSMLMessageType -&gt; Maybe Text
+</span><a href="#local-6989586621679150755"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150755"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150754"><span class="annot"><span class="annottext">s :: SSMLMessageType
+</span><a href="#local-6989586621679150754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSMLMessageType
+</span><a href="#local-6989586621679150754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:SSMLMessageType' :: Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3Atext%3ASSMLMessageType%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the voice that you want to use to deliver the message. For a</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- complete list of supported voices, see the Amazon Polly Developer Guide.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#sSMLMessageType_voiceId"><span class="hs-identifier hs-type">sSMLMessageType_voiceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="sSMLMessageType_voiceId"><span class="annot"><span class="annottext">sSMLMessageType_voiceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SSMLMessageType -&gt; f SSMLMessageType
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#sSMLMessageType_voiceId"><span class="hs-identifier hs-var hs-var">sSMLMessageType_voiceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SSMLMessageType -&gt; Maybe Text)
+-&gt; (SSMLMessageType -&gt; Maybe Text -&gt; SSMLMessageType)
+-&gt; Lens SSMLMessageType SSMLMessageType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150751"><span class="annot"><span class="annottext">Maybe Text
+voiceId :: Maybe Text
+$sel:voiceId:SSMLMessageType' :: SSMLMessageType -&gt; Maybe Text
+</span><a href="#local-6989586621679150751"><span class="hs-identifier hs-var hs-var">voiceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150751"><span class="hs-identifier hs-var">voiceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150750"><span class="annot"><span class="annottext">s :: SSMLMessageType
+</span><a href="#local-6989586621679150750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSMLMessageType
+</span><a href="#local-6989586621679150750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceId:SSMLMessageType' :: Maybe Text
+</span><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#%24sel%3AvoiceId%3ASSMLMessageType%27"><span class="hs-identifier hs-var">voiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150745"><span id="local-6989586621679150747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150734"><span id="local-6989586621679150736"><span id="local-6989586621679150738"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType"><span class="hs-identifier hs-type">SSMLMessageType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679150732"><span class="annot"><span class="annottext">toJSON :: SSMLMessageType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.html#SSMLMessageType%27"><span class="hs-identifier hs-type">SSMLMessageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150728"><span id="local-6989586621679150729"><span id="local-6989586621679150730"><span class="annot"><span class="annottext">Maybe Text
+voiceId :: Maybe Text
+text :: Maybe Text
+languageCode :: Maybe Text
+$sel:voiceId:SSMLMessageType' :: SSMLMessageType -&gt; Maybe Text
+$sel:text:SSMLMessageType' :: SSMLMessageType -&gt; Maybe Text
+$sel:languageCode:SSMLMessageType' :: SSMLMessageType -&gt; Maybe Text
+</span><a href="#local-6989586621679150728"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150730"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150729"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VoiceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150728"><span class="hs-identifier hs-var">voiceId</span></a></span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span></pre></body></html>

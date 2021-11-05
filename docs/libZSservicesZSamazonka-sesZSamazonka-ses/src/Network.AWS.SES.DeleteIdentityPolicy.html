@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newDeleteIdentityPolicy' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679287120"><span id="local-6989586621679287121"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentityPolicy"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-var">DeleteIdentityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentityPolicy%27"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-var">DeleteIdentityPolicy'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679287129"><span id="local-6989586621679287130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentityPolicy"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-var">DeleteIdentityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentityPolicy%27"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-var">DeleteIdentityPolicy'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identity that is associated with the policy that you want to delete.</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- You can specify the identity by using its name or by using its Amazon</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN). Examples: @user\@example.com@, @example.com@,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3ApolicyName%3ADeleteIdentityPolicy%27"><span class="annot"><span class="annottext">DeleteIdentityPolicy -&gt; Text
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3ApolicyName%3ADeleteIdentityPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287113"><span id="local-6989586621679287115"><span class="annot"><span class="annottext">DeleteIdentityPolicy -&gt; DeleteIdentityPolicy -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287122"><span id="local-6989586621679287124"><span class="annot"><span class="annottext">DeleteIdentityPolicy -&gt; DeleteIdentityPolicy -&gt; Bool
 (DeleteIdentityPolicy -&gt; DeleteIdentityPolicy -&gt; Bool)
 -&gt; (DeleteIdentityPolicy -&gt; DeleteIdentityPolicy -&gt; Bool)
 -&gt; Eq DeleteIdentityPolicy
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteIdentityPolicy -&gt; DeleteIdentityPolicy -&gt; Bool
 == :: DeleteIdentityPolicy -&gt; DeleteIdentityPolicy -&gt; Bool
 $c== :: DeleteIdentityPolicy -&gt; DeleteIdentityPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287104"><span id="local-6989586621679287106"><span id="local-6989586621679287108"><span id="local-6989586621679287110"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentityPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287113"><span id="local-6989586621679287115"><span id="local-6989586621679287117"><span id="local-6989586621679287119"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentityPolicy]
 ReadPrec DeleteIdentityPolicy
 Int -&gt; ReadS DeleteIdentityPolicy
 ReadS [DeleteIdentityPolicy]
@@ -107,7 +107,7 @@ readList :: ReadS [DeleteIdentityPolicy]
 $creadList :: ReadS [DeleteIdentityPolicy]
 readsPrec :: Int -&gt; ReadS DeleteIdentityPolicy
 $creadsPrec :: Int -&gt; ReadS DeleteIdentityPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287097"><span id="local-6989586621679287099"><span id="local-6989586621679287101"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentityPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287106"><span id="local-6989586621679287108"><span id="local-6989586621679287110"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentityPolicy -&gt; ShowS
 [DeleteIdentityPolicy] -&gt; ShowS
 DeleteIdentityPolicy -&gt; String
 (Int -&gt; DeleteIdentityPolicy -&gt; ShowS)
@@ -156,17 +156,17 @@ $cfrom :: forall x. DeleteIdentityPolicy -&gt; Rep DeleteIdentityPolicy x
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span>
 </span><span id="line-103"></span><span id="newDeleteIdentityPolicy"><span class="annot"><span class="annottext">newDeleteIdentityPolicy :: Text -&gt; Text -&gt; DeleteIdentityPolicy
-</span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#newDeleteIdentityPolicy"><span class="hs-identifier hs-var hs-var">newDeleteIdentityPolicy</span></a></span></span><span> </span><span id="local-6989586621679287092"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287092"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span id="local-6989586621679287091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287091"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#newDeleteIdentityPolicy"><span class="hs-identifier hs-var hs-var">newDeleteIdentityPolicy</span></a></span></span><span> </span><span id="local-6989586621679287101"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287101"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span id="local-6989586621679287100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287100"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">DeleteIdentityPolicy' :: Text -&gt; Text -&gt; DeleteIdentityPolicy
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identity:DeleteIdentityPolicy' :: Text
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3Aidentity%3ADeleteIdentityPolicy%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287092"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287101"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:DeleteIdentityPolicy' :: Text
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3ApolicyName%3ADeleteIdentityPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287091"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><a href="#local-6989586621679287100"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The identity that is associated with the policy that you want to delete.</span><span>
@@ -181,16 +181,16 @@ $cfrom :: forall x. DeleteIdentityPolicy -&gt; Rep DeleteIdentityPolicy x
 -&gt; (DeleteIdentityPolicy -&gt; Text -&gt; DeleteIdentityPolicy)
 -&gt; Lens DeleteIdentityPolicy DeleteIdentityPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287088"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287097"><span class="annot"><span class="annottext">Text
 identity :: Text
 $sel:identity:DeleteIdentityPolicy' :: DeleteIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679287088"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287088"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287087"><span class="annot"><span class="annottext">s :: DeleteIdentityPolicy
-</span><a href="#local-6989586621679287087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287086"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentityPolicy
-</span><a href="#local-6989586621679287087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:DeleteIdentityPolicy' :: Text
+</span><a href="#local-6989586621679287097"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287097"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287096"><span class="annot"><span class="annottext">s :: DeleteIdentityPolicy
+</span><a href="#local-6989586621679287096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287095"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentityPolicy
+</span><a href="#local-6989586621679287096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:DeleteIdentityPolicy' :: Text
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3Aidentity%3ADeleteIdentityPolicy%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The name of the policy to be deleted.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#deleteIdentityPolicy_policyName"><span class="hs-identifier hs-type">deleteIdentityPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -199,27 +199,27 @@ $sel:identity:DeleteIdentityPolicy' :: DeleteIdentityPolicy -&gt; Text
 -&gt; (DeleteIdentityPolicy -&gt; Text -&gt; DeleteIdentityPolicy)
 -&gt; Lens DeleteIdentityPolicy DeleteIdentityPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287085"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287094"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:DeleteIdentityPolicy' :: DeleteIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679287085"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287085"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287084"><span class="annot"><span class="annottext">s :: DeleteIdentityPolicy
-</span><a href="#local-6989586621679287084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287083"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentityPolicy
-</span><a href="#local-6989586621679287084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteIdentityPolicy' :: Text
+</span><a href="#local-6989586621679287094"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287094"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287093"><span class="annot"><span class="annottext">s :: DeleteIdentityPolicy
+</span><a href="#local-6989586621679287093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287092"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentityPolicy
+</span><a href="#local-6989586621679287093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteIdentityPolicy' :: Text
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3ApolicyName%3ADeleteIdentityPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679287079"><span class="annot"><span class="annottext">request :: DeleteIdentityPolicy -&gt; Request DeleteIdentityPolicy
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679287088"><span class="annot"><span class="annottext">request :: DeleteIdentityPolicy -&gt; Request DeleteIdentityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteIdentityPolicy -&gt; Request DeleteIdentityPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679287075"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679287084"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteIdentityPolicy
 -&gt; ClientResponse ClientBody
@@ -250,10 +250,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteIdentityPolicyResult&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287072"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287072"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287071"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679287071"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287070"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679287070"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287081"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287081"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287080"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679287080"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287079"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679287079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteIdentityPolicyResponse
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-var">DeleteIdentityPolicyResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteIdentityPolicyResponse)
@@ -264,15 +264,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287072"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287081"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287063"><span id="local-6989586621679287065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287072"><span id="local-6989586621679287074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679287056"><span class="annot"><span class="annottext">toHeaders :: DeleteIdentityPolicy -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679287065"><span class="annot"><span class="annottext">toHeaders :: DeleteIdentityPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteIdentityPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -280,20 +280,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679287051"><span class="annot"><span class="annottext">toPath :: DeleteIdentityPolicy -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679287060"><span class="annot"><span class="annottext">toPath :: DeleteIdentityPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteIdentityPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy"><span class="hs-identifier hs-type">DeleteIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679287047"><span class="annot"><span class="annottext">toQuery :: DeleteIdentityPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287044"><span id="local-6989586621679287045"><span class="annot"><span class="annottext">Text
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679287056"><span class="annot"><span class="annottext">toQuery :: DeleteIdentityPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287053"><span id="local-6989586621679287054"><span class="annot"><span class="annottext">Text
 policyName :: Text
 identity :: Text
 $sel:policyName:DeleteIdentityPolicy' :: DeleteIdentityPolicy -&gt; Text
 $sel:identity:DeleteIdentityPolicy' :: DeleteIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679287044"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679287053"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -313,23 +313,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Identity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287045"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287054"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287044"><span class="hs-identifier hs-var">policyName</span></a></span><span>
+</span><a href="#local-6989586621679287053"><span class="hs-identifier hs-var">policyName</span></a></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- /See:/ 'newDeleteIdentityPolicyResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679287041"><span id="local-6989586621679287042"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentityPolicyResponse"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-var">DeleteIdentityPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentityPolicyResponse%27"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-var">DeleteIdentityPolicyResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679287050"><span id="local-6989586621679287051"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentityPolicyResponse"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-var">DeleteIdentityPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentityPolicyResponse%27"><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-var">DeleteIdentityPolicyResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteIdentityPolicyResponse%27"><span class="annot"><span class="annottext">DeleteIdentityPolicyResponse -&gt; Int
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3AhttpStatus%3ADeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287036"><span id="local-6989586621679287038"><span class="annot"><span class="annottext">DeleteIdentityPolicyResponse
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287045"><span id="local-6989586621679287047"><span class="annot"><span class="annottext">DeleteIdentityPolicyResponse
 -&gt; DeleteIdentityPolicyResponse -&gt; Bool
 (DeleteIdentityPolicyResponse
  -&gt; DeleteIdentityPolicyResponse -&gt; Bool)
@@ -345,7 +345,7 @@ $c/= :: DeleteIdentityPolicyResponse
 -&gt; DeleteIdentityPolicyResponse -&gt; Bool
 $c== :: DeleteIdentityPolicyResponse
 -&gt; DeleteIdentityPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287028"><span id="local-6989586621679287030"><span id="local-6989586621679287032"><span id="local-6989586621679287034"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentityPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287037"><span id="local-6989586621679287039"><span id="local-6989586621679287041"><span id="local-6989586621679287043"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentityPolicyResponse]
 ReadPrec DeleteIdentityPolicyResponse
 Int -&gt; ReadS DeleteIdentityPolicyResponse
 ReadS [DeleteIdentityPolicyResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [DeleteIdentityPolicyResponse]
 $creadList :: ReadS [DeleteIdentityPolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteIdentityPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteIdentityPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287022"><span id="local-6989586621679287024"><span id="local-6989586621679287026"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentityPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287031"><span id="local-6989586621679287033"><span id="local-6989586621679287035"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentityPolicyResponse -&gt; ShowS
 [DeleteIdentityPolicyResponse] -&gt; ShowS
 DeleteIdentityPolicyResponse -&gt; String
 (Int -&gt; DeleteIdentityPolicyResponse -&gt; ShowS)
@@ -411,14 +411,14 @@ DeleteIdentityPolicyResponse -&gt; Rep DeleteIdentityPolicyResponse x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newDeleteIdentityPolicyResponse"><span class="annot"><span class="annottext">newDeleteIdentityPolicyResponse :: Int -&gt; DeleteIdentityPolicyResponse
-</span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#newDeleteIdentityPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteIdentityPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679287019"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287019"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#newDeleteIdentityPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteIdentityPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679287028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">DeleteIdentityPolicyResponse' :: Int -&gt; DeleteIdentityPolicyResponse
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIdentityPolicyResponse' :: Int
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3AhttpStatus%3ADeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287019"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679287028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -431,16 +431,16 @@ DeleteIdentityPolicyResponse -&gt; Rep DeleteIdentityPolicyResponse x
 -&gt; Lens
      DeleteIdentityPolicyResponse DeleteIdentityPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287018"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287027"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteIdentityPolicyResponse' :: DeleteIdentityPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679287018"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287018"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287017"><span class="annot"><span class="annottext">s :: DeleteIdentityPolicyResponse
-</span><a href="#local-6989586621679287017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentityPolicyResponse
-</span><a href="#local-6989586621679287017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIdentityPolicyResponse' :: Int
+</span><a href="#local-6989586621679287027"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287027"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287026"><span class="annot"><span class="annottext">s :: DeleteIdentityPolicyResponse
+</span><a href="#local-6989586621679287026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentityPolicyResponse
+</span><a href="#local-6989586621679287026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIdentityPolicyResponse' :: Int
 </span><a href="Network.AWS.SES.DeleteIdentityPolicy.html#%24sel%3AhttpStatus%3ADeleteIdentityPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteIdentityPolicy.html#DeleteIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteIdentityPolicyResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

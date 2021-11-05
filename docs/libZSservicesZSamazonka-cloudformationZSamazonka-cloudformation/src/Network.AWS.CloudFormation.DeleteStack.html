@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | The input for DeleteStack action.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDeleteStack' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679441683"><span id="local-6989586621679441684"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStack"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-var">DeleteStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStack%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-var">DeleteStack'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679441692"><span id="local-6989586621679441693"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStack"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-var">DeleteStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStack%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-var">DeleteStack'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- that are associated with the resources you want to retain. During</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- deletion, CloudFormation deletes the stack but does not delete the</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AstackName%3ADeleteStack%27"><span class="annot"><span class="annottext">DeleteStack -&gt; Text
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#%24sel%3AstackName%3ADeleteStack%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441674"><span id="local-6989586621679441676"><span class="annot"><span class="annottext">DeleteStack -&gt; DeleteStack -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441683"><span id="local-6989586621679441685"><span class="annot"><span class="annottext">DeleteStack -&gt; DeleteStack -&gt; Bool
 (DeleteStack -&gt; DeleteStack -&gt; Bool)
 -&gt; (DeleteStack -&gt; DeleteStack -&gt; Bool) -&gt; Eq DeleteStack
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -104,7 +104,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStack -&gt; DeleteStack -&gt; Bool
 == :: DeleteStack -&gt; DeleteStack -&gt; Bool
 $c== :: DeleteStack -&gt; DeleteStack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441665"><span id="local-6989586621679441667"><span id="local-6989586621679441669"><span id="local-6989586621679441671"><span class="annot"><span class="annottext">ReadPrec [DeleteStack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441674"><span id="local-6989586621679441676"><span id="local-6989586621679441678"><span id="local-6989586621679441680"><span class="annot"><span class="annottext">ReadPrec [DeleteStack]
 ReadPrec DeleteStack
 Int -&gt; ReadS DeleteStack
 ReadS [DeleteStack]
@@ -124,7 +124,7 @@ readList :: ReadS [DeleteStack]
 $creadList :: ReadS [DeleteStack]
 readsPrec :: Int -&gt; ReadS DeleteStack
 $creadsPrec :: Int -&gt; ReadS DeleteStack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441658"><span id="local-6989586621679441660"><span id="local-6989586621679441662"><span class="annot"><span class="annottext">Int -&gt; DeleteStack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441667"><span id="local-6989586621679441669"><span id="local-6989586621679441671"><span class="annot"><span class="annottext">Int -&gt; DeleteStack -&gt; ShowS
 [DeleteStack] -&gt; ShowS
 DeleteStack -&gt; String
 (Int -&gt; DeleteStack -&gt; ShowS)
@@ -202,8 +202,8 @@ $cfrom :: forall x. DeleteStack -&gt; Rep DeleteStack x
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span>
 </span><span id="line-148"></span><span id="newDeleteStack"><span class="annot"><span class="annottext">newDeleteStack :: Text -&gt; DeleteStack
-</span><a href="Network.AWS.CloudFormation.DeleteStack.html#newDeleteStack"><span class="hs-identifier hs-var hs-var">newDeleteStack</span></a></span></span><span> </span><span id="local-6989586621679441653"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441653"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.DeleteStack.html#newDeleteStack"><span class="hs-identifier hs-var hs-var">newDeleteStack</span></a></span></span><span> </span><span id="local-6989586621679441662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441662"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">DeleteStack' :: Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; DeleteStack
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:retainResources:DeleteStack' :: Maybe [Text]
@@ -220,7 +220,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:DeleteStack' :: Text
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#%24sel%3AstackName%3ADeleteStack%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441653"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
+</span><a href="#local-6989586621679441662"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs</span><span>
@@ -236,16 +236,16 @@ forall a. Maybe a
 -&gt; (DeleteStack -&gt; Maybe [Text] -&gt; DeleteStack)
 -&gt; Lens DeleteStack DeleteStack (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441650"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441659"><span class="annot"><span class="annottext">Maybe [Text]
 retainResources :: Maybe [Text]
 $sel:retainResources:DeleteStack' :: DeleteStack -&gt; Maybe [Text]
-</span><a href="#local-6989586621679441650"><span class="hs-identifier hs-var hs-var">retainResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679441650"><span class="hs-identifier hs-var">retainResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441649"><span class="annot"><span class="annottext">s :: DeleteStack
-</span><a href="#local-6989586621679441649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441648"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679441648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
-</span><a href="#local-6989586621679441649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retainResources:DeleteStack' :: Maybe [Text]
+</span><a href="#local-6989586621679441659"><span class="hs-identifier hs-var hs-var">retainResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679441659"><span class="hs-identifier hs-var">retainResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441658"><span class="annot"><span class="annottext">s :: DeleteStack
+</span><a href="#local-6989586621679441658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441657"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679441657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
+</span><a href="#local-6989586621679441658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retainResources:DeleteStack' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#%24sel%3AretainResources%3ADeleteStack%27"><span class="hs-identifier hs-var">retainResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679441648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679441657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DeleteStack -&gt; f DeleteStack)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -287,16 +287,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteStack -&gt; Maybe Text -&gt; DeleteStack)
 -&gt; Lens DeleteStack DeleteStack (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441644"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441653"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:DeleteStack' :: DeleteStack -&gt; Maybe Text
-</span><a href="#local-6989586621679441644"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441644"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441643"><span class="annot"><span class="annottext">s :: DeleteStack
-</span><a href="#local-6989586621679441643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441642"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
-</span><a href="#local-6989586621679441643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:DeleteStack' :: Maybe Text
+</span><a href="#local-6989586621679441653"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441653"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441652"><span class="annot"><span class="annottext">s :: DeleteStack
+</span><a href="#local-6989586621679441652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441651"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
+</span><a href="#local-6989586621679441652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:DeleteStack' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#%24sel%3AclientRequestToken%3ADeleteStack%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an Identity and Access Management</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- (IAM) role that CloudFormation assumes to delete the stack.</span><span>
@@ -313,16 +313,16 @@ $sel:clientRequestToken:DeleteStack' :: DeleteStack -&gt; Maybe Text
 -&gt; (DeleteStack -&gt; Maybe Text -&gt; DeleteStack)
 -&gt; Lens DeleteStack DeleteStack (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441641"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441650"><span class="annot"><span class="annottext">Maybe Text
 roleARN :: Maybe Text
 $sel:roleARN:DeleteStack' :: DeleteStack -&gt; Maybe Text
-</span><a href="#local-6989586621679441641"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441641"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441640"><span class="annot"><span class="annottext">s :: DeleteStack
-</span><a href="#local-6989586621679441640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441639"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
-</span><a href="#local-6989586621679441640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:DeleteStack' :: Maybe Text
+</span><a href="#local-6989586621679441650"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441650"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441649"><span class="annot"><span class="annottext">s :: DeleteStack
+</span><a href="#local-6989586621679441649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441648"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
+</span><a href="#local-6989586621679441649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:DeleteStack' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#%24sel%3AroleARN%3ADeleteStack%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The name or the unique stack ID that is associated with the stack.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#deleteStack_stackName"><span class="hs-identifier hs-type">deleteStack_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -331,25 +331,25 @@ $sel:roleARN:DeleteStack' :: DeleteStack -&gt; Maybe Text
 -&gt; (DeleteStack -&gt; Text -&gt; DeleteStack)
 -&gt; Lens DeleteStack DeleteStack Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441638"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441647"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:DeleteStack' :: DeleteStack -&gt; Text
-</span><a href="#local-6989586621679441638"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441638"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441637"><span class="annot"><span class="annottext">s :: DeleteStack
-</span><a href="#local-6989586621679441637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441636"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
-</span><a href="#local-6989586621679441637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DeleteStack' :: Text
+</span><a href="#local-6989586621679441647"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441647"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441646"><span class="annot"><span class="annottext">s :: DeleteStack
+</span><a href="#local-6989586621679441646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
+</span><a href="#local-6989586621679441646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DeleteStack' :: Text
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#%24sel%3AstackName%3ADeleteStack%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-205"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679441632"><span class="annot"><span class="annottext">request :: DeleteStack -&gt; Request DeleteStack
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679441641"><span class="annot"><span class="annottext">request :: DeleteStack -&gt; Request DeleteStack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteStack -&gt; Request DeleteStack
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679441628"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679441637"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteStack
 -&gt; ClientResponse ClientBody
@@ -372,12 +372,12 @@ AWSResponse a
 DeleteStackResponse
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-var">DeleteStackResponse'</span></a></span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441621"><span id="local-6989586621679441623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441630"><span id="local-6989586621679441632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span></span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679441614"><span class="annot"><span class="annottext">toHeaders :: DeleteStack -&gt; [Header]
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679441623"><span class="annot"><span class="annottext">toHeaders :: DeleteStack -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteStack -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -385,15 +385,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679441609"><span class="annot"><span class="annottext">toPath :: DeleteStack -&gt; ByteString
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679441618"><span class="annot"><span class="annottext">toPath :: DeleteStack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteStack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679441605"><span class="annot"><span class="annottext">toQuery :: DeleteStack -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441600"><span id="local-6989586621679441601"><span id="local-6989586621679441602"><span id="local-6989586621679441603"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679441614"><span class="annot"><span class="annottext">toQuery :: DeleteStack -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441609"><span id="local-6989586621679441610"><span id="local-6989586621679441611"><span id="local-6989586621679441612"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 stackName :: Text
@@ -404,7 +404,7 @@ $sel:stackName:DeleteStack' :: DeleteStack -&gt; Text
 $sel:roleARN:DeleteStack' :: DeleteStack -&gt; Maybe Text
 $sel:clientRequestToken:DeleteStack' :: DeleteStack -&gt; Maybe Text
 $sel:retainResources:DeleteStack' :: DeleteStack -&gt; Maybe [Text]
-</span><a href="#local-6989586621679441600"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679441609"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -436,30 +436,30 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-229"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679441603"><span class="hs-identifier hs-var">retainResources</span></a></span><span>
+</span><a href="#local-6989586621679441612"><span class="hs-identifier hs-var">retainResources</span></a></span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441602"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441611"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441601"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441610"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441600"><span class="hs-identifier hs-var">stackName</span></a></span><span>
+</span><a href="#local-6989586621679441609"><span class="hs-identifier hs-var">stackName</span></a></span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | /See:/ 'newDeleteStackResponse' smart constructor.</span><span>
-</span><span id="line-237"></span><span id="local-6989586621679441595"><span id="local-6989586621679441596"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStackResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-var">DeleteStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStackResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-var">DeleteStackResponse'</span></a></span></span><span>
+</span><span id="line-237"></span><span id="local-6989586621679441604"><span id="local-6989586621679441605"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStackResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-var">DeleteStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStackResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-var">DeleteStackResponse'</span></a></span></span><span>
 </span><span id="line-238"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-239"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441591"><span id="local-6989586621679441593"><span class="annot"><span class="annottext">DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
+</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441600"><span id="local-6989586621679441602"><span class="annot"><span class="annottext">DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
 (DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool)
 -&gt; (DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool)
 -&gt; Eq DeleteStackResponse
@@ -468,7 +468,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
 == :: DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
 $c== :: DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441583"><span id="local-6989586621679441585"><span id="local-6989586621679441587"><span id="local-6989586621679441589"><span class="annot"><span class="annottext">ReadPrec [DeleteStackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441592"><span id="local-6989586621679441594"><span id="local-6989586621679441596"><span id="local-6989586621679441598"><span class="annot"><span class="annottext">ReadPrec [DeleteStackResponse]
 ReadPrec DeleteStackResponse
 Int -&gt; ReadS DeleteStackResponse
 ReadS [DeleteStackResponse]
@@ -488,7 +488,7 @@ readList :: ReadS [DeleteStackResponse]
 $creadList :: ReadS [DeleteStackResponse]
 readsPrec :: Int -&gt; ReadS DeleteStackResponse
 $creadsPrec :: Int -&gt; ReadS DeleteStackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441577"><span id="local-6989586621679441579"><span id="local-6989586621679441581"><span class="annot"><span class="annottext">Int -&gt; DeleteStackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441586"><span id="local-6989586621679441588"><span id="local-6989586621679441590"><span class="annot"><span class="annottext">Int -&gt; DeleteStackResponse -&gt; ShowS
 [DeleteStackResponse] -&gt; ShowS
 DeleteStackResponse -&gt; String
 (Int -&gt; DeleteStackResponse -&gt; ShowS)
@@ -524,5 +524,5 @@ $cfrom :: forall x. DeleteStackResponse -&gt; Rep DeleteStackResponse x
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#newDeleteStackResponse"><span class="hs-identifier hs-var hs-var">newDeleteStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteStackResponse
 </span><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-var">DeleteStackResponse'</span></a></span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441582"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span></span><span>
 </span><span id="line-251"></span></pre></body></html>

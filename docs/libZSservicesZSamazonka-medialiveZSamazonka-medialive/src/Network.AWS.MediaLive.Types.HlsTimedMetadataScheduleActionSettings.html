@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Settings for the action to emit HLS metadata</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHlsTimedMetadataScheduleActionSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679889496"><span id="local-6989586621679889497"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsTimedMetadataScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-var">HlsTimedMetadataScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsTimedMetadataScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-var">HlsTimedMetadataScheduleActionSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679889505"><span id="local-6989586621679889506"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsTimedMetadataScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-var">HlsTimedMetadataScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsTimedMetadataScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-var">HlsTimedMetadataScheduleActionSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Base64 string formatted according to the ID3 specification:</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- http:\/\/id3.org\/id3v2.4.0-structure</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aid3%3AHlsTimedMetadataScheduleActionSettings%27"><span class="annot"><span class="annottext">HlsTimedMetadataScheduleActionSettings -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#%24sel%3Aid3%3AHlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">id3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679889490"><span id="local-6989586621679889492"><span class="annot"><span class="annottext">HlsTimedMetadataScheduleActionSettings
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679889499"><span id="local-6989586621679889501"><span class="annot"><span class="annottext">HlsTimedMetadataScheduleActionSettings
 -&gt; HlsTimedMetadataScheduleActionSettings -&gt; Bool
 (HlsTimedMetadataScheduleActionSettings
  -&gt; HlsTimedMetadataScheduleActionSettings -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: HlsTimedMetadataScheduleActionSettings
 -&gt; HlsTimedMetadataScheduleActionSettings -&gt; Bool
 $c== :: HlsTimedMetadataScheduleActionSettings
 -&gt; HlsTimedMetadataScheduleActionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679889481"><span id="local-6989586621679889483"><span id="local-6989586621679889485"><span id="local-6989586621679889487"><span class="annot"><span class="annottext">ReadPrec [HlsTimedMetadataScheduleActionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679889490"><span id="local-6989586621679889492"><span id="local-6989586621679889494"><span id="local-6989586621679889496"><span class="annot"><span class="annottext">ReadPrec [HlsTimedMetadataScheduleActionSettings]
 ReadPrec HlsTimedMetadataScheduleActionSettings
 Int -&gt; ReadS HlsTimedMetadataScheduleActionSettings
 ReadS [HlsTimedMetadataScheduleActionSettings]
@@ -68,7 +68,7 @@ readList :: ReadS [HlsTimedMetadataScheduleActionSettings]
 $creadList :: ReadS [HlsTimedMetadataScheduleActionSettings]
 readsPrec :: Int -&gt; ReadS HlsTimedMetadataScheduleActionSettings
 $creadsPrec :: Int -&gt; ReadS HlsTimedMetadataScheduleActionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679889474"><span id="local-6989586621679889476"><span id="local-6989586621679889478"><span class="annot"><span class="annottext">Int -&gt; HlsTimedMetadataScheduleActionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679889483"><span id="local-6989586621679889485"><span id="local-6989586621679889487"><span class="annot"><span class="annottext">Int -&gt; HlsTimedMetadataScheduleActionSettings -&gt; ShowS
 [HlsTimedMetadataScheduleActionSettings] -&gt; ShowS
 HlsTimedMetadataScheduleActionSettings -&gt; String
 (Int -&gt; HlsTimedMetadataScheduleActionSettings -&gt; ShowS)
@@ -121,14 +121,14 @@ HlsTimedMetadataScheduleActionSettings
 </span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span><span>
 </span><span id="line-50"></span><span id="newHlsTimedMetadataScheduleActionSettings"><span class="annot"><span class="annottext">newHlsTimedMetadataScheduleActionSettings :: Text -&gt; HlsTimedMetadataScheduleActionSettings
-</span><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#newHlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-var hs-var">newHlsTimedMetadataScheduleActionSettings</span></a></span></span><span> </span><span id="local-6989586621679889468"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679889468"><span class="hs-identifier hs-var">pId3_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#newHlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-var hs-var">newHlsTimedMetadataScheduleActionSettings</span></a></span></span><span> </span><span id="local-6989586621679889477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679889477"><span class="hs-identifier hs-var">pId3_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">HlsTimedMetadataScheduleActionSettings' :: Text -&gt; HlsTimedMetadataScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings'</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id3:HlsTimedMetadataScheduleActionSettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#%24sel%3Aid3%3AHlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-var">id3</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679889468"><span class="hs-identifier hs-var">pId3_</span></a></span><span>
+</span><a href="#local-6989586621679889477"><span class="hs-identifier hs-var">pId3_</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | Base64 string formatted according to the ID3 specification:</span><span>
@@ -146,22 +146,22 @@ HlsTimedMetadataScheduleActionSettings
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679889464"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679889473"><span class="annot"><span class="annottext">Text
 id3 :: Text
 $sel:id3:HlsTimedMetadataScheduleActionSettings' :: HlsTimedMetadataScheduleActionSettings -&gt; Text
-</span><a href="#local-6989586621679889464"><span class="hs-identifier hs-var hs-var">id3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679889464"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679889463"><span class="annot"><span class="annottext">s :: HlsTimedMetadataScheduleActionSettings
-</span><a href="#local-6989586621679889463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679889462"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679889462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsTimedMetadataScheduleActionSettings
-</span><a href="#local-6989586621679889463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id3:HlsTimedMetadataScheduleActionSettings' :: Text
+</span><a href="#local-6989586621679889473"><span class="hs-identifier hs-var hs-var">id3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679889473"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679889472"><span class="annot"><span class="annottext">s :: HlsTimedMetadataScheduleActionSettings
+</span><a href="#local-6989586621679889472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679889471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679889471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsTimedMetadataScheduleActionSettings
+</span><a href="#local-6989586621679889472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id3:HlsTimedMetadataScheduleActionSettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#%24sel%3Aid3%3AHlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-var">id3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679889462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679889471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679889459"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679889468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679889457"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsTimedMetadataScheduleActionSettings
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679889466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsTimedMetadataScheduleActionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HlsTimedMetadataScheduleActionSettings)
@@ -171,37 +171,37 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HlsTimedMetadataScheduleActionSettings&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679889454"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679889454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679889463"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679889463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; HlsTimedMetadataScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-var">HlsTimedMetadataScheduleActionSettings'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; HlsTimedMetadataScheduleActionSettings)
 -&gt; Parser Text -&gt; Parser HlsTimedMetadataScheduleActionSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679889454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679889463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id3&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679889448"><span id="local-6989586621679889450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679889457"><span id="local-6989586621679889459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679889445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679889454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679889437"><span id="local-6989586621679889439"><span id="local-6989586621679889441"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679889446"><span id="local-6989586621679889448"><span id="local-6989586621679889450"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings</span></a></span></span></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679889435"><span class="annot"><span class="annottext">toJSON :: HlsTimedMetadataScheduleActionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679889433"><span class="annot"><span class="annottext">Text
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679889444"><span class="annot"><span class="annottext">toJSON :: HlsTimedMetadataScheduleActionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings.html#HlsTimedMetadataScheduleActionSettings%27"><span class="hs-identifier hs-type">HlsTimedMetadataScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679889442"><span class="annot"><span class="annottext">Text
 id3 :: Text
 $sel:id3:HlsTimedMetadataScheduleActionSettings' :: HlsTimedMetadataScheduleActionSettings -&gt; Text
-</span><a href="#local-6989586621679889433"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679889442"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -213,6 +213,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;id3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679889433"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679889442"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

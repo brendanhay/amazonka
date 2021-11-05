@@ -29,14 +29,14 @@
 </span><span id="line-29"></span><span class="hs-comment">-- XAVC_4K_INTRA_CBG.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newXavc4kIntraCbgProfileSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680019246"><span id="local-6989586621680019247"></span></span><span class="hs-keyword">data</span><span> </span><span id="Xavc4kIntraCbgProfileSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-var">Xavc4kIntraCbgProfileSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Xavc4kIntraCbgProfileSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-var">Xavc4kIntraCbgProfileSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680019255"><span id="local-6989586621680019256"></span></span><span class="hs-keyword">data</span><span> </span><span id="Xavc4kIntraCbgProfileSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-var">Xavc4kIntraCbgProfileSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Xavc4kIntraCbgProfileSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-var">Xavc4kIntraCbgProfileSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the XAVC Intra 4k (CBG) Class to set the bitrate of your output.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Outputs of the same class have similar image quality over the operating</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- points that are valid for that class.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AxavcClass%3AXavc4kIntraCbgProfileSettings%27"><span class="annot"><span class="annottext">Xavc4kIntraCbgProfileSettings -&gt; Maybe Xavc4kIntraCbgProfileClass
 </span><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#%24sel%3AxavcClass%3AXavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-var hs-var">xavcClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileClass.html#Xavc4kIntraCbgProfileClass"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileClass</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680019240"><span id="local-6989586621680019242"><span class="annot"><span class="annottext">Xavc4kIntraCbgProfileSettings
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680019249"><span id="local-6989586621680019251"><span class="annot"><span class="annottext">Xavc4kIntraCbgProfileSettings
 -&gt; Xavc4kIntraCbgProfileSettings -&gt; Bool
 (Xavc4kIntraCbgProfileSettings
  -&gt; Xavc4kIntraCbgProfileSettings -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: Xavc4kIntraCbgProfileSettings
 -&gt; Xavc4kIntraCbgProfileSettings -&gt; Bool
 $c== :: Xavc4kIntraCbgProfileSettings
 -&gt; Xavc4kIntraCbgProfileSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680019231"><span id="local-6989586621680019233"><span id="local-6989586621680019235"><span id="local-6989586621680019237"><span class="annot"><span class="annottext">ReadPrec [Xavc4kIntraCbgProfileSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680019240"><span id="local-6989586621680019242"><span id="local-6989586621680019244"><span id="local-6989586621680019246"><span class="annot"><span class="annottext">ReadPrec [Xavc4kIntraCbgProfileSettings]
 ReadPrec Xavc4kIntraCbgProfileSettings
 Int -&gt; ReadS Xavc4kIntraCbgProfileSettings
 ReadS [Xavc4kIntraCbgProfileSettings]
@@ -72,7 +72,7 @@ readList :: ReadS [Xavc4kIntraCbgProfileSettings]
 $creadList :: ReadS [Xavc4kIntraCbgProfileSettings]
 readsPrec :: Int -&gt; ReadS Xavc4kIntraCbgProfileSettings
 $creadsPrec :: Int -&gt; ReadS Xavc4kIntraCbgProfileSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680019224"><span id="local-6989586621680019226"><span id="local-6989586621680019228"><span class="annot"><span class="annottext">Int -&gt; Xavc4kIntraCbgProfileSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680019233"><span id="local-6989586621680019235"><span id="local-6989586621680019237"><span class="annot"><span class="annottext">Int -&gt; Xavc4kIntraCbgProfileSettings -&gt; ShowS
 [Xavc4kIntraCbgProfileSettings] -&gt; ShowS
 Xavc4kIntraCbgProfileSettings -&gt; String
 (Int -&gt; Xavc4kIntraCbgProfileSettings -&gt; ShowS)
@@ -151,19 +151,19 @@ forall a. Maybe a
      (Maybe Xavc4kIntraCbgProfileClass)
      (Maybe Xavc4kIntraCbgProfileClass)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680019215"><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680019224"><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
 xavcClass :: Maybe Xavc4kIntraCbgProfileClass
 $sel:xavcClass:Xavc4kIntraCbgProfileSettings' :: Xavc4kIntraCbgProfileSettings -&gt; Maybe Xavc4kIntraCbgProfileClass
-</span><a href="#local-6989586621680019215"><span class="hs-identifier hs-var hs-var">xavcClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
-</span><a href="#local-6989586621680019215"><span class="hs-identifier hs-var">xavcClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680019214"><span class="annot"><span class="annottext">s :: Xavc4kIntraCbgProfileSettings
-</span><a href="#local-6989586621680019214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680019213"><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
-</span><a href="#local-6989586621680019213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Xavc4kIntraCbgProfileSettings
-</span><a href="#local-6989586621680019214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xavcClass:Xavc4kIntraCbgProfileSettings' :: Maybe Xavc4kIntraCbgProfileClass
+</span><a href="#local-6989586621680019224"><span class="hs-identifier hs-var hs-var">xavcClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
+</span><a href="#local-6989586621680019224"><span class="hs-identifier hs-var">xavcClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680019223"><span class="annot"><span class="annottext">s :: Xavc4kIntraCbgProfileSettings
+</span><a href="#local-6989586621680019223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680019222"><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
+</span><a href="#local-6989586621680019222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Xavc4kIntraCbgProfileSettings
+</span><a href="#local-6989586621680019223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xavcClass:Xavc4kIntraCbgProfileSettings' :: Maybe Xavc4kIntraCbgProfileClass
 </span><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#%24sel%3AxavcClass%3AXavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-var">xavcClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
-</span><a href="#local-6989586621680019213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680019222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680019210"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621680019208"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Xavc4kIntraCbgProfileSettings
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680019219"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680019217"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Xavc4kIntraCbgProfileSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Xavc4kIntraCbgProfileSettings)
@@ -173,8 +173,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Xavc4kIntraCbgProfileSettings&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680019205"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680019205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680019214"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680019214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass -&gt; Xavc4kIntraCbgProfileSettings
 </span><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-var">Xavc4kIntraCbgProfileSettings'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Xavc4kIntraCbgProfileClass -&gt; Xavc4kIntraCbgProfileSettings)
@@ -182,24 +182,24 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser Xavc4kIntraCbgProfileSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680019205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Xavc4kIntraCbgProfileClass)
+</span><a href="#local-6989586621680019214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Xavc4kIntraCbgProfileClass)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;xavcClass&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680019199"><span id="local-6989586621680019201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680019208"><span id="local-6989586621680019210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680019196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680019205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680019188"><span id="local-6989586621680019190"><span id="local-6989586621680019192"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621680019186"><span class="annot"><span class="annottext">toJSON :: Xavc4kIntraCbgProfileSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680019184"><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680019197"><span id="local-6989586621680019199"><span id="local-6989586621680019201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680019195"><span class="annot"><span class="annottext">toJSON :: Xavc4kIntraCbgProfileSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings.html#Xavc4kIntraCbgProfileSettings%27"><span class="hs-identifier hs-type">Xavc4kIntraCbgProfileSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680019193"><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
 xavcClass :: Maybe Xavc4kIntraCbgProfileClass
 $sel:xavcClass:Xavc4kIntraCbgProfileSettings' :: Xavc4kIntraCbgProfileSettings -&gt; Maybe Xavc4kIntraCbgProfileClass
-</span><a href="#local-6989586621680019184"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680019193"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -212,6 +212,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Xavc4kIntraCbgProfileClass -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Xavc4kIntraCbgProfileClass
-</span><a href="#local-6989586621680019184"><span class="hs-identifier hs-var">xavcClass</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680019193"><span class="hs-identifier hs-var">xavcClass</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

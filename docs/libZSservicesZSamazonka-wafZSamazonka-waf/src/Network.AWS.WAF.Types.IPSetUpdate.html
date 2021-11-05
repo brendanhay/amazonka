@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- Specifies the type of update to perform to an IPSet with UpdateIPSet.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newIPSetUpdate' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679302010"><span id="local-6989586621679302011"></span></span><span class="hs-keyword">data</span><span> </span><span id="IPSetUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-var">IPSetUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IPSetUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-var">IPSetUpdate'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679302019"><span id="local-6989586621679302020"></span></span><span class="hs-keyword">data</span><span> </span><span id="IPSetUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-var">IPSetUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IPSetUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-var">IPSetUpdate'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to insert or delete an IP address with UpdateIPSet.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aaction%3AIPSetUpdate%27"><span class="annot"><span class="annottext">IPSetUpdate -&gt; ChangeAction
 </span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#%24sel%3Aaction%3AIPSetUpdate%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.ChangeAction.html#ChangeAction"><span class="hs-identifier hs-type">ChangeAction</span></a></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AiPSetDescriptor%3AIPSetUpdate%27"><span class="annot"><span class="annottext">IPSetUpdate -&gt; IPSetDescriptor
 </span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#%24sel%3AiPSetDescriptor%3AIPSetUpdate%27"><span class="hs-identifier hs-var hs-var">iPSetDescriptor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302003"><span id="local-6989586621679302005"><span class="annot"><span class="annottext">IPSetUpdate -&gt; IPSetUpdate -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302012"><span id="local-6989586621679302014"><span class="annot"><span class="annottext">IPSetUpdate -&gt; IPSetUpdate -&gt; Bool
 (IPSetUpdate -&gt; IPSetUpdate -&gt; Bool)
 -&gt; (IPSetUpdate -&gt; IPSetUpdate -&gt; Bool) -&gt; Eq IPSetUpdate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IPSetUpdate -&gt; IPSetUpdate -&gt; Bool
 == :: IPSetUpdate -&gt; IPSetUpdate -&gt; Bool
 $c== :: IPSetUpdate -&gt; IPSetUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301994"><span id="local-6989586621679301996"><span id="local-6989586621679301998"><span id="local-6989586621679302000"><span class="annot"><span class="annottext">ReadPrec [IPSetUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302003"><span id="local-6989586621679302005"><span id="local-6989586621679302007"><span id="local-6989586621679302009"><span class="annot"><span class="annottext">ReadPrec [IPSetUpdate]
 ReadPrec IPSetUpdate
 Int -&gt; ReadS IPSetUpdate
 ReadS [IPSetUpdate]
@@ -74,7 +74,7 @@ readList :: ReadS [IPSetUpdate]
 $creadList :: ReadS [IPSetUpdate]
 readsPrec :: Int -&gt; ReadS IPSetUpdate
 $creadsPrec :: Int -&gt; ReadS IPSetUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301987"><span id="local-6989586621679301989"><span id="local-6989586621679301991"><span class="annot"><span class="annottext">Int -&gt; IPSetUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301996"><span id="local-6989586621679301998"><span id="local-6989586621679302000"><span class="annot"><span class="annottext">Int -&gt; IPSetUpdate -&gt; ShowS
 [IPSetUpdate] -&gt; ShowS
 IPSetUpdate -&gt; String
 (Int -&gt; IPSetUpdate -&gt; ShowS)
@@ -119,17 +119,17 @@ $cfrom :: forall x. IPSetUpdate -&gt; Rep IPSetUpdate x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span><span>
 </span><span id="line-67"></span><span id="newIPSetUpdate"><span class="annot"><span class="annottext">newIPSetUpdate :: ChangeAction -&gt; IPSetDescriptor -&gt; IPSetUpdate
-</span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#newIPSetUpdate"><span class="hs-identifier hs-var hs-var">newIPSetUpdate</span></a></span></span><span> </span><span id="local-6989586621679301981"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679301981"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679301980"><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301980"><span class="hs-identifier hs-var">pIPSetDescriptor_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#newIPSetUpdate"><span class="hs-identifier hs-var hs-var">newIPSetUpdate</span></a></span></span><span> </span><span id="local-6989586621679301990"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679301990"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679301989"><span class="annot"><span class="annottext">IPSetDescriptor
+</span><a href="#local-6989586621679301989"><span class="hs-identifier hs-var">pIPSetDescriptor_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">IPSetUpdate' :: ChangeAction -&gt; IPSetDescriptor -&gt; IPSetUpdate
 </span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:action:IPSetUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#%24sel%3Aaction%3AIPSetUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679301981"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679301990"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPSetDescriptor:IPSetUpdate' :: IPSetDescriptor
 </span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#%24sel%3AiPSetDescriptor%3AIPSetUpdate%27"><span class="hs-identifier hs-var">iPSetDescriptor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301980"><span class="hs-identifier hs-var">pIPSetDescriptor_</span></a></span><span>
+</span><a href="#local-6989586621679301989"><span class="hs-identifier hs-var">pIPSetDescriptor_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Specifies whether to insert or delete an IP address with UpdateIPSet.</span><span>
@@ -139,16 +139,16 @@ $cfrom :: forall x. IPSetUpdate -&gt; Rep IPSetUpdate x
 -&gt; (IPSetUpdate -&gt; ChangeAction -&gt; IPSetUpdate)
 -&gt; Lens IPSetUpdate IPSetUpdate ChangeAction ChangeAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301976"><span class="annot"><span class="annottext">ChangeAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301985"><span class="annot"><span class="annottext">ChangeAction
 action :: ChangeAction
 $sel:action:IPSetUpdate' :: IPSetUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679301976"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679301976"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301975"><span class="annot"><span class="annottext">s :: IPSetUpdate
-</span><a href="#local-6989586621679301975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301974"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679301974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetUpdate
-</span><a href="#local-6989586621679301975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:IPSetUpdate' :: ChangeAction
+</span><a href="#local-6989586621679301985"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679301985"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301984"><span class="annot"><span class="annottext">s :: IPSetUpdate
+</span><a href="#local-6989586621679301984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301983"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679301983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetUpdate
+</span><a href="#local-6989586621679301984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:IPSetUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#%24sel%3Aaction%3AIPSetUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679301974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The IP address type (@IPV4@ or @IPV6@) and the IP address range (in CIDR</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- notation) that web requests originate from.</span><span>
@@ -159,30 +159,30 @@ $sel:action:IPSetUpdate' :: IPSetUpdate -&gt; ChangeAction
 -&gt; (IPSetUpdate -&gt; IPSetDescriptor -&gt; IPSetUpdate)
 -&gt; Lens IPSetUpdate IPSetUpdate IPSetDescriptor IPSetDescriptor
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301972"><span class="annot"><span class="annottext">IPSetDescriptor
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301981"><span class="annot"><span class="annottext">IPSetDescriptor
 iPSetDescriptor :: IPSetDescriptor
 $sel:iPSetDescriptor:IPSetUpdate' :: IPSetUpdate -&gt; IPSetDescriptor
-</span><a href="#local-6989586621679301972"><span class="hs-identifier hs-var hs-var">iPSetDescriptor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301972"><span class="hs-identifier hs-var">iPSetDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301971"><span class="annot"><span class="annottext">s :: IPSetUpdate
-</span><a href="#local-6989586621679301971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301970"><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetUpdate
-</span><a href="#local-6989586621679301971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPSetDescriptor:IPSetUpdate' :: IPSetDescriptor
+</span><a href="#local-6989586621679301981"><span class="hs-identifier hs-var hs-var">iPSetDescriptor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
+</span><a href="#local-6989586621679301981"><span class="hs-identifier hs-var">iPSetDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301980"><span class="annot"><span class="annottext">s :: IPSetUpdate
+</span><a href="#local-6989586621679301980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301979"><span class="annot"><span class="annottext">IPSetDescriptor
+</span><a href="#local-6989586621679301979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetUpdate
+</span><a href="#local-6989586621679301980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPSetDescriptor:IPSetUpdate' :: IPSetDescriptor
 </span><a href="Network.AWS.WAF.Types.IPSetUpdate.html#%24sel%3AiPSetDescriptor%3AIPSetUpdate%27"><span class="hs-identifier hs-var">iPSetDescriptor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301966"><span id="local-6989586621679301968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301975"><span id="local-6989586621679301977"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301955"><span id="local-6989586621679301957"><span id="local-6989586621679301959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679301953"><span class="annot"><span class="annottext">toJSON :: IPSetUpdate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301950"><span id="local-6989586621679301951"><span class="annot"><span class="annottext">ChangeAction
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301964"><span id="local-6989586621679301966"><span id="local-6989586621679301968"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate"><span class="hs-identifier hs-type">IPSetUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679301962"><span class="annot"><span class="annottext">toJSON :: IPSetUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetUpdate.html#IPSetUpdate%27"><span class="hs-identifier hs-type">IPSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301959"><span id="local-6989586621679301960"><span class="annot"><span class="annottext">ChangeAction
 IPSetDescriptor
 iPSetDescriptor :: IPSetDescriptor
 action :: ChangeAction
 $sel:iPSetDescriptor:IPSetUpdate' :: IPSetUpdate -&gt; IPSetDescriptor
 $sel:action:IPSetUpdate' :: IPSetUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679301950"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679301959"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -194,7 +194,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChangeAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679301951"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679301960"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -202,7 +202,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IPSetDescriptor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IPSetDescriptor -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301950"><span class="hs-identifier hs-var">iPSetDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301959"><span class="hs-identifier hs-var">iPSetDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

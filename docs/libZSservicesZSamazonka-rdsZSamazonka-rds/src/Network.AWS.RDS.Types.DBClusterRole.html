@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- role that is associated with a DB cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDBClusterRole' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679758235"><span id="local-6989586621679758236"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBClusterRole"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-var">DBClusterRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBClusterRole%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-var">DBClusterRole'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679758244"><span id="local-6989586621679758245"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBClusterRole"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-var">DBClusterRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBClusterRole%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-var">DBClusterRole'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the state of association between the IAM role and the DB</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- cluster. The Status property returns one of the following values:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AroleArn%3ADBClusterRole%27"><span class="annot"><span class="annottext">DBClusterRole -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBClusterRole.html#%24sel%3AroleArn%3ADBClusterRole%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679758227"><span id="local-6989586621679758229"><span class="annot"><span class="annottext">DBClusterRole -&gt; DBClusterRole -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679758236"><span id="local-6989586621679758238"><span class="annot"><span class="annottext">DBClusterRole -&gt; DBClusterRole -&gt; Bool
 (DBClusterRole -&gt; DBClusterRole -&gt; Bool)
 -&gt; (DBClusterRole -&gt; DBClusterRole -&gt; Bool) -&gt; Eq DBClusterRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DBClusterRole -&gt; DBClusterRole -&gt; Bool
 == :: DBClusterRole -&gt; DBClusterRole -&gt; Bool
 $c== :: DBClusterRole -&gt; DBClusterRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758218"><span id="local-6989586621679758220"><span id="local-6989586621679758222"><span id="local-6989586621679758224"><span class="annot"><span class="annottext">ReadPrec [DBClusterRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758227"><span id="local-6989586621679758229"><span id="local-6989586621679758231"><span id="local-6989586621679758233"><span class="annot"><span class="annottext">ReadPrec [DBClusterRole]
 ReadPrec DBClusterRole
 Int -&gt; ReadS DBClusterRole
 ReadS [DBClusterRole]
@@ -80,7 +80,7 @@ readList :: ReadS [DBClusterRole]
 $creadList :: ReadS [DBClusterRole]
 readsPrec :: Int -&gt; ReadS DBClusterRole
 $creadsPrec :: Int -&gt; ReadS DBClusterRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758211"><span id="local-6989586621679758213"><span id="local-6989586621679758215"><span class="annot"><span class="annottext">Int -&gt; DBClusterRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758220"><span id="local-6989586621679758222"><span id="local-6989586621679758224"><span class="annot"><span class="annottext">Int -&gt; DBClusterRole -&gt; ShowS
 [DBClusterRole] -&gt; ShowS
 DBClusterRole -&gt; String
 (Int -&gt; DBClusterRole -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; (DBClusterRole -&gt; Maybe Text -&gt; DBClusterRole)
 -&gt; Lens DBClusterRole DBClusterRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758202"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758211"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:DBClusterRole' :: DBClusterRole -&gt; Maybe Text
-</span><a href="#local-6989586621679758202"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758202"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758201"><span class="annot"><span class="annottext">s :: DBClusterRole
-</span><a href="#local-6989586621679758201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758200"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterRole
-</span><a href="#local-6989586621679758201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DBClusterRole' :: Maybe Text
+</span><a href="#local-6989586621679758211"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758211"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758210"><span class="annot"><span class="annottext">s :: DBClusterRole
+</span><a href="#local-6989586621679758210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758209"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterRole
+</span><a href="#local-6989586621679758210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DBClusterRole' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBClusterRole.html#%24sel%3Astatus%3ADBClusterRole%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679758209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of the feature associated with the Amazon Web Services Identity</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- and Access Management (IAM) role. For the list of supported feature</span><span>
@@ -191,16 +191,16 @@ $sel:status:DBClusterRole' :: DBClusterRole -&gt; Maybe Text
 -&gt; (DBClusterRole -&gt; Maybe Text -&gt; DBClusterRole)
 -&gt; Lens DBClusterRole DBClusterRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758198"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758207"><span class="annot"><span class="annottext">Maybe Text
 featureName :: Maybe Text
 $sel:featureName:DBClusterRole' :: DBClusterRole -&gt; Maybe Text
-</span><a href="#local-6989586621679758198"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758198"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758197"><span class="annot"><span class="annottext">s :: DBClusterRole
-</span><a href="#local-6989586621679758197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758196"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterRole
-</span><a href="#local-6989586621679758197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:DBClusterRole' :: Maybe Text
+</span><a href="#local-6989586621679758207"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758207"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758206"><span class="annot"><span class="annottext">s :: DBClusterRole
+</span><a href="#local-6989586621679758206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758205"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterRole
+</span><a href="#local-6989586621679758206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:DBClusterRole' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBClusterRole.html#%24sel%3AfeatureName%3ADBClusterRole%27"><span class="hs-identifier hs-var">featureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679758205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that is associated with</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- the DB cluster.</span><span>
@@ -210,21 +210,21 @@ $sel:featureName:DBClusterRole' :: DBClusterRole -&gt; Maybe Text
 -&gt; (DBClusterRole -&gt; Maybe Text -&gt; DBClusterRole)
 -&gt; Lens DBClusterRole DBClusterRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758194"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758203"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:DBClusterRole' :: DBClusterRole -&gt; Maybe Text
-</span><a href="#local-6989586621679758194"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758194"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758193"><span class="annot"><span class="annottext">s :: DBClusterRole
-</span><a href="#local-6989586621679758193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758192"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterRole
-</span><a href="#local-6989586621679758193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DBClusterRole' :: Maybe Text
+</span><a href="#local-6989586621679758203"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758203"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758202"><span class="annot"><span class="annottext">s :: DBClusterRole
+</span><a href="#local-6989586621679758202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-type">DBClusterRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterRole
+</span><a href="#local-6989586621679758202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DBClusterRole' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBClusterRole.html#%24sel%3AroleArn%3ADBClusterRole%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679758201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679758189"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBClusterRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679758187"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758187"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679758198"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBClusterRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679758196"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679758196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBClusterRole
 </span><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole%27"><span class="hs-identifier hs-var">DBClusterRole'</span></a></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBClusterRole)
@@ -232,7 +232,7 @@ $sel:roleArn:DBClusterRole' :: DBClusterRole -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DBClusterRole)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679758196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,7 +241,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; DBClusterRole)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679758196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FeatureName&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,12 +249,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String DBClusterRole
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679758196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758181"><span id="local-6989586621679758183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758190"><span id="local-6989586621679758192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterRole.html#DBClusterRole"><span class="hs-identifier hs-type">DBClusterRole</span></a></span></span><span>
 </span><span id="line-126"></span></pre></body></html>

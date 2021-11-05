@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdatePullRequestStatus' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679375100"><span id="local-6989586621679375101"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestStatus"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-var">UpdatePullRequestStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestStatus%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-var">UpdatePullRequestStatus'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679375109"><span id="local-6989586621679375110"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestStatus"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-var">UpdatePullRequestStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestStatus%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-var">UpdatePullRequestStatus'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated ID of the pull request. To get this ID, use</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- ListPullRequests.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3ApullRequestId%3AUpdatePullRequestStatus%27"><span class="annot"><span class="annottext">UpdatePullRequestStatus -&gt; Text
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3ApullRequestStatus%3AUpdatePullRequestStatus%27"><span class="annot"><span class="annottext">UpdatePullRequestStatus -&gt; PullRequestStatusEnum
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequestStatus%3AUpdatePullRequestStatus%27"><span class="hs-identifier hs-var hs-var">pullRequestStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusEnum.html#PullRequestStatusEnum"><span class="hs-identifier hs-type">PullRequestStatusEnum</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375093"><span id="local-6989586621679375095"><span class="annot"><span class="annottext">UpdatePullRequestStatus -&gt; UpdatePullRequestStatus -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375102"><span id="local-6989586621679375104"><span class="annot"><span class="annottext">UpdatePullRequestStatus -&gt; UpdatePullRequestStatus -&gt; Bool
 (UpdatePullRequestStatus -&gt; UpdatePullRequestStatus -&gt; Bool)
 -&gt; (UpdatePullRequestStatus -&gt; UpdatePullRequestStatus -&gt; Bool)
 -&gt; Eq UpdatePullRequestStatus
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdatePullRequestStatus -&gt; UpdatePullRequestStatus -&gt; Bool
 == :: UpdatePullRequestStatus -&gt; UpdatePullRequestStatus -&gt; Bool
 $c== :: UpdatePullRequestStatus -&gt; UpdatePullRequestStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375084"><span id="local-6989586621679375086"><span id="local-6989586621679375088"><span id="local-6989586621679375090"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375093"><span id="local-6989586621679375095"><span id="local-6989586621679375097"><span id="local-6989586621679375099"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestStatus]
 ReadPrec UpdatePullRequestStatus
 Int -&gt; ReadS UpdatePullRequestStatus
 ReadS [UpdatePullRequestStatus]
@@ -88,7 +88,7 @@ readList :: ReadS [UpdatePullRequestStatus]
 $creadList :: ReadS [UpdatePullRequestStatus]
 readsPrec :: Int -&gt; ReadS UpdatePullRequestStatus
 $creadsPrec :: Int -&gt; ReadS UpdatePullRequestStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375077"><span id="local-6989586621679375079"><span id="local-6989586621679375081"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375086"><span id="local-6989586621679375088"><span id="local-6989586621679375090"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestStatus -&gt; ShowS
 [UpdatePullRequestStatus] -&gt; ShowS
 UpdatePullRequestStatus -&gt; String
 (Int -&gt; UpdatePullRequestStatus -&gt; ShowS)
@@ -138,19 +138,19 @@ $cfrom :: forall x. UpdatePullRequestStatus -&gt; Rep UpdatePullRequestStatus x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span>
 </span><span id="line-82"></span><span id="newUpdatePullRequestStatus"><span class="annot"><span class="annottext">newUpdatePullRequestStatus :: Text -&gt; PullRequestStatusEnum -&gt; UpdatePullRequestStatus
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#newUpdatePullRequestStatus"><span class="hs-identifier hs-var hs-var">newUpdatePullRequestStatus</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679375072"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375072"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679375071"><span class="annot"><span class="annottext">PullRequestStatusEnum
-</span><a href="#local-6989586621679375071"><span class="hs-identifier hs-var">pPullRequestStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679375081"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375081"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679375080"><span class="annot"><span class="annottext">PullRequestStatusEnum
+</span><a href="#local-6989586621679375080"><span class="hs-identifier hs-var">pPullRequestStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">UpdatePullRequestStatus' :: Text -&gt; PullRequestStatusEnum -&gt; UpdatePullRequestStatus
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pullRequestId:UpdatePullRequestStatus' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequestId%3AUpdatePullRequestStatus%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375072"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375081"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:pullRequestStatus:UpdatePullRequestStatus' :: PullRequestStatusEnum
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequestStatus%3AUpdatePullRequestStatus%27"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PullRequestStatusEnum
-</span><a href="#local-6989586621679375071"><span class="hs-identifier hs-var">pPullRequestStatus_</span></a></span><span>
+</span><a href="#local-6989586621679375080"><span class="hs-identifier hs-var">pPullRequestStatus_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The system-generated ID of the pull request. To get this ID, use</span><span>
@@ -162,16 +162,16 @@ $cfrom :: forall x. UpdatePullRequestStatus -&gt; Rep UpdatePullRequestStatus x
 -&gt; (UpdatePullRequestStatus -&gt; Text -&gt; UpdatePullRequestStatus)
 -&gt; Lens UpdatePullRequestStatus UpdatePullRequestStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375068"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375077"><span class="annot"><span class="annottext">Text
 pullRequestId :: Text
 $sel:pullRequestId:UpdatePullRequestStatus' :: UpdatePullRequestStatus -&gt; Text
-</span><a href="#local-6989586621679375068"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375068"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375067"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatus
-</span><a href="#local-6989586621679375067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375066"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatus
-</span><a href="#local-6989586621679375067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:UpdatePullRequestStatus' :: Text
+</span><a href="#local-6989586621679375077"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375077"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375076"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatus
+</span><a href="#local-6989586621679375076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatus
+</span><a href="#local-6989586621679375076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:UpdatePullRequestStatus' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequestId%3AUpdatePullRequestStatus%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The status of the pull request. The only valid operations are to update</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- the status from @OPEN@ to @OPEN@, @OPEN@ to @CLOSED@ or from @CLOSED@ to</span><span>
@@ -188,28 +188,28 @@ $sel:pullRequestId:UpdatePullRequestStatus' :: UpdatePullRequestStatus -&gt; Tex
      PullRequestStatusEnum
      PullRequestStatusEnum
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375065"><span class="annot"><span class="annottext">PullRequestStatusEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375074"><span class="annot"><span class="annottext">PullRequestStatusEnum
 pullRequestStatus :: PullRequestStatusEnum
 $sel:pullRequestStatus:UpdatePullRequestStatus' :: UpdatePullRequestStatus -&gt; PullRequestStatusEnum
-</span><a href="#local-6989586621679375065"><span class="hs-identifier hs-var hs-var">pullRequestStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PullRequestStatusEnum
-</span><a href="#local-6989586621679375065"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375064"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatus
-</span><a href="#local-6989586621679375064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375063"><span class="annot"><span class="annottext">PullRequestStatusEnum
-</span><a href="#local-6989586621679375063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatus
-</span><a href="#local-6989586621679375064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestStatus:UpdatePullRequestStatus' :: PullRequestStatusEnum
+</span><a href="#local-6989586621679375074"><span class="hs-identifier hs-var hs-var">pullRequestStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PullRequestStatusEnum
+</span><a href="#local-6989586621679375074"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375073"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatus
+</span><a href="#local-6989586621679375073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375072"><span class="annot"><span class="annottext">PullRequestStatusEnum
+</span><a href="#local-6989586621679375072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatus
+</span><a href="#local-6989586621679375073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestStatus:UpdatePullRequestStatus' :: PullRequestStatusEnum
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequestStatus%3AUpdatePullRequestStatus%27"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PullRequestStatusEnum
-</span><a href="#local-6989586621679375063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679375059"><span class="annot"><span class="annottext">request :: UpdatePullRequestStatus -&gt; Request UpdatePullRequestStatus
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679375068"><span class="annot"><span class="annottext">request :: UpdatePullRequestStatus -&gt; Request UpdatePullRequestStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdatePullRequestStatus -&gt; Request UpdatePullRequestStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679375055"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679375064"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdatePullRequestStatus
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679375052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679375052"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679375051"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679375051"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679375050"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679375061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679375061"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679375060"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679375060"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679375059"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PullRequest -&gt; UpdatePullRequestStatusResponse
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestStatusResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PullRequest -&gt; UpdatePullRequestStatusResponse)
@@ -250,24 +250,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679375052"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375061"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (PullRequest -&gt; UpdatePullRequestStatusResponse)
 -&gt; Either String PullRequest
 -&gt; Either String UpdatePullRequestStatusResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PullRequest
+</span><a href="#local-6989586621679375059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PullRequest
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pullRequest&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375042"><span id="local-6989586621679375044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375051"><span id="local-6989586621679375053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679375035"><span class="annot"><span class="annottext">toHeaders :: UpdatePullRequestStatus -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679375044"><span class="annot"><span class="annottext">toHeaders :: UpdatePullRequestStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePullRequestStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -294,15 +294,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375025"><span id="local-6989586621679375027"><span id="local-6989586621679375029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679375023"><span class="annot"><span class="annottext">toJSON :: UpdatePullRequestStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375020"><span id="local-6989586621679375021"><span class="annot"><span class="annottext">Text
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375034"><span id="local-6989586621679375036"><span id="local-6989586621679375038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679375032"><span class="annot"><span class="annottext">toJSON :: UpdatePullRequestStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus%27"><span class="hs-identifier hs-type">UpdatePullRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375029"><span id="local-6989586621679375030"><span class="annot"><span class="annottext">Text
 PullRequestStatusEnum
 pullRequestStatus :: PullRequestStatusEnum
 pullRequestId :: Text
 $sel:pullRequestStatus:UpdatePullRequestStatus' :: UpdatePullRequestStatus -&gt; PullRequestStatusEnum
 $sel:pullRequestId:UpdatePullRequestStatus' :: UpdatePullRequestStatus -&gt; Text
-</span><a href="#local-6989586621679375020"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679375029"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -315,7 +315,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375021"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375030"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -323,19 +323,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pullRequestStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PullRequestStatusEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PullRequestStatusEnum
-</span><a href="#local-6989586621679375020"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375029"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679375014"><span class="annot"><span class="annottext">toPath :: UpdatePullRequestStatus -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679375023"><span class="annot"><span class="annottext">toPath :: UpdatePullRequestStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdatePullRequestStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatus"><span class="hs-identifier hs-type">UpdatePullRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679375010"><span class="annot"><span class="annottext">toQuery :: UpdatePullRequestStatus -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679375019"><span class="annot"><span class="annottext">toQuery :: UpdatePullRequestStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePullRequestStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -343,7 +343,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newUpdatePullRequestStatusResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679375007"><span id="local-6989586621679375008"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestStatusResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-var">UpdatePullRequestStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestStatusResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestStatusResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679375016"><span id="local-6989586621679375017"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestStatusResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-var">UpdatePullRequestStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestStatusResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestStatusResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePullRequestStatusResponse%27"><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3AhttpStatus%3AUpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3ApullRequest%3AUpdatePullRequestStatusResponse%27"><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse -&gt; PullRequest
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequest%3AUpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var hs-var">pullRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequest.html#PullRequest"><span class="hs-identifier hs-type">PullRequest</span></a></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375001"><span id="local-6989586621679375003"><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375010"><span id="local-6989586621679375012"><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse
 -&gt; UpdatePullRequestStatusResponse -&gt; Bool
 (UpdatePullRequestStatusResponse
  -&gt; UpdatePullRequestStatusResponse -&gt; Bool)
@@ -367,7 +367,7 @@ $c/= :: UpdatePullRequestStatusResponse
 -&gt; UpdatePullRequestStatusResponse -&gt; Bool
 $c== :: UpdatePullRequestStatusResponse
 -&gt; UpdatePullRequestStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374993"><span id="local-6989586621679374995"><span id="local-6989586621679374997"><span id="local-6989586621679374999"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375002"><span id="local-6989586621679375004"><span id="local-6989586621679375006"><span id="local-6989586621679375008"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestStatusResponse]
 ReadPrec UpdatePullRequestStatusResponse
 Int -&gt; ReadS UpdatePullRequestStatusResponse
 ReadS [UpdatePullRequestStatusResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [UpdatePullRequestStatusResponse]
 $creadList :: ReadS [UpdatePullRequestStatusResponse]
 readsPrec :: Int -&gt; ReadS UpdatePullRequestStatusResponse
 $creadsPrec :: Int -&gt; ReadS UpdatePullRequestStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374987"><span id="local-6989586621679374989"><span id="local-6989586621679374991"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374996"><span id="local-6989586621679374998"><span id="local-6989586621679375000"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestStatusResponse -&gt; ShowS
 [UpdatePullRequestStatusResponse] -&gt; ShowS
 UpdatePullRequestStatusResponse -&gt; String
 (Int -&gt; UpdatePullRequestStatusResponse -&gt; ShowS)
@@ -444,19 +444,19 @@ UpdatePullRequestStatusResponse
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newUpdatePullRequestStatusResponse"><span class="annot"><span class="annottext">newUpdatePullRequestStatusResponse :: Int -&gt; PullRequest -&gt; UpdatePullRequestStatusResponse
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#newUpdatePullRequestStatusResponse"><span class="hs-identifier hs-var hs-var">newUpdatePullRequestStatusResponse</span></a></span></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679374984"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679374983"><span class="annot"><span class="annottext">PullRequest
-</span><a href="#local-6989586621679374983"><span class="hs-identifier hs-var">pPullRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679374993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679374992"><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374992"><span class="hs-identifier hs-var">pPullRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse' :: Int -&gt; PullRequest -&gt; UpdatePullRequestStatusResponse
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePullRequestStatusResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3AhttpStatus%3AUpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374993"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:pullRequest:UpdatePullRequestStatusResponse' :: PullRequest
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequest%3AUpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var">pullRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PullRequest
-</span><a href="#local-6989586621679374983"><span class="hs-identifier hs-var">pPullRequest_</span></a></span><span>
+</span><a href="#local-6989586621679374992"><span class="hs-identifier hs-var">pPullRequest_</span></a></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -473,16 +473,16 @@ UpdatePullRequestStatusResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374982"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374991"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdatePullRequestStatusResponse' :: UpdatePullRequestStatusResponse -&gt; Int
-</span><a href="#local-6989586621679374982"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374982"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374981"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatusResponse
-</span><a href="#local-6989586621679374981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374980"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse
-</span><a href="#local-6989586621679374981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePullRequestStatusResponse' :: Int
+</span><a href="#local-6989586621679374991"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374991"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374990"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatusResponse
+</span><a href="#local-6989586621679374990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374989"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse
+</span><a href="#local-6989586621679374990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePullRequestStatusResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3AhttpStatus%3AUpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | Information about the pull request.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#updatePullRequestStatusResponse_pullRequest"><span class="hs-identifier hs-type">updatePullRequestStatusResponse_pullRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequest.html#PullRequest"><span class="hs-identifier hs-type">PullRequest</span></a></span><span>
@@ -498,18 +498,18 @@ $sel:httpStatus:UpdatePullRequestStatusResponse' :: UpdatePullRequestStatusRespo
      PullRequest
      PullRequest
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374979"><span class="annot"><span class="annottext">PullRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374988"><span class="annot"><span class="annottext">PullRequest
 pullRequest :: PullRequest
 $sel:pullRequest:UpdatePullRequestStatusResponse' :: UpdatePullRequestStatusResponse -&gt; PullRequest
-</span><a href="#local-6989586621679374979"><span class="hs-identifier hs-var hs-var">pullRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PullRequest
-</span><a href="#local-6989586621679374979"><span class="hs-identifier hs-var">pullRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374978"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatusResponse
-</span><a href="#local-6989586621679374978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374977"><span class="annot"><span class="annottext">PullRequest
-</span><a href="#local-6989586621679374977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse
-</span><a href="#local-6989586621679374978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequest:UpdatePullRequestStatusResponse' :: PullRequest
+</span><a href="#local-6989586621679374988"><span class="hs-identifier hs-var hs-var">pullRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374988"><span class="hs-identifier hs-var">pullRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374987"><span class="annot"><span class="annottext">s :: UpdatePullRequestStatusResponse
+</span><a href="#local-6989586621679374987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374986"><span class="annot"><span class="annottext">PullRequest
+</span><a href="#local-6989586621679374986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestStatusResponse
+</span><a href="#local-6989586621679374987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequest:UpdatePullRequestStatusResponse' :: PullRequest
 </span><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#%24sel%3ApullRequest%3AUpdatePullRequestStatusResponse%27"><span class="hs-identifier hs-var">pullRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PullRequest
-</span><a href="#local-6989586621679374977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679374975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679374984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestStatus.html#UpdatePullRequestStatusResponse"><span class="hs-identifier hs-type">UpdatePullRequestStatusResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

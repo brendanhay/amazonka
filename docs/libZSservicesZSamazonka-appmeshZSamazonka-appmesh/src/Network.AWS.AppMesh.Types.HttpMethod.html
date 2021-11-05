@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.HttpMethod</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.HttpMethod</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier">HttpMethod</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_CONNECT"><span class="hs-identifier">HttpMethod_CONNECT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_DELETE"><span class="hs-identifier">HttpMethod_DELETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_GET"><span class="hs-identifier">HttpMethod_GET</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_HEAD"><span class="hs-identifier">HttpMethod_HEAD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_OPTIONS"><span class="hs-identifier">HttpMethod_OPTIONS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_PATCH"><span class="hs-identifier">HttpMethod_PATCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_POST"><span class="hs-identifier">HttpMethod_POST</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_PUT"><span class="hs-identifier">HttpMethod_PUT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_TRACE"><span class="hs-identifier">HttpMethod_TRACE</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679326420"><span id="local-6989586621679326421"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HttpMethod"><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-var">HttpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpMethod%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-var">HttpMethod'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHttpMethod"><span class="annot"><span class="annottext">HttpMethod -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#fromHttpMethod"><span class="hs-identifier hs-var hs-var">fromHttpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326412"><span id="local-6989586621679326414"><span id="local-6989586621679326416"><span class="annot"><span class="annottext">Int -&gt; HttpMethod -&gt; ShowS
+[HttpMethod] -&gt; ShowS
+HttpMethod -&gt; String
+(Int -&gt; HttpMethod -&gt; ShowS)
+-&gt; (HttpMethod -&gt; String)
+-&gt; ([HttpMethod] -&gt; ShowS)
+-&gt; Show HttpMethod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HttpMethod] -&gt; ShowS
+$cshowList :: [HttpMethod] -&gt; ShowS
+show :: HttpMethod -&gt; String
+$cshow :: HttpMethod -&gt; String
+showsPrec :: Int -&gt; HttpMethod -&gt; ShowS
+$cshowsPrec :: Int -&gt; HttpMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326403"><span id="local-6989586621679326405"><span id="local-6989586621679326407"><span id="local-6989586621679326409"><span class="annot"><span class="annottext">ReadPrec [HttpMethod]
+ReadPrec HttpMethod
+Int -&gt; ReadS HttpMethod
+ReadS [HttpMethod]
+(Int -&gt; ReadS HttpMethod)
+-&gt; ReadS [HttpMethod]
+-&gt; ReadPrec HttpMethod
+-&gt; ReadPrec [HttpMethod]
+-&gt; Read HttpMethod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HttpMethod]
+$creadListPrec :: ReadPrec [HttpMethod]
+readPrec :: ReadPrec HttpMethod
+$creadPrec :: ReadPrec HttpMethod
+readList :: ReadS [HttpMethod]
+$creadList :: ReadS [HttpMethod]
+readsPrec :: Int -&gt; ReadS HttpMethod
+$creadsPrec :: Int -&gt; ReadS HttpMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326398"><span id="local-6989586621679326400"><span class="annot"><span class="annottext">HttpMethod -&gt; HttpMethod -&gt; Bool
+(HttpMethod -&gt; HttpMethod -&gt; Bool)
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; Bool) -&gt; Eq HttpMethod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HttpMethod -&gt; HttpMethod -&gt; Bool
+$c/= :: HttpMethod -&gt; HttpMethod -&gt; Bool
+== :: HttpMethod -&gt; HttpMethod -&gt; Bool
+$c== :: HttpMethod -&gt; HttpMethod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326382"><span id="local-6989586621679326384"><span id="local-6989586621679326386"><span id="local-6989586621679326388"><span id="local-6989586621679326390"><span id="local-6989586621679326392"><span id="local-6989586621679326394"><span class="annot"><span class="annottext">Eq HttpMethod
+Eq HttpMethod
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; Ordering)
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; Bool)
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; Bool)
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; Bool)
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; Bool)
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; HttpMethod)
+-&gt; (HttpMethod -&gt; HttpMethod -&gt; HttpMethod)
+-&gt; Ord HttpMethod
+HttpMethod -&gt; HttpMethod -&gt; Bool
+HttpMethod -&gt; HttpMethod -&gt; Ordering
+HttpMethod -&gt; HttpMethod -&gt; HttpMethod
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HttpMethod -&gt; HttpMethod -&gt; HttpMethod
+$cmin :: HttpMethod -&gt; HttpMethod -&gt; HttpMethod
+max :: HttpMethod -&gt; HttpMethod -&gt; HttpMethod
+$cmax :: HttpMethod -&gt; HttpMethod -&gt; HttpMethod
+&gt;= :: HttpMethod -&gt; HttpMethod -&gt; Bool
+$c&gt;= :: HttpMethod -&gt; HttpMethod -&gt; Bool
+&gt; :: HttpMethod -&gt; HttpMethod -&gt; Bool
+$c&gt; :: HttpMethod -&gt; HttpMethod -&gt; Bool
+&lt;= :: HttpMethod -&gt; HttpMethod -&gt; Bool
+$c&lt;= :: HttpMethod -&gt; HttpMethod -&gt; Bool
+&lt; :: HttpMethod -&gt; HttpMethod -&gt; Bool
+$c&lt; :: HttpMethod -&gt; HttpMethod -&gt; Bool
+compare :: HttpMethod -&gt; HttpMethod -&gt; Ordering
+$ccompare :: HttpMethod -&gt; HttpMethod -&gt; Ordering
+$cp1Ord :: Eq HttpMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HttpMethod -&gt; Rep HttpMethod x)
+-&gt; (forall x. Rep HttpMethod x -&gt; HttpMethod) -&gt; Generic HttpMethod
+forall x. Rep HttpMethod x -&gt; HttpMethod
+forall x. HttpMethod -&gt; Rep HttpMethod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HttpMethod x -&gt; HttpMethod
+$cfrom :: forall x. HttpMethod -&gt; Rep HttpMethod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326374"><span id="local-6989586621679326376"><span class="annot"><span class="annottext">Int -&gt; HttpMethod -&gt; Int
+HttpMethod -&gt; Int
+(Int -&gt; HttpMethod -&gt; Int)
+-&gt; (HttpMethod -&gt; Int) -&gt; Hashable HttpMethod
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HttpMethod -&gt; Int
+$chash :: HttpMethod -&gt; Int
+hashWithSalt :: Int -&gt; HttpMethod -&gt; Int
+$chashWithSalt :: Int -&gt; HttpMethod -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326371"><span class="annot"><span class="annottext">HttpMethod -&gt; ()
+(HttpMethod -&gt; ()) -&gt; NFData HttpMethod
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HttpMethod -&gt; ()
+$crnf :: HttpMethod -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326368"><span class="annot"><span class="annottext">Text -&gt; Either String HttpMethod
+(Text -&gt; Either String HttpMethod) -&gt; FromText HttpMethod
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HttpMethod
+$cfromText :: Text -&gt; Either String HttpMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326365"><span class="annot"><span class="annottext">HttpMethod -&gt; Text
+(HttpMethod -&gt; Text) -&gt; ToText HttpMethod
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HttpMethod -&gt; Text
+$ctoText :: HttpMethod -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326362"><span class="annot"><span class="annottext">HttpMethod -&gt; ByteString
+(HttpMethod -&gt; ByteString) -&gt; ToByteString HttpMethod
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HttpMethod -&gt; ByteString
+$ctoBS :: HttpMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326359"><span class="annot"><span class="annottext">HttpMethod -&gt; ByteStringBuilder
+(HttpMethod -&gt; ByteStringBuilder) -&gt; ToLog HttpMethod
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HttpMethod -&gt; ByteStringBuilder
+$cbuild :: HttpMethod -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326356"><span class="annot"><span class="annottext">HeaderName -&gt; HttpMethod -&gt; [Header]
+(HeaderName -&gt; HttpMethod -&gt; [Header]) -&gt; ToHeader HttpMethod
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HttpMethod -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HttpMethod -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326353"><span class="annot"><span class="annottext">HttpMethod -&gt; QueryString
+(HttpMethod -&gt; QueryString) -&gt; ToQuery HttpMethod
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HttpMethod -&gt; QueryString
+$ctoQuery :: HttpMethod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326348"><span id="local-6989586621679326350"><span class="annot"><span class="annottext">Value -&gt; Parser [HttpMethod]
+Value -&gt; Parser HttpMethod
+(Value -&gt; Parser HttpMethod)
+-&gt; (Value -&gt; Parser [HttpMethod]) -&gt; FromJSON HttpMethod
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HttpMethod]
+$cparseJSONList :: Value -&gt; Parser [HttpMethod]
+parseJSON :: Value -&gt; Parser HttpMethod
+$cparseJSON :: Value -&gt; Parser HttpMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679326343"><span id="local-6989586621679326345"><span class="annot"><span class="annottext">FromJSONKeyFunction [HttpMethod]
+FromJSONKeyFunction HttpMethod
+FromJSONKeyFunction HttpMethod
+-&gt; FromJSONKeyFunction [HttpMethod] -&gt; FromJSONKey HttpMethod
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HttpMethod]
+$cfromJSONKeyList :: FromJSONKeyFunction [HttpMethod]
+fromJSONKey :: FromJSONKeyFunction HttpMethod
+$cfromJSONKey :: FromJSONKeyFunction HttpMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679326334"><span id="local-6989586621679326336"><span id="local-6989586621679326338"><span id="local-6989586621679326340"><span class="annot"><span class="annottext">[HttpMethod] -&gt; Encoding
+[HttpMethod] -&gt; Value
+HttpMethod -&gt; Encoding
+HttpMethod -&gt; Value
+(HttpMethod -&gt; Value)
+-&gt; (HttpMethod -&gt; Encoding)
+-&gt; ([HttpMethod] -&gt; Value)
+-&gt; ([HttpMethod] -&gt; Encoding)
+-&gt; ToJSON HttpMethod
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HttpMethod] -&gt; Encoding
+$ctoEncodingList :: [HttpMethod] -&gt; Encoding
+toJSONList :: [HttpMethod] -&gt; Value
+$ctoJSONList :: [HttpMethod] -&gt; Value
+toEncoding :: HttpMethod -&gt; Encoding
+$ctoEncoding :: HttpMethod -&gt; Encoding
+toJSON :: HttpMethod -&gt; Value
+$ctoJSON :: HttpMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679326329"><span id="local-6989586621679326331"><span class="annot"><span class="annottext">ToJSONKeyFunction [HttpMethod]
+ToJSONKeyFunction HttpMethod
+ToJSONKeyFunction HttpMethod
+-&gt; ToJSONKeyFunction [HttpMethod] -&gt; ToJSONKey HttpMethod
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HttpMethod]
+$ctoJSONKeyList :: ToJSONKeyFunction [HttpMethod]
+toJSONKey :: ToJSONKeyFunction HttpMethod
+$ctoJSONKey :: ToJSONKeyFunction HttpMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679326326"><span class="annot"><span class="annottext">[Node] -&gt; Either String HttpMethod
+([Node] -&gt; Either String HttpMethod) -&gt; FromXML HttpMethod
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HttpMethod
+$cparseXML :: [Node] -&gt; Either String HttpMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679326323"><span class="annot"><span class="annottext">HttpMethod -&gt; XML
+(HttpMethod -&gt; XML) -&gt; ToXML HttpMethod
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HttpMethod -&gt; XML
+$ctoXML :: HttpMethod -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_CONNECT"><span class="hs-identifier hs-type">HttpMethod_CONNECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_CONNECT"><span id="%24mHttpMethod_CONNECT"><span id="HttpMethod_CONNECT"><span class="annot"><span class="annottext">$bHttpMethod_CONNECT :: HttpMethod
+$mHttpMethod_CONNECT :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_CONNECT"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_CONNECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECT&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_DELETE"><span class="hs-identifier hs-type">HttpMethod_DELETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_DELETE"><span id="%24mHttpMethod_DELETE"><span id="HttpMethod_DELETE"><span class="annot"><span class="annottext">$bHttpMethod_DELETE :: HttpMethod
+$mHttpMethod_DELETE :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_DELETE"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_DELETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_GET"><span class="hs-identifier hs-type">HttpMethod_GET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_GET"><span id="%24mHttpMethod_GET"><span id="HttpMethod_GET"><span class="annot"><span class="annottext">$bHttpMethod_GET :: HttpMethod
+$mHttpMethod_GET :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_GET"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_GET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GET&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_HEAD"><span class="hs-identifier hs-type">HttpMethod_HEAD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_HEAD"><span id="%24mHttpMethod_HEAD"><span id="HttpMethod_HEAD"><span class="annot"><span class="annottext">$bHttpMethod_HEAD :: HttpMethod
+$mHttpMethod_HEAD :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_HEAD"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_HEAD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEAD&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_OPTIONS"><span class="hs-identifier hs-type">HttpMethod_OPTIONS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_OPTIONS"><span id="%24mHttpMethod_OPTIONS"><span id="HttpMethod_OPTIONS"><span class="annot"><span class="annottext">$bHttpMethod_OPTIONS :: HttpMethod
+$mHttpMethod_OPTIONS :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_OPTIONS"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_OPTIONS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPTIONS&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_PATCH"><span class="hs-identifier hs-type">HttpMethod_PATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_PATCH"><span id="%24mHttpMethod_PATCH"><span id="HttpMethod_PATCH"><span class="annot"><span class="annottext">$bHttpMethod_PATCH :: HttpMethod
+$mHttpMethod_PATCH :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_PATCH"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_PATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PATCH&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_POST"><span class="hs-identifier hs-type">HttpMethod_POST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_POST"><span id="%24mHttpMethod_POST"><span id="HttpMethod_POST"><span class="annot"><span class="annottext">$bHttpMethod_POST :: HttpMethod
+$mHttpMethod_POST :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_POST"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_POST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;POST&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_PUT"><span class="hs-identifier hs-type">HttpMethod_PUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_PUT"><span id="%24mHttpMethod_PUT"><span id="HttpMethod_PUT"><span class="annot"><span class="annottext">$bHttpMethod_PUT :: HttpMethod
+$mHttpMethod_PUT :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_PUT"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_PUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PUT&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_TRACE"><span class="hs-identifier hs-type">HttpMethod_TRACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpMethod_TRACE"><span id="%24mHttpMethod_TRACE"><span id="HttpMethod_TRACE"><span class="annot"><span class="annottext">$bHttpMethod_TRACE :: HttpMethod
+$mHttpMethod_TRACE :: forall r. HttpMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.HttpMethod.html#%24bHttpMethod_TRACE"><span class="hs-identifier hs-var hs-var hs-var">HttpMethod_TRACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-identifier hs-type">HttpMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRACE&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_CONNECT"><span class="hs-pragma hs-type">HttpMethod_CONNECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_DELETE"><span class="hs-pragma hs-type">HttpMethod_DELETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_GET"><span class="hs-pragma hs-type">HttpMethod_GET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_HEAD"><span class="hs-pragma hs-type">HttpMethod_HEAD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_OPTIONS"><span class="hs-pragma hs-type">HttpMethod_OPTIONS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_PATCH"><span class="hs-pragma hs-type">HttpMethod_PATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_POST"><span class="hs-pragma hs-type">HttpMethod_POST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_PUT"><span class="hs-pragma hs-type">HttpMethod_PUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod_TRACE"><span class="hs-pragma hs-type">HttpMethod_TRACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod%27"><span class="hs-pragma hs-type">HttpMethod'</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-106"></span></pre></body></html>

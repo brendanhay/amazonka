@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Input for GetTopicAttributes action.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetTopicAttributes' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679197204"><span id="local-6989586621679197205"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicAttributes"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-var">GetTopicAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-var">GetTopicAttributes'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679197213"><span id="local-6989586621679197214"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicAttributes"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-var">GetTopicAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-var">GetTopicAttributes'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the topic whose properties you want to get.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AtopicArn%3AGetTopicAttributes%27"><span class="annot"><span class="annottext">GetTopicAttributes -&gt; Text
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#%24sel%3AtopicArn%3AGetTopicAttributes%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197198"><span id="local-6989586621679197200"><span class="annot"><span class="annottext">GetTopicAttributes -&gt; GetTopicAttributes -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197207"><span id="local-6989586621679197209"><span class="annot"><span class="annottext">GetTopicAttributes -&gt; GetTopicAttributes -&gt; Bool
 (GetTopicAttributes -&gt; GetTopicAttributes -&gt; Bool)
 -&gt; (GetTopicAttributes -&gt; GetTopicAttributes -&gt; Bool)
 -&gt; Eq GetTopicAttributes
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTopicAttributes -&gt; GetTopicAttributes -&gt; Bool
 == :: GetTopicAttributes -&gt; GetTopicAttributes -&gt; Bool
 $c== :: GetTopicAttributes -&gt; GetTopicAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197189"><span id="local-6989586621679197191"><span id="local-6989586621679197193"><span id="local-6989586621679197195"><span class="annot"><span class="annottext">ReadPrec [GetTopicAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197198"><span id="local-6989586621679197200"><span id="local-6989586621679197202"><span id="local-6989586621679197204"><span class="annot"><span class="annottext">ReadPrec [GetTopicAttributes]
 ReadPrec GetTopicAttributes
 Int -&gt; ReadS GetTopicAttributes
 ReadS [GetTopicAttributes]
@@ -84,7 +84,7 @@ readList :: ReadS [GetTopicAttributes]
 $creadList :: ReadS [GetTopicAttributes]
 readsPrec :: Int -&gt; ReadS GetTopicAttributes
 $creadsPrec :: Int -&gt; ReadS GetTopicAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197182"><span id="local-6989586621679197184"><span id="local-6989586621679197186"><span class="annot"><span class="annottext">Int -&gt; GetTopicAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197191"><span id="local-6989586621679197193"><span id="local-6989586621679197195"><span class="annot"><span class="annottext">Int -&gt; GetTopicAttributes -&gt; ShowS
 [GetTopicAttributes] -&gt; ShowS
 GetTopicAttributes -&gt; String
 (Int -&gt; GetTopicAttributes -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. GetTopicAttributes -&gt; Rep GetTopicAttributes x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span>
 </span><span id="line-72"></span><span id="newGetTopicAttributes"><span class="annot"><span class="annottext">newGetTopicAttributes :: Text -&gt; GetTopicAttributes
-</span><a href="Network.AWS.SNS.GetTopicAttributes.html#newGetTopicAttributes"><span class="hs-identifier hs-var hs-var">newGetTopicAttributes</span></a></span></span><span> </span><span id="local-6989586621679197177"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197177"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.GetTopicAttributes.html#newGetTopicAttributes"><span class="hs-identifier hs-var hs-var">newGetTopicAttributes</span></a></span></span><span> </span><span id="local-6989586621679197186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197186"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetTopicAttributes' :: Text -&gt; GetTopicAttributes
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-type">GetTopicAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:GetTopicAttributes' :: Text
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#%24sel%3AtopicArn%3AGetTopicAttributes%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197177"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679197186"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the topic whose properties you want to get.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#getTopicAttributes_topicArn"><span class="hs-identifier hs-type">getTopicAttributes_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. GetTopicAttributes -&gt; Rep GetTopicAttributes x
 -&gt; (GetTopicAttributes -&gt; Text -&gt; GetTopicAttributes)
 -&gt; Lens GetTopicAttributes GetTopicAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-type">GetTopicAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197174"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-type">GetTopicAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197183"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:GetTopicAttributes' :: GetTopicAttributes -&gt; Text
-</span><a href="#local-6989586621679197174"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197174"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197173"><span class="annot"><span class="annottext">s :: GetTopicAttributes
-</span><a href="#local-6989586621679197173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-type">GetTopicAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197172"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicAttributes
-</span><a href="#local-6989586621679197173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:GetTopicAttributes' :: Text
+</span><a href="#local-6989586621679197183"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197183"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197182"><span class="annot"><span class="annottext">s :: GetTopicAttributes
+</span><a href="#local-6989586621679197182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-type">GetTopicAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicAttributes
+</span><a href="#local-6989586621679197182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:GetTopicAttributes' :: Text
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#%24sel%3AtopicArn%3AGetTopicAttributes%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679197168"><span class="annot"><span class="annottext">request :: GetTopicAttributes -&gt; Request GetTopicAttributes
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679197177"><span class="annot"><span class="annottext">request :: GetTopicAttributes -&gt; Request GetTopicAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTopicAttributes -&gt; Request GetTopicAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679197164"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679197173"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTopicAttributes
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetTopicAttributesResult&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197161"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197161"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197160"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679197160"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197159"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197170"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197169"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197168"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679197168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; GetTopicAttributesResponse
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-var">GetTopicAttributesResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; GetTopicAttributesResponse)
@@ -200,7 +200,7 @@ Text
 -&gt; Either String (Int -&gt; GetTopicAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679197168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -234,15 +234,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197161"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197148"><span id="local-6989586621679197150"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197157"><span id="local-6989586621679197159"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197145"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679197141"><span class="annot"><span class="annottext">toHeaders :: GetTopicAttributes -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679197150"><span class="annot"><span class="annottext">toHeaders :: GetTopicAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTopicAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -250,18 +250,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679197136"><span class="annot"><span class="annottext">toPath :: GetTopicAttributes -&gt; ByteString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679197145"><span class="annot"><span class="annottext">toPath :: GetTopicAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTopicAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes"><span class="hs-identifier hs-type">GetTopicAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679197132"><span class="annot"><span class="annottext">toQuery :: GetTopicAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-type">GetTopicAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197130"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679197141"><span class="annot"><span class="annottext">toQuery :: GetTopicAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributes%27"><span class="hs-identifier hs-type">GetTopicAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197139"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:GetTopicAttributes' :: GetTopicAttributes -&gt; Text
-</span><a href="#local-6989586621679197130"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679197139"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -281,13 +281,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197130"><span class="hs-identifier hs-var">topicArn</span></a></span><span>
+</span><a href="#local-6989586621679197139"><span class="hs-identifier hs-var">topicArn</span></a></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Response for GetTopicAttributes action.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- /See:/ 'newGetTopicAttributesResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679197127"><span id="local-6989586621679197128"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-var">GetTopicAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-var">GetTopicAttributesResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679197136"><span id="local-6989586621679197137"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTopicAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-var">GetTopicAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTopicAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-var">GetTopicAttributesResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of the topic\'s attributes. Attributes in this map include the</span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">-- following:</span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -356,7 +356,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTopicAttributesResponse%27"><span class="annot"><span class="annottext">GetTopicAttributesResponse -&gt; Int
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#%24sel%3AhttpStatus%3AGetTopicAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197121"><span id="local-6989586621679197123"><span class="annot"><span class="annottext">GetTopicAttributesResponse -&gt; GetTopicAttributesResponse -&gt; Bool
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197130"><span id="local-6989586621679197132"><span class="annot"><span class="annottext">GetTopicAttributesResponse -&gt; GetTopicAttributesResponse -&gt; Bool
 (GetTopicAttributesResponse -&gt; GetTopicAttributesResponse -&gt; Bool)
 -&gt; (GetTopicAttributesResponse
     -&gt; GetTopicAttributesResponse -&gt; Bool)
@@ -366,7 +366,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTopicAttributesResponse -&gt; GetTopicAttributesResponse -&gt; Bool
 == :: GetTopicAttributesResponse -&gt; GetTopicAttributesResponse -&gt; Bool
 $c== :: GetTopicAttributesResponse -&gt; GetTopicAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197113"><span id="local-6989586621679197115"><span id="local-6989586621679197117"><span id="local-6989586621679197119"><span class="annot"><span class="annottext">ReadPrec [GetTopicAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197122"><span id="local-6989586621679197124"><span id="local-6989586621679197126"><span id="local-6989586621679197128"><span class="annot"><span class="annottext">ReadPrec [GetTopicAttributesResponse]
 ReadPrec GetTopicAttributesResponse
 Int -&gt; ReadS GetTopicAttributesResponse
 ReadS [GetTopicAttributesResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [GetTopicAttributesResponse]
 $creadList :: ReadS [GetTopicAttributesResponse]
 readsPrec :: Int -&gt; ReadS GetTopicAttributesResponse
 $creadsPrec :: Int -&gt; ReadS GetTopicAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197107"><span id="local-6989586621679197109"><span id="local-6989586621679197111"><span class="annot"><span class="annottext">Int -&gt; GetTopicAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197116"><span id="local-6989586621679197118"><span id="local-6989586621679197120"><span class="annot"><span class="annottext">Int -&gt; GetTopicAttributesResponse -&gt; ShowS
 [GetTopicAttributesResponse] -&gt; ShowS
 GetTopicAttributesResponse -&gt; String
 (Int -&gt; GetTopicAttributesResponse -&gt; ShowS)
@@ -495,8 +495,8 @@ GetTopicAttributesResponse -&gt; Rep GetTopicAttributesResponse x
 </span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-262"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span><span>
 </span><span id="line-263"></span><span id="newGetTopicAttributesResponse"><span class="annot"><span class="annottext">newGetTopicAttributesResponse :: Int -&gt; GetTopicAttributesResponse
-</span><a href="Network.AWS.SNS.GetTopicAttributes.html#newGetTopicAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetTopicAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197104"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.GetTopicAttributes.html#newGetTopicAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetTopicAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-264"></span><span>  </span><span class="annot"><span class="annottext">GetTopicAttributesResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; GetTopicAttributesResponse
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span>
 </span><span id="line-265"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:GetTopicAttributesResponse' :: Maybe (HashMap Text Text)
@@ -506,7 +506,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTopicAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#%24sel%3AhttpStatus%3AGetTopicAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679197113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-268"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | A map of the topic\'s attributes. Attributes in this map include the</span><span>
@@ -583,16 +583,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197103"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197112"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:GetTopicAttributesResponse' :: GetTopicAttributesResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197103"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197103"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197102"><span class="annot"><span class="annottext">s :: GetTopicAttributesResponse
-</span><a href="#local-6989586621679197102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197101"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicAttributesResponse
-</span><a href="#local-6989586621679197102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetTopicAttributesResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197112"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197112"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197111"><span class="annot"><span class="annottext">s :: GetTopicAttributesResponse
+</span><a href="#local-6989586621679197111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197110"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicAttributesResponse
+</span><a href="#local-6989586621679197111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetTopicAttributesResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#%24sel%3Aattributes%3AGetTopicAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679197110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetTopicAttributesResponse -&gt; f GetTopicAttributesResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -631,16 +631,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      GetTopicAttributesResponse GetTopicAttributesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197097"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197106"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTopicAttributesResponse' :: GetTopicAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679197097"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197097"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197096"><span class="annot"><span class="annottext">s :: GetTopicAttributesResponse
-</span><a href="#local-6989586621679197096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197095"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicAttributesResponse
-</span><a href="#local-6989586621679197096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTopicAttributesResponse' :: Int
+</span><a href="#local-6989586621679197106"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197106"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197105"><span class="annot"><span class="annottext">s :: GetTopicAttributesResponse
+</span><a href="#local-6989586621679197105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse%27"><span class="hs-identifier hs-type">GetTopicAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTopicAttributesResponse
+</span><a href="#local-6989586621679197105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTopicAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetTopicAttributes.html#%24sel%3AhttpStatus%3AGetTopicAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
-</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetTopicAttributes.html#GetTopicAttributesResponse"><span class="hs-identifier hs-type">GetTopicAttributesResponse</span></a></span></span><span>
 </span><span id="line-340"></span></pre></body></html>

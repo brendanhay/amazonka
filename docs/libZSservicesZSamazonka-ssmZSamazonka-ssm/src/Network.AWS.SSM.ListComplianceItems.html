@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListComplianceItems' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679832234"><span id="local-6989586621679832235"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComplianceItems"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-var">ListComplianceItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComplianceItems%27"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-var">ListComplianceItems'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679832243"><span id="local-6989586621679832244"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComplianceItems"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-var">ListComplianceItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComplianceItems%27"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-var">ListComplianceItems'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for the resources from which to get compliance information.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Currently, you can only specify one resource ID.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AresourceIds%3AListComplianceItems%27"><span class="annot"><span class="annottext">ListComplianceItems -&gt; Maybe (NonEmpty Text)
@@ -80,7 +80,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AresourceTypes%3AListComplianceItems%27"><span class="annot"><span class="annottext">ListComplianceItems -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AresourceTypes%3AListComplianceItems%27"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832224"><span id="local-6989586621679832226"><span class="annot"><span class="annottext">ListComplianceItems -&gt; ListComplianceItems -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832233"><span id="local-6989586621679832235"><span class="annot"><span class="annottext">ListComplianceItems -&gt; ListComplianceItems -&gt; Bool
 (ListComplianceItems -&gt; ListComplianceItems -&gt; Bool)
 -&gt; (ListComplianceItems -&gt; ListComplianceItems -&gt; Bool)
 -&gt; Eq ListComplianceItems
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListComplianceItems -&gt; ListComplianceItems -&gt; Bool
 == :: ListComplianceItems -&gt; ListComplianceItems -&gt; Bool
 $c== :: ListComplianceItems -&gt; ListComplianceItems -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832215"><span id="local-6989586621679832217"><span id="local-6989586621679832219"><span id="local-6989586621679832221"><span class="annot"><span class="annottext">ReadPrec [ListComplianceItems]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832224"><span id="local-6989586621679832226"><span id="local-6989586621679832228"><span id="local-6989586621679832230"><span class="annot"><span class="annottext">ReadPrec [ListComplianceItems]
 ReadPrec ListComplianceItems
 Int -&gt; ReadS ListComplianceItems
 ReadS [ListComplianceItems]
@@ -109,7 +109,7 @@ readList :: ReadS [ListComplianceItems]
 $creadList :: ReadS [ListComplianceItems]
 readsPrec :: Int -&gt; ReadS ListComplianceItems
 $creadsPrec :: Int -&gt; ReadS ListComplianceItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832208"><span id="local-6989586621679832210"><span id="local-6989586621679832212"><span class="annot"><span class="annottext">Int -&gt; ListComplianceItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832217"><span id="local-6989586621679832219"><span id="local-6989586621679832221"><span class="annot"><span class="annottext">Int -&gt; ListComplianceItems -&gt; ShowS
 [ListComplianceItems] -&gt; ShowS
 ListComplianceItems -&gt; String
 (Int -&gt; ListComplianceItems -&gt; ShowS)
@@ -205,16 +205,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832202"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832211"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 resourceIds :: Maybe (NonEmpty Text)
 $sel:resourceIds:ListComplianceItems' :: ListComplianceItems -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832202"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832202"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832201"><span class="annot"><span class="annottext">s :: ListComplianceItems
-</span><a href="#local-6989586621679832201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832200"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
-</span><a href="#local-6989586621679832201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIds:ListComplianceItems' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679832211"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679832211"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832210"><span class="annot"><span class="annottext">s :: ListComplianceItems
+</span><a href="#local-6989586621679832210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832209"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679832209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
+</span><a href="#local-6989586621679832210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIds:ListComplianceItems' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AresourceIds%3AListComplianceItems%27"><span class="hs-identifier hs-var">resourceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679832209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ListComplianceItems -&gt; f ListComplianceItems)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -252,16 +252,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ComplianceStringFilter])
      (Maybe [ComplianceStringFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832196"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832205"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
 filters :: Maybe [ComplianceStringFilter]
 $sel:filters:ListComplianceItems' :: ListComplianceItems -&gt; Maybe [ComplianceStringFilter]
-</span><a href="#local-6989586621679832196"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
-</span><a href="#local-6989586621679832196"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832195"><span class="annot"><span class="annottext">s :: ListComplianceItems
-</span><a href="#local-6989586621679832195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832194"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
-</span><a href="#local-6989586621679832194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
-</span><a href="#local-6989586621679832195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListComplianceItems' :: Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679832205"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679832205"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832204"><span class="annot"><span class="annottext">s :: ListComplianceItems
+</span><a href="#local-6989586621679832204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832203"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679832203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
+</span><a href="#local-6989586621679832204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListComplianceItems' :: Maybe [ComplianceStringFilter]
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3Afilters%3AListComplianceItems%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
-</span><a href="#local-6989586621679832194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679832203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceStringFilter]
   -&gt; f (Maybe [ComplianceStringFilter]))
  -&gt; ListComplianceItems -&gt; f ListComplianceItems)
 -&gt; ((Maybe [ComplianceStringFilter]
@@ -304,16 +304,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListComplianceItems ListComplianceItems (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832193"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832202"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListComplianceItems' :: ListComplianceItems -&gt; Maybe Text
-</span><a href="#local-6989586621679832193"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679832193"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832192"><span class="annot"><span class="annottext">s :: ListComplianceItems
-</span><a href="#local-6989586621679832192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832191"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679832191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
-</span><a href="#local-6989586621679832192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceItems' :: Maybe Text
+</span><a href="#local-6989586621679832202"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832202"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832201"><span class="annot"><span class="annottext">s :: ListComplianceItems
+</span><a href="#local-6989586621679832201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832200"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
+</span><a href="#local-6989586621679832201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceItems' :: Maybe Text
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AnextToken%3AListComplianceItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679832191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
@@ -329,16 +329,16 @@ $sel:nextToken:ListComplianceItems' :: ListComplianceItems -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832190"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832199"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListComplianceItems' :: ListComplianceItems -&gt; Maybe Natural
-</span><a href="#local-6989586621679832190"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679832190"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832189"><span class="annot"><span class="annottext">s :: ListComplianceItems
-</span><a href="#local-6989586621679832189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832188"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679832188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
-</span><a href="#local-6989586621679832189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListComplianceItems' :: Maybe Natural
+</span><a href="#local-6989586621679832199"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679832199"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832198"><span class="annot"><span class="annottext">s :: ListComplianceItems
+</span><a href="#local-6989586621679832198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832197"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679832197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
+</span><a href="#local-6989586621679832198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListComplianceItems' :: Maybe Natural
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AmaxResults%3AListComplianceItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679832188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The type of resource from which to get compliance information.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- Currently, the only supported resource type is @ManagedInstance@.</span><span>
@@ -354,16 +354,16 @@ $sel:maxResults:ListComplianceItems' :: ListComplianceItems -&gt; Maybe Natural
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832187"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832196"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 resourceTypes :: Maybe (NonEmpty Text)
 $sel:resourceTypes:ListComplianceItems' :: ListComplianceItems -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832187"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832187"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832186"><span class="annot"><span class="annottext">s :: ListComplianceItems
-</span><a href="#local-6989586621679832186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832185"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
-</span><a href="#local-6989586621679832186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypes:ListComplianceItems' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679832196"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679832196"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832195"><span class="annot"><span class="annottext">s :: ListComplianceItems
+</span><a href="#local-6989586621679832195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832194"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679832194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItems
+</span><a href="#local-6989586621679832195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypes:ListComplianceItems' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AresourceTypes%3AListComplianceItems%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679832194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ListComplianceItems -&gt; f ListComplianceItems)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -387,17 +387,17 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679832181"><span class="annot"><span class="annottext">page :: ListComplianceItems
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679832190"><span class="annot"><span class="annottext">page :: ListComplianceItems
 -&gt; AWSResponse ListComplianceItems -&gt; Maybe ListComplianceItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679832179"><span class="annot"><span class="annottext">ListComplianceItems
-</span><a href="#local-6989586621679832179"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679832178"><span class="annot"><span class="annottext">AWSResponse ListComplianceItems
-</span><a href="#local-6989586621679832178"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679832188"><span class="annot"><span class="annottext">ListComplianceItems
+</span><a href="#local-6989586621679832188"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679832187"><span class="annot"><span class="annottext">AWSResponse ListComplianceItems
+</span><a href="#local-6989586621679832187"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-143"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComplianceItems
 ListComplianceItemsResponse
-</span><a href="#local-6989586621679832178"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679832187"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
 -&gt; Getting (First Text) ListComplianceItemsResponse Text
 -&gt; Maybe Text
@@ -427,7 +427,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComplianceItems
 ListComplianceItemsResponse
-</span><a href="#local-6989586621679832178"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679832187"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
 -&gt; Getting
      (First [ComplianceItem])
@@ -473,7 +473,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ListComplianceItems
-</span><a href="#local-6989586621679832179"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679832188"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ListComplianceItems
 -&gt; (ListComplianceItems -&gt; ListComplianceItems)
 -&gt; ListComplianceItems
@@ -489,7 +489,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComplianceItems
 ListComplianceItemsResponse
-</span><a href="#local-6989586621679832178"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679832187"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
 -&gt; Getting (First Text) ListComplianceItemsResponse Text
 -&gt; Maybe Text
@@ -515,12 +515,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679832169"><span class="annot"><span class="annottext">request :: ListComplianceItems -&gt; Request ListComplianceItems
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679832178"><span class="annot"><span class="annottext">request :: ListComplianceItems -&gt; Request ListComplianceItems
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListComplianceItems -&gt; Request ListComplianceItems
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679832165"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679832174"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListComplianceItems
 -&gt; ClientResponse ClientBody
@@ -546,10 +546,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679832162"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832162"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679832161"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679832161"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679832160"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679832160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679832171"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832171"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679832170"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679832170"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679832169"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679832169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ComplianceItem]
 -&gt; Maybe Text -&gt; Int -&gt; ListComplianceItemsResponse
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-var">ListComplianceItemsResponse'</span></a></span><span>
@@ -559,7 +559,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListComplianceItemsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679832160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ComplianceItem]))
+</span><a href="#local-6989586621679832169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ComplianceItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceItems&quot;</span></span><span>
@@ -575,7 +575,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListComplianceItemsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679832160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679832169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -587,15 +587,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832162"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832171"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832151"><span id="local-6989586621679832153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832160"><span id="local-6989586621679832162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679832144"><span class="annot"><span class="annottext">toHeaders :: ListComplianceItems -&gt; ResponseHeaders
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679832153"><span class="annot"><span class="annottext">toHeaders :: ListComplianceItems -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListComplianceItems -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -622,9 +622,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832134"><span id="local-6989586621679832136"><span id="local-6989586621679832138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679832132"><span class="annot"><span class="annottext">toJSON :: ListComplianceItems -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832126"><span id="local-6989586621679832127"><span id="local-6989586621679832128"><span id="local-6989586621679832129"><span id="local-6989586621679832130"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832143"><span id="local-6989586621679832145"><span id="local-6989586621679832147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679832141"><span class="annot"><span class="annottext">toJSON :: ListComplianceItems -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems%27"><span class="hs-identifier hs-type">ListComplianceItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832135"><span id="local-6989586621679832136"><span id="local-6989586621679832137"><span id="local-6989586621679832138"><span id="local-6989586621679832139"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [ComplianceStringFilter]
 Maybe (NonEmpty Text)
 Maybe Text
@@ -638,7 +638,7 @@ $sel:maxResults:ListComplianceItems' :: ListComplianceItems -&gt; Maybe Natural
 $sel:nextToken:ListComplianceItems' :: ListComplianceItems -&gt; Maybe Text
 $sel:filters:ListComplianceItems' :: ListComplianceItems -&gt; Maybe [ComplianceStringFilter]
 $sel:resourceIds:ListComplianceItems' :: ListComplianceItems -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832126"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679832135"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -650,7 +650,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832130"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679832139"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ComplianceStringFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -658,40 +658,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ComplianceStringFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
-</span><a href="#local-6989586621679832129"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679832138"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679832128"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679832137"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679832127"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679832136"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679832126"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span>
+</span><a href="#local-6989586621679832135"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span>
 </span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679832120"><span class="annot"><span class="annottext">toPath :: ListComplianceItems -&gt; ByteString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679832129"><span class="annot"><span class="annottext">toPath :: ListComplianceItems -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListComplianceItems -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItems"><span class="hs-identifier hs-type">ListComplianceItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679832116"><span class="annot"><span class="annottext">toQuery :: ListComplianceItems -&gt; QueryString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679832125"><span class="annot"><span class="annottext">toQuery :: ListComplianceItems -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListComplianceItems -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -699,7 +699,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | /See:/ 'newListComplianceItemsResponse' smart constructor.</span><span>
-</span><span id="line-216"></span><span id="local-6989586621679832113"><span id="local-6989586621679832114"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComplianceItemsResponse"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-var">ListComplianceItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComplianceItemsResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-var">ListComplianceItemsResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span id="local-6989586621679832122"><span id="local-6989586621679832123"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComplianceItemsResponse"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-var">ListComplianceItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComplianceItemsResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-var">ListComplianceItemsResponse'</span></a></span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of compliance information for the specified resource ID.</span><span>
 </span><span id="line-218"></span><span>    </span><span id="%24sel%3AcomplianceItems%3AListComplianceItemsResponse%27"><span class="annot"><span class="annottext">ListComplianceItemsResponse -&gt; Maybe [ComplianceItem]
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AcomplianceItems%3AListComplianceItemsResponse%27"><span class="hs-identifier hs-var hs-var">complianceItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItem.html#ComplianceItem"><span class="hs-identifier hs-type">ComplianceItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -711,7 +711,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListComplianceItemsResponse%27"><span class="annot"><span class="annottext">ListComplianceItemsResponse -&gt; Int
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AhttpStatus%3AListComplianceItemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832106"><span id="local-6989586621679832108"><span class="annot"><span class="annottext">ListComplianceItemsResponse -&gt; ListComplianceItemsResponse -&gt; Bool
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832115"><span id="local-6989586621679832117"><span class="annot"><span class="annottext">ListComplianceItemsResponse -&gt; ListComplianceItemsResponse -&gt; Bool
 (ListComplianceItemsResponse
  -&gt; ListComplianceItemsResponse -&gt; Bool)
 -&gt; (ListComplianceItemsResponse
@@ -722,7 +722,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListComplianceItemsResponse -&gt; ListComplianceItemsResponse -&gt; Bool
 == :: ListComplianceItemsResponse -&gt; ListComplianceItemsResponse -&gt; Bool
 $c== :: ListComplianceItemsResponse -&gt; ListComplianceItemsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832098"><span id="local-6989586621679832100"><span id="local-6989586621679832102"><span id="local-6989586621679832104"><span class="annot"><span class="annottext">ReadPrec [ListComplianceItemsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832107"><span id="local-6989586621679832109"><span id="local-6989586621679832111"><span id="local-6989586621679832113"><span class="annot"><span class="annottext">ReadPrec [ListComplianceItemsResponse]
 ReadPrec ListComplianceItemsResponse
 Int -&gt; ReadS ListComplianceItemsResponse
 ReadS [ListComplianceItemsResponse]
@@ -742,7 +742,7 @@ readList :: ReadS [ListComplianceItemsResponse]
 $creadList :: ReadS [ListComplianceItemsResponse]
 readsPrec :: Int -&gt; ReadS ListComplianceItemsResponse
 $creadsPrec :: Int -&gt; ReadS ListComplianceItemsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832092"><span id="local-6989586621679832094"><span id="local-6989586621679832096"><span class="annot"><span class="annottext">Int -&gt; ListComplianceItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832101"><span id="local-6989586621679832103"><span id="local-6989586621679832105"><span class="annot"><span class="annottext">Int -&gt; ListComplianceItemsResponse -&gt; ShowS
 [ListComplianceItemsResponse] -&gt; ShowS
 ListComplianceItemsResponse -&gt; String
 (Int -&gt; ListComplianceItemsResponse -&gt; ShowS)
@@ -793,8 +793,8 @@ ListComplianceItemsResponse -&gt; Rep ListComplianceItemsResponse x
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span>
 </span><span id="line-245"></span><span id="newListComplianceItemsResponse"><span class="annot"><span class="annottext">newListComplianceItemsResponse :: Int -&gt; ListComplianceItemsResponse
-</span><a href="Network.AWS.SSM.ListComplianceItems.html#newListComplianceItemsResponse"><span class="hs-identifier hs-var hs-var">newListComplianceItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679832089"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832089"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.ListComplianceItems.html#newListComplianceItemsResponse"><span class="hs-identifier hs-var hs-var">newListComplianceItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679832098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">ListComplianceItemsResponse' :: Maybe [ComplianceItem]
 -&gt; Maybe Text -&gt; Int -&gt; ListComplianceItemsResponse
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span>
@@ -809,7 +809,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListComplianceItemsResponse' :: Int
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AhttpStatus%3AListComplianceItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832089"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679832098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | A list of compliance information for the specified resource ID.</span><span>
@@ -821,16 +821,16 @@ forall a. Maybe a
     -&gt; Maybe [ComplianceItem] -&gt; ListComplianceItemsResponse)
 -&gt; Lens' ListComplianceItemsResponse (Maybe [ComplianceItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832088"><span class="annot"><span class="annottext">Maybe [ComplianceItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832097"><span class="annot"><span class="annottext">Maybe [ComplianceItem]
 complianceItems :: Maybe [ComplianceItem]
 $sel:complianceItems:ListComplianceItemsResponse' :: ListComplianceItemsResponse -&gt; Maybe [ComplianceItem]
-</span><a href="#local-6989586621679832088"><span class="hs-identifier hs-var hs-var">complianceItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceItem]
-</span><a href="#local-6989586621679832088"><span class="hs-identifier hs-var">complianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832087"><span class="annot"><span class="annottext">s :: ListComplianceItemsResponse
-</span><a href="#local-6989586621679832087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832086"><span class="annot"><span class="annottext">Maybe [ComplianceItem]
-</span><a href="#local-6989586621679832086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
-</span><a href="#local-6989586621679832087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceItems:ListComplianceItemsResponse' :: Maybe [ComplianceItem]
+</span><a href="#local-6989586621679832097"><span class="hs-identifier hs-var hs-var">complianceItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceItem]
+</span><a href="#local-6989586621679832097"><span class="hs-identifier hs-var">complianceItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832096"><span class="annot"><span class="annottext">s :: ListComplianceItemsResponse
+</span><a href="#local-6989586621679832096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832095"><span class="annot"><span class="annottext">Maybe [ComplianceItem]
+</span><a href="#local-6989586621679832095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
+</span><a href="#local-6989586621679832096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceItems:ListComplianceItemsResponse' :: Maybe [ComplianceItem]
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AcomplianceItems%3AListComplianceItemsResponse%27"><span class="hs-identifier hs-var">complianceItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceItem]
-</span><a href="#local-6989586621679832086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceItem] -&gt; f (Maybe [ComplianceItem]))
+</span><a href="#local-6989586621679832095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceItem] -&gt; f (Maybe [ComplianceItem]))
  -&gt; ListComplianceItemsResponse -&gt; f ListComplianceItemsResponse)
 -&gt; ((Maybe [ComplianceItem] -&gt; f (Maybe [ComplianceItem]))
     -&gt; Maybe [ComplianceItem] -&gt; f (Maybe [ComplianceItem]))
@@ -863,16 +863,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListComplianceItemsResponse)
 -&gt; Lens' ListComplianceItemsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832085"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832094"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListComplianceItemsResponse' :: ListComplianceItemsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679832085"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679832085"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832084"><span class="annot"><span class="annottext">s :: ListComplianceItemsResponse
-</span><a href="#local-6989586621679832084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832083"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679832083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
-</span><a href="#local-6989586621679832084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceItemsResponse' :: Maybe Text
+</span><a href="#local-6989586621679832094"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832094"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832093"><span class="annot"><span class="annottext">s :: ListComplianceItemsResponse
+</span><a href="#local-6989586621679832093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
+</span><a href="#local-6989586621679832093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceItemsResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AnextToken%3AListComplianceItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679832083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-263"></span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#listComplianceItemsResponse_httpStatus"><span class="hs-identifier hs-type">listComplianceItemsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -884,16 +884,16 @@ $sel:nextToken:ListComplianceItemsResponse' :: ListComplianceItemsResponse -&gt;
 -&gt; Lens
      ListComplianceItemsResponse ListComplianceItemsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832082"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832091"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListComplianceItemsResponse' :: ListComplianceItemsResponse -&gt; Int
-</span><a href="#local-6989586621679832082"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832082"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832081"><span class="annot"><span class="annottext">s :: ListComplianceItemsResponse
-</span><a href="#local-6989586621679832081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832080"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
-</span><a href="#local-6989586621679832081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListComplianceItemsResponse' :: Int
+</span><a href="#local-6989586621679832091"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832091"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832090"><span class="annot"><span class="annottext">s :: ListComplianceItemsResponse
+</span><a href="#local-6989586621679832090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse%27"><span class="hs-identifier hs-type">ListComplianceItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832089"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceItemsResponse
+</span><a href="#local-6989586621679832090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListComplianceItemsResponse' :: Int
 </span><a href="Network.AWS.SSM.ListComplianceItems.html#%24sel%3AhttpStatus%3AListComplianceItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListComplianceItems.html#ListComplianceItemsResponse"><span class="hs-identifier hs-type">ListComplianceItemsResponse</span></a></span></span><span>
 </span><span id="line-267"></span></pre></body></html>

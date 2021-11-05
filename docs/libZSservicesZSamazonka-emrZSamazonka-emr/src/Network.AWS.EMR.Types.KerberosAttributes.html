@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- in the /Amazon EMR Management Guide/.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newKerberosAttributes' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679371739"><span id="local-6989586621679371740"></span></span><span class="hs-keyword">data</span><span> </span><span id="KerberosAttributes"><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-var">KerberosAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KerberosAttributes%27"><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-var">KerberosAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679371748"><span id="local-6989586621679371749"></span></span><span class="hs-keyword">data</span><span> </span><span id="KerberosAttributes"><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-var">KerberosAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KerberosAttributes%27"><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-var">KerberosAttributes'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The password used within the cluster for the kadmin service on the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- cluster-dedicated KDC, which maintains Kerberos principals, password</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- policies, and keytabs for the cluster.</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AaDDomainJoinUser%3AKerberosAttributes%27"><span class="annot"><span class="annottext">KerberosAttributes -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.KerberosAttributes.html#%24sel%3AaDDomainJoinUser%3AKerberosAttributes%27"><span class="hs-identifier hs-var hs-var">aDDomainJoinUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371729"><span id="local-6989586621679371731"><span class="annot"><span class="annottext">KerberosAttributes -&gt; KerberosAttributes -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371738"><span id="local-6989586621679371740"><span class="annot"><span class="annottext">KerberosAttributes -&gt; KerberosAttributes -&gt; Bool
 (KerberosAttributes -&gt; KerberosAttributes -&gt; Bool)
 -&gt; (KerberosAttributes -&gt; KerberosAttributes -&gt; Bool)
 -&gt; Eq KerberosAttributes
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KerberosAttributes -&gt; KerberosAttributes -&gt; Bool
 == :: KerberosAttributes -&gt; KerberosAttributes -&gt; Bool
 $c== :: KerberosAttributes -&gt; KerberosAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371720"><span id="local-6989586621679371722"><span id="local-6989586621679371724"><span id="local-6989586621679371726"><span class="annot"><span class="annottext">ReadPrec [KerberosAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371729"><span id="local-6989586621679371731"><span id="local-6989586621679371733"><span id="local-6989586621679371735"><span class="annot"><span class="annottext">ReadPrec [KerberosAttributes]
 ReadPrec KerberosAttributes
 Int -&gt; ReadS KerberosAttributes
 ReadS [KerberosAttributes]
@@ -82,7 +82,7 @@ readList :: ReadS [KerberosAttributes]
 $creadList :: ReadS [KerberosAttributes]
 readsPrec :: Int -&gt; ReadS KerberosAttributes
 $creadsPrec :: Int -&gt; ReadS KerberosAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371713"><span id="local-6989586621679371715"><span id="local-6989586621679371717"><span class="annot"><span class="annottext">Int -&gt; KerberosAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371722"><span id="local-6989586621679371724"><span id="local-6989586621679371726"><span class="annot"><span class="annottext">Int -&gt; KerberosAttributes -&gt; ShowS
 [KerberosAttributes] -&gt; ShowS
 KerberosAttributes -&gt; String
 (Int -&gt; KerberosAttributes -&gt; ShowS)
@@ -177,16 +177,16 @@ forall a. Maybe a
 -&gt; Lens
      KerberosAttributes KerberosAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371704"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371713"><span class="annot"><span class="annottext">Maybe Text
 kdcAdminPassword :: Maybe Text
 $sel:kdcAdminPassword:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679371704"><span class="hs-identifier hs-var hs-var">kdcAdminPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371704"><span class="hs-identifier hs-var">kdcAdminPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371703"><span class="annot"><span class="annottext">s :: KerberosAttributes
-</span><a href="#local-6989586621679371703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371702"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
-</span><a href="#local-6989586621679371703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kdcAdminPassword:KerberosAttributes' :: Maybe Text
+</span><a href="#local-6989586621679371713"><span class="hs-identifier hs-var hs-var">kdcAdminPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371713"><span class="hs-identifier hs-var">kdcAdminPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371712"><span class="annot"><span class="annottext">s :: KerberosAttributes
+</span><a href="#local-6989586621679371712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
+</span><a href="#local-6989586621679371712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kdcAdminPassword:KerberosAttributes' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.KerberosAttributes.html#%24sel%3AkdcAdminPassword%3AKerberosAttributes%27"><span class="hs-identifier hs-var">kdcAdminPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The name of the Kerberos realm to which all nodes in a cluster belong.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- For example, @EC2.INTERNAL@.</span><span>
@@ -198,16 +198,16 @@ $sel:kdcAdminPassword:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
 -&gt; Lens
      KerberosAttributes KerberosAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371700"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371709"><span class="annot"><span class="annottext">Maybe Text
 realm :: Maybe Text
 $sel:realm:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679371700"><span class="hs-identifier hs-var hs-var">realm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371700"><span class="hs-identifier hs-var">realm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371699"><span class="annot"><span class="annottext">s :: KerberosAttributes
-</span><a href="#local-6989586621679371699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371698"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
-</span><a href="#local-6989586621679371699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realm:KerberosAttributes' :: Maybe Text
+</span><a href="#local-6989586621679371709"><span class="hs-identifier hs-var hs-var">realm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371709"><span class="hs-identifier hs-var">realm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371708"><span class="annot"><span class="annottext">s :: KerberosAttributes
+</span><a href="#local-6989586621679371708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371707"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
+</span><a href="#local-6989586621679371708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realm:KerberosAttributes' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.KerberosAttributes.html#%24sel%3Arealm%3AKerberosAttributes%27"><span class="hs-identifier hs-var">realm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The Active Directory password for @ADDomainJoinUser@.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#kerberosAttributes_aDDomainJoinPassword"><span class="hs-identifier hs-type">kerberosAttributes_aDDomainJoinPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -218,16 +218,16 @@ $sel:realm:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
 -&gt; Lens
      KerberosAttributes KerberosAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371696"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371705"><span class="annot"><span class="annottext">Maybe Text
 aDDomainJoinPassword :: Maybe Text
 $sel:aDDomainJoinPassword:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679371696"><span class="hs-identifier hs-var hs-var">aDDomainJoinPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371696"><span class="hs-identifier hs-var">aDDomainJoinPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371695"><span class="annot"><span class="annottext">s :: KerberosAttributes
-</span><a href="#local-6989586621679371695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371694"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
-</span><a href="#local-6989586621679371695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aDDomainJoinPassword:KerberosAttributes' :: Maybe Text
+</span><a href="#local-6989586621679371705"><span class="hs-identifier hs-var hs-var">aDDomainJoinPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371705"><span class="hs-identifier hs-var">aDDomainJoinPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371704"><span class="annot"><span class="annottext">s :: KerberosAttributes
+</span><a href="#local-6989586621679371704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371703"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
+</span><a href="#local-6989586621679371704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aDDomainJoinPassword:KerberosAttributes' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.KerberosAttributes.html#%24sel%3AaDDomainJoinPassword%3AKerberosAttributes%27"><span class="hs-identifier hs-var">aDDomainJoinPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Required only when establishing a cross-realm trust with a KDC in a</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- different realm. The cross-realm principal password, which must be</span><span>
@@ -240,16 +240,16 @@ $sel:aDDomainJoinPassword:KerberosAttributes' :: KerberosAttributes -&gt; Maybe 
 -&gt; Lens
      KerberosAttributes KerberosAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371692"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371701"><span class="annot"><span class="annottext">Maybe Text
 crossRealmTrustPrincipalPassword :: Maybe Text
 $sel:crossRealmTrustPrincipalPassword:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679371692"><span class="hs-identifier hs-var hs-var">crossRealmTrustPrincipalPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371692"><span class="hs-identifier hs-var">crossRealmTrustPrincipalPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371691"><span class="annot"><span class="annottext">s :: KerberosAttributes
-</span><a href="#local-6989586621679371691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371690"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
-</span><a href="#local-6989586621679371691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crossRealmTrustPrincipalPassword:KerberosAttributes' :: Maybe Text
+</span><a href="#local-6989586621679371701"><span class="hs-identifier hs-var hs-var">crossRealmTrustPrincipalPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371701"><span class="hs-identifier hs-var">crossRealmTrustPrincipalPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371700"><span class="annot"><span class="annottext">s :: KerberosAttributes
+</span><a href="#local-6989586621679371700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
+</span><a href="#local-6989586621679371700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crossRealmTrustPrincipalPassword:KerberosAttributes' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.KerberosAttributes.html#%24sel%3AcrossRealmTrustPrincipalPassword%3AKerberosAttributes%27"><span class="hs-identifier hs-var">crossRealmTrustPrincipalPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Required only when establishing a cross-realm trust with an Active</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- Directory domain. A user with sufficient privileges to join resources to</span><span>
@@ -262,19 +262,19 @@ $sel:crossRealmTrustPrincipalPassword:KerberosAttributes' :: KerberosAttributes 
 -&gt; Lens
      KerberosAttributes KerberosAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371688"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371697"><span class="annot"><span class="annottext">Maybe Text
 aDDomainJoinUser :: Maybe Text
 $sel:aDDomainJoinUser:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679371688"><span class="hs-identifier hs-var hs-var">aDDomainJoinUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371688"><span class="hs-identifier hs-var">aDDomainJoinUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371687"><span class="annot"><span class="annottext">s :: KerberosAttributes
-</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371686"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
-</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aDDomainJoinUser:KerberosAttributes' :: Maybe Text
+</span><a href="#local-6989586621679371697"><span class="hs-identifier hs-var hs-var">aDDomainJoinUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371697"><span class="hs-identifier hs-var">aDDomainJoinUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371696"><span class="annot"><span class="annottext">s :: KerberosAttributes
+</span><a href="#local-6989586621679371696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KerberosAttributes
+</span><a href="#local-6989586621679371696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aDDomainJoinUser:KerberosAttributes' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.KerberosAttributes.html#%24sel%3AaDDomainJoinUser%3AKerberosAttributes%27"><span class="hs-identifier hs-var">aDDomainJoinUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371683"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679371681"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KerberosAttributes
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371692"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679371690"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KerberosAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KerberosAttributes)
@@ -284,8 +284,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KerberosAttributes&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371678"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371678"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371687"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -305,7 +305,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; KerberosAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KdcAdminPassword&quot;</span></span><span class="hs-special">)</span><span>
@@ -317,7 +317,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; KerberosAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Realm&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,7 +327,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; KerberosAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ADDomainJoinPassword&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; KerberosAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrossRealmTrustPrincipalPassword&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,19 +343,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser KerberosAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ADDomainJoinUser&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371672"><span id="local-6989586621679371674"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371681"><span id="local-6989586621679371683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371661"><span id="local-6989586621679371663"><span id="local-6989586621679371665"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679371659"><span class="annot"><span class="annottext">toJSON :: KerberosAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371653"><span id="local-6989586621679371654"><span id="local-6989586621679371655"><span id="local-6989586621679371656"><span id="local-6989586621679371657"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371670"><span id="local-6989586621679371672"><span id="local-6989586621679371674"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes"><span class="hs-identifier hs-type">KerberosAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679371668"><span class="annot"><span class="annottext">toJSON :: KerberosAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.KerberosAttributes.html#KerberosAttributes%27"><span class="hs-identifier hs-type">KerberosAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371662"><span id="local-6989586621679371663"><span id="local-6989586621679371664"><span id="local-6989586621679371665"><span id="local-6989586621679371666"><span class="annot"><span class="annottext">Maybe Text
 aDDomainJoinUser :: Maybe Text
 crossRealmTrustPrincipalPassword :: Maybe Text
 aDDomainJoinPassword :: Maybe Text
@@ -366,7 +366,7 @@ $sel:crossRealmTrustPrincipalPassword:KerberosAttributes' :: KerberosAttributes 
 $sel:aDDomainJoinPassword:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
 $sel:realm:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
 $sel:kdcAdminPassword:KerberosAttributes' :: KerberosAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679371653"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371662"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -379,14 +379,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371657"><span class="hs-identifier hs-var">kdcAdminPassword</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371666"><span class="hs-identifier hs-var">kdcAdminPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Realm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371656"><span class="hs-identifier hs-var">realm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371665"><span class="hs-identifier hs-var">realm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ADDomainJoinPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -394,7 +394,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371655"><span class="hs-identifier hs-var">aDDomainJoinPassword</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371664"><span class="hs-identifier hs-var">aDDomainJoinPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrossRealmTrustPrincipalPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -402,7 +402,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371654"><span class="hs-identifier hs-var">crossRealmTrustPrincipalPassword</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371663"><span class="hs-identifier hs-var">crossRealmTrustPrincipalPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ADDomainJoinUser&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -410,7 +410,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371653"><span class="hs-identifier hs-var">aDDomainJoinUser</span></a></span><span>
+</span><a href="#local-6989586621679371662"><span class="hs-identifier hs-var">aDDomainJoinUser</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span></pre></body></html>

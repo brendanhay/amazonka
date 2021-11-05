@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- aspect of another user, group, or resource mailbox.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPermission' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679281385"><span id="local-6989586621679281386"></span></span><span class="hs-keyword">data</span><span> </span><span id="Permission"><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-var">Permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Permission%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679281394"><span id="local-6989586621679281395"></span></span><span class="hs-keyword">data</span><span> </span><span id="Permission"><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-var">Permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Permission%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the user, group, or resource to which the permissions</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- are granted.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AgranteeId%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Text
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3ApermissionValues%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; [PermissionType]
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#%24sel%3ApermissionValues%3APermission%27"><span class="hs-identifier hs-var hs-var">permissionValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.PermissionType.html#PermissionType"><span class="hs-identifier hs-type">PermissionType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281377"><span id="local-6989586621679281379"><span class="annot"><span class="annottext">Permission -&gt; Permission -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281386"><span id="local-6989586621679281388"><span class="annot"><span class="annottext">Permission -&gt; Permission -&gt; Bool
 (Permission -&gt; Permission -&gt; Bool)
 -&gt; (Permission -&gt; Permission -&gt; Bool) -&gt; Eq Permission
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Permission -&gt; Permission -&gt; Bool
 == :: Permission -&gt; Permission -&gt; Bool
 $c== :: Permission -&gt; Permission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281368"><span id="local-6989586621679281370"><span id="local-6989586621679281372"><span id="local-6989586621679281374"><span class="annot"><span class="annottext">ReadPrec [Permission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281377"><span id="local-6989586621679281379"><span id="local-6989586621679281381"><span id="local-6989586621679281383"><span class="annot"><span class="annottext">ReadPrec [Permission]
 ReadPrec Permission
 Int -&gt; ReadS Permission
 ReadS [Permission]
@@ -75,7 +75,7 @@ readList :: ReadS [Permission]
 $creadList :: ReadS [Permission]
 readsPrec :: Int -&gt; ReadS Permission
 $creadsPrec :: Int -&gt; ReadS Permission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281361"><span id="local-6989586621679281363"><span id="local-6989586621679281365"><span class="annot"><span class="annottext">Int -&gt; Permission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281370"><span id="local-6989586621679281372"><span id="local-6989586621679281374"><span class="annot"><span class="annottext">Int -&gt; Permission -&gt; ShowS
 [Permission] -&gt; ShowS
 Permission -&gt; String
 (Int -&gt; Permission -&gt; ShowS)
@@ -127,17 +127,17 @@ $cfrom :: forall x. Permission -&gt; Rep Permission x
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span>
 </span><span id="line-75"></span><span id="newPermission"><span class="annot"><span class="annottext">newPermission :: Text -&gt; MemberType -&gt; Permission
-</span><a href="Network.AWS.WorkMail.Types.Permission.html#newPermission"><span class="hs-identifier hs-var hs-var">newPermission</span></a></span></span><span> </span><span id="local-6989586621679281355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281355"><span class="hs-identifier hs-var">pGranteeId_</span></a></span></span><span> </span><span id="local-6989586621679281354"><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679281354"><span class="hs-identifier hs-var">pGranteeType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.Types.Permission.html#newPermission"><span class="hs-identifier hs-var hs-var">newPermission</span></a></span></span><span> </span><span id="local-6989586621679281364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281364"><span class="hs-identifier hs-var">pGranteeId_</span></a></span></span><span> </span><span id="local-6989586621679281363"><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679281363"><span class="hs-identifier hs-var">pGranteeType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">Permission' :: Text -&gt; MemberType -&gt; [PermissionType] -&gt; Permission
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:granteeId:Permission' :: Text
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#%24sel%3AgranteeId%3APermission%27"><span class="hs-identifier hs-var">granteeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281355"><span class="hs-identifier hs-var">pGranteeId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281364"><span class="hs-identifier hs-var">pGranteeId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:granteeType:Permission' :: MemberType
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#%24sel%3AgranteeType%3APermission%27"><span class="hs-identifier hs-var">granteeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679281354"><span class="hs-identifier hs-var">pGranteeType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281363"><span class="hs-identifier hs-var">pGranteeType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionValues:Permission' :: [PermissionType]
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#%24sel%3ApermissionValues%3APermission%27"><span class="hs-identifier hs-var">permissionValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PermissionType]
 forall a. Monoid a =&gt; a
@@ -152,16 +152,16 @@ forall a. Monoid a =&gt; a
 -&gt; (Permission -&gt; Text -&gt; Permission)
 -&gt; Lens Permission Permission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281350"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281359"><span class="annot"><span class="annottext">Text
 granteeId :: Text
 $sel:granteeId:Permission' :: Permission -&gt; Text
-</span><a href="#local-6989586621679281350"><span class="hs-identifier hs-var hs-var">granteeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281350"><span class="hs-identifier hs-var">granteeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281349"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679281349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281348"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679281349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteeId:Permission' :: Text
+</span><a href="#local-6989586621679281359"><span class="hs-identifier hs-var hs-var">granteeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281359"><span class="hs-identifier hs-var">granteeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281358"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679281358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679281358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteeId:Permission' :: Text
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#%24sel%3AgranteeId%3APermission%27"><span class="hs-identifier hs-var">granteeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The type of user, group, or resource referred to in GranteeId.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#permission_granteeType"><span class="hs-identifier hs-type">permission_granteeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
@@ -170,16 +170,16 @@ $sel:granteeId:Permission' :: Permission -&gt; Text
 -&gt; (Permission -&gt; MemberType -&gt; Permission)
 -&gt; Lens Permission Permission MemberType MemberType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281346"><span class="annot"><span class="annottext">MemberType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281355"><span class="annot"><span class="annottext">MemberType
 granteeType :: MemberType
 $sel:granteeType:Permission' :: Permission -&gt; MemberType
-</span><a href="#local-6989586621679281346"><span class="hs-identifier hs-var hs-var">granteeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679281346"><span class="hs-identifier hs-var">granteeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281345"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679281345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281344"><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679281344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679281345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteeType:Permission' :: MemberType
+</span><a href="#local-6989586621679281355"><span class="hs-identifier hs-var hs-var">granteeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679281355"><span class="hs-identifier hs-var">granteeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281354"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679281354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281353"><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679281353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679281354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteeType:Permission' :: MemberType
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#%24sel%3AgranteeType%3APermission%27"><span class="hs-identifier hs-var">granteeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679281344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The permissions granted to the grantee. SEND_AS allows the grantee to</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- send email as the owner of the mailbox (the grantee is not mentioned on</span><span>
@@ -195,16 +195,16 @@ $sel:granteeType:Permission' :: Permission -&gt; MemberType
 -&gt; (Permission -&gt; [PermissionType] -&gt; Permission)
 -&gt; Lens Permission Permission [PermissionType] [PermissionType]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281342"><span class="annot"><span class="annottext">[PermissionType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281351"><span class="annot"><span class="annottext">[PermissionType]
 permissionValues :: [PermissionType]
 $sel:permissionValues:Permission' :: Permission -&gt; [PermissionType]
-</span><a href="#local-6989586621679281342"><span class="hs-identifier hs-var hs-var">permissionValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PermissionType]
-</span><a href="#local-6989586621679281342"><span class="hs-identifier hs-var">permissionValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281341"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679281341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281340"><span class="annot"><span class="annottext">[PermissionType]
-</span><a href="#local-6989586621679281340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679281341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionValues:Permission' :: [PermissionType]
+</span><a href="#local-6989586621679281351"><span class="hs-identifier hs-var hs-var">permissionValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PermissionType]
+</span><a href="#local-6989586621679281351"><span class="hs-identifier hs-var">permissionValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281350"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679281350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281349"><span class="annot"><span class="annottext">[PermissionType]
+</span><a href="#local-6989586621679281349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679281350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionValues:Permission' :: [PermissionType]
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#%24sel%3ApermissionValues%3APermission%27"><span class="hs-identifier hs-var">permissionValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PermissionType]
-</span><a href="#local-6989586621679281340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PermissionType] -&gt; f [PermissionType])
+</span><a href="#local-6989586621679281349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PermissionType] -&gt; f [PermissionType])
  -&gt; Permission -&gt; f Permission)
 -&gt; (([PermissionType] -&gt; f [PermissionType])
     -&gt; [PermissionType] -&gt; f [PermissionType])
@@ -217,8 +217,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281335"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679281333"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Permission
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281344"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679281342"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Permission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Permission) -&gt; Value -&gt; Parser Permission
@@ -226,8 +226,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Permission&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281330"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281339"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; MemberType -&gt; [PermissionType] -&gt; Permission
 </span><a href="Network.AWS.WorkMail.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; MemberType -&gt; [PermissionType] -&gt; Permission)
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (MemberType -&gt; [PermissionType] -&gt; Permission)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679281339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GranteeId&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,7 +243,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser MemberType -&gt; Parser ([PermissionType] -&gt; Permission)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MemberType
+</span><a href="#local-6989586621679281339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MemberType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GranteeType&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,7 +251,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [PermissionType] -&gt; Parser Permission
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [PermissionType])
+</span><a href="#local-6989586621679281339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [PermissionType])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PermissionValues&quot;</span></span><span>
@@ -264,7 +264,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-111"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281322"><span id="local-6989586621679281324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281331"><span id="local-6989586621679281333"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

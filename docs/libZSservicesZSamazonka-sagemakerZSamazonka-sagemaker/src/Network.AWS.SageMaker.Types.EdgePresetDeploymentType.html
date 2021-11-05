@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621680303489"><span id="local-6989586621680303490"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EdgePresetDeploymentType"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html#EdgePresetDeploymentType"><span class="hs-identifier hs-var">EdgePresetDeploymentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdgePresetDeploymentType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html#EdgePresetDeploymentType%27"><span class="hs-identifier hs-var">EdgePresetDeploymentType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680303498"><span id="local-6989586621680303499"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EdgePresetDeploymentType"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html#EdgePresetDeploymentType"><span class="hs-identifier hs-var">EdgePresetDeploymentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdgePresetDeploymentType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html#EdgePresetDeploymentType%27"><span class="hs-identifier hs-var">EdgePresetDeploymentType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEdgePresetDeploymentType"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.EdgePresetDeploymentType.html#fromEdgePresetDeploymentType"><span class="hs-identifier hs-var hs-var">fromEdgePresetDeploymentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303481"><span id="local-6989586621680303483"><span id="local-6989586621680303485"><span class="annot"><span class="annottext">Int -&gt; EdgePresetDeploymentType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303490"><span id="local-6989586621680303492"><span id="local-6989586621680303494"><span class="annot"><span class="annottext">Int -&gt; EdgePresetDeploymentType -&gt; ShowS
 [EdgePresetDeploymentType] -&gt; ShowS
 EdgePresetDeploymentType -&gt; String
 (Int -&gt; EdgePresetDeploymentType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: EdgePresetDeploymentType -&gt; String
 showsPrec :: Int -&gt; EdgePresetDeploymentType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EdgePresetDeploymentType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621680303472"><span id="local-6989586621680303474"><span id="local-6989586621680303476"><span id="local-6989586621680303478"><span class="annot"><span class="annottext">ReadPrec [EdgePresetDeploymentType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621680303481"><span id="local-6989586621680303483"><span id="local-6989586621680303485"><span id="local-6989586621680303487"><span class="annot"><span class="annottext">ReadPrec [EdgePresetDeploymentType]
 ReadPrec EdgePresetDeploymentType
 Int -&gt; ReadS EdgePresetDeploymentType
 ReadS [EdgePresetDeploymentType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [EdgePresetDeploymentType]
 readsPrec :: Int -&gt; ReadS EdgePresetDeploymentType
 $creadsPrec :: Int -&gt; ReadS EdgePresetDeploymentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680303467"><span id="local-6989586621680303469"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; EdgePresetDeploymentType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680303476"><span id="local-6989586621680303478"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; EdgePresetDeploymentType -&gt; Bool
 (EdgePresetDeploymentType -&gt; EdgePresetDeploymentType -&gt; Bool)
 -&gt; (EdgePresetDeploymentType -&gt; EdgePresetDeploymentType -&gt; Bool)
 -&gt; Eq EdgePresetDeploymentType
@@ -81,7 +81,7 @@ $c/= :: EdgePresetDeploymentType -&gt; EdgePresetDeploymentType -&gt; Bool
 == :: EdgePresetDeploymentType -&gt; EdgePresetDeploymentType -&gt; Bool
 $c== :: EdgePresetDeploymentType -&gt; EdgePresetDeploymentType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680303451"><span id="local-6989586621680303453"><span id="local-6989586621680303455"><span id="local-6989586621680303457"><span id="local-6989586621680303459"><span id="local-6989586621680303461"><span id="local-6989586621680303463"><span class="annot"><span class="annottext">Eq EdgePresetDeploymentType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680303460"><span id="local-6989586621680303462"><span id="local-6989586621680303464"><span id="local-6989586621680303466"><span id="local-6989586621680303468"><span id="local-6989586621680303470"><span id="local-6989586621680303472"><span class="annot"><span class="annottext">Eq EdgePresetDeploymentType
 Eq EdgePresetDeploymentType
 -&gt; (EdgePresetDeploymentType
     -&gt; EdgePresetDeploymentType -&gt; Ordering)
@@ -146,7 +146,7 @@ EdgePresetDeploymentType -&gt; Rep EdgePresetDeploymentType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303443"><span id="local-6989586621680303445"><span class="annot"><span class="annottext">Int -&gt; EdgePresetDeploymentType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303452"><span id="local-6989586621680303454"><span class="annot"><span class="annottext">Int -&gt; EdgePresetDeploymentType -&gt; Int
 EdgePresetDeploymentType -&gt; Int
 (Int -&gt; EdgePresetDeploymentType -&gt; Int)
 -&gt; (EdgePresetDeploymentType -&gt; Int)
@@ -157,55 +157,55 @@ $chash :: EdgePresetDeploymentType -&gt; Int
 hashWithSalt :: Int -&gt; EdgePresetDeploymentType -&gt; Int
 $chashWithSalt :: Int -&gt; EdgePresetDeploymentType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680303440"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680303449"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; ()
 (EdgePresetDeploymentType -&gt; ()) -&gt; NFData EdgePresetDeploymentType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EdgePresetDeploymentType -&gt; ()
 $crnf :: EdgePresetDeploymentType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680303437"><span class="annot"><span class="annottext">Text -&gt; Either String EdgePresetDeploymentType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680303446"><span class="annot"><span class="annottext">Text -&gt; Either String EdgePresetDeploymentType
 (Text -&gt; Either String EdgePresetDeploymentType)
 -&gt; FromText EdgePresetDeploymentType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EdgePresetDeploymentType
 $cfromText :: Text -&gt; Either String EdgePresetDeploymentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680303434"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680303443"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; Text
 (EdgePresetDeploymentType -&gt; Text)
 -&gt; ToText EdgePresetDeploymentType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EdgePresetDeploymentType -&gt; Text
 $ctoText :: EdgePresetDeploymentType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680303431"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680303440"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; ByteString
 (EdgePresetDeploymentType -&gt; ByteString)
 -&gt; ToByteString EdgePresetDeploymentType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EdgePresetDeploymentType -&gt; ByteString
 $ctoBS :: EdgePresetDeploymentType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680303428"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680303437"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; ByteStringBuilder
 (EdgePresetDeploymentType -&gt; ByteStringBuilder)
 -&gt; ToLog EdgePresetDeploymentType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EdgePresetDeploymentType -&gt; ByteStringBuilder
 $cbuild :: EdgePresetDeploymentType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680303425"><span class="annot"><span class="annottext">HeaderName -&gt; EdgePresetDeploymentType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680303434"><span class="annot"><span class="annottext">HeaderName -&gt; EdgePresetDeploymentType -&gt; [Header]
 (HeaderName -&gt; EdgePresetDeploymentType -&gt; [Header])
 -&gt; ToHeader EdgePresetDeploymentType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EdgePresetDeploymentType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EdgePresetDeploymentType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680303422"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680303431"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; QueryString
 (EdgePresetDeploymentType -&gt; QueryString)
 -&gt; ToQuery EdgePresetDeploymentType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EdgePresetDeploymentType -&gt; QueryString
 $ctoQuery :: EdgePresetDeploymentType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680303417"><span id="local-6989586621680303419"><span class="annot"><span class="annottext">Value -&gt; Parser [EdgePresetDeploymentType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680303426"><span id="local-6989586621680303428"><span class="annot"><span class="annottext">Value -&gt; Parser [EdgePresetDeploymentType]
 Value -&gt; Parser EdgePresetDeploymentType
 (Value -&gt; Parser EdgePresetDeploymentType)
 -&gt; (Value -&gt; Parser [EdgePresetDeploymentType])
@@ -217,7 +217,7 @@ $cparseJSONList :: Value -&gt; Parser [EdgePresetDeploymentType]
 parseJSON :: Value -&gt; Parser EdgePresetDeploymentType
 $cparseJSON :: Value -&gt; Parser EdgePresetDeploymentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680303412"><span id="local-6989586621680303414"><span class="annot"><span class="annottext">FromJSONKeyFunction [EdgePresetDeploymentType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680303421"><span id="local-6989586621680303423"><span class="annot"><span class="annottext">FromJSONKeyFunction [EdgePresetDeploymentType]
 FromJSONKeyFunction EdgePresetDeploymentType
 FromJSONKeyFunction EdgePresetDeploymentType
 -&gt; FromJSONKeyFunction [EdgePresetDeploymentType]
@@ -229,7 +229,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EdgePresetDeploymentType]
 fromJSONKey :: FromJSONKeyFunction EdgePresetDeploymentType
 $cfromJSONKey :: FromJSONKeyFunction EdgePresetDeploymentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680303403"><span id="local-6989586621680303405"><span id="local-6989586621680303407"><span id="local-6989586621680303409"><span class="annot"><span class="annottext">[EdgePresetDeploymentType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680303412"><span id="local-6989586621680303414"><span id="local-6989586621680303416"><span id="local-6989586621680303418"><span class="annot"><span class="annottext">[EdgePresetDeploymentType] -&gt; Encoding
 [EdgePresetDeploymentType] -&gt; Value
 EdgePresetDeploymentType -&gt; Encoding
 EdgePresetDeploymentType -&gt; Value
@@ -253,7 +253,7 @@ $ctoEncoding :: EdgePresetDeploymentType -&gt; Encoding
 toJSON :: EdgePresetDeploymentType -&gt; Value
 $ctoJSON :: EdgePresetDeploymentType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680303398"><span id="local-6989586621680303400"><span class="annot"><span class="annottext">ToJSONKeyFunction [EdgePresetDeploymentType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680303407"><span id="local-6989586621680303409"><span class="annot"><span class="annottext">ToJSONKeyFunction [EdgePresetDeploymentType]
 ToJSONKeyFunction EdgePresetDeploymentType
 ToJSONKeyFunction EdgePresetDeploymentType
 -&gt; ToJSONKeyFunction [EdgePresetDeploymentType]
@@ -265,14 +265,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EdgePresetDeploymentType]
 toJSONKey :: ToJSONKeyFunction EdgePresetDeploymentType
 $ctoJSONKey :: ToJSONKeyFunction EdgePresetDeploymentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680303395"><span class="annot"><span class="annottext">[Node] -&gt; Either String EdgePresetDeploymentType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680303404"><span class="annot"><span class="annottext">[Node] -&gt; Either String EdgePresetDeploymentType
 ([Node] -&gt; Either String EdgePresetDeploymentType)
 -&gt; FromXML EdgePresetDeploymentType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EdgePresetDeploymentType
 $cparseXML :: [Node] -&gt; Either String EdgePresetDeploymentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680303392"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680303401"><span class="annot"><span class="annottext">EdgePresetDeploymentType -&gt; XML
 (EdgePresetDeploymentType -&gt; XML) -&gt; ToXML EdgePresetDeploymentType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EdgePresetDeploymentType -&gt; XML

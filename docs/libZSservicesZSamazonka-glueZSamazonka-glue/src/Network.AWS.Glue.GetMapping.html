@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetMapping' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679725770"><span id="local-6989586621679725771"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMapping"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-var">GetMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMapping%27"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-var">GetMapping'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679725779"><span id="local-6989586621679725780"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMapping"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-var">GetMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMapping%27"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-var">GetMapping'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of target tables.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Asinks%3AGetMapping%27"><span class="annot"><span class="annottext">GetMapping -&gt; Maybe [CatalogEntry]
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Asinks%3AGetMapping%27"><span class="hs-identifier hs-var hs-var">sinks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogEntry.html#CatalogEntry"><span class="hs-identifier hs-type">CatalogEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Asource%3AGetMapping%27"><span class="annot"><span class="annottext">GetMapping -&gt; CatalogEntry
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Asource%3AGetMapping%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogEntry.html#CatalogEntry"><span class="hs-identifier hs-type">CatalogEntry</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679725762"><span id="local-6989586621679725764"><span class="annot"><span class="annottext">GetMapping -&gt; GetMapping -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679725771"><span id="local-6989586621679725773"><span class="annot"><span class="annottext">GetMapping -&gt; GetMapping -&gt; Bool
 (GetMapping -&gt; GetMapping -&gt; Bool)
 -&gt; (GetMapping -&gt; GetMapping -&gt; Bool) -&gt; Eq GetMapping
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMapping -&gt; GetMapping -&gt; Bool
 == :: GetMapping -&gt; GetMapping -&gt; Bool
 $c== :: GetMapping -&gt; GetMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725753"><span id="local-6989586621679725755"><span id="local-6989586621679725757"><span id="local-6989586621679725759"><span class="annot"><span class="annottext">ReadPrec [GetMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725762"><span id="local-6989586621679725764"><span id="local-6989586621679725766"><span id="local-6989586621679725768"><span class="annot"><span class="annottext">ReadPrec [GetMapping]
 ReadPrec GetMapping
 Int -&gt; ReadS GetMapping
 ReadS [GetMapping]
@@ -88,7 +88,7 @@ readList :: ReadS [GetMapping]
 $creadList :: ReadS [GetMapping]
 readsPrec :: Int -&gt; ReadS GetMapping
 $creadsPrec :: Int -&gt; ReadS GetMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725746"><span id="local-6989586621679725748"><span id="local-6989586621679725750"><span class="annot"><span class="annottext">Int -&gt; GetMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725755"><span id="local-6989586621679725757"><span id="local-6989586621679725759"><span class="annot"><span class="annottext">Int -&gt; GetMapping -&gt; ShowS
 [GetMapping] -&gt; ShowS
 GetMapping -&gt; String
 (Int -&gt; GetMapping -&gt; ShowS)
@@ -131,8 +131,8 @@ $cfrom :: forall x. GetMapping -&gt; Rep GetMapping x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogEntry.html#CatalogEntry"><span class="hs-identifier hs-type">CatalogEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetMapping"><span class="annot"><span class="annottext">newGetMapping :: CatalogEntry -&gt; GetMapping
-</span><a href="Network.AWS.Glue.GetMapping.html#newGetMapping"><span class="hs-identifier hs-var hs-var">newGetMapping</span></a></span></span><span> </span><span id="local-6989586621679725741"><span class="annot"><span class="annottext">CatalogEntry
-</span><a href="#local-6989586621679725741"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetMapping.html#newGetMapping"><span class="hs-identifier hs-var hs-var">newGetMapping</span></a></span></span><span> </span><span id="local-6989586621679725750"><span class="annot"><span class="annottext">CatalogEntry
+</span><a href="#local-6989586621679725750"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetMapping' :: Maybe [CatalogEntry]
 -&gt; Maybe Location -&gt; CatalogEntry -&gt; GetMapping
 </span><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span>
@@ -146,7 +146,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:GetMapping' :: CatalogEntry
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Asource%3AGetMapping%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CatalogEntry
-</span><a href="#local-6989586621679725741"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
+</span><a href="#local-6989586621679725750"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | A list of target tables.</span><span>
@@ -158,16 +158,16 @@ forall a. Maybe a
 -&gt; Lens
      GetMapping GetMapping (Maybe [CatalogEntry]) (Maybe [CatalogEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725738"><span class="annot"><span class="annottext">Maybe [CatalogEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725747"><span class="annot"><span class="annottext">Maybe [CatalogEntry]
 sinks :: Maybe [CatalogEntry]
 $sel:sinks:GetMapping' :: GetMapping -&gt; Maybe [CatalogEntry]
-</span><a href="#local-6989586621679725738"><span class="hs-identifier hs-var hs-var">sinks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogEntry]
-</span><a href="#local-6989586621679725738"><span class="hs-identifier hs-var">sinks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725737"><span class="annot"><span class="annottext">s :: GetMapping
-</span><a href="#local-6989586621679725737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725736"><span class="annot"><span class="annottext">Maybe [CatalogEntry]
-</span><a href="#local-6989586621679725736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMapping
-</span><a href="#local-6989586621679725737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sinks:GetMapping' :: Maybe [CatalogEntry]
+</span><a href="#local-6989586621679725747"><span class="hs-identifier hs-var hs-var">sinks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogEntry]
+</span><a href="#local-6989586621679725747"><span class="hs-identifier hs-var">sinks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725746"><span class="annot"><span class="annottext">s :: GetMapping
+</span><a href="#local-6989586621679725746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725745"><span class="annot"><span class="annottext">Maybe [CatalogEntry]
+</span><a href="#local-6989586621679725745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMapping
+</span><a href="#local-6989586621679725746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sinks:GetMapping' :: Maybe [CatalogEntry]
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Asinks%3AGetMapping%27"><span class="hs-identifier hs-var">sinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogEntry]
-</span><a href="#local-6989586621679725736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CatalogEntry] -&gt; f (Maybe [CatalogEntry]))
+</span><a href="#local-6989586621679725745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CatalogEntry] -&gt; f (Maybe [CatalogEntry]))
  -&gt; GetMapping -&gt; f GetMapping)
 -&gt; ((Maybe [CatalogEntry] -&gt; f (Maybe [CatalogEntry]))
     -&gt; Maybe [CatalogEntry] -&gt; f (Maybe [CatalogEntry]))
@@ -196,16 +196,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetMapping -&gt; Maybe Location -&gt; GetMapping)
 -&gt; Lens GetMapping GetMapping (Maybe Location) (Maybe Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725732"><span class="annot"><span class="annottext">Maybe Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725741"><span class="annot"><span class="annottext">Maybe Location
 location :: Maybe Location
 $sel:location:GetMapping' :: GetMapping -&gt; Maybe Location
-</span><a href="#local-6989586621679725732"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Location
-</span><a href="#local-6989586621679725732"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725731"><span class="annot"><span class="annottext">s :: GetMapping
-</span><a href="#local-6989586621679725731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725730"><span class="annot"><span class="annottext">Maybe Location
-</span><a href="#local-6989586621679725730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMapping
-</span><a href="#local-6989586621679725731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:GetMapping' :: Maybe Location
+</span><a href="#local-6989586621679725741"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679725741"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725740"><span class="annot"><span class="annottext">s :: GetMapping
+</span><a href="#local-6989586621679725740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725739"><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679725739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMapping
+</span><a href="#local-6989586621679725740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:GetMapping' :: Maybe Location
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Alocation%3AGetMapping%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
-</span><a href="#local-6989586621679725730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679725739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | Specifies the source table.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#getMapping_source"><span class="hs-identifier hs-type">getMapping_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogEntry.html#CatalogEntry"><span class="hs-identifier hs-type">CatalogEntry</span></a></span><span>
@@ -214,25 +214,25 @@ $sel:location:GetMapping' :: GetMapping -&gt; Maybe Location
 -&gt; (GetMapping -&gt; CatalogEntry -&gt; GetMapping)
 -&gt; Lens GetMapping GetMapping CatalogEntry CatalogEntry
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725729"><span class="annot"><span class="annottext">CatalogEntry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725738"><span class="annot"><span class="annottext">CatalogEntry
 source :: CatalogEntry
 $sel:source:GetMapping' :: GetMapping -&gt; CatalogEntry
-</span><a href="#local-6989586621679725729"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CatalogEntry
-</span><a href="#local-6989586621679725729"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725728"><span class="annot"><span class="annottext">s :: GetMapping
-</span><a href="#local-6989586621679725728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725727"><span class="annot"><span class="annottext">CatalogEntry
-</span><a href="#local-6989586621679725727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMapping
-</span><a href="#local-6989586621679725728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:GetMapping' :: CatalogEntry
+</span><a href="#local-6989586621679725738"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CatalogEntry
+</span><a href="#local-6989586621679725738"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725737"><span class="annot"><span class="annottext">s :: GetMapping
+</span><a href="#local-6989586621679725737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725736"><span class="annot"><span class="annottext">CatalogEntry
+</span><a href="#local-6989586621679725736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMapping
+</span><a href="#local-6989586621679725737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:GetMapping' :: CatalogEntry
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Asource%3AGetMapping%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CatalogEntry
-</span><a href="#local-6989586621679725727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679725736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679725723"><span class="annot"><span class="annottext">request :: GetMapping -&gt; Request GetMapping
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679725732"><span class="annot"><span class="annottext">request :: GetMapping -&gt; Request GetMapping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMapping -&gt; Request GetMapping
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679725719"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679725728"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMapping
 -&gt; ClientResponse ClientBody
@@ -256,10 +256,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679725716"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679725716"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679725715"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679725715"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679725714"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679725714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679725725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679725725"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679725724"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679725724"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679725723"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679725723"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [MappingEntry] -&gt; GetMappingResponse
 </span><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-var">GetMappingResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [MappingEntry] -&gt; GetMappingResponse)
@@ -271,12 +271,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679725716"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679725725"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String ([MappingEntry] -&gt; GetMappingResponse)
 -&gt; Either String [MappingEntry] -&gt; Either String GetMappingResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679725714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [MappingEntry])
+</span><a href="#local-6989586621679725723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [MappingEntry])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mapping&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [MappingEntry])
@@ -287,12 +287,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725705"><span id="local-6989586621679725707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725714"><span id="local-6989586621679725716"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679725698"><span class="annot"><span class="annottext">toHeaders :: GetMapping -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679725707"><span class="annot"><span class="annottext">toHeaders :: GetMapping -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMapping -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -317,9 +317,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725688"><span id="local-6989586621679725690"><span id="local-6989586621679725692"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679725686"><span class="annot"><span class="annottext">toJSON :: GetMapping -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725682"><span id="local-6989586621679725683"><span id="local-6989586621679725684"><span class="annot"><span class="annottext">Maybe [CatalogEntry]
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725697"><span id="local-6989586621679725699"><span id="local-6989586621679725701"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679725695"><span class="annot"><span class="annottext">toJSON :: GetMapping -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping%27"><span class="hs-identifier hs-type">GetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725691"><span id="local-6989586621679725692"><span id="local-6989586621679725693"><span class="annot"><span class="annottext">Maybe [CatalogEntry]
 Maybe Location
 CatalogEntry
 source :: CatalogEntry
@@ -328,7 +328,7 @@ sinks :: Maybe [CatalogEntry]
 $sel:source:GetMapping' :: GetMapping -&gt; CatalogEntry
 $sel:location:GetMapping' :: GetMapping -&gt; Maybe Location
 $sel:sinks:GetMapping' :: GetMapping -&gt; Maybe [CatalogEntry]
-</span><a href="#local-6989586621679725682"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679725691"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -340,33 +340,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CatalogEntry] -&gt; Pair) -&gt; Maybe [CatalogEntry] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogEntry]
-</span><a href="#local-6989586621679725684"><span class="hs-identifier hs-var">sinks</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679725693"><span class="hs-identifier hs-var">sinks</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Location -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Location -&gt; Pair) -&gt; Maybe Location -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Location
-</span><a href="#local-6989586621679725683"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679725692"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CatalogEntry -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CatalogEntry
-</span><a href="#local-6989586621679725682"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679725691"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679725676"><span class="annot"><span class="annottext">toPath :: GetMapping -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679725685"><span class="annot"><span class="annottext">toPath :: GetMapping -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMapping -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMapping"><span class="hs-identifier hs-type">GetMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679725672"><span class="annot"><span class="annottext">toQuery :: GetMapping -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679725681"><span class="annot"><span class="annottext">toQuery :: GetMapping -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMapping -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -374,7 +374,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newGetMappingResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679725669"><span id="local-6989586621679725670"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMappingResponse"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-var">GetMappingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMappingResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-var">GetMappingResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679725678"><span id="local-6989586621679725679"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMappingResponse"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-var">GetMappingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMappingResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-var">GetMappingResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMappingResponse%27"><span class="annot"><span class="annottext">GetMappingResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3AhttpStatus%3AGetMappingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -382,7 +382,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3Amapping%3AGetMappingResponse%27"><span class="annot"><span class="annottext">GetMappingResponse -&gt; [MappingEntry]
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Amapping%3AGetMappingResponse%27"><span class="hs-identifier hs-var hs-var">mapping</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679725663"><span id="local-6989586621679725665"><span class="annot"><span class="annottext">GetMappingResponse -&gt; GetMappingResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679725672"><span id="local-6989586621679725674"><span class="annot"><span class="annottext">GetMappingResponse -&gt; GetMappingResponse -&gt; Bool
 (GetMappingResponse -&gt; GetMappingResponse -&gt; Bool)
 -&gt; (GetMappingResponse -&gt; GetMappingResponse -&gt; Bool)
 -&gt; Eq GetMappingResponse
@@ -391,7 +391,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMappingResponse -&gt; GetMappingResponse -&gt; Bool
 == :: GetMappingResponse -&gt; GetMappingResponse -&gt; Bool
 $c== :: GetMappingResponse -&gt; GetMappingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725655"><span id="local-6989586621679725657"><span id="local-6989586621679725659"><span id="local-6989586621679725661"><span class="annot"><span class="annottext">ReadPrec [GetMappingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725664"><span id="local-6989586621679725666"><span id="local-6989586621679725668"><span id="local-6989586621679725670"><span class="annot"><span class="annottext">ReadPrec [GetMappingResponse]
 ReadPrec GetMappingResponse
 Int -&gt; ReadS GetMappingResponse
 ReadS [GetMappingResponse]
@@ -411,7 +411,7 @@ readList :: ReadS [GetMappingResponse]
 $creadList :: ReadS [GetMappingResponse]
 readsPrec :: Int -&gt; ReadS GetMappingResponse
 $creadsPrec :: Int -&gt; ReadS GetMappingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725649"><span id="local-6989586621679725651"><span id="local-6989586621679725653"><span class="annot"><span class="annottext">Int -&gt; GetMappingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679725658"><span id="local-6989586621679725660"><span id="local-6989586621679725662"><span class="annot"><span class="annottext">Int -&gt; GetMappingResponse -&gt; ShowS
 [GetMappingResponse] -&gt; ShowS
 GetMappingResponse -&gt; String
 (Int -&gt; GetMappingResponse -&gt; ShowS)
@@ -453,13 +453,13 @@ $cfrom :: forall x. GetMappingResponse -&gt; Rep GetMappingResponse x
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newGetMappingResponse"><span class="annot"><span class="annottext">newGetMappingResponse :: Int -&gt; GetMappingResponse
-</span><a href="Network.AWS.Glue.GetMapping.html#newGetMappingResponse"><span class="hs-identifier hs-var hs-var">newGetMappingResponse</span></a></span></span><span> </span><span id="local-6989586621679725646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679725646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetMapping.html#newGetMappingResponse"><span class="hs-identifier hs-var hs-var">newGetMappingResponse</span></a></span></span><span> </span><span id="local-6989586621679725655"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679725655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">GetMappingResponse' :: Int -&gt; [MappingEntry] -&gt; GetMappingResponse
 </span><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMappingResponse' :: Int
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3AhttpStatus%3AGetMappingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679725646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679725655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:mapping:GetMappingResponse' :: [MappingEntry]
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Amapping%3AGetMappingResponse%27"><span class="hs-identifier hs-var">mapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MappingEntry]
 forall a. Monoid a =&gt; a
@@ -473,16 +473,16 @@ forall a. Monoid a =&gt; a
 -&gt; (GetMappingResponse -&gt; Int -&gt; GetMappingResponse)
 -&gt; Lens GetMappingResponse GetMappingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725645"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725654"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMappingResponse' :: GetMappingResponse -&gt; Int
-</span><a href="#local-6989586621679725645"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679725645"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725644"><span class="annot"><span class="annottext">s :: GetMappingResponse
-</span><a href="#local-6989586621679725644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725643"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679725643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMappingResponse
-</span><a href="#local-6989586621679725644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMappingResponse' :: Int
+</span><a href="#local-6989586621679725654"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679725654"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725653"><span class="annot"><span class="annottext">s :: GetMappingResponse
+</span><a href="#local-6989586621679725653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679725652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMappingResponse
+</span><a href="#local-6989586621679725653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMappingResponse' :: Int
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3AhttpStatus%3AGetMappingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679725643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679725652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | A list of mappings to the specified targets.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#getMappingResponse_mapping"><span class="hs-identifier hs-type">getMappingResponse_mapping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">]</span><span>
@@ -493,16 +493,16 @@ $sel:httpStatus:GetMappingResponse' :: GetMappingResponse -&gt; Int
 -&gt; Lens
      GetMappingResponse GetMappingResponse [MappingEntry] [MappingEntry]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725642"><span class="annot"><span class="annottext">[MappingEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679725651"><span class="annot"><span class="annottext">[MappingEntry]
 mapping :: [MappingEntry]
 $sel:mapping:GetMappingResponse' :: GetMappingResponse -&gt; [MappingEntry]
-</span><a href="#local-6989586621679725642"><span class="hs-identifier hs-var hs-var">mapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MappingEntry]
-</span><a href="#local-6989586621679725642"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725641"><span class="annot"><span class="annottext">s :: GetMappingResponse
-</span><a href="#local-6989586621679725641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725640"><span class="annot"><span class="annottext">[MappingEntry]
-</span><a href="#local-6989586621679725640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMappingResponse
-</span><a href="#local-6989586621679725641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mapping:GetMappingResponse' :: [MappingEntry]
+</span><a href="#local-6989586621679725651"><span class="hs-identifier hs-var hs-var">mapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MappingEntry]
+</span><a href="#local-6989586621679725651"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679725650"><span class="annot"><span class="annottext">s :: GetMappingResponse
+</span><a href="#local-6989586621679725650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse%27"><span class="hs-identifier hs-type">GetMappingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679725649"><span class="annot"><span class="annottext">[MappingEntry]
+</span><a href="#local-6989586621679725649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMappingResponse
+</span><a href="#local-6989586621679725650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mapping:GetMappingResponse' :: [MappingEntry]
 </span><a href="Network.AWS.Glue.GetMapping.html#%24sel%3Amapping%3AGetMappingResponse%27"><span class="hs-identifier hs-var">mapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MappingEntry]
-</span><a href="#local-6989586621679725640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MappingEntry] -&gt; f [MappingEntry])
+</span><a href="#local-6989586621679725649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MappingEntry] -&gt; f [MappingEntry])
  -&gt; GetMappingResponse -&gt; f GetMappingResponse)
 -&gt; (([MappingEntry] -&gt; f [MappingEntry])
     -&gt; [MappingEntry] -&gt; f [MappingEntry])
@@ -515,5 +515,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679725647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMapping.html#GetMappingResponse"><span class="hs-identifier hs-type">GetMappingResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

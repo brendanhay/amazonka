@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCheckSchemaVersionValidity' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679742491"><span id="local-6989586621679742492"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckSchemaVersionValidity"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-var">CheckSchemaVersionValidity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckSchemaVersionValidity%27"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-var">CheckSchemaVersionValidity'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679742500"><span id="local-6989586621679742501"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckSchemaVersionValidity"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-var">CheckSchemaVersionValidity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckSchemaVersionValidity%27"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-var">CheckSchemaVersionValidity'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data format of the schema definition. Currently @AVRO@ and @JSON@</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- are supported.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdataFormat%3ACheckSchemaVersionValidity%27"><span class="annot"><span class="annottext">CheckSchemaVersionValidity -&gt; DataFormat
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AschemaDefinition%3ACheckSchemaVersionValidity%27"><span class="annot"><span class="annottext">CheckSchemaVersionValidity -&gt; Text
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AschemaDefinition%3ACheckSchemaVersionValidity%27"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742484"><span id="local-6989586621679742486"><span class="annot"><span class="annottext">CheckSchemaVersionValidity -&gt; CheckSchemaVersionValidity -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742493"><span id="local-6989586621679742495"><span class="annot"><span class="annottext">CheckSchemaVersionValidity -&gt; CheckSchemaVersionValidity -&gt; Bool
 (CheckSchemaVersionValidity -&gt; CheckSchemaVersionValidity -&gt; Bool)
 -&gt; (CheckSchemaVersionValidity
     -&gt; CheckSchemaVersionValidity -&gt; Bool)
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CheckSchemaVersionValidity -&gt; CheckSchemaVersionValidity -&gt; Bool
 == :: CheckSchemaVersionValidity -&gt; CheckSchemaVersionValidity -&gt; Bool
 $c== :: CheckSchemaVersionValidity -&gt; CheckSchemaVersionValidity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742475"><span id="local-6989586621679742477"><span id="local-6989586621679742479"><span id="local-6989586621679742481"><span class="annot"><span class="annottext">ReadPrec [CheckSchemaVersionValidity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742484"><span id="local-6989586621679742486"><span id="local-6989586621679742488"><span id="local-6989586621679742490"><span class="annot"><span class="annottext">ReadPrec [CheckSchemaVersionValidity]
 ReadPrec CheckSchemaVersionValidity
 Int -&gt; ReadS CheckSchemaVersionValidity
 ReadS [CheckSchemaVersionValidity]
@@ -91,7 +91,7 @@ readList :: ReadS [CheckSchemaVersionValidity]
 $creadList :: ReadS [CheckSchemaVersionValidity]
 readsPrec :: Int -&gt; ReadS CheckSchemaVersionValidity
 $creadsPrec :: Int -&gt; ReadS CheckSchemaVersionValidity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742468"><span id="local-6989586621679742470"><span id="local-6989586621679742472"><span class="annot"><span class="annottext">Int -&gt; CheckSchemaVersionValidity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742477"><span id="local-6989586621679742479"><span id="local-6989586621679742481"><span class="annot"><span class="annottext">Int -&gt; CheckSchemaVersionValidity -&gt; ShowS
 [CheckSchemaVersionValidity] -&gt; ShowS
 CheckSchemaVersionValidity -&gt; String
 (Int -&gt; CheckSchemaVersionValidity -&gt; ShowS)
@@ -143,19 +143,19 @@ CheckSchemaVersionValidity -&gt; Rep CheckSchemaVersionValidity x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span>
 </span><span id="line-82"></span><span id="newCheckSchemaVersionValidity"><span class="annot"><span class="annottext">newCheckSchemaVersionValidity :: DataFormat -&gt; Text -&gt; CheckSchemaVersionValidity
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#newCheckSchemaVersionValidity"><span class="hs-identifier hs-var hs-var">newCheckSchemaVersionValidity</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679742463"><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679742463"><span class="hs-identifier hs-var">pDataFormat_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679742462"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742462"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679742472"><span class="annot"><span class="annottext">DataFormat
+</span><a href="#local-6989586621679742472"><span class="hs-identifier hs-var">pDataFormat_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679742471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742471"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">CheckSchemaVersionValidity' :: DataFormat -&gt; Text -&gt; CheckSchemaVersionValidity
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataFormat:CheckSchemaVersionValidity' :: DataFormat
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AdataFormat%3ACheckSchemaVersionValidity%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679742463"><span class="hs-identifier hs-var">pDataFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742472"><span class="hs-identifier hs-var">pDataFormat_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:schemaDefinition:CheckSchemaVersionValidity' :: Text
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AschemaDefinition%3ACheckSchemaVersionValidity%27"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742462"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span><span>
+</span><a href="#local-6989586621679742471"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The data format of the schema definition. Currently @AVRO@ and @JSON@</span><span>
@@ -172,16 +172,16 @@ CheckSchemaVersionValidity -&gt; Rep CheckSchemaVersionValidity x
      DataFormat
      DataFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742459"><span class="annot"><span class="annottext">DataFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742468"><span class="annot"><span class="annottext">DataFormat
 dataFormat :: DataFormat
 $sel:dataFormat:CheckSchemaVersionValidity' :: CheckSchemaVersionValidity -&gt; DataFormat
-</span><a href="#local-6989586621679742459"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679742459"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742458"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidity
-</span><a href="#local-6989586621679742458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742457"><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679742457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidity
-</span><a href="#local-6989586621679742458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:CheckSchemaVersionValidity' :: DataFormat
+</span><a href="#local-6989586621679742468"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataFormat
+</span><a href="#local-6989586621679742468"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742467"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidity
+</span><a href="#local-6989586621679742467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742466"><span class="annot"><span class="annottext">DataFormat
+</span><a href="#local-6989586621679742466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidity
+</span><a href="#local-6989586621679742467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:CheckSchemaVersionValidity' :: DataFormat
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AdataFormat%3ACheckSchemaVersionValidity%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679742457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The definition of the schema that has to be validated.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#checkSchemaVersionValidity_schemaDefinition"><span class="hs-identifier hs-type">checkSchemaVersionValidity_schemaDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -193,28 +193,28 @@ $sel:dataFormat:CheckSchemaVersionValidity' :: CheckSchemaVersionValidity -&gt; 
 -&gt; Lens
      CheckSchemaVersionValidity CheckSchemaVersionValidity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742456"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742465"><span class="annot"><span class="annottext">Text
 schemaDefinition :: Text
 $sel:schemaDefinition:CheckSchemaVersionValidity' :: CheckSchemaVersionValidity -&gt; Text
-</span><a href="#local-6989586621679742456"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742456"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742455"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidity
-</span><a href="#local-6989586621679742455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742454"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidity
-</span><a href="#local-6989586621679742455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaDefinition:CheckSchemaVersionValidity' :: Text
+</span><a href="#local-6989586621679742465"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742465"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742464"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidity
+</span><a href="#local-6989586621679742464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidity
+</span><a href="#local-6989586621679742464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaDefinition:CheckSchemaVersionValidity' :: Text
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AschemaDefinition%3ACheckSchemaVersionValidity%27"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679742450"><span class="annot"><span class="annottext">request :: CheckSchemaVersionValidity -&gt; Request CheckSchemaVersionValidity
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679742459"><span class="annot"><span class="annottext">request :: CheckSchemaVersionValidity -&gt; Request CheckSchemaVersionValidity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CheckSchemaVersionValidity -&gt; Request CheckSchemaVersionValidity
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679742446"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679742455"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CheckSchemaVersionValidity
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742443"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742442"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679742442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742441"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742452"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742452"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742451"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679742451"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742450"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679742450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool -&gt; Int -&gt; CheckSchemaVersionValidityResponse
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var">CheckSchemaVersionValidityResponse'</span></a></span><span>
@@ -254,7 +254,7 @@ MonadResource m =&gt;
      String (Maybe Bool -&gt; Int -&gt; CheckSchemaVersionValidityResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679742450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,7 +264,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CheckSchemaVersionValidityResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679742450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Valid&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,15 +277,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742452"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742433"><span id="local-6989586621679742435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742442"><span id="local-6989586621679742444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679742426"><span class="annot"><span class="annottext">toHeaders :: CheckSchemaVersionValidity -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679742435"><span class="annot"><span class="annottext">toHeaders :: CheckSchemaVersionValidity -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CheckSchemaVersionValidity -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -312,15 +312,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742416"><span id="local-6989586621679742418"><span id="local-6989586621679742420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679742414"><span class="annot"><span class="annottext">toJSON :: CheckSchemaVersionValidity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742411"><span id="local-6989586621679742412"><span class="annot"><span class="annottext">Text
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742425"><span id="local-6989586621679742427"><span id="local-6989586621679742429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679742423"><span class="annot"><span class="annottext">toJSON :: CheckSchemaVersionValidity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742420"><span id="local-6989586621679742421"><span class="annot"><span class="annottext">Text
 DataFormat
 schemaDefinition :: Text
 dataFormat :: DataFormat
 $sel:schemaDefinition:CheckSchemaVersionValidity' :: CheckSchemaVersionValidity -&gt; Text
 $sel:dataFormat:CheckSchemaVersionValidity' :: CheckSchemaVersionValidity -&gt; DataFormat
-</span><a href="#local-6989586621679742411"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679742420"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -332,7 +332,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DataFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679742412"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742421"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -340,19 +340,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SchemaDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742411"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742420"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679742405"><span class="annot"><span class="annottext">toPath :: CheckSchemaVersionValidity -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679742414"><span class="annot"><span class="annottext">toPath :: CheckSchemaVersionValidity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CheckSchemaVersionValidity -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidity"><span class="hs-identifier hs-type">CheckSchemaVersionValidity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679742401"><span class="annot"><span class="annottext">toQuery :: CheckSchemaVersionValidity -&gt; QueryString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679742410"><span class="annot"><span class="annottext">toQuery :: CheckSchemaVersionValidity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CheckSchemaVersionValidity -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -360,7 +360,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newCheckSchemaVersionValidityResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679742398"><span id="local-6989586621679742399"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckSchemaVersionValidityResponse"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-var">CheckSchemaVersionValidityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckSchemaVersionValidityResponse%27"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var">CheckSchemaVersionValidityResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679742407"><span id="local-6989586621679742408"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckSchemaVersionValidityResponse"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-var">CheckSchemaVersionValidityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckSchemaVersionValidityResponse%27"><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var">CheckSchemaVersionValidityResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A validation failure error message.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3Aerror%3ACheckSchemaVersionValidityResponse%27"><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3Aerror%3ACheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -371,7 +371,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACheckSchemaVersionValidityResponse%27"><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse -&gt; Int
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AhttpStatus%3ACheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742391"><span id="local-6989586621679742393"><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742400"><span id="local-6989586621679742402"><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
 -&gt; CheckSchemaVersionValidityResponse -&gt; Bool
 (CheckSchemaVersionValidityResponse
  -&gt; CheckSchemaVersionValidityResponse -&gt; Bool)
@@ -387,7 +387,7 @@ $c/= :: CheckSchemaVersionValidityResponse
 -&gt; CheckSchemaVersionValidityResponse -&gt; Bool
 $c== :: CheckSchemaVersionValidityResponse
 -&gt; CheckSchemaVersionValidityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742383"><span id="local-6989586621679742385"><span id="local-6989586621679742387"><span id="local-6989586621679742389"><span class="annot"><span class="annottext">ReadPrec [CheckSchemaVersionValidityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742392"><span id="local-6989586621679742394"><span id="local-6989586621679742396"><span id="local-6989586621679742398"><span class="annot"><span class="annottext">ReadPrec [CheckSchemaVersionValidityResponse]
 ReadPrec CheckSchemaVersionValidityResponse
 Int -&gt; ReadS CheckSchemaVersionValidityResponse
 ReadS [CheckSchemaVersionValidityResponse]
@@ -407,7 +407,7 @@ readList :: ReadS [CheckSchemaVersionValidityResponse]
 $creadList :: ReadS [CheckSchemaVersionValidityResponse]
 readsPrec :: Int -&gt; ReadS CheckSchemaVersionValidityResponse
 $creadsPrec :: Int -&gt; ReadS CheckSchemaVersionValidityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742377"><span id="local-6989586621679742379"><span id="local-6989586621679742381"><span class="annot"><span class="annottext">Int -&gt; CheckSchemaVersionValidityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742386"><span id="local-6989586621679742388"><span id="local-6989586621679742390"><span class="annot"><span class="annottext">Int -&gt; CheckSchemaVersionValidityResponse -&gt; ShowS
 [CheckSchemaVersionValidityResponse] -&gt; ShowS
 CheckSchemaVersionValidityResponse -&gt; String
 (Int -&gt; CheckSchemaVersionValidityResponse -&gt; ShowS)
@@ -463,8 +463,8 @@ CheckSchemaVersionValidityResponse
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newCheckSchemaVersionValidityResponse"><span class="annot"><span class="annottext">newCheckSchemaVersionValidityResponse :: Int -&gt; CheckSchemaVersionValidityResponse
-</span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#newCheckSchemaVersionValidityResponse"><span class="hs-identifier hs-var hs-var">newCheckSchemaVersionValidityResponse</span></a></span></span><span> </span><span id="local-6989586621679742374"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742374"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#newCheckSchemaVersionValidityResponse"><span class="hs-identifier hs-var hs-var">newCheckSchemaVersionValidityResponse</span></a></span></span><span> </span><span id="local-6989586621679742383"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse' :: Maybe Text
 -&gt; Maybe Bool -&gt; Int -&gt; CheckSchemaVersionValidityResponse
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span>
@@ -479,7 +479,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CheckSchemaVersionValidityResponse' :: Int
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AhttpStatus%3ACheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742374"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679742383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | A validation failure error message.</span><span>
@@ -496,16 +496,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742373"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742382"><span class="annot"><span class="annottext">Maybe Text
 error :: Maybe Text
 $sel:error:CheckSchemaVersionValidityResponse' :: CheckSchemaVersionValidityResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679742373"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742373"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742372"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidityResponse
-</span><a href="#local-6989586621679742372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742371"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
-</span><a href="#local-6989586621679742372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:CheckSchemaVersionValidityResponse' :: Maybe Text
+</span><a href="#local-6989586621679742382"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742382"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742381"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidityResponse
+</span><a href="#local-6989586621679742381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
+</span><a href="#local-6989586621679742381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:CheckSchemaVersionValidityResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3Aerror%3ACheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | Return true, if the schema is valid and false otherwise.</span><span>
 </span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#checkSchemaVersionValidityResponse_valid"><span class="hs-identifier hs-type">checkSchemaVersionValidityResponse_valid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -521,16 +521,16 @@ $sel:error:CheckSchemaVersionValidityResponse' :: CheckSchemaVersionValidityResp
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742370"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742379"><span class="annot"><span class="annottext">Maybe Bool
 valid :: Maybe Bool
 $sel:valid:CheckSchemaVersionValidityResponse' :: CheckSchemaVersionValidityResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679742370"><span class="hs-identifier hs-var hs-var">valid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679742370"><span class="hs-identifier hs-var">valid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742369"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidityResponse
-</span><a href="#local-6989586621679742369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742368"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679742368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
-</span><a href="#local-6989586621679742369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valid:CheckSchemaVersionValidityResponse' :: Maybe Bool
+</span><a href="#local-6989586621679742379"><span class="hs-identifier hs-var hs-var">valid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679742379"><span class="hs-identifier hs-var">valid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742378"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidityResponse
+</span><a href="#local-6989586621679742378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742377"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679742377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
+</span><a href="#local-6989586621679742378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valid:CheckSchemaVersionValidityResponse' :: Maybe Bool
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3Avalid%3ACheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var">valid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679742368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#checkSchemaVersionValidityResponse_httpStatus"><span class="hs-identifier hs-type">checkSchemaVersionValidityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -546,18 +546,18 @@ $sel:valid:CheckSchemaVersionValidityResponse' :: CheckSchemaVersionValidityResp
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742367"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742376"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CheckSchemaVersionValidityResponse' :: CheckSchemaVersionValidityResponse -&gt; Int
-</span><a href="#local-6989586621679742367"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742367"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742366"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidityResponse
-</span><a href="#local-6989586621679742366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742365"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
-</span><a href="#local-6989586621679742366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckSchemaVersionValidityResponse' :: Int
+</span><a href="#local-6989586621679742376"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742376"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742375"><span class="annot"><span class="annottext">s :: CheckSchemaVersionValidityResponse
+</span><a href="#local-6989586621679742375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckSchemaVersionValidityResponse
+</span><a href="#local-6989586621679742375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckSchemaVersionValidityResponse' :: Int
 </span><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#%24sel%3AhttpStatus%3ACheckSchemaVersionValidityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679742363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679742372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CheckSchemaVersionValidity.html#CheckSchemaVersionValidityResponse"><span class="hs-identifier hs-type">CheckSchemaVersionValidityResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

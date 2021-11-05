@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679796372"><span id="local-6989586621679796373"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryAttributeDataType"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryAttributeDataType.html#InventoryAttributeDataType"><span class="hs-identifier hs-var">InventoryAttributeDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryAttributeDataType%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryAttributeDataType.html#InventoryAttributeDataType%27"><span class="hs-identifier hs-var">InventoryAttributeDataType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679796381"><span id="local-6989586621679796382"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryAttributeDataType"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryAttributeDataType.html#InventoryAttributeDataType"><span class="hs-identifier hs-var">InventoryAttributeDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryAttributeDataType%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryAttributeDataType.html#InventoryAttributeDataType%27"><span class="hs-identifier hs-var">InventoryAttributeDataType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryAttributeDataType"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.InventoryAttributeDataType.html#fromInventoryAttributeDataType"><span class="hs-identifier hs-var hs-var">fromInventoryAttributeDataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796364"><span id="local-6989586621679796366"><span id="local-6989586621679796368"><span class="annot"><span class="annottext">Int -&gt; InventoryAttributeDataType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796373"><span id="local-6989586621679796375"><span id="local-6989586621679796377"><span class="annot"><span class="annottext">Int -&gt; InventoryAttributeDataType -&gt; ShowS
 [InventoryAttributeDataType] -&gt; ShowS
 InventoryAttributeDataType -&gt; String
 (Int -&gt; InventoryAttributeDataType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: InventoryAttributeDataType -&gt; String
 showsPrec :: Int -&gt; InventoryAttributeDataType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InventoryAttributeDataType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679796355"><span id="local-6989586621679796357"><span id="local-6989586621679796359"><span id="local-6989586621679796361"><span class="annot"><span class="annottext">ReadPrec [InventoryAttributeDataType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679796364"><span id="local-6989586621679796366"><span id="local-6989586621679796368"><span id="local-6989586621679796370"><span class="annot"><span class="annottext">ReadPrec [InventoryAttributeDataType]
 ReadPrec InventoryAttributeDataType
 Int -&gt; ReadS InventoryAttributeDataType
 ReadS [InventoryAttributeDataType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [InventoryAttributeDataType]
 readsPrec :: Int -&gt; ReadS InventoryAttributeDataType
 $creadsPrec :: Int -&gt; ReadS InventoryAttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679796350"><span id="local-6989586621679796352"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; InventoryAttributeDataType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679796359"><span id="local-6989586621679796361"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; InventoryAttributeDataType -&gt; Bool
 (InventoryAttributeDataType -&gt; InventoryAttributeDataType -&gt; Bool)
 -&gt; (InventoryAttributeDataType
     -&gt; InventoryAttributeDataType -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: InventoryAttributeDataType -&gt; InventoryAttributeDataType -&gt; Bool
 == :: InventoryAttributeDataType -&gt; InventoryAttributeDataType -&gt; Bool
 $c== :: InventoryAttributeDataType -&gt; InventoryAttributeDataType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796334"><span id="local-6989586621679796336"><span id="local-6989586621679796338"><span id="local-6989586621679796340"><span id="local-6989586621679796342"><span id="local-6989586621679796344"><span id="local-6989586621679796346"><span class="annot"><span class="annottext">Eq InventoryAttributeDataType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796343"><span id="local-6989586621679796345"><span id="local-6989586621679796347"><span id="local-6989586621679796349"><span id="local-6989586621679796351"><span id="local-6989586621679796353"><span id="local-6989586621679796355"><span class="annot"><span class="annottext">Eq InventoryAttributeDataType
 Eq InventoryAttributeDataType
 -&gt; (InventoryAttributeDataType
     -&gt; InventoryAttributeDataType -&gt; Ordering)
@@ -155,7 +155,7 @@ InventoryAttributeDataType -&gt; Rep InventoryAttributeDataType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796326"><span id="local-6989586621679796328"><span class="annot"><span class="annottext">Int -&gt; InventoryAttributeDataType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796335"><span id="local-6989586621679796337"><span class="annot"><span class="annottext">Int -&gt; InventoryAttributeDataType -&gt; Int
 InventoryAttributeDataType -&gt; Int
 (Int -&gt; InventoryAttributeDataType -&gt; Int)
 -&gt; (InventoryAttributeDataType -&gt; Int)
@@ -166,56 +166,56 @@ $chash :: InventoryAttributeDataType -&gt; Int
 hashWithSalt :: Int -&gt; InventoryAttributeDataType -&gt; Int
 $chashWithSalt :: Int -&gt; InventoryAttributeDataType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679796323"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679796332"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; ()
 (InventoryAttributeDataType -&gt; ())
 -&gt; NFData InventoryAttributeDataType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InventoryAttributeDataType -&gt; ()
 $crnf :: InventoryAttributeDataType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679796320"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryAttributeDataType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679796329"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryAttributeDataType
 (Text -&gt; Either String InventoryAttributeDataType)
 -&gt; FromText InventoryAttributeDataType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InventoryAttributeDataType
 $cfromText :: Text -&gt; Either String InventoryAttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796317"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796326"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; Text
 (InventoryAttributeDataType -&gt; Text)
 -&gt; ToText InventoryAttributeDataType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InventoryAttributeDataType -&gt; Text
 $ctoText :: InventoryAttributeDataType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796314"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796323"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; ByteString
 (InventoryAttributeDataType -&gt; ByteString)
 -&gt; ToByteString InventoryAttributeDataType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InventoryAttributeDataType -&gt; ByteString
 $ctoBS :: InventoryAttributeDataType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796311"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796320"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; ByteStringBuilder
 (InventoryAttributeDataType -&gt; ByteStringBuilder)
 -&gt; ToLog InventoryAttributeDataType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InventoryAttributeDataType -&gt; ByteStringBuilder
 $cbuild :: InventoryAttributeDataType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796308"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryAttributeDataType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796317"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryAttributeDataType -&gt; [Header]
 (HeaderName -&gt; InventoryAttributeDataType -&gt; [Header])
 -&gt; ToHeader InventoryAttributeDataType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InventoryAttributeDataType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InventoryAttributeDataType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796305"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796314"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; QueryString
 (InventoryAttributeDataType -&gt; QueryString)
 -&gt; ToQuery InventoryAttributeDataType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InventoryAttributeDataType -&gt; QueryString
 $ctoQuery :: InventoryAttributeDataType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796300"><span id="local-6989586621679796302"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryAttributeDataType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796309"><span id="local-6989586621679796311"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryAttributeDataType]
 Value -&gt; Parser InventoryAttributeDataType
 (Value -&gt; Parser InventoryAttributeDataType)
 -&gt; (Value -&gt; Parser [InventoryAttributeDataType])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [InventoryAttributeDataType]
 parseJSON :: Value -&gt; Parser InventoryAttributeDataType
 $cparseJSON :: Value -&gt; Parser InventoryAttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796295"><span id="local-6989586621679796297"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryAttributeDataType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796304"><span id="local-6989586621679796306"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryAttributeDataType]
 FromJSONKeyFunction InventoryAttributeDataType
 FromJSONKeyFunction InventoryAttributeDataType
 -&gt; FromJSONKeyFunction [InventoryAttributeDataType]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InventoryAttributeDataType]
 fromJSONKey :: FromJSONKeyFunction InventoryAttributeDataType
 $cfromJSONKey :: FromJSONKeyFunction InventoryAttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796286"><span id="local-6989586621679796288"><span id="local-6989586621679796290"><span id="local-6989586621679796292"><span class="annot"><span class="annottext">[InventoryAttributeDataType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796295"><span id="local-6989586621679796297"><span id="local-6989586621679796299"><span id="local-6989586621679796301"><span class="annot"><span class="annottext">[InventoryAttributeDataType] -&gt; Encoding
 [InventoryAttributeDataType] -&gt; Value
 InventoryAttributeDataType -&gt; Encoding
 InventoryAttributeDataType -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: InventoryAttributeDataType -&gt; Encoding
 toJSON :: InventoryAttributeDataType -&gt; Value
 $ctoJSON :: InventoryAttributeDataType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796281"><span id="local-6989586621679796283"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryAttributeDataType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796290"><span id="local-6989586621679796292"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryAttributeDataType]
 ToJSONKeyFunction InventoryAttributeDataType
 ToJSONKeyFunction InventoryAttributeDataType
 -&gt; ToJSONKeyFunction [InventoryAttributeDataType]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InventoryAttributeDataType]
 toJSONKey :: ToJSONKeyFunction InventoryAttributeDataType
 $ctoJSONKey :: ToJSONKeyFunction InventoryAttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679796278"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryAttributeDataType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679796287"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryAttributeDataType
 ([Node] -&gt; Either String InventoryAttributeDataType)
 -&gt; FromXML InventoryAttributeDataType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InventoryAttributeDataType
 $cparseXML :: [Node] -&gt; Either String InventoryAttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679796275"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679796284"><span class="annot"><span class="annottext">InventoryAttributeDataType -&gt; XML
 (InventoryAttributeDataType -&gt; XML)
 -&gt; ToXML InventoryAttributeDataType
 forall a. (a -&gt; XML) -&gt; ToXML a

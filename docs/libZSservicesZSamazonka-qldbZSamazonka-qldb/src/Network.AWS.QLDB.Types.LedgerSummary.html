@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLedgerSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679182567"><span id="local-6989586621679182568"></span></span><span class="hs-keyword">data</span><span> </span><span id="LedgerSummary"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-var">LedgerSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LedgerSummary%27"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-var">LedgerSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679182576"><span id="local-6989586621679182577"></span></span><span class="hs-keyword">data</span><span> </span><span id="LedgerSummary"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-var">LedgerSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LedgerSummary%27"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-var">LedgerSummary'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the ledger.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3ALedgerSummary%27"><span class="annot"><span class="annottext">LedgerSummary -&gt; Maybe LedgerState
 </span><a href="Network.AWS.QLDB.Types.LedgerSummary.html#%24sel%3Astate%3ALedgerSummary%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerState.html#LedgerState"><span class="hs-identifier hs-type">LedgerState</span></a></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreationDateTime%3ALedgerSummary%27"><span class="annot"><span class="annottext">LedgerSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.QLDB.Types.LedgerSummary.html#%24sel%3AcreationDateTime%3ALedgerSummary%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182559"><span id="local-6989586621679182561"><span class="annot"><span class="annottext">LedgerSummary -&gt; LedgerSummary -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182568"><span id="local-6989586621679182570"><span class="annot"><span class="annottext">LedgerSummary -&gt; LedgerSummary -&gt; Bool
 (LedgerSummary -&gt; LedgerSummary -&gt; Bool)
 -&gt; (LedgerSummary -&gt; LedgerSummary -&gt; Bool) -&gt; Eq LedgerSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LedgerSummary -&gt; LedgerSummary -&gt; Bool
 == :: LedgerSummary -&gt; LedgerSummary -&gt; Bool
 $c== :: LedgerSummary -&gt; LedgerSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182550"><span id="local-6989586621679182552"><span id="local-6989586621679182554"><span id="local-6989586621679182556"><span class="annot"><span class="annottext">ReadPrec [LedgerSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182559"><span id="local-6989586621679182561"><span id="local-6989586621679182563"><span id="local-6989586621679182565"><span class="annot"><span class="annottext">ReadPrec [LedgerSummary]
 ReadPrec LedgerSummary
 Int -&gt; ReadS LedgerSummary
 ReadS [LedgerSummary]
@@ -69,7 +69,7 @@ readList :: ReadS [LedgerSummary]
 $creadList :: ReadS [LedgerSummary]
 readsPrec :: Int -&gt; ReadS LedgerSummary
 $creadsPrec :: Int -&gt; ReadS LedgerSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182543"><span id="local-6989586621679182545"><span id="local-6989586621679182547"><span class="annot"><span class="annottext">Int -&gt; LedgerSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182552"><span id="local-6989586621679182554"><span id="local-6989586621679182556"><span class="annot"><span class="annottext">Int -&gt; LedgerSummary -&gt; ShowS
 [LedgerSummary] -&gt; ShowS
 LedgerSummary -&gt; String
 (Int -&gt; LedgerSummary -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; Lens
      LedgerSummary LedgerSummary (Maybe LedgerState) (Maybe LedgerState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182534"><span class="annot"><span class="annottext">Maybe LedgerState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182543"><span class="annot"><span class="annottext">Maybe LedgerState
 state :: Maybe LedgerState
 $sel:state:LedgerSummary' :: LedgerSummary -&gt; Maybe LedgerState
-</span><a href="#local-6989586621679182534"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerState
-</span><a href="#local-6989586621679182534"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182533"><span class="annot"><span class="annottext">s :: LedgerSummary
-</span><a href="#local-6989586621679182533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182532"><span class="annot"><span class="annottext">Maybe LedgerState
-</span><a href="#local-6989586621679182532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerSummary
-</span><a href="#local-6989586621679182533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:LedgerSummary' :: Maybe LedgerState
+</span><a href="#local-6989586621679182543"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerState
+</span><a href="#local-6989586621679182543"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182542"><span class="annot"><span class="annottext">s :: LedgerSummary
+</span><a href="#local-6989586621679182542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182541"><span class="annot"><span class="annottext">Maybe LedgerState
+</span><a href="#local-6989586621679182541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerSummary
+</span><a href="#local-6989586621679182542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:LedgerSummary' :: Maybe LedgerState
 </span><a href="Network.AWS.QLDB.Types.LedgerSummary.html#%24sel%3Astate%3ALedgerSummary%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerState
-</span><a href="#local-6989586621679182532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the ledger.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#ledgerSummary_name"><span class="hs-identifier hs-type">ledgerSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -157,16 +157,16 @@ $sel:state:LedgerSummary' :: LedgerSummary -&gt; Maybe LedgerState
 -&gt; (LedgerSummary -&gt; Maybe Text -&gt; LedgerSummary)
 -&gt; Lens LedgerSummary LedgerSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182530"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182539"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:LedgerSummary' :: LedgerSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679182530"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182530"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182529"><span class="annot"><span class="annottext">s :: LedgerSummary
-</span><a href="#local-6989586621679182529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182528"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerSummary
-</span><a href="#local-6989586621679182529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LedgerSummary' :: Maybe Text
+</span><a href="#local-6989586621679182539"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182539"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182538"><span class="annot"><span class="annottext">s :: LedgerSummary
+</span><a href="#local-6989586621679182538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerSummary
+</span><a href="#local-6989586621679182538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LedgerSummary' :: Maybe Text
 </span><a href="Network.AWS.QLDB.Types.LedgerSummary.html#%24sel%3Aname%3ALedgerSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The date and time, in epoch time format, when the ledger was created.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- (Epoch time format is the number of seconds elapsed since 12:00:00 AM</span><span>
@@ -178,16 +178,16 @@ $sel:name:LedgerSummary' :: LedgerSummary -&gt; Maybe Text
 -&gt; (LedgerSummary -&gt; Maybe POSIX -&gt; LedgerSummary)
 -&gt; Lens LedgerSummary LedgerSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182526"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182535"><span class="annot"><span class="annottext">Maybe POSIX
 creationDateTime :: Maybe POSIX
 $sel:creationDateTime:LedgerSummary' :: LedgerSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679182526"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182526"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182525"><span class="annot"><span class="annottext">s :: LedgerSummary
-</span><a href="#local-6989586621679182525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182524"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerSummary
-</span><a href="#local-6989586621679182525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:LedgerSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679182535"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182535"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182534"><span class="annot"><span class="annottext">s :: LedgerSummary
+</span><a href="#local-6989586621679182534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-type">LedgerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182533"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerSummary
+</span><a href="#local-6989586621679182534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:LedgerSummary' :: Maybe POSIX
 </span><a href="Network.AWS.QLDB.Types.LedgerSummary.html#%24sel%3AcreationDateTime%3ALedgerSummary%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679182533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; LedgerSummary -&gt; f LedgerSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -204,8 +204,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182518"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679182516"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LedgerSummary
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182527"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679182525"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LedgerSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LedgerSummary)
@@ -215,8 +215,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LedgerSummary&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182513"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182522"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe LedgerState -&gt; Maybe Text -&gt; Maybe POSIX -&gt; LedgerSummary
 </span><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary%27"><span class="hs-identifier hs-var">LedgerSummary'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LedgerState -&gt; Maybe Text -&gt; Maybe POSIX -&gt; LedgerSummary)
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; LedgerSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LedgerState)
+</span><a href="#local-6989586621679182522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LedgerState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,7 +232,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; LedgerSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679182522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,13 +240,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser LedgerSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679182522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182507"><span id="local-6989586621679182509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182516"><span id="local-6989586621679182518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span></span><span>
 </span><span id="line-95"></span></pre></body></html>

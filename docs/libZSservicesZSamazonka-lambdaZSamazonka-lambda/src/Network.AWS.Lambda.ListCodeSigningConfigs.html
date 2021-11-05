@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListCodeSigningConfigs' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679305945"><span id="local-6989586621679305946"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCodeSigningConfigs"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-var">ListCodeSigningConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCodeSigningConfigs%27"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-var">ListCodeSigningConfigs'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679305954"><span id="local-6989586621679305955"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCodeSigningConfigs"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-var">ListCodeSigningConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCodeSigningConfigs%27"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-var">ListCodeSigningConfigs'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- retrieve the next page of results.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Amarker%3AListCodeSigningConfigs%27"><span class="annot"><span class="annottext">ListCodeSigningConfigs -&gt; Maybe Text
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxItems%3AListCodeSigningConfigs%27"><span class="annot"><span class="annottext">ListCodeSigningConfigs -&gt; Maybe Natural
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AmaxItems%3AListCodeSigningConfigs%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305938"><span id="local-6989586621679305940"><span class="annot"><span class="annottext">ListCodeSigningConfigs -&gt; ListCodeSigningConfigs -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305947"><span id="local-6989586621679305949"><span class="annot"><span class="annottext">ListCodeSigningConfigs -&gt; ListCodeSigningConfigs -&gt; Bool
 (ListCodeSigningConfigs -&gt; ListCodeSigningConfigs -&gt; Bool)
 -&gt; (ListCodeSigningConfigs -&gt; ListCodeSigningConfigs -&gt; Bool)
 -&gt; Eq ListCodeSigningConfigs
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCodeSigningConfigs -&gt; ListCodeSigningConfigs -&gt; Bool
 == :: ListCodeSigningConfigs -&gt; ListCodeSigningConfigs -&gt; Bool
 $c== :: ListCodeSigningConfigs -&gt; ListCodeSigningConfigs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305929"><span id="local-6989586621679305931"><span id="local-6989586621679305933"><span id="local-6989586621679305935"><span class="annot"><span class="annottext">ReadPrec [ListCodeSigningConfigs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305938"><span id="local-6989586621679305940"><span id="local-6989586621679305942"><span id="local-6989586621679305944"><span class="annot"><span class="annottext">ReadPrec [ListCodeSigningConfigs]
 ReadPrec ListCodeSigningConfigs
 Int -&gt; ReadS ListCodeSigningConfigs
 ReadS [ListCodeSigningConfigs]
@@ -92,7 +92,7 @@ readList :: ReadS [ListCodeSigningConfigs]
 $creadList :: ReadS [ListCodeSigningConfigs]
 readsPrec :: Int -&gt; ReadS ListCodeSigningConfigs
 $creadsPrec :: Int -&gt; ReadS ListCodeSigningConfigs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305922"><span id="local-6989586621679305924"><span id="local-6989586621679305926"><span class="annot"><span class="annottext">Int -&gt; ListCodeSigningConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305931"><span id="local-6989586621679305933"><span id="local-6989586621679305935"><span class="annot"><span class="annottext">Int -&gt; ListCodeSigningConfigs -&gt; ShowS
 [ListCodeSigningConfigs] -&gt; ShowS
 ListCodeSigningConfigs -&gt; String
 (Int -&gt; ListCodeSigningConfigs -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305916"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305925"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListCodeSigningConfigs' :: ListCodeSigningConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621679305916"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305916"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305915"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigs
-</span><a href="#local-6989586621679305915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305914"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigs
-</span><a href="#local-6989586621679305915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListCodeSigningConfigs' :: Maybe Text
+</span><a href="#local-6989586621679305925"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305925"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305924"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigs
+</span><a href="#local-6989586621679305924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigs
+</span><a href="#local-6989586621679305924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListCodeSigningConfigs' :: Maybe Text
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3Amarker%3AListCodeSigningConfigs%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | Maximum number of items to return.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#listCodeSigningConfigs_maxItems"><span class="hs-identifier hs-type">listCodeSigningConfigs_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -184,30 +184,30 @@ $sel:marker:ListCodeSigningConfigs' :: ListCodeSigningConfigs -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305913"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305922"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListCodeSigningConfigs' :: ListCodeSigningConfigs -&gt; Maybe Natural
-</span><a href="#local-6989586621679305913"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305913"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305912"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigs
-</span><a href="#local-6989586621679305912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305911"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigs
-</span><a href="#local-6989586621679305912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListCodeSigningConfigs' :: Maybe Natural
+</span><a href="#local-6989586621679305922"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305922"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305921"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigs
+</span><a href="#local-6989586621679305921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305920"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigs
+</span><a href="#local-6989586621679305921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListCodeSigningConfigs' :: Maybe Natural
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AmaxItems%3AListCodeSigningConfigs%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679305907"><span class="annot"><span class="annottext">page :: ListCodeSigningConfigs
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679305916"><span class="annot"><span class="annottext">page :: ListCodeSigningConfigs
 -&gt; AWSResponse ListCodeSigningConfigs
 -&gt; Maybe ListCodeSigningConfigs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305905"><span class="annot"><span class="annottext">ListCodeSigningConfigs
-</span><a href="#local-6989586621679305905"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305904"><span class="annot"><span class="annottext">AWSResponse ListCodeSigningConfigs
-</span><a href="#local-6989586621679305904"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305914"><span class="annot"><span class="annottext">ListCodeSigningConfigs
+</span><a href="#local-6989586621679305914"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305913"><span class="annot"><span class="annottext">AWSResponse ListCodeSigningConfigs
+</span><a href="#local-6989586621679305913"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCodeSigningConfigs
 ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305904"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305913"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
 -&gt; Getting (First Text) ListCodeSigningConfigsResponse Text
 -&gt; Maybe Text
@@ -237,7 +237,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCodeSigningConfigs
 ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305904"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305913"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
 -&gt; Getting
      (First [CodeSigningConfig])
@@ -284,7 +284,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListCodeSigningConfigs
-</span><a href="#local-6989586621679305905"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679305914"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListCodeSigningConfigs
 -&gt; (ListCodeSigningConfigs -&gt; ListCodeSigningConfigs)
 -&gt; ListCodeSigningConfigs
@@ -303,7 +303,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCodeSigningConfigs
 ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305904"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305913"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
 -&gt; Getting (First Text) ListCodeSigningConfigsResponse Text
 -&gt; Maybe Text
@@ -329,12 +329,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679305894"><span class="annot"><span class="annottext">request :: ListCodeSigningConfigs -&gt; Request ListCodeSigningConfigs
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679305903"><span class="annot"><span class="annottext">request :: ListCodeSigningConfigs -&gt; Request ListCodeSigningConfigs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListCodeSigningConfigs -&gt; Request ListCodeSigningConfigs
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679305890"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679305899"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListCodeSigningConfigs
 -&gt; ClientResponse ClientBody
@@ -360,10 +360,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305887"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305887"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305886"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679305886"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305885"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305896"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305895"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679305895"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305894"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305894"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
 -&gt; Maybe Text -&gt; Int -&gt; ListCodeSigningConfigsResponse
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var">ListCodeSigningConfigsResponse'</span></a></span><span>
@@ -374,7 +374,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListCodeSigningConfigsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CodeSigningConfig]))
+</span><a href="#local-6989586621679305894"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CodeSigningConfig]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeSigningConfigs&quot;</span></span><span>
@@ -391,7 +391,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListCodeSigningConfigsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679305894"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,15 +404,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305887"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305896"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305876"><span id="local-6989586621679305878"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305885"><span id="local-6989586621679305887"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679305869"><span class="annot"><span class="annottext">toHeaders :: ListCodeSigningConfigs -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679305878"><span class="annot"><span class="annottext">toHeaders :: ListCodeSigningConfigs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListCodeSigningConfigs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -420,7 +420,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679305864"><span class="annot"><span class="annottext">toPath :: ListCodeSigningConfigs -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679305873"><span class="annot"><span class="annottext">toPath :: ListCodeSigningConfigs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListCodeSigningConfigs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -428,14 +428,14 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/2020-04-22/code-signing-configs/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs"><span class="hs-identifier hs-type">ListCodeSigningConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679305860"><span class="annot"><span class="annottext">toQuery :: ListCodeSigningConfigs -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305857"><span id="local-6989586621679305858"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679305869"><span class="annot"><span class="annottext">toQuery :: ListCodeSigningConfigs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigs%27"><span class="hs-identifier hs-type">ListCodeSigningConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305866"><span id="local-6989586621679305867"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxItems :: Maybe Natural
 marker :: Maybe Text
 $sel:maxItems:ListCodeSigningConfigs' :: ListCodeSigningConfigs -&gt; Maybe Natural
 $sel:marker:ListCodeSigningConfigs' :: ListCodeSigningConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621679305857"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305866"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -443,16 +443,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305858"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305867"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305857"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><a href="#local-6989586621679305866"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newListCodeSigningConfigsResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679305854"><span id="local-6989586621679305855"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCodeSigningConfigsResponse"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-var">ListCodeSigningConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCodeSigningConfigsResponse%27"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var">ListCodeSigningConfigsResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679305863"><span id="local-6989586621679305864"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCodeSigningConfigsResponse"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-var">ListCodeSigningConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCodeSigningConfigsResponse%27"><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var">ListCodeSigningConfigsResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code signing configurations</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AcodeSigningConfigs%3AListCodeSigningConfigsResponse%27"><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse -&gt; Maybe [CodeSigningConfig]
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AcodeSigningConfigs%3AListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var hs-var">codeSigningConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -463,7 +463,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCodeSigningConfigsResponse%27"><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse -&gt; Int
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AhttpStatus%3AListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305847"><span id="local-6989586621679305849"><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305856"><span id="local-6989586621679305858"><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
 -&gt; ListCodeSigningConfigsResponse -&gt; Bool
 (ListCodeSigningConfigsResponse
  -&gt; ListCodeSigningConfigsResponse -&gt; Bool)
@@ -479,7 +479,7 @@ $c/= :: ListCodeSigningConfigsResponse
 -&gt; ListCodeSigningConfigsResponse -&gt; Bool
 $c== :: ListCodeSigningConfigsResponse
 -&gt; ListCodeSigningConfigsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305839"><span id="local-6989586621679305841"><span id="local-6989586621679305843"><span id="local-6989586621679305845"><span class="annot"><span class="annottext">ReadPrec [ListCodeSigningConfigsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305848"><span id="local-6989586621679305850"><span id="local-6989586621679305852"><span id="local-6989586621679305854"><span class="annot"><span class="annottext">ReadPrec [ListCodeSigningConfigsResponse]
 ReadPrec ListCodeSigningConfigsResponse
 Int -&gt; ReadS ListCodeSigningConfigsResponse
 ReadS [ListCodeSigningConfigsResponse]
@@ -499,7 +499,7 @@ readList :: ReadS [ListCodeSigningConfigsResponse]
 $creadList :: ReadS [ListCodeSigningConfigsResponse]
 readsPrec :: Int -&gt; ReadS ListCodeSigningConfigsResponse
 $creadsPrec :: Int -&gt; ReadS ListCodeSigningConfigsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305833"><span id="local-6989586621679305835"><span id="local-6989586621679305837"><span class="annot"><span class="annottext">Int -&gt; ListCodeSigningConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305842"><span id="local-6989586621679305844"><span id="local-6989586621679305846"><span class="annot"><span class="annottext">Int -&gt; ListCodeSigningConfigsResponse -&gt; ShowS
 [ListCodeSigningConfigsResponse] -&gt; ShowS
 ListCodeSigningConfigsResponse -&gt; String
 (Int -&gt; ListCodeSigningConfigsResponse -&gt; ShowS)
@@ -555,8 +555,8 @@ ListCodeSigningConfigsResponse
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newListCodeSigningConfigsResponse"><span class="annot"><span class="annottext">newListCodeSigningConfigsResponse :: Int -&gt; ListCodeSigningConfigsResponse
-</span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#newListCodeSigningConfigsResponse"><span class="hs-identifier hs-var hs-var">newListCodeSigningConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621679305830"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305830"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#newListCodeSigningConfigsResponse"><span class="hs-identifier hs-var hs-var">newListCodeSigningConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621679305839"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305839"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse' :: Maybe [CodeSigningConfig]
 -&gt; Maybe Text -&gt; Int -&gt; ListCodeSigningConfigsResponse
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span>
@@ -571,7 +571,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCodeSigningConfigsResponse' :: Int
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AhttpStatus%3AListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305830"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679305839"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The code signing configurations</span><span>
@@ -584,16 +584,16 @@ forall a. Maybe a
     -&gt; Maybe [CodeSigningConfig] -&gt; ListCodeSigningConfigsResponse)
 -&gt; Lens' ListCodeSigningConfigsResponse (Maybe [CodeSigningConfig])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305829"><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305838"><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
 codeSigningConfigs :: Maybe [CodeSigningConfig]
 $sel:codeSigningConfigs:ListCodeSigningConfigsResponse' :: ListCodeSigningConfigsResponse -&gt; Maybe [CodeSigningConfig]
-</span><a href="#local-6989586621679305829"><span class="hs-identifier hs-var hs-var">codeSigningConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
-</span><a href="#local-6989586621679305829"><span class="hs-identifier hs-var">codeSigningConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305828"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305827"><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
-</span><a href="#local-6989586621679305827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigs:ListCodeSigningConfigsResponse' :: Maybe [CodeSigningConfig]
+</span><a href="#local-6989586621679305838"><span class="hs-identifier hs-var hs-var">codeSigningConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
+</span><a href="#local-6989586621679305838"><span class="hs-identifier hs-var">codeSigningConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305837"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigsResponse
+</span><a href="#local-6989586621679305837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305836"><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
+</span><a href="#local-6989586621679305836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
+</span><a href="#local-6989586621679305837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigs:ListCodeSigningConfigsResponse' :: Maybe [CodeSigningConfig]
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AcodeSigningConfigs%3AListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var">codeSigningConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeSigningConfig]
-</span><a href="#local-6989586621679305827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeSigningConfig] -&gt; f (Maybe [CodeSigningConfig]))
+</span><a href="#local-6989586621679305836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeSigningConfig] -&gt; f (Maybe [CodeSigningConfig]))
  -&gt; ListCodeSigningConfigsResponse
  -&gt; f ListCodeSigningConfigsResponse)
 -&gt; ((Maybe [CodeSigningConfig] -&gt; f (Maybe [CodeSigningConfig]))
@@ -633,16 +633,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListCodeSigningConfigsResponse)
 -&gt; Lens' ListCodeSigningConfigsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305824"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305833"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListCodeSigningConfigsResponse' :: ListCodeSigningConfigsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679305824"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305824"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305823"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305822"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListCodeSigningConfigsResponse' :: Maybe Text
+</span><a href="#local-6989586621679305833"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305833"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305832"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigsResponse
+</span><a href="#local-6989586621679305832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305831"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
+</span><a href="#local-6989586621679305832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListCodeSigningConfigsResponse' :: Maybe Text
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AnextMarker%3AListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#listCodeSigningConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listCodeSigningConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -658,18 +658,18 @@ $sel:nextMarker:ListCodeSigningConfigsResponse' :: ListCodeSigningConfigsRespons
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305821"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305830"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListCodeSigningConfigsResponse' :: ListCodeSigningConfigsResponse -&gt; Int
-</span><a href="#local-6989586621679305821"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305821"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305820"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305819"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
-</span><a href="#local-6989586621679305820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCodeSigningConfigsResponse' :: Int
+</span><a href="#local-6989586621679305830"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305830"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305829"><span class="annot"><span class="annottext">s :: ListCodeSigningConfigsResponse
+</span><a href="#local-6989586621679305829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305828"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCodeSigningConfigsResponse
+</span><a href="#local-6989586621679305829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCodeSigningConfigsResponse' :: Int
 </span><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#%24sel%3AhttpStatus%3AListCodeSigningConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679305817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679305826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListCodeSigningConfigs.html#ListCodeSigningConfigsResponse"><span class="hs-identifier hs-type">ListCodeSigningConfigsResponse</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

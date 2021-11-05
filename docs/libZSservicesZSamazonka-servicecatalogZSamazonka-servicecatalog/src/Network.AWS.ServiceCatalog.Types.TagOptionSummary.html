@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Summary information about a TagOption.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTagOptionSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679409047"><span id="local-6989586621679409048"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagOptionSummary"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-var">TagOptionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagOptionSummary%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-var">TagOptionSummary'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679409056"><span id="local-6989586621679409057"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagOptionSummary"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-var">TagOptionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagOptionSummary%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-var">TagOptionSummary'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The TagOption value.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalues%3ATagOptionSummary%27"><span class="annot"><span class="annottext">TagOptionSummary -&gt; Maybe [Text]
 </span><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#%24sel%3Avalues%3ATagOptionSummary%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3ATagOptionSummary%27"><span class="annot"><span class="annottext">TagOptionSummary -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#%24sel%3Akey%3ATagOptionSummary%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409040"><span id="local-6989586621679409042"><span class="annot"><span class="annottext">TagOptionSummary -&gt; TagOptionSummary -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409049"><span id="local-6989586621679409051"><span class="annot"><span class="annottext">TagOptionSummary -&gt; TagOptionSummary -&gt; Bool
 (TagOptionSummary -&gt; TagOptionSummary -&gt; Bool)
 -&gt; (TagOptionSummary -&gt; TagOptionSummary -&gt; Bool)
 -&gt; Eq TagOptionSummary
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagOptionSummary -&gt; TagOptionSummary -&gt; Bool
 == :: TagOptionSummary -&gt; TagOptionSummary -&gt; Bool
 $c== :: TagOptionSummary -&gt; TagOptionSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409031"><span id="local-6989586621679409033"><span id="local-6989586621679409035"><span id="local-6989586621679409037"><span class="annot"><span class="annottext">ReadPrec [TagOptionSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409040"><span id="local-6989586621679409042"><span id="local-6989586621679409044"><span id="local-6989586621679409046"><span class="annot"><span class="annottext">ReadPrec [TagOptionSummary]
 ReadPrec TagOptionSummary
 Int -&gt; ReadS TagOptionSummary
 ReadS [TagOptionSummary]
@@ -63,7 +63,7 @@ readList :: ReadS [TagOptionSummary]
 $creadList :: ReadS [TagOptionSummary]
 readsPrec :: Int -&gt; ReadS TagOptionSummary
 $creadsPrec :: Int -&gt; ReadS TagOptionSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409024"><span id="local-6989586621679409026"><span id="local-6989586621679409028"><span class="annot"><span class="annottext">Int -&gt; TagOptionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409033"><span id="local-6989586621679409035"><span id="local-6989586621679409037"><span class="annot"><span class="annottext">Int -&gt; TagOptionSummary -&gt; ShowS
 [TagOptionSummary] -&gt; ShowS
 TagOptionSummary -&gt; String
 (Int -&gt; TagOptionSummary -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; Lens
      TagOptionSummary TagOptionSummary (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409015"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409024"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:TagOptionSummary' :: TagOptionSummary -&gt; Maybe [Text]
-</span><a href="#local-6989586621679409015"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679409015"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409014"><span class="annot"><span class="annottext">s :: TagOptionSummary
-</span><a href="#local-6989586621679409014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409013"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679409013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagOptionSummary
-</span><a href="#local-6989586621679409014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagOptionSummary' :: Maybe [Text]
+</span><a href="#local-6989586621679409024"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679409024"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409023"><span class="annot"><span class="annottext">s :: TagOptionSummary
+</span><a href="#local-6989586621679409023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409022"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679409022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagOptionSummary
+</span><a href="#local-6989586621679409023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagOptionSummary' :: Maybe [Text]
 </span><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#%24sel%3Avalues%3ATagOptionSummary%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679409013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679409022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TagOptionSummary -&gt; f TagOptionSummary)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -159,19 +159,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TagOptionSummary -&gt; Maybe Text -&gt; TagOptionSummary)
 -&gt; Lens TagOptionSummary TagOptionSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409008"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409017"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:TagOptionSummary' :: TagOptionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679409008"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409008"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409007"><span class="annot"><span class="annottext">s :: TagOptionSummary
-</span><a href="#local-6989586621679409007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409006"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagOptionSummary
-</span><a href="#local-6989586621679409007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagOptionSummary' :: Maybe Text
+</span><a href="#local-6989586621679409017"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409017"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409016"><span class="annot"><span class="annottext">s :: TagOptionSummary
+</span><a href="#local-6989586621679409016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-type">TagOptionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagOptionSummary
+</span><a href="#local-6989586621679409016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagOptionSummary' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#%24sel%3Akey%3ATagOptionSummary%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409003"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679409001"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagOptionSummary
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409012"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679409010"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagOptionSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TagOptionSummary)
@@ -181,15 +181,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TagOptionSummary&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408998"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409007"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; TagOptionSummary
 </span><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary%27"><span class="hs-identifier hs-var">TagOptionSummary'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; TagOptionSummary)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; TagOptionSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679409007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -202,13 +202,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser TagOptionSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679409007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408991"><span id="local-6989586621679408993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409000"><span id="local-6989586621679409002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.TagOptionSummary.html#TagOptionSummary"><span class="hs-identifier hs-type">TagOptionSummary</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

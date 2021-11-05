@@ -1,0 +1,987 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Neptune.DescribePendingMaintenanceActions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of resources (for example, DB instances) that have at</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- least one pending maintenance action.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Neptune.DescribePendingMaintenanceActions</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier">DescribePendingMaintenanceActions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#newDescribePendingMaintenanceActions"><span class="hs-identifier">newDescribePendingMaintenanceActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_filters"><span class="hs-identifier">describePendingMaintenanceActions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_marker"><span class="hs-identifier">describePendingMaintenanceActions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_maxRecords"><span class="hs-identifier">describePendingMaintenanceActions_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_resourceIdentifier"><span class="hs-identifier">describePendingMaintenanceActions_resourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier">DescribePendingMaintenanceActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#newDescribePendingMaintenanceActionsResponse"><span class="hs-identifier">newDescribePendingMaintenanceActionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_pendingMaintenanceActions"><span class="hs-identifier">describePendingMaintenanceActionsResponse_pendingMaintenanceActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_marker"><span class="hs-identifier">describePendingMaintenanceActionsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_httpStatus"><span class="hs-identifier">describePendingMaintenanceActionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.html"><span class="hs-identifier">Network.AWS.Neptune.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribePendingMaintenanceActions' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679406530"><span id="local-6989586621679406531"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePendingMaintenanceActions"><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-var">DescribePendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePendingMaintenanceActions%27"><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">DescribePendingMaintenanceActions'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that specifies one or more resources to return pending</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- maintenance actions for.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Supported filters:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     Amazon Resource Names (ARNs). The results list will only include</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     pending maintenance actions for the DB clusters identified by these</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     ARNs.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     ARNs. The results list will only include pending maintenance actions</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     for the DB instances identified by these ARNs.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Afilters%3ADescribePendingMaintenanceActions%27"><span class="annot"><span class="annottext">DescribePendingMaintenanceActions -&gt; Maybe [Filter]
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Afilters%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Neptune.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @DescribePendingMaintenanceActions@ request. If this parameter is</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to a</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- number of records specified by @MaxRecords@.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Amarker%3ADescribePendingMaintenanceActions%27"><span class="annot"><span class="annottext">DescribePendingMaintenanceActions -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Amarker%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribePendingMaintenanceActions%27"><span class="annot"><span class="annottext">DescribePendingMaintenanceActions -&gt; Maybe Int
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AmaxRecords%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The ARN of a resource to return pending maintenance actions for.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AresourceIdentifier%3ADescribePendingMaintenanceActions%27"><span class="annot"><span class="annottext">DescribePendingMaintenanceActions -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AresourceIdentifier%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406521"><span id="local-6989586621679406523"><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+-&gt; DescribePendingMaintenanceActions -&gt; Bool
+(DescribePendingMaintenanceActions
+ -&gt; DescribePendingMaintenanceActions -&gt; Bool)
+-&gt; (DescribePendingMaintenanceActions
+    -&gt; DescribePendingMaintenanceActions -&gt; Bool)
+-&gt; Eq DescribePendingMaintenanceActions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePendingMaintenanceActions
+-&gt; DescribePendingMaintenanceActions -&gt; Bool
+$c/= :: DescribePendingMaintenanceActions
+-&gt; DescribePendingMaintenanceActions -&gt; Bool
+== :: DescribePendingMaintenanceActions
+-&gt; DescribePendingMaintenanceActions -&gt; Bool
+$c== :: DescribePendingMaintenanceActions
+-&gt; DescribePendingMaintenanceActions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406512"><span id="local-6989586621679406514"><span id="local-6989586621679406516"><span id="local-6989586621679406518"><span class="annot"><span class="annottext">ReadPrec [DescribePendingMaintenanceActions]
+ReadPrec DescribePendingMaintenanceActions
+Int -&gt; ReadS DescribePendingMaintenanceActions
+ReadS [DescribePendingMaintenanceActions]
+(Int -&gt; ReadS DescribePendingMaintenanceActions)
+-&gt; ReadS [DescribePendingMaintenanceActions]
+-&gt; ReadPrec DescribePendingMaintenanceActions
+-&gt; ReadPrec [DescribePendingMaintenanceActions]
+-&gt; Read DescribePendingMaintenanceActions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePendingMaintenanceActions]
+$creadListPrec :: ReadPrec [DescribePendingMaintenanceActions]
+readPrec :: ReadPrec DescribePendingMaintenanceActions
+$creadPrec :: ReadPrec DescribePendingMaintenanceActions
+readList :: ReadS [DescribePendingMaintenanceActions]
+$creadList :: ReadS [DescribePendingMaintenanceActions]
+readsPrec :: Int -&gt; ReadS DescribePendingMaintenanceActions
+$creadsPrec :: Int -&gt; ReadS DescribePendingMaintenanceActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406505"><span id="local-6989586621679406507"><span id="local-6989586621679406509"><span class="annot"><span class="annottext">Int -&gt; DescribePendingMaintenanceActions -&gt; ShowS
+[DescribePendingMaintenanceActions] -&gt; ShowS
+DescribePendingMaintenanceActions -&gt; String
+(Int -&gt; DescribePendingMaintenanceActions -&gt; ShowS)
+-&gt; (DescribePendingMaintenanceActions -&gt; String)
+-&gt; ([DescribePendingMaintenanceActions] -&gt; ShowS)
+-&gt; Show DescribePendingMaintenanceActions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePendingMaintenanceActions] -&gt; ShowS
+$cshowList :: [DescribePendingMaintenanceActions] -&gt; ShowS
+show :: DescribePendingMaintenanceActions -&gt; String
+$cshow :: DescribePendingMaintenanceActions -&gt; String
+showsPrec :: Int -&gt; DescribePendingMaintenanceActions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePendingMaintenanceActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePendingMaintenanceActions
+ -&gt; Rep DescribePendingMaintenanceActions x)
+-&gt; (forall x.
+    Rep DescribePendingMaintenanceActions x
+    -&gt; DescribePendingMaintenanceActions)
+-&gt; Generic DescribePendingMaintenanceActions
+forall x.
+Rep DescribePendingMaintenanceActions x
+-&gt; DescribePendingMaintenanceActions
+forall x.
+DescribePendingMaintenanceActions
+-&gt; Rep DescribePendingMaintenanceActions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePendingMaintenanceActions x
+-&gt; DescribePendingMaintenanceActions
+$cfrom :: forall x.
+DescribePendingMaintenanceActions
+-&gt; Rep DescribePendingMaintenanceActions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'DescribePendingMaintenanceActions' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'filters', 'describePendingMaintenanceActions_filters' - A filter that specifies one or more resources to return pending</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- maintenance actions for.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Supported filters:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--     Amazon Resource Names (ARNs). The results list will only include</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--     pending maintenance actions for the DB clusters identified by these</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     ARNs.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     ARNs. The results list will only include pending maintenance actions</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     for the DB instances identified by these ARNs.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @DescribePendingMaintenanceActions@ request. If this parameter is</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to a</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- number of records specified by @MaxRecords@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'maxRecords', 'describePendingMaintenanceActions_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'resourceIdentifier', 'describePendingMaintenanceActions_resourceIdentifier' - The ARN of a resource to return pending maintenance actions for.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#newDescribePendingMaintenanceActions"><span class="hs-identifier hs-type">newDescribePendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span>
+</span><span id="line-130"></span><span id="newDescribePendingMaintenanceActions"><span class="annot"><span class="annottext">newDescribePendingMaintenanceActions :: DescribePendingMaintenanceActions
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#newDescribePendingMaintenanceActions"><span class="hs-identifier hs-var hs-var">newDescribePendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions' :: Maybe [Filter]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; DescribePendingMaintenanceActions
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribePendingMaintenanceActions' :: Maybe [Filter]
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Afilters%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribePendingMaintenanceActions' :: Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Amarker%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribePendingMaintenanceActions' :: Maybe Int
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AmaxRecords%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceIdentifier:DescribePendingMaintenanceActions' :: Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AresourceIdentifier%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A filter that specifies one or more resources to return pending</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- maintenance actions for.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Supported filters:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     Amazon Resource Names (ARNs). The results list will only include</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     pending maintenance actions for the DB clusters identified by these</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     ARNs.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     ARNs. The results list will only include pending maintenance actions</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     for the DB instances identified by these ARNs.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_filters"><span class="hs-identifier hs-type">describePendingMaintenanceActions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Neptune.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="describePendingMaintenanceActions_filters"><span class="annot"><span class="annottext">describePendingMaintenanceActions_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribePendingMaintenanceActions
+-&gt; f DescribePendingMaintenanceActions
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_filters"><span class="hs-identifier hs-var hs-var">describePendingMaintenanceActions_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActions -&gt; Maybe [Filter])
+-&gt; (DescribePendingMaintenanceActions
+    -&gt; Maybe [Filter] -&gt; DescribePendingMaintenanceActions)
+-&gt; Lens
+     DescribePendingMaintenanceActions
+     DescribePendingMaintenanceActions
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406499"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679406499"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679406499"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406498"><span class="annot"><span class="annottext">s :: DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406497"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679406497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribePendingMaintenanceActions' :: Maybe [Filter]
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Afilters%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679406497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribePendingMaintenanceActions
+ -&gt; f DescribePendingMaintenanceActions)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribePendingMaintenanceActions
+-&gt; f DescribePendingMaintenanceActions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @DescribePendingMaintenanceActions@ request. If this parameter is</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to a</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- number of records specified by @MaxRecords@.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_marker"><span class="hs-identifier hs-type">describePendingMaintenanceActions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="describePendingMaintenanceActions_marker"><span class="annot"><span class="annottext">describePendingMaintenanceActions_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePendingMaintenanceActions
+-&gt; f DescribePendingMaintenanceActions
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_marker"><span class="hs-identifier hs-var hs-var">describePendingMaintenanceActions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActions -&gt; Maybe Text)
+-&gt; (DescribePendingMaintenanceActions
+    -&gt; Maybe Text -&gt; DescribePendingMaintenanceActions)
+-&gt; Lens
+     DescribePendingMaintenanceActions
+     DescribePendingMaintenanceActions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406493"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe Text
+</span><a href="#local-6989586621679406493"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406493"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406492"><span class="annot"><span class="annottext">s :: DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribePendingMaintenanceActions' :: Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Amarker%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_maxRecords"><span class="hs-identifier hs-type">describePendingMaintenanceActions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="describePendingMaintenanceActions_maxRecords"><span class="annot"><span class="annottext">describePendingMaintenanceActions_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribePendingMaintenanceActions
+-&gt; f DescribePendingMaintenanceActions
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_maxRecords"><span class="hs-identifier hs-var hs-var">describePendingMaintenanceActions_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActions -&gt; Maybe Int)
+-&gt; (DescribePendingMaintenanceActions
+    -&gt; Maybe Int -&gt; DescribePendingMaintenanceActions)
+-&gt; Lens
+     DescribePendingMaintenanceActions
+     DescribePendingMaintenanceActions
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406490"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe Int
+</span><a href="#local-6989586621679406490"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679406490"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406489"><span class="annot"><span class="annottext">s :: DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406488"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679406488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribePendingMaintenanceActions' :: Maybe Int
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AmaxRecords%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679406488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The ARN of a resource to return pending maintenance actions for.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_resourceIdentifier"><span class="hs-identifier hs-type">describePendingMaintenanceActions_resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="describePendingMaintenanceActions_resourceIdentifier"><span class="annot"><span class="annottext">describePendingMaintenanceActions_resourceIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePendingMaintenanceActions
+-&gt; f DescribePendingMaintenanceActions
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_resourceIdentifier"><span class="hs-identifier hs-var hs-var">describePendingMaintenanceActions_resourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActions -&gt; Maybe Text)
+-&gt; (DescribePendingMaintenanceActions
+    -&gt; Maybe Text -&gt; DescribePendingMaintenanceActions)
+-&gt; Lens
+     DescribePendingMaintenanceActions
+     DescribePendingMaintenanceActions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406487"><span class="annot"><span class="annottext">Maybe Text
+resourceIdentifier :: Maybe Text
+$sel:resourceIdentifier:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe Text
+</span><a href="#local-6989586621679406487"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406487"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406486"><span class="annot"><span class="annottext">s :: DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406485"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifier:DescribePendingMaintenanceActions' :: Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AresourceIdentifier%3ADescribePendingMaintenanceActions%27"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679406481"><span class="annot"><span class="annottext">page :: DescribePendingMaintenanceActions
+-&gt; AWSResponse DescribePendingMaintenanceActions
+-&gt; Maybe DescribePendingMaintenanceActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679406479"><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406479"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679406478"><span class="annot"><span class="annottext">AWSResponse DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406478"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-183"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePendingMaintenanceActions
+DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406478"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+-&gt; Getting
+     (First Text) DescribePendingMaintenanceActionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribePendingMaintenanceActionsResponse
+-&gt; Const (First Text) DescribePendingMaintenanceActionsResponse
+Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_marker"><span class="hs-identifier hs-var">describePendingMaintenanceActionsResponse_marker</span></a></span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribePendingMaintenanceActionsResponse
+ -&gt; Const (First Text) DescribePendingMaintenanceActionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribePendingMaintenanceActionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-186"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribePendingMaintenanceActions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePendingMaintenanceActions] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-189"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePendingMaintenanceActions
+DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406478"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+-&gt; Getting
+     (First [ResourcePendingMaintenanceActions])
+     DescribePendingMaintenanceActionsResponse
+     [ResourcePendingMaintenanceActions]
+-&gt; Maybe [ResourcePendingMaintenanceActions]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ResourcePendingMaintenanceActions]
+ -&gt; Const
+      (First [ResourcePendingMaintenanceActions])
+      (Maybe [ResourcePendingMaintenanceActions]))
+-&gt; DescribePendingMaintenanceActionsResponse
+-&gt; Const
+     (First [ResourcePendingMaintenanceActions])
+     DescribePendingMaintenanceActionsResponse
+Lens'
+  DescribePendingMaintenanceActionsResponse
+  (Maybe [ResourcePendingMaintenanceActions])
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_pendingMaintenanceActions"><span class="hs-identifier hs-var">describePendingMaintenanceActionsResponse_pendingMaintenanceActions</span></a></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ResourcePendingMaintenanceActions]
+  -&gt; Const
+       (First [ResourcePendingMaintenanceActions])
+       (Maybe [ResourcePendingMaintenanceActions]))
+ -&gt; DescribePendingMaintenanceActionsResponse
+ -&gt; Const
+      (First [ResourcePendingMaintenanceActions])
+      DescribePendingMaintenanceActionsResponse)
+-&gt; (([ResourcePendingMaintenanceActions]
+     -&gt; Const
+          (First [ResourcePendingMaintenanceActions])
+          [ResourcePendingMaintenanceActions])
+    -&gt; Maybe [ResourcePendingMaintenanceActions]
+    -&gt; Const
+         (First [ResourcePendingMaintenanceActions])
+         (Maybe [ResourcePendingMaintenanceActions]))
+-&gt; Getting
+     (First [ResourcePendingMaintenanceActions])
+     DescribePendingMaintenanceActionsResponse
+     [ResourcePendingMaintenanceActions]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourcePendingMaintenanceActions]
+ -&gt; Const
+      (First [ResourcePendingMaintenanceActions])
+      [ResourcePendingMaintenanceActions])
+-&gt; Maybe [ResourcePendingMaintenanceActions]
+-&gt; Const
+     (First [ResourcePendingMaintenanceActions])
+     (Maybe [ResourcePendingMaintenanceActions])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-192"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribePendingMaintenanceActions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+-&gt; Maybe DescribePendingMaintenanceActions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActions
+ -&gt; Maybe DescribePendingMaintenanceActions)
+-&gt; DescribePendingMaintenanceActions
+-&gt; Maybe DescribePendingMaintenanceActions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+</span><a href="#local-6989586621679406479"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActions
+-&gt; (DescribePendingMaintenanceActions
+    -&gt; DescribePendingMaintenanceActions)
+-&gt; DescribePendingMaintenanceActions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribePendingMaintenanceActions
+-&gt; Identity DescribePendingMaintenanceActions
+Lens
+  DescribePendingMaintenanceActions
+  DescribePendingMaintenanceActions
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActions_marker"><span class="hs-identifier hs-var">describePendingMaintenanceActions_marker</span></a></span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribePendingMaintenanceActions
+ -&gt; Identity DescribePendingMaintenanceActions)
+-&gt; Maybe Text
+-&gt; DescribePendingMaintenanceActions
+-&gt; DescribePendingMaintenanceActions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePendingMaintenanceActions
+DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406478"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+-&gt; Getting
+     (First Text) DescribePendingMaintenanceActionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribePendingMaintenanceActionsResponse
+-&gt; Const (First Text) DescribePendingMaintenanceActionsResponse
+Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_marker"><span class="hs-identifier hs-var">describePendingMaintenanceActionsResponse_marker</span></a></span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribePendingMaintenanceActionsResponse
+ -&gt; Const (First Text) DescribePendingMaintenanceActionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribePendingMaintenanceActionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-207"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679406469"><span class="annot"><span class="annottext">request :: DescribePendingMaintenanceActions
+-&gt; Request DescribePendingMaintenanceActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribePendingMaintenanceActions
+-&gt; Request DescribePendingMaintenanceActions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Neptune.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679406465"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePendingMaintenanceActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribePendingMaintenanceActions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribePendingMaintenanceActions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePendingMaintenanceActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribePendingMaintenanceActions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribePendingMaintenanceActionsResult&quot;</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406462"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679406461"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679406461"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679406460"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679406460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourcePendingMaintenanceActions]
+-&gt; Maybe Text -&gt; Int -&gt; DescribePendingMaintenanceActionsResponse
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">DescribePendingMaintenanceActionsResponse'</span></a></span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ResourcePendingMaintenanceActions]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribePendingMaintenanceActionsResponse)
+-&gt; Either String (Maybe [ResourcePendingMaintenanceActions])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; DescribePendingMaintenanceActionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679406460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PendingMaintenanceActions&quot;</span></span><span>
+</span><span id="line-216"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-217"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [ResourcePendingMaintenanceActions]))
+-&gt; Either String (Maybe [ResourcePendingMaintenanceActions])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ResourcePendingMaintenanceActions])
+-&gt; [Node]
+-&gt; Either String (Maybe [ResourcePendingMaintenanceActions])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span>
+</span><span id="line-218"></span><span>                              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ResourcePendingMaintenanceActions]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span>
+</span><span id="line-219"></span><span>                                  </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourcePendingMaintenanceActions&quot;</span></span><span>
+</span><span id="line-220"></span><span>                              </span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; DescribePendingMaintenanceActionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribePendingMaintenanceActionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679406460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribePendingMaintenanceActionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribePendingMaintenanceActionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406462"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679406449"><span id="local-6989586621679406451"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span></span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679406446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679406442"><span class="annot"><span class="annottext">toHeaders :: DescribePendingMaintenanceActions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribePendingMaintenanceActions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679406437"><span class="annot"><span class="annottext">toPath :: DescribePendingMaintenanceActions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePendingMaintenanceActions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions</span></a></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679406433"><span class="annot"><span class="annottext">toQuery :: DescribePendingMaintenanceActions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActions%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406428"><span id="local-6989586621679406429"><span id="local-6989586621679406430"><span id="local-6989586621679406431"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Filter]
+Maybe Text
+resourceIdentifier :: Maybe Text
+maxRecords :: Maybe Int
+marker :: Maybe Text
+filters :: Maybe [Filter]
+$sel:resourceIdentifier:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe Text
+$sel:maxRecords:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe Int
+$sel:marker:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe Text
+$sel:filters:DescribePendingMaintenanceActions' :: DescribePendingMaintenanceActions -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679406428"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribePendingMaintenanceActions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-254"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-255"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span>
+</span><span id="line-259"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679406431"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406430"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679406429"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406428"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | /See:/ 'newDescribePendingMaintenanceActionsResponse' smart constructor.</span><span>
+</span><span id="line-267"></span><span id="local-6989586621679406424"><span id="local-6989586621679406425"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePendingMaintenanceActionsResponse"><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-var">DescribePendingMaintenanceActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePendingMaintenanceActionsResponse%27"><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">DescribePendingMaintenanceActionsResponse'</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the pending maintenance actions for the resource.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3ApendingMaintenanceActions%3ADescribePendingMaintenanceActionsResponse%27"><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+-&gt; Maybe [ResourcePendingMaintenanceActions]
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3ApendingMaintenanceActions%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var hs-var">pendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Neptune.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- @DescribePendingMaintenanceActions@ request. If this parameter is</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to a</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- number of records specified by @MaxRecords@.</span><span>
+</span><span id="line-274"></span><span>    </span><span id="%24sel%3Amarker%3ADescribePendingMaintenanceActionsResponse%27"><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Amarker%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-276"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePendingMaintenanceActionsResponse%27"><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse -&gt; Int
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AhttpStatus%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-277"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406417"><span id="local-6989586621679406419"><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+-&gt; DescribePendingMaintenanceActionsResponse -&gt; Bool
+(DescribePendingMaintenanceActionsResponse
+ -&gt; DescribePendingMaintenanceActionsResponse -&gt; Bool)
+-&gt; (DescribePendingMaintenanceActionsResponse
+    -&gt; DescribePendingMaintenanceActionsResponse -&gt; Bool)
+-&gt; Eq DescribePendingMaintenanceActionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePendingMaintenanceActionsResponse
+-&gt; DescribePendingMaintenanceActionsResponse -&gt; Bool
+$c/= :: DescribePendingMaintenanceActionsResponse
+-&gt; DescribePendingMaintenanceActionsResponse -&gt; Bool
+== :: DescribePendingMaintenanceActionsResponse
+-&gt; DescribePendingMaintenanceActionsResponse -&gt; Bool
+$c== :: DescribePendingMaintenanceActionsResponse
+-&gt; DescribePendingMaintenanceActionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406409"><span id="local-6989586621679406411"><span id="local-6989586621679406413"><span id="local-6989586621679406415"><span class="annot"><span class="annottext">ReadPrec [DescribePendingMaintenanceActionsResponse]
+ReadPrec DescribePendingMaintenanceActionsResponse
+Int -&gt; ReadS DescribePendingMaintenanceActionsResponse
+ReadS [DescribePendingMaintenanceActionsResponse]
+(Int -&gt; ReadS DescribePendingMaintenanceActionsResponse)
+-&gt; ReadS [DescribePendingMaintenanceActionsResponse]
+-&gt; ReadPrec DescribePendingMaintenanceActionsResponse
+-&gt; ReadPrec [DescribePendingMaintenanceActionsResponse]
+-&gt; Read DescribePendingMaintenanceActionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePendingMaintenanceActionsResponse]
+$creadListPrec :: ReadPrec [DescribePendingMaintenanceActionsResponse]
+readPrec :: ReadPrec DescribePendingMaintenanceActionsResponse
+$creadPrec :: ReadPrec DescribePendingMaintenanceActionsResponse
+readList :: ReadS [DescribePendingMaintenanceActionsResponse]
+$creadList :: ReadS [DescribePendingMaintenanceActionsResponse]
+readsPrec :: Int -&gt; ReadS DescribePendingMaintenanceActionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribePendingMaintenanceActionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406403"><span id="local-6989586621679406405"><span id="local-6989586621679406407"><span class="annot"><span class="annottext">Int -&gt; DescribePendingMaintenanceActionsResponse -&gt; ShowS
+[DescribePendingMaintenanceActionsResponse] -&gt; ShowS
+DescribePendingMaintenanceActionsResponse -&gt; String
+(Int -&gt; DescribePendingMaintenanceActionsResponse -&gt; ShowS)
+-&gt; (DescribePendingMaintenanceActionsResponse -&gt; String)
+-&gt; ([DescribePendingMaintenanceActionsResponse] -&gt; ShowS)
+-&gt; Show DescribePendingMaintenanceActionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePendingMaintenanceActionsResponse] -&gt; ShowS
+$cshowList :: [DescribePendingMaintenanceActionsResponse] -&gt; ShowS
+show :: DescribePendingMaintenanceActionsResponse -&gt; String
+$cshow :: DescribePendingMaintenanceActionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribePendingMaintenanceActionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePendingMaintenanceActionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePendingMaintenanceActionsResponse
+ -&gt; Rep DescribePendingMaintenanceActionsResponse x)
+-&gt; (forall x.
+    Rep DescribePendingMaintenanceActionsResponse x
+    -&gt; DescribePendingMaintenanceActionsResponse)
+-&gt; Generic DescribePendingMaintenanceActionsResponse
+forall x.
+Rep DescribePendingMaintenanceActionsResponse x
+-&gt; DescribePendingMaintenanceActionsResponse
+forall x.
+DescribePendingMaintenanceActionsResponse
+-&gt; Rep DescribePendingMaintenanceActionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePendingMaintenanceActionsResponse x
+-&gt; DescribePendingMaintenanceActionsResponse
+$cfrom :: forall x.
+DescribePendingMaintenanceActionsResponse
+-&gt; Rep DescribePendingMaintenanceActionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- Create a value of 'DescribePendingMaintenanceActionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'pendingMaintenanceActions', 'describePendingMaintenanceActionsResponse_pendingMaintenanceActions' - A list of the pending maintenance actions for the resource.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- 'marker', 'describePendingMaintenanceActionsResponse_marker' - An optional pagination token provided by a previous</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- @DescribePendingMaintenanceActions@ request. If this parameter is</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to a</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- number of records specified by @MaxRecords@.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'httpStatus', 'describePendingMaintenanceActionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#newDescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">newDescribePendingMaintenanceActionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-299"></span><span>  </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span>
+</span><span id="line-300"></span><span id="newDescribePendingMaintenanceActionsResponse"><span class="annot"><span class="annottext">newDescribePendingMaintenanceActionsResponse :: Int -&gt; DescribePendingMaintenanceActionsResponse
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#newDescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-var hs-var">newDescribePendingMaintenanceActionsResponse</span></a></span></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679406400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse' :: Maybe [ResourcePendingMaintenanceActions]
+-&gt; Maybe Text -&gt; Int -&gt; DescribePendingMaintenanceActionsResponse
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse'</span></a></span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pendingMaintenanceActions:DescribePendingMaintenanceActionsResponse' :: Maybe [ResourcePendingMaintenanceActions]
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3ApendingMaintenanceActions%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">pendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourcePendingMaintenanceActions]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">$sel:marker:DescribePendingMaintenanceActionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Amarker%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePendingMaintenanceActionsResponse' :: Int
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AhttpStatus%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-307"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | A list of the pending maintenance actions for the resource.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_pendingMaintenanceActions"><span class="hs-identifier hs-type">describePendingMaintenanceActionsResponse_pendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Neptune.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="describePendingMaintenanceActionsResponse_pendingMaintenanceActions"><span class="annot"><span class="annottext">describePendingMaintenanceActionsResponse_pendingMaintenanceActions :: (Maybe [ResourcePendingMaintenanceActions]
+ -&gt; f (Maybe [ResourcePendingMaintenanceActions]))
+-&gt; DescribePendingMaintenanceActionsResponse
+-&gt; f DescribePendingMaintenanceActionsResponse
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_pendingMaintenanceActions"><span class="hs-identifier hs-var hs-var">describePendingMaintenanceActionsResponse_pendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActionsResponse
+ -&gt; Maybe [ResourcePendingMaintenanceActions])
+-&gt; (DescribePendingMaintenanceActionsResponse
+    -&gt; Maybe [ResourcePendingMaintenanceActions]
+    -&gt; DescribePendingMaintenanceActionsResponse)
+-&gt; Lens'
+     DescribePendingMaintenanceActionsResponse
+     (Maybe [ResourcePendingMaintenanceActions])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406399"><span class="annot"><span class="annottext">Maybe [ResourcePendingMaintenanceActions]
+pendingMaintenanceActions :: Maybe [ResourcePendingMaintenanceActions]
+$sel:pendingMaintenanceActions:DescribePendingMaintenanceActionsResponse' :: DescribePendingMaintenanceActionsResponse
+-&gt; Maybe [ResourcePendingMaintenanceActions]
+</span><a href="#local-6989586621679406399"><span class="hs-identifier hs-var hs-var">pendingMaintenanceActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePendingMaintenanceActions]
+</span><a href="#local-6989586621679406399"><span class="hs-identifier hs-var">pendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406398"><span class="annot"><span class="annottext">s :: DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406397"><span class="annot"><span class="annottext">Maybe [ResourcePendingMaintenanceActions]
+</span><a href="#local-6989586621679406397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingMaintenanceActions:DescribePendingMaintenanceActionsResponse' :: Maybe [ResourcePendingMaintenanceActions]
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3ApendingMaintenanceActions%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">pendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePendingMaintenanceActions]
+</span><a href="#local-6989586621679406397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourcePendingMaintenanceActions]
+  -&gt; f (Maybe [ResourcePendingMaintenanceActions]))
+ -&gt; DescribePendingMaintenanceActionsResponse
+ -&gt; f DescribePendingMaintenanceActionsResponse)
+-&gt; ((Maybe [ResourcePendingMaintenanceActions]
+     -&gt; f (Maybe [ResourcePendingMaintenanceActions]))
+    -&gt; Maybe [ResourcePendingMaintenanceActions]
+    -&gt; f (Maybe [ResourcePendingMaintenanceActions]))
+-&gt; (Maybe [ResourcePendingMaintenanceActions]
+    -&gt; f (Maybe [ResourcePendingMaintenanceActions]))
+-&gt; DescribePendingMaintenanceActionsResponse
+-&gt; f DescribePendingMaintenanceActionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourcePendingMaintenanceActions]
+  [ResourcePendingMaintenanceActions]
+  [ResourcePendingMaintenanceActions]
+  [ResourcePendingMaintenanceActions]
+-&gt; Iso
+     (Maybe [ResourcePendingMaintenanceActions])
+     (Maybe [ResourcePendingMaintenanceActions])
+     (Maybe [ResourcePendingMaintenanceActions])
+     (Maybe [ResourcePendingMaintenanceActions])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourcePendingMaintenanceActions]
+  [ResourcePendingMaintenanceActions]
+  [ResourcePendingMaintenanceActions]
+  [ResourcePendingMaintenanceActions]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- @DescribePendingMaintenanceActions@ request. If this parameter is</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to a</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- number of records specified by @MaxRecords@.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_marker"><span class="hs-identifier hs-type">describePendingMaintenanceActionsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="describePendingMaintenanceActionsResponse_marker"><span class="annot"><span class="annottext">describePendingMaintenanceActionsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePendingMaintenanceActionsResponse
+-&gt; f DescribePendingMaintenanceActionsResponse
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_marker"><span class="hs-identifier hs-var hs-var">describePendingMaintenanceActionsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActionsResponse -&gt; Maybe Text)
+-&gt; (DescribePendingMaintenanceActionsResponse
+    -&gt; Maybe Text -&gt; DescribePendingMaintenanceActionsResponse)
+-&gt; Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406396"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribePendingMaintenanceActionsResponse' :: DescribePendingMaintenanceActionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679406396"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406396"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406395"><span class="annot"><span class="annottext">s :: DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribePendingMaintenanceActionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3Amarker%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_httpStatus"><span class="hs-identifier hs-type">describePendingMaintenanceActionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-322"></span><span id="describePendingMaintenanceActionsResponse_httpStatus"><span class="annot"><span class="annottext">describePendingMaintenanceActionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePendingMaintenanceActionsResponse
+-&gt; f DescribePendingMaintenanceActionsResponse
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#describePendingMaintenanceActionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePendingMaintenanceActionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePendingMaintenanceActionsResponse -&gt; Int)
+-&gt; (DescribePendingMaintenanceActionsResponse
+    -&gt; Int -&gt; DescribePendingMaintenanceActionsResponse)
+-&gt; Lens
+     DescribePendingMaintenanceActionsResponse
+     DescribePendingMaintenanceActionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406393"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePendingMaintenanceActionsResponse' :: DescribePendingMaintenanceActionsResponse -&gt; Int
+</span><a href="#local-6989586621679406393"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406393"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406392"><span class="annot"><span class="annottext">s :: DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406391"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePendingMaintenanceActionsResponse
+</span><a href="#local-6989586621679406392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePendingMaintenanceActionsResponse' :: Int
+</span><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#%24sel%3AhttpStatus%3ADescribePendingMaintenanceActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679406389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.DescribePendingMaintenanceActions.html#DescribePendingMaintenanceActionsResponse"><span class="hs-identifier hs-type">DescribePendingMaintenanceActionsResponse</span></a></span></span><span>
+</span><span id="line-327"></span></pre></body></html>

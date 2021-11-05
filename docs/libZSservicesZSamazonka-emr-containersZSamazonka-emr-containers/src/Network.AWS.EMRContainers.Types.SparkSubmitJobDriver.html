@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EMRContainers.Types.SparkSubmitJobDriver</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EMRContainers.Types.SparkSubmitJobDriver</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The information about job driver for Spark submit.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSparkSubmitJobDriver' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679185446"><span id="local-6989586621679185447"></span></span><span class="hs-keyword">data</span><span> </span><span id="SparkSubmitJobDriver"><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-var">SparkSubmitJobDriver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SparkSubmitJobDriver%27"><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-var">SparkSubmitJobDriver'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Spark submit parameters that are used for job runs.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AsparkSubmitParameters%3ASparkSubmitJobDriver%27"><span class="annot"><span class="annottext">SparkSubmitJobDriver -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AsparkSubmitParameters%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var hs-var">sparkSubmitParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The arguments for job application.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AentryPointArguments%3ASparkSubmitJobDriver%27"><span class="annot"><span class="annottext">SparkSubmitJobDriver -&gt; Maybe [Sensitive Text]
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AentryPointArguments%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var hs-var">entryPointArguments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The entry point of job application.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AentryPoint%3ASparkSubmitJobDriver%27"><span class="annot"><span class="annottext">SparkSubmitJobDriver -&gt; Sensitive Text
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AentryPoint%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185438"><span id="local-6989586621679185440"><span class="annot"><span class="annottext">SparkSubmitJobDriver -&gt; SparkSubmitJobDriver -&gt; Bool
+(SparkSubmitJobDriver -&gt; SparkSubmitJobDriver -&gt; Bool)
+-&gt; (SparkSubmitJobDriver -&gt; SparkSubmitJobDriver -&gt; Bool)
+-&gt; Eq SparkSubmitJobDriver
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SparkSubmitJobDriver -&gt; SparkSubmitJobDriver -&gt; Bool
+$c/= :: SparkSubmitJobDriver -&gt; SparkSubmitJobDriver -&gt; Bool
+== :: SparkSubmitJobDriver -&gt; SparkSubmitJobDriver -&gt; Bool
+$c== :: SparkSubmitJobDriver -&gt; SparkSubmitJobDriver -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185431"><span id="local-6989586621679185433"><span id="local-6989586621679185435"><span class="annot"><span class="annottext">Int -&gt; SparkSubmitJobDriver -&gt; ShowS
+[SparkSubmitJobDriver] -&gt; ShowS
+SparkSubmitJobDriver -&gt; String
+(Int -&gt; SparkSubmitJobDriver -&gt; ShowS)
+-&gt; (SparkSubmitJobDriver -&gt; String)
+-&gt; ([SparkSubmitJobDriver] -&gt; ShowS)
+-&gt; Show SparkSubmitJobDriver
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SparkSubmitJobDriver] -&gt; ShowS
+$cshowList :: [SparkSubmitJobDriver] -&gt; ShowS
+show :: SparkSubmitJobDriver -&gt; String
+$cshow :: SparkSubmitJobDriver -&gt; String
+showsPrec :: Int -&gt; SparkSubmitJobDriver -&gt; ShowS
+$cshowsPrec :: Int -&gt; SparkSubmitJobDriver -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SparkSubmitJobDriver -&gt; Rep SparkSubmitJobDriver x)
+-&gt; (forall x. Rep SparkSubmitJobDriver x -&gt; SparkSubmitJobDriver)
+-&gt; Generic SparkSubmitJobDriver
+forall x. Rep SparkSubmitJobDriver x -&gt; SparkSubmitJobDriver
+forall x. SparkSubmitJobDriver -&gt; Rep SparkSubmitJobDriver x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SparkSubmitJobDriver x -&gt; SparkSubmitJobDriver
+$cfrom :: forall x. SparkSubmitJobDriver -&gt; Rep SparkSubmitJobDriver x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'SparkSubmitJobDriver' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'sparkSubmitParameters', 'sparkSubmitJobDriver_sparkSubmitParameters' - The Spark submit parameters that are used for job runs.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'entryPointArguments', 'sparkSubmitJobDriver_entryPointArguments' - The arguments for job application.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'entryPoint', 'sparkSubmitJobDriver_entryPoint' - The entry point of job application.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#newSparkSubmitJobDriver"><span class="hs-identifier hs-type">newSparkSubmitJobDriver</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'entryPoint'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span><span>
+</span><span id="line-56"></span><span id="newSparkSubmitJobDriver"><span class="annot"><span class="annottext">newSparkSubmitJobDriver :: Text -&gt; SparkSubmitJobDriver
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#newSparkSubmitJobDriver"><span class="hs-identifier hs-var hs-var">newSparkSubmitJobDriver</span></a></span></span><span> </span><span id="local-6989586621679185425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185425"><span class="hs-identifier hs-var">pEntryPoint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">SparkSubmitJobDriver' :: Maybe (Sensitive Text)
+-&gt; Maybe [Sensitive Text] -&gt; Sensitive Text -&gt; SparkSubmitJobDriver
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sparkSubmitParameters:SparkSubmitJobDriver' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AsparkSubmitParameters%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var">sparkSubmitParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:entryPointArguments:SparkSubmitJobDriver' :: Maybe [Sensitive Text]
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AentryPointArguments%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var">entryPointArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:entryPoint:SparkSubmitJobDriver' :: Sensitive Text
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AentryPoint%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185425"><span class="hs-identifier hs-var">pEntryPoint_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The Spark submit parameters that are used for job runs.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#sparkSubmitJobDriver_sparkSubmitParameters"><span class="hs-identifier hs-type">sparkSubmitJobDriver_sparkSubmitParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="sparkSubmitJobDriver_sparkSubmitParameters"><span class="annot"><span class="annottext">sparkSubmitJobDriver_sparkSubmitParameters :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SparkSubmitJobDriver -&gt; f SparkSubmitJobDriver
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#sparkSubmitJobDriver_sparkSubmitParameters"><span class="hs-identifier hs-var hs-var">sparkSubmitJobDriver_sparkSubmitParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SparkSubmitJobDriver -&gt; Maybe (Sensitive Text))
+-&gt; (SparkSubmitJobDriver
+    -&gt; Maybe (Sensitive Text) -&gt; SparkSubmitJobDriver)
+-&gt; Lens
+     SparkSubmitJobDriver
+     SparkSubmitJobDriver
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185419"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+sparkSubmitParameters :: Maybe (Sensitive Text)
+$sel:sparkSubmitParameters:SparkSubmitJobDriver' :: SparkSubmitJobDriver -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679185419"><span class="hs-identifier hs-var hs-var">sparkSubmitParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679185419"><span class="hs-identifier hs-var">sparkSubmitParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185418"><span class="annot"><span class="annottext">s :: SparkSubmitJobDriver
+</span><a href="#local-6989586621679185418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185417"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679185417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SparkSubmitJobDriver
+</span><a href="#local-6989586621679185418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sparkSubmitParameters:SparkSubmitJobDriver' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AsparkSubmitParameters%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var">sparkSubmitParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679185417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; SparkSubmitJobDriver -&gt; f SparkSubmitJobDriver)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; SparkSubmitJobDriver
+-&gt; f SparkSubmitJobDriver
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The arguments for job application.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#sparkSubmitJobDriver_entryPointArguments"><span class="hs-identifier hs-type">sparkSubmitJobDriver_entryPointArguments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="sparkSubmitJobDriver_entryPointArguments"><span class="annot"><span class="annottext">sparkSubmitJobDriver_entryPointArguments :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SparkSubmitJobDriver -&gt; f SparkSubmitJobDriver
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#sparkSubmitJobDriver_entryPointArguments"><span class="hs-identifier hs-var hs-var">sparkSubmitJobDriver_entryPointArguments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SparkSubmitJobDriver -&gt; Maybe [Sensitive Text])
+-&gt; (SparkSubmitJobDriver
+    -&gt; Maybe [Sensitive Text] -&gt; SparkSubmitJobDriver)
+-&gt; Lens
+     SparkSubmitJobDriver
+     SparkSubmitJobDriver
+     (Maybe [Sensitive Text])
+     (Maybe [Sensitive Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185413"><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+entryPointArguments :: Maybe [Sensitive Text]
+$sel:entryPointArguments:SparkSubmitJobDriver' :: SparkSubmitJobDriver -&gt; Maybe [Sensitive Text]
+</span><a href="#local-6989586621679185413"><span class="hs-identifier hs-var hs-var">entryPointArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+</span><a href="#local-6989586621679185413"><span class="hs-identifier hs-var">entryPointArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185412"><span class="annot"><span class="annottext">s :: SparkSubmitJobDriver
+</span><a href="#local-6989586621679185412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185411"><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+</span><a href="#local-6989586621679185411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SparkSubmitJobDriver
+</span><a href="#local-6989586621679185412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryPointArguments:SparkSubmitJobDriver' :: Maybe [Sensitive Text]
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AentryPointArguments%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var">entryPointArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+</span><a href="#local-6989586621679185411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Sensitive Text] -&gt; f (Maybe [Sensitive Text]))
+ -&gt; SparkSubmitJobDriver -&gt; f SparkSubmitJobDriver)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Sensitive Text] -&gt; f (Maybe [Sensitive Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SparkSubmitJobDriver
+-&gt; f SparkSubmitJobDriver
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sensitive Text] [Sensitive Text] [Text] [Text]
+-&gt; Iso
+     (Maybe [Sensitive Text])
+     (Maybe [Sensitive Text])
+     (Maybe [Text])
+     (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sensitive Text] [Sensitive Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The entry point of job application.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#sparkSubmitJobDriver_entryPoint"><span class="hs-identifier hs-type">sparkSubmitJobDriver_entryPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="sparkSubmitJobDriver_entryPoint"><span class="annot"><span class="annottext">sparkSubmitJobDriver_entryPoint :: (Text -&gt; f Text) -&gt; SparkSubmitJobDriver -&gt; f SparkSubmitJobDriver
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#sparkSubmitJobDriver_entryPoint"><span class="hs-identifier hs-var hs-var">sparkSubmitJobDriver_entryPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SparkSubmitJobDriver -&gt; Sensitive Text)
+-&gt; (SparkSubmitJobDriver -&gt; Sensitive Text -&gt; SparkSubmitJobDriver)
+-&gt; Lens
+     SparkSubmitJobDriver
+     SparkSubmitJobDriver
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185408"><span class="annot"><span class="annottext">Sensitive Text
+entryPoint :: Sensitive Text
+$sel:entryPoint:SparkSubmitJobDriver' :: SparkSubmitJobDriver -&gt; Sensitive Text
+</span><a href="#local-6989586621679185408"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679185408"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185407"><span class="annot"><span class="annottext">s :: SparkSubmitJobDriver
+</span><a href="#local-6989586621679185407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185406"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679185406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SparkSubmitJobDriver
+</span><a href="#local-6989586621679185407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryPoint:SparkSubmitJobDriver' :: Sensitive Text
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#%24sel%3AentryPoint%3ASparkSubmitJobDriver%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679185406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; SparkSubmitJobDriver -&gt; f SparkSubmitJobDriver)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; SparkSubmitJobDriver
+-&gt; f SparkSubmitJobDriver
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185403"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679185401"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SparkSubmitJobDriver
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SparkSubmitJobDriver)
+-&gt; Value
+-&gt; Parser SparkSubmitJobDriver
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SparkSubmitJobDriver&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185398"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+-&gt; Maybe [Sensitive Text] -&gt; Sensitive Text -&gt; SparkSubmitJobDriver
+</span><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-var">SparkSubmitJobDriver'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
+ -&gt; Maybe [Sensitive Text]
+ -&gt; Sensitive Text
+ -&gt; SparkSubmitJobDriver)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe [Sensitive Text] -&gt; Sensitive Text -&gt; SparkSubmitJobDriver)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sparkSubmitParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Sensitive Text] -&gt; Sensitive Text -&gt; SparkSubmitJobDriver)
+-&gt; Parser (Maybe [Sensitive Text])
+-&gt; Parser (Sensitive Text -&gt; SparkSubmitJobDriver)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Sensitive Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entryPointArguments&quot;</span></span><span>
+</span><span id="line-84"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Sensitive Text]))
+-&gt; Maybe [Sensitive Text] -&gt; Parser (Maybe [Sensitive Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-85"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Sensitive Text -&gt; SparkSubmitJobDriver)
+-&gt; Parser (Sensitive Text) -&gt; Parser SparkSubmitJobDriver
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entryPoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185390"><span id="local-6989586621679185392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185379"><span id="local-6989586621679185381"><span id="local-6989586621679185383"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver"><span class="hs-identifier hs-type">SparkSubmitJobDriver</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679185377"><span class="annot"><span class="annottext">toJSON :: SparkSubmitJobDriver -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.html#SparkSubmitJobDriver%27"><span class="hs-identifier hs-type">SparkSubmitJobDriver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185373"><span id="local-6989586621679185374"><span id="local-6989586621679185375"><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+Maybe (Sensitive Text)
+Sensitive Text
+entryPoint :: Sensitive Text
+entryPointArguments :: Maybe [Sensitive Text]
+sparkSubmitParameters :: Maybe (Sensitive Text)
+$sel:entryPoint:SparkSubmitJobDriver' :: SparkSubmitJobDriver -&gt; Sensitive Text
+$sel:entryPointArguments:SparkSubmitJobDriver' :: SparkSubmitJobDriver -&gt; Maybe [Sensitive Text]
+$sel:sparkSubmitParameters:SparkSubmitJobDriver' :: SparkSubmitJobDriver -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679185373"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sparkSubmitParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679185375"><span class="hs-identifier hs-var">sparkSubmitParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entryPointArguments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Sensitive Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">([Sensitive Text] -&gt; Pair) -&gt; Maybe [Sensitive Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Sensitive Text]
+</span><a href="#local-6989586621679185374"><span class="hs-identifier hs-var">entryPointArguments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entryPoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679185373"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- a journey activity to be performed.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEventFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679611300"><span id="local-6989586621679611301"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventFilter"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-var">EventFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventFilter%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-var">EventFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679611309"><span id="local-6989586621679611310"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventFilter"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-var">EventFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventFilter%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-var">EventFilter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of event that causes the campaign to be sent or the journey</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- activity to be performed. Valid values are: SYSTEM, sends the campaign</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- or performs the activity when a system event occurs; and, ENDPOINT,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Adimensions%3AEventFilter%27"><span class="annot"><span class="annottext">EventFilter -&gt; EventDimensions
 </span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#%24sel%3Adimensions%3AEventFilter%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611293"><span id="local-6989586621679611295"><span class="annot"><span class="annottext">EventFilter -&gt; EventFilter -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611302"><span id="local-6989586621679611304"><span class="annot"><span class="annottext">EventFilter -&gt; EventFilter -&gt; Bool
 (EventFilter -&gt; EventFilter -&gt; Bool)
 -&gt; (EventFilter -&gt; EventFilter -&gt; Bool) -&gt; Eq EventFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventFilter -&gt; EventFilter -&gt; Bool
 == :: EventFilter -&gt; EventFilter -&gt; Bool
 $c== :: EventFilter -&gt; EventFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611284"><span id="local-6989586621679611286"><span id="local-6989586621679611288"><span id="local-6989586621679611290"><span class="annot"><span class="annottext">ReadPrec [EventFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611293"><span id="local-6989586621679611295"><span id="local-6989586621679611297"><span id="local-6989586621679611299"><span class="annot"><span class="annottext">ReadPrec [EventFilter]
 ReadPrec EventFilter
 Int -&gt; ReadS EventFilter
 ReadS [EventFilter]
@@ -70,7 +70,7 @@ readList :: ReadS [EventFilter]
 $creadList :: ReadS [EventFilter]
 readsPrec :: Int -&gt; ReadS EventFilter
 $creadsPrec :: Int -&gt; ReadS EventFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611277"><span id="local-6989586621679611279"><span id="local-6989586621679611281"><span class="annot"><span class="annottext">Int -&gt; EventFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611286"><span id="local-6989586621679611288"><span id="local-6989586621679611290"><span class="annot"><span class="annottext">Int -&gt; EventFilter -&gt; ShowS
 [EventFilter] -&gt; ShowS
 EventFilter -&gt; String
 (Int -&gt; EventFilter -&gt; ShowS)
@@ -119,17 +119,17 @@ $cfrom :: forall x. EventFilter -&gt; Rep EventFilter x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span><span>
 </span><span id="line-67"></span><span id="newEventFilter"><span class="annot"><span class="annottext">newEventFilter :: FilterType -&gt; EventDimensions -&gt; EventFilter
-</span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#newEventFilter"><span class="hs-identifier hs-var hs-var">newEventFilter</span></a></span></span><span> </span><span id="local-6989586621679611271"><span class="annot"><span class="annottext">FilterType
-</span><a href="#local-6989586621679611271"><span class="hs-identifier hs-var">pFilterType_</span></a></span></span><span> </span><span id="local-6989586621679611270"><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611270"><span class="hs-identifier hs-var">pDimensions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#newEventFilter"><span class="hs-identifier hs-var hs-var">newEventFilter</span></a></span></span><span> </span><span id="local-6989586621679611280"><span class="annot"><span class="annottext">FilterType
+</span><a href="#local-6989586621679611280"><span class="hs-identifier hs-var">pFilterType_</span></a></span></span><span> </span><span id="local-6989586621679611279"><span class="annot"><span class="annottext">EventDimensions
+</span><a href="#local-6989586621679611279"><span class="hs-identifier hs-var">pDimensions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">EventFilter' :: FilterType -&gt; EventDimensions -&gt; EventFilter
 </span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filterType:EventFilter' :: FilterType
 </span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#%24sel%3AfilterType%3AEventFilter%27"><span class="hs-identifier hs-var">filterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FilterType
-</span><a href="#local-6989586621679611271"><span class="hs-identifier hs-var">pFilterType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611280"><span class="hs-identifier hs-var">pFilterType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:EventFilter' :: EventDimensions
 </span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#%24sel%3Adimensions%3AEventFilter%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611270"><span class="hs-identifier hs-var">pDimensions_</span></a></span><span>
+</span><a href="#local-6989586621679611279"><span class="hs-identifier hs-var">pDimensions_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The type of event that causes the campaign to be sent or the journey</span><span>
@@ -143,16 +143,16 @@ $cfrom :: forall x. EventFilter -&gt; Rep EventFilter x
 -&gt; (EventFilter -&gt; FilterType -&gt; EventFilter)
 -&gt; Lens EventFilter EventFilter FilterType FilterType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611266"><span class="annot"><span class="annottext">FilterType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611275"><span class="annot"><span class="annottext">FilterType
 filterType :: FilterType
 $sel:filterType:EventFilter' :: EventFilter -&gt; FilterType
-</span><a href="#local-6989586621679611266"><span class="hs-identifier hs-var hs-var">filterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterType
-</span><a href="#local-6989586621679611266"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611265"><span class="annot"><span class="annottext">s :: EventFilter
-</span><a href="#local-6989586621679611265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611264"><span class="annot"><span class="annottext">FilterType
-</span><a href="#local-6989586621679611264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventFilter
-</span><a href="#local-6989586621679611265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterType:EventFilter' :: FilterType
+</span><a href="#local-6989586621679611275"><span class="hs-identifier hs-var hs-var">filterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterType
+</span><a href="#local-6989586621679611275"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611274"><span class="annot"><span class="annottext">s :: EventFilter
+</span><a href="#local-6989586621679611274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611273"><span class="annot"><span class="annottext">FilterType
+</span><a href="#local-6989586621679611273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventFilter
+</span><a href="#local-6989586621679611274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterType:EventFilter' :: FilterType
 </span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#%24sel%3AfilterType%3AEventFilter%27"><span class="hs-identifier hs-var">filterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FilterType
-</span><a href="#local-6989586621679611264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The dimensions for the event filter to use for the campaign or the</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- journey activity.</span><span>
@@ -163,19 +163,19 @@ $sel:filterType:EventFilter' :: EventFilter -&gt; FilterType
 -&gt; (EventFilter -&gt; EventDimensions -&gt; EventFilter)
 -&gt; Lens EventFilter EventFilter EventDimensions EventDimensions
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611262"><span class="annot"><span class="annottext">EventDimensions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611271"><span class="annot"><span class="annottext">EventDimensions
 dimensions :: EventDimensions
 $sel:dimensions:EventFilter' :: EventFilter -&gt; EventDimensions
-</span><a href="#local-6989586621679611262"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611262"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611261"><span class="annot"><span class="annottext">s :: EventFilter
-</span><a href="#local-6989586621679611261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611260"><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventFilter
-</span><a href="#local-6989586621679611261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:EventFilter' :: EventDimensions
+</span><a href="#local-6989586621679611271"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
+</span><a href="#local-6989586621679611271"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611270"><span class="annot"><span class="annottext">s :: EventFilter
+</span><a href="#local-6989586621679611270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611269"><span class="annot"><span class="annottext">EventDimensions
+</span><a href="#local-6989586621679611269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventFilter
+</span><a href="#local-6989586621679611270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:EventFilter' :: EventDimensions
 </span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#%24sel%3Adimensions%3AEventFilter%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611257"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679611255"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventFilter
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679611264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EventFilter) -&gt; Value -&gt; Parser EventFilter
@@ -183,15 +183,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventFilter&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611252"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">FilterType -&gt; EventDimensions -&gt; EventFilter
 </span><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-var">EventFilter'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(FilterType -&gt; EventDimensions -&gt; EventFilter)
 -&gt; Parser FilterType -&gt; Parser (EventDimensions -&gt; EventFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FilterType
+</span><a href="#local-6989586621679611261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FilterType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FilterType&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,25 +199,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser EventDimensions -&gt; Parser EventFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EventDimensions
+</span><a href="#local-6989586621679611261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EventDimensions
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimensions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611246"><span id="local-6989586621679611248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611255"><span id="local-6989586621679611257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611235"><span id="local-6989586621679611237"><span id="local-6989586621679611239"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679611233"><span class="annot"><span class="annottext">toJSON :: EventFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611230"><span id="local-6989586621679611231"><span class="annot"><span class="annottext">FilterType
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611244"><span id="local-6989586621679611246"><span id="local-6989586621679611248"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679611242"><span class="annot"><span class="annottext">toJSON :: EventFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventFilter.html#EventFilter%27"><span class="hs-identifier hs-type">EventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611239"><span id="local-6989586621679611240"><span class="annot"><span class="annottext">FilterType
 EventDimensions
 dimensions :: EventDimensions
 filterType :: FilterType
 $sel:dimensions:EventFilter' :: EventFilter -&gt; EventDimensions
 $sel:filterType:EventFilter' :: EventFilter -&gt; FilterType
-</span><a href="#local-6989586621679611230"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679611239"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,14 +229,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FilterType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FilterType
-</span><a href="#local-6989586621679611231"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611240"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventDimensions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611230"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611239"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

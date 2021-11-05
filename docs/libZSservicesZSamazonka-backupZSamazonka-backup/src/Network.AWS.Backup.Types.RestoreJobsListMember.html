@@ -1,0 +1,940 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.Types.RestoreJobsListMember</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.Types.RestoreJobsListMember</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobStatus.html"><span class="hs-identifier">Network.AWS.Backup.Types.RestoreJobStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains metadata about a restore job.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRestoreJobsListMember' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679310548"><span id="local-6989586621679310549"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreJobsListMember"><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-var">RestoreJobsListMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreJobsListMember%27"><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-var">RestoreJobsListMember'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A status code specifying the state of the job initiated by Backup to</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- restore a recovery point.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe RestoreJobStatus
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3Astatus%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobStatus.html#RestoreJobStatus"><span class="hs-identifier hs-type">RestoreJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies the IAM role ARN used to create the target recovery point; for</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- example, @arn:aws:iam::123456789012:role\/S3Access@.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AiamRoleArn%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AiamRoleArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The amount of time in minutes that a job restoring a recovery point is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- expected to take.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AexpectedCompletionTimeMinutes%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Integer
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AexpectedCompletionTimeMinutes%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">expectedCompletionTimeMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Uniquely identifies the job that restores a recovery point.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArestoreJobId%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ArestoreJobId%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">restoreJobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The resource type of the listed restore jobs; for example, an Amazon</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Service (Amazon RDS) database. For Windows Volume Shadow Copy Service</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- (VSS) backups, the only supported resource type is Amazon EC2.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AresourceType%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AresourceType%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Contains an estimated percentage complete of a job at the time the job</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- status was queried.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ApercentDone%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ApercentDone%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">percentDone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The account ID that owns the restore job.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AaccountId%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AaccountId%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcreatedResourceArn%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcreatedResourceArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">createdResourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A detailed message explaining the status of the job to restore a</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- recovery point.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AstatusMessage%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AstatusMessage%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | An ARN that uniquely identifies a recovery point; for example,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3ArecoveryPointArn%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ArecoveryPointArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">recoveryPointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The size, in bytes, of the restored resource.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AbackupSizeInBytes%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe Integer
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AbackupSizeInBytes%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">backupSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The date and time a restore job is created, in Unix format and</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationDate@ is</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AcreationDate%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcreationDate%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The date and time a job to restore a recovery point is completed, in</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Unix format and Coordinated Universal Time (UTC). The value of</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @CompletionDate@ is accurate to milliseconds. For example, the value</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AcompletionDate%3ARestoreJobsListMember%27"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcompletionDate%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var hs-var">completionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310530"><span id="local-6989586621679310532"><span class="annot"><span class="annottext">RestoreJobsListMember -&gt; RestoreJobsListMember -&gt; Bool
+(RestoreJobsListMember -&gt; RestoreJobsListMember -&gt; Bool)
+-&gt; (RestoreJobsListMember -&gt; RestoreJobsListMember -&gt; Bool)
+-&gt; Eq RestoreJobsListMember
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreJobsListMember -&gt; RestoreJobsListMember -&gt; Bool
+$c/= :: RestoreJobsListMember -&gt; RestoreJobsListMember -&gt; Bool
+== :: RestoreJobsListMember -&gt; RestoreJobsListMember -&gt; Bool
+$c== :: RestoreJobsListMember -&gt; RestoreJobsListMember -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310521"><span id="local-6989586621679310523"><span id="local-6989586621679310525"><span id="local-6989586621679310527"><span class="annot"><span class="annottext">ReadPrec [RestoreJobsListMember]
+ReadPrec RestoreJobsListMember
+Int -&gt; ReadS RestoreJobsListMember
+ReadS [RestoreJobsListMember]
+(Int -&gt; ReadS RestoreJobsListMember)
+-&gt; ReadS [RestoreJobsListMember]
+-&gt; ReadPrec RestoreJobsListMember
+-&gt; ReadPrec [RestoreJobsListMember]
+-&gt; Read RestoreJobsListMember
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreJobsListMember]
+$creadListPrec :: ReadPrec [RestoreJobsListMember]
+readPrec :: ReadPrec RestoreJobsListMember
+$creadPrec :: ReadPrec RestoreJobsListMember
+readList :: ReadS [RestoreJobsListMember]
+$creadList :: ReadS [RestoreJobsListMember]
+readsPrec :: Int -&gt; ReadS RestoreJobsListMember
+$creadsPrec :: Int -&gt; ReadS RestoreJobsListMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310514"><span id="local-6989586621679310516"><span id="local-6989586621679310518"><span class="annot"><span class="annottext">Int -&gt; RestoreJobsListMember -&gt; ShowS
+[RestoreJobsListMember] -&gt; ShowS
+RestoreJobsListMember -&gt; String
+(Int -&gt; RestoreJobsListMember -&gt; ShowS)
+-&gt; (RestoreJobsListMember -&gt; String)
+-&gt; ([RestoreJobsListMember] -&gt; ShowS)
+-&gt; Show RestoreJobsListMember
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreJobsListMember] -&gt; ShowS
+$cshowList :: [RestoreJobsListMember] -&gt; ShowS
+show :: RestoreJobsListMember -&gt; String
+$cshow :: RestoreJobsListMember -&gt; String
+showsPrec :: Int -&gt; RestoreJobsListMember -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreJobsListMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RestoreJobsListMember -&gt; Rep RestoreJobsListMember x)
+-&gt; (forall x. Rep RestoreJobsListMember x -&gt; RestoreJobsListMember)
+-&gt; Generic RestoreJobsListMember
+forall x. Rep RestoreJobsListMember x -&gt; RestoreJobsListMember
+forall x. RestoreJobsListMember -&gt; Rep RestoreJobsListMember x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RestoreJobsListMember x -&gt; RestoreJobsListMember
+$cfrom :: forall x. RestoreJobsListMember -&gt; Rep RestoreJobsListMember x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'RestoreJobsListMember' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'status', 'restoreJobsListMember_status' - A status code specifying the state of the job initiated by Backup to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- restore a recovery point.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'iamRoleArn', 'restoreJobsListMember_iamRoleArn' - Specifies the IAM role ARN used to create the target recovery point; for</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- example, @arn:aws:iam::123456789012:role\/S3Access@.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'expectedCompletionTimeMinutes', 'restoreJobsListMember_expectedCompletionTimeMinutes' - The amount of time in minutes that a job restoring a recovery point is</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- expected to take.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'restoreJobId', 'restoreJobsListMember_restoreJobId' - Uniquely identifies the job that restores a recovery point.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'resourceType', 'restoreJobsListMember_resourceType' - The resource type of the listed restore jobs; for example, an Amazon</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Service (Amazon RDS) database. For Windows Volume Shadow Copy Service</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- (VSS) backups, the only supported resource type is Amazon EC2.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'percentDone', 'restoreJobsListMember_percentDone' - Contains an estimated percentage complete of a job at the time the job</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- status was queried.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'accountId', 'restoreJobsListMember_accountId' - The account ID that owns the restore job.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'createdResourceArn', 'restoreJobsListMember_createdResourceArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'statusMessage', 'restoreJobsListMember_statusMessage' - A detailed message explaining the status of the job to restore a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- recovery point.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'recoveryPointArn', 'restoreJobsListMember_recoveryPointArn' - An ARN that uniquely identifies a recovery point; for example,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'backupSizeInBytes', 'restoreJobsListMember_backupSizeInBytes' - The size, in bytes, of the restored resource.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'creationDate', 'restoreJobsListMember_creationDate' - The date and time a restore job is created, in Unix format and</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationDate@ is</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'completionDate', 'restoreJobsListMember_completionDate' - The date and time a job to restore a recovery point is completed, in</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Unix format and Coordinated Universal Time (UTC). The value of</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @CompletionDate@ is accurate to milliseconds. For example, the value</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#newRestoreJobsListMember"><span class="hs-identifier hs-type">newRestoreJobsListMember</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span>
+</span><span id="line-127"></span><span id="newRestoreJobsListMember"><span class="annot"><span class="annottext">newRestoreJobsListMember :: RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#newRestoreJobsListMember"><span class="hs-identifier hs-var hs-var">newRestoreJobsListMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">RestoreJobsListMember' :: Maybe RestoreJobStatus
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:RestoreJobsListMember' :: Maybe RestoreJobStatus
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3Astatus%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreJobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRoleArn:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AiamRoleArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:expectedCompletionTimeMinutes:RestoreJobsListMember' :: Maybe Integer
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AexpectedCompletionTimeMinutes%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">expectedCompletionTimeMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:restoreJobId:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ArestoreJobId%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">restoreJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AresourceType%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:percentDone:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ApercentDone%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">percentDone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AaccountId%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdResourceArn:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcreatedResourceArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">createdResourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AstatusMessage%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:recoveryPointArn:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ArecoveryPointArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupSizeInBytes:RestoreJobsListMember' :: Maybe Integer
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AbackupSizeInBytes%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">backupSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:RestoreJobsListMember' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcreationDate%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionDate:RestoreJobsListMember' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcompletionDate%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">completionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | A status code specifying the state of the job initiated by Backup to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- restore a recovery point.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_status"><span class="hs-identifier hs-type">restoreJobsListMember_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobStatus.html#RestoreJobStatus"><span class="hs-identifier hs-type">RestoreJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="restoreJobsListMember_status"><span class="annot"><span class="annottext">restoreJobsListMember_status :: (Maybe RestoreJobStatus -&gt; f (Maybe RestoreJobStatus))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_status"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe RestoreJobStatus)
+-&gt; (RestoreJobsListMember
+    -&gt; Maybe RestoreJobStatus -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe RestoreJobStatus)
+     (Maybe RestoreJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310505"><span class="annot"><span class="annottext">Maybe RestoreJobStatus
+status :: Maybe RestoreJobStatus
+$sel:status:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe RestoreJobStatus
+</span><a href="#local-6989586621679310505"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreJobStatus
+</span><a href="#local-6989586621679310505"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310504"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310503"><span class="annot"><span class="annottext">Maybe RestoreJobStatus
+</span><a href="#local-6989586621679310503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RestoreJobsListMember' :: Maybe RestoreJobStatus
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3Astatus%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreJobStatus
+</span><a href="#local-6989586621679310503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Specifies the IAM role ARN used to create the target recovery point; for</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- example, @arn:aws:iam::123456789012:role\/S3Access@.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_iamRoleArn"><span class="hs-identifier hs-type">restoreJobsListMember_iamRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="restoreJobsListMember_iamRoleArn"><span class="annot"><span class="annottext">restoreJobsListMember_iamRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_iamRoleArn"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310501"><span class="annot"><span class="annottext">Maybe Text
+iamRoleArn :: Maybe Text
+$sel:iamRoleArn:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310501"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310501"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310500"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310499"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AiamRoleArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The amount of time in minutes that a job restoring a recovery point is</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- expected to take.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_expectedCompletionTimeMinutes"><span class="hs-identifier hs-type">restoreJobsListMember_expectedCompletionTimeMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="restoreJobsListMember_expectedCompletionTimeMinutes"><span class="annot"><span class="annottext">restoreJobsListMember_expectedCompletionTimeMinutes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_expectedCompletionTimeMinutes"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_expectedCompletionTimeMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Integer)
+-&gt; (RestoreJobsListMember
+    -&gt; Maybe Integer -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310497"><span class="annot"><span class="annottext">Maybe Integer
+expectedCompletionTimeMinutes :: Maybe Integer
+$sel:expectedCompletionTimeMinutes:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Integer
+</span><a href="#local-6989586621679310497"><span class="hs-identifier hs-var hs-var">expectedCompletionTimeMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679310497"><span class="hs-identifier hs-var">expectedCompletionTimeMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310496"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310495"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679310495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedCompletionTimeMinutes:RestoreJobsListMember' :: Maybe Integer
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AexpectedCompletionTimeMinutes%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">expectedCompletionTimeMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679310495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Uniquely identifies the job that restores a recovery point.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_restoreJobId"><span class="hs-identifier hs-type">restoreJobsListMember_restoreJobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="restoreJobsListMember_restoreJobId"><span class="annot"><span class="annottext">restoreJobsListMember_restoreJobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_restoreJobId"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_restoreJobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310493"><span class="annot"><span class="annottext">Maybe Text
+restoreJobId :: Maybe Text
+$sel:restoreJobId:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310493"><span class="hs-identifier hs-var hs-var">restoreJobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310493"><span class="hs-identifier hs-var">restoreJobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310492"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreJobId:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ArestoreJobId%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">restoreJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The resource type of the listed restore jobs; for example, an Amazon</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Service (Amazon RDS) database. For Windows Volume Shadow Copy Service</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- (VSS) backups, the only supported resource type is Amazon EC2.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_resourceType"><span class="hs-identifier hs-type">restoreJobsListMember_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="restoreJobsListMember_resourceType"><span class="annot"><span class="annottext">restoreJobsListMember_resourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_resourceType"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310489"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310489"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310489"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310488"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AresourceType%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Contains an estimated percentage complete of a job at the time the job</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- status was queried.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_percentDone"><span class="hs-identifier hs-type">restoreJobsListMember_percentDone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="restoreJobsListMember_percentDone"><span class="annot"><span class="annottext">restoreJobsListMember_percentDone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_percentDone"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_percentDone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310485"><span class="annot"><span class="annottext">Maybe Text
+percentDone :: Maybe Text
+$sel:percentDone:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310485"><span class="hs-identifier hs-var hs-var">percentDone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310485"><span class="hs-identifier hs-var">percentDone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310484"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentDone:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ApercentDone%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">percentDone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The account ID that owns the restore job.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_accountId"><span class="hs-identifier hs-type">restoreJobsListMember_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="restoreJobsListMember_accountId"><span class="annot"><span class="annottext">restoreJobsListMember_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_accountId"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310481"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310481"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310481"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310480"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AaccountId%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_createdResourceArn"><span class="hs-identifier hs-type">restoreJobsListMember_createdResourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="restoreJobsListMember_createdResourceArn"><span class="annot"><span class="annottext">restoreJobsListMember_createdResourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_createdResourceArn"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_createdResourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310477"><span class="annot"><span class="annottext">Maybe Text
+createdResourceArn :: Maybe Text
+$sel:createdResourceArn:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310477"><span class="hs-identifier hs-var hs-var">createdResourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310477"><span class="hs-identifier hs-var">createdResourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310476"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdResourceArn:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcreatedResourceArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">createdResourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | A detailed message explaining the status of the job to restore a</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- recovery point.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_statusMessage"><span class="hs-identifier hs-type">restoreJobsListMember_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="restoreJobsListMember_statusMessage"><span class="annot"><span class="annottext">restoreJobsListMember_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_statusMessage"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310473"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310473"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310473"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310472"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AstatusMessage%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | An ARN that uniquely identifies a recovery point; for example,</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_recoveryPointArn"><span class="hs-identifier hs-type">restoreJobsListMember_recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="restoreJobsListMember_recoveryPointArn"><span class="annot"><span class="annottext">restoreJobsListMember_recoveryPointArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_recoveryPointArn"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_recoveryPointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Text)
+-&gt; (RestoreJobsListMember -&gt; Maybe Text -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310469"><span class="annot"><span class="annottext">Maybe Text
+recoveryPointArn :: Maybe Text
+$sel:recoveryPointArn:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679310469"><span class="hs-identifier hs-var hs-var">recoveryPointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310469"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310468"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryPointArn:RestoreJobsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3ArecoveryPointArn%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The size, in bytes, of the restored resource.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_backupSizeInBytes"><span class="hs-identifier hs-type">restoreJobsListMember_backupSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="restoreJobsListMember_backupSizeInBytes"><span class="annot"><span class="annottext">restoreJobsListMember_backupSizeInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_backupSizeInBytes"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_backupSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe Integer)
+-&gt; (RestoreJobsListMember
+    -&gt; Maybe Integer -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310465"><span class="annot"><span class="annottext">Maybe Integer
+backupSizeInBytes :: Maybe Integer
+$sel:backupSizeInBytes:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe Integer
+</span><a href="#local-6989586621679310465"><span class="hs-identifier hs-var hs-var">backupSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679310465"><span class="hs-identifier hs-var">backupSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310464"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310463"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679310463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupSizeInBytes:RestoreJobsListMember' :: Maybe Integer
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AbackupSizeInBytes%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">backupSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679310463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The date and time a restore job is created, in Unix format and</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationDate@ is</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_creationDate"><span class="hs-identifier hs-type">restoreJobsListMember_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="restoreJobsListMember_creationDate"><span class="annot"><span class="annottext">restoreJobsListMember_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_creationDate"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe POSIX)
+-&gt; (RestoreJobsListMember -&gt; Maybe POSIX -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310461"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe POSIX
+</span><a href="#local-6989586621679310461"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679310461"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310460"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310459"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679310459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:RestoreJobsListMember' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcreationDate%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679310459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RestoreJobsListMember
+-&gt; f RestoreJobsListMember
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The date and time a job to restore a recovery point is completed, in</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Unix format and Coordinated Universal Time (UTC). The value of</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @CompletionDate@ is accurate to milliseconds. For example, the value</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_completionDate"><span class="hs-identifier hs-type">restoreJobsListMember_completionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="restoreJobsListMember_completionDate"><span class="annot"><span class="annottext">restoreJobsListMember_completionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_completionDate"><span class="hs-identifier hs-var hs-var">restoreJobsListMember_completionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreJobsListMember -&gt; Maybe POSIX)
+-&gt; (RestoreJobsListMember -&gt; Maybe POSIX -&gt; RestoreJobsListMember)
+-&gt; Lens
+     RestoreJobsListMember
+     RestoreJobsListMember
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310454"><span class="annot"><span class="annottext">Maybe POSIX
+completionDate :: Maybe POSIX
+$sel:completionDate:RestoreJobsListMember' :: RestoreJobsListMember -&gt; Maybe POSIX
+</span><a href="#local-6989586621679310454"><span class="hs-identifier hs-var hs-var">completionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679310454"><span class="hs-identifier hs-var">completionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310453"><span class="annot"><span class="annottext">s :: RestoreJobsListMember
+</span><a href="#local-6989586621679310453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-type">RestoreJobsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310452"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679310452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreJobsListMember
+</span><a href="#local-6989586621679310453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionDate:RestoreJobsListMember' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#%24sel%3AcompletionDate%3ARestoreJobsListMember%27"><span class="hs-identifier hs-var">completionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679310452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; RestoreJobsListMember -&gt; f RestoreJobsListMember)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RestoreJobsListMember
+-&gt; f RestoreJobsListMember
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310449"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679310447"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RestoreJobsListMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RestoreJobsListMember)
+-&gt; Value
+-&gt; Parser RestoreJobsListMember
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RestoreJobsListMember&quot;</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310444"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe RestoreJobStatus
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; RestoreJobsListMember
+</span><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember%27"><span class="hs-identifier hs-var">RestoreJobsListMember'</span></a></span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RestoreJobStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe RestoreJobStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RestoreJobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpectedCompletionTimeMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RestoreJobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PercentDone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedResourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecoveryPointArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; RestoreJobsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; RestoreJobsListMember)
+-&gt; Parser (Maybe POSIX) -&gt; Parser RestoreJobsListMember
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompletionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310438"><span id="local-6989586621679310440"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span></span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier hs-type">RestoreJobsListMember</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

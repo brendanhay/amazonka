@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679435572"><span id="local-6989586621679435573"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedisAuthTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.RedisAuthTypeValue.html#RedisAuthTypeValue"><span class="hs-identifier hs-var">RedisAuthTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedisAuthTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.RedisAuthTypeValue.html#RedisAuthTypeValue%27"><span class="hs-identifier hs-var">RedisAuthTypeValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679435581"><span id="local-6989586621679435582"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedisAuthTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.RedisAuthTypeValue.html#RedisAuthTypeValue"><span class="hs-identifier hs-var">RedisAuthTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedisAuthTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.RedisAuthTypeValue.html#RedisAuthTypeValue%27"><span class="hs-identifier hs-var">RedisAuthTypeValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRedisAuthTypeValue"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.RedisAuthTypeValue.html#fromRedisAuthTypeValue"><span class="hs-identifier hs-var hs-var">fromRedisAuthTypeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435564"><span id="local-6989586621679435566"><span id="local-6989586621679435568"><span class="annot"><span class="annottext">Int -&gt; RedisAuthTypeValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435573"><span id="local-6989586621679435575"><span id="local-6989586621679435577"><span class="annot"><span class="annottext">Int -&gt; RedisAuthTypeValue -&gt; ShowS
 [RedisAuthTypeValue] -&gt; ShowS
 RedisAuthTypeValue -&gt; String
 (Int -&gt; RedisAuthTypeValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: RedisAuthTypeValue -&gt; String
 showsPrec :: Int -&gt; RedisAuthTypeValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; RedisAuthTypeValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679435555"><span id="local-6989586621679435557"><span id="local-6989586621679435559"><span id="local-6989586621679435561"><span class="annot"><span class="annottext">ReadPrec [RedisAuthTypeValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679435564"><span id="local-6989586621679435566"><span id="local-6989586621679435568"><span id="local-6989586621679435570"><span class="annot"><span class="annottext">ReadPrec [RedisAuthTypeValue]
 ReadPrec RedisAuthTypeValue
 Int -&gt; ReadS RedisAuthTypeValue
 ReadS [RedisAuthTypeValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [RedisAuthTypeValue]
 readsPrec :: Int -&gt; ReadS RedisAuthTypeValue
 $creadsPrec :: Int -&gt; ReadS RedisAuthTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679435550"><span id="local-6989586621679435552"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679435559"><span id="local-6989586621679435561"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool
 (RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool)
 -&gt; (RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool)
 -&gt; Eq RedisAuthTypeValue
@@ -83,7 +83,7 @@ $c/= :: RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool
 == :: RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool
 $c== :: RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679435534"><span id="local-6989586621679435536"><span id="local-6989586621679435538"><span id="local-6989586621679435540"><span id="local-6989586621679435542"><span id="local-6989586621679435544"><span id="local-6989586621679435546"><span class="annot"><span class="annottext">Eq RedisAuthTypeValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679435543"><span id="local-6989586621679435545"><span id="local-6989586621679435547"><span id="local-6989586621679435549"><span id="local-6989586621679435551"><span id="local-6989586621679435553"><span id="local-6989586621679435555"><span class="annot"><span class="annottext">Eq RedisAuthTypeValue
 Eq RedisAuthTypeValue
 -&gt; (RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Ordering)
 -&gt; (RedisAuthTypeValue -&gt; RedisAuthTypeValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. RedisAuthTypeValue -&gt; Rep RedisAuthTypeValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435526"><span id="local-6989586621679435528"><span class="annot"><span class="annottext">Int -&gt; RedisAuthTypeValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435535"><span id="local-6989586621679435537"><span class="annot"><span class="annottext">Int -&gt; RedisAuthTypeValue -&gt; Int
 RedisAuthTypeValue -&gt; Int
 (Int -&gt; RedisAuthTypeValue -&gt; Int)
 -&gt; (RedisAuthTypeValue -&gt; Int) -&gt; Hashable RedisAuthTypeValue
@@ -144,53 +144,53 @@ $chash :: RedisAuthTypeValue -&gt; Int
 hashWithSalt :: Int -&gt; RedisAuthTypeValue -&gt; Int
 $chashWithSalt :: Int -&gt; RedisAuthTypeValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435523"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435532"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; ()
 (RedisAuthTypeValue -&gt; ()) -&gt; NFData RedisAuthTypeValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RedisAuthTypeValue -&gt; ()
 $crnf :: RedisAuthTypeValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679435520"><span class="annot"><span class="annottext">Text -&gt; Either String RedisAuthTypeValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679435529"><span class="annot"><span class="annottext">Text -&gt; Either String RedisAuthTypeValue
 (Text -&gt; Either String RedisAuthTypeValue)
 -&gt; FromText RedisAuthTypeValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RedisAuthTypeValue
 $cfromText :: Text -&gt; Either String RedisAuthTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679435517"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679435526"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; Text
 (RedisAuthTypeValue -&gt; Text) -&gt; ToText RedisAuthTypeValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RedisAuthTypeValue -&gt; Text
 $ctoText :: RedisAuthTypeValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679435514"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679435523"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; ByteString
 (RedisAuthTypeValue -&gt; ByteString)
 -&gt; ToByteString RedisAuthTypeValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RedisAuthTypeValue -&gt; ByteString
 $ctoBS :: RedisAuthTypeValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679435511"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679435520"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; ByteStringBuilder
 (RedisAuthTypeValue -&gt; ByteStringBuilder)
 -&gt; ToLog RedisAuthTypeValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RedisAuthTypeValue -&gt; ByteStringBuilder
 $cbuild :: RedisAuthTypeValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435508"><span class="annot"><span class="annottext">HeaderName -&gt; RedisAuthTypeValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435517"><span class="annot"><span class="annottext">HeaderName -&gt; RedisAuthTypeValue -&gt; [Header]
 (HeaderName -&gt; RedisAuthTypeValue -&gt; [Header])
 -&gt; ToHeader RedisAuthTypeValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RedisAuthTypeValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RedisAuthTypeValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435505"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435514"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; QueryString
 (RedisAuthTypeValue -&gt; QueryString) -&gt; ToQuery RedisAuthTypeValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RedisAuthTypeValue -&gt; QueryString
 $ctoQuery :: RedisAuthTypeValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435500"><span id="local-6989586621679435502"><span class="annot"><span class="annottext">Value -&gt; Parser [RedisAuthTypeValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435509"><span id="local-6989586621679435511"><span class="annot"><span class="annottext">Value -&gt; Parser [RedisAuthTypeValue]
 Value -&gt; Parser RedisAuthTypeValue
 (Value -&gt; Parser RedisAuthTypeValue)
 -&gt; (Value -&gt; Parser [RedisAuthTypeValue])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [RedisAuthTypeValue]
 parseJSON :: Value -&gt; Parser RedisAuthTypeValue
 $cparseJSON :: Value -&gt; Parser RedisAuthTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435495"><span id="local-6989586621679435497"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedisAuthTypeValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435504"><span id="local-6989586621679435506"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedisAuthTypeValue]
 FromJSONKeyFunction RedisAuthTypeValue
 FromJSONKeyFunction RedisAuthTypeValue
 -&gt; FromJSONKeyFunction [RedisAuthTypeValue]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RedisAuthTypeValue]
 fromJSONKey :: FromJSONKeyFunction RedisAuthTypeValue
 $cfromJSONKey :: FromJSONKeyFunction RedisAuthTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435486"><span id="local-6989586621679435488"><span id="local-6989586621679435490"><span id="local-6989586621679435492"><span class="annot"><span class="annottext">[RedisAuthTypeValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435495"><span id="local-6989586621679435497"><span id="local-6989586621679435499"><span id="local-6989586621679435501"><span class="annot"><span class="annottext">[RedisAuthTypeValue] -&gt; Encoding
 [RedisAuthTypeValue] -&gt; Value
 RedisAuthTypeValue -&gt; Encoding
 RedisAuthTypeValue -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: RedisAuthTypeValue -&gt; Encoding
 toJSON :: RedisAuthTypeValue -&gt; Value
 $ctoJSON :: RedisAuthTypeValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435481"><span id="local-6989586621679435483"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedisAuthTypeValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435490"><span id="local-6989586621679435492"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedisAuthTypeValue]
 ToJSONKeyFunction RedisAuthTypeValue
 ToJSONKeyFunction RedisAuthTypeValue
 -&gt; ToJSONKeyFunction [RedisAuthTypeValue]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RedisAuthTypeValue]
 toJSONKey :: ToJSONKeyFunction RedisAuthTypeValue
 $ctoJSONKey :: ToJSONKeyFunction RedisAuthTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435478"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedisAuthTypeValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435487"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedisAuthTypeValue
 ([Node] -&gt; Either String RedisAuthTypeValue)
 -&gt; FromXML RedisAuthTypeValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RedisAuthTypeValue
 $cparseXML :: [Node] -&gt; Either String RedisAuthTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435475"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435484"><span class="annot"><span class="annottext">RedisAuthTypeValue -&gt; XML
 (RedisAuthTypeValue -&gt; XML) -&gt; ToXML RedisAuthTypeValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RedisAuthTypeValue -&gt; XML

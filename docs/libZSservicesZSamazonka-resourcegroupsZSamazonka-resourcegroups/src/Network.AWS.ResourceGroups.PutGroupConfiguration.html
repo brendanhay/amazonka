@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newPutGroupConfiguration' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679178588"><span id="local-6989586621679178589"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutGroupConfiguration"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-var">PutGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutGroupConfiguration%27"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-var">PutGroupConfiguration'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679178597"><span id="local-6989586621679178598"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutGroupConfiguration"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-var">PutGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutGroupConfiguration%27"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-var">PutGroupConfiguration'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or ARN of the resource group with the configuration that you</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- want to update.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Agroup%27%3APutGroupConfiguration%27"><span class="annot"><span class="annottext">PutGroupConfiguration -&gt; Maybe Text
@@ -73,7 +73,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Aconfiguration%3APutGroupConfiguration%27"><span class="annot"><span class="annottext">PutGroupConfiguration -&gt; Maybe [GroupConfigurationItem]
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#%24sel%3Aconfiguration%3APutGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupConfigurationItem.html#GroupConfigurationItem"><span class="hs-identifier hs-type">GroupConfigurationItem</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178581"><span id="local-6989586621679178583"><span class="annot"><span class="annottext">PutGroupConfiguration -&gt; PutGroupConfiguration -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178590"><span id="local-6989586621679178592"><span class="annot"><span class="annottext">PutGroupConfiguration -&gt; PutGroupConfiguration -&gt; Bool
 (PutGroupConfiguration -&gt; PutGroupConfiguration -&gt; Bool)
 -&gt; (PutGroupConfiguration -&gt; PutGroupConfiguration -&gt; Bool)
 -&gt; Eq PutGroupConfiguration
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutGroupConfiguration -&gt; PutGroupConfiguration -&gt; Bool
 == :: PutGroupConfiguration -&gt; PutGroupConfiguration -&gt; Bool
 $c== :: PutGroupConfiguration -&gt; PutGroupConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178572"><span id="local-6989586621679178574"><span id="local-6989586621679178576"><span id="local-6989586621679178578"><span class="annot"><span class="annottext">ReadPrec [PutGroupConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178581"><span id="local-6989586621679178583"><span id="local-6989586621679178585"><span id="local-6989586621679178587"><span class="annot"><span class="annottext">ReadPrec [PutGroupConfiguration]
 ReadPrec PutGroupConfiguration
 Int -&gt; ReadS PutGroupConfiguration
 ReadS [PutGroupConfiguration]
@@ -102,7 +102,7 @@ readList :: ReadS [PutGroupConfiguration]
 $creadList :: ReadS [PutGroupConfiguration]
 readsPrec :: Int -&gt; ReadS PutGroupConfiguration
 $creadsPrec :: Int -&gt; ReadS PutGroupConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178565"><span id="local-6989586621679178567"><span id="local-6989586621679178569"><span class="annot"><span class="annottext">Int -&gt; PutGroupConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178574"><span id="local-6989586621679178576"><span id="local-6989586621679178578"><span class="annot"><span class="annottext">Int -&gt; PutGroupConfiguration -&gt; ShowS
 [PutGroupConfiguration] -&gt; ShowS
 PutGroupConfiguration -&gt; String
 (Int -&gt; PutGroupConfiguration -&gt; ShowS)
@@ -179,16 +179,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178558"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178567"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':PutGroupConfiguration' :: PutGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679178558"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178558"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178557"><span class="annot"><span class="annottext">s :: PutGroupConfiguration
-</span><a href="#local-6989586621679178557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178556"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutGroupConfiguration
-</span><a href="#local-6989586621679178557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':PutGroupConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679178567"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178567"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178566"><span class="annot"><span class="annottext">s :: PutGroupConfiguration
+</span><a href="#local-6989586621679178566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutGroupConfiguration
+</span><a href="#local-6989586621679178566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':PutGroupConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#%24sel%3Agroup%27%3APutGroupConfiguration%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The new configuration to associate with the specified group. A</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- configuration associates the resource group with an AWS service and</span><span>
@@ -213,16 +213,16 @@ $sel:group':PutGroupConfiguration' :: PutGroupConfiguration -&gt; Maybe Text
      (Maybe [GroupConfigurationItem])
      (Maybe [GroupConfigurationItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178555"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178564"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
 configuration :: Maybe [GroupConfigurationItem]
 $sel:configuration:PutGroupConfiguration' :: PutGroupConfiguration -&gt; Maybe [GroupConfigurationItem]
-</span><a href="#local-6989586621679178555"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
-</span><a href="#local-6989586621679178555"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178554"><span class="annot"><span class="annottext">s :: PutGroupConfiguration
-</span><a href="#local-6989586621679178554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178553"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
-</span><a href="#local-6989586621679178553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutGroupConfiguration
-</span><a href="#local-6989586621679178554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:PutGroupConfiguration' :: Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679178564"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679178564"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178563"><span class="annot"><span class="annottext">s :: PutGroupConfiguration
+</span><a href="#local-6989586621679178563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178562"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679178562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutGroupConfiguration
+</span><a href="#local-6989586621679178563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:PutGroupConfiguration' :: Maybe [GroupConfigurationItem]
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#%24sel%3Aconfiguration%3APutGroupConfiguration%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
-</span><a href="#local-6989586621679178553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupConfigurationItem]
+</span><a href="#local-6989586621679178562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupConfigurationItem]
   -&gt; f (Maybe [GroupConfigurationItem]))
  -&gt; PutGroupConfiguration -&gt; f PutGroupConfiguration)
 -&gt; ((Maybe [GroupConfigurationItem]
@@ -259,12 +259,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-type">PutGroupConfigurationResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679178546"><span class="annot"><span class="annottext">request :: PutGroupConfiguration -&gt; Request PutGroupConfiguration
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679178555"><span class="annot"><span class="annottext">request :: PutGroupConfiguration -&gt; Request PutGroupConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutGroupConfiguration -&gt; Request PutGroupConfiguration
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679178542"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679178551"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutGroupConfiguration
 -&gt; ClientResponse ClientBody
@@ -290,10 +290,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178539"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178539"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178538"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178538"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178537"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679178537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178548"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178547"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178547"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178546"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679178546"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutGroupConfigurationResponse
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-var">PutGroupConfigurationResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutGroupConfigurationResponse)
@@ -304,30 +304,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178539"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178548"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178530"><span id="local-6989586621679178532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178539"><span id="local-6989586621679178541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679178523"><span class="annot"><span class="annottext">toHeaders :: PutGroupConfiguration -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679178532"><span class="annot"><span class="annottext">toHeaders :: PutGroupConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutGroupConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178514"><span id="local-6989586621679178516"><span id="local-6989586621679178518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679178512"><span class="annot"><span class="annottext">toJSON :: PutGroupConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178509"><span id="local-6989586621679178510"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178523"><span id="local-6989586621679178525"><span id="local-6989586621679178527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679178521"><span class="annot"><span class="annottext">toJSON :: PutGroupConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration%27"><span class="hs-identifier hs-type">PutGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178518"><span id="local-6989586621679178519"><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
 Maybe Text
 configuration :: Maybe [GroupConfigurationItem]
 group' :: Maybe Text
 $sel:configuration:PutGroupConfiguration' :: PutGroupConfiguration -&gt; Maybe [GroupConfigurationItem]
 $sel:group':PutGroupConfiguration' :: PutGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679178509"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178518"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,7 +339,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178510"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178519"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GroupConfigurationItem] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -347,19 +347,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [GroupConfigurationItem] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroupConfigurationItem]
-</span><a href="#local-6989586621679178509"><span class="hs-identifier hs-var">configuration</span></a></span><span>
+</span><a href="#local-6989586621679178518"><span class="hs-identifier hs-var">configuration</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679178503"><span class="annot"><span class="annottext">toPath :: PutGroupConfiguration -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679178512"><span class="annot"><span class="annottext">toPath :: PutGroupConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutGroupConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/put-group-configuration&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfiguration"><span class="hs-identifier hs-type">PutGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679178499"><span class="annot"><span class="annottext">toQuery :: PutGroupConfiguration -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679178508"><span class="annot"><span class="annottext">toQuery :: PutGroupConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutGroupConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,12 +367,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newPutGroupConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679178496"><span id="local-6989586621679178497"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutGroupConfigurationResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-var">PutGroupConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutGroupConfigurationResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-var">PutGroupConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679178505"><span id="local-6989586621679178506"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutGroupConfigurationResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-var">PutGroupConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutGroupConfigurationResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-var">PutGroupConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutGroupConfigurationResponse%27"><span class="annot"><span class="annottext">PutGroupConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#%24sel%3AhttpStatus%3APutGroupConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178491"><span id="local-6989586621679178493"><span class="annot"><span class="annottext">PutGroupConfigurationResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178500"><span id="local-6989586621679178502"><span class="annot"><span class="annottext">PutGroupConfigurationResponse
 -&gt; PutGroupConfigurationResponse -&gt; Bool
 (PutGroupConfigurationResponse
  -&gt; PutGroupConfigurationResponse -&gt; Bool)
@@ -388,7 +388,7 @@ $c/= :: PutGroupConfigurationResponse
 -&gt; PutGroupConfigurationResponse -&gt; Bool
 $c== :: PutGroupConfigurationResponse
 -&gt; PutGroupConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178483"><span id="local-6989586621679178485"><span id="local-6989586621679178487"><span id="local-6989586621679178489"><span class="annot"><span class="annottext">ReadPrec [PutGroupConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178492"><span id="local-6989586621679178494"><span id="local-6989586621679178496"><span id="local-6989586621679178498"><span class="annot"><span class="annottext">ReadPrec [PutGroupConfigurationResponse]
 ReadPrec PutGroupConfigurationResponse
 Int -&gt; ReadS PutGroupConfigurationResponse
 ReadS [PutGroupConfigurationResponse]
@@ -408,7 +408,7 @@ readList :: ReadS [PutGroupConfigurationResponse]
 $creadList :: ReadS [PutGroupConfigurationResponse]
 readsPrec :: Int -&gt; ReadS PutGroupConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS PutGroupConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178477"><span id="local-6989586621679178479"><span id="local-6989586621679178481"><span class="annot"><span class="annottext">Int -&gt; PutGroupConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178486"><span id="local-6989586621679178488"><span id="local-6989586621679178490"><span class="annot"><span class="annottext">Int -&gt; PutGroupConfigurationResponse -&gt; ShowS
 [PutGroupConfigurationResponse] -&gt; ShowS
 PutGroupConfigurationResponse -&gt; String
 (Int -&gt; PutGroupConfigurationResponse -&gt; ShowS)
@@ -460,14 +460,14 @@ PutGroupConfigurationResponse
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-type">PutGroupConfigurationResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newPutGroupConfigurationResponse"><span class="annot"><span class="annottext">newPutGroupConfigurationResponse :: Int -&gt; PutGroupConfigurationResponse
-</span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#newPutGroupConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutGroupConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679178474"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178474"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#newPutGroupConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutGroupConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679178483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">PutGroupConfigurationResponse' :: Int -&gt; PutGroupConfigurationResponse
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-type">PutGroupConfigurationResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutGroupConfigurationResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#%24sel%3AhttpStatus%3APutGroupConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178474"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679178483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -480,16 +480,16 @@ PutGroupConfigurationResponse
 -&gt; Lens
      PutGroupConfigurationResponse PutGroupConfigurationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-type">PutGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178473"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-type">PutGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178482"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutGroupConfigurationResponse' :: PutGroupConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679178473"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178473"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178472"><span class="annot"><span class="annottext">s :: PutGroupConfigurationResponse
-</span><a href="#local-6989586621679178472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-type">PutGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178471"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutGroupConfigurationResponse
-</span><a href="#local-6989586621679178472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutGroupConfigurationResponse' :: Int
+</span><a href="#local-6989586621679178482"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178482"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178481"><span class="annot"><span class="annottext">s :: PutGroupConfigurationResponse
+</span><a href="#local-6989586621679178481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse%27"><span class="hs-identifier hs-type">PutGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178480"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutGroupConfigurationResponse
+</span><a href="#local-6989586621679178481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutGroupConfigurationResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#%24sel%3AhttpStatus%3APutGroupConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-type">PutGroupConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-type">PutGroupConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-type">PutGroupConfigurationResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.PutGroupConfiguration.html#PutGroupConfigurationResponse"><span class="hs-identifier hs-type">PutGroupConfigurationResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

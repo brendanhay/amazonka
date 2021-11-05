@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- specified in Unix epoch format in seconds.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTiming' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680010658"><span id="local-6989586621680010659"></span></span><span class="hs-keyword">data</span><span> </span><span id="Timing"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-var">Timing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Timing%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-var">Timing'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680010667"><span id="local-6989586621680010668"></span></span><span class="hs-keyword">data</span><span> </span><span id="Timing"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-var">Timing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Timing%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-var">Timing'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in Unix epoch format, that transcoding for the job began.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartTime%3ATiming%27"><span class="annot"><span class="annottext">Timing -&gt; Maybe POSIX
 </span><a href="Network.AWS.MediaConvert.Types.Timing.html#%24sel%3AstartTime%3ATiming%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AsubmitTime%3ATiming%27"><span class="annot"><span class="annottext">Timing -&gt; Maybe POSIX
 </span><a href="Network.AWS.MediaConvert.Types.Timing.html#%24sel%3AsubmitTime%3ATiming%27"><span class="hs-identifier hs-var hs-var">submitTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680010650"><span id="local-6989586621680010652"><span class="annot"><span class="annottext">Timing -&gt; Timing -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680010659"><span id="local-6989586621680010661"><span class="annot"><span class="annottext">Timing -&gt; Timing -&gt; Bool
 (Timing -&gt; Timing -&gt; Bool)
 -&gt; (Timing -&gt; Timing -&gt; Bool) -&gt; Eq Timing
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Timing -&gt; Timing -&gt; Bool
 == :: Timing -&gt; Timing -&gt; Bool
 $c== :: Timing -&gt; Timing -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010641"><span id="local-6989586621680010643"><span id="local-6989586621680010645"><span id="local-6989586621680010647"><span class="annot"><span class="annottext">ReadPrec [Timing]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010650"><span id="local-6989586621680010652"><span id="local-6989586621680010654"><span id="local-6989586621680010656"><span class="annot"><span class="annottext">ReadPrec [Timing]
 ReadPrec Timing
 Int -&gt; ReadS Timing
 ReadS [Timing]
@@ -66,7 +66,7 @@ readList :: ReadS [Timing]
 $creadList :: ReadS [Timing]
 readsPrec :: Int -&gt; ReadS Timing
 $creadsPrec :: Int -&gt; ReadS Timing
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010634"><span id="local-6989586621680010636"><span id="local-6989586621680010638"><span class="annot"><span class="annottext">Int -&gt; Timing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010643"><span id="local-6989586621680010645"><span id="local-6989586621680010647"><span class="annot"><span class="annottext">Int -&gt; Timing -&gt; ShowS
 [Timing] -&gt; ShowS
 Timing -&gt; String
 (Int -&gt; Timing -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Maybe a
 -&gt; (Timing -&gt; Maybe POSIX -&gt; Timing)
 -&gt; Lens Timing Timing (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010625"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010634"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:Timing' :: Timing -&gt; Maybe POSIX
-</span><a href="#local-6989586621680010625"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010625"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010624"><span class="annot"><span class="annottext">s :: Timing
-</span><a href="#local-6989586621680010624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010623"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
-</span><a href="#local-6989586621680010624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Timing' :: Maybe POSIX
+</span><a href="#local-6989586621680010634"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010634"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010633"><span class="annot"><span class="annottext">s :: Timing
+</span><a href="#local-6989586621680010633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010632"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
+</span><a href="#local-6989586621680010633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Timing' :: Maybe POSIX
 </span><a href="Network.AWS.MediaConvert.Types.Timing.html#%24sel%3AstartTime%3ATiming%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
+</span><a href="#local-6989586621680010632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -161,16 +161,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Timing -&gt; Maybe POSIX -&gt; Timing)
 -&gt; Lens Timing Timing (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010618"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010627"><span class="annot"><span class="annottext">Maybe POSIX
 finishTime :: Maybe POSIX
 $sel:finishTime:Timing' :: Timing -&gt; Maybe POSIX
-</span><a href="#local-6989586621680010618"><span class="hs-identifier hs-var hs-var">finishTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010618"><span class="hs-identifier hs-var">finishTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010617"><span class="annot"><span class="annottext">s :: Timing
-</span><a href="#local-6989586621680010617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010616"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
-</span><a href="#local-6989586621680010617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finishTime:Timing' :: Maybe POSIX
+</span><a href="#local-6989586621680010627"><span class="hs-identifier hs-var hs-var">finishTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010627"><span class="hs-identifier hs-var">finishTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010626"><span class="annot"><span class="annottext">s :: Timing
+</span><a href="#local-6989586621680010626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010625"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
+</span><a href="#local-6989586621680010626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finishTime:Timing' :: Maybe POSIX
 </span><a href="Network.AWS.MediaConvert.Types.Timing.html#%24sel%3AfinishTime%3ATiming%27"><span class="hs-identifier hs-var">finishTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
+</span><a href="#local-6989586621680010625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -193,16 +193,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Timing -&gt; Maybe POSIX -&gt; Timing)
 -&gt; Lens Timing Timing (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010614"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010623"><span class="annot"><span class="annottext">Maybe POSIX
 submitTime :: Maybe POSIX
 $sel:submitTime:Timing' :: Timing -&gt; Maybe POSIX
-</span><a href="#local-6989586621680010614"><span class="hs-identifier hs-var hs-var">submitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010614"><span class="hs-identifier hs-var">submitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010613"><span class="annot"><span class="annottext">s :: Timing
-</span><a href="#local-6989586621680010613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010612"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
-</span><a href="#local-6989586621680010613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTime:Timing' :: Maybe POSIX
+</span><a href="#local-6989586621680010623"><span class="hs-identifier hs-var hs-var">submitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010623"><span class="hs-identifier hs-var">submitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010622"><span class="annot"><span class="annottext">s :: Timing
+</span><a href="#local-6989586621680010622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-type">Timing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010621"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680010621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timing
+</span><a href="#local-6989586621680010622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTime:Timing' :: Maybe POSIX
 </span><a href="Network.AWS.MediaConvert.Types.Timing.html#%24sel%3AsubmitTime%3ATiming%27"><span class="hs-identifier hs-var">submitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680010612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
+</span><a href="#local-6989586621680010621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Timing -&gt; f Timing)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -218,16 +218,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010609"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680010607"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Timing
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010618"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680010616"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Timing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Timing) -&gt; Value -&gt; Parser Timing
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Timing&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680010604"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680010613"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680010613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Timing
 </span><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing%27"><span class="hs-identifier hs-var">Timing'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Timing)
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; Timing)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680010613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,7 +243,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe POSIX -&gt; Timing)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680010613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;finishTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,13 +251,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser Timing
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680010613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;submitTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010598"><span id="local-6989586621680010600"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010607"><span id="local-6989586621680010609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

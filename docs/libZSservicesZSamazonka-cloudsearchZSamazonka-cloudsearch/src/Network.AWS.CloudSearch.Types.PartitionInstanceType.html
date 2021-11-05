@@ -46,13 +46,13 @@
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | The instance type (such as @search.m1.small@) on which an index</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- partition is hosted.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679209207"><span id="local-6989586621679209208"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartitionInstanceType"><span class="annot"><a href="Network.AWS.CloudSearch.Types.PartitionInstanceType.html#PartitionInstanceType"><span class="hs-identifier hs-var">PartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionInstanceType%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.PartitionInstanceType.html#PartitionInstanceType%27"><span class="hs-identifier hs-var">PartitionInstanceType'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679209216"><span id="local-6989586621679209217"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartitionInstanceType"><span class="annot"><a href="Network.AWS.CloudSearch.Types.PartitionInstanceType.html#PartitionInstanceType"><span class="hs-identifier hs-var">PartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionInstanceType%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.PartitionInstanceType.html#PartitionInstanceType%27"><span class="hs-identifier hs-var">PartitionInstanceType'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPartitionInstanceType"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; Text
 </span><a href="Network.AWS.CloudSearch.Types.PartitionInstanceType.html#fromPartitionInstanceType"><span class="hs-identifier hs-var hs-var">fromPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209199"><span id="local-6989586621679209201"><span id="local-6989586621679209203"><span class="annot"><span class="annottext">Int -&gt; PartitionInstanceType -&gt; ShowS
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209208"><span id="local-6989586621679209210"><span id="local-6989586621679209212"><span class="annot"><span class="annottext">Int -&gt; PartitionInstanceType -&gt; ShowS
 [PartitionInstanceType] -&gt; ShowS
 PartitionInstanceType -&gt; String
 (Int -&gt; PartitionInstanceType -&gt; ShowS)
@@ -68,7 +68,7 @@ $cshow :: PartitionInstanceType -&gt; String
 showsPrec :: Int -&gt; PartitionInstanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PartitionInstanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209190"><span id="local-6989586621679209192"><span id="local-6989586621679209194"><span id="local-6989586621679209196"><span class="annot"><span class="annottext">ReadPrec [PartitionInstanceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209199"><span id="local-6989586621679209201"><span id="local-6989586621679209203"><span id="local-6989586621679209205"><span class="annot"><span class="annottext">ReadPrec [PartitionInstanceType]
 ReadPrec PartitionInstanceType
 Int -&gt; ReadS PartitionInstanceType
 ReadS [PartitionInstanceType]
@@ -89,7 +89,7 @@ $creadList :: ReadS [PartitionInstanceType]
 readsPrec :: Int -&gt; ReadS PartitionInstanceType
 $creadsPrec :: Int -&gt; ReadS PartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209185"><span id="local-6989586621679209187"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209194"><span id="local-6989586621679209196"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool
 (PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool)
 -&gt; (PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool)
 -&gt; Eq PartitionInstanceType
@@ -99,7 +99,7 @@ $c/= :: PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool
 == :: PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool
 $c== :: PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679209169"><span id="local-6989586621679209171"><span id="local-6989586621679209173"><span id="local-6989586621679209175"><span id="local-6989586621679209177"><span id="local-6989586621679209179"><span id="local-6989586621679209181"><span class="annot"><span class="annottext">Eq PartitionInstanceType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679209178"><span id="local-6989586621679209180"><span id="local-6989586621679209182"><span id="local-6989586621679209184"><span id="local-6989586621679209186"><span id="local-6989586621679209188"><span id="local-6989586621679209190"><span class="annot"><span class="annottext">Eq PartitionInstanceType
 Eq PartitionInstanceType
 -&gt; (PartitionInstanceType -&gt; PartitionInstanceType -&gt; Ordering)
 -&gt; (PartitionInstanceType -&gt; PartitionInstanceType -&gt; Bool)
@@ -157,7 +157,7 @@ $cfrom :: forall x. PartitionInstanceType -&gt; Rep PartitionInstanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209161"><span id="local-6989586621679209163"><span class="annot"><span class="annottext">Int -&gt; PartitionInstanceType -&gt; Int
+</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209170"><span id="local-6989586621679209172"><span class="annot"><span class="annottext">Int -&gt; PartitionInstanceType -&gt; Int
 PartitionInstanceType -&gt; Int
 (Int -&gt; PartitionInstanceType -&gt; Int)
 -&gt; (PartitionInstanceType -&gt; Int) -&gt; Hashable PartitionInstanceType
@@ -167,54 +167,54 @@ $chash :: PartitionInstanceType -&gt; Int
 hashWithSalt :: Int -&gt; PartitionInstanceType -&gt; Int
 $chashWithSalt :: Int -&gt; PartitionInstanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679209158"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; ()
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679209167"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; ()
 (PartitionInstanceType -&gt; ()) -&gt; NFData PartitionInstanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PartitionInstanceType -&gt; ()
 $crnf :: PartitionInstanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679209155"><span class="annot"><span class="annottext">Text -&gt; Either String PartitionInstanceType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679209164"><span class="annot"><span class="annottext">Text -&gt; Either String PartitionInstanceType
 (Text -&gt; Either String PartitionInstanceType)
 -&gt; FromText PartitionInstanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PartitionInstanceType
 $cfromText :: Text -&gt; Either String PartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679209152"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; Text
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679209161"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; Text
 (PartitionInstanceType -&gt; Text) -&gt; ToText PartitionInstanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PartitionInstanceType -&gt; Text
 $ctoText :: PartitionInstanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679209149"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; ByteString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679209158"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; ByteString
 (PartitionInstanceType -&gt; ByteString)
 -&gt; ToByteString PartitionInstanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PartitionInstanceType -&gt; ByteString
 $ctoBS :: PartitionInstanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679209146"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; ByteStringBuilder
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679209155"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; ByteStringBuilder
 (PartitionInstanceType -&gt; ByteStringBuilder)
 -&gt; ToLog PartitionInstanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PartitionInstanceType -&gt; ByteStringBuilder
 $cbuild :: PartitionInstanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679209143"><span class="annot"><span class="annottext">HeaderName -&gt; PartitionInstanceType -&gt; [Header]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679209152"><span class="annot"><span class="annottext">HeaderName -&gt; PartitionInstanceType -&gt; [Header]
 (HeaderName -&gt; PartitionInstanceType -&gt; [Header])
 -&gt; ToHeader PartitionInstanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PartitionInstanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PartitionInstanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679209140"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; QueryString
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679209149"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; QueryString
 (PartitionInstanceType -&gt; QueryString)
 -&gt; ToQuery PartitionInstanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PartitionInstanceType -&gt; QueryString
 $ctoQuery :: PartitionInstanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679209135"><span id="local-6989586621679209137"><span class="annot"><span class="annottext">Value -&gt; Parser [PartitionInstanceType]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679209144"><span id="local-6989586621679209146"><span class="annot"><span class="annottext">Value -&gt; Parser [PartitionInstanceType]
 Value -&gt; Parser PartitionInstanceType
 (Value -&gt; Parser PartitionInstanceType)
 -&gt; (Value -&gt; Parser [PartitionInstanceType])
@@ -226,7 +226,7 @@ $cparseJSONList :: Value -&gt; Parser [PartitionInstanceType]
 parseJSON :: Value -&gt; Parser PartitionInstanceType
 $cparseJSON :: Value -&gt; Parser PartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679209130"><span id="local-6989586621679209132"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartitionInstanceType]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679209139"><span id="local-6989586621679209141"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartitionInstanceType]
 FromJSONKeyFunction PartitionInstanceType
 FromJSONKeyFunction PartitionInstanceType
 -&gt; FromJSONKeyFunction [PartitionInstanceType]
@@ -238,7 +238,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PartitionInstanceType]
 fromJSONKey :: FromJSONKeyFunction PartitionInstanceType
 $cfromJSONKey :: FromJSONKeyFunction PartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679209121"><span id="local-6989586621679209123"><span id="local-6989586621679209125"><span id="local-6989586621679209127"><span class="annot"><span class="annottext">[PartitionInstanceType] -&gt; Encoding
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679209130"><span id="local-6989586621679209132"><span id="local-6989586621679209134"><span id="local-6989586621679209136"><span class="annot"><span class="annottext">[PartitionInstanceType] -&gt; Encoding
 [PartitionInstanceType] -&gt; Value
 PartitionInstanceType -&gt; Encoding
 PartitionInstanceType -&gt; Value
@@ -262,7 +262,7 @@ $ctoEncoding :: PartitionInstanceType -&gt; Encoding
 toJSON :: PartitionInstanceType -&gt; Value
 $ctoJSON :: PartitionInstanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679209116"><span id="local-6989586621679209118"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartitionInstanceType]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679209125"><span id="local-6989586621679209127"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartitionInstanceType]
 ToJSONKeyFunction PartitionInstanceType
 ToJSONKeyFunction PartitionInstanceType
 -&gt; ToJSONKeyFunction [PartitionInstanceType]
@@ -274,14 +274,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PartitionInstanceType]
 toJSONKey :: ToJSONKeyFunction PartitionInstanceType
 $ctoJSONKey :: ToJSONKeyFunction PartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679209113"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartitionInstanceType
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679209122"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartitionInstanceType
 ([Node] -&gt; Either String PartitionInstanceType)
 -&gt; FromXML PartitionInstanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PartitionInstanceType
 $cparseXML :: [Node] -&gt; Either String PartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679209110"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; XML
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679209119"><span class="annot"><span class="annottext">PartitionInstanceType -&gt; XML
 (PartitionInstanceType -&gt; XML) -&gt; ToXML PartitionInstanceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PartitionInstanceType -&gt; XML

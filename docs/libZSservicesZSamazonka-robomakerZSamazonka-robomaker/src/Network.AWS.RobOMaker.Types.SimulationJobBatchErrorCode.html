@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode"><span class="hs-identifier">SimulationJobBatchErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode_InternalServiceError"><span class="hs-identifier">SimulationJobBatchErrorCode_InternalServiceError</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679370499"><span id="local-6989586621679370500"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SimulationJobBatchErrorCode"><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode"><span class="hs-identifier hs-var">SimulationJobBatchErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulationJobBatchErrorCode%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode%27"><span class="hs-identifier hs-var">SimulationJobBatchErrorCode'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSimulationJobBatchErrorCode"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#fromSimulationJobBatchErrorCode"><span class="hs-identifier hs-var hs-var">fromSimulationJobBatchErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370491"><span id="local-6989586621679370493"><span id="local-6989586621679370495"><span class="annot"><span class="annottext">Int -&gt; SimulationJobBatchErrorCode -&gt; ShowS
+[SimulationJobBatchErrorCode] -&gt; ShowS
+SimulationJobBatchErrorCode -&gt; String
+(Int -&gt; SimulationJobBatchErrorCode -&gt; ShowS)
+-&gt; (SimulationJobBatchErrorCode -&gt; String)
+-&gt; ([SimulationJobBatchErrorCode] -&gt; ShowS)
+-&gt; Show SimulationJobBatchErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SimulationJobBatchErrorCode] -&gt; ShowS
+$cshowList :: [SimulationJobBatchErrorCode] -&gt; ShowS
+show :: SimulationJobBatchErrorCode -&gt; String
+$cshow :: SimulationJobBatchErrorCode -&gt; String
+showsPrec :: Int -&gt; SimulationJobBatchErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; SimulationJobBatchErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679370482"><span id="local-6989586621679370484"><span id="local-6989586621679370486"><span id="local-6989586621679370488"><span class="annot"><span class="annottext">ReadPrec [SimulationJobBatchErrorCode]
+ReadPrec SimulationJobBatchErrorCode
+Int -&gt; ReadS SimulationJobBatchErrorCode
+ReadS [SimulationJobBatchErrorCode]
+(Int -&gt; ReadS SimulationJobBatchErrorCode)
+-&gt; ReadS [SimulationJobBatchErrorCode]
+-&gt; ReadPrec SimulationJobBatchErrorCode
+-&gt; ReadPrec [SimulationJobBatchErrorCode]
+-&gt; Read SimulationJobBatchErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SimulationJobBatchErrorCode]
+$creadListPrec :: ReadPrec [SimulationJobBatchErrorCode]
+readPrec :: ReadPrec SimulationJobBatchErrorCode
+$creadPrec :: ReadPrec SimulationJobBatchErrorCode
+readList :: ReadS [SimulationJobBatchErrorCode]
+$creadList :: ReadS [SimulationJobBatchErrorCode]
+readsPrec :: Int -&gt; ReadS SimulationJobBatchErrorCode
+$creadsPrec :: Int -&gt; ReadS SimulationJobBatchErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679370477"><span id="local-6989586621679370479"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+(SimulationJobBatchErrorCode
+ -&gt; SimulationJobBatchErrorCode -&gt; Bool)
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; Bool)
+-&gt; Eq SimulationJobBatchErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+$c/= :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+== :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+$c== :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370461"><span id="local-6989586621679370463"><span id="local-6989586621679370465"><span id="local-6989586621679370467"><span id="local-6989586621679370469"><span id="local-6989586621679370471"><span id="local-6989586621679370473"><span class="annot"><span class="annottext">Eq SimulationJobBatchErrorCode
+Eq SimulationJobBatchErrorCode
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; Ordering)
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; Bool)
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; Bool)
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; Bool)
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; Bool)
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode)
+-&gt; (SimulationJobBatchErrorCode
+    -&gt; SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode)
+-&gt; Ord SimulationJobBatchErrorCode
+SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; Ordering
+SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode
+$cmin :: SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode
+max :: SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode
+$cmax :: SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode
+&gt;= :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+$c&gt;= :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+&gt; :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+$c&gt; :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+&lt;= :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+$c&lt;= :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+&lt; :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+$c&lt; :: SimulationJobBatchErrorCode -&gt; SimulationJobBatchErrorCode -&gt; Bool
+compare :: SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; Ordering
+$ccompare :: SimulationJobBatchErrorCode
+-&gt; SimulationJobBatchErrorCode -&gt; Ordering
+$cp1Ord :: Eq SimulationJobBatchErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SimulationJobBatchErrorCode -&gt; Rep SimulationJobBatchErrorCode x)
+-&gt; (forall x.
+    Rep SimulationJobBatchErrorCode x -&gt; SimulationJobBatchErrorCode)
+-&gt; Generic SimulationJobBatchErrorCode
+forall x.
+Rep SimulationJobBatchErrorCode x -&gt; SimulationJobBatchErrorCode
+forall x.
+SimulationJobBatchErrorCode -&gt; Rep SimulationJobBatchErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SimulationJobBatchErrorCode x -&gt; SimulationJobBatchErrorCode
+$cfrom :: forall x.
+SimulationJobBatchErrorCode -&gt; Rep SimulationJobBatchErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370453"><span id="local-6989586621679370455"><span class="annot"><span class="annottext">Int -&gt; SimulationJobBatchErrorCode -&gt; Int
+SimulationJobBatchErrorCode -&gt; Int
+(Int -&gt; SimulationJobBatchErrorCode -&gt; Int)
+-&gt; (SimulationJobBatchErrorCode -&gt; Int)
+-&gt; Hashable SimulationJobBatchErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SimulationJobBatchErrorCode -&gt; Int
+$chash :: SimulationJobBatchErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; SimulationJobBatchErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; SimulationJobBatchErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679370450"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; ()
+(SimulationJobBatchErrorCode -&gt; ())
+-&gt; NFData SimulationJobBatchErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SimulationJobBatchErrorCode -&gt; ()
+$crnf :: SimulationJobBatchErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679370447"><span class="annot"><span class="annottext">Text -&gt; Either String SimulationJobBatchErrorCode
+(Text -&gt; Either String SimulationJobBatchErrorCode)
+-&gt; FromText SimulationJobBatchErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SimulationJobBatchErrorCode
+$cfromText :: Text -&gt; Either String SimulationJobBatchErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370444"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; Text
+(SimulationJobBatchErrorCode -&gt; Text)
+-&gt; ToText SimulationJobBatchErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SimulationJobBatchErrorCode -&gt; Text
+$ctoText :: SimulationJobBatchErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370441"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; ByteString
+(SimulationJobBatchErrorCode -&gt; ByteString)
+-&gt; ToByteString SimulationJobBatchErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SimulationJobBatchErrorCode -&gt; ByteString
+$ctoBS :: SimulationJobBatchErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370438"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; ByteStringBuilder
+(SimulationJobBatchErrorCode -&gt; ByteStringBuilder)
+-&gt; ToLog SimulationJobBatchErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SimulationJobBatchErrorCode -&gt; ByteStringBuilder
+$cbuild :: SimulationJobBatchErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370435"><span class="annot"><span class="annottext">HeaderName -&gt; SimulationJobBatchErrorCode -&gt; [Header]
+(HeaderName -&gt; SimulationJobBatchErrorCode -&gt; [Header])
+-&gt; ToHeader SimulationJobBatchErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SimulationJobBatchErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SimulationJobBatchErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370432"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; QueryString
+(SimulationJobBatchErrorCode -&gt; QueryString)
+-&gt; ToQuery SimulationJobBatchErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SimulationJobBatchErrorCode -&gt; QueryString
+$ctoQuery :: SimulationJobBatchErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370427"><span id="local-6989586621679370429"><span class="annot"><span class="annottext">Value -&gt; Parser [SimulationJobBatchErrorCode]
+Value -&gt; Parser SimulationJobBatchErrorCode
+(Value -&gt; Parser SimulationJobBatchErrorCode)
+-&gt; (Value -&gt; Parser [SimulationJobBatchErrorCode])
+-&gt; FromJSON SimulationJobBatchErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SimulationJobBatchErrorCode]
+$cparseJSONList :: Value -&gt; Parser [SimulationJobBatchErrorCode]
+parseJSON :: Value -&gt; Parser SimulationJobBatchErrorCode
+$cparseJSON :: Value -&gt; Parser SimulationJobBatchErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370422"><span id="local-6989586621679370424"><span class="annot"><span class="annottext">FromJSONKeyFunction [SimulationJobBatchErrorCode]
+FromJSONKeyFunction SimulationJobBatchErrorCode
+FromJSONKeyFunction SimulationJobBatchErrorCode
+-&gt; FromJSONKeyFunction [SimulationJobBatchErrorCode]
+-&gt; FromJSONKey SimulationJobBatchErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SimulationJobBatchErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [SimulationJobBatchErrorCode]
+fromJSONKey :: FromJSONKeyFunction SimulationJobBatchErrorCode
+$cfromJSONKey :: FromJSONKeyFunction SimulationJobBatchErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370413"><span id="local-6989586621679370415"><span id="local-6989586621679370417"><span id="local-6989586621679370419"><span class="annot"><span class="annottext">[SimulationJobBatchErrorCode] -&gt; Encoding
+[SimulationJobBatchErrorCode] -&gt; Value
+SimulationJobBatchErrorCode -&gt; Encoding
+SimulationJobBatchErrorCode -&gt; Value
+(SimulationJobBatchErrorCode -&gt; Value)
+-&gt; (SimulationJobBatchErrorCode -&gt; Encoding)
+-&gt; ([SimulationJobBatchErrorCode] -&gt; Value)
+-&gt; ([SimulationJobBatchErrorCode] -&gt; Encoding)
+-&gt; ToJSON SimulationJobBatchErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SimulationJobBatchErrorCode] -&gt; Encoding
+$ctoEncodingList :: [SimulationJobBatchErrorCode] -&gt; Encoding
+toJSONList :: [SimulationJobBatchErrorCode] -&gt; Value
+$ctoJSONList :: [SimulationJobBatchErrorCode] -&gt; Value
+toEncoding :: SimulationJobBatchErrorCode -&gt; Encoding
+$ctoEncoding :: SimulationJobBatchErrorCode -&gt; Encoding
+toJSON :: SimulationJobBatchErrorCode -&gt; Value
+$ctoJSON :: SimulationJobBatchErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370408"><span id="local-6989586621679370410"><span class="annot"><span class="annottext">ToJSONKeyFunction [SimulationJobBatchErrorCode]
+ToJSONKeyFunction SimulationJobBatchErrorCode
+ToJSONKeyFunction SimulationJobBatchErrorCode
+-&gt; ToJSONKeyFunction [SimulationJobBatchErrorCode]
+-&gt; ToJSONKey SimulationJobBatchErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SimulationJobBatchErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [SimulationJobBatchErrorCode]
+toJSONKey :: ToJSONKeyFunction SimulationJobBatchErrorCode
+$ctoJSONKey :: ToJSONKeyFunction SimulationJobBatchErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370405"><span class="annot"><span class="annottext">[Node] -&gt; Either String SimulationJobBatchErrorCode
+([Node] -&gt; Either String SimulationJobBatchErrorCode)
+-&gt; FromXML SimulationJobBatchErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SimulationJobBatchErrorCode
+$cparseXML :: [Node] -&gt; Either String SimulationJobBatchErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370402"><span class="annot"><span class="annottext">SimulationJobBatchErrorCode -&gt; XML
+(SimulationJobBatchErrorCode -&gt; XML)
+-&gt; ToXML SimulationJobBatchErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SimulationJobBatchErrorCode -&gt; XML
+$ctoXML :: SimulationJobBatchErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode_InternalServiceError"><span class="hs-identifier hs-type">SimulationJobBatchErrorCode_InternalServiceError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode"><span class="hs-identifier hs-type">SimulationJobBatchErrorCode</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobBatchErrorCode_InternalServiceError"><span id="%24mSimulationJobBatchErrorCode_InternalServiceError"><span id="SimulationJobBatchErrorCode_InternalServiceError"><span class="annot"><span class="annottext">$bSimulationJobBatchErrorCode_InternalServiceError :: SimulationJobBatchErrorCode
+$mSimulationJobBatchErrorCode_InternalServiceError :: forall r.
+SimulationJobBatchErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#%24bSimulationJobBatchErrorCode_InternalServiceError"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobBatchErrorCode_InternalServiceError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode%27"><span class="hs-identifier hs-type">SimulationJobBatchErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InternalServiceError&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode_InternalServiceError"><span class="hs-pragma hs-type">SimulationJobBatchErrorCode_InternalServiceError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode.html#SimulationJobBatchErrorCode%27"><span class="hs-pragma hs-type">SimulationJobBatchErrorCode'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

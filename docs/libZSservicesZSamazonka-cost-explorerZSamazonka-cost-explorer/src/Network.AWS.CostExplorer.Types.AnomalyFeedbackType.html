@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679325909"><span id="local-6989586621679325910"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnomalyFeedbackType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyFeedbackType.html#AnomalyFeedbackType"><span class="hs-identifier hs-var">AnomalyFeedbackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyFeedbackType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyFeedbackType.html#AnomalyFeedbackType%27"><span class="hs-identifier hs-var">AnomalyFeedbackType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679325918"><span id="local-6989586621679325919"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnomalyFeedbackType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyFeedbackType.html#AnomalyFeedbackType"><span class="hs-identifier hs-var">AnomalyFeedbackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyFeedbackType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyFeedbackType.html#AnomalyFeedbackType%27"><span class="hs-identifier hs-var">AnomalyFeedbackType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnomalyFeedbackType"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyFeedbackType.html#fromAnomalyFeedbackType"><span class="hs-identifier hs-var hs-var">fromAnomalyFeedbackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325901"><span id="local-6989586621679325903"><span id="local-6989586621679325905"><span class="annot"><span class="annottext">Int -&gt; AnomalyFeedbackType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325910"><span id="local-6989586621679325912"><span id="local-6989586621679325914"><span class="annot"><span class="annottext">Int -&gt; AnomalyFeedbackType -&gt; ShowS
 [AnomalyFeedbackType] -&gt; ShowS
 AnomalyFeedbackType -&gt; String
 (Int -&gt; AnomalyFeedbackType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AnomalyFeedbackType -&gt; String
 showsPrec :: Int -&gt; AnomalyFeedbackType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AnomalyFeedbackType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679325892"><span id="local-6989586621679325894"><span id="local-6989586621679325896"><span id="local-6989586621679325898"><span class="annot"><span class="annottext">ReadPrec [AnomalyFeedbackType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679325901"><span id="local-6989586621679325903"><span id="local-6989586621679325905"><span id="local-6989586621679325907"><span class="annot"><span class="annottext">ReadPrec [AnomalyFeedbackType]
 ReadPrec AnomalyFeedbackType
 Int -&gt; ReadS AnomalyFeedbackType
 ReadS [AnomalyFeedbackType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AnomalyFeedbackType]
 readsPrec :: Int -&gt; ReadS AnomalyFeedbackType
 $creadsPrec :: Int -&gt; ReadS AnomalyFeedbackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679325887"><span id="local-6989586621679325889"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679325896"><span id="local-6989586621679325898"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool
 (AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool)
 -&gt; (AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool)
 -&gt; Eq AnomalyFeedbackType
@@ -83,7 +83,7 @@ $c/= :: AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool
 == :: AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool
 $c== :: AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679325871"><span id="local-6989586621679325873"><span id="local-6989586621679325875"><span id="local-6989586621679325877"><span id="local-6989586621679325879"><span id="local-6989586621679325881"><span id="local-6989586621679325883"><span class="annot"><span class="annottext">Eq AnomalyFeedbackType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679325880"><span id="local-6989586621679325882"><span id="local-6989586621679325884"><span id="local-6989586621679325886"><span id="local-6989586621679325888"><span id="local-6989586621679325890"><span id="local-6989586621679325892"><span class="annot"><span class="annottext">Eq AnomalyFeedbackType
 Eq AnomalyFeedbackType
 -&gt; (AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Ordering)
 -&gt; (AnomalyFeedbackType -&gt; AnomalyFeedbackType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. AnomalyFeedbackType -&gt; Rep AnomalyFeedbackType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325863"><span id="local-6989586621679325865"><span class="annot"><span class="annottext">Int -&gt; AnomalyFeedbackType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325872"><span id="local-6989586621679325874"><span class="annot"><span class="annottext">Int -&gt; AnomalyFeedbackType -&gt; Int
 AnomalyFeedbackType -&gt; Int
 (Int -&gt; AnomalyFeedbackType -&gt; Int)
 -&gt; (AnomalyFeedbackType -&gt; Int) -&gt; Hashable AnomalyFeedbackType
@@ -146,53 +146,53 @@ $chash :: AnomalyFeedbackType -&gt; Int
 hashWithSalt :: Int -&gt; AnomalyFeedbackType -&gt; Int
 $chashWithSalt :: Int -&gt; AnomalyFeedbackType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679325860"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679325869"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; ()
 (AnomalyFeedbackType -&gt; ()) -&gt; NFData AnomalyFeedbackType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AnomalyFeedbackType -&gt; ()
 $crnf :: AnomalyFeedbackType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679325857"><span class="annot"><span class="annottext">Text -&gt; Either String AnomalyFeedbackType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679325866"><span class="annot"><span class="annottext">Text -&gt; Either String AnomalyFeedbackType
 (Text -&gt; Either String AnomalyFeedbackType)
 -&gt; FromText AnomalyFeedbackType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AnomalyFeedbackType
 $cfromText :: Text -&gt; Either String AnomalyFeedbackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325854"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325863"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; Text
 (AnomalyFeedbackType -&gt; Text) -&gt; ToText AnomalyFeedbackType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AnomalyFeedbackType -&gt; Text
 $ctoText :: AnomalyFeedbackType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325851"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325860"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; ByteString
 (AnomalyFeedbackType -&gt; ByteString)
 -&gt; ToByteString AnomalyFeedbackType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AnomalyFeedbackType -&gt; ByteString
 $ctoBS :: AnomalyFeedbackType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325848"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325857"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; ByteStringBuilder
 (AnomalyFeedbackType -&gt; ByteStringBuilder)
 -&gt; ToLog AnomalyFeedbackType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AnomalyFeedbackType -&gt; ByteStringBuilder
 $cbuild :: AnomalyFeedbackType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325845"><span class="annot"><span class="annottext">HeaderName -&gt; AnomalyFeedbackType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325854"><span class="annot"><span class="annottext">HeaderName -&gt; AnomalyFeedbackType -&gt; [Header]
 (HeaderName -&gt; AnomalyFeedbackType -&gt; [Header])
 -&gt; ToHeader AnomalyFeedbackType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AnomalyFeedbackType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AnomalyFeedbackType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325842"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325851"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; QueryString
 (AnomalyFeedbackType -&gt; QueryString) -&gt; ToQuery AnomalyFeedbackType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AnomalyFeedbackType -&gt; QueryString
 $ctoQuery :: AnomalyFeedbackType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325837"><span id="local-6989586621679325839"><span class="annot"><span class="annottext">Value -&gt; Parser [AnomalyFeedbackType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325846"><span id="local-6989586621679325848"><span class="annot"><span class="annottext">Value -&gt; Parser [AnomalyFeedbackType]
 Value -&gt; Parser AnomalyFeedbackType
 (Value -&gt; Parser AnomalyFeedbackType)
 -&gt; (Value -&gt; Parser [AnomalyFeedbackType])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [AnomalyFeedbackType]
 parseJSON :: Value -&gt; Parser AnomalyFeedbackType
 $cparseJSON :: Value -&gt; Parser AnomalyFeedbackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325832"><span id="local-6989586621679325834"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnomalyFeedbackType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325841"><span id="local-6989586621679325843"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnomalyFeedbackType]
 FromJSONKeyFunction AnomalyFeedbackType
 FromJSONKeyFunction AnomalyFeedbackType
 -&gt; FromJSONKeyFunction [AnomalyFeedbackType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AnomalyFeedbackType]
 fromJSONKey :: FromJSONKeyFunction AnomalyFeedbackType
 $cfromJSONKey :: FromJSONKeyFunction AnomalyFeedbackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325823"><span id="local-6989586621679325825"><span id="local-6989586621679325827"><span id="local-6989586621679325829"><span class="annot"><span class="annottext">[AnomalyFeedbackType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325832"><span id="local-6989586621679325834"><span id="local-6989586621679325836"><span id="local-6989586621679325838"><span class="annot"><span class="annottext">[AnomalyFeedbackType] -&gt; Encoding
 [AnomalyFeedbackType] -&gt; Value
 AnomalyFeedbackType -&gt; Encoding
 AnomalyFeedbackType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: AnomalyFeedbackType -&gt; Encoding
 toJSON :: AnomalyFeedbackType -&gt; Value
 $ctoJSON :: AnomalyFeedbackType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325818"><span id="local-6989586621679325820"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnomalyFeedbackType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325827"><span id="local-6989586621679325829"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnomalyFeedbackType]
 ToJSONKeyFunction AnomalyFeedbackType
 ToJSONKeyFunction AnomalyFeedbackType
 -&gt; ToJSONKeyFunction [AnomalyFeedbackType]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AnomalyFeedbackType]
 toJSONKey :: ToJSONKeyFunction AnomalyFeedbackType
 $ctoJSONKey :: ToJSONKeyFunction AnomalyFeedbackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325815"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnomalyFeedbackType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325824"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnomalyFeedbackType
 ([Node] -&gt; Either String AnomalyFeedbackType)
 -&gt; FromXML AnomalyFeedbackType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AnomalyFeedbackType
 $cparseXML :: [Node] -&gt; Either String AnomalyFeedbackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325812"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325821"><span class="annot"><span class="annottext">AnomalyFeedbackType -&gt; XML
 (AnomalyFeedbackType -&gt; XML) -&gt; ToXML AnomalyFeedbackType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AnomalyFeedbackType -&gt; XML

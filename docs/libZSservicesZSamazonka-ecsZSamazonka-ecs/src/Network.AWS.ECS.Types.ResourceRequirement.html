@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newResourceRequirement' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679459318"><span id="local-6989586621679459319"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRequirement"><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-var">ResourceRequirement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRequirement%27"><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-var">ResourceRequirement'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679459327"><span id="local-6989586621679459328"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRequirement"><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-var">ResourceRequirement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRequirement%27"><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-var">ResourceRequirement'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for the specified resource type.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- If the @GPU@ type is used, the value is the number of physical @GPUs@</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Atype%27%3AResourceRequirement%27"><span class="annot"><span class="annottext">ResourceRequirement -&gt; ResourceType
 </span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#%24sel%3Atype%27%3AResourceRequirement%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459311"><span id="local-6989586621679459313"><span class="annot"><span class="annottext">ResourceRequirement -&gt; ResourceRequirement -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459320"><span id="local-6989586621679459322"><span class="annot"><span class="annottext">ResourceRequirement -&gt; ResourceRequirement -&gt; Bool
 (ResourceRequirement -&gt; ResourceRequirement -&gt; Bool)
 -&gt; (ResourceRequirement -&gt; ResourceRequirement -&gt; Bool)
 -&gt; Eq ResourceRequirement
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceRequirement -&gt; ResourceRequirement -&gt; Bool
 == :: ResourceRequirement -&gt; ResourceRequirement -&gt; Bool
 $c== :: ResourceRequirement -&gt; ResourceRequirement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459302"><span id="local-6989586621679459304"><span id="local-6989586621679459306"><span id="local-6989586621679459308"><span class="annot"><span class="annottext">ReadPrec [ResourceRequirement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459311"><span id="local-6989586621679459313"><span id="local-6989586621679459315"><span id="local-6989586621679459317"><span class="annot"><span class="annottext">ReadPrec [ResourceRequirement]
 ReadPrec ResourceRequirement
 Int -&gt; ReadS ResourceRequirement
 ReadS [ResourceRequirement]
@@ -80,7 +80,7 @@ readList :: ReadS [ResourceRequirement]
 $creadList :: ReadS [ResourceRequirement]
 readsPrec :: Int -&gt; ReadS ResourceRequirement
 $creadsPrec :: Int -&gt; ReadS ResourceRequirement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459295"><span id="local-6989586621679459297"><span id="local-6989586621679459299"><span class="annot"><span class="annottext">Int -&gt; ResourceRequirement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459304"><span id="local-6989586621679459306"><span id="local-6989586621679459308"><span class="annot"><span class="annottext">Int -&gt; ResourceRequirement -&gt; ShowS
 [ResourceRequirement] -&gt; ShowS
 ResourceRequirement -&gt; String
 (Int -&gt; ResourceRequirement -&gt; ShowS)
@@ -134,17 +134,17 @@ $cfrom :: forall x. ResourceRequirement -&gt; Rep ResourceRequirement x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span><span>
 </span><span id="line-81"></span><span id="newResourceRequirement"><span class="annot"><span class="annottext">newResourceRequirement :: Text -&gt; ResourceType -&gt; ResourceRequirement
-</span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#newResourceRequirement"><span class="hs-identifier hs-var hs-var">newResourceRequirement</span></a></span></span><span> </span><span id="local-6989586621679459289"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459289"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679459288"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679459288"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#newResourceRequirement"><span class="hs-identifier hs-var hs-var">newResourceRequirement</span></a></span></span><span> </span><span id="local-6989586621679459298"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459298"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679459297"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679459297"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">ResourceRequirement' :: Text -&gt; ResourceType -&gt; ResourceRequirement
 </span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:ResourceRequirement' :: Text
 </span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#%24sel%3Avalue%3AResourceRequirement%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459289"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459298"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ResourceRequirement' :: ResourceType
 </span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#%24sel%3Atype%27%3AResourceRequirement%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679459288"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679459297"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The value for the specified resource type.</span><span>
@@ -163,16 +163,16 @@ $cfrom :: forall x. ResourceRequirement -&gt; Rep ResourceRequirement x
 -&gt; (ResourceRequirement -&gt; Text -&gt; ResourceRequirement)
 -&gt; Lens ResourceRequirement ResourceRequirement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459284"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459293"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:ResourceRequirement' :: ResourceRequirement -&gt; Text
-</span><a href="#local-6989586621679459284"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459284"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459283"><span class="annot"><span class="annottext">s :: ResourceRequirement
-</span><a href="#local-6989586621679459283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459282"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRequirement
-</span><a href="#local-6989586621679459283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceRequirement' :: Text
+</span><a href="#local-6989586621679459293"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459293"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459292"><span class="annot"><span class="annottext">s :: ResourceRequirement
+</span><a href="#local-6989586621679459292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459291"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRequirement
+</span><a href="#local-6989586621679459292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceRequirement' :: Text
 </span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#%24sel%3Avalue%3AResourceRequirement%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The type of resource to assign to a container. The supported values are</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- @GPU@ or @InferenceAccelerator@.</span><span>
@@ -184,19 +184,19 @@ $sel:value:ResourceRequirement' :: ResourceRequirement -&gt; Text
 -&gt; Lens
      ResourceRequirement ResourceRequirement ResourceType ResourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459280"><span class="annot"><span class="annottext">ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459289"><span class="annot"><span class="annottext">ResourceType
 type' :: ResourceType
 $sel:type':ResourceRequirement' :: ResourceRequirement -&gt; ResourceType
-</span><a href="#local-6989586621679459280"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679459280"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459279"><span class="annot"><span class="annottext">s :: ResourceRequirement
-</span><a href="#local-6989586621679459279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459278"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679459278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRequirement
-</span><a href="#local-6989586621679459279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceRequirement' :: ResourceType
+</span><a href="#local-6989586621679459289"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679459289"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459288"><span class="annot"><span class="annottext">s :: ResourceRequirement
+</span><a href="#local-6989586621679459288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459287"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679459287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRequirement
+</span><a href="#local-6989586621679459288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceRequirement' :: ResourceType
 </span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#%24sel%3Atype%27%3AResourceRequirement%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679459278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679459273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceRequirement
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459284"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679459282"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceRequirement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceRequirement)
@@ -206,40 +206,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceRequirement&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459270"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459279"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679459279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ResourceType -&gt; ResourceRequirement
 </span><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-var">ResourceRequirement'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; ResourceType -&gt; ResourceRequirement)
 -&gt; Parser Text -&gt; Parser (ResourceType -&gt; ResourceRequirement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679459279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (ResourceType -&gt; ResourceRequirement)
 -&gt; Parser ResourceType -&gt; Parser ResourceRequirement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceType
+</span><a href="#local-6989586621679459279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459264"><span id="local-6989586621679459266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459273"><span id="local-6989586621679459275"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459253"><span id="local-6989586621679459255"><span id="local-6989586621679459257"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679459251"><span class="annot"><span class="annottext">toJSON :: ResourceRequirement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459248"><span id="local-6989586621679459249"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459262"><span id="local-6989586621679459264"><span id="local-6989586621679459266"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement"><span class="hs-identifier hs-type">ResourceRequirement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679459260"><span class="annot"><span class="annottext">toJSON :: ResourceRequirement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ResourceRequirement.html#ResourceRequirement%27"><span class="hs-identifier hs-type">ResourceRequirement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459257"><span id="local-6989586621679459258"><span class="annot"><span class="annottext">Text
 ResourceType
 type' :: ResourceType
 value :: Text
 $sel:type':ResourceRequirement' :: ResourceRequirement -&gt; ResourceType
 $sel:value:ResourceRequirement' :: ResourceRequirement -&gt; Text
-</span><a href="#local-6989586621679459248"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679459257"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,14 +251,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459249"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459258"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679459248"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459257"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span></pre></body></html>

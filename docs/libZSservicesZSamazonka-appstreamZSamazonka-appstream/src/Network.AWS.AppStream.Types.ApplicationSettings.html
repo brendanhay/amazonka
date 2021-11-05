@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The persistent application settings for users of a stack.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newApplicationSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679285165"><span id="local-6989586621679285166"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationSettings"><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-var">ApplicationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationSettings%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-var">ApplicationSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679285174"><span id="local-6989586621679285175"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationSettings"><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-var">ApplicationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationSettings%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-var">ApplicationSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path prefix for the S3 bucket where users&#8217; persistent application</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- settings are stored. You can allow the same persistent application</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- settings to be used across multiple stacks by specifying the same</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aenabled%3AApplicationSettings%27"><span class="annot"><span class="annottext">ApplicationSettings -&gt; Bool
 </span><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#%24sel%3Aenabled%3AApplicationSettings%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285158"><span id="local-6989586621679285160"><span class="annot"><span class="annottext">ApplicationSettings -&gt; ApplicationSettings -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285167"><span id="local-6989586621679285169"><span class="annot"><span class="annottext">ApplicationSettings -&gt; ApplicationSettings -&gt; Bool
 (ApplicationSettings -&gt; ApplicationSettings -&gt; Bool)
 -&gt; (ApplicationSettings -&gt; ApplicationSettings -&gt; Bool)
 -&gt; Eq ApplicationSettings
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApplicationSettings -&gt; ApplicationSettings -&gt; Bool
 == :: ApplicationSettings -&gt; ApplicationSettings -&gt; Bool
 $c== :: ApplicationSettings -&gt; ApplicationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285149"><span id="local-6989586621679285151"><span id="local-6989586621679285153"><span id="local-6989586621679285155"><span class="annot"><span class="annottext">ReadPrec [ApplicationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285158"><span id="local-6989586621679285160"><span id="local-6989586621679285162"><span id="local-6989586621679285164"><span class="annot"><span class="annottext">ReadPrec [ApplicationSettings]
 ReadPrec ApplicationSettings
 Int -&gt; ReadS ApplicationSettings
 ReadS [ApplicationSettings]
@@ -67,7 +67,7 @@ readList :: ReadS [ApplicationSettings]
 $creadList :: ReadS [ApplicationSettings]
 readsPrec :: Int -&gt; ReadS ApplicationSettings
 $creadsPrec :: Int -&gt; ReadS ApplicationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285142"><span id="local-6989586621679285144"><span id="local-6989586621679285146"><span class="annot"><span class="annottext">Int -&gt; ApplicationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285151"><span id="local-6989586621679285153"><span id="local-6989586621679285155"><span class="annot"><span class="annottext">Int -&gt; ApplicationSettings -&gt; ShowS
 [ApplicationSettings] -&gt; ShowS
 ApplicationSettings -&gt; String
 (Int -&gt; ApplicationSettings -&gt; ShowS)
@@ -113,8 +113,8 @@ $cfrom :: forall x. ApplicationSettings -&gt; Rep ApplicationSettings x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span><span>
 </span><span id="line-60"></span><span id="newApplicationSettings"><span class="annot"><span class="annottext">newApplicationSettings :: Bool -&gt; ApplicationSettings
-</span><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#newApplicationSettings"><span class="hs-identifier hs-var hs-var">newApplicationSettings</span></a></span></span><span> </span><span id="local-6989586621679285136"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679285136"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#newApplicationSettings"><span class="hs-identifier hs-var hs-var">newApplicationSettings</span></a></span></span><span> </span><span id="local-6989586621679285145"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679285145"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ApplicationSettings' :: Maybe Text -&gt; Bool -&gt; ApplicationSettings
 </span><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:settingsGroup:ApplicationSettings' :: Maybe Text
@@ -124,7 +124,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:ApplicationSettings' :: Bool
 </span><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#%24sel%3Aenabled%3AApplicationSettings%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679285136"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
+</span><a href="#local-6989586621679285145"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The path prefix for the S3 bucket where users&#8217; persistent application</span><span>
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; Lens
      ApplicationSettings ApplicationSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285132"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285141"><span class="annot"><span class="annottext">Maybe Text
 settingsGroup :: Maybe Text
 $sel:settingsGroup:ApplicationSettings' :: ApplicationSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679285132"><span class="hs-identifier hs-var hs-var">settingsGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285132"><span class="hs-identifier hs-var">settingsGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285131"><span class="annot"><span class="annottext">s :: ApplicationSettings
-</span><a href="#local-6989586621679285131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285130"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSettings
-</span><a href="#local-6989586621679285131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingsGroup:ApplicationSettings' :: Maybe Text
+</span><a href="#local-6989586621679285141"><span class="hs-identifier hs-var hs-var">settingsGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285141"><span class="hs-identifier hs-var">settingsGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285140"><span class="annot"><span class="annottext">s :: ApplicationSettings
+</span><a href="#local-6989586621679285140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSettings
+</span><a href="#local-6989586621679285140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingsGroup:ApplicationSettings' :: Maybe Text
 </span><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#%24sel%3AsettingsGroup%3AApplicationSettings%27"><span class="hs-identifier hs-var">settingsGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Enables or disables persistent application settings for users during</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- their streaming sessions.</span><span>
@@ -158,30 +158,30 @@ $sel:settingsGroup:ApplicationSettings' :: ApplicationSettings -&gt; Maybe Text
 -&gt; (ApplicationSettings -&gt; Bool -&gt; ApplicationSettings)
 -&gt; Lens ApplicationSettings ApplicationSettings Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285128"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285137"><span class="annot"><span class="annottext">Bool
 enabled :: Bool
 $sel:enabled:ApplicationSettings' :: ApplicationSettings -&gt; Bool
-</span><a href="#local-6989586621679285128"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679285128"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285127"><span class="annot"><span class="annottext">s :: ApplicationSettings
-</span><a href="#local-6989586621679285127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285126"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679285126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSettings
-</span><a href="#local-6989586621679285127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ApplicationSettings' :: Bool
+</span><a href="#local-6989586621679285137"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679285137"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285136"><span class="annot"><span class="annottext">s :: ApplicationSettings
+</span><a href="#local-6989586621679285136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285135"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679285135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSettings
+</span><a href="#local-6989586621679285136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ApplicationSettings' :: Bool
 </span><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#%24sel%3Aenabled%3AApplicationSettings%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679285126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285122"><span id="local-6989586621679285124"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285131"><span id="local-6989586621679285133"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285111"><span id="local-6989586621679285113"><span id="local-6989586621679285115"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679285109"><span class="annot"><span class="annottext">toJSON :: ApplicationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285106"><span id="local-6989586621679285107"><span class="annot"><span class="annottext">Bool
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285120"><span id="local-6989586621679285122"><span id="local-6989586621679285124"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings"><span class="hs-identifier hs-type">ApplicationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679285118"><span class="annot"><span class="annottext">toJSON :: ApplicationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ApplicationSettings.html#ApplicationSettings%27"><span class="hs-identifier hs-type">ApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285115"><span id="local-6989586621679285116"><span class="annot"><span class="annottext">Bool
 Maybe Text
 enabled :: Bool
 settingsGroup :: Maybe Text
 $sel:enabled:ApplicationSettings' :: ApplicationSettings -&gt; Bool
 $sel:settingsGroup:ApplicationSettings' :: ApplicationSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679285106"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679285115"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -193,14 +193,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285107"><span class="hs-identifier hs-var">settingsGroup</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679285116"><span class="hs-identifier hs-var">settingsGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679285106"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285115"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

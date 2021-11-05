@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Summary information about an export task.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExportSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679372697"><span id="local-6989586621679372698"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-var">ExportSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-var">ExportSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679372706"><span id="local-6989586621679372707"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-var">ExportSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-var">ExportSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- FAILED.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AexportStatus%3AExportSummary%27"><span class="annot"><span class="annottext">ExportSummary -&gt; Maybe ExportStatus
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AexportArn%3AExportSummary%27"><span class="annot"><span class="annottext">ExportSummary -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#%24sel%3AexportArn%3AExportSummary%27"><span class="hs-identifier hs-var hs-var">exportArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372690"><span id="local-6989586621679372692"><span class="annot"><span class="annottext">ExportSummary -&gt; ExportSummary -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372699"><span id="local-6989586621679372701"><span class="annot"><span class="annottext">ExportSummary -&gt; ExportSummary -&gt; Bool
 (ExportSummary -&gt; ExportSummary -&gt; Bool)
 -&gt; (ExportSummary -&gt; ExportSummary -&gt; Bool) -&gt; Eq ExportSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExportSummary -&gt; ExportSummary -&gt; Bool
 == :: ExportSummary -&gt; ExportSummary -&gt; Bool
 $c== :: ExportSummary -&gt; ExportSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372681"><span id="local-6989586621679372683"><span id="local-6989586621679372685"><span id="local-6989586621679372687"><span class="annot"><span class="annottext">ReadPrec [ExportSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372690"><span id="local-6989586621679372692"><span id="local-6989586621679372694"><span id="local-6989586621679372696"><span class="annot"><span class="annottext">ReadPrec [ExportSummary]
 ReadPrec ExportSummary
 Int -&gt; ReadS ExportSummary
 ReadS [ExportSummary]
@@ -64,7 +64,7 @@ readList :: ReadS [ExportSummary]
 $creadList :: ReadS [ExportSummary]
 readsPrec :: Int -&gt; ReadS ExportSummary
 $creadsPrec :: Int -&gt; ReadS ExportSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372674"><span id="local-6989586621679372676"><span id="local-6989586621679372678"><span class="annot"><span class="annottext">Int -&gt; ExportSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372683"><span id="local-6989586621679372685"><span id="local-6989586621679372687"><span class="annot"><span class="annottext">Int -&gt; ExportSummary -&gt; ShowS
 [ExportSummary] -&gt; ShowS
 ExportSummary -&gt; String
 (Int -&gt; ExportSummary -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe ExportStatus)
      (Maybe ExportStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372665"><span class="annot"><span class="annottext">Maybe ExportStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372674"><span class="annot"><span class="annottext">Maybe ExportStatus
 exportStatus :: Maybe ExportStatus
 $sel:exportStatus:ExportSummary' :: ExportSummary -&gt; Maybe ExportStatus
-</span><a href="#local-6989586621679372665"><span class="hs-identifier hs-var hs-var">exportStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExportStatus
-</span><a href="#local-6989586621679372665"><span class="hs-identifier hs-var">exportStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372664"><span class="annot"><span class="annottext">s :: ExportSummary
-</span><a href="#local-6989586621679372664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372663"><span class="annot"><span class="annottext">Maybe ExportStatus
-</span><a href="#local-6989586621679372663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSummary
-</span><a href="#local-6989586621679372664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportStatus:ExportSummary' :: Maybe ExportStatus
+</span><a href="#local-6989586621679372674"><span class="hs-identifier hs-var hs-var">exportStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExportStatus
+</span><a href="#local-6989586621679372674"><span class="hs-identifier hs-var">exportStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372673"><span class="annot"><span class="annottext">s :: ExportSummary
+</span><a href="#local-6989586621679372673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372672"><span class="annot"><span class="annottext">Maybe ExportStatus
+</span><a href="#local-6989586621679372672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSummary
+</span><a href="#local-6989586621679372673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportStatus:ExportSummary' :: Maybe ExportStatus
 </span><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#%24sel%3AexportStatus%3AExportSummary%27"><span class="hs-identifier hs-var">exportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExportStatus
-</span><a href="#local-6989586621679372663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the export.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#exportSummary_exportArn"><span class="hs-identifier hs-type">exportSummary_exportArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -149,19 +149,19 @@ $sel:exportStatus:ExportSummary' :: ExportSummary -&gt; Maybe ExportStatus
 -&gt; (ExportSummary -&gt; Maybe Text -&gt; ExportSummary)
 -&gt; Lens ExportSummary ExportSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372661"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372670"><span class="annot"><span class="annottext">Maybe Text
 exportArn :: Maybe Text
 $sel:exportArn:ExportSummary' :: ExportSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679372661"><span class="hs-identifier hs-var hs-var">exportArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372661"><span class="hs-identifier hs-var">exportArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372660"><span class="annot"><span class="annottext">s :: ExportSummary
-</span><a href="#local-6989586621679372660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372659"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSummary
-</span><a href="#local-6989586621679372660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportArn:ExportSummary' :: Maybe Text
+</span><a href="#local-6989586621679372670"><span class="hs-identifier hs-var hs-var">exportArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372670"><span class="hs-identifier hs-var">exportArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372669"><span class="annot"><span class="annottext">s :: ExportSummary
+</span><a href="#local-6989586621679372669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-type">ExportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSummary
+</span><a href="#local-6989586621679372669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportArn:ExportSummary' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#%24sel%3AexportArn%3AExportSummary%27"><span class="hs-identifier hs-var">exportArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372656"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679372654"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExportSummary
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679372663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExportSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExportSummary)
@@ -171,8 +171,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExportSummary&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372651"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372651"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372660"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExportStatus -&gt; Maybe Text -&gt; ExportSummary
 </span><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary%27"><span class="hs-identifier hs-var">ExportSummary'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExportStatus -&gt; Maybe Text -&gt; ExportSummary)
@@ -180,7 +180,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ExportSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExportStatus)
+</span><a href="#local-6989586621679372660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExportStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExportStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,13 +188,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ExportSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExportArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372645"><span id="local-6989586621679372647"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372654"><span id="local-6989586621679372656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ExportSummary.html#ExportSummary"><span class="hs-identifier hs-type">ExportSummary</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

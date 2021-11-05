@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.Types.Distribution</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.Types.Distribution</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.AmiDistributionConfiguration.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.AmiDistributionConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerDistributionConfiguration.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ContainerDistributionConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.LaunchTemplateConfiguration.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.LaunchTemplateConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Defines the settings for a specific Region.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDistribution' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679319528"><span id="local-6989586621679319529"></span></span><span class="hs-keyword">data</span><span> </span><span id="Distribution"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-var">Distribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Distribution%27"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-var">Distribution'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific AMI settings; for example, launch permissions or AMI tags.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AamiDistributionConfiguration%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe AmiDistributionConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AamiDistributionConfiguration%3ADistribution%27"><span class="hs-identifier hs-var hs-var">amiDistributionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.AmiDistributionConfiguration.html#AmiDistributionConfiguration"><span class="hs-identifier hs-type">AmiDistributionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A group of launchTemplateConfiguration settings that apply to image</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- distribution for specified accounts.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlaunchTemplateConfigurations%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AlaunchTemplateConfigurations%3ADistribution%27"><span class="hs-identifier hs-var hs-var">launchTemplateConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.LaunchTemplateConfiguration.html#LaunchTemplateConfiguration"><span class="hs-identifier hs-type">LaunchTemplateConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The License Manager Configuration to associate with the AMI in the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specified Region.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlicenseConfigurationArns%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AlicenseConfigurationArns%3ADistribution%27"><span class="hs-identifier hs-var hs-var">licenseConfigurationArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Container distribution settings for encryption, licensing, and sharing</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- in a specific Region.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcontainerDistributionConfiguration%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe ContainerDistributionConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AcontainerDistributionConfiguration%3ADistribution%27"><span class="hs-identifier hs-var hs-var">containerDistributionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerDistributionConfiguration.html#ContainerDistributionConfiguration"><span class="hs-identifier hs-type">ContainerDistributionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The target Region.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aregion%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Text
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3Aregion%3ADistribution%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319518"><span id="local-6989586621679319520"><span class="annot"><span class="annottext">Distribution -&gt; Distribution -&gt; Bool
+(Distribution -&gt; Distribution -&gt; Bool)
+-&gt; (Distribution -&gt; Distribution -&gt; Bool) -&gt; Eq Distribution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Distribution -&gt; Distribution -&gt; Bool
+$c/= :: Distribution -&gt; Distribution -&gt; Bool
+== :: Distribution -&gt; Distribution -&gt; Bool
+$c== :: Distribution -&gt; Distribution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319509"><span id="local-6989586621679319511"><span id="local-6989586621679319513"><span id="local-6989586621679319515"><span class="annot"><span class="annottext">ReadPrec [Distribution]
+ReadPrec Distribution
+Int -&gt; ReadS Distribution
+ReadS [Distribution]
+(Int -&gt; ReadS Distribution)
+-&gt; ReadS [Distribution]
+-&gt; ReadPrec Distribution
+-&gt; ReadPrec [Distribution]
+-&gt; Read Distribution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Distribution]
+$creadListPrec :: ReadPrec [Distribution]
+readPrec :: ReadPrec Distribution
+$creadPrec :: ReadPrec Distribution
+readList :: ReadS [Distribution]
+$creadList :: ReadS [Distribution]
+readsPrec :: Int -&gt; ReadS Distribution
+$creadsPrec :: Int -&gt; ReadS Distribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319502"><span id="local-6989586621679319504"><span id="local-6989586621679319506"><span class="annot"><span class="annottext">Int -&gt; Distribution -&gt; ShowS
+[Distribution] -&gt; ShowS
+Distribution -&gt; String
+(Int -&gt; Distribution -&gt; ShowS)
+-&gt; (Distribution -&gt; String)
+-&gt; ([Distribution] -&gt; ShowS)
+-&gt; Show Distribution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Distribution] -&gt; ShowS
+$cshowList :: [Distribution] -&gt; ShowS
+show :: Distribution -&gt; String
+$cshow :: Distribution -&gt; String
+showsPrec :: Int -&gt; Distribution -&gt; ShowS
+$cshowsPrec :: Int -&gt; Distribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Distribution -&gt; Rep Distribution x)
+-&gt; (forall x. Rep Distribution x -&gt; Distribution)
+-&gt; Generic Distribution
+forall x. Rep Distribution x -&gt; Distribution
+forall x. Distribution -&gt; Rep Distribution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Distribution x -&gt; Distribution
+$cfrom :: forall x. Distribution -&gt; Rep Distribution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'Distribution' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'amiDistributionConfiguration', 'distribution_amiDistributionConfiguration' - The specific AMI settings; for example, launch permissions or AMI tags.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'launchTemplateConfigurations', 'distribution_launchTemplateConfigurations' - A group of launchTemplateConfiguration settings that apply to image</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- distribution for specified accounts.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'licenseConfigurationArns', 'distribution_licenseConfigurationArns' - The License Manager Configuration to associate with the AMI in the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- specified Region.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'containerDistributionConfiguration', 'distribution_containerDistributionConfiguration' - Container distribution settings for encryption, licensing, and sharing</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- in a specific Region.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'region', 'distribution_region' - The target Region.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#newDistribution"><span class="hs-identifier hs-type">newDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'region'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span>
+</span><span id="line-73"></span><span id="newDistribution"><span class="annot"><span class="annottext">newDistribution :: Text -&gt; Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#newDistribution"><span class="hs-identifier hs-var hs-var">newDistribution</span></a></span></span><span> </span><span id="local-6989586621679319496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319496"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">Distribution' :: Maybe AmiDistributionConfiguration
+-&gt; Maybe (NonEmpty LaunchTemplateConfiguration)
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe ContainerDistributionConfiguration
+-&gt; Text
+-&gt; Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:amiDistributionConfiguration:Distribution' :: Maybe AmiDistributionConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AamiDistributionConfiguration%3ADistribution%27"><span class="hs-identifier hs-var">amiDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe AmiDistributionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplateConfigurations:Distribution' :: Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AlaunchTemplateConfigurations%3ADistribution%27"><span class="hs-identifier hs-var">launchTemplateConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LaunchTemplateConfiguration)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseConfigurationArns:Distribution' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AlicenseConfigurationArns%3ADistribution%27"><span class="hs-identifier hs-var">licenseConfigurationArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerDistributionConfiguration:Distribution' :: Maybe ContainerDistributionConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AcontainerDistributionConfiguration%3ADistribution%27"><span class="hs-identifier hs-var">containerDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDistributionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:Distribution' :: Text
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3Aregion%3ADistribution%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319496"><span class="hs-identifier hs-var">pRegion_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The specific AMI settings; for example, launch permissions or AMI tags.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_amiDistributionConfiguration"><span class="hs-identifier hs-type">distribution_amiDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.AmiDistributionConfiguration.html#AmiDistributionConfiguration"><span class="hs-identifier hs-type">AmiDistributionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="distribution_amiDistributionConfiguration"><span class="annot"><span class="annottext">distribution_amiDistributionConfiguration :: (Maybe AmiDistributionConfiguration
+ -&gt; f (Maybe AmiDistributionConfiguration))
+-&gt; Distribution -&gt; f Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_amiDistributionConfiguration"><span class="hs-identifier hs-var hs-var">distribution_amiDistributionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe AmiDistributionConfiguration)
+-&gt; (Distribution
+    -&gt; Maybe AmiDistributionConfiguration -&gt; Distribution)
+-&gt; Lens
+     Distribution
+     Distribution
+     (Maybe AmiDistributionConfiguration)
+     (Maybe AmiDistributionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319492"><span class="annot"><span class="annottext">Maybe AmiDistributionConfiguration
+amiDistributionConfiguration :: Maybe AmiDistributionConfiguration
+$sel:amiDistributionConfiguration:Distribution' :: Distribution -&gt; Maybe AmiDistributionConfiguration
+</span><a href="#local-6989586621679319492"><span class="hs-identifier hs-var hs-var">amiDistributionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AmiDistributionConfiguration
+</span><a href="#local-6989586621679319492"><span class="hs-identifier hs-var">amiDistributionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319491"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679319491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319490"><span class="annot"><span class="annottext">Maybe AmiDistributionConfiguration
+</span><a href="#local-6989586621679319490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679319491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amiDistributionConfiguration:Distribution' :: Maybe AmiDistributionConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AamiDistributionConfiguration%3ADistribution%27"><span class="hs-identifier hs-var">amiDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmiDistributionConfiguration
+</span><a href="#local-6989586621679319490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A group of launchTemplateConfiguration settings that apply to image</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- distribution for specified accounts.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_launchTemplateConfigurations"><span class="hs-identifier hs-type">distribution_launchTemplateConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.LaunchTemplateConfiguration.html#LaunchTemplateConfiguration"><span class="hs-identifier hs-type">LaunchTemplateConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="distribution_launchTemplateConfigurations"><span class="annot"><span class="annottext">distribution_launchTemplateConfigurations :: (Maybe (NonEmpty LaunchTemplateConfiguration)
+ -&gt; f (Maybe (NonEmpty LaunchTemplateConfiguration)))
+-&gt; Distribution -&gt; f Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_launchTemplateConfigurations"><span class="hs-identifier hs-var hs-var">distribution_launchTemplateConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe (NonEmpty LaunchTemplateConfiguration))
+-&gt; (Distribution
+    -&gt; Maybe (NonEmpty LaunchTemplateConfiguration) -&gt; Distribution)
+-&gt; Lens
+     Distribution
+     Distribution
+     (Maybe (NonEmpty LaunchTemplateConfiguration))
+     (Maybe (NonEmpty LaunchTemplateConfiguration))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319488"><span class="annot"><span class="annottext">Maybe (NonEmpty LaunchTemplateConfiguration)
+launchTemplateConfigurations :: Maybe (NonEmpty LaunchTemplateConfiguration)
+$sel:launchTemplateConfigurations:Distribution' :: Distribution -&gt; Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="#local-6989586621679319488"><span class="hs-identifier hs-var hs-var">launchTemplateConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="#local-6989586621679319488"><span class="hs-identifier hs-var">launchTemplateConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319487"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679319487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319486"><span class="annot"><span class="annottext">Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="#local-6989586621679319486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679319487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateConfigurations:Distribution' :: Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AlaunchTemplateConfigurations%3ADistribution%27"><span class="hs-identifier hs-var">launchTemplateConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="#local-6989586621679319486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty LaunchTemplateConfiguration)
+  -&gt; f (Maybe (NonEmpty LaunchTemplateConfiguration)))
+ -&gt; Distribution -&gt; f Distribution)
+-&gt; ((Maybe (NonEmpty LaunchTemplateConfiguration)
+     -&gt; f (Maybe (NonEmpty LaunchTemplateConfiguration)))
+    -&gt; Maybe (NonEmpty LaunchTemplateConfiguration)
+    -&gt; f (Maybe (NonEmpty LaunchTemplateConfiguration)))
+-&gt; (Maybe (NonEmpty LaunchTemplateConfiguration)
+    -&gt; f (Maybe (NonEmpty LaunchTemplateConfiguration)))
+-&gt; Distribution
+-&gt; f Distribution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty LaunchTemplateConfiguration)
+  (NonEmpty LaunchTemplateConfiguration)
+  (NonEmpty LaunchTemplateConfiguration)
+  (NonEmpty LaunchTemplateConfiguration)
+-&gt; Iso
+     (Maybe (NonEmpty LaunchTemplateConfiguration))
+     (Maybe (NonEmpty LaunchTemplateConfiguration))
+     (Maybe (NonEmpty LaunchTemplateConfiguration))
+     (Maybe (NonEmpty LaunchTemplateConfiguration))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty LaunchTemplateConfiguration)
+  (NonEmpty LaunchTemplateConfiguration)
+  (NonEmpty LaunchTemplateConfiguration)
+  (NonEmpty LaunchTemplateConfiguration)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The License Manager Configuration to associate with the AMI in the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- specified Region.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_licenseConfigurationArns"><span class="hs-identifier hs-type">distribution_licenseConfigurationArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="distribution_licenseConfigurationArns"><span class="annot"><span class="annottext">distribution_licenseConfigurationArns :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; Distribution -&gt; f Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_licenseConfigurationArns"><span class="hs-identifier hs-var hs-var">distribution_licenseConfigurationArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe (NonEmpty Text))
+-&gt; (Distribution -&gt; Maybe (NonEmpty Text) -&gt; Distribution)
+-&gt; Lens
+     Distribution
+     Distribution
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319481"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+licenseConfigurationArns :: Maybe (NonEmpty Text)
+$sel:licenseConfigurationArns:Distribution' :: Distribution -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679319481"><span class="hs-identifier hs-var hs-var">licenseConfigurationArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679319481"><span class="hs-identifier hs-var">licenseConfigurationArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319480"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679319480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319479"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679319479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679319480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseConfigurationArns:Distribution' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AlicenseConfigurationArns%3ADistribution%27"><span class="hs-identifier hs-var">licenseConfigurationArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679319479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; Distribution -&gt; f Distribution)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; Distribution
+-&gt; f Distribution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Container distribution settings for encryption, licensing, and sharing</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- in a specific Region.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_containerDistributionConfiguration"><span class="hs-identifier hs-type">distribution_containerDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ContainerDistributionConfiguration.html#ContainerDistributionConfiguration"><span class="hs-identifier hs-type">ContainerDistributionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="distribution_containerDistributionConfiguration"><span class="annot"><span class="annottext">distribution_containerDistributionConfiguration :: (Maybe ContainerDistributionConfiguration
+ -&gt; f (Maybe ContainerDistributionConfiguration))
+-&gt; Distribution -&gt; f Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_containerDistributionConfiguration"><span class="hs-identifier hs-var hs-var">distribution_containerDistributionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe ContainerDistributionConfiguration)
+-&gt; (Distribution
+    -&gt; Maybe ContainerDistributionConfiguration -&gt; Distribution)
+-&gt; Lens
+     Distribution
+     Distribution
+     (Maybe ContainerDistributionConfiguration)
+     (Maybe ContainerDistributionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319477"><span class="annot"><span class="annottext">Maybe ContainerDistributionConfiguration
+containerDistributionConfiguration :: Maybe ContainerDistributionConfiguration
+$sel:containerDistributionConfiguration:Distribution' :: Distribution -&gt; Maybe ContainerDistributionConfiguration
+</span><a href="#local-6989586621679319477"><span class="hs-identifier hs-var hs-var">containerDistributionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDistributionConfiguration
+</span><a href="#local-6989586621679319477"><span class="hs-identifier hs-var">containerDistributionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319476"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679319476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319475"><span class="annot"><span class="annottext">Maybe ContainerDistributionConfiguration
+</span><a href="#local-6989586621679319475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679319476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerDistributionConfiguration:Distribution' :: Maybe ContainerDistributionConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3AcontainerDistributionConfiguration%3ADistribution%27"><span class="hs-identifier hs-var">containerDistributionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDistributionConfiguration
+</span><a href="#local-6989586621679319475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The target Region.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_region"><span class="hs-identifier hs-type">distribution_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="distribution_region"><span class="annot"><span class="annottext">distribution_region :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#distribution_region"><span class="hs-identifier hs-var hs-var">distribution_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Text)
+-&gt; (Distribution -&gt; Text -&gt; Distribution)
+-&gt; Lens Distribution Distribution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319473"><span class="annot"><span class="annottext">Text
+region :: Text
+$sel:region:Distribution' :: Distribution -&gt; Text
+</span><a href="#local-6989586621679319473"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319473"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319472"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679319472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679319472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:Distribution' :: Text
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#%24sel%3Aregion%3ADistribution%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679319466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Distribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Distribution) -&gt; Value -&gt; Parser Distribution
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Distribution&quot;</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319463"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe AmiDistributionConfiguration
+-&gt; Maybe (NonEmpty LaunchTemplateConfiguration)
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe ContainerDistributionConfiguration
+-&gt; Text
+-&gt; Distribution
+</span><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-var">Distribution'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AmiDistributionConfiguration
+ -&gt; Maybe (NonEmpty LaunchTemplateConfiguration)
+ -&gt; Maybe (NonEmpty Text)
+ -&gt; Maybe ContainerDistributionConfiguration
+ -&gt; Text
+ -&gt; Distribution)
+-&gt; Parser (Maybe AmiDistributionConfiguration)
+-&gt; Parser
+     (Maybe (NonEmpty LaunchTemplateConfiguration)
+      -&gt; Maybe (NonEmpty Text)
+      -&gt; Maybe ContainerDistributionConfiguration
+      -&gt; Text
+      -&gt; Distribution)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AmiDistributionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;amiDistributionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty LaunchTemplateConfiguration)
+   -&gt; Maybe (NonEmpty Text)
+   -&gt; Maybe ContainerDistributionConfiguration
+   -&gt; Text
+   -&gt; Distribution)
+-&gt; Parser (Maybe (NonEmpty LaunchTemplateConfiguration))
+-&gt; Parser
+     (Maybe (NonEmpty Text)
+      -&gt; Maybe ContainerDistributionConfiguration
+      -&gt; Text
+      -&gt; Distribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (NonEmpty LaunchTemplateConfiguration))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchTemplateConfigurations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Text)
+   -&gt; Maybe ContainerDistributionConfiguration
+   -&gt; Text
+   -&gt; Distribution)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser
+     (Maybe ContainerDistributionConfiguration -&gt; Text -&gt; Distribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;licenseConfigurationArns&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContainerDistributionConfiguration -&gt; Text -&gt; Distribution)
+-&gt; Parser (Maybe ContainerDistributionConfiguration)
+-&gt; Parser (Text -&gt; Distribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerDistributionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerDistributionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Distribution) -&gt; Parser Text -&gt; Parser Distribution
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319456"><span id="local-6989586621679319458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319445"><span id="local-6989586621679319447"><span id="local-6989586621679319449"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679319443"><span class="annot"><span class="annottext">toJSON :: Distribution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319437"><span id="local-6989586621679319438"><span id="local-6989586621679319439"><span id="local-6989586621679319440"><span id="local-6989586621679319441"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Maybe (NonEmpty LaunchTemplateConfiguration)
+Maybe AmiDistributionConfiguration
+Maybe ContainerDistributionConfiguration
+Text
+region :: Text
+containerDistributionConfiguration :: Maybe ContainerDistributionConfiguration
+licenseConfigurationArns :: Maybe (NonEmpty Text)
+launchTemplateConfigurations :: Maybe (NonEmpty LaunchTemplateConfiguration)
+amiDistributionConfiguration :: Maybe AmiDistributionConfiguration
+$sel:region:Distribution' :: Distribution -&gt; Text
+$sel:containerDistributionConfiguration:Distribution' :: Distribution -&gt; Maybe ContainerDistributionConfiguration
+$sel:licenseConfigurationArns:Distribution' :: Distribution -&gt; Maybe (NonEmpty Text)
+$sel:launchTemplateConfigurations:Distribution' :: Distribution -&gt; Maybe (NonEmpty LaunchTemplateConfiguration)
+$sel:amiDistributionConfiguration:Distribution' :: Distribution -&gt; Maybe AmiDistributionConfiguration
+</span><a href="#local-6989586621679319437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;amiDistributionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AmiDistributionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">(AmiDistributionConfiguration -&gt; Pair)
+-&gt; Maybe AmiDistributionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AmiDistributionConfiguration
+</span><a href="#local-6989586621679319441"><span class="hs-identifier hs-var">amiDistributionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchTemplateConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty LaunchTemplateConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty LaunchTemplateConfiguration -&gt; Pair)
+-&gt; Maybe (NonEmpty LaunchTemplateConfiguration) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LaunchTemplateConfiguration)
+</span><a href="#local-6989586621679319440"><span class="hs-identifier hs-var">launchTemplateConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;licenseConfigurationArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679319439"><span class="hs-identifier hs-var">licenseConfigurationArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerDistributionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerDistributionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(ContainerDistributionConfiguration -&gt; Pair)
+-&gt; Maybe ContainerDistributionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDistributionConfiguration
+</span><a href="#local-6989586621679319438"><span class="hs-identifier hs-var">containerDistributionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319437"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span></pre></body></html>

@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the type of service for a VPC endpoint.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newServiceTypeDetail' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681150007"><span id="local-6989586621681150008"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceTypeDetail"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-var">ServiceTypeDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceTypeDetail%27"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail%27"><span class="hs-identifier hs-var">ServiceTypeDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681150016"><span id="local-6989586621681150017"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceTypeDetail"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-var">ServiceTypeDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceTypeDetail%27"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail%27"><span class="hs-identifier hs-var">ServiceTypeDetail'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of service.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AserviceType%3AServiceTypeDetail%27"><span class="annot"><span class="annottext">ServiceTypeDetail -&gt; Maybe ServiceType
 </span><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#%24sel%3AserviceType%3AServiceTypeDetail%27"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681150001"><span id="local-6989586621681150003"><span class="annot"><span class="annottext">ServiceTypeDetail -&gt; ServiceTypeDetail -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681150010"><span id="local-6989586621681150012"><span class="annot"><span class="annottext">ServiceTypeDetail -&gt; ServiceTypeDetail -&gt; Bool
 (ServiceTypeDetail -&gt; ServiceTypeDetail -&gt; Bool)
 -&gt; (ServiceTypeDetail -&gt; ServiceTypeDetail -&gt; Bool)
 -&gt; Eq ServiceTypeDetail
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceTypeDetail -&gt; ServiceTypeDetail -&gt; Bool
 == :: ServiceTypeDetail -&gt; ServiceTypeDetail -&gt; Bool
 $c== :: ServiceTypeDetail -&gt; ServiceTypeDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681149992"><span id="local-6989586621681149994"><span id="local-6989586621681149996"><span id="local-6989586621681149998"><span class="annot"><span class="annottext">ReadPrec [ServiceTypeDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681150001"><span id="local-6989586621681150003"><span id="local-6989586621681150005"><span id="local-6989586621681150007"><span class="annot"><span class="annottext">ReadPrec [ServiceTypeDetail]
 ReadPrec ServiceTypeDetail
 Int -&gt; ReadS ServiceTypeDetail
 ReadS [ServiceTypeDetail]
@@ -62,7 +62,7 @@ readList :: ReadS [ServiceTypeDetail]
 $creadList :: ReadS [ServiceTypeDetail]
 readsPrec :: Int -&gt; ReadS ServiceTypeDetail
 $creadsPrec :: Int -&gt; ReadS ServiceTypeDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681149985"><span id="local-6989586621681149987"><span id="local-6989586621681149989"><span class="annot"><span class="annottext">Int -&gt; ServiceTypeDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681149994"><span id="local-6989586621681149996"><span id="local-6989586621681149998"><span class="annot"><span class="annottext">Int -&gt; ServiceTypeDetail -&gt; ShowS
 [ServiceTypeDetail] -&gt; ShowS
 ServiceTypeDetail -&gt; String
 (Int -&gt; ServiceTypeDetail -&gt; ShowS)
@@ -119,21 +119,21 @@ forall a. Maybe a
      (Maybe ServiceType)
      (Maybe ServiceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail%27"><span class="hs-identifier hs-type">ServiceTypeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681149976"><span class="annot"><span class="annottext">Maybe ServiceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail%27"><span class="hs-identifier hs-type">ServiceTypeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681149985"><span class="annot"><span class="annottext">Maybe ServiceType
 serviceType :: Maybe ServiceType
 $sel:serviceType:ServiceTypeDetail' :: ServiceTypeDetail -&gt; Maybe ServiceType
-</span><a href="#local-6989586621681149976"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceType
-</span><a href="#local-6989586621681149976"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681149975"><span class="annot"><span class="annottext">s :: ServiceTypeDetail
-</span><a href="#local-6989586621681149975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail%27"><span class="hs-identifier hs-type">ServiceTypeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681149974"><span class="annot"><span class="annottext">Maybe ServiceType
-</span><a href="#local-6989586621681149974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceTypeDetail
-</span><a href="#local-6989586621681149975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:ServiceTypeDetail' :: Maybe ServiceType
+</span><a href="#local-6989586621681149985"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceType
+</span><a href="#local-6989586621681149985"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681149984"><span class="annot"><span class="annottext">s :: ServiceTypeDetail
+</span><a href="#local-6989586621681149984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail%27"><span class="hs-identifier hs-type">ServiceTypeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681149983"><span class="annot"><span class="annottext">Maybe ServiceType
+</span><a href="#local-6989586621681149983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceTypeDetail
+</span><a href="#local-6989586621681149984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:ServiceTypeDetail' :: Maybe ServiceType
 </span><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#%24sel%3AserviceType%3AServiceTypeDetail%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceType
-</span><a href="#local-6989586621681149974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-type">ServiceTypeDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681149983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-type">ServiceTypeDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-type">ServiceTypeDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621681149971"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServiceTypeDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681149969"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681149969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621681149980"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServiceTypeDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681149978"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681149978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">Maybe ServiceType -&gt; ServiceTypeDetail
 </span><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail%27"><span class="hs-identifier hs-var">ServiceTypeDetail'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ServiceType -&gt; ServiceTypeDetail)
@@ -141,12 +141,12 @@ $sel:serviceType:ServiceTypeDetail' :: ServiceTypeDetail -&gt; Maybe ServiceType
 -&gt; Either String ServiceTypeDetail
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681149969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ServiceType)
+</span><a href="#local-6989586621681149978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ServiceType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681149963"><span id="local-6989586621681149965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-type">ServiceTypeDetail</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681149972"><span id="local-6989586621681149974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-type">ServiceTypeDetail</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681149960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-type">ServiceTypeDetail</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681149969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ServiceTypeDetail.html#ServiceTypeDetail"><span class="hs-identifier hs-type">ServiceTypeDetail</span></a></span></span><span>
 </span><span id="line-63"></span></pre></body></html>

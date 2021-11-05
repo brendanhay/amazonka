@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoutingProfileQueues' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679432372"><span id="local-6989586621679432373"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoutingProfileQueues"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-var">UpdateRoutingProfileQueues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoutingProfileQueues%27"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">UpdateRoutingProfileQueues'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679432381"><span id="local-6989586621679432382"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoutingProfileQueues"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-var">UpdateRoutingProfileQueues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoutingProfileQueues%27"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">UpdateRoutingProfileQueues'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AinstanceId%3AUpdateRoutingProfileQueues%27"><span class="annot"><span class="annottext">UpdateRoutingProfileQueues -&gt; Text
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AqueueConfigs%3AUpdateRoutingProfileQueues%27"><span class="annot"><span class="annottext">UpdateRoutingProfileQueues -&gt; NonEmpty RoutingProfileQueueConfig
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#%24sel%3AqueueConfigs%3AUpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var hs-var">queueConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfig.html#RoutingProfileQueueConfig"><span class="hs-identifier hs-type">RoutingProfileQueueConfig</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432364"><span id="local-6989586621679432366"><span class="annot"><span class="annottext">UpdateRoutingProfileQueues -&gt; UpdateRoutingProfileQueues -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432373"><span id="local-6989586621679432375"><span class="annot"><span class="annottext">UpdateRoutingProfileQueues -&gt; UpdateRoutingProfileQueues -&gt; Bool
 (UpdateRoutingProfileQueues -&gt; UpdateRoutingProfileQueues -&gt; Bool)
 -&gt; (UpdateRoutingProfileQueues
     -&gt; UpdateRoutingProfileQueues -&gt; Bool)
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRoutingProfileQueues -&gt; UpdateRoutingProfileQueues -&gt; Bool
 == :: UpdateRoutingProfileQueues -&gt; UpdateRoutingProfileQueues -&gt; Bool
 $c== :: UpdateRoutingProfileQueues -&gt; UpdateRoutingProfileQueues -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432355"><span id="local-6989586621679432357"><span id="local-6989586621679432359"><span id="local-6989586621679432361"><span class="annot"><span class="annottext">ReadPrec [UpdateRoutingProfileQueues]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432364"><span id="local-6989586621679432366"><span id="local-6989586621679432368"><span id="local-6989586621679432370"><span class="annot"><span class="annottext">ReadPrec [UpdateRoutingProfileQueues]
 ReadPrec UpdateRoutingProfileQueues
 Int -&gt; ReadS UpdateRoutingProfileQueues
 ReadS [UpdateRoutingProfileQueues]
@@ -90,7 +90,7 @@ readList :: ReadS [UpdateRoutingProfileQueues]
 $creadList :: ReadS [UpdateRoutingProfileQueues]
 readsPrec :: Int -&gt; ReadS UpdateRoutingProfileQueues
 $creadsPrec :: Int -&gt; ReadS UpdateRoutingProfileQueues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432348"><span id="local-6989586621679432350"><span id="local-6989586621679432352"><span class="annot"><span class="annottext">Int -&gt; UpdateRoutingProfileQueues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432357"><span id="local-6989586621679432359"><span id="local-6989586621679432361"><span class="annot"><span class="annottext">Int -&gt; UpdateRoutingProfileQueues -&gt; ShowS
 [UpdateRoutingProfileQueues] -&gt; ShowS
 UpdateRoutingProfileQueues -&gt; String
 (Int -&gt; UpdateRoutingProfileQueues -&gt; ShowS)
@@ -151,12 +151,12 @@ UpdateRoutingProfileQueues -&gt; Rep UpdateRoutingProfileQueues x
 -&gt; NonEmpty RoutingProfileQueueConfig
 -&gt; UpdateRoutingProfileQueues
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#newUpdateRoutingProfileQueues"><span class="hs-identifier hs-var hs-var">newUpdateRoutingProfileQueues</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679432343"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432343"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679432342"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432342"><span class="hs-identifier hs-var">pRoutingProfileId_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679432341"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
-</span><a href="#local-6989586621679432341"><span class="hs-identifier hs-var">pQueueConfigs_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679432352"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432352"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679432351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432351"><span class="hs-identifier hs-var">pRoutingProfileId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679432350"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
+</span><a href="#local-6989586621679432350"><span class="hs-identifier hs-var">pQueueConfigs_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">UpdateRoutingProfileQueues' :: Text
 -&gt; Text
 -&gt; NonEmpty RoutingProfileQueueConfig
@@ -165,10 +165,10 @@ UpdateRoutingProfileQueues -&gt; Rep UpdateRoutingProfileQueues x
 </span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:UpdateRoutingProfileQueues' :: Text
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#%24sel%3AinstanceId%3AUpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432343"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432352"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:routingProfileId:UpdateRoutingProfileQueues' :: Text
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#%24sel%3AroutingProfileId%3AUpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432342"><span class="hs-identifier hs-var">pRoutingProfileId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432351"><span class="hs-identifier hs-var">pRoutingProfileId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:queueConfigs:UpdateRoutingProfileQueues' :: NonEmpty RoutingProfileQueueConfig
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#%24sel%3AqueueConfigs%3AUpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Tagged
@@ -188,7 +188,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty RoutingProfileQueueConfig
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
-</span><a href="#local-6989586621679432341"><span class="hs-identifier hs-var">pQueueConfigs_</span></a></span><span>
+</span><a href="#local-6989586621679432350"><span class="hs-identifier hs-var">pQueueConfigs_</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
@@ -202,16 +202,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      UpdateRoutingProfileQueues UpdateRoutingProfileQueues Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432336"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432345"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; Text
-</span><a href="#local-6989586621679432336"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432336"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432335"><span class="annot"><span class="annottext">s :: UpdateRoutingProfileQueues
-</span><a href="#local-6989586621679432335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432334"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingProfileQueues
-</span><a href="#local-6989586621679432335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateRoutingProfileQueues' :: Text
+</span><a href="#local-6989586621679432345"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432345"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432344"><span class="annot"><span class="annottext">s :: UpdateRoutingProfileQueues
+</span><a href="#local-6989586621679432344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingProfileQueues
+</span><a href="#local-6989586621679432344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateRoutingProfileQueues' :: Text
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#%24sel%3AinstanceId%3AUpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The identifier of the routing profile.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#updateRoutingProfileQueues_routingProfileId"><span class="hs-identifier hs-type">updateRoutingProfileQueues_routingProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -223,16 +223,16 @@ $sel:instanceId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; 
 -&gt; Lens
      UpdateRoutingProfileQueues UpdateRoutingProfileQueues Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432333"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432342"><span class="annot"><span class="annottext">Text
 routingProfileId :: Text
 $sel:routingProfileId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; Text
-</span><a href="#local-6989586621679432333"><span class="hs-identifier hs-var hs-var">routingProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432333"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432332"><span class="annot"><span class="annottext">s :: UpdateRoutingProfileQueues
-</span><a href="#local-6989586621679432332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432331"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingProfileQueues
-</span><a href="#local-6989586621679432332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileId:UpdateRoutingProfileQueues' :: Text
+</span><a href="#local-6989586621679432342"><span class="hs-identifier hs-var hs-var">routingProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432342"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432341"><span class="annot"><span class="annottext">s :: UpdateRoutingProfileQueues
+</span><a href="#local-6989586621679432341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingProfileQueues
+</span><a href="#local-6989586621679432341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileId:UpdateRoutingProfileQueues' :: Text
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#%24sel%3AroutingProfileId%3AUpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The queues to be updated for this routing profile. Queues must first be</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- associated to the routing profile. You can do this using</span><span>
@@ -251,16 +251,16 @@ $sel:routingProfileId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues 
      (NonEmpty RoutingProfileQueueConfig)
      (NonEmpty RoutingProfileQueueConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432330"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432339"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
 queueConfigs :: NonEmpty RoutingProfileQueueConfig
 $sel:queueConfigs:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; NonEmpty RoutingProfileQueueConfig
-</span><a href="#local-6989586621679432330"><span class="hs-identifier hs-var hs-var">queueConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
-</span><a href="#local-6989586621679432330"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432329"><span class="annot"><span class="annottext">s :: UpdateRoutingProfileQueues
-</span><a href="#local-6989586621679432329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432328"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
-</span><a href="#local-6989586621679432328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingProfileQueues
-</span><a href="#local-6989586621679432329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueConfigs:UpdateRoutingProfileQueues' :: NonEmpty RoutingProfileQueueConfig
+</span><a href="#local-6989586621679432339"><span class="hs-identifier hs-var hs-var">queueConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
+</span><a href="#local-6989586621679432339"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432338"><span class="annot"><span class="annottext">s :: UpdateRoutingProfileQueues
+</span><a href="#local-6989586621679432338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432337"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
+</span><a href="#local-6989586621679432337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingProfileQueues
+</span><a href="#local-6989586621679432338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueConfigs:UpdateRoutingProfileQueues' :: NonEmpty RoutingProfileQueueConfig
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#%24sel%3AqueueConfigs%3AUpdateRoutingProfileQueues%27"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
-</span><a href="#local-6989586621679432328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RoutingProfileQueueConfig
+</span><a href="#local-6989586621679432337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RoutingProfileQueueConfig
   -&gt; f (NonEmpty RoutingProfileQueueConfig))
  -&gt; UpdateRoutingProfileQueues -&gt; f UpdateRoutingProfileQueues)
 -&gt; ((NonEmpty RoutingProfileQueueConfig
@@ -283,13 +283,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse"><span class="hs-identifier hs-type">UpdateRoutingProfileQueuesResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679432323"><span class="annot"><span class="annottext">request :: UpdateRoutingProfileQueues -&gt; Request UpdateRoutingProfileQueues
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679432332"><span class="annot"><span class="annottext">request :: UpdateRoutingProfileQueues -&gt; Request UpdateRoutingProfileQueues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateRoutingProfileQueues -&gt; Request UpdateRoutingProfileQueues
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679432319"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679432328"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRoutingProfileQueues
 -&gt; ClientResponse ClientBody
@@ -316,12 +316,12 @@ AWSResponse a
 UpdateRoutingProfileQueuesResponse
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse%27"><span class="hs-identifier hs-var">UpdateRoutingProfileQueuesResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432312"><span id="local-6989586621679432314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432321"><span id="local-6989586621679432323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679432305"><span class="annot"><span class="annottext">toHeaders :: UpdateRoutingProfileQueues -&gt; [Header]
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679432314"><span class="annot"><span class="annottext">toHeaders :: UpdateRoutingProfileQueues -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateRoutingProfileQueues -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -340,9 +340,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432295"><span id="local-6989586621679432297"><span id="local-6989586621679432299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679432293"><span class="annot"><span class="annottext">toJSON :: UpdateRoutingProfileQueues -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432289"><span id="local-6989586621679432290"><span id="local-6989586621679432291"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432304"><span id="local-6989586621679432306"><span id="local-6989586621679432308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679432302"><span class="annot"><span class="annottext">toJSON :: UpdateRoutingProfileQueues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432298"><span id="local-6989586621679432299"><span id="local-6989586621679432300"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
 Text
 queueConfigs :: NonEmpty RoutingProfileQueueConfig
 routingProfileId :: Text
@@ -350,7 +350,7 @@ instanceId :: Text
 $sel:queueConfigs:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; NonEmpty RoutingProfileQueueConfig
 $sel:routingProfileId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; Text
 $sel:instanceId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; Text
-</span><a href="#local-6989586621679432289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679432298"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -362,12 +362,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;QueueConfigs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty RoutingProfileQueueConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
-</span><a href="#local-6989586621679432289"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679432298"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679432283"><span class="annot"><span class="annottext">toPath :: UpdateRoutingProfileQueues -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432279"><span id="local-6989586621679432280"><span id="local-6989586621679432281"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679432292"><span class="annot"><span class="annottext">toPath :: UpdateRoutingProfileQueues -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues%27"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432288"><span id="local-6989586621679432289"><span id="local-6989586621679432290"><span class="annot"><span class="annottext">NonEmpty RoutingProfileQueueConfig
 Text
 queueConfigs :: NonEmpty RoutingProfileQueueConfig
 routingProfileId :: Text
@@ -375,7 +375,7 @@ instanceId :: Text
 $sel:queueConfigs:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; NonEmpty RoutingProfileQueueConfig
 $sel:routingProfileId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; Text
 $sel:instanceId:UpdateRoutingProfileQueues' :: UpdateRoutingProfileQueues -&gt; Text
-</span><a href="#local-6989586621679432279"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679432288"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -384,19 +384,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432281"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432290"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432280"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432289"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/queues&quot;</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueues"><span class="hs-identifier hs-type">UpdateRoutingProfileQueues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679432275"><span class="annot"><span class="annottext">toQuery :: UpdateRoutingProfileQueues -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679432284"><span class="annot"><span class="annottext">toQuery :: UpdateRoutingProfileQueues -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRoutingProfileQueues -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -404,10 +404,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoutingProfileQueuesResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679432272"><span id="local-6989586621679432273"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoutingProfileQueuesResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse"><span class="hs-identifier hs-var">UpdateRoutingProfileQueuesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoutingProfileQueuesResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse%27"><span class="hs-identifier hs-var">UpdateRoutingProfileQueuesResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679432281"><span id="local-6989586621679432282"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoutingProfileQueuesResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse"><span class="hs-identifier hs-var">UpdateRoutingProfileQueuesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoutingProfileQueuesResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse%27"><span class="hs-identifier hs-var">UpdateRoutingProfileQueuesResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432268"><span id="local-6989586621679432270"><span class="annot"><span class="annottext">UpdateRoutingProfileQueuesResponse
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432277"><span id="local-6989586621679432279"><span class="annot"><span class="annottext">UpdateRoutingProfileQueuesResponse
 -&gt; UpdateRoutingProfileQueuesResponse -&gt; Bool
 (UpdateRoutingProfileQueuesResponse
  -&gt; UpdateRoutingProfileQueuesResponse -&gt; Bool)
@@ -423,7 +423,7 @@ $c/= :: UpdateRoutingProfileQueuesResponse
 -&gt; UpdateRoutingProfileQueuesResponse -&gt; Bool
 $c== :: UpdateRoutingProfileQueuesResponse
 -&gt; UpdateRoutingProfileQueuesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432260"><span id="local-6989586621679432262"><span id="local-6989586621679432264"><span id="local-6989586621679432266"><span class="annot"><span class="annottext">ReadPrec [UpdateRoutingProfileQueuesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432269"><span id="local-6989586621679432271"><span id="local-6989586621679432273"><span id="local-6989586621679432275"><span class="annot"><span class="annottext">ReadPrec [UpdateRoutingProfileQueuesResponse]
 ReadPrec UpdateRoutingProfileQueuesResponse
 Int -&gt; ReadS UpdateRoutingProfileQueuesResponse
 ReadS [UpdateRoutingProfileQueuesResponse]
@@ -443,7 +443,7 @@ readList :: ReadS [UpdateRoutingProfileQueuesResponse]
 $creadList :: ReadS [UpdateRoutingProfileQueuesResponse]
 readsPrec :: Int -&gt; ReadS UpdateRoutingProfileQueuesResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRoutingProfileQueuesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432254"><span id="local-6989586621679432256"><span id="local-6989586621679432258"><span class="annot"><span class="annottext">Int -&gt; UpdateRoutingProfileQueuesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432263"><span id="local-6989586621679432265"><span id="local-6989586621679432267"><span class="annot"><span class="annottext">Int -&gt; UpdateRoutingProfileQueuesResponse -&gt; ShowS
 [UpdateRoutingProfileQueuesResponse] -&gt; ShowS
 UpdateRoutingProfileQueuesResponse -&gt; String
 (Int -&gt; UpdateRoutingProfileQueuesResponse -&gt; ShowS)
@@ -493,6 +493,6 @@ UpdateRoutingProfileQueuesResponse
 </span><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse%27"><span class="hs-identifier hs-var">UpdateRoutingProfileQueuesResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679432250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679432259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.UpdateRoutingProfileQueues.html#UpdateRoutingProfileQueuesResponse"><span class="hs-identifier hs-type">UpdateRoutingProfileQueuesResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

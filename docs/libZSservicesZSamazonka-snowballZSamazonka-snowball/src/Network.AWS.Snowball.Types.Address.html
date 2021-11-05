@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- thrown.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAddress' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679222227"><span id="local-6989586621679222228"></span></span><span class="hs-keyword">data</span><span> </span><span id="Address"><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-var">Address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Address%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-var">Address'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679222236"><span id="local-6989586621679222237"></span></span><span class="hs-keyword">data</span><span> </span><span id="Address"><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-var">Address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Address%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-var">Address'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the address you are creating is a primary address, then set this</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- option to true. This field is not supported in most regions.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AisRestricted%3AAddress%27"><span class="annot"><span class="annottext">Address -&gt; Maybe Bool
@@ -81,7 +81,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3Astreet1%3AAddress%27"><span class="annot"><span class="annottext">Address -&gt; Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Astreet1%3AAddress%27"><span class="hs-identifier hs-var hs-var">street1</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222208"><span id="local-6989586621679222210"><span class="annot"><span class="annottext">Address -&gt; Address -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222217"><span id="local-6989586621679222219"><span class="annot"><span class="annottext">Address -&gt; Address -&gt; Bool
 (Address -&gt; Address -&gt; Bool)
 -&gt; (Address -&gt; Address -&gt; Bool) -&gt; Eq Address
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Address -&gt; Address -&gt; Bool
 == :: Address -&gt; Address -&gt; Bool
 $c== :: Address -&gt; Address -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222199"><span id="local-6989586621679222201"><span id="local-6989586621679222203"><span id="local-6989586621679222205"><span class="annot"><span class="annottext">ReadPrec [Address]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222208"><span id="local-6989586621679222210"><span id="local-6989586621679222212"><span id="local-6989586621679222214"><span class="annot"><span class="annottext">ReadPrec [Address]
 ReadPrec Address
 Int -&gt; ReadS Address
 ReadS [Address]
@@ -109,7 +109,7 @@ readList :: ReadS [Address]
 $creadList :: ReadS [Address]
 readsPrec :: Int -&gt; ReadS Address
 $creadsPrec :: Int -&gt; ReadS Address
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222192"><span id="local-6989586621679222194"><span id="local-6989586621679222196"><span class="annot"><span class="annottext">Int -&gt; Address -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222201"><span id="local-6989586621679222203"><span id="local-6989586621679222205"><span class="annot"><span class="annottext">Int -&gt; Address -&gt; ShowS
 [Address] -&gt; ShowS
 Address -&gt; String
 (Int -&gt; Address -&gt; ShowS)
@@ -259,16 +259,16 @@ forall a. Maybe a
 -&gt; (Address -&gt; Maybe Bool -&gt; Address)
 -&gt; Lens Address Address (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222183"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222192"><span class="annot"><span class="annottext">Maybe Bool
 isRestricted :: Maybe Bool
 $sel:isRestricted:Address' :: Address -&gt; Maybe Bool
-</span><a href="#local-6989586621679222183"><span class="hs-identifier hs-var hs-var">isRestricted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679222183"><span class="hs-identifier hs-var">isRestricted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222182"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222181"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679222181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isRestricted:Address' :: Maybe Bool
+</span><a href="#local-6989586621679222192"><span class="hs-identifier hs-var hs-var">isRestricted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679222192"><span class="hs-identifier hs-var">isRestricted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222191"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222190"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679222190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isRestricted:Address' :: Maybe Bool
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3AisRestricted%3AAddress%27"><span class="hs-identifier hs-var">isRestricted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679222181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The third line in a street address that a Snow device is to be delivered</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- to.</span><span>
@@ -278,16 +278,16 @@ $sel:isRestricted:Address' :: Address -&gt; Maybe Bool
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222179"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222188"><span class="annot"><span class="annottext">Maybe Text
 street3 :: Maybe Text
 $sel:street3:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222179"><span class="hs-identifier hs-var hs-var">street3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222179"><span class="hs-identifier hs-var">street3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222178"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222177"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:street3:Address' :: Maybe Text
+</span><a href="#local-6989586621679222188"><span class="hs-identifier hs-var hs-var">street3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222188"><span class="hs-identifier hs-var">street3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222187"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222186"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:street3:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Astreet3%3AAddress%27"><span class="hs-identifier hs-var">street3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | This field is no longer used and the value is ignored.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_landmark"><span class="hs-identifier hs-type">address_landmark</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -296,16 +296,16 @@ $sel:street3:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222175"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222184"><span class="annot"><span class="annottext">Maybe Text
 landmark :: Maybe Text
 $sel:landmark:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222175"><span class="hs-identifier hs-var hs-var">landmark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222175"><span class="hs-identifier hs-var">landmark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222174"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222173"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:landmark:Address' :: Maybe Text
+</span><a href="#local-6989586621679222184"><span class="hs-identifier hs-var hs-var">landmark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222184"><span class="hs-identifier hs-var">landmark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222183"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:landmark:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Alandmark%3AAddress%27"><span class="hs-identifier hs-var">landmark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The postal code in an address that a Snow device is to be delivered to.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_postalCode"><span class="hs-identifier hs-type">address_postalCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -314,16 +314,16 @@ $sel:landmark:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222171"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222180"><span class="annot"><span class="annottext">Maybe Text
 postalCode :: Maybe Text
 $sel:postalCode:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222171"><span class="hs-identifier hs-var hs-var">postalCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222171"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222170"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222169"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postalCode:Address' :: Maybe Text
+</span><a href="#local-6989586621679222180"><span class="hs-identifier hs-var hs-var">postalCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222180"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222179"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postalCode:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3ApostalCode%3AAddress%27"><span class="hs-identifier hs-var">postalCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The country in an address that a Snow device is to be delivered to.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_country"><span class="hs-identifier hs-type">address_country</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -332,16 +332,16 @@ $sel:postalCode:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222167"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222176"><span class="annot"><span class="annottext">Maybe Text
 country :: Maybe Text
 $sel:country:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222167"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222167"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222166"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222165"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:Address' :: Maybe Text
+</span><a href="#local-6989586621679222176"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222176"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222175"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Acountry%3AAddress%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The state or province in an address that a Snow device is to be</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- delivered to.</span><span>
@@ -351,16 +351,16 @@ $sel:country:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222163"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222172"><span class="annot"><span class="annottext">Maybe Text
 stateOrProvince :: Maybe Text
 $sel:stateOrProvince:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222163"><span class="hs-identifier hs-var hs-var">stateOrProvince</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222163"><span class="hs-identifier hs-var">stateOrProvince</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222162"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222161"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateOrProvince:Address' :: Maybe Text
+</span><a href="#local-6989586621679222172"><span class="hs-identifier hs-var hs-var">stateOrProvince</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222172"><span class="hs-identifier hs-var">stateOrProvince</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222171"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222170"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateOrProvince:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3AstateOrProvince%3AAddress%27"><span class="hs-identifier hs-var">stateOrProvince</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The second line in a street address that a Snow device is to be</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- delivered to.</span><span>
@@ -370,16 +370,16 @@ $sel:stateOrProvince:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222159"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222168"><span class="annot"><span class="annottext">Maybe Text
 street2 :: Maybe Text
 $sel:street2:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222159"><span class="hs-identifier hs-var hs-var">street2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222159"><span class="hs-identifier hs-var">street2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222158"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222157"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:street2:Address' :: Maybe Text
+</span><a href="#local-6989586621679222168"><span class="hs-identifier hs-var hs-var">street2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222168"><span class="hs-identifier hs-var">street2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222167"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:street2:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Astreet2%3AAddress%27"><span class="hs-identifier hs-var">street2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The unique ID for an address.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_addressId"><span class="hs-identifier hs-type">address_addressId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -388,16 +388,16 @@ $sel:street2:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222155"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222164"><span class="annot"><span class="annottext">Maybe Text
 addressId :: Maybe Text
 $sel:addressId:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222155"><span class="hs-identifier hs-var hs-var">addressId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222155"><span class="hs-identifier hs-var">addressId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222154"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222153"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressId:Address' :: Maybe Text
+</span><a href="#local-6989586621679222164"><span class="hs-identifier hs-var hs-var">addressId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222164"><span class="hs-identifier hs-var">addressId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222163"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222162"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressId:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3AaddressId%3AAddress%27"><span class="hs-identifier hs-var">addressId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The city in an address that a Snow device is to be delivered to.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_city"><span class="hs-identifier hs-type">address_city</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -406,16 +406,16 @@ $sel:addressId:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222151"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222160"><span class="annot"><span class="annottext">Maybe Text
 city :: Maybe Text
 $sel:city:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222151"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222151"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222150"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222149"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:city:Address' :: Maybe Text
+</span><a href="#local-6989586621679222160"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222160"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222159"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222158"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:city:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Acity%3AAddress%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The phone number associated with an address that a Snow device is to be</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- delivered to.</span><span>
@@ -425,16 +425,16 @@ $sel:city:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222147"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222156"><span class="annot"><span class="annottext">Maybe Text
 phoneNumber :: Maybe Text
 $sel:phoneNumber:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222147"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222147"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222146"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222145"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:Address' :: Maybe Text
+</span><a href="#local-6989586621679222156"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222156"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222155"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3AphoneNumber%3AAddress%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The name of the company to receive a Snow device at an address.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_company"><span class="hs-identifier hs-type">address_company</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -443,16 +443,16 @@ $sel:phoneNumber:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222143"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222152"><span class="annot"><span class="annottext">Maybe Text
 company :: Maybe Text
 $sel:company:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222143"><span class="hs-identifier hs-var hs-var">company</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222143"><span class="hs-identifier hs-var">company</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222142"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222141"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:company:Address' :: Maybe Text
+</span><a href="#local-6989586621679222152"><span class="hs-identifier hs-var hs-var">company</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222152"><span class="hs-identifier hs-var">company</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222151"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:company:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Acompany%3AAddress%27"><span class="hs-identifier hs-var">company</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The name of a person to receive a Snow device at an address.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_name"><span class="hs-identifier hs-type">address_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -461,16 +461,16 @@ $sel:company:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222139"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222148"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222139"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222139"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222138"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222137"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Address' :: Maybe Text
+</span><a href="#local-6989586621679222148"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222148"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222147"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222146"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Aname%3AAddress%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | This field is no longer used and the value is ignored.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#address_prefectureOrDistrict"><span class="hs-identifier hs-type">address_prefectureOrDistrict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -479,16 +479,16 @@ $sel:name:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222135"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222144"><span class="annot"><span class="annottext">Maybe Text
 prefectureOrDistrict :: Maybe Text
 $sel:prefectureOrDistrict:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222135"><span class="hs-identifier hs-var hs-var">prefectureOrDistrict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222135"><span class="hs-identifier hs-var">prefectureOrDistrict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222134"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222133"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefectureOrDistrict:Address' :: Maybe Text
+</span><a href="#local-6989586621679222144"><span class="hs-identifier hs-var hs-var">prefectureOrDistrict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222144"><span class="hs-identifier hs-var">prefectureOrDistrict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222143"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefectureOrDistrict:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3AprefectureOrDistrict%3AAddress%27"><span class="hs-identifier hs-var">prefectureOrDistrict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The first line in a street address that a Snow device is to be delivered</span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- to.</span><span>
@@ -498,27 +498,27 @@ $sel:prefectureOrDistrict:Address' :: Address -&gt; Maybe Text
 -&gt; (Address -&gt; Maybe Text -&gt; Address)
 -&gt; Lens Address Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222131"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222140"><span class="annot"><span class="annottext">Maybe Text
 street1 :: Maybe Text
 $sel:street1:Address' :: Address -&gt; Maybe Text
-</span><a href="#local-6989586621679222131"><span class="hs-identifier hs-var hs-var">street1</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222131"><span class="hs-identifier hs-var">street1</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222130"><span class="annot"><span class="annottext">s :: Address
-</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222129"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:street1:Address' :: Maybe Text
+</span><a href="#local-6989586621679222140"><span class="hs-identifier hs-var hs-var">street1</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222140"><span class="hs-identifier hs-var">street1</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222139"><span class="annot"><span class="annottext">s :: Address
+</span><a href="#local-6989586621679222139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679222139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:street1:Address' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Address.html#%24sel%3Astreet1%3AAddress%27"><span class="hs-identifier hs-var">street1</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222126"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679222124"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Address
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222135"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679222133"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Address
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Address) -&gt; Value -&gt; Parser Address
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Address&quot;</span></span><span>
-</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222121"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222130"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -568,7 +568,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsRestricted&quot;</span></span><span class="hs-special">)</span><span>
@@ -604,7 +604,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Street3&quot;</span></span><span class="hs-special">)</span><span>
@@ -638,7 +638,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Landmark&quot;</span></span><span class="hs-special">)</span><span>
@@ -670,7 +670,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PostalCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -700,7 +700,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span class="hs-special">)</span><span>
@@ -728,7 +728,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StateOrProvince&quot;</span></span><span class="hs-special">)</span><span>
@@ -754,7 +754,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Street2&quot;</span></span><span class="hs-special">)</span><span>
@@ -778,7 +778,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddressId&quot;</span></span><span class="hs-special">)</span><span>
@@ -796,7 +796,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;City&quot;</span></span><span class="hs-special">)</span><span>
@@ -808,7 +808,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -818,7 +818,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Company&quot;</span></span><span class="hs-special">)</span><span>
@@ -827,7 +827,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -835,7 +835,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Address)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrefectureOrDistrict&quot;</span></span><span class="hs-special">)</span><span>
@@ -843,19 +843,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Address
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Street1&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222115"><span id="local-6989586621679222117"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222124"><span id="local-6989586621679222126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span></span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222112"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222104"><span id="local-6989586621679222106"><span id="local-6989586621679222108"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679222102"><span class="annot"><span class="annottext">toJSON :: Address -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222087"><span id="local-6989586621679222088"><span id="local-6989586621679222089"><span id="local-6989586621679222090"><span id="local-6989586621679222091"><span id="local-6989586621679222092"><span id="local-6989586621679222093"><span id="local-6989586621679222094"><span id="local-6989586621679222095"><span id="local-6989586621679222096"><span id="local-6989586621679222097"><span id="local-6989586621679222098"><span id="local-6989586621679222099"><span id="local-6989586621679222100"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222113"><span id="local-6989586621679222115"><span id="local-6989586621679222117"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679222111"><span class="annot"><span class="annottext">toJSON :: Address -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address%27"><span class="hs-identifier hs-type">Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222096"><span id="local-6989586621679222097"><span id="local-6989586621679222098"><span id="local-6989586621679222099"><span id="local-6989586621679222100"><span id="local-6989586621679222101"><span id="local-6989586621679222102"><span id="local-6989586621679222103"><span id="local-6989586621679222104"><span id="local-6989586621679222105"><span id="local-6989586621679222106"><span id="local-6989586621679222107"><span id="local-6989586621679222108"><span id="local-6989586621679222109"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 street1 :: Maybe Text
 prefectureOrDistrict :: Maybe Text
@@ -885,7 +885,7 @@ $sel:postalCode:Address' :: Address -&gt; Maybe Text
 $sel:landmark:Address' :: Address -&gt; Maybe Text
 $sel:street3:Address' :: Address -&gt; Maybe Text
 $sel:isRestricted:Address' :: Address -&gt; Maybe Bool
-</span><a href="#local-6989586621679222087"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222096"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -897,35 +897,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679222100"><span class="hs-identifier hs-var">isRestricted</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222109"><span class="hs-identifier hs-var">isRestricted</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Street3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222099"><span class="hs-identifier hs-var">street3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222108"><span class="hs-identifier hs-var">street3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Landmark&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222098"><span class="hs-identifier hs-var">landmark</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222107"><span class="hs-identifier hs-var">landmark</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PostalCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222097"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222106"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222096"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222105"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StateOrProvince&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -933,49 +933,49 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-231"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222095"><span class="hs-identifier hs-var">stateOrProvince</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222104"><span class="hs-identifier hs-var">stateOrProvince</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Street2&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222094"><span class="hs-identifier hs-var">street2</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222103"><span class="hs-identifier hs-var">street2</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddressId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222093"><span class="hs-identifier hs-var">addressId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222102"><span class="hs-identifier hs-var">addressId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;City&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222092"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222101"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222091"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222100"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Company&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222090"><span class="hs-identifier hs-var">company</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222099"><span class="hs-identifier hs-var">company</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222089"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222098"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrefectureOrDistrict&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -983,14 +983,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222088"><span class="hs-identifier hs-var">prefectureOrDistrict</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222097"><span class="hs-identifier hs-var">prefectureOrDistrict</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Street1&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222087"><span class="hs-identifier hs-var">street1</span></a></span><span>
+</span><a href="#local-6989586621679222096"><span class="hs-identifier hs-var">street1</span></a></span><span>
 </span><span id="line-241"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span></pre></body></html>

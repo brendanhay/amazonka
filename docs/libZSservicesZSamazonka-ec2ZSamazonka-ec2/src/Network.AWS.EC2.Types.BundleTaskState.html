@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621681089804"><span id="local-6989586621681089805"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BundleTaskState"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-var">BundleTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BundleTaskState%27"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-var">BundleTaskState'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621681089813"><span id="local-6989586621681089814"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BundleTaskState"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-var">BundleTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BundleTaskState%27"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-var">BundleTaskState'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBundleTaskState"><span class="annot"><span class="annottext">BundleTaskState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.BundleTaskState.html#fromBundleTaskState"><span class="hs-identifier hs-var hs-var">fromBundleTaskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089796"><span id="local-6989586621681089798"><span id="local-6989586621681089800"><span class="annot"><span class="annottext">Int -&gt; BundleTaskState -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089805"><span id="local-6989586621681089807"><span id="local-6989586621681089809"><span class="annot"><span class="annottext">Int -&gt; BundleTaskState -&gt; ShowS
 [BundleTaskState] -&gt; ShowS
 BundleTaskState -&gt; String
 (Int -&gt; BundleTaskState -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: BundleTaskState -&gt; String
 showsPrec :: Int -&gt; BundleTaskState -&gt; ShowS
 $cshowsPrec :: Int -&gt; BundleTaskState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681089787"><span id="local-6989586621681089789"><span id="local-6989586621681089791"><span id="local-6989586621681089793"><span class="annot"><span class="annottext">ReadPrec [BundleTaskState]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681089796"><span id="local-6989586621681089798"><span id="local-6989586621681089800"><span id="local-6989586621681089802"><span class="annot"><span class="annottext">ReadPrec [BundleTaskState]
 ReadPrec BundleTaskState
 Int -&gt; ReadS BundleTaskState
 ReadS [BundleTaskState]
@@ -78,7 +78,7 @@ $creadList :: ReadS [BundleTaskState]
 readsPrec :: Int -&gt; ReadS BundleTaskState
 $creadsPrec :: Int -&gt; ReadS BundleTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681089782"><span id="local-6989586621681089784"><span class="annot"><span class="annottext">BundleTaskState -&gt; BundleTaskState -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681089791"><span id="local-6989586621681089793"><span class="annot"><span class="annottext">BundleTaskState -&gt; BundleTaskState -&gt; Bool
 (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
 -&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
 -&gt; Eq BundleTaskState
@@ -88,7 +88,7 @@ $c/= :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
 == :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
 $c== :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089766"><span id="local-6989586621681089768"><span id="local-6989586621681089770"><span id="local-6989586621681089772"><span id="local-6989586621681089774"><span id="local-6989586621681089776"><span id="local-6989586621681089778"><span class="annot"><span class="annottext">Eq BundleTaskState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089775"><span id="local-6989586621681089777"><span id="local-6989586621681089779"><span id="local-6989586621681089781"><span id="local-6989586621681089783"><span id="local-6989586621681089785"><span id="local-6989586621681089787"><span class="annot"><span class="annottext">Eq BundleTaskState
 Eq BundleTaskState
 -&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Ordering)
 -&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. BundleTaskState -&gt; Rep BundleTaskState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089758"><span id="local-6989586621681089760"><span class="annot"><span class="annottext">Int -&gt; BundleTaskState -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089767"><span id="local-6989586621681089769"><span class="annot"><span class="annottext">Int -&gt; BundleTaskState -&gt; Int
 BundleTaskState -&gt; Int
 (Int -&gt; BundleTaskState -&gt; Int)
 -&gt; (BundleTaskState -&gt; Int) -&gt; Hashable BundleTaskState
@@ -149,50 +149,50 @@ $chash :: BundleTaskState -&gt; Int
 hashWithSalt :: Int -&gt; BundleTaskState -&gt; Int
 $chashWithSalt :: Int -&gt; BundleTaskState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681089755"><span class="annot"><span class="annottext">BundleTaskState -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681089764"><span class="annot"><span class="annottext">BundleTaskState -&gt; ()
 (BundleTaskState -&gt; ()) -&gt; NFData BundleTaskState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BundleTaskState -&gt; ()
 $crnf :: BundleTaskState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089752"><span class="annot"><span class="annottext">Text -&gt; Either String BundleTaskState
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089761"><span class="annot"><span class="annottext">Text -&gt; Either String BundleTaskState
 (Text -&gt; Either String BundleTaskState) -&gt; FromText BundleTaskState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BundleTaskState
 $cfromText :: Text -&gt; Either String BundleTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089749"><span class="annot"><span class="annottext">BundleTaskState -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089758"><span class="annot"><span class="annottext">BundleTaskState -&gt; Text
 (BundleTaskState -&gt; Text) -&gt; ToText BundleTaskState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BundleTaskState -&gt; Text
 $ctoText :: BundleTaskState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089746"><span class="annot"><span class="annottext">BundleTaskState -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089755"><span class="annot"><span class="annottext">BundleTaskState -&gt; ByteString
 (BundleTaskState -&gt; ByteString) -&gt; ToByteString BundleTaskState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BundleTaskState -&gt; ByteString
 $ctoBS :: BundleTaskState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089743"><span class="annot"><span class="annottext">BundleTaskState -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089752"><span class="annot"><span class="annottext">BundleTaskState -&gt; ByteStringBuilder
 (BundleTaskState -&gt; ByteStringBuilder) -&gt; ToLog BundleTaskState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BundleTaskState -&gt; ByteStringBuilder
 $cbuild :: BundleTaskState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089740"><span class="annot"><span class="annottext">HeaderName -&gt; BundleTaskState -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089749"><span class="annot"><span class="annottext">HeaderName -&gt; BundleTaskState -&gt; [Header]
 (HeaderName -&gt; BundleTaskState -&gt; [Header])
 -&gt; ToHeader BundleTaskState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BundleTaskState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BundleTaskState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089737"><span class="annot"><span class="annottext">BundleTaskState -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089746"><span class="annot"><span class="annottext">BundleTaskState -&gt; QueryString
 (BundleTaskState -&gt; QueryString) -&gt; ToQuery BundleTaskState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BundleTaskState -&gt; QueryString
 $ctoQuery :: BundleTaskState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089732"><span id="local-6989586621681089734"><span class="annot"><span class="annottext">Value -&gt; Parser [BundleTaskState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089741"><span id="local-6989586621681089743"><span class="annot"><span class="annottext">Value -&gt; Parser [BundleTaskState]
 Value -&gt; Parser BundleTaskState
 (Value -&gt; Parser BundleTaskState)
 -&gt; (Value -&gt; Parser [BundleTaskState]) -&gt; FromJSON BundleTaskState
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [BundleTaskState]
 parseJSON :: Value -&gt; Parser BundleTaskState
 $cparseJSON :: Value -&gt; Parser BundleTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681089727"><span id="local-6989586621681089729"><span class="annot"><span class="annottext">FromJSONKeyFunction [BundleTaskState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681089736"><span id="local-6989586621681089738"><span class="annot"><span class="annottext">FromJSONKeyFunction [BundleTaskState]
 FromJSONKeyFunction BundleTaskState
 FromJSONKeyFunction BundleTaskState
 -&gt; FromJSONKeyFunction [BundleTaskState]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BundleTaskState]
 fromJSONKey :: FromJSONKeyFunction BundleTaskState
 $cfromJSONKey :: FromJSONKeyFunction BundleTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681089718"><span id="local-6989586621681089720"><span id="local-6989586621681089722"><span id="local-6989586621681089724"><span class="annot"><span class="annottext">[BundleTaskState] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681089727"><span id="local-6989586621681089729"><span id="local-6989586621681089731"><span id="local-6989586621681089733"><span class="annot"><span class="annottext">[BundleTaskState] -&gt; Encoding
 [BundleTaskState] -&gt; Value
 BundleTaskState -&gt; Encoding
 BundleTaskState -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: BundleTaskState -&gt; Encoding
 toJSON :: BundleTaskState -&gt; Value
 $ctoJSON :: BundleTaskState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681089713"><span id="local-6989586621681089715"><span class="annot"><span class="annottext">ToJSONKeyFunction [BundleTaskState]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681089722"><span id="local-6989586621681089724"><span class="annot"><span class="annottext">ToJSONKeyFunction [BundleTaskState]
 ToJSONKeyFunction BundleTaskState
 ToJSONKeyFunction BundleTaskState
 -&gt; ToJSONKeyFunction [BundleTaskState] -&gt; ToJSONKey BundleTaskState
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BundleTaskState]
 toJSONKey :: ToJSONKeyFunction BundleTaskState
 $ctoJSONKey :: ToJSONKeyFunction BundleTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681089710"><span class="annot"><span class="annottext">[Node] -&gt; Either String BundleTaskState
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681089719"><span class="annot"><span class="annottext">[Node] -&gt; Either String BundleTaskState
 ([Node] -&gt; Either String BundleTaskState)
 -&gt; FromXML BundleTaskState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BundleTaskState
 $cparseXML :: [Node] -&gt; Either String BundleTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681089707"><span class="annot"><span class="annottext">BundleTaskState -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681089716"><span class="annot"><span class="annottext">BundleTaskState -&gt; XML
 (BundleTaskState -&gt; XML) -&gt; ToXML BundleTaskState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BundleTaskState -&gt; XML

@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.Transport</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.Transport</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Protocol.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Protocol</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Attributes related to the transport stream that are used in a source or</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTransport' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679272018"><span id="local-6989586621679272019"></span></span><span class="hs-keyword">data</span><span> </span><span id="Transport"><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-var">Transport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Transport%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-var">Transport'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum latency in milliseconds. This parameter applies only to</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- RIST-based and Zixi-based streams.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmaxLatency%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxLatency%3ATransport%27"><span class="hs-identifier hs-var hs-var">maxLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The size of the buffer (in milliseconds) to use to sync incoming source</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmaxSyncBuffer%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxSyncBuffer%3ATransport%27"><span class="hs-identifier hs-var hs-var">maxSyncBuffer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The range of IP addresses that should be allowed to initiate output</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- requests to this flow. These IP addresses should be in the form of a</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcidrAllowList%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe [Text]
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AcidrAllowList%3ATransport%27"><span class="hs-identifier hs-var hs-var">cidrAllowList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- streams.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsmoothingLatency%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AsmoothingLatency%3ATransport%27"><span class="hs-identifier hs-var hs-var">smoothingLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AminLatency%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AminLatency%3ATransport%27"><span class="hs-identifier hs-var hs-var">minLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AmaxBitrate%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxBitrate%3ATransport%27"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstreamId%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AstreamId%3ATransport%27"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The remote ID for the Zixi-pull stream.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AremoteId%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AremoteId%3ATransport%27"><span class="hs-identifier hs-var hs-var">remoteId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The protocol that is used by the source or output.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aprotocol%3ATransport%27"><span class="annot"><span class="annottext">Transport -&gt; Protocol
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3Aprotocol%3ATransport%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272004"><span id="local-6989586621679272006"><span class="annot"><span class="annottext">Transport -&gt; Transport -&gt; Bool
+(Transport -&gt; Transport -&gt; Bool)
+-&gt; (Transport -&gt; Transport -&gt; Bool) -&gt; Eq Transport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Transport -&gt; Transport -&gt; Bool
+$c/= :: Transport -&gt; Transport -&gt; Bool
+== :: Transport -&gt; Transport -&gt; Bool
+$c== :: Transport -&gt; Transport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271995"><span id="local-6989586621679271997"><span id="local-6989586621679271999"><span id="local-6989586621679272001"><span class="annot"><span class="annottext">ReadPrec [Transport]
+ReadPrec Transport
+Int -&gt; ReadS Transport
+ReadS [Transport]
+(Int -&gt; ReadS Transport)
+-&gt; ReadS [Transport]
+-&gt; ReadPrec Transport
+-&gt; ReadPrec [Transport]
+-&gt; Read Transport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Transport]
+$creadListPrec :: ReadPrec [Transport]
+readPrec :: ReadPrec Transport
+$creadPrec :: ReadPrec Transport
+readList :: ReadS [Transport]
+$creadList :: ReadS [Transport]
+readsPrec :: Int -&gt; ReadS Transport
+$creadsPrec :: Int -&gt; ReadS Transport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271988"><span id="local-6989586621679271990"><span id="local-6989586621679271992"><span class="annot"><span class="annottext">Int -&gt; Transport -&gt; ShowS
+[Transport] -&gt; ShowS
+Transport -&gt; String
+(Int -&gt; Transport -&gt; ShowS)
+-&gt; (Transport -&gt; String)
+-&gt; ([Transport] -&gt; ShowS)
+-&gt; Show Transport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Transport] -&gt; ShowS
+$cshowList :: [Transport] -&gt; ShowS
+show :: Transport -&gt; String
+$cshow :: Transport -&gt; String
+showsPrec :: Int -&gt; Transport -&gt; ShowS
+$cshowsPrec :: Int -&gt; Transport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Transport -&gt; Rep Transport x)
+-&gt; (forall x. Rep Transport x -&gt; Transport) -&gt; Generic Transport
+forall x. Rep Transport x -&gt; Transport
+forall x. Transport -&gt; Rep Transport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Transport x -&gt; Transport
+$cfrom :: forall x. Transport -&gt; Rep Transport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'Transport' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'maxLatency', 'transport_maxLatency' - The maximum latency in milliseconds. This parameter applies only to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- RIST-based and Zixi-based streams.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'maxSyncBuffer', 'transport_maxSyncBuffer' - The size of the buffer (in milliseconds) to use to sync incoming source</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'cidrAllowList', 'transport_cidrAllowList' - The range of IP addresses that should be allowed to initiate output</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- requests to this flow. These IP addresses should be in the form of a</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'smoothingLatency', 'transport_smoothingLatency' - The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- streams.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'minLatency', 'transport_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxBitrate', 'transport_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'streamId', 'transport_streamId' - The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'remoteId', 'transport_remoteId' - The remote ID for the Zixi-pull stream.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'protocol', 'transport_protocol' - The protocol that is used by the source or output.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#newTransport"><span class="hs-identifier hs-type">newTransport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'protocol'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span>
+</span><span id="line-102"></span><span id="newTransport"><span class="annot"><span class="annottext">newTransport :: Protocol -&gt; Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#newTransport"><span class="hs-identifier hs-var hs-var">newTransport</span></a></span></span><span> </span><span id="local-6989586621679271982"><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621679271982"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">Transport' :: Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Protocol
+-&gt; Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxLatency:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxLatency%3ATransport%27"><span class="hs-identifier hs-var">maxLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSyncBuffer:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxSyncBuffer%3ATransport%27"><span class="hs-identifier hs-var">maxSyncBuffer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrAllowList:Transport' :: Maybe [Text]
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AcidrAllowList%3ATransport%27"><span class="hs-identifier hs-var">cidrAllowList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:smoothingLatency:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AsmoothingLatency%3ATransport%27"><span class="hs-identifier hs-var">smoothingLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:minLatency:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AminLatency%3ATransport%27"><span class="hs-identifier hs-var">minLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxBitrate:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxBitrate%3ATransport%27"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamId:Transport' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AstreamId%3ATransport%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteId:Transport' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AremoteId%3ATransport%27"><span class="hs-identifier hs-var">remoteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Transport' :: Protocol
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3Aprotocol%3ATransport%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621679271982"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The maximum latency in milliseconds. This parameter applies only to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- RIST-based and Zixi-based streams.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_maxLatency"><span class="hs-identifier hs-type">transport_maxLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="transport_maxLatency"><span class="annot"><span class="annottext">transport_maxLatency :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_maxLatency"><span class="hs-identifier hs-var hs-var">transport_maxLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe Int)
+-&gt; (Transport -&gt; Maybe Int -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271978"><span class="annot"><span class="annottext">Maybe Int
+maxLatency :: Maybe Int
+$sel:maxLatency:Transport' :: Transport -&gt; Maybe Int
+</span><a href="#local-6989586621679271978"><span class="hs-identifier hs-var hs-var">maxLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271978"><span class="hs-identifier hs-var">maxLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271977"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271976"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxLatency:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxLatency%3ATransport%27"><span class="hs-identifier hs-var">maxLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The size of the buffer (in milliseconds) to use to sync incoming source</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_maxSyncBuffer"><span class="hs-identifier hs-type">transport_maxSyncBuffer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="transport_maxSyncBuffer"><span class="annot"><span class="annottext">transport_maxSyncBuffer :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_maxSyncBuffer"><span class="hs-identifier hs-var hs-var">transport_maxSyncBuffer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe Int)
+-&gt; (Transport -&gt; Maybe Int -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271974"><span class="annot"><span class="annottext">Maybe Int
+maxSyncBuffer :: Maybe Int
+$sel:maxSyncBuffer:Transport' :: Transport -&gt; Maybe Int
+</span><a href="#local-6989586621679271974"><span class="hs-identifier hs-var hs-var">maxSyncBuffer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271974"><span class="hs-identifier hs-var">maxSyncBuffer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271973"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271972"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSyncBuffer:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxSyncBuffer%3ATransport%27"><span class="hs-identifier hs-var">maxSyncBuffer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The range of IP addresses that should be allowed to initiate output</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- requests to this flow. These IP addresses should be in the form of a</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_cidrAllowList"><span class="hs-identifier hs-type">transport_cidrAllowList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="transport_cidrAllowList"><span class="annot"><span class="annottext">transport_cidrAllowList :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_cidrAllowList"><span class="hs-identifier hs-var hs-var">transport_cidrAllowList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe [Text])
+-&gt; (Transport -&gt; Maybe [Text] -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271970"><span class="annot"><span class="annottext">Maybe [Text]
+cidrAllowList :: Maybe [Text]
+$sel:cidrAllowList:Transport' :: Transport -&gt; Maybe [Text]
+</span><a href="#local-6989586621679271970"><span class="hs-identifier hs-var hs-var">cidrAllowList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679271970"><span class="hs-identifier hs-var">cidrAllowList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271969"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271968"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679271968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrAllowList:Transport' :: Maybe [Text]
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AcidrAllowList%3ATransport%27"><span class="hs-identifier hs-var">cidrAllowList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679271968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Transport -&gt; f Transport)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Transport
+-&gt; f Transport
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- streams.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_smoothingLatency"><span class="hs-identifier hs-type">transport_smoothingLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="transport_smoothingLatency"><span class="annot"><span class="annottext">transport_smoothingLatency :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_smoothingLatency"><span class="hs-identifier hs-var hs-var">transport_smoothingLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe Int)
+-&gt; (Transport -&gt; Maybe Int -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271963"><span class="annot"><span class="annottext">Maybe Int
+smoothingLatency :: Maybe Int
+$sel:smoothingLatency:Transport' :: Transport -&gt; Maybe Int
+</span><a href="#local-6989586621679271963"><span class="hs-identifier hs-var hs-var">smoothingLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271963"><span class="hs-identifier hs-var">smoothingLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271962"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271961"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smoothingLatency:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AsmoothingLatency%3ATransport%27"><span class="hs-identifier hs-var">smoothingLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_minLatency"><span class="hs-identifier hs-type">transport_minLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="transport_minLatency"><span class="annot"><span class="annottext">transport_minLatency :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_minLatency"><span class="hs-identifier hs-var hs-var">transport_minLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe Int)
+-&gt; (Transport -&gt; Maybe Int -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271959"><span class="annot"><span class="annottext">Maybe Int
+minLatency :: Maybe Int
+$sel:minLatency:Transport' :: Transport -&gt; Maybe Int
+</span><a href="#local-6989586621679271959"><span class="hs-identifier hs-var hs-var">minLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271959"><span class="hs-identifier hs-var">minLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271958"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271957"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minLatency:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AminLatency%3ATransport%27"><span class="hs-identifier hs-var">minLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_maxBitrate"><span class="hs-identifier hs-type">transport_maxBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="transport_maxBitrate"><span class="annot"><span class="annottext">transport_maxBitrate :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_maxBitrate"><span class="hs-identifier hs-var hs-var">transport_maxBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe Int)
+-&gt; (Transport -&gt; Maybe Int -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271955"><span class="annot"><span class="annottext">Maybe Int
+maxBitrate :: Maybe Int
+$sel:maxBitrate:Transport' :: Transport -&gt; Maybe Int
+</span><a href="#local-6989586621679271955"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271955"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271954"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271953"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxBitrate:Transport' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AmaxBitrate%3ATransport%27"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679271953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_streamId"><span class="hs-identifier hs-type">transport_streamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="transport_streamId"><span class="annot"><span class="annottext">transport_streamId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_streamId"><span class="hs-identifier hs-var hs-var">transport_streamId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe Text)
+-&gt; (Transport -&gt; Maybe Text -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271951"><span class="annot"><span class="annottext">Maybe Text
+streamId :: Maybe Text
+$sel:streamId:Transport' :: Transport -&gt; Maybe Text
+</span><a href="#local-6989586621679271951"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271951"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271950"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:Transport' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AstreamId%3ATransport%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The remote ID for the Zixi-pull stream.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_remoteId"><span class="hs-identifier hs-type">transport_remoteId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="transport_remoteId"><span class="annot"><span class="annottext">transport_remoteId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_remoteId"><span class="hs-identifier hs-var hs-var">transport_remoteId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Maybe Text)
+-&gt; (Transport -&gt; Maybe Text -&gt; Transport)
+-&gt; Lens Transport Transport (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271947"><span class="annot"><span class="annottext">Maybe Text
+remoteId :: Maybe Text
+$sel:remoteId:Transport' :: Transport -&gt; Maybe Text
+</span><a href="#local-6989586621679271947"><span class="hs-identifier hs-var hs-var">remoteId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271947"><span class="hs-identifier hs-var">remoteId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271946"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271945"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteId:Transport' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3AremoteId%3ATransport%27"><span class="hs-identifier hs-var">remoteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The protocol that is used by the source or output.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_protocol"><span class="hs-identifier hs-type">transport_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span>
+</span><span id="line-159"></span><span id="transport_protocol"><span class="annot"><span class="annottext">transport_protocol :: (Protocol -&gt; f Protocol) -&gt; Transport -&gt; f Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#transport_protocol"><span class="hs-identifier hs-var hs-var">transport_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transport -&gt; Protocol)
+-&gt; (Transport -&gt; Protocol -&gt; Transport)
+-&gt; Lens Transport Transport Protocol Protocol
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271943"><span class="annot"><span class="annottext">Protocol
+protocol :: Protocol
+$sel:protocol:Transport' :: Transport -&gt; Protocol
+</span><a href="#local-6989586621679271943"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621679271943"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271942"><span class="annot"><span class="annottext">s :: Transport
+</span><a href="#local-6989586621679271942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-type">Transport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271941"><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621679271941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transport
+</span><a href="#local-6989586621679271942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Transport' :: Protocol
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#%24sel%3Aprotocol%3ATransport%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621679271941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271938"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679271936"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Transport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Transport) -&gt; Value -&gt; Parser Transport
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Transport&quot;</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271933"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Protocol
+-&gt; Transport
+</span><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport%27"><span class="hs-identifier hs-var">Transport'</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe [Text]
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Protocol
+ -&gt; Transport)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe [Text]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Protocol
+      -&gt; Transport)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxLatency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Protocol
+   -&gt; Transport)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Protocol
+      -&gt; Transport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxSyncBuffer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Protocol
+   -&gt; Transport)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Protocol
+      -&gt; Transport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cidrAllowList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Protocol
+   -&gt; Transport)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Protocol -&gt; Transport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smoothingLatency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Protocol -&gt; Transport)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Protocol -&gt; Transport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minLatency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Protocol -&gt; Transport)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Protocol -&gt; Transport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxBitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Protocol -&gt; Transport)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Protocol -&gt; Transport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Protocol -&gt; Transport)
+-&gt; Parser (Maybe Text) -&gt; Parser (Protocol -&gt; Transport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (Protocol -&gt; Transport)
+-&gt; Parser Protocol -&gt; Parser Transport
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Protocol
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271925"><span id="local-6989586621679271927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Transport.html#Transport"><span class="hs-identifier hs-type">Transport</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

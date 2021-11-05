@@ -57,12 +57,12 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Input for ListSubscriptions action.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newListSubscriptions' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679195682"><span id="local-6989586621679195683"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSubscriptions"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-var">ListSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSubscriptions%27"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-var">ListSubscriptions'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679195691"><span id="local-6989586621679195692"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSubscriptions"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-var">ListSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSubscriptions%27"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-var">ListSubscriptions'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Token returned by the previous @ListSubscriptions@ request.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListSubscriptions%27"><span class="annot"><span class="annottext">ListSubscriptions -&gt; Maybe Text
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#%24sel%3AnextToken%3AListSubscriptions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195676"><span id="local-6989586621679195678"><span class="annot"><span class="annottext">ListSubscriptions -&gt; ListSubscriptions -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195685"><span id="local-6989586621679195687"><span class="annot"><span class="annottext">ListSubscriptions -&gt; ListSubscriptions -&gt; Bool
 (ListSubscriptions -&gt; ListSubscriptions -&gt; Bool)
 -&gt; (ListSubscriptions -&gt; ListSubscriptions -&gt; Bool)
 -&gt; Eq ListSubscriptions
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSubscriptions -&gt; ListSubscriptions -&gt; Bool
 == :: ListSubscriptions -&gt; ListSubscriptions -&gt; Bool
 $c== :: ListSubscriptions -&gt; ListSubscriptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195667"><span id="local-6989586621679195669"><span id="local-6989586621679195671"><span id="local-6989586621679195673"><span class="annot"><span class="annottext">ReadPrec [ListSubscriptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195676"><span id="local-6989586621679195678"><span id="local-6989586621679195680"><span id="local-6989586621679195682"><span class="annot"><span class="annottext">ReadPrec [ListSubscriptions]
 ReadPrec ListSubscriptions
 Int -&gt; ReadS ListSubscriptions
 ReadS [ListSubscriptions]
@@ -91,7 +91,7 @@ readList :: ReadS [ListSubscriptions]
 $creadList :: ReadS [ListSubscriptions]
 readsPrec :: Int -&gt; ReadS ListSubscriptions
 $creadsPrec :: Int -&gt; ReadS ListSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195660"><span id="local-6989586621679195662"><span id="local-6989586621679195664"><span class="annot"><span class="annottext">Int -&gt; ListSubscriptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195669"><span id="local-6989586621679195671"><span id="local-6989586621679195673"><span class="annot"><span class="annottext">Int -&gt; ListSubscriptions -&gt; ShowS
 [ListSubscriptions] -&gt; ShowS
 ListSubscriptions -&gt; String
 (Int -&gt; ListSubscriptions -&gt; ShowS)
@@ -145,29 +145,29 @@ forall a. Maybe a
 -&gt; Lens
      ListSubscriptions ListSubscriptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-type">ListSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195654"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-type">ListSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195663"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSubscriptions' :: ListSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195653"><span class="annot"><span class="annottext">s :: ListSubscriptions
-</span><a href="#local-6989586621679195653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-type">ListSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195652"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptions
-</span><a href="#local-6989586621679195653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSubscriptions' :: Maybe Text
+</span><a href="#local-6989586621679195663"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195663"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195662"><span class="annot"><span class="annottext">s :: ListSubscriptions
+</span><a href="#local-6989586621679195662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-type">ListSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195661"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptions
+</span><a href="#local-6989586621679195662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSubscriptions' :: Maybe Text
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#%24sel%3AnextToken%3AListSubscriptions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679195648"><span class="annot"><span class="annottext">page :: ListSubscriptions
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679195657"><span class="annot"><span class="annottext">page :: ListSubscriptions
 -&gt; AWSResponse ListSubscriptions -&gt; Maybe ListSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679195646"><span class="annot"><span class="annottext">ListSubscriptions
-</span><a href="#local-6989586621679195646"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679195645"><span class="annot"><span class="annottext">AWSResponse ListSubscriptions
-</span><a href="#local-6989586621679195645"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679195655"><span class="annot"><span class="annottext">ListSubscriptions
+</span><a href="#local-6989586621679195655"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679195654"><span class="annot"><span class="annottext">AWSResponse ListSubscriptions
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-87"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSubscriptions
 ListSubscriptionsResponse
-</span><a href="#local-6989586621679195645"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
 -&gt; Getting (First Text) ListSubscriptionsResponse Text
 -&gt; Maybe Text
@@ -197,7 +197,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-93"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSubscriptions
 ListSubscriptionsResponse
-</span><a href="#local-6989586621679195645"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
 -&gt; Getting
      (First [Subscription]) ListSubscriptionsResponse [Subscription]
@@ -237,7 +237,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">ListSubscriptions
-</span><a href="#local-6989586621679195646"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679195655"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">ListSubscriptions
 -&gt; (ListSubscriptions -&gt; ListSubscriptions) -&gt; ListSubscriptions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -251,7 +251,7 @@ Lens ListSubscriptions ListSubscriptions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSubscriptions
 ListSubscriptionsResponse
-</span><a href="#local-6989586621679195645"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
 -&gt; Getting (First Text) ListSubscriptionsResponse Text
 -&gt; Maybe Text
@@ -277,12 +277,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679195635"><span class="annot"><span class="annottext">request :: ListSubscriptions -&gt; Request ListSubscriptions
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679195644"><span class="annot"><span class="annottext">request :: ListSubscriptions -&gt; Request ListSubscriptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSubscriptions -&gt; Request ListSubscriptions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679195631"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679195640"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListSubscriptions
 -&gt; ClientResponse ClientBody
@@ -313,10 +313,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListSubscriptionsResult&quot;</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195628"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679195628"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679195627"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679195627"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679195626"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195637"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195637"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679195636"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679195636"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679195635"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679195635"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Subscription] -&gt; Int -&gt; ListSubscriptionsResponse
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListSubscriptionsResponse'</span></a></span><span>
@@ -327,7 +327,7 @@ Text
      String (Maybe [Subscription] -&gt; Int -&gt; ListSubscriptionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679195635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,7 +337,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListSubscriptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679195635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subscriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -367,15 +367,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679195628"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195637"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195615"><span id="local-6989586621679195617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195624"><span id="local-6989586621679195626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679195608"><span class="annot"><span class="annottext">toHeaders :: ListSubscriptions -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679195617"><span class="annot"><span class="annottext">toHeaders :: ListSubscriptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSubscriptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -383,18 +383,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679195603"><span class="annot"><span class="annottext">toPath :: ListSubscriptions -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679195612"><span class="annot"><span class="annottext">toPath :: ListSubscriptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSubscriptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions"><span class="hs-identifier hs-type">ListSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679195599"><span class="annot"><span class="annottext">toQuery :: ListSubscriptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-type">ListSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195597"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679195608"><span class="annot"><span class="annottext">toQuery :: ListSubscriptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptions%27"><span class="hs-identifier hs-type">ListSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195606"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSubscriptions' :: ListSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679195597"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679195606"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -414,13 +414,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195597"><span class="hs-identifier hs-var">nextToken</span></a></span><span>
+</span><a href="#local-6989586621679195606"><span class="hs-identifier hs-var">nextToken</span></a></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | Response for ListSubscriptions action</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- /See:/ 'newListSubscriptionsResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679195594"><span id="local-6989586621679195595"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSubscriptionsResponse"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-var">ListSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListSubscriptionsResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679195603"><span id="local-6989586621679195604"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSubscriptionsResponse"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-var">ListSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListSubscriptionsResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Token to pass along to the next @ListSubscriptions@ request. This</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- element is returned if there are more subscriptions to retrieve.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AnextToken%3AListSubscriptionsResponse%27"><span class="annot"><span class="annottext">ListSubscriptionsResponse -&gt; Maybe Text
@@ -432,7 +432,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSubscriptionsResponse%27"><span class="annot"><span class="annottext">ListSubscriptionsResponse -&gt; Int
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#%24sel%3AhttpStatus%3AListSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195587"><span id="local-6989586621679195589"><span class="annot"><span class="annottext">ListSubscriptionsResponse -&gt; ListSubscriptionsResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195596"><span id="local-6989586621679195598"><span class="annot"><span class="annottext">ListSubscriptionsResponse -&gt; ListSubscriptionsResponse -&gt; Bool
 (ListSubscriptionsResponse -&gt; ListSubscriptionsResponse -&gt; Bool)
 -&gt; (ListSubscriptionsResponse -&gt; ListSubscriptionsResponse -&gt; Bool)
 -&gt; Eq ListSubscriptionsResponse
@@ -441,7 +441,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSubscriptionsResponse -&gt; ListSubscriptionsResponse -&gt; Bool
 == :: ListSubscriptionsResponse -&gt; ListSubscriptionsResponse -&gt; Bool
 $c== :: ListSubscriptionsResponse -&gt; ListSubscriptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195579"><span id="local-6989586621679195581"><span id="local-6989586621679195583"><span id="local-6989586621679195585"><span class="annot"><span class="annottext">ReadPrec [ListSubscriptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195588"><span id="local-6989586621679195590"><span id="local-6989586621679195592"><span id="local-6989586621679195594"><span class="annot"><span class="annottext">ReadPrec [ListSubscriptionsResponse]
 ReadPrec ListSubscriptionsResponse
 Int -&gt; ReadS ListSubscriptionsResponse
 ReadS [ListSubscriptionsResponse]
@@ -461,7 +461,7 @@ readList :: ReadS [ListSubscriptionsResponse]
 $creadList :: ReadS [ListSubscriptionsResponse]
 readsPrec :: Int -&gt; ReadS ListSubscriptionsResponse
 $creadsPrec :: Int -&gt; ReadS ListSubscriptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195573"><span id="local-6989586621679195575"><span id="local-6989586621679195577"><span class="annot"><span class="annottext">Int -&gt; ListSubscriptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195582"><span id="local-6989586621679195584"><span id="local-6989586621679195586"><span class="annot"><span class="annottext">Int -&gt; ListSubscriptionsResponse -&gt; ShowS
 [ListSubscriptionsResponse] -&gt; ShowS
 ListSubscriptionsResponse -&gt; String
 (Int -&gt; ListSubscriptionsResponse -&gt; ShowS)
@@ -512,8 +512,8 @@ ListSubscriptionsResponse -&gt; Rep ListSubscriptionsResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newListSubscriptionsResponse"><span class="annot"><span class="annottext">newListSubscriptionsResponse :: Int -&gt; ListSubscriptionsResponse
-</span><a href="Network.AWS.SNS.ListSubscriptions.html#newListSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newListSubscriptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679195570"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679195570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.ListSubscriptions.html#newListSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newListSubscriptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679195579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">ListSubscriptionsResponse' :: Maybe Text
 -&gt; Maybe [Subscription] -&gt; Int -&gt; ListSubscriptionsResponse
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span>
@@ -528,7 +528,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#%24sel%3AhttpStatus%3AListSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679195570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679195579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | Token to pass along to the next @ListSubscriptions@ request. This</span><span>
@@ -541,16 +541,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListSubscriptionsResponse)
 -&gt; Lens' ListSubscriptionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195569"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195578"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSubscriptionsResponse' :: ListSubscriptionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679195569"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195569"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195568"><span class="annot"><span class="annottext">s :: ListSubscriptionsResponse
-</span><a href="#local-6989586621679195568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195567"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
-</span><a href="#local-6989586621679195568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSubscriptionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679195578"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195578"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195577"><span class="annot"><span class="annottext">s :: ListSubscriptionsResponse
+</span><a href="#local-6989586621679195577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
+</span><a href="#local-6989586621679195577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSubscriptionsResponse' :: Maybe Text
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#%24sel%3AnextToken%3AListSubscriptionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | A list of subscriptions.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#listSubscriptionsResponse_subscriptions"><span class="hs-identifier hs-type">listSubscriptionsResponse_subscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SNS.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -561,16 +561,16 @@ $sel:nextToken:ListSubscriptionsResponse' :: ListSubscriptionsResponse -&gt; May
     -&gt; Maybe [Subscription] -&gt; ListSubscriptionsResponse)
 -&gt; Lens' ListSubscriptionsResponse (Maybe [Subscription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195566"><span class="annot"><span class="annottext">Maybe [Subscription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195575"><span class="annot"><span class="annottext">Maybe [Subscription]
 subscriptions :: Maybe [Subscription]
 $sel:subscriptions:ListSubscriptionsResponse' :: ListSubscriptionsResponse -&gt; Maybe [Subscription]
-</span><a href="#local-6989586621679195566"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
-</span><a href="#local-6989586621679195566"><span class="hs-identifier hs-var">subscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195565"><span class="annot"><span class="annottext">s :: ListSubscriptionsResponse
-</span><a href="#local-6989586621679195565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195564"><span class="annot"><span class="annottext">Maybe [Subscription]
-</span><a href="#local-6989586621679195564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
-</span><a href="#local-6989586621679195565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptions:ListSubscriptionsResponse' :: Maybe [Subscription]
+</span><a href="#local-6989586621679195575"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
+</span><a href="#local-6989586621679195575"><span class="hs-identifier hs-var">subscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195574"><span class="annot"><span class="annottext">s :: ListSubscriptionsResponse
+</span><a href="#local-6989586621679195574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195573"><span class="annot"><span class="annottext">Maybe [Subscription]
+</span><a href="#local-6989586621679195573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
+</span><a href="#local-6989586621679195574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptions:ListSubscriptionsResponse' :: Maybe [Subscription]
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#%24sel%3Asubscriptions%3AListSubscriptionsResponse%27"><span class="hs-identifier hs-var">subscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
-</span><a href="#local-6989586621679195564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subscription] -&gt; f (Maybe [Subscription]))
+</span><a href="#local-6989586621679195573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subscription] -&gt; f (Maybe [Subscription]))
  -&gt; ListSubscriptionsResponse -&gt; f ListSubscriptionsResponse)
 -&gt; ((Maybe [Subscription] -&gt; f (Maybe [Subscription]))
     -&gt; Maybe [Subscription] -&gt; f (Maybe [Subscription]))
@@ -599,16 +599,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListSubscriptionsResponse -&gt; Int -&gt; ListSubscriptionsResponse)
 -&gt; Lens ListSubscriptionsResponse ListSubscriptionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195561"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195570"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListSubscriptionsResponse' :: ListSubscriptionsResponse -&gt; Int
-</span><a href="#local-6989586621679195561"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679195561"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195560"><span class="annot"><span class="annottext">s :: ListSubscriptionsResponse
-</span><a href="#local-6989586621679195560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195559"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679195559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
-</span><a href="#local-6989586621679195560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSubscriptionsResponse' :: Int
+</span><a href="#local-6989586621679195570"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195570"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195569"><span class="annot"><span class="annottext">s :: ListSubscriptionsResponse
+</span><a href="#local-6989586621679195569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSubscriptionsResponse
+</span><a href="#local-6989586621679195569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.SNS.ListSubscriptions.html#%24sel%3AhttpStatus%3AListSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679195559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ListSubscriptions.html#ListSubscriptionsResponse"><span class="hs-identifier hs-type">ListSubscriptionsResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

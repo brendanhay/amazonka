@@ -1,0 +1,745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Wisdom.Types.ContentSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Wisdom.Types.ContentSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentStatus.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.ContentStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Summary information about the content.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newContentSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679220206"><span id="local-6989586621679220207"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContentSummary"><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-var">ContentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentSummary%27"><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-var">ContentSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Atags%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Atags%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the content.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcontentArn%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentArn%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">contentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier of the content.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcontentId%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentId%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">contentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The media type of the content.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcontentType%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentType%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the knowledge base.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AknowledgeBaseArn%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AknowledgeBaseArn%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">knowledgeBaseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The the identifier of the knowledge base.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AknowledgeBaseId%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AknowledgeBaseId%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">knowledgeBaseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A key\/value map to store attributes without affecting tagging or</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- recommendations. For example, when synchronizing data between an</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- external system and Wisdom, you can store an external version identifier</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- as metadata to utilize for determining drift.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Ametadata%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; HashMap Text Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Ametadata%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the content.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aname%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Aname%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The identifier of the revision of the content.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3ArevisionId%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3ArevisionId%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The status of the content.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Astatus%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; ContentStatus
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Astatus%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentStatus.html#ContentStatus"><span class="hs-identifier hs-type">ContentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The title of the content.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Atitle%3AContentSummary%27"><span class="annot"><span class="annottext">ContentSummary -&gt; Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Atitle%3AContentSummary%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220190"><span id="local-6989586621679220192"><span class="annot"><span class="annottext">ContentSummary -&gt; ContentSummary -&gt; Bool
+(ContentSummary -&gt; ContentSummary -&gt; Bool)
+-&gt; (ContentSummary -&gt; ContentSummary -&gt; Bool) -&gt; Eq ContentSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContentSummary -&gt; ContentSummary -&gt; Bool
+$c/= :: ContentSummary -&gt; ContentSummary -&gt; Bool
+== :: ContentSummary -&gt; ContentSummary -&gt; Bool
+$c== :: ContentSummary -&gt; ContentSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220181"><span id="local-6989586621679220183"><span id="local-6989586621679220185"><span id="local-6989586621679220187"><span class="annot"><span class="annottext">ReadPrec [ContentSummary]
+ReadPrec ContentSummary
+Int -&gt; ReadS ContentSummary
+ReadS [ContentSummary]
+(Int -&gt; ReadS ContentSummary)
+-&gt; ReadS [ContentSummary]
+-&gt; ReadPrec ContentSummary
+-&gt; ReadPrec [ContentSummary]
+-&gt; Read ContentSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContentSummary]
+$creadListPrec :: ReadPrec [ContentSummary]
+readPrec :: ReadPrec ContentSummary
+$creadPrec :: ReadPrec ContentSummary
+readList :: ReadS [ContentSummary]
+$creadList :: ReadS [ContentSummary]
+readsPrec :: Int -&gt; ReadS ContentSummary
+$creadsPrec :: Int -&gt; ReadS ContentSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220174"><span id="local-6989586621679220176"><span id="local-6989586621679220178"><span class="annot"><span class="annottext">Int -&gt; ContentSummary -&gt; ShowS
+[ContentSummary] -&gt; ShowS
+ContentSummary -&gt; String
+(Int -&gt; ContentSummary -&gt; ShowS)
+-&gt; (ContentSummary -&gt; String)
+-&gt; ([ContentSummary] -&gt; ShowS)
+-&gt; Show ContentSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContentSummary] -&gt; ShowS
+$cshowList :: [ContentSummary] -&gt; ShowS
+show :: ContentSummary -&gt; String
+$cshow :: ContentSummary -&gt; String
+showsPrec :: Int -&gt; ContentSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContentSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ContentSummary -&gt; Rep ContentSummary x)
+-&gt; (forall x. Rep ContentSummary x -&gt; ContentSummary)
+-&gt; Generic ContentSummary
+forall x. Rep ContentSummary x -&gt; ContentSummary
+forall x. ContentSummary -&gt; Rep ContentSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContentSummary x -&gt; ContentSummary
+$cfrom :: forall x. ContentSummary -&gt; Rep ContentSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'ContentSummary' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'tags', 'contentSummary_tags' - The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'contentArn', 'contentSummary_contentArn' - The Amazon Resource Name (ARN) of the content.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'contentId', 'contentSummary_contentId' - The identifier of the content.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'contentType', 'contentSummary_contentType' - The media type of the content.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'knowledgeBaseArn', 'contentSummary_knowledgeBaseArn' - The Amazon Resource Name (ARN) of the knowledge base.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'knowledgeBaseId', 'contentSummary_knowledgeBaseId' - The the identifier of the knowledge base.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'metadata', 'contentSummary_metadata' - A key\/value map to store attributes without affecting tagging or</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- recommendations. For example, when synchronizing data between an</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- external system and Wisdom, you can store an external version identifier</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- as metadata to utilize for determining drift.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'name', 'contentSummary_name' - The name of the content.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'revisionId', 'contentSummary_revisionId' - The identifier of the revision of the content.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'status', 'contentSummary_status' - The status of the content.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'title', 'contentSummary_title' - The title of the content.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#newContentSummary"><span class="hs-identifier hs-type">newContentSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'contentArn'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'contentId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'contentType'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'knowledgeBaseArn'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'knowledgeBaseId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'revisionId'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentStatus.html#ContentStatus"><span class="hs-identifier hs-type">ContentStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'title'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span>
+</span><span id="line-111"></span><span id="newContentSummary"><span class="annot"><span class="annottext">newContentSummary :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ContentStatus
+-&gt; Text
+-&gt; ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#newContentSummary"><span class="hs-identifier hs-var hs-var">newContentSummary</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679220168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220168"><span class="hs-identifier hs-var">pContentArn_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679220167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220167"><span class="hs-identifier hs-var">pContentId_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679220166"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220166"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679220165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220165"><span class="hs-identifier hs-var">pKnowledgeBaseArn_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679220164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220164"><span class="hs-identifier hs-var">pKnowledgeBaseId_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679220163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220163"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679220162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220162"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679220161"><span class="annot"><span class="annottext">ContentStatus
+</span><a href="#local-6989586621679220161"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679220160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220160"><span class="hs-identifier hs-var">pTitle_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ContentSummary' :: Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; HashMap Text Text
+-&gt; Text
+-&gt; Text
+-&gt; ContentStatus
+-&gt; Text
+-&gt; ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:ContentSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Atags%3AContentSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentArn:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentArn%3AContentSummary%27"><span class="hs-identifier hs-var">contentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220168"><span class="hs-identifier hs-var">pContentArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentId:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentId%3AContentSummary%27"><span class="hs-identifier hs-var">contentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220167"><span class="hs-identifier hs-var">pContentId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentType:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentType%3AContentSummary%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220166"><span class="hs-identifier hs-var">pContentType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:knowledgeBaseArn:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AknowledgeBaseArn%3AContentSummary%27"><span class="hs-identifier hs-var">knowledgeBaseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220165"><span class="hs-identifier hs-var">pKnowledgeBaseArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:knowledgeBaseId:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AknowledgeBaseId%3AContentSummary%27"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220164"><span class="hs-identifier hs-var">pKnowledgeBaseId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:metadata:ContentSummary' :: HashMap Text Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Ametadata%3AContentSummary%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Aname%3AContentSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220163"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:revisionId:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3ArevisionId%3AContentSummary%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220162"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:ContentSummary' :: ContentStatus
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Astatus%3AContentSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContentStatus
+</span><a href="#local-6989586621679220161"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:title:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Atitle%3AContentSummary%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220160"><span class="hs-identifier hs-var">pTitle_</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_tags"><span class="hs-identifier hs-type">contentSummary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="contentSummary_tags"><span class="annot"><span class="annottext">contentSummary_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_tags"><span class="hs-identifier hs-var hs-var">contentSummary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Maybe (HashMap Text Text))
+-&gt; (ContentSummary -&gt; Maybe (HashMap Text Text) -&gt; ContentSummary)
+-&gt; Lens
+     ContentSummary
+     ContentSummary
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220156"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:ContentSummary' :: ContentSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679220156"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679220156"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220155"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220154"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679220154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ContentSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Atags%3AContentSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679220154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ContentSummary -&gt; f ContentSummary)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContentSummary
+-&gt; f ContentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the content.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentArn"><span class="hs-identifier hs-type">contentSummary_contentArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="contentSummary_contentArn"><span class="annot"><span class="annottext">contentSummary_contentArn :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentArn"><span class="hs-identifier hs-var hs-var">contentSummary_contentArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220149"><span class="annot"><span class="annottext">Text
+contentArn :: Text
+$sel:contentArn:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220149"><span class="hs-identifier hs-var hs-var">contentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220149"><span class="hs-identifier hs-var">contentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220148"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentArn:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentArn%3AContentSummary%27"><span class="hs-identifier hs-var">contentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The identifier of the content.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentId"><span class="hs-identifier hs-type">contentSummary_contentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-145"></span><span id="contentSummary_contentId"><span class="annot"><span class="annottext">contentSummary_contentId :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentId"><span class="hs-identifier hs-var hs-var">contentSummary_contentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220145"><span class="annot"><span class="annottext">Text
+contentId :: Text
+$sel:contentId:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220145"><span class="hs-identifier hs-var hs-var">contentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220145"><span class="hs-identifier hs-var">contentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220144"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentId:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentId%3AContentSummary%27"><span class="hs-identifier hs-var">contentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The media type of the content.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentType"><span class="hs-identifier hs-type">contentSummary_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="contentSummary_contentType"><span class="annot"><span class="annottext">contentSummary_contentType :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentType"><span class="hs-identifier hs-var hs-var">contentSummary_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220141"><span class="annot"><span class="annottext">Text
+contentType :: Text
+$sel:contentType:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220141"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220141"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220140"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AcontentType%3AContentSummary%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the knowledge base.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_knowledgeBaseArn"><span class="hs-identifier hs-type">contentSummary_knowledgeBaseArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-153"></span><span id="contentSummary_knowledgeBaseArn"><span class="annot"><span class="annottext">contentSummary_knowledgeBaseArn :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_knowledgeBaseArn"><span class="hs-identifier hs-var hs-var">contentSummary_knowledgeBaseArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220137"><span class="annot"><span class="annottext">Text
+knowledgeBaseArn :: Text
+$sel:knowledgeBaseArn:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220137"><span class="hs-identifier hs-var hs-var">knowledgeBaseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220137"><span class="hs-identifier hs-var">knowledgeBaseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220136"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knowledgeBaseArn:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AknowledgeBaseArn%3AContentSummary%27"><span class="hs-identifier hs-var">knowledgeBaseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The the identifier of the knowledge base.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_knowledgeBaseId"><span class="hs-identifier hs-type">contentSummary_knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="contentSummary_knowledgeBaseId"><span class="annot"><span class="annottext">contentSummary_knowledgeBaseId :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_knowledgeBaseId"><span class="hs-identifier hs-var hs-var">contentSummary_knowledgeBaseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220133"><span class="annot"><span class="annottext">Text
+knowledgeBaseId :: Text
+$sel:knowledgeBaseId:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220133"><span class="hs-identifier hs-var hs-var">knowledgeBaseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220133"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220132"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220131"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knowledgeBaseId:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3AknowledgeBaseId%3AContentSummary%27"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | A key\/value map to store attributes without affecting tagging or</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- recommendations. For example, when synchronizing data between an</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- external system and Wisdom, you can store an external version identifier</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- as metadata to utilize for determining drift.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_metadata"><span class="hs-identifier hs-type">contentSummary_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="contentSummary_metadata"><span class="annot"><span class="annottext">contentSummary_metadata :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_metadata"><span class="hs-identifier hs-var hs-var">contentSummary_metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; HashMap Text Text)
+-&gt; (ContentSummary -&gt; HashMap Text Text -&gt; ContentSummary)
+-&gt; Lens
+     ContentSummary
+     ContentSummary
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220129"><span class="annot"><span class="annottext">HashMap Text Text
+metadata :: HashMap Text Text
+$sel:metadata:ContentSummary' :: ContentSummary -&gt; HashMap Text Text
+</span><a href="#local-6989586621679220129"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679220129"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220128"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220127"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679220127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:ContentSummary' :: HashMap Text Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Ametadata%3AContentSummary%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679220127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; ContentSummary -&gt; f ContentSummary)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; ContentSummary
+-&gt; f ContentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The name of the content.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_name"><span class="hs-identifier hs-type">contentSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span id="contentSummary_name"><span class="annot"><span class="annottext">contentSummary_name :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_name"><span class="hs-identifier hs-var hs-var">contentSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220125"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220125"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220125"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220124"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Aname%3AContentSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The identifier of the revision of the content.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_revisionId"><span class="hs-identifier hs-type">contentSummary_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-172"></span><span id="contentSummary_revisionId"><span class="annot"><span class="annottext">contentSummary_revisionId :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_revisionId"><span class="hs-identifier hs-var hs-var">contentSummary_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220121"><span class="annot"><span class="annottext">Text
+revisionId :: Text
+$sel:revisionId:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220121"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220121"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220120"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220119"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3ArevisionId%3AContentSummary%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The status of the content.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_status"><span class="hs-identifier hs-type">contentSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentStatus.html#ContentStatus"><span class="hs-identifier hs-type">ContentStatus</span></a></span><span>
+</span><span id="line-176"></span><span id="contentSummary_status"><span class="annot"><span class="annottext">contentSummary_status :: (ContentStatus -&gt; f ContentStatus)
+-&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_status"><span class="hs-identifier hs-var hs-var">contentSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; ContentStatus)
+-&gt; (ContentSummary -&gt; ContentStatus -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary ContentStatus ContentStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220117"><span class="annot"><span class="annottext">ContentStatus
+status :: ContentStatus
+$sel:status:ContentSummary' :: ContentSummary -&gt; ContentStatus
+</span><a href="#local-6989586621679220117"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentStatus
+</span><a href="#local-6989586621679220117"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220116"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220115"><span class="annot"><span class="annottext">ContentStatus
+</span><a href="#local-6989586621679220115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ContentSummary' :: ContentStatus
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Astatus%3AContentSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContentStatus
+</span><a href="#local-6989586621679220115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The title of the content.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_title"><span class="hs-identifier hs-type">contentSummary_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span id="contentSummary_title"><span class="annot"><span class="annottext">contentSummary_title :: (Text -&gt; f Text) -&gt; ContentSummary -&gt; f ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_title"><span class="hs-identifier hs-var hs-var">contentSummary_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentSummary -&gt; Text)
+-&gt; (ContentSummary -&gt; Text -&gt; ContentSummary)
+-&gt; Lens ContentSummary ContentSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220113"><span class="annot"><span class="annottext">Text
+title :: Text
+$sel:title:ContentSummary' :: ContentSummary -&gt; Text
+</span><a href="#local-6989586621679220113"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220113"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220112"><span class="annot"><span class="annottext">s :: ContentSummary
+</span><a href="#local-6989586621679220112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-type">ContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentSummary
+</span><a href="#local-6989586621679220112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:ContentSummary' :: Text
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#%24sel%3Atitle%3AContentSummary%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220108"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679220106"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContentSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ContentSummary)
+-&gt; Value
+-&gt; Parser ContentSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ContentSummary&quot;</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220103"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; HashMap Text Text
+-&gt; Text
+-&gt; Text
+-&gt; ContentStatus
+-&gt; Text
+-&gt; ContentSummary
+</span><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary%27"><span class="hs-identifier hs-var">ContentSummary'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; HashMap Text Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ContentStatus
+ -&gt; Text
+ -&gt; ContentSummary)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; HashMap Text Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ContentStatus
+      -&gt; Text
+      -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; HashMap Text Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ContentStatus
+   -&gt; Text
+   -&gt; ContentSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; HashMap Text Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ContentStatus
+      -&gt; Text
+      -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; HashMap Text Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ContentStatus
+   -&gt; Text
+   -&gt; ContentSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; HashMap Text Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ContentStatus
+      -&gt; Text
+      -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; HashMap Text Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ContentStatus
+   -&gt; Text
+   -&gt; ContentSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; HashMap Text Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ContentStatus
+      -&gt; Text
+      -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; HashMap Text Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ContentStatus
+   -&gt; Text
+   -&gt; ContentSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; HashMap Text Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ContentStatus
+      -&gt; Text
+      -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;knowledgeBaseArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; HashMap Text Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ContentStatus
+   -&gt; Text
+   -&gt; ContentSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (HashMap Text Text
+      -&gt; Text -&gt; Text -&gt; ContentStatus -&gt; Text -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;knowledgeBaseId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (HashMap Text Text
+   -&gt; Text -&gt; Text -&gt; ContentStatus -&gt; Text -&gt; ContentSummary)
+-&gt; Parser (HashMap Text Text)
+-&gt; Parser (Text -&gt; Text -&gt; ContentStatus -&gt; Text -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; Parser (HashMap Text Text)
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ContentStatus -&gt; Text -&gt; ContentSummary)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; ContentStatus -&gt; Text -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ContentStatus -&gt; Text -&gt; ContentSummary)
+-&gt; Parser Text -&gt; Parser (ContentStatus -&gt; Text -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revisionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (ContentStatus -&gt; Text -&gt; ContentSummary)
+-&gt; Parser ContentStatus -&gt; Parser (Text -&gt; ContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContentStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ContentSummary)
+-&gt; Parser Text -&gt; Parser ContentSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;title&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220095"><span id="local-6989586621679220097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier hs-type">ContentSummary</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

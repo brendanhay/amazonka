@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newOpenInstancePublicPorts' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679633898"><span id="local-6989586621679633899"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenInstancePublicPorts"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-var">OpenInstancePublicPorts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenInstancePublicPorts%27"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-var">OpenInstancePublicPorts'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679633907"><span id="local-6989586621679633908"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenInstancePublicPorts"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-var">OpenInstancePublicPorts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenInstancePublicPorts%27"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-var">OpenInstancePublicPorts'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object to describe the ports to open for the specified instance.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AportInfo%3AOpenInstancePublicPorts%27"><span class="annot"><span class="annottext">OpenInstancePublicPorts -&gt; PortInfo
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AportInfo%3AOpenInstancePublicPorts%27"><span class="hs-identifier hs-var hs-var">portInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.PortInfo.html#PortInfo"><span class="hs-identifier hs-type">PortInfo</span></a></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AinstanceName%3AOpenInstancePublicPorts%27"><span class="annot"><span class="annottext">OpenInstancePublicPorts -&gt; Text
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AinstanceName%3AOpenInstancePublicPorts%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633891"><span id="local-6989586621679633893"><span class="annot"><span class="annottext">OpenInstancePublicPorts -&gt; OpenInstancePublicPorts -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633900"><span id="local-6989586621679633902"><span class="annot"><span class="annottext">OpenInstancePublicPorts -&gt; OpenInstancePublicPorts -&gt; Bool
 (OpenInstancePublicPorts -&gt; OpenInstancePublicPorts -&gt; Bool)
 -&gt; (OpenInstancePublicPorts -&gt; OpenInstancePublicPorts -&gt; Bool)
 -&gt; Eq OpenInstancePublicPorts
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpenInstancePublicPorts -&gt; OpenInstancePublicPorts -&gt; Bool
 == :: OpenInstancePublicPorts -&gt; OpenInstancePublicPorts -&gt; Bool
 $c== :: OpenInstancePublicPorts -&gt; OpenInstancePublicPorts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633882"><span id="local-6989586621679633884"><span id="local-6989586621679633886"><span id="local-6989586621679633888"><span class="annot"><span class="annottext">ReadPrec [OpenInstancePublicPorts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633891"><span id="local-6989586621679633893"><span id="local-6989586621679633895"><span id="local-6989586621679633897"><span class="annot"><span class="annottext">ReadPrec [OpenInstancePublicPorts]
 ReadPrec OpenInstancePublicPorts
 Int -&gt; ReadS OpenInstancePublicPorts
 ReadS [OpenInstancePublicPorts]
@@ -92,7 +92,7 @@ readList :: ReadS [OpenInstancePublicPorts]
 $creadList :: ReadS [OpenInstancePublicPorts]
 readsPrec :: Int -&gt; ReadS OpenInstancePublicPorts
 $creadsPrec :: Int -&gt; ReadS OpenInstancePublicPorts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633875"><span id="local-6989586621679633877"><span id="local-6989586621679633879"><span class="annot"><span class="annottext">Int -&gt; OpenInstancePublicPorts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633884"><span id="local-6989586621679633886"><span id="local-6989586621679633888"><span class="annot"><span class="annottext">Int -&gt; OpenInstancePublicPorts -&gt; ShowS
 [OpenInstancePublicPorts] -&gt; ShowS
 OpenInstancePublicPorts -&gt; String
 (Int -&gt; OpenInstancePublicPorts -&gt; ShowS)
@@ -138,17 +138,17 @@ $cfrom :: forall x. OpenInstancePublicPorts -&gt; Rep OpenInstancePublicPorts x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span>
 </span><span id="line-83"></span><span id="newOpenInstancePublicPorts"><span class="annot"><span class="annottext">newOpenInstancePublicPorts :: PortInfo -&gt; Text -&gt; OpenInstancePublicPorts
-</span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#newOpenInstancePublicPorts"><span class="hs-identifier hs-var hs-var">newOpenInstancePublicPorts</span></a></span></span><span> </span><span id="local-6989586621679633870"><span class="annot"><span class="annottext">PortInfo
-</span><a href="#local-6989586621679633870"><span class="hs-identifier hs-var">pPortInfo_</span></a></span></span><span> </span><span id="local-6989586621679633869"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633869"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#newOpenInstancePublicPorts"><span class="hs-identifier hs-var hs-var">newOpenInstancePublicPorts</span></a></span></span><span> </span><span id="local-6989586621679633879"><span class="annot"><span class="annottext">PortInfo
+</span><a href="#local-6989586621679633879"><span class="hs-identifier hs-var">pPortInfo_</span></a></span></span><span> </span><span id="local-6989586621679633878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633878"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">OpenInstancePublicPorts' :: PortInfo -&gt; Text -&gt; OpenInstancePublicPorts
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:portInfo:OpenInstancePublicPorts' :: PortInfo
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AportInfo%3AOpenInstancePublicPorts%27"><span class="hs-identifier hs-var">portInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortInfo
-</span><a href="#local-6989586621679633870"><span class="hs-identifier hs-var">pPortInfo_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679633879"><span class="hs-identifier hs-var">pPortInfo_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:OpenInstancePublicPorts' :: Text
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AinstanceName%3AOpenInstancePublicPorts%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633869"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
+</span><a href="#local-6989586621679633878"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | An object to describe the ports to open for the specified instance.</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. OpenInstancePublicPorts -&gt; Rep OpenInstancePublicPorts x
 -&gt; Lens
      OpenInstancePublicPorts OpenInstancePublicPorts PortInfo PortInfo
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633866"><span class="annot"><span class="annottext">PortInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633875"><span class="annot"><span class="annottext">PortInfo
 portInfo :: PortInfo
 $sel:portInfo:OpenInstancePublicPorts' :: OpenInstancePublicPorts -&gt; PortInfo
-</span><a href="#local-6989586621679633866"><span class="hs-identifier hs-var hs-var">portInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortInfo
-</span><a href="#local-6989586621679633866"><span class="hs-identifier hs-var">portInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633865"><span class="annot"><span class="annottext">s :: OpenInstancePublicPorts
-</span><a href="#local-6989586621679633865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633864"><span class="annot"><span class="annottext">PortInfo
-</span><a href="#local-6989586621679633864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPorts
-</span><a href="#local-6989586621679633865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portInfo:OpenInstancePublicPorts' :: PortInfo
+</span><a href="#local-6989586621679633875"><span class="hs-identifier hs-var hs-var">portInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortInfo
+</span><a href="#local-6989586621679633875"><span class="hs-identifier hs-var">portInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633874"><span class="annot"><span class="annottext">s :: OpenInstancePublicPorts
+</span><a href="#local-6989586621679633874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633873"><span class="annot"><span class="annottext">PortInfo
+</span><a href="#local-6989586621679633873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPorts
+</span><a href="#local-6989586621679633874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portInfo:OpenInstancePublicPorts' :: PortInfo
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AportInfo%3AOpenInstancePublicPorts%27"><span class="hs-identifier hs-var">portInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortInfo
-</span><a href="#local-6989586621679633864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The name of the instance for which to open ports.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#openInstancePublicPorts_instanceName"><span class="hs-identifier hs-type">openInstancePublicPorts_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,28 +179,28 @@ $sel:portInfo:OpenInstancePublicPorts' :: OpenInstancePublicPorts -&gt; PortInfo
 -&gt; (OpenInstancePublicPorts -&gt; Text -&gt; OpenInstancePublicPorts)
 -&gt; Lens OpenInstancePublicPorts OpenInstancePublicPorts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633863"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633872"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:OpenInstancePublicPorts' :: OpenInstancePublicPorts -&gt; Text
-</span><a href="#local-6989586621679633863"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633863"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633862"><span class="annot"><span class="annottext">s :: OpenInstancePublicPorts
-</span><a href="#local-6989586621679633862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633861"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPorts
-</span><a href="#local-6989586621679633862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:OpenInstancePublicPorts' :: Text
+</span><a href="#local-6989586621679633872"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633872"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633871"><span class="annot"><span class="annottext">s :: OpenInstancePublicPorts
+</span><a href="#local-6989586621679633871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPorts
+</span><a href="#local-6989586621679633871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:OpenInstancePublicPorts' :: Text
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AinstanceName%3AOpenInstancePublicPorts%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679633857"><span class="annot"><span class="annottext">request :: OpenInstancePublicPorts -&gt; Request OpenInstancePublicPorts
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679633866"><span class="annot"><span class="annottext">request :: OpenInstancePublicPorts -&gt; Request OpenInstancePublicPorts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; OpenInstancePublicPorts -&gt; Request OpenInstancePublicPorts
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679633853"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679633862"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy OpenInstancePublicPorts
 -&gt; ClientResponse ClientBody
@@ -226,10 +226,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679633850"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633850"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679633849"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679633849"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679633848"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679633848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679633859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633859"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679633858"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679633858"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679633857"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679633857"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation -&gt; Int -&gt; OpenInstancePublicPortsResponse
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-var">OpenInstancePublicPortsResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation -&gt; Int -&gt; OpenInstancePublicPortsResponse)
@@ -237,7 +237,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; OpenInstancePublicPortsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679633848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+</span><a href="#local-6989586621679633857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,15 +250,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633850"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633859"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633840"><span id="local-6989586621679633842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633849"><span id="local-6989586621679633851"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679633833"><span class="annot"><span class="annottext">toHeaders :: OpenInstancePublicPorts -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679633842"><span class="annot"><span class="annottext">toHeaders :: OpenInstancePublicPorts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; OpenInstancePublicPorts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,15 +285,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633823"><span id="local-6989586621679633825"><span id="local-6989586621679633827"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679633821"><span class="annot"><span class="annottext">toJSON :: OpenInstancePublicPorts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633818"><span id="local-6989586621679633819"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633832"><span id="local-6989586621679633834"><span id="local-6989586621679633836"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679633830"><span class="annot"><span class="annottext">toJSON :: OpenInstancePublicPorts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts%27"><span class="hs-identifier hs-type">OpenInstancePublicPorts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633827"><span id="local-6989586621679633828"><span class="annot"><span class="annottext">Text
 PortInfo
 instanceName :: Text
 portInfo :: PortInfo
 $sel:instanceName:OpenInstancePublicPorts' :: OpenInstancePublicPorts -&gt; Text
 $sel:portInfo:OpenInstancePublicPorts' :: OpenInstancePublicPorts -&gt; PortInfo
-</span><a href="#local-6989586621679633818"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679633827"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,26 +305,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;portInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PortInfo -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PortInfo
-</span><a href="#local-6989586621679633819"><span class="hs-identifier hs-var">portInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679633828"><span class="hs-identifier hs-var">portInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633818"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633827"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679633812"><span class="annot"><span class="annottext">toPath :: OpenInstancePublicPorts -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679633821"><span class="annot"><span class="annottext">toPath :: OpenInstancePublicPorts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; OpenInstancePublicPorts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPorts"><span class="hs-identifier hs-type">OpenInstancePublicPorts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679633808"><span class="annot"><span class="annottext">toQuery :: OpenInstancePublicPorts -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679633817"><span class="annot"><span class="annottext">toQuery :: OpenInstancePublicPorts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; OpenInstancePublicPorts -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,7 +332,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newOpenInstancePublicPortsResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679633805"><span id="local-6989586621679633806"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenInstancePublicPortsResponse"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-var">OpenInstancePublicPortsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenInstancePublicPortsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-var">OpenInstancePublicPortsResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679633814"><span id="local-6989586621679633815"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenInstancePublicPortsResponse"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-var">OpenInstancePublicPortsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenInstancePublicPortsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-var">OpenInstancePublicPortsResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -342,7 +342,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AOpenInstancePublicPortsResponse%27"><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AhttpStatus%3AOpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633799"><span id="local-6989586621679633801"><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633808"><span id="local-6989586621679633810"><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse
 -&gt; OpenInstancePublicPortsResponse -&gt; Bool
 (OpenInstancePublicPortsResponse
  -&gt; OpenInstancePublicPortsResponse -&gt; Bool)
@@ -358,7 +358,7 @@ $c/= :: OpenInstancePublicPortsResponse
 -&gt; OpenInstancePublicPortsResponse -&gt; Bool
 $c== :: OpenInstancePublicPortsResponse
 -&gt; OpenInstancePublicPortsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633791"><span id="local-6989586621679633793"><span id="local-6989586621679633795"><span id="local-6989586621679633797"><span class="annot"><span class="annottext">ReadPrec [OpenInstancePublicPortsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633800"><span id="local-6989586621679633802"><span id="local-6989586621679633804"><span id="local-6989586621679633806"><span class="annot"><span class="annottext">ReadPrec [OpenInstancePublicPortsResponse]
 ReadPrec OpenInstancePublicPortsResponse
 Int -&gt; ReadS OpenInstancePublicPortsResponse
 ReadS [OpenInstancePublicPortsResponse]
@@ -378,7 +378,7 @@ readList :: ReadS [OpenInstancePublicPortsResponse]
 $creadList :: ReadS [OpenInstancePublicPortsResponse]
 readsPrec :: Int -&gt; ReadS OpenInstancePublicPortsResponse
 $creadsPrec :: Int -&gt; ReadS OpenInstancePublicPortsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633785"><span id="local-6989586621679633787"><span id="local-6989586621679633789"><span class="annot"><span class="annottext">Int -&gt; OpenInstancePublicPortsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633794"><span id="local-6989586621679633796"><span id="local-6989586621679633798"><span class="annot"><span class="annottext">Int -&gt; OpenInstancePublicPortsResponse -&gt; ShowS
 [OpenInstancePublicPortsResponse] -&gt; ShowS
 OpenInstancePublicPortsResponse -&gt; String
 (Int -&gt; OpenInstancePublicPortsResponse -&gt; ShowS)
@@ -434,8 +434,8 @@ OpenInstancePublicPortsResponse
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newOpenInstancePublicPortsResponse"><span class="annot"><span class="annottext">newOpenInstancePublicPortsResponse :: Int -&gt; OpenInstancePublicPortsResponse
-</span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#newOpenInstancePublicPortsResponse"><span class="hs-identifier hs-var hs-var">newOpenInstancePublicPortsResponse</span></a></span></span><span> </span><span id="local-6989586621679633782"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#newOpenInstancePublicPortsResponse"><span class="hs-identifier hs-var hs-var">newOpenInstancePublicPortsResponse</span></a></span></span><span> </span><span id="local-6989586621679633791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse' :: Maybe Operation -&gt; Int -&gt; OpenInstancePublicPortsResponse
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:OpenInstancePublicPortsResponse' :: Maybe Operation
@@ -445,7 +445,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:OpenInstancePublicPortsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AhttpStatus%3AOpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679633791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -464,16 +464,16 @@ forall a. Maybe a
      (Maybe Operation)
      (Maybe Operation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633781"><span class="annot"><span class="annottext">Maybe Operation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633790"><span class="annot"><span class="annottext">Maybe Operation
 operation :: Maybe Operation
 $sel:operation:OpenInstancePublicPortsResponse' :: OpenInstancePublicPortsResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679633781"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679633781"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633780"><span class="annot"><span class="annottext">s :: OpenInstancePublicPortsResponse
-</span><a href="#local-6989586621679633780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633779"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679633779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse
-</span><a href="#local-6989586621679633780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:OpenInstancePublicPortsResponse' :: Maybe Operation
+</span><a href="#local-6989586621679633790"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679633790"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633789"><span class="annot"><span class="annottext">s :: OpenInstancePublicPortsResponse
+</span><a href="#local-6989586621679633789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633788"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679633788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse
+</span><a href="#local-6989586621679633789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:OpenInstancePublicPortsResponse' :: Maybe Operation
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3Aoperation%3AOpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679633779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#openInstancePublicPortsResponse_httpStatus"><span class="hs-identifier hs-type">openInstancePublicPortsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -489,18 +489,18 @@ $sel:operation:OpenInstancePublicPortsResponse' :: OpenInstancePublicPortsRespon
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633778"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633787"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:OpenInstancePublicPortsResponse' :: OpenInstancePublicPortsResponse -&gt; Int
-</span><a href="#local-6989586621679633778"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633778"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633777"><span class="annot"><span class="annottext">s :: OpenInstancePublicPortsResponse
-</span><a href="#local-6989586621679633777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633776"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse
-</span><a href="#local-6989586621679633777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:OpenInstancePublicPortsResponse' :: Int
+</span><a href="#local-6989586621679633787"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633787"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633786"><span class="annot"><span class="annottext">s :: OpenInstancePublicPortsResponse
+</span><a href="#local-6989586621679633786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633785"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenInstancePublicPortsResponse
+</span><a href="#local-6989586621679633786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:OpenInstancePublicPortsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#%24sel%3AhttpStatus%3AOpenInstancePublicPortsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679633774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679633783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.OpenInstancePublicPorts.html#OpenInstancePublicPortsResponse"><span class="hs-identifier hs-type">OpenInstancePublicPortsResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

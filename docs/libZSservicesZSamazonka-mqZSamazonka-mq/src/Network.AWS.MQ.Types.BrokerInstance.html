@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Returns information about all brokers.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBrokerInstance' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679221642"><span id="local-6989586621679221643"></span></span><span class="hs-keyword">data</span><span> </span><span id="BrokerInstance"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-var">BrokerInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerInstance%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-var">BrokerInstance'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679221651"><span id="local-6989586621679221652"></span></span><span class="hs-keyword">data</span><span> </span><span id="BrokerInstance"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-var">BrokerInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerInstance%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-var">BrokerInstance'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address of the Elastic Network Interface (ENI) attached to the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- broker. Does not apply to RabbitMQ brokers.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AipAddress%3ABrokerInstance%27"><span class="annot"><span class="annottext">BrokerInstance -&gt; Maybe Text
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aendpoints%3ABrokerInstance%27"><span class="annot"><span class="annottext">BrokerInstance -&gt; Maybe [Text]
 </span><a href="Network.AWS.MQ.Types.BrokerInstance.html#%24sel%3Aendpoints%3ABrokerInstance%27"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221634"><span id="local-6989586621679221636"><span class="annot"><span class="annottext">BrokerInstance -&gt; BrokerInstance -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221643"><span id="local-6989586621679221645"><span class="annot"><span class="annottext">BrokerInstance -&gt; BrokerInstance -&gt; Bool
 (BrokerInstance -&gt; BrokerInstance -&gt; Bool)
 -&gt; (BrokerInstance -&gt; BrokerInstance -&gt; Bool) -&gt; Eq BrokerInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BrokerInstance -&gt; BrokerInstance -&gt; Bool
 == :: BrokerInstance -&gt; BrokerInstance -&gt; Bool
 $c== :: BrokerInstance -&gt; BrokerInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221625"><span id="local-6989586621679221627"><span id="local-6989586621679221629"><span id="local-6989586621679221631"><span class="annot"><span class="annottext">ReadPrec [BrokerInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221634"><span id="local-6989586621679221636"><span id="local-6989586621679221638"><span id="local-6989586621679221640"><span class="annot"><span class="annottext">ReadPrec [BrokerInstance]
 ReadPrec BrokerInstance
 Int -&gt; ReadS BrokerInstance
 ReadS [BrokerInstance]
@@ -66,7 +66,7 @@ readList :: ReadS [BrokerInstance]
 $creadList :: ReadS [BrokerInstance]
 readsPrec :: Int -&gt; ReadS BrokerInstance
 $creadsPrec :: Int -&gt; ReadS BrokerInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221618"><span id="local-6989586621679221620"><span id="local-6989586621679221622"><span class="annot"><span class="annottext">Int -&gt; BrokerInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221627"><span id="local-6989586621679221629"><span id="local-6989586621679221631"><span class="annot"><span class="annottext">Int -&gt; BrokerInstance -&gt; ShowS
 [BrokerInstance] -&gt; ShowS
 BrokerInstance -&gt; String
 (Int -&gt; BrokerInstance -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (BrokerInstance -&gt; Maybe Text -&gt; BrokerInstance)
 -&gt; Lens BrokerInstance BrokerInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221609"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221618"><span class="annot"><span class="annottext">Maybe Text
 ipAddress :: Maybe Text
 $sel:ipAddress:BrokerInstance' :: BrokerInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679221609"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221609"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221608"><span class="annot"><span class="annottext">s :: BrokerInstance
-</span><a href="#local-6989586621679221608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstance
-</span><a href="#local-6989586621679221608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:BrokerInstance' :: Maybe Text
+</span><a href="#local-6989586621679221618"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221618"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221617"><span class="annot"><span class="annottext">s :: BrokerInstance
+</span><a href="#local-6989586621679221617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221616"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstance
+</span><a href="#local-6989586621679221617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:BrokerInstance' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.BrokerInstance.html#%24sel%3AipAddress%3ABrokerInstance%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The brokers web console URL.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#brokerInstance_consoleURL"><span class="hs-identifier hs-type">brokerInstance_consoleURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -154,16 +154,16 @@ $sel:ipAddress:BrokerInstance' :: BrokerInstance -&gt; Maybe Text
 -&gt; (BrokerInstance -&gt; Maybe Text -&gt; BrokerInstance)
 -&gt; Lens BrokerInstance BrokerInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221605"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221614"><span class="annot"><span class="annottext">Maybe Text
 consoleURL :: Maybe Text
 $sel:consoleURL:BrokerInstance' :: BrokerInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679221605"><span class="hs-identifier hs-var hs-var">consoleURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221605"><span class="hs-identifier hs-var">consoleURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221604"><span class="annot"><span class="annottext">s :: BrokerInstance
-</span><a href="#local-6989586621679221604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221603"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstance
-</span><a href="#local-6989586621679221604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleURL:BrokerInstance' :: Maybe Text
+</span><a href="#local-6989586621679221614"><span class="hs-identifier hs-var hs-var">consoleURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221614"><span class="hs-identifier hs-var">consoleURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221613"><span class="annot"><span class="annottext">s :: BrokerInstance
+</span><a href="#local-6989586621679221613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstance
+</span><a href="#local-6989586621679221613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleURL:BrokerInstance' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.BrokerInstance.html#%24sel%3AconsoleURL%3ABrokerInstance%27"><span class="hs-identifier hs-var">consoleURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The broker\'s wire-level protocol endpoints.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#brokerInstance_endpoints"><span class="hs-identifier hs-type">brokerInstance_endpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -173,16 +173,16 @@ $sel:consoleURL:BrokerInstance' :: BrokerInstance -&gt; Maybe Text
 -&gt; (BrokerInstance -&gt; Maybe [Text] -&gt; BrokerInstance)
 -&gt; Lens BrokerInstance BrokerInstance (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221601"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221610"><span class="annot"><span class="annottext">Maybe [Text]
 endpoints :: Maybe [Text]
 $sel:endpoints:BrokerInstance' :: BrokerInstance -&gt; Maybe [Text]
-</span><a href="#local-6989586621679221601"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679221601"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221600"><span class="annot"><span class="annottext">s :: BrokerInstance
-</span><a href="#local-6989586621679221600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221599"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679221599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstance
-</span><a href="#local-6989586621679221600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:BrokerInstance' :: Maybe [Text]
+</span><a href="#local-6989586621679221610"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679221610"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221609"><span class="annot"><span class="annottext">s :: BrokerInstance
+</span><a href="#local-6989586621679221609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-type">BrokerInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221608"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679221608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstance
+</span><a href="#local-6989586621679221609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:BrokerInstance' :: Maybe [Text]
 </span><a href="Network.AWS.MQ.Types.BrokerInstance.html#%24sel%3Aendpoints%3ABrokerInstance%27"><span class="hs-identifier hs-var">endpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679221599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679221608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BrokerInstance -&gt; f BrokerInstance)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -199,8 +199,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221593"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679221591"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BrokerInstance
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221602"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679221600"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BrokerInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BrokerInstance)
@@ -210,8 +210,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BrokerInstance&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221588"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221588"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221597"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221597"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; BrokerInstance
 </span><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance%27"><span class="hs-identifier hs-var">BrokerInstance'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; BrokerInstance)
@@ -219,7 +219,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; BrokerInstance)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679221597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipAddress&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,7 +227,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; BrokerInstance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679221597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;consoleURL&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,7 +235,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser BrokerInstance
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679221597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -246,7 +246,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221581"><span id="local-6989586621679221583"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221590"><span id="local-6989586621679221592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstance.html#BrokerInstance"><span class="hs-identifier hs-type">BrokerInstance</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

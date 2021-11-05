@@ -1,0 +1,847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.ChimeSDKMessaging.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ThrottledClientException"><span class="hs-identifier">_ThrottledClientException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ResourceLimitExceededException"><span class="hs-identifier">_ResourceLimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ForbiddenException"><span class="hs-identifier">_ForbiddenException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_NotFoundException"><span class="hs-identifier">_NotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ServiceFailureException"><span class="hs-identifier">_ServiceFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_UnauthorizedClientException"><span class="hs-identifier">_UnauthorizedClientException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ServiceUnavailableException"><span class="hs-identifier">_ServiceUnavailableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_BadRequestException"><span class="hs-identifier">_BadRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMembershipType</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier">ChannelMembershipType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMessagePersistenceType</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessagePersistenceType.html#ChannelMessagePersistenceType"><span class="hs-identifier">ChannelMessagePersistenceType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMessageStatus</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatus.html#ChannelMessageStatus"><span class="hs-identifier">ChannelMessageStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMessageType</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageType.html#ChannelMessageType"><span class="hs-identifier">ChannelMessageType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMode</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMode.html#ChannelMode"><span class="hs-identifier">ChannelMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelPrivacy</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelPrivacy.html#ChannelPrivacy"><span class="hs-identifier">ChannelPrivacy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ErrorCode</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier">ErrorCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FallbackAction</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction"><span class="hs-identifier">FallbackAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InvocationType</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.InvocationType.html#InvocationType"><span class="hs-identifier">InvocationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SortOrder</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.SortOrder.html#SortOrder"><span class="hs-identifier">SortOrder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AppInstanceUserMembershipSummary</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary.html#AppInstanceUserMembershipSummary"><span class="hs-identifier">AppInstanceUserMembershipSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary.html#newAppInstanceUserMembershipSummary"><span class="hs-identifier">newAppInstanceUserMembershipSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary.html#appInstanceUserMembershipSummary_readMarkerTimestamp"><span class="hs-identifier">appInstanceUserMembershipSummary_readMarkerTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary.html#appInstanceUserMembershipSummary_type"><span class="hs-identifier">appInstanceUserMembershipSummary_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchChannelMemberships</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships.html#BatchChannelMemberships"><span class="hs-identifier">BatchChannelMemberships</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships.html#newBatchChannelMemberships"><span class="hs-identifier">newBatchChannelMemberships</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships.html#batchChannelMemberships_members"><span class="hs-identifier">batchChannelMemberships_members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships.html#batchChannelMemberships_channelArn"><span class="hs-identifier">batchChannelMemberships_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships.html#batchChannelMemberships_type"><span class="hs-identifier">batchChannelMemberships_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships.html#batchChannelMemberships_invitedBy"><span class="hs-identifier">batchChannelMemberships_invitedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchCreateChannelMembershipError</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError.html#BatchCreateChannelMembershipError"><span class="hs-identifier">BatchCreateChannelMembershipError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError.html#newBatchCreateChannelMembershipError"><span class="hs-identifier">newBatchCreateChannelMembershipError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError.html#batchCreateChannelMembershipError_errorCode"><span class="hs-identifier">batchCreateChannelMembershipError_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError.html#batchCreateChannelMembershipError_memberArn"><span class="hs-identifier">batchCreateChannelMembershipError_memberArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError.html#batchCreateChannelMembershipError_errorMessage"><span class="hs-identifier">batchCreateChannelMembershipError_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Channel</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#Channel"><span class="hs-identifier">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#newChannel"><span class="hs-identifier">newChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_mode"><span class="hs-identifier">channel_mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_createdBy"><span class="hs-identifier">channel_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_channelArn"><span class="hs-identifier">channel_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_privacy"><span class="hs-identifier">channel_privacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_channelFlowArn"><span class="hs-identifier">channel_channelFlowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_lastMessageTimestamp"><span class="hs-identifier">channel_lastMessageTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_name"><span class="hs-identifier">channel_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_metadata"><span class="hs-identifier">channel_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_createdTimestamp"><span class="hs-identifier">channel_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html#channel_lastUpdatedTimestamp"><span class="hs-identifier">channel_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelAssociatedWithFlowSummary</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html#ChannelAssociatedWithFlowSummary"><span class="hs-identifier">ChannelAssociatedWithFlowSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html#newChannelAssociatedWithFlowSummary"><span class="hs-identifier">newChannelAssociatedWithFlowSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html#channelAssociatedWithFlowSummary_mode"><span class="hs-identifier">channelAssociatedWithFlowSummary_mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html#channelAssociatedWithFlowSummary_channelArn"><span class="hs-identifier">channelAssociatedWithFlowSummary_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html#channelAssociatedWithFlowSummary_privacy"><span class="hs-identifier">channelAssociatedWithFlowSummary_privacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html#channelAssociatedWithFlowSummary_name"><span class="hs-identifier">channelAssociatedWithFlowSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html#channelAssociatedWithFlowSummary_metadata"><span class="hs-identifier">channelAssociatedWithFlowSummary_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelBan</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBan.html#ChannelBan"><span class="hs-identifier">ChannelBan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBan.html#newChannelBan"><span class="hs-identifier">newChannelBan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBan.html#channelBan_createdBy"><span class="hs-identifier">channelBan_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBan.html#channelBan_channelArn"><span class="hs-identifier">channelBan_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBan.html#channelBan_member"><span class="hs-identifier">channelBan_member</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBan.html#channelBan_createdTimestamp"><span class="hs-identifier">channelBan_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelBanSummary</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary.html#ChannelBanSummary"><span class="hs-identifier">ChannelBanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary.html#newChannelBanSummary"><span class="hs-identifier">newChannelBanSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary.html#channelBanSummary_member"><span class="hs-identifier">channelBanSummary_member</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelFlow</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html#ChannelFlow"><span class="hs-identifier">ChannelFlow</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html#newChannelFlow"><span class="hs-identifier">newChannelFlow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html#channelFlow_processors"><span class="hs-identifier">channelFlow_processors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html#channelFlow_channelFlowArn"><span class="hs-identifier">channelFlow_channelFlowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html#channelFlow_name"><span class="hs-identifier">channelFlow_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html#channelFlow_createdTimestamp"><span class="hs-identifier">channelFlow_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html#channelFlow_lastUpdatedTimestamp"><span class="hs-identifier">channelFlow_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelFlowSummary</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary.html#ChannelFlowSummary"><span class="hs-identifier">ChannelFlowSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary.html#newChannelFlowSummary"><span class="hs-identifier">newChannelFlowSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary.html#channelFlowSummary_processors"><span class="hs-identifier">channelFlowSummary_processors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary.html#channelFlowSummary_channelFlowArn"><span class="hs-identifier">channelFlowSummary_channelFlowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary.html#channelFlowSummary_name"><span class="hs-identifier">channelFlowSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMembership</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier">ChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#newChannelMembership"><span class="hs-identifier">newChannelMembership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#channelMembership_channelArn"><span class="hs-identifier">channelMembership_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#channelMembership_member"><span class="hs-identifier">channelMembership_member</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#channelMembership_type"><span class="hs-identifier">channelMembership_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#channelMembership_invitedBy"><span class="hs-identifier">channelMembership_invitedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#channelMembership_createdTimestamp"><span class="hs-identifier">channelMembership_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html#channelMembership_lastUpdatedTimestamp"><span class="hs-identifier">channelMembership_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMembershipForAppInstanceUserSummary</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary.html#ChannelMembershipForAppInstanceUserSummary"><span class="hs-identifier">ChannelMembershipForAppInstanceUserSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary.html#newChannelMembershipForAppInstanceUserSummary"><span class="hs-identifier">newChannelMembershipForAppInstanceUserSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary.html#channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary"><span class="hs-identifier">channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary.html#channelMembershipForAppInstanceUserSummary_channelSummary"><span class="hs-identifier">channelMembershipForAppInstanceUserSummary_channelSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMembershipSummary</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary.html#ChannelMembershipSummary"><span class="hs-identifier">ChannelMembershipSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary.html#newChannelMembershipSummary"><span class="hs-identifier">newChannelMembershipSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary.html#channelMembershipSummary_member"><span class="hs-identifier">channelMembershipSummary_member</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMessage</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#ChannelMessage"><span class="hs-identifier">ChannelMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#newChannelMessage"><span class="hs-identifier">newChannelMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_status"><span class="hs-identifier">channelMessage_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_sender"><span class="hs-identifier">channelMessage_sender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_channelArn"><span class="hs-identifier">channelMessage_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_content"><span class="hs-identifier">channelMessage_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_redacted"><span class="hs-identifier">channelMessage_redacted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_persistence"><span class="hs-identifier">channelMessage_persistence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_metadata"><span class="hs-identifier">channelMessage_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_type"><span class="hs-identifier">channelMessage_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_createdTimestamp"><span class="hs-identifier">channelMessage_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_messageId"><span class="hs-identifier">channelMessage_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_lastUpdatedTimestamp"><span class="hs-identifier">channelMessage_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html#channelMessage_lastEditedTimestamp"><span class="hs-identifier">channelMessage_lastEditedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMessageCallback</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback.html#ChannelMessageCallback"><span class="hs-identifier">ChannelMessageCallback</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback.html#newChannelMessageCallback"><span class="hs-identifier">newChannelMessageCallback</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback.html#channelMessageCallback_content"><span class="hs-identifier">channelMessageCallback_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback.html#channelMessageCallback_metadata"><span class="hs-identifier">channelMessageCallback_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback.html#channelMessageCallback_messageId"><span class="hs-identifier">channelMessageCallback_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMessageStatusStructure</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure.html#ChannelMessageStatusStructure"><span class="hs-identifier">ChannelMessageStatusStructure</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure.html#newChannelMessageStatusStructure"><span class="hs-identifier">newChannelMessageStatusStructure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure.html#channelMessageStatusStructure_value"><span class="hs-identifier">channelMessageStatusStructure_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure.html#channelMessageStatusStructure_detail"><span class="hs-identifier">channelMessageStatusStructure_detail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelMessageSummary</span></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#ChannelMessageSummary"><span class="hs-identifier">ChannelMessageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#newChannelMessageSummary"><span class="hs-identifier">newChannelMessageSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_status"><span class="hs-identifier">channelMessageSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_sender"><span class="hs-identifier">channelMessageSummary_sender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_content"><span class="hs-identifier">channelMessageSummary_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_redacted"><span class="hs-identifier">channelMessageSummary_redacted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_metadata"><span class="hs-identifier">channelMessageSummary_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_type"><span class="hs-identifier">channelMessageSummary_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_createdTimestamp"><span class="hs-identifier">channelMessageSummary_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_messageId"><span class="hs-identifier">channelMessageSummary_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_lastUpdatedTimestamp"><span class="hs-identifier">channelMessageSummary_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html#channelMessageSummary_lastEditedTimestamp"><span class="hs-identifier">channelMessageSummary_lastEditedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelModeratedByAppInstanceUserSummary</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary.html#ChannelModeratedByAppInstanceUserSummary"><span class="hs-identifier">ChannelModeratedByAppInstanceUserSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary.html#newChannelModeratedByAppInstanceUserSummary"><span class="hs-identifier">newChannelModeratedByAppInstanceUserSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary.html#channelModeratedByAppInstanceUserSummary_channelSummary"><span class="hs-identifier">channelModeratedByAppInstanceUserSummary_channelSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelModerator</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModerator.html#ChannelModerator"><span class="hs-identifier">ChannelModerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModerator.html#newChannelModerator"><span class="hs-identifier">newChannelModerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModerator.html#channelModerator_createdBy"><span class="hs-identifier">channelModerator_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModerator.html#channelModerator_channelArn"><span class="hs-identifier">channelModerator_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModerator.html#channelModerator_createdTimestamp"><span class="hs-identifier">channelModerator_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModerator.html#channelModerator_moderator"><span class="hs-identifier">channelModerator_moderator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelModeratorSummary</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary.html#ChannelModeratorSummary"><span class="hs-identifier">ChannelModeratorSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary.html#newChannelModeratorSummary"><span class="hs-identifier">newChannelModeratorSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary.html#channelModeratorSummary_moderator"><span class="hs-identifier">channelModeratorSummary_moderator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelSummary</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#newChannelSummary"><span class="hs-identifier">newChannelSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_mode"><span class="hs-identifier">channelSummary_mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_channelArn"><span class="hs-identifier">channelSummary_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_privacy"><span class="hs-identifier">channelSummary_privacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_lastMessageTimestamp"><span class="hs-identifier">channelSummary_lastMessageTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_name"><span class="hs-identifier">channelSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_metadata"><span class="hs-identifier">channelSummary_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Identity</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Identity.html#Identity"><span class="hs-identifier">Identity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Identity.html#newIdentity"><span class="hs-identifier">newIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Identity.html#identity_arn"><span class="hs-identifier">identity_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Identity.html#identity_name"><span class="hs-identifier">identity_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaConfiguration</span></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration.html#LambdaConfiguration"><span class="hs-identifier">LambdaConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration.html#newLambdaConfiguration"><span class="hs-identifier">newLambdaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration.html#lambdaConfiguration_resourceArn"><span class="hs-identifier">lambdaConfiguration_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration.html#lambdaConfiguration_invocationType"><span class="hs-identifier">lambdaConfiguration_invocationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MessagingSessionEndpoint</span></span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint.html#MessagingSessionEndpoint"><span class="hs-identifier">MessagingSessionEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint.html#newMessagingSessionEndpoint"><span class="hs-identifier">newMessagingSessionEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint.html#messagingSessionEndpoint_url"><span class="hs-identifier">messagingSessionEndpoint_url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Processor</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Processor.html#Processor"><span class="hs-identifier">Processor</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Processor.html#newProcessor"><span class="hs-identifier">newProcessor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Processor.html#processor_name"><span class="hs-identifier">processor_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Processor.html#processor_configuration"><span class="hs-identifier">processor_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Processor.html#processor_executionOrder"><span class="hs-identifier">processor_executionOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Processor.html#processor_fallbackAction"><span class="hs-identifier">processor_fallbackAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ProcessorConfiguration</span></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration.html#ProcessorConfiguration"><span class="hs-identifier">ProcessorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration.html#newProcessorConfiguration"><span class="hs-identifier">newProcessorConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration.html#processorConfiguration_lambda"><span class="hs-identifier">processorConfiguration_lambda</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary</span></a></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships</span></a></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError</span></a></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Channel.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.Channel</span></a></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary</span></a></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBan.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelBan</span></a></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary</span></a></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlow.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelFlow</span></a></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary</span></a></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembership.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMembership</span></a></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary</span></a></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary</span></a></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipType.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipType</span></a></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessage.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMessage</span></a></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback</span></a></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessagePersistenceType.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMessagePersistenceType</span></a></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatus.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatus</span></a></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure</span></a></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary</span></a></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMessageType.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMessageType</span></a></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelMode.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelMode</span></a></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary</span></a></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModerator.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelModerator</span></a></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary</span></a></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelPrivacy.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelPrivacy</span></a></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ChannelSummary.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ChannelSummary</span></a></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ErrorCode</span></a></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.FallbackAction.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.FallbackAction</span></a></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Identity.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.Identity</span></a></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.InvocationType.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.InvocationType</span></a></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration</span></a></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint</span></a></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Processor.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.Processor</span></a></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration</span></a></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.SortOrder.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.SortOrder</span></a></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Tag.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.Tag</span></a></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | API version @2021-05-15@ of the Amazon Chime SDK Messaging SDK configuration.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-306"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;ChimeSDKMessaging&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;messaging-chime&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;chime&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2021-05-15&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;ChimeSDKMessaging&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679233685"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-323"></span><span>    </span><span id="local-6989586621679233685"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679233685"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-325"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679233679"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-329"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-330"></span><span>    </span><span id="local-6989586621679233679"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679233679"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679233678"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-331"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-332"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-333"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-334"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-337"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-340"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-341"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-342"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-344"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-345"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-346"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-347"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-348"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-350"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-351"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-352"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-353"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-354"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-355"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-358"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-359"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-360"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-361"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-362"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-363"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-365"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-366"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-367"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-368"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-369"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-370"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-371"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-372"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679233678"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-373"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-374"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | The client exceeded its request rate limit.</span><span>
+</span><span id="line-377"></span><span id="local-6989586621679233673"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ThrottledClientException"><span class="hs-identifier hs-type">_ThrottledClientException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233673"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233673"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-378"></span><span id="_ThrottledClientException"><span class="annot"><span class="annottext">_ThrottledClientException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ThrottledClientException"><span class="hs-identifier hs-var hs-var">_ThrottledClientException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-379"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-380"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledClientException&quot;</span></span><span>
+</span><span id="line-382"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- | The request exceeds the resource limit.</span><span>
+</span><span id="line-385"></span><span id="local-6989586621679233671"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ResourceLimitExceededException"><span class="hs-identifier hs-type">_ResourceLimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233671"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233671"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-386"></span><span id="_ResourceLimitExceededException"><span class="annot"><span class="annottext">_ResourceLimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ResourceLimitExceededException"><span class="hs-identifier hs-var hs-var">_ResourceLimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-387"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-388"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceLimitExceededException&quot;</span></span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- | The request could not be processed because of conflict in the current</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- state of the resource.</span><span>
+</span><span id="line-394"></span><span id="local-6989586621679233670"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233670"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233670"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-395"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-396"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-398"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-399"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-400"></span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- | The client is permanently forbidden from making the request.</span><span>
+</span><span id="line-402"></span><span id="local-6989586621679233669"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ForbiddenException"><span class="hs-identifier hs-type">_ForbiddenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233669"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233669"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-403"></span><span id="_ForbiddenException"><span class="annot"><span class="annottext">_ForbiddenException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ForbiddenException"><span class="hs-identifier hs-var hs-var">_ForbiddenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-404"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-405"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-406"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ForbiddenException&quot;</span></span><span>
+</span><span id="line-407"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- | One or more of the resources in the request does not exist in the</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-411"></span><span id="local-6989586621679233668"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_NotFoundException"><span class="hs-identifier hs-type">_NotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233668"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233668"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-412"></span><span id="_NotFoundException"><span class="annot"><span class="annottext">_NotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_NotFoundException"><span class="hs-identifier hs-var hs-var">_NotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-413"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-414"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-415"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;NotFoundException&quot;</span></span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | The service encountered an unexpected error.</span><span>
+</span><span id="line-419"></span><span id="local-6989586621679233667"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ServiceFailureException"><span class="hs-identifier hs-type">_ServiceFailureException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233667"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233667"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-420"></span><span id="_ServiceFailureException"><span class="annot"><span class="annottext">_ServiceFailureException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ServiceFailureException"><span class="hs-identifier hs-var hs-var">_ServiceFailureException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-421"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-422"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-423"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceFailureException&quot;</span></span><span>
+</span><span id="line-424"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- | The client is not currently authorized to make the request.</span><span>
+</span><span id="line-427"></span><span id="local-6989586621679233666"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_UnauthorizedClientException"><span class="hs-identifier hs-type">_UnauthorizedClientException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233666"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233666"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-428"></span><span id="_UnauthorizedClientException"><span class="annot"><span class="annottext">_UnauthorizedClientException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_UnauthorizedClientException"><span class="hs-identifier hs-var hs-var">_UnauthorizedClientException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-429"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-430"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;UnauthorizedClientException&quot;</span></span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">401</span></span><span>
+</span><span id="line-433"></span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- | The service is currently unavailable.</span><span>
+</span><span id="line-435"></span><span id="local-6989586621679233665"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-type">_ServiceUnavailableException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233665"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233665"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-436"></span><span id="_ServiceUnavailableException"><span class="annot"><span class="annottext">_ServiceUnavailableException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-var hs-var">_ServiceUnavailableException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-437"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-438"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-439"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceUnavailableException&quot;</span></span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span>
+</span><span id="line-441"></span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- | The input parameters don\'t match the service\'s restrictions.</span><span>
+</span><span id="line-443"></span><span id="local-6989586621679233664"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html#_BadRequestException"><span class="hs-identifier hs-type">_BadRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679233664"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679233664"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-444"></span><span id="_BadRequestException"><span class="annot"><span class="annottext">_BadRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#_BadRequestException"><span class="hs-identifier hs-var hs-var">_BadRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-445"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-446"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-447"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;BadRequestException&quot;</span></span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-449"></span></pre></body></html>

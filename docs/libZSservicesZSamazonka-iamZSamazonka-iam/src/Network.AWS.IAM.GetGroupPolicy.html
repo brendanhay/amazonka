@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newGetGroupPolicy' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679450998"><span id="local-6989586621679450999"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupPolicy"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-var">GetGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupPolicy%27"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-var">GetGroupPolicy'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679451007"><span id="local-6989586621679451008"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupPolicy"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-var">GetGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupPolicy%27"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-var">GetGroupPolicy'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group the policy is associated with.</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3ApolicyName%3AGetGroupPolicy%27"><span class="annot"><span class="annottext">GetGroupPolicy -&gt; Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyName%3AGetGroupPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450991"><span id="local-6989586621679450993"><span class="annot"><span class="annottext">GetGroupPolicy -&gt; GetGroupPolicy -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451000"><span id="local-6989586621679451002"><span class="annot"><span class="annottext">GetGroupPolicy -&gt; GetGroupPolicy -&gt; Bool
 (GetGroupPolicy -&gt; GetGroupPolicy -&gt; Bool)
 -&gt; (GetGroupPolicy -&gt; GetGroupPolicy -&gt; Bool) -&gt; Eq GetGroupPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroupPolicy -&gt; GetGroupPolicy -&gt; Bool
 == :: GetGroupPolicy -&gt; GetGroupPolicy -&gt; Bool
 $c== :: GetGroupPolicy -&gt; GetGroupPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450982"><span id="local-6989586621679450984"><span id="local-6989586621679450986"><span id="local-6989586621679450988"><span class="annot"><span class="annottext">ReadPrec [GetGroupPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450991"><span id="local-6989586621679450993"><span id="local-6989586621679450995"><span id="local-6989586621679450997"><span class="annot"><span class="annottext">ReadPrec [GetGroupPolicy]
 ReadPrec GetGroupPolicy
 Int -&gt; ReadS GetGroupPolicy
 ReadS [GetGroupPolicy]
@@ -113,7 +113,7 @@ readList :: ReadS [GetGroupPolicy]
 $creadList :: ReadS [GetGroupPolicy]
 readsPrec :: Int -&gt; ReadS GetGroupPolicy
 $creadsPrec :: Int -&gt; ReadS GetGroupPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450975"><span id="local-6989586621679450977"><span id="local-6989586621679450979"><span class="annot"><span class="annottext">Int -&gt; GetGroupPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450984"><span id="local-6989586621679450986"><span id="local-6989586621679450988"><span class="annot"><span class="annottext">Int -&gt; GetGroupPolicy -&gt; ShowS
 [GetGroupPolicy] -&gt; ShowS
 GetGroupPolicy -&gt; String
 (Int -&gt; GetGroupPolicy -&gt; ShowS)
@@ -167,17 +167,17 @@ $cfrom :: forall x. GetGroupPolicy -&gt; Rep GetGroupPolicy x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span>
 </span><span id="line-115"></span><span id="newGetGroupPolicy"><span class="annot"><span class="annottext">newGetGroupPolicy :: Text -&gt; Text -&gt; GetGroupPolicy
-</span><a href="Network.AWS.IAM.GetGroupPolicy.html#newGetGroupPolicy"><span class="hs-identifier hs-var hs-var">newGetGroupPolicy</span></a></span></span><span> </span><span id="local-6989586621679450970"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450970"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679450969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450969"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.GetGroupPolicy.html#newGetGroupPolicy"><span class="hs-identifier hs-var hs-var">newGetGroupPolicy</span></a></span></span><span> </span><span id="local-6989586621679450979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450979"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679450978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450978"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">GetGroupPolicy' :: Text -&gt; Text -&gt; GetGroupPolicy
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:GetGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3AgroupName%3AGetGroupPolicy%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450970"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679450979"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:GetGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyName%3AGetGroupPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450969"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><a href="#local-6989586621679450978"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The name of the group the policy is associated with.</span><span>
@@ -192,16 +192,16 @@ $cfrom :: forall x. GetGroupPolicy -&gt; Rep GetGroupPolicy x
 -&gt; (GetGroupPolicy -&gt; Text -&gt; GetGroupPolicy)
 -&gt; Lens GetGroupPolicy GetGroupPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450966"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450975"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:GetGroupPolicy' :: GetGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679450966"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450966"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450965"><span class="annot"><span class="annottext">s :: GetGroupPolicy
-</span><a href="#local-6989586621679450965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicy
-</span><a href="#local-6989586621679450965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroupPolicy' :: Text
+</span><a href="#local-6989586621679450975"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450975"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450974"><span class="annot"><span class="annottext">s :: GetGroupPolicy
+</span><a href="#local-6989586621679450974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicy
+</span><a href="#local-6989586621679450974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3AgroupName%3AGetGroupPolicy%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The name of the policy document to get.</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
@@ -215,27 +215,27 @@ $sel:groupName:GetGroupPolicy' :: GetGroupPolicy -&gt; Text
 -&gt; (GetGroupPolicy -&gt; Text -&gt; GetGroupPolicy)
 -&gt; Lens GetGroupPolicy GetGroupPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450963"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450972"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:GetGroupPolicy' :: GetGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679450963"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450963"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450962"><span class="annot"><span class="annottext">s :: GetGroupPolicy
-</span><a href="#local-6989586621679450962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450961"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicy
-</span><a href="#local-6989586621679450962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetGroupPolicy' :: Text
+</span><a href="#local-6989586621679450972"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450972"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450971"><span class="annot"><span class="annottext">s :: GetGroupPolicy
+</span><a href="#local-6989586621679450971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicy
+</span><a href="#local-6989586621679450971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyName%3AGetGroupPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679450957"><span class="annot"><span class="annottext">request :: GetGroupPolicy -&gt; Request GetGroupPolicy
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679450966"><span class="annot"><span class="annottext">request :: GetGroupPolicy -&gt; Request GetGroupPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGroupPolicy -&gt; Request GetGroupPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679450953"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679450962"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGroupPolicy
 -&gt; ClientResponse ClientBody
@@ -264,10 +264,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetGroupPolicyResult&quot;</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450950"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679450949"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679450949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679450948"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679450948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450959"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679450958"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679450958"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679450957"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679450957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetGroupPolicyResponse
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-var">GetGroupPolicyResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetGroupPolicyResponse)
@@ -279,13 +279,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450959"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; Text -&gt; GetGroupPolicyResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; Text -&gt; GetGroupPolicyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679450948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679450957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,7 +294,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; GetGroupPolicyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679450948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679450957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,18 +302,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String GetGroupPolicyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679450948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679450957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyDocument&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450940"><span id="local-6989586621679450942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450949"><span id="local-6989586621679450951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679450933"><span class="annot"><span class="annottext">toHeaders :: GetGroupPolicy -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679450942"><span class="annot"><span class="annottext">toHeaders :: GetGroupPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGroupPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -321,20 +321,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679450928"><span class="annot"><span class="annottext">toPath :: GetGroupPolicy -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679450937"><span class="annot"><span class="annottext">toPath :: GetGroupPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGroupPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy"><span class="hs-identifier hs-type">GetGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679450924"><span class="annot"><span class="annottext">toQuery :: GetGroupPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450921"><span id="local-6989586621679450922"><span class="annot"><span class="annottext">Text
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679450933"><span class="annot"><span class="annottext">toQuery :: GetGroupPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicy%27"><span class="hs-identifier hs-type">GetGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450930"><span id="local-6989586621679450931"><span class="annot"><span class="annottext">Text
 policyName :: Text
 groupName :: Text
 $sel:policyName:GetGroupPolicy' :: GetGroupPolicy -&gt; Text
 $sel:groupName:GetGroupPolicy' :: GetGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679450921"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679450930"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -354,18 +354,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450922"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679450931"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450921"><span class="hs-identifier hs-var">policyName</span></a></span><span>
+</span><a href="#local-6989586621679450930"><span class="hs-identifier hs-var">policyName</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Contains the response to a successful GetGroupPolicy request.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- /See:/ 'newGetGroupPolicyResponse' smart constructor.</span><span>
-</span><span id="line-179"></span><span id="local-6989586621679450918"><span id="local-6989586621679450919"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-var">GetGroupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-var">GetGroupPolicyResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span id="local-6989586621679450927"><span id="local-6989586621679450928"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-var">GetGroupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-var">GetGroupPolicyResponse'</span></a></span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGroupPolicyResponse%27"><span class="annot"><span class="annottext">GetGroupPolicyResponse -&gt; Int
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3AhttpStatus%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -384,7 +384,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3ApolicyDocument%3AGetGroupPolicyResponse%27"><span class="annot"><span class="annottext">GetGroupPolicyResponse -&gt; Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyDocument%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450910"><span id="local-6989586621679450912"><span class="annot"><span class="annottext">GetGroupPolicyResponse -&gt; GetGroupPolicyResponse -&gt; Bool
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450919"><span id="local-6989586621679450921"><span class="annot"><span class="annottext">GetGroupPolicyResponse -&gt; GetGroupPolicyResponse -&gt; Bool
 (GetGroupPolicyResponse -&gt; GetGroupPolicyResponse -&gt; Bool)
 -&gt; (GetGroupPolicyResponse -&gt; GetGroupPolicyResponse -&gt; Bool)
 -&gt; Eq GetGroupPolicyResponse
@@ -393,7 +393,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroupPolicyResponse -&gt; GetGroupPolicyResponse -&gt; Bool
 == :: GetGroupPolicyResponse -&gt; GetGroupPolicyResponse -&gt; Bool
 $c== :: GetGroupPolicyResponse -&gt; GetGroupPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450902"><span id="local-6989586621679450904"><span id="local-6989586621679450906"><span id="local-6989586621679450908"><span class="annot"><span class="annottext">ReadPrec [GetGroupPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450911"><span id="local-6989586621679450913"><span id="local-6989586621679450915"><span id="local-6989586621679450917"><span class="annot"><span class="annottext">ReadPrec [GetGroupPolicyResponse]
 ReadPrec GetGroupPolicyResponse
 Int -&gt; ReadS GetGroupPolicyResponse
 ReadS [GetGroupPolicyResponse]
@@ -413,7 +413,7 @@ readList :: ReadS [GetGroupPolicyResponse]
 $creadList :: ReadS [GetGroupPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetGroupPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetGroupPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450896"><span id="local-6989586621679450898"><span id="local-6989586621679450900"><span class="annot"><span class="annottext">Int -&gt; GetGroupPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450905"><span id="local-6989586621679450907"><span id="local-6989586621679450909"><span class="annot"><span class="annottext">Int -&gt; GetGroupPolicyResponse -&gt; ShowS
 [GetGroupPolicyResponse] -&gt; ShowS
 GetGroupPolicyResponse -&gt; String
 (Int -&gt; GetGroupPolicyResponse -&gt; ShowS)
@@ -472,28 +472,28 @@ $cfrom :: forall x. GetGroupPolicyResponse -&gt; Rep GetGroupPolicyResponse x
 </span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span>
 </span><span id="line-226"></span><span id="newGetGroupPolicyResponse"><span class="annot"><span class="annottext">newGetGroupPolicyResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetGroupPolicyResponse
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#newGetGroupPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetGroupPolicyResponse</span></a></span></span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679450893"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679450892"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450892"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679450891"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450891"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679450890"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450890"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679450902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679450901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450901"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679450900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450900"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679450899"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450899"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">GetGroupPolicyResponse' :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetGroupPolicyResponse
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupPolicyResponse' :: Int
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3AhttpStatus%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679450902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupName:GetGroupPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3AgroupName%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450892"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679450901"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyName:GetGroupPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyName%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450891"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679450900"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyDocument:GetGroupPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyDocument%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450890"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span><span>
+</span><a href="#local-6989586621679450899"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -504,16 +504,16 @@ $cfrom :: forall x. GetGroupPolicyResponse -&gt; Rep GetGroupPolicyResponse x
 -&gt; (GetGroupPolicyResponse -&gt; Int -&gt; GetGroupPolicyResponse)
 -&gt; Lens GetGroupPolicyResponse GetGroupPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450889"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450898"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetGroupPolicyResponse' :: GetGroupPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679450889"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450889"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450888"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
-</span><a href="#local-6989586621679450888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450887"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
-</span><a href="#local-6989586621679450888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupPolicyResponse' :: Int
+</span><a href="#local-6989586621679450898"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450898"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450897"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
+</span><a href="#local-6989586621679450897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
+</span><a href="#local-6989586621679450897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupPolicyResponse' :: Int
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3AhttpStatus%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | The group the policy is associated with.</span><span>
 </span><span id="line-243"></span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#getGroupPolicyResponse_groupName"><span class="hs-identifier hs-type">getGroupPolicyResponse_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -523,16 +523,16 @@ $sel:httpStatus:GetGroupPolicyResponse' :: GetGroupPolicyResponse -&gt; Int
 -&gt; (GetGroupPolicyResponse -&gt; Text -&gt; GetGroupPolicyResponse)
 -&gt; Lens GetGroupPolicyResponse GetGroupPolicyResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450886"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450895"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:GetGroupPolicyResponse' :: GetGroupPolicyResponse -&gt; Text
-</span><a href="#local-6989586621679450886"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450886"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450885"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
-</span><a href="#local-6989586621679450885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450884"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
-</span><a href="#local-6989586621679450885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroupPolicyResponse' :: Text
+</span><a href="#local-6989586621679450895"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450895"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450894"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
+</span><a href="#local-6989586621679450894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
+</span><a href="#local-6989586621679450894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroupPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3AgroupName%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The name of the policy.</span><span>
 </span><span id="line-247"></span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#getGroupPolicyResponse_policyName"><span class="hs-identifier hs-type">getGroupPolicyResponse_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -542,16 +542,16 @@ $sel:groupName:GetGroupPolicyResponse' :: GetGroupPolicyResponse -&gt; Text
 -&gt; (GetGroupPolicyResponse -&gt; Text -&gt; GetGroupPolicyResponse)
 -&gt; Lens GetGroupPolicyResponse GetGroupPolicyResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450883"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450892"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:GetGroupPolicyResponse' :: GetGroupPolicyResponse -&gt; Text
-</span><a href="#local-6989586621679450883"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450883"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450882"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
-</span><a href="#local-6989586621679450882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450881"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
-</span><a href="#local-6989586621679450882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetGroupPolicyResponse' :: Text
+</span><a href="#local-6989586621679450892"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450892"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450891"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
+</span><a href="#local-6989586621679450891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
+</span><a href="#local-6989586621679450891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetGroupPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyName%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The policy document.</span><span>
 </span><span id="line-251"></span><span class="hs-comment">--</span><span>
@@ -566,16 +566,16 @@ $sel:policyName:GetGroupPolicyResponse' :: GetGroupPolicyResponse -&gt; Text
 -&gt; (GetGroupPolicyResponse -&gt; Text -&gt; GetGroupPolicyResponse)
 -&gt; Lens GetGroupPolicyResponse GetGroupPolicyResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450880"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450889"><span class="annot"><span class="annottext">Text
 policyDocument :: Text
 $sel:policyDocument:GetGroupPolicyResponse' :: GetGroupPolicyResponse -&gt; Text
-</span><a href="#local-6989586621679450880"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450880"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450879"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
-</span><a href="#local-6989586621679450879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450878"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
-</span><a href="#local-6989586621679450879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDocument:GetGroupPolicyResponse' :: Text
+</span><a href="#local-6989586621679450889"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450889"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450888"><span class="annot"><span class="annottext">s :: GetGroupPolicyResponse
+</span><a href="#local-6989586621679450888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse%27"><span class="hs-identifier hs-type">GetGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupPolicyResponse
+</span><a href="#local-6989586621679450888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDocument:GetGroupPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetGroupPolicy.html#%24sel%3ApolicyDocument%3AGetGroupPolicyResponse%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetGroupPolicy.html#GetGroupPolicyResponse"><span class="hs-identifier hs-type">GetGroupPolicyResponse</span></a></span></span><span>
 </span><span id="line-260"></span></pre></body></html>

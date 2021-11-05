@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstanceProfile' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679456730"><span id="local-6989586621679456731"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceProfile"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-var">DeleteInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-var">DeleteInstanceProfile'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679456739"><span id="local-6989586621679456740"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceProfile"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-var">DeleteInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-var">DeleteInstanceProfile'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the instance profile to delete.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AinstanceProfileName%3ADeleteInstanceProfile%27"><span class="annot"><span class="annottext">DeleteInstanceProfile -&gt; Text
 </span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#%24sel%3AinstanceProfileName%3ADeleteInstanceProfile%27"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456724"><span id="local-6989586621679456726"><span class="annot"><span class="annottext">DeleteInstanceProfile -&gt; DeleteInstanceProfile -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456733"><span id="local-6989586621679456735"><span class="annot"><span class="annottext">DeleteInstanceProfile -&gt; DeleteInstanceProfile -&gt; Bool
 (DeleteInstanceProfile -&gt; DeleteInstanceProfile -&gt; Bool)
 -&gt; (DeleteInstanceProfile -&gt; DeleteInstanceProfile -&gt; Bool)
 -&gt; Eq DeleteInstanceProfile
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInstanceProfile -&gt; DeleteInstanceProfile -&gt; Bool
 == :: DeleteInstanceProfile -&gt; DeleteInstanceProfile -&gt; Bool
 $c== :: DeleteInstanceProfile -&gt; DeleteInstanceProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456715"><span id="local-6989586621679456717"><span id="local-6989586621679456719"><span id="local-6989586621679456721"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456724"><span id="local-6989586621679456726"><span id="local-6989586621679456728"><span id="local-6989586621679456730"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceProfile]
 ReadPrec DeleteInstanceProfile
 Int -&gt; ReadS DeleteInstanceProfile
 ReadS [DeleteInstanceProfile]
@@ -91,7 +91,7 @@ readList :: ReadS [DeleteInstanceProfile]
 $creadList :: ReadS [DeleteInstanceProfile]
 readsPrec :: Int -&gt; ReadS DeleteInstanceProfile
 $creadsPrec :: Int -&gt; ReadS DeleteInstanceProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456708"><span id="local-6989586621679456710"><span id="local-6989586621679456712"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456717"><span id="local-6989586621679456719"><span id="local-6989586621679456721"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceProfile -&gt; ShowS
 [DeleteInstanceProfile] -&gt; ShowS
 DeleteInstanceProfile -&gt; String
 (Int -&gt; DeleteInstanceProfile -&gt; ShowS)
@@ -136,14 +136,14 @@ $cfrom :: forall x. DeleteInstanceProfile -&gt; Rep DeleteInstanceProfile x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span>
 </span><span id="line-84"></span><span id="newDeleteInstanceProfile"><span class="annot"><span class="annottext">newDeleteInstanceProfile :: Text -&gt; DeleteInstanceProfile
-</span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#newDeleteInstanceProfile"><span class="hs-identifier hs-var hs-var">newDeleteInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679456703"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456703"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#newDeleteInstanceProfile"><span class="hs-identifier hs-var hs-var">newDeleteInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679456712"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456712"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DeleteInstanceProfile' :: Text -&gt; DeleteInstanceProfile
 </span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-type">DeleteInstanceProfile'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceProfileName:DeleteInstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#%24sel%3AinstanceProfileName%3ADeleteInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456703"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span>
+</span><a href="#local-6989586621679456712"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The name of the instance profile to delete.</span><span>
@@ -159,27 +159,27 @@ $cfrom :: forall x. DeleteInstanceProfile -&gt; Rep DeleteInstanceProfile x
 -&gt; (DeleteInstanceProfile -&gt; Text -&gt; DeleteInstanceProfile)
 -&gt; Lens DeleteInstanceProfile DeleteInstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-type">DeleteInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456700"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-type">DeleteInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456709"><span class="annot"><span class="annottext">Text
 instanceProfileName :: Text
 $sel:instanceProfileName:DeleteInstanceProfile' :: DeleteInstanceProfile -&gt; Text
-</span><a href="#local-6989586621679456700"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456700"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456699"><span class="annot"><span class="annottext">s :: DeleteInstanceProfile
-</span><a href="#local-6989586621679456699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-type">DeleteInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456698"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceProfile
-</span><a href="#local-6989586621679456699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:DeleteInstanceProfile' :: Text
+</span><a href="#local-6989586621679456709"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456709"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456708"><span class="annot"><span class="annottext">s :: DeleteInstanceProfile
+</span><a href="#local-6989586621679456708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-type">DeleteInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456707"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceProfile
+</span><a href="#local-6989586621679456708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:DeleteInstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#%24sel%3AinstanceProfileName%3ADeleteInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse"><span class="hs-identifier hs-type">DeleteInstanceProfileResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679456694"><span class="annot"><span class="annottext">request :: DeleteInstanceProfile -&gt; Request DeleteInstanceProfile
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679456703"><span class="annot"><span class="annottext">request :: DeleteInstanceProfile -&gt; Request DeleteInstanceProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInstanceProfile -&gt; Request DeleteInstanceProfile
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679456690"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679456699"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInstanceProfile
 -&gt; ClientResponse ClientBody
@@ -205,12 +205,12 @@ AWSResponse a
 DeleteInstanceProfileResponse
 </span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse%27"><span class="hs-identifier hs-var">DeleteInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456683"><span id="local-6989586621679456685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456692"><span id="local-6989586621679456694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679456676"><span class="annot"><span class="annottext">toHeaders :: DeleteInstanceProfile -&gt; [Header]
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679456685"><span class="annot"><span class="annottext">toHeaders :: DeleteInstanceProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteInstanceProfile -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -218,18 +218,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679456671"><span class="annot"><span class="annottext">toPath :: DeleteInstanceProfile -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679456680"><span class="annot"><span class="annottext">toPath :: DeleteInstanceProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteInstanceProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile"><span class="hs-identifier hs-type">DeleteInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679456667"><span class="annot"><span class="annottext">toQuery :: DeleteInstanceProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-type">DeleteInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456665"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679456676"><span class="annot"><span class="annottext">toQuery :: DeleteInstanceProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfile%27"><span class="hs-identifier hs-type">DeleteInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456674"><span class="annot"><span class="annottext">Text
 instanceProfileName :: Text
 $sel:instanceProfileName:DeleteInstanceProfile' :: DeleteInstanceProfile -&gt; Text
-</span><a href="#local-6989586621679456665"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679456674"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -249,14 +249,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;InstanceProfileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456665"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span>
+</span><a href="#local-6989586621679456674"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstanceProfileResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679456662"><span id="local-6989586621679456663"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceProfileResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse"><span class="hs-identifier hs-var">DeleteInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse%27"><span class="hs-identifier hs-var">DeleteInstanceProfileResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679456671"><span id="local-6989586621679456672"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceProfileResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse"><span class="hs-identifier hs-var">DeleteInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse%27"><span class="hs-identifier hs-var">DeleteInstanceProfileResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456658"><span id="local-6989586621679456660"><span class="annot"><span class="annottext">DeleteInstanceProfileResponse
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456667"><span id="local-6989586621679456669"><span class="annot"><span class="annottext">DeleteInstanceProfileResponse
 -&gt; DeleteInstanceProfileResponse -&gt; Bool
 (DeleteInstanceProfileResponse
  -&gt; DeleteInstanceProfileResponse -&gt; Bool)
@@ -272,7 +272,7 @@ $c/= :: DeleteInstanceProfileResponse
 -&gt; DeleteInstanceProfileResponse -&gt; Bool
 $c== :: DeleteInstanceProfileResponse
 -&gt; DeleteInstanceProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456650"><span id="local-6989586621679456652"><span id="local-6989586621679456654"><span id="local-6989586621679456656"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456659"><span id="local-6989586621679456661"><span id="local-6989586621679456663"><span id="local-6989586621679456665"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceProfileResponse]
 ReadPrec DeleteInstanceProfileResponse
 Int -&gt; ReadS DeleteInstanceProfileResponse
 ReadS [DeleteInstanceProfileResponse]
@@ -292,7 +292,7 @@ readList :: ReadS [DeleteInstanceProfileResponse]
 $creadList :: ReadS [DeleteInstanceProfileResponse]
 readsPrec :: Int -&gt; ReadS DeleteInstanceProfileResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInstanceProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456644"><span id="local-6989586621679456646"><span id="local-6989586621679456648"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456653"><span id="local-6989586621679456655"><span id="local-6989586621679456657"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceProfileResponse -&gt; ShowS
 [DeleteInstanceProfileResponse] -&gt; ShowS
 DeleteInstanceProfileResponse -&gt; String
 (Int -&gt; DeleteInstanceProfileResponse -&gt; ShowS)
@@ -341,5 +341,5 @@ DeleteInstanceProfileResponse
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteInstanceProfileResponse
 </span><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse%27"><span class="hs-identifier hs-var">DeleteInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse"><span class="hs-identifier hs-type">DeleteInstanceProfileResponse</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteInstanceProfile.html#DeleteInstanceProfileResponse"><span class="hs-identifier hs-type">DeleteInstanceProfileResponse</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

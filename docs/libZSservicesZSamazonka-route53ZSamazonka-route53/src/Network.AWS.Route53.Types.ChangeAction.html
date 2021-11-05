@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679292906"><span id="local-6989586621679292907"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeAction"><span class="annot"><a href="Network.AWS.Route53.Types.ChangeAction.html#ChangeAction"><span class="hs-identifier hs-var">ChangeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeAction%27"><span class="annot"><a href="Network.AWS.Route53.Types.ChangeAction.html#ChangeAction%27"><span class="hs-identifier hs-var">ChangeAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679292915"><span id="local-6989586621679292916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeAction"><span class="annot"><a href="Network.AWS.Route53.Types.ChangeAction.html#ChangeAction"><span class="hs-identifier hs-var">ChangeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeAction%27"><span class="annot"><a href="Network.AWS.Route53.Types.ChangeAction.html#ChangeAction%27"><span class="hs-identifier hs-var">ChangeAction'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChangeAction"><span class="annot"><span class="annottext">ChangeAction -&gt; Text
 </span><a href="Network.AWS.Route53.Types.ChangeAction.html#fromChangeAction"><span class="hs-identifier hs-var hs-var">fromChangeAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292898"><span id="local-6989586621679292900"><span id="local-6989586621679292902"><span class="annot"><span class="annottext">Int -&gt; ChangeAction -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292907"><span id="local-6989586621679292909"><span id="local-6989586621679292911"><span class="annot"><span class="annottext">Int -&gt; ChangeAction -&gt; ShowS
 [ChangeAction] -&gt; ShowS
 ChangeAction -&gt; String
 (Int -&gt; ChangeAction -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ChangeAction -&gt; String
 showsPrec :: Int -&gt; ChangeAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; ChangeAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679292889"><span id="local-6989586621679292891"><span id="local-6989586621679292893"><span id="local-6989586621679292895"><span class="annot"><span class="annottext">ReadPrec [ChangeAction]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679292898"><span id="local-6989586621679292900"><span id="local-6989586621679292902"><span id="local-6989586621679292904"><span class="annot"><span class="annottext">ReadPrec [ChangeAction]
 ReadPrec ChangeAction
 Int -&gt; ReadS ChangeAction
 ReadS [ChangeAction]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ChangeAction]
 readsPrec :: Int -&gt; ReadS ChangeAction
 $creadsPrec :: Int -&gt; ReadS ChangeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679292884"><span id="local-6989586621679292886"><span class="annot"><span class="annottext">ChangeAction -&gt; ChangeAction -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679292893"><span id="local-6989586621679292895"><span class="annot"><span class="annottext">ChangeAction -&gt; ChangeAction -&gt; Bool
 (ChangeAction -&gt; ChangeAction -&gt; Bool)
 -&gt; (ChangeAction -&gt; ChangeAction -&gt; Bool) -&gt; Eq ChangeAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ChangeAction -&gt; ChangeAction -&gt; Bool
 == :: ChangeAction -&gt; ChangeAction -&gt; Bool
 $c== :: ChangeAction -&gt; ChangeAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679292868"><span id="local-6989586621679292870"><span id="local-6989586621679292872"><span id="local-6989586621679292874"><span id="local-6989586621679292876"><span id="local-6989586621679292878"><span id="local-6989586621679292880"><span class="annot"><span class="annottext">Eq ChangeAction
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679292877"><span id="local-6989586621679292879"><span id="local-6989586621679292881"><span id="local-6989586621679292883"><span id="local-6989586621679292885"><span id="local-6989586621679292887"><span id="local-6989586621679292889"><span class="annot"><span class="annottext">Eq ChangeAction
 Eq ChangeAction
 -&gt; (ChangeAction -&gt; ChangeAction -&gt; Ordering)
 -&gt; (ChangeAction -&gt; ChangeAction -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ChangeAction -&gt; Rep ChangeAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292860"><span id="local-6989586621679292862"><span class="annot"><span class="annottext">Int -&gt; ChangeAction -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292869"><span id="local-6989586621679292871"><span class="annot"><span class="annottext">Int -&gt; ChangeAction -&gt; Int
 ChangeAction -&gt; Int
 (Int -&gt; ChangeAction -&gt; Int)
 -&gt; (ChangeAction -&gt; Int) -&gt; Hashable ChangeAction
@@ -144,49 +144,49 @@ $chash :: ChangeAction -&gt; Int
 hashWithSalt :: Int -&gt; ChangeAction -&gt; Int
 $chashWithSalt :: Int -&gt; ChangeAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679292857"><span class="annot"><span class="annottext">ChangeAction -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679292866"><span class="annot"><span class="annottext">ChangeAction -&gt; ()
 (ChangeAction -&gt; ()) -&gt; NFData ChangeAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ChangeAction -&gt; ()
 $crnf :: ChangeAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679292854"><span class="annot"><span class="annottext">Text -&gt; Either String ChangeAction
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679292863"><span class="annot"><span class="annottext">Text -&gt; Either String ChangeAction
 (Text -&gt; Either String ChangeAction) -&gt; FromText ChangeAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ChangeAction
 $cfromText :: Text -&gt; Either String ChangeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679292851"><span class="annot"><span class="annottext">ChangeAction -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679292860"><span class="annot"><span class="annottext">ChangeAction -&gt; Text
 (ChangeAction -&gt; Text) -&gt; ToText ChangeAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ChangeAction -&gt; Text
 $ctoText :: ChangeAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679292848"><span class="annot"><span class="annottext">ChangeAction -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679292857"><span class="annot"><span class="annottext">ChangeAction -&gt; ByteString
 (ChangeAction -&gt; ByteString) -&gt; ToByteString ChangeAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ChangeAction -&gt; ByteString
 $ctoBS :: ChangeAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679292845"><span class="annot"><span class="annottext">ChangeAction -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679292854"><span class="annot"><span class="annottext">ChangeAction -&gt; ByteStringBuilder
 (ChangeAction -&gt; ByteStringBuilder) -&gt; ToLog ChangeAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ChangeAction -&gt; ByteStringBuilder
 $cbuild :: ChangeAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679292842"><span class="annot"><span class="annottext">HeaderName -&gt; ChangeAction -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679292851"><span class="annot"><span class="annottext">HeaderName -&gt; ChangeAction -&gt; [Header]
 (HeaderName -&gt; ChangeAction -&gt; [Header]) -&gt; ToHeader ChangeAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ChangeAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ChangeAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679292839"><span class="annot"><span class="annottext">ChangeAction -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679292848"><span class="annot"><span class="annottext">ChangeAction -&gt; QueryString
 (ChangeAction -&gt; QueryString) -&gt; ToQuery ChangeAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ChangeAction -&gt; QueryString
 $ctoQuery :: ChangeAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679292834"><span id="local-6989586621679292836"><span class="annot"><span class="annottext">Value -&gt; Parser [ChangeAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679292843"><span id="local-6989586621679292845"><span class="annot"><span class="annottext">Value -&gt; Parser [ChangeAction]
 Value -&gt; Parser ChangeAction
 (Value -&gt; Parser ChangeAction)
 -&gt; (Value -&gt; Parser [ChangeAction]) -&gt; FromJSON ChangeAction
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ChangeAction]
 parseJSON :: Value -&gt; Parser ChangeAction
 $cparseJSON :: Value -&gt; Parser ChangeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679292829"><span id="local-6989586621679292831"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChangeAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679292838"><span id="local-6989586621679292840"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChangeAction]
 FromJSONKeyFunction ChangeAction
 FromJSONKeyFunction ChangeAction
 -&gt; FromJSONKeyFunction [ChangeAction] -&gt; FromJSONKey ChangeAction
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ChangeAction]
 fromJSONKey :: FromJSONKeyFunction ChangeAction
 $cfromJSONKey :: FromJSONKeyFunction ChangeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679292820"><span id="local-6989586621679292822"><span id="local-6989586621679292824"><span id="local-6989586621679292826"><span class="annot"><span class="annottext">[ChangeAction] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679292829"><span id="local-6989586621679292831"><span id="local-6989586621679292833"><span id="local-6989586621679292835"><span class="annot"><span class="annottext">[ChangeAction] -&gt; Encoding
 [ChangeAction] -&gt; Value
 ChangeAction -&gt; Encoding
 ChangeAction -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ChangeAction -&gt; Encoding
 toJSON :: ChangeAction -&gt; Value
 $ctoJSON :: ChangeAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679292815"><span id="local-6989586621679292817"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChangeAction]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679292824"><span id="local-6989586621679292826"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChangeAction]
 ToJSONKeyFunction ChangeAction
 ToJSONKeyFunction ChangeAction
 -&gt; ToJSONKeyFunction [ChangeAction] -&gt; ToJSONKey ChangeAction
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ChangeAction]
 toJSONKey :: ToJSONKeyFunction ChangeAction
 $ctoJSONKey :: ToJSONKeyFunction ChangeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679292812"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChangeAction
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679292821"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChangeAction
 ([Node] -&gt; Either String ChangeAction) -&gt; FromXML ChangeAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ChangeAction
 $cparseXML :: [Node] -&gt; Either String ChangeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679292809"><span class="annot"><span class="annottext">ChangeAction -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679292818"><span class="annot"><span class="annottext">ChangeAction -&gt; XML
 (ChangeAction -&gt; XML) -&gt; ToXML ChangeAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ChangeAction -&gt; XML

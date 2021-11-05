@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Creates a new ActiveMQ user.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newCreateUser' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679229430"><span id="local-6989586621679229431"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679229439"><span id="local-6989586621679229440"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- value can contain only alphanumeric characters, dashes, periods,</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- underscores, and tildes (- . _ ~). This value must be 2-100 characters</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Apassword%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Text
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3Apassword%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229420"><span id="local-6989586621679229422"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229429"><span id="local-6989586621679229431"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
 (CreateUser -&gt; CreateUser -&gt; Bool)
 -&gt; (CreateUser -&gt; CreateUser -&gt; Bool) -&gt; Eq CreateUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUser -&gt; CreateUser -&gt; Bool
 == :: CreateUser -&gt; CreateUser -&gt; Bool
 $c== :: CreateUser -&gt; CreateUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229411"><span id="local-6989586621679229413"><span id="local-6989586621679229415"><span id="local-6989586621679229417"><span class="annot"><span class="annottext">ReadPrec [CreateUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229420"><span id="local-6989586621679229422"><span id="local-6989586621679229424"><span id="local-6989586621679229426"><span class="annot"><span class="annottext">ReadPrec [CreateUser]
 ReadPrec CreateUser
 Int -&gt; ReadS CreateUser
 ReadS [CreateUser]
@@ -104,7 +104,7 @@ readList :: ReadS [CreateUser]
 $creadList :: ReadS [CreateUser]
 readsPrec :: Int -&gt; ReadS CreateUser
 $creadsPrec :: Int -&gt; ReadS CreateUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229404"><span id="local-6989586621679229406"><span id="local-6989586621679229408"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229413"><span id="local-6989586621679229415"><span id="local-6989586621679229417"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
 [CreateUser] -&gt; ShowS
 CreateUser -&gt; String
 (Int -&gt; CreateUser -&gt; ShowS)
@@ -162,10 +162,10 @@ $cfrom :: forall x. CreateUser -&gt; Rep CreateUser x
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span>
 </span><span id="line-108"></span><span id="newCreateUser"><span class="annot"><span class="annottext">newCreateUser :: Text -&gt; Text -&gt; Text -&gt; CreateUser
-</span><a href="Network.AWS.MQ.CreateUser.html#newCreateUser"><span class="hs-identifier hs-var hs-var">newCreateUser</span></a></span></span><span> </span><span id="local-6989586621679229399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229399"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679229398"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229398"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span id="local-6989586621679229397"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229397"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.CreateUser.html#newCreateUser"><span class="hs-identifier hs-var hs-var">newCreateUser</span></a></span></span><span> </span><span id="local-6989586621679229408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229408"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679229407"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229407"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span id="local-6989586621679229406"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229406"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">CreateUser' :: Maybe [Text] -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; CreateUser
 </span><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groups:CreateUser' :: Maybe [Text]
@@ -178,13 +178,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:CreateUser' :: Text
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3Ausername%3ACreateUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229399"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229408"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerId:CreateUser' :: Text
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3AbrokerId%3ACreateUser%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229398"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229407"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:CreateUser' :: Text
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3Apassword%3ACreateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229397"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
+</span><a href="#local-6989586621679229406"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
@@ -197,16 +197,16 @@ forall a. Maybe a
 -&gt; (CreateUser -&gt; Maybe [Text] -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229394"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229403"><span class="annot"><span class="annottext">Maybe [Text]
 groups :: Maybe [Text]
 $sel:groups:CreateUser' :: CreateUser -&gt; Maybe [Text]
-</span><a href="#local-6989586621679229394"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679229394"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229393"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679229393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229392"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679229392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679229393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:CreateUser' :: Maybe [Text]
+</span><a href="#local-6989586621679229403"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679229403"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229402"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679229402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229401"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679229401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679229402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:CreateUser' :: Maybe [Text]
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3Agroups%3ACreateUser%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679229392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateUser -&gt; f CreateUser)
+</span><a href="#local-6989586621679229401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateUser -&gt; f CreateUser)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -229,16 +229,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateUser -&gt; Maybe Bool -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229388"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229397"><span class="annot"><span class="annottext">Maybe Bool
 consoleAccess :: Maybe Bool
 $sel:consoleAccess:CreateUser' :: CreateUser -&gt; Maybe Bool
-</span><a href="#local-6989586621679229388"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229388"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229387"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679229387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229386"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679229387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:CreateUser' :: Maybe Bool
+</span><a href="#local-6989586621679229397"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229397"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229396"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679229396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229395"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679229396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:CreateUser' :: Maybe Bool
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3AconsoleAccess%3ACreateUser%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
@@ -249,16 +249,16 @@ $sel:consoleAccess:CreateUser' :: CreateUser -&gt; Maybe Bool
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229385"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229394"><span class="annot"><span class="annottext">Text
 username :: Text
 $sel:username:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679229385"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229385"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229384"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679229384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679229384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:CreateUser' :: Text
+</span><a href="#local-6989586621679229394"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229394"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229393"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679229393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679229393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:CreateUser' :: Text
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3Ausername%3ACreateUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#createUser_brokerId"><span class="hs-identifier hs-type">createUser_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -267,16 +267,16 @@ $sel:username:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229382"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229391"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679229382"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229382"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229381"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679229381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229380"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679229381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:CreateUser' :: Text
+</span><a href="#local-6989586621679229391"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229391"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229390"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679229390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229389"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679229390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:CreateUser' :: Text
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3AbrokerId%3ACreateUser%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | Required. The password of the user. This value must be at least 12</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- characters long, must contain at least 4 unique characters, and must not</span><span>
@@ -287,25 +287,25 @@ $sel:brokerId:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229379"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229388"><span class="annot"><span class="annottext">Text
 password :: Text
 $sel:password:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679229379"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229379"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229378"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679229378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229377"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679229378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateUser' :: Text
+</span><a href="#local-6989586621679229388"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229388"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229387"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679229387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229386"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679229387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateUser' :: Text
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3Apassword%3ACreateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679229373"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679229382"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUser -&gt; Request CreateUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679229369"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679229378"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateUser
 -&gt; ClientResponse ClientBody
@@ -327,10 +327,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229366"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229366"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229365"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679229365"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229364"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679229364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229375"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229374"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229374"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229373"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679229373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateUserResponse
 </span><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateUserResponse)
@@ -341,15 +341,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229366"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229375"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229357"><span id="local-6989586621679229359"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229366"><span id="local-6989586621679229368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229354"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679229350"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679229359"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -368,9 +368,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229340"><span id="local-6989586621679229342"><span id="local-6989586621679229344"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679229338"><span class="annot"><span class="annottext">toJSON :: CreateUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229332"><span id="local-6989586621679229333"><span id="local-6989586621679229334"><span id="local-6989586621679229335"><span id="local-6989586621679229336"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229349"><span id="local-6989586621679229351"><span id="local-6989586621679229353"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679229347"><span class="annot"><span class="annottext">toJSON :: CreateUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229341"><span id="local-6989586621679229342"><span id="local-6989586621679229343"><span id="local-6989586621679229344"><span id="local-6989586621679229345"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Text
 password :: Text
@@ -383,7 +383,7 @@ $sel:brokerId:CreateUser' :: CreateUser -&gt; Text
 $sel:username:CreateUser' :: CreateUser -&gt; Text
 $sel:consoleAccess:CreateUser' :: CreateUser -&gt; Maybe Bool
 $sel:groups:CreateUser' :: CreateUser -&gt; Maybe [Text]
-</span><a href="#local-6989586621679229332"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229341"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -395,27 +395,27 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679229336"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229345"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;consoleAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229335"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229344"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229332"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229341"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679229326"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229320"><span id="local-6989586621679229321"><span id="local-6989586621679229322"><span id="local-6989586621679229323"><span id="local-6989586621679229324"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679229335"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229329"><span id="local-6989586621679229330"><span id="local-6989586621679229331"><span id="local-6989586621679229332"><span id="local-6989586621679229333"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Text
 password :: Text
@@ -428,7 +428,7 @@ $sel:brokerId:CreateUser' :: CreateUser -&gt; Text
 $sel:username:CreateUser' :: CreateUser -&gt; Text
 $sel:consoleAccess:CreateUser' :: CreateUser -&gt; Maybe Bool
 $sel:groups:CreateUser' :: CreateUser -&gt; Maybe [Text]
-</span><a href="#local-6989586621679229320"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229329"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -437,17 +437,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229321"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229330"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/users/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229322"><span class="hs-identifier hs-var">username</span></a></span><span>
+</span><a href="#local-6989586621679229331"><span class="hs-identifier hs-var">username</span></a></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679229316"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679229325"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -455,12 +455,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newCreateUserResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679229313"><span id="local-6989586621679229314"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserResponse"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-var">CreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserResponse%27"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621679229322"><span id="local-6989586621679229323"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserResponse"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-var">CreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserResponse%27"><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="annot"><span class="annottext">CreateUserResponse -&gt; Int
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229308"><span id="local-6989586621679229310"><span class="annot"><span class="annottext">CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229317"><span id="local-6989586621679229319"><span class="annot"><span class="annottext">CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 (CreateUserResponse -&gt; CreateUserResponse -&gt; Bool)
 -&gt; (CreateUserResponse -&gt; CreateUserResponse -&gt; Bool)
 -&gt; Eq CreateUserResponse
@@ -469,7 +469,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 == :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 $c== :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229300"><span id="local-6989586621679229302"><span id="local-6989586621679229304"><span id="local-6989586621679229306"><span class="annot"><span class="annottext">ReadPrec [CreateUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229309"><span id="local-6989586621679229311"><span id="local-6989586621679229313"><span id="local-6989586621679229315"><span class="annot"><span class="annottext">ReadPrec [CreateUserResponse]
 ReadPrec CreateUserResponse
 Int -&gt; ReadS CreateUserResponse
 ReadS [CreateUserResponse]
@@ -489,7 +489,7 @@ readList :: ReadS [CreateUserResponse]
 $creadList :: ReadS [CreateUserResponse]
 readsPrec :: Int -&gt; ReadS CreateUserResponse
 $creadsPrec :: Int -&gt; ReadS CreateUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229294"><span id="local-6989586621679229296"><span id="local-6989586621679229298"><span class="annot"><span class="annottext">Int -&gt; CreateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229303"><span id="local-6989586621679229305"><span id="local-6989586621679229307"><span class="annot"><span class="annottext">Int -&gt; CreateUserResponse -&gt; ShowS
 [CreateUserResponse] -&gt; ShowS
 CreateUserResponse -&gt; String
 (Int -&gt; CreateUserResponse -&gt; ShowS)
@@ -529,12 +529,12 @@ $cfrom :: forall x. CreateUserResponse -&gt; Rep CreateUserResponse x
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span>
 </span><span id="line-211"></span><span id="newCreateUserResponse"><span class="annot"><span class="annottext">newCreateUserResponse :: Int -&gt; CreateUserResponse
-</span><a href="Network.AWS.MQ.CreateUser.html#newCreateUserResponse"><span class="hs-identifier hs-var hs-var">newCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679229291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.CreateUser.html#newCreateUserResponse"><span class="hs-identifier hs-var hs-var">newCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679229300"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">CreateUserResponse' :: Int -&gt; CreateUserResponse
 </span><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679229300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#createUserResponse_httpStatus"><span class="hs-identifier hs-type">createUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -543,16 +543,16 @@ $cfrom :: forall x. CreateUserResponse -&gt; Rep CreateUserResponse x
 -&gt; (CreateUserResponse -&gt; Int -&gt; CreateUserResponse)
 -&gt; Lens CreateUserResponse CreateUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229290"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229299"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateUserResponse' :: CreateUserResponse -&gt; Int
-</span><a href="#local-6989586621679229290"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229290"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229289"><span class="annot"><span class="annottext">s :: CreateUserResponse
-</span><a href="#local-6989586621679229289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
-</span><a href="#local-6989586621679229289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
+</span><a href="#local-6989586621679229299"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229299"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229298"><span class="annot"><span class="annottext">s :: CreateUserResponse
+</span><a href="#local-6989586621679229298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
+</span><a href="#local-6989586621679229298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
 </span><a href="Network.AWS.MQ.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

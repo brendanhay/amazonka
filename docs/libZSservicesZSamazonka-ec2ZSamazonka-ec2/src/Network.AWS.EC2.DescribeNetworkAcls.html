@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeNetworkAcls' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621681255805"><span id="local-6989586621681255806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNetworkAcls"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-var">DescribeNetworkAcls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNetworkAcls%27"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-var">DescribeNetworkAcls'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621681255814"><span id="local-6989586621681255815"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNetworkAcls"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-var">DescribeNetworkAcls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNetworkAcls%27"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-var">DescribeNetworkAcls'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters.</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @association.association-id@ - The ID of an association ID for the</span><span>
@@ -134,7 +134,7 @@
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeNetworkAcls%27"><span class="annot"><span class="annottext">DescribeNetworkAcls -&gt; Maybe Natural
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AmaxResults%3ADescribeNetworkAcls%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681255795"><span id="local-6989586621681255797"><span class="annot"><span class="annottext">DescribeNetworkAcls -&gt; DescribeNetworkAcls -&gt; Bool
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681255804"><span id="local-6989586621681255806"><span class="annot"><span class="annottext">DescribeNetworkAcls -&gt; DescribeNetworkAcls -&gt; Bool
 (DescribeNetworkAcls -&gt; DescribeNetworkAcls -&gt; Bool)
 -&gt; (DescribeNetworkAcls -&gt; DescribeNetworkAcls -&gt; Bool)
 -&gt; Eq DescribeNetworkAcls
@@ -143,7 +143,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeNetworkAcls -&gt; DescribeNetworkAcls -&gt; Bool
 == :: DescribeNetworkAcls -&gt; DescribeNetworkAcls -&gt; Bool
 $c== :: DescribeNetworkAcls -&gt; DescribeNetworkAcls -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255786"><span id="local-6989586621681255788"><span id="local-6989586621681255790"><span id="local-6989586621681255792"><span class="annot"><span class="annottext">ReadPrec [DescribeNetworkAcls]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255795"><span id="local-6989586621681255797"><span id="local-6989586621681255799"><span id="local-6989586621681255801"><span class="annot"><span class="annottext">ReadPrec [DescribeNetworkAcls]
 ReadPrec DescribeNetworkAcls
 Int -&gt; ReadS DescribeNetworkAcls
 ReadS [DescribeNetworkAcls]
@@ -163,7 +163,7 @@ readList :: ReadS [DescribeNetworkAcls]
 $creadList :: ReadS [DescribeNetworkAcls]
 readsPrec :: Int -&gt; ReadS DescribeNetworkAcls
 $creadsPrec :: Int -&gt; ReadS DescribeNetworkAcls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255779"><span id="local-6989586621681255781"><span id="local-6989586621681255783"><span class="annot"><span class="annottext">Int -&gt; DescribeNetworkAcls -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255788"><span id="local-6989586621681255790"><span id="local-6989586621681255792"><span class="annot"><span class="annottext">Int -&gt; DescribeNetworkAcls -&gt; ShowS
 [DescribeNetworkAcls] -&gt; ShowS
 DescribeNetworkAcls -&gt; String
 (Int -&gt; DescribeNetworkAcls -&gt; ShowS)
@@ -362,16 +362,16 @@ forall a. Maybe a
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255773"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255782"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681255773"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681255773"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255772"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
-</span><a href="#local-6989586621681255772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255771"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681255771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
-</span><a href="#local-6989586621681255772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeNetworkAcls' :: Maybe [Filter]
+</span><a href="#local-6989586621681255782"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681255782"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255781"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
+</span><a href="#local-6989586621681255781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255780"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681255780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
+</span><a href="#local-6989586621681255781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeNetworkAcls' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3Afilters%3ADescribeNetworkAcls%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681255771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681255780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeNetworkAcls -&gt; f DescribeNetworkAcls)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -398,16 +398,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeNetworkAcls DescribeNetworkAcls (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255767"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255776"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe Text
-</span><a href="#local-6989586621681255767"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681255767"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255766"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
-</span><a href="#local-6989586621681255766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255765"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681255765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
-</span><a href="#local-6989586621681255766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNetworkAcls' :: Maybe Text
+</span><a href="#local-6989586621681255776"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681255776"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255775"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
+</span><a href="#local-6989586621681255775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255774"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681255774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
+</span><a href="#local-6989586621681255775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNetworkAcls' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AnextToken%3ADescribeNetworkAcls%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681255765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681255774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | One or more network ACL IDs.</span><span>
 </span><span id="line-282"></span><span class="hs-comment">--</span><span>
@@ -423,16 +423,16 @@ $sel:nextToken:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255764"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255773"><span class="annot"><span class="annottext">Maybe [Text]
 networkAclIds :: Maybe [Text]
 $sel:networkAclIds:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe [Text]
-</span><a href="#local-6989586621681255764"><span class="hs-identifier hs-var hs-var">networkAclIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681255764"><span class="hs-identifier hs-var">networkAclIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255763"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
-</span><a href="#local-6989586621681255763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255762"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681255762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
-</span><a href="#local-6989586621681255763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkAclIds:DescribeNetworkAcls' :: Maybe [Text]
+</span><a href="#local-6989586621681255773"><span class="hs-identifier hs-var hs-var">networkAclIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681255773"><span class="hs-identifier hs-var">networkAclIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255772"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
+</span><a href="#local-6989586621681255772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255771"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681255771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
+</span><a href="#local-6989586621681255772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkAclIds:DescribeNetworkAcls' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AnetworkAclIds%3ADescribeNetworkAcls%27"><span class="hs-identifier hs-var">networkAclIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681255762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681255771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeNetworkAcls -&gt; f DescribeNetworkAcls)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -461,16 +461,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeNetworkAcls DescribeNetworkAcls (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255761"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255770"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe Bool
-</span><a href="#local-6989586621681255761"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681255761"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255760"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
-</span><a href="#local-6989586621681255760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255759"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681255759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
-</span><a href="#local-6989586621681255760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeNetworkAcls' :: Maybe Bool
+</span><a href="#local-6989586621681255770"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681255770"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255769"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
+</span><a href="#local-6989586621681255769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255768"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681255768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
+</span><a href="#local-6989586621681255769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeNetworkAcls' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AdryRun%3ADescribeNetworkAcls%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681255759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681255768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
@@ -486,29 +486,29 @@ $sel:dryRun:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe Bool
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255758"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255767"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe Natural
-</span><a href="#local-6989586621681255758"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681255758"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255757"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
-</span><a href="#local-6989586621681255757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255756"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681255756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
-</span><a href="#local-6989586621681255757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeNetworkAcls' :: Maybe Natural
+</span><a href="#local-6989586621681255767"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681255767"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255766"><span class="annot"><span class="annottext">s :: DescribeNetworkAcls
+</span><a href="#local-6989586621681255766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255765"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681255765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAcls
+</span><a href="#local-6989586621681255766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeNetworkAcls' :: Maybe Natural
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AmaxResults%3ADescribeNetworkAcls%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681255756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681255765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-301"></span><span>  </span><span id="local-6989586621681255752"><span class="annot"><span class="annottext">page :: DescribeNetworkAcls
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621681255761"><span class="annot"><span class="annottext">page :: DescribeNetworkAcls
 -&gt; AWSResponse DescribeNetworkAcls -&gt; Maybe DescribeNetworkAcls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681255750"><span class="annot"><span class="annottext">DescribeNetworkAcls
-</span><a href="#local-6989586621681255750"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681255749"><span class="annot"><span class="annottext">AWSResponse DescribeNetworkAcls
-</span><a href="#local-6989586621681255749"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681255759"><span class="annot"><span class="annottext">DescribeNetworkAcls
+</span><a href="#local-6989586621681255759"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681255758"><span class="annot"><span class="annottext">AWSResponse DescribeNetworkAcls
+</span><a href="#local-6989586621681255758"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-302"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-303"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNetworkAcls
 DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255749"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681255758"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
 -&gt; Getting (First Text) DescribeNetworkAclsResponse Text
 -&gt; Maybe Text
@@ -538,7 +538,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-309"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNetworkAcls
 DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255749"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681255758"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
 -&gt; Getting
      (First [NetworkAcl]) DescribeNetworkAclsResponse [NetworkAcl]
@@ -578,7 +578,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-316"></span><span>        </span><span class="annot"><span class="annottext">DescribeNetworkAcls
-</span><a href="#local-6989586621681255750"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681255759"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-317"></span><span>          </span><span class="annot"><span class="annottext">DescribeNetworkAcls
 -&gt; (DescribeNetworkAcls -&gt; DescribeNetworkAcls)
 -&gt; DescribeNetworkAcls
@@ -594,7 +594,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNetworkAcls
 DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255749"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681255758"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-319"></span><span>          </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
 -&gt; Getting (First Text) DescribeNetworkAclsResponse Text
 -&gt; Maybe Text
@@ -620,12 +620,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-323"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-324"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-325"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span>
-</span><span id="line-326"></span><span>  </span><span id="local-6989586621681255740"><span class="annot"><span class="annottext">request :: DescribeNetworkAcls -&gt; Request DescribeNetworkAcls
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621681255749"><span class="annot"><span class="annottext">request :: DescribeNetworkAcls -&gt; Request DescribeNetworkAcls
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeNetworkAcls -&gt; Request DescribeNetworkAcls
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-327"></span><span>  </span><span id="local-6989586621681255736"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621681255745"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeNetworkAcls
 -&gt; ClientResponse ClientBody
@@ -651,10 +651,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-329"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681255733"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681255733"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681255732"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681255732"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681255731"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681255731"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681255742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681255742"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681255741"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681255741"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681255740"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681255740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-330"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NetworkAcl]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeNetworkAclsResponse
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var">DescribeNetworkAclsResponse'</span></a></span><span>
@@ -664,7 +664,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeNetworkAclsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681255731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681255740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkAclSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -691,7 +691,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeNetworkAclsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681255731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681255740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -703,15 +703,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681255733"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681255742"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-336"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681255720"><span id="local-6989586621681255722"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span></span></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681255729"><span id="local-6989586621681255731"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span></span></span><span>
 </span><span id="line-339"></span><span>
-</span><span id="line-340"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681255717"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681255726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span></span><span>
 </span><span id="line-341"></span><span>
 </span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-343"></span><span>  </span><span id="local-6989586621681255713"><span class="annot"><span class="annottext">toHeaders :: DescribeNetworkAcls -&gt; ResponseHeaders
+</span><span id="line-343"></span><span>  </span><span id="local-6989586621681255722"><span class="annot"><span class="annottext">toHeaders :: DescribeNetworkAcls -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeNetworkAcls -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -719,15 +719,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-346"></span><span>  </span><span id="local-6989586621681255708"><span class="annot"><span class="annottext">toPath :: DescribeNetworkAcls -&gt; ByteString
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621681255717"><span class="annot"><span class="annottext">toPath :: DescribeNetworkAcls -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeNetworkAcls -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-347"></span><span>
 </span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls"><span class="hs-identifier hs-type">DescribeNetworkAcls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-349"></span><span>  </span><span id="local-6989586621681255704"><span class="annot"><span class="annottext">toQuery :: DescribeNetworkAcls -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255698"><span id="local-6989586621681255699"><span id="local-6989586621681255700"><span id="local-6989586621681255701"><span id="local-6989586621681255702"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621681255713"><span class="annot"><span class="annottext">toQuery :: DescribeNetworkAcls -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAcls%27"><span class="hs-identifier hs-type">DescribeNetworkAcls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255707"><span id="local-6989586621681255708"><span id="local-6989586621681255709"><span id="local-6989586621681255710"><span id="local-6989586621681255711"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe [Filter]
@@ -742,7 +742,7 @@ $sel:dryRun:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe Bool
 $sel:networkAclIds:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe [Text]
 $sel:nextToken:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe Text
 $sel:filters:DescribeNetworkAcls' :: DescribeNetworkAcls -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681255698"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681255707"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-350"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -769,12 +769,12 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681255702"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681255711"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681255701"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681255710"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -787,22 +787,22 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-360"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681255700"><span class="hs-identifier hs-var">networkAclIds</span></a></span><span>
+</span><a href="#local-6989586621681255709"><span class="hs-identifier hs-var">networkAclIds</span></a></span><span>
 </span><span id="line-361"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-362"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681255699"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681255708"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681255698"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621681255707"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-364"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-365"></span><span>
 </span><span id="line-366"></span><span class="hs-comment">-- | /See:/ 'newDescribeNetworkAclsResponse' smart constructor.</span><span>
-</span><span id="line-367"></span><span id="local-6989586621681255694"><span id="local-6989586621681255695"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNetworkAclsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-var">DescribeNetworkAclsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNetworkAclsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var">DescribeNetworkAclsResponse'</span></a></span></span><span>
+</span><span id="line-367"></span><span id="local-6989586621681255703"><span id="local-6989586621681255704"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNetworkAclsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-var">DescribeNetworkAclsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNetworkAclsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var">DescribeNetworkAclsResponse'</span></a></span></span><span>
 </span><span id="line-368"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about one or more network ACLs.</span><span>
 </span><span id="line-369"></span><span>    </span><span id="%24sel%3AnetworkAcls%3ADescribeNetworkAclsResponse%27"><span class="annot"><span class="annottext">DescribeNetworkAclsResponse -&gt; Maybe [NetworkAcl]
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AnetworkAcls%3ADescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var hs-var">networkAcls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkAcl.html#NetworkAcl"><span class="hs-identifier hs-type">NetworkAcl</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -814,7 +814,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-374"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeNetworkAclsResponse%27"><span class="annot"><span class="annottext">DescribeNetworkAclsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AhttpStatus%3ADescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-375"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-376"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681255687"><span id="local-6989586621681255689"><span class="annot"><span class="annottext">DescribeNetworkAclsResponse -&gt; DescribeNetworkAclsResponse -&gt; Bool
+</span><span id="line-376"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681255696"><span id="local-6989586621681255698"><span class="annot"><span class="annottext">DescribeNetworkAclsResponse -&gt; DescribeNetworkAclsResponse -&gt; Bool
 (DescribeNetworkAclsResponse
  -&gt; DescribeNetworkAclsResponse -&gt; Bool)
 -&gt; (DescribeNetworkAclsResponse
@@ -825,7 +825,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeNetworkAclsResponse -&gt; DescribeNetworkAclsResponse -&gt; Bool
 == :: DescribeNetworkAclsResponse -&gt; DescribeNetworkAclsResponse -&gt; Bool
 $c== :: DescribeNetworkAclsResponse -&gt; DescribeNetworkAclsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255679"><span id="local-6989586621681255681"><span id="local-6989586621681255683"><span id="local-6989586621681255685"><span class="annot"><span class="annottext">ReadPrec [DescribeNetworkAclsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255688"><span id="local-6989586621681255690"><span id="local-6989586621681255692"><span id="local-6989586621681255694"><span class="annot"><span class="annottext">ReadPrec [DescribeNetworkAclsResponse]
 ReadPrec DescribeNetworkAclsResponse
 Int -&gt; ReadS DescribeNetworkAclsResponse
 ReadS [DescribeNetworkAclsResponse]
@@ -845,7 +845,7 @@ readList :: ReadS [DescribeNetworkAclsResponse]
 $creadList :: ReadS [DescribeNetworkAclsResponse]
 readsPrec :: Int -&gt; ReadS DescribeNetworkAclsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeNetworkAclsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255673"><span id="local-6989586621681255675"><span id="local-6989586621681255677"><span class="annot"><span class="annottext">Int -&gt; DescribeNetworkAclsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681255682"><span id="local-6989586621681255684"><span id="local-6989586621681255686"><span class="annot"><span class="annottext">Int -&gt; DescribeNetworkAclsResponse -&gt; ShowS
 [DescribeNetworkAclsResponse] -&gt; ShowS
 DescribeNetworkAclsResponse -&gt; String
 (Int -&gt; DescribeNetworkAclsResponse -&gt; ShowS)
@@ -896,8 +896,8 @@ DescribeNetworkAclsResponse -&gt; Rep DescribeNetworkAclsResponse x
 </span><span id="line-394"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-395"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span>
 </span><span id="line-396"></span><span id="newDescribeNetworkAclsResponse"><span class="annot"><span class="annottext">newDescribeNetworkAclsResponse :: Int -&gt; DescribeNetworkAclsResponse
-</span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#newDescribeNetworkAclsResponse"><span class="hs-identifier hs-var hs-var">newDescribeNetworkAclsResponse</span></a></span></span><span> </span><span id="local-6989586621681255670"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681255670"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#newDescribeNetworkAclsResponse"><span class="hs-identifier hs-var hs-var">newDescribeNetworkAclsResponse</span></a></span></span><span> </span><span id="local-6989586621681255679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681255679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-397"></span><span>  </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse' :: Maybe [NetworkAcl]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeNetworkAclsResponse
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span>
@@ -912,7 +912,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-401"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNetworkAclsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AhttpStatus%3ADescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681255670"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681255679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-402"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-403"></span><span>
 </span><span id="line-404"></span><span class="hs-comment">-- | Information about one or more network ACLs.</span><span>
@@ -924,16 +924,16 @@ forall a. Maybe a
     -&gt; Maybe [NetworkAcl] -&gt; DescribeNetworkAclsResponse)
 -&gt; Lens' DescribeNetworkAclsResponse (Maybe [NetworkAcl])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255669"><span class="annot"><span class="annottext">Maybe [NetworkAcl]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255678"><span class="annot"><span class="annottext">Maybe [NetworkAcl]
 networkAcls :: Maybe [NetworkAcl]
 $sel:networkAcls:DescribeNetworkAclsResponse' :: DescribeNetworkAclsResponse -&gt; Maybe [NetworkAcl]
-</span><a href="#local-6989586621681255669"><span class="hs-identifier hs-var hs-var">networkAcls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkAcl]
-</span><a href="#local-6989586621681255669"><span class="hs-identifier hs-var">networkAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255668"><span class="annot"><span class="annottext">s :: DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255667"><span class="annot"><span class="annottext">Maybe [NetworkAcl]
-</span><a href="#local-6989586621681255667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkAcls:DescribeNetworkAclsResponse' :: Maybe [NetworkAcl]
+</span><a href="#local-6989586621681255678"><span class="hs-identifier hs-var hs-var">networkAcls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkAcl]
+</span><a href="#local-6989586621681255678"><span class="hs-identifier hs-var">networkAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255677"><span class="annot"><span class="annottext">s :: DescribeNetworkAclsResponse
+</span><a href="#local-6989586621681255677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255676"><span class="annot"><span class="annottext">Maybe [NetworkAcl]
+</span><a href="#local-6989586621681255676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
+</span><a href="#local-6989586621681255677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkAcls:DescribeNetworkAclsResponse' :: Maybe [NetworkAcl]
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AnetworkAcls%3ADescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var">networkAcls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkAcl]
-</span><a href="#local-6989586621681255667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NetworkAcl] -&gt; f (Maybe [NetworkAcl]))
+</span><a href="#local-6989586621681255676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NetworkAcl] -&gt; f (Maybe [NetworkAcl]))
  -&gt; DescribeNetworkAclsResponse -&gt; f DescribeNetworkAclsResponse)
 -&gt; ((Maybe [NetworkAcl] -&gt; f (Maybe [NetworkAcl]))
     -&gt; Maybe [NetworkAcl] -&gt; f (Maybe [NetworkAcl]))
@@ -964,16 +964,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeNetworkAclsResponse)
 -&gt; Lens' DescribeNetworkAclsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255666"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255675"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeNetworkAclsResponse' :: DescribeNetworkAclsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681255666"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681255666"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255665"><span class="annot"><span class="annottext">s :: DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255664"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681255664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNetworkAclsResponse' :: Maybe Text
+</span><a href="#local-6989586621681255675"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681255675"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255674"><span class="annot"><span class="annottext">s :: DescribeNetworkAclsResponse
+</span><a href="#local-6989586621681255674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255673"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681255673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
+</span><a href="#local-6989586621681255674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNetworkAclsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AnextToken%3ADescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681255664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681255673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-412"></span><span>
 </span><span id="line-413"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-414"></span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#describeNetworkAclsResponse_httpStatus"><span class="hs-identifier hs-type">describeNetworkAclsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -985,16 +985,16 @@ $sel:nextToken:DescribeNetworkAclsResponse' :: DescribeNetworkAclsResponse -&gt;
 -&gt; Lens
      DescribeNetworkAclsResponse DescribeNetworkAclsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255663"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681255672"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeNetworkAclsResponse' :: DescribeNetworkAclsResponse -&gt; Int
-</span><a href="#local-6989586621681255663"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681255663"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255662"><span class="annot"><span class="annottext">s :: DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255661"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681255661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
-</span><a href="#local-6989586621681255662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNetworkAclsResponse' :: Int
+</span><a href="#local-6989586621681255672"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681255672"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681255671"><span class="annot"><span class="annottext">s :: DescribeNetworkAclsResponse
+</span><a href="#local-6989586621681255671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse%27"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681255670"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681255670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNetworkAclsResponse
+</span><a href="#local-6989586621681255671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNetworkAclsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeNetworkAcls.html#%24sel%3AhttpStatus%3ADescribeNetworkAclsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681255661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681255670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-416"></span><span>
-</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681255659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681255668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeNetworkAcls.html#DescribeNetworkAclsResponse"><span class="hs-identifier hs-type">DescribeNetworkAclsResponse</span></a></span></span><span>
 </span><span id="line-418"></span></pre></body></html>

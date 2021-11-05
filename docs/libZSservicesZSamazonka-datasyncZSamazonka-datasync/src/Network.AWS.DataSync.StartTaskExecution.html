@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.StartTaskExecution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a specific invocation of a task. A @TaskExecution@ value</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- represents an individual run of a task. Each task can have at most one</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @TaskExecution@ at a time.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @TaskExecution@ has the following transition phases: INITIALIZING |</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- PREPARING | TRANSFERRING | VERIFYING | SUCCESS\/FAILURE.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For detailed information, see the Task Execution section in the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Components and Terminology topic in the /DataSync User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.StartTaskExecution</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier">StartTaskExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#newStartTaskExecution"><span class="hs-identifier">newStartTaskExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_overrideOptions"><span class="hs-identifier">startTaskExecution_overrideOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_includes"><span class="hs-identifier">startTaskExecution_includes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_excludes"><span class="hs-identifier">startTaskExecution_excludes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_taskArn"><span class="hs-identifier">startTaskExecution_taskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier">StartTaskExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#newStartTaskExecutionResponse"><span class="hs-identifier">newStartTaskExecutionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecutionResponse_taskExecutionArn"><span class="hs-identifier">startTaskExecutionResponse_taskExecutionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecutionResponse_httpStatus"><span class="hs-identifier">startTaskExecutionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.html"><span class="hs-identifier">Network.AWS.DataSync.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | StartTaskExecutionRequest</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newStartTaskExecution' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679254177"><span id="local-6989586621679254178"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTaskExecution"><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-var">StartTaskExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTaskExecution%27"><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-var">StartTaskExecution'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AoverrideOptions%3AStartTaskExecution%27"><span class="annot"><span class="annottext">StartTaskExecution -&gt; Maybe Options
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AoverrideOptions%3AStartTaskExecution%27"><span class="hs-identifier hs-var hs-var">overrideOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Options.html#Options"><span class="hs-identifier hs-type">Options</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A list of filter rules that determines which files to include when</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- running a task. The pattern should contain a single filter string that</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- consists of the patterns to include. The patterns are delimited by \&quot;|\&quot;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- (that is, a pipe). For example: @\&quot;\/folder1|\/folder2\&quot;@</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aincludes%3AStartTaskExecution%27"><span class="annot"><span class="annottext">StartTaskExecution -&gt; Maybe [FilterRule]
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3Aincludes%3AStartTaskExecution%27"><span class="hs-identifier hs-var hs-var">includes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A list of filter rules that determines which files to exclude from a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- task. The list should contain a single filter string that consists of</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the patterns to exclude. The patterns are delimited by \&quot;|\&quot; (that is, a</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- pipe), for example, @\&quot;\/folder1|\/folder2\&quot;@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aexcludes%3AStartTaskExecution%27"><span class="annot"><span class="annottext">StartTaskExecution -&gt; Maybe [FilterRule]
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3Aexcludes%3AStartTaskExecution%27"><span class="hs-identifier hs-var hs-var">excludes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the task to start.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AtaskArn%3AStartTaskExecution%27"><span class="annot"><span class="annottext">StartTaskExecution -&gt; Text
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AtaskArn%3AStartTaskExecution%27"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254168"><span id="local-6989586621679254170"><span class="annot"><span class="annottext">StartTaskExecution -&gt; StartTaskExecution -&gt; Bool
+(StartTaskExecution -&gt; StartTaskExecution -&gt; Bool)
+-&gt; (StartTaskExecution -&gt; StartTaskExecution -&gt; Bool)
+-&gt; Eq StartTaskExecution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartTaskExecution -&gt; StartTaskExecution -&gt; Bool
+$c/= :: StartTaskExecution -&gt; StartTaskExecution -&gt; Bool
+== :: StartTaskExecution -&gt; StartTaskExecution -&gt; Bool
+$c== :: StartTaskExecution -&gt; StartTaskExecution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254159"><span id="local-6989586621679254161"><span id="local-6989586621679254163"><span id="local-6989586621679254165"><span class="annot"><span class="annottext">ReadPrec [StartTaskExecution]
+ReadPrec StartTaskExecution
+Int -&gt; ReadS StartTaskExecution
+ReadS [StartTaskExecution]
+(Int -&gt; ReadS StartTaskExecution)
+-&gt; ReadS [StartTaskExecution]
+-&gt; ReadPrec StartTaskExecution
+-&gt; ReadPrec [StartTaskExecution]
+-&gt; Read StartTaskExecution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartTaskExecution]
+$creadListPrec :: ReadPrec [StartTaskExecution]
+readPrec :: ReadPrec StartTaskExecution
+$creadPrec :: ReadPrec StartTaskExecution
+readList :: ReadS [StartTaskExecution]
+$creadList :: ReadS [StartTaskExecution]
+readsPrec :: Int -&gt; ReadS StartTaskExecution
+$creadsPrec :: Int -&gt; ReadS StartTaskExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254152"><span id="local-6989586621679254154"><span id="local-6989586621679254156"><span class="annot"><span class="annottext">Int -&gt; StartTaskExecution -&gt; ShowS
+[StartTaskExecution] -&gt; ShowS
+StartTaskExecution -&gt; String
+(Int -&gt; StartTaskExecution -&gt; ShowS)
+-&gt; (StartTaskExecution -&gt; String)
+-&gt; ([StartTaskExecution] -&gt; ShowS)
+-&gt; Show StartTaskExecution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartTaskExecution] -&gt; ShowS
+$cshowList :: [StartTaskExecution] -&gt; ShowS
+show :: StartTaskExecution -&gt; String
+$cshow :: StartTaskExecution -&gt; String
+showsPrec :: Int -&gt; StartTaskExecution -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartTaskExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartTaskExecution -&gt; Rep StartTaskExecution x)
+-&gt; (forall x. Rep StartTaskExecution x -&gt; StartTaskExecution)
+-&gt; Generic StartTaskExecution
+forall x. Rep StartTaskExecution x -&gt; StartTaskExecution
+forall x. StartTaskExecution -&gt; Rep StartTaskExecution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartTaskExecution x -&gt; StartTaskExecution
+$cfrom :: forall x. StartTaskExecution -&gt; Rep StartTaskExecution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'StartTaskExecution' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'overrideOptions', 'startTaskExecution_overrideOptions' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'includes', 'startTaskExecution_includes' - A list of filter rules that determines which files to include when</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- running a task. The pattern should contain a single filter string that</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- consists of the patterns to include. The patterns are delimited by \&quot;|\&quot;</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- (that is, a pipe). For example: @\&quot;\/folder1|\/folder2\&quot;@</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'excludes', 'startTaskExecution_excludes' - A list of filter rules that determines which files to exclude from a</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- task. The list should contain a single filter string that consists of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the patterns to exclude. The patterns are delimited by \&quot;|\&quot; (that is, a</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- pipe), for example, @\&quot;\/folder1|\/folder2\&quot;@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'taskArn', 'startTaskExecution_taskArn' - The Amazon Resource Name (ARN) of the task to start.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#newStartTaskExecution"><span class="hs-identifier hs-type">newStartTaskExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'taskArn'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span>
+</span><span id="line-105"></span><span id="newStartTaskExecution"><span class="annot"><span class="annottext">newStartTaskExecution :: Text -&gt; StartTaskExecution
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#newStartTaskExecution"><span class="hs-identifier hs-var hs-var">newStartTaskExecution</span></a></span></span><span> </span><span id="local-6989586621679254147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254147"><span class="hs-identifier hs-var">pTaskArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">StartTaskExecution' :: Maybe Options
+-&gt; Maybe [FilterRule]
+-&gt; Maybe [FilterRule]
+-&gt; Text
+-&gt; StartTaskExecution
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:overrideOptions:StartTaskExecution' :: Maybe Options
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AoverrideOptions%3AStartTaskExecution%27"><span class="hs-identifier hs-var">overrideOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe Options
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:includes:StartTaskExecution' :: Maybe [FilterRule]
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3Aincludes%3AStartTaskExecution%27"><span class="hs-identifier hs-var">includes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:excludes:StartTaskExecution' :: Maybe [FilterRule]
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3Aexcludes%3AStartTaskExecution%27"><span class="hs-identifier hs-var">excludes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskArn:StartTaskExecution' :: Text
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AtaskArn%3AStartTaskExecution%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254147"><span class="hs-identifier hs-var">pTaskArn_</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_overrideOptions"><span class="hs-identifier hs-type">startTaskExecution_overrideOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Options.html#Options"><span class="hs-identifier hs-type">Options</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="startTaskExecution_overrideOptions"><span class="annot"><span class="annottext">startTaskExecution_overrideOptions :: (Maybe Options -&gt; f (Maybe Options))
+-&gt; StartTaskExecution -&gt; f StartTaskExecution
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_overrideOptions"><span class="hs-identifier hs-var hs-var">startTaskExecution_overrideOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTaskExecution -&gt; Maybe Options)
+-&gt; (StartTaskExecution -&gt; Maybe Options -&gt; StartTaskExecution)
+-&gt; Lens
+     StartTaskExecution
+     StartTaskExecution
+     (Maybe Options)
+     (Maybe Options)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254144"><span class="annot"><span class="annottext">Maybe Options
+overrideOptions :: Maybe Options
+$sel:overrideOptions:StartTaskExecution' :: StartTaskExecution -&gt; Maybe Options
+</span><a href="#local-6989586621679254144"><span class="hs-identifier hs-var hs-var">overrideOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679254144"><span class="hs-identifier hs-var">overrideOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254143"><span class="annot"><span class="annottext">s :: StartTaskExecution
+</span><a href="#local-6989586621679254143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254142"><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679254142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskExecution
+</span><a href="#local-6989586621679254143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrideOptions:StartTaskExecution' :: Maybe Options
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AoverrideOptions%3AStartTaskExecution%27"><span class="hs-identifier hs-var">overrideOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679254142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A list of filter rules that determines which files to include when</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- running a task. The pattern should contain a single filter string that</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- consists of the patterns to include. The patterns are delimited by \&quot;|\&quot;</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- (that is, a pipe). For example: @\&quot;\/folder1|\/folder2\&quot;@</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_includes"><span class="hs-identifier hs-type">startTaskExecution_includes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="startTaskExecution_includes"><span class="annot"><span class="annottext">startTaskExecution_includes :: (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; StartTaskExecution -&gt; f StartTaskExecution
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_includes"><span class="hs-identifier hs-var hs-var">startTaskExecution_includes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTaskExecution -&gt; Maybe [FilterRule])
+-&gt; (StartTaskExecution -&gt; Maybe [FilterRule] -&gt; StartTaskExecution)
+-&gt; Lens
+     StartTaskExecution
+     StartTaskExecution
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254141"><span class="annot"><span class="annottext">Maybe [FilterRule]
+includes :: Maybe [FilterRule]
+$sel:includes:StartTaskExecution' :: StartTaskExecution -&gt; Maybe [FilterRule]
+</span><a href="#local-6989586621679254141"><span class="hs-identifier hs-var hs-var">includes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254141"><span class="hs-identifier hs-var">includes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254140"><span class="annot"><span class="annottext">s :: StartTaskExecution
+</span><a href="#local-6989586621679254140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254139"><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskExecution
+</span><a href="#local-6989586621679254140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includes:StartTaskExecution' :: Maybe [FilterRule]
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3Aincludes%3AStartTaskExecution%27"><span class="hs-identifier hs-var">includes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+ -&gt; StartTaskExecution -&gt; f StartTaskExecution)
+-&gt; ((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+    -&gt; Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; StartTaskExecution
+-&gt; f StartTaskExecution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+-&gt; Iso
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A list of filter rules that determines which files to exclude from a</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- task. The list should contain a single filter string that consists of</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the patterns to exclude. The patterns are delimited by \&quot;|\&quot; (that is, a</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- pipe), for example, @\&quot;\/folder1|\/folder2\&quot;@.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_excludes"><span class="hs-identifier hs-type">startTaskExecution_excludes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="startTaskExecution_excludes"><span class="annot"><span class="annottext">startTaskExecution_excludes :: (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; StartTaskExecution -&gt; f StartTaskExecution
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_excludes"><span class="hs-identifier hs-var hs-var">startTaskExecution_excludes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTaskExecution -&gt; Maybe [FilterRule])
+-&gt; (StartTaskExecution -&gt; Maybe [FilterRule] -&gt; StartTaskExecution)
+-&gt; Lens
+     StartTaskExecution
+     StartTaskExecution
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254135"><span class="annot"><span class="annottext">Maybe [FilterRule]
+excludes :: Maybe [FilterRule]
+$sel:excludes:StartTaskExecution' :: StartTaskExecution -&gt; Maybe [FilterRule]
+</span><a href="#local-6989586621679254135"><span class="hs-identifier hs-var hs-var">excludes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254135"><span class="hs-identifier hs-var">excludes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254134"><span class="annot"><span class="annottext">s :: StartTaskExecution
+</span><a href="#local-6989586621679254134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254133"><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskExecution
+</span><a href="#local-6989586621679254134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludes:StartTaskExecution' :: Maybe [FilterRule]
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3Aexcludes%3AStartTaskExecution%27"><span class="hs-identifier hs-var">excludes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+ -&gt; StartTaskExecution -&gt; f StartTaskExecution)
+-&gt; ((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+    -&gt; Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; StartTaskExecution
+-&gt; f StartTaskExecution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+-&gt; Iso
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the task to start.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_taskArn"><span class="hs-identifier hs-type">startTaskExecution_taskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="startTaskExecution_taskArn"><span class="annot"><span class="annottext">startTaskExecution_taskArn :: (Text -&gt; f Text) -&gt; StartTaskExecution -&gt; f StartTaskExecution
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecution_taskArn"><span class="hs-identifier hs-var hs-var">startTaskExecution_taskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTaskExecution -&gt; Text)
+-&gt; (StartTaskExecution -&gt; Text -&gt; StartTaskExecution)
+-&gt; Lens StartTaskExecution StartTaskExecution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254132"><span class="annot"><span class="annottext">Text
+taskArn :: Text
+$sel:taskArn:StartTaskExecution' :: StartTaskExecution -&gt; Text
+</span><a href="#local-6989586621679254132"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254132"><span class="hs-identifier hs-var">taskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254131"><span class="annot"><span class="annottext">s :: StartTaskExecution
+</span><a href="#local-6989586621679254131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254130"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskExecution
+</span><a href="#local-6989586621679254131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskArn:StartTaskExecution' :: Text
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AtaskArn%3AStartTaskExecution%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-type">StartTaskExecutionResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679254126"><span class="annot"><span class="annottext">request :: StartTaskExecution -&gt; Request StartTaskExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartTaskExecution -&gt; Request StartTaskExecution
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679254122"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartTaskExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartTaskExecution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartTaskExecution))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartTaskExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartTaskExecution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254119"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254119"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254118"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254118"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254117"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartTaskExecutionResponse
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse%27"><span class="hs-identifier hs-var">StartTaskExecutionResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartTaskExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartTaskExecutionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskExecutionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartTaskExecutionResponse)
+-&gt; Either String Int -&gt; Either String StartTaskExecutionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254119"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254109"><span id="local-6989586621679254111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679254102"><span class="annot"><span class="annottext">toHeaders :: StartTaskExecution -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartTaskExecution -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FmrsService.StartTaskExecution&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-160"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254092"><span id="local-6989586621679254094"><span id="local-6989586621679254096"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679254090"><span class="annot"><span class="annottext">toJSON :: StartTaskExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution%27"><span class="hs-identifier hs-type">StartTaskExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254085"><span id="local-6989586621679254086"><span id="local-6989586621679254087"><span id="local-6989586621679254088"><span class="annot"><span class="annottext">Maybe [FilterRule]
+Maybe Options
+Text
+taskArn :: Text
+excludes :: Maybe [FilterRule]
+includes :: Maybe [FilterRule]
+overrideOptions :: Maybe Options
+$sel:taskArn:StartTaskExecution' :: StartTaskExecution -&gt; Text
+$sel:excludes:StartTaskExecution' :: StartTaskExecution -&gt; Maybe [FilterRule]
+$sel:includes:StartTaskExecution' :: StartTaskExecution -&gt; Maybe [FilterRule]
+$sel:overrideOptions:StartTaskExecution' :: StartTaskExecution -&gt; Maybe Options
+</span><a href="#local-6989586621679254085"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OverrideOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Options -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(Options -&gt; Pair) -&gt; Maybe Options -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679254088"><span class="hs-identifier hs-var">overrideOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Includes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FilterRule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([FilterRule] -&gt; Pair) -&gt; Maybe [FilterRule] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254087"><span class="hs-identifier hs-var">includes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Excludes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FilterRule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([FilterRule] -&gt; Pair) -&gt; Maybe [FilterRule] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679254086"><span class="hs-identifier hs-var">excludes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254085"><span class="hs-identifier hs-var">taskArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679254079"><span class="annot"><span class="annottext">toPath :: StartTaskExecution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartTaskExecution -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecution"><span class="hs-identifier hs-type">StartTaskExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679254075"><span class="annot"><span class="annottext">toQuery :: StartTaskExecution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartTaskExecution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | StartTaskExecutionResponse</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- /See:/ 'newStartTaskExecutionResponse' smart constructor.</span><span>
+</span><span id="line-189"></span><span id="local-6989586621679254072"><span id="local-6989586621679254073"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTaskExecutionResponse"><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-var">StartTaskExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTaskExecutionResponse%27"><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse%27"><span class="hs-identifier hs-var">StartTaskExecutionResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specific task execution that was</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- started.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AtaskExecutionArn%3AStartTaskExecutionResponse%27"><span class="annot"><span class="annottext">StartTaskExecutionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AtaskExecutionArn%3AStartTaskExecutionResponse%27"><span class="hs-identifier hs-var hs-var">taskExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartTaskExecutionResponse%27"><span class="annot"><span class="annottext">StartTaskExecutionResponse -&gt; Int
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AhttpStatus%3AStartTaskExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254066"><span id="local-6989586621679254068"><span class="annot"><span class="annottext">StartTaskExecutionResponse -&gt; StartTaskExecutionResponse -&gt; Bool
+(StartTaskExecutionResponse -&gt; StartTaskExecutionResponse -&gt; Bool)
+-&gt; (StartTaskExecutionResponse
+    -&gt; StartTaskExecutionResponse -&gt; Bool)
+-&gt; Eq StartTaskExecutionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartTaskExecutionResponse -&gt; StartTaskExecutionResponse -&gt; Bool
+$c/= :: StartTaskExecutionResponse -&gt; StartTaskExecutionResponse -&gt; Bool
+== :: StartTaskExecutionResponse -&gt; StartTaskExecutionResponse -&gt; Bool
+$c== :: StartTaskExecutionResponse -&gt; StartTaskExecutionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254058"><span id="local-6989586621679254060"><span id="local-6989586621679254062"><span id="local-6989586621679254064"><span class="annot"><span class="annottext">ReadPrec [StartTaskExecutionResponse]
+ReadPrec StartTaskExecutionResponse
+Int -&gt; ReadS StartTaskExecutionResponse
+ReadS [StartTaskExecutionResponse]
+(Int -&gt; ReadS StartTaskExecutionResponse)
+-&gt; ReadS [StartTaskExecutionResponse]
+-&gt; ReadPrec StartTaskExecutionResponse
+-&gt; ReadPrec [StartTaskExecutionResponse]
+-&gt; Read StartTaskExecutionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartTaskExecutionResponse]
+$creadListPrec :: ReadPrec [StartTaskExecutionResponse]
+readPrec :: ReadPrec StartTaskExecutionResponse
+$creadPrec :: ReadPrec StartTaskExecutionResponse
+readList :: ReadS [StartTaskExecutionResponse]
+$creadList :: ReadS [StartTaskExecutionResponse]
+readsPrec :: Int -&gt; ReadS StartTaskExecutionResponse
+$creadsPrec :: Int -&gt; ReadS StartTaskExecutionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254052"><span id="local-6989586621679254054"><span id="local-6989586621679254056"><span class="annot"><span class="annottext">Int -&gt; StartTaskExecutionResponse -&gt; ShowS
+[StartTaskExecutionResponse] -&gt; ShowS
+StartTaskExecutionResponse -&gt; String
+(Int -&gt; StartTaskExecutionResponse -&gt; ShowS)
+-&gt; (StartTaskExecutionResponse -&gt; String)
+-&gt; ([StartTaskExecutionResponse] -&gt; ShowS)
+-&gt; Show StartTaskExecutionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartTaskExecutionResponse] -&gt; ShowS
+$cshowList :: [StartTaskExecutionResponse] -&gt; ShowS
+show :: StartTaskExecutionResponse -&gt; String
+$cshow :: StartTaskExecutionResponse -&gt; String
+showsPrec :: Int -&gt; StartTaskExecutionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartTaskExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartTaskExecutionResponse -&gt; Rep StartTaskExecutionResponse x)
+-&gt; (forall x.
+    Rep StartTaskExecutionResponse x -&gt; StartTaskExecutionResponse)
+-&gt; Generic StartTaskExecutionResponse
+forall x.
+Rep StartTaskExecutionResponse x -&gt; StartTaskExecutionResponse
+forall x.
+StartTaskExecutionResponse -&gt; Rep StartTaskExecutionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartTaskExecutionResponse x -&gt; StartTaskExecutionResponse
+$cfrom :: forall x.
+StartTaskExecutionResponse -&gt; Rep StartTaskExecutionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'StartTaskExecutionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'taskExecutionArn', 'startTaskExecutionResponse_taskExecutionArn' - The Amazon Resource Name (ARN) of the specific task execution that was</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- started.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'startTaskExecutionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#newStartTaskExecutionResponse"><span class="hs-identifier hs-type">newStartTaskExecutionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-type">StartTaskExecutionResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newStartTaskExecutionResponse"><span class="annot"><span class="annottext">newStartTaskExecutionResponse :: Int -&gt; StartTaskExecutionResponse
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#newStartTaskExecutionResponse"><span class="hs-identifier hs-var hs-var">newStartTaskExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679254049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">StartTaskExecutionResponse' :: Maybe Text -&gt; Int -&gt; StartTaskExecutionResponse
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse%27"><span class="hs-identifier hs-type">StartTaskExecutionResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskExecutionArn:StartTaskExecutionResponse' :: Maybe Text
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AtaskExecutionArn%3AStartTaskExecutionResponse%27"><span class="hs-identifier hs-var">taskExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartTaskExecutionResponse' :: Int
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AhttpStatus%3AStartTaskExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specific task execution that was</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- started.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecutionResponse_taskExecutionArn"><span class="hs-identifier hs-type">startTaskExecutionResponse_taskExecutionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-type">StartTaskExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="startTaskExecutionResponse_taskExecutionArn"><span class="annot"><span class="annottext">startTaskExecutionResponse_taskExecutionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartTaskExecutionResponse -&gt; f StartTaskExecutionResponse
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecutionResponse_taskExecutionArn"><span class="hs-identifier hs-var hs-var">startTaskExecutionResponse_taskExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTaskExecutionResponse -&gt; Maybe Text)
+-&gt; (StartTaskExecutionResponse
+    -&gt; Maybe Text -&gt; StartTaskExecutionResponse)
+-&gt; Lens
+     StartTaskExecutionResponse
+     StartTaskExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse%27"><span class="hs-identifier hs-type">StartTaskExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254048"><span class="annot"><span class="annottext">Maybe Text
+taskExecutionArn :: Maybe Text
+$sel:taskExecutionArn:StartTaskExecutionResponse' :: StartTaskExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679254048"><span class="hs-identifier hs-var hs-var">taskExecutionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254048"><span class="hs-identifier hs-var">taskExecutionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254047"><span class="annot"><span class="annottext">s :: StartTaskExecutionResponse
+</span><a href="#local-6989586621679254047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse%27"><span class="hs-identifier hs-type">StartTaskExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254046"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskExecutionResponse
+</span><a href="#local-6989586621679254047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskExecutionArn:StartTaskExecutionResponse' :: Maybe Text
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AtaskExecutionArn%3AStartTaskExecutionResponse%27"><span class="hs-identifier hs-var">taskExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-type">StartTaskExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecutionResponse_httpStatus"><span class="hs-identifier hs-type">startTaskExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-type">StartTaskExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span id="startTaskExecutionResponse_httpStatus"><span class="annot"><span class="annottext">startTaskExecutionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartTaskExecutionResponse -&gt; f StartTaskExecutionResponse
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#startTaskExecutionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startTaskExecutionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTaskExecutionResponse -&gt; Int)
+-&gt; (StartTaskExecutionResponse
+    -&gt; Int -&gt; StartTaskExecutionResponse)
+-&gt; Lens
+     StartTaskExecutionResponse StartTaskExecutionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse%27"><span class="hs-identifier hs-type">StartTaskExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254045"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartTaskExecutionResponse' :: StartTaskExecutionResponse -&gt; Int
+</span><a href="#local-6989586621679254045"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254045"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254044"><span class="annot"><span class="annottext">s :: StartTaskExecutionResponse
+</span><a href="#local-6989586621679254044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse%27"><span class="hs-identifier hs-type">StartTaskExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskExecutionResponse
+</span><a href="#local-6989586621679254044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartTaskExecutionResponse' :: Int
+</span><a href="Network.AWS.DataSync.StartTaskExecution.html#%24sel%3AhttpStatus%3AStartTaskExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-type">StartTaskExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.StartTaskExecution.html#StartTaskExecutionResponse"><span class="hs-identifier hs-type">StartTaskExecutionResponse</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

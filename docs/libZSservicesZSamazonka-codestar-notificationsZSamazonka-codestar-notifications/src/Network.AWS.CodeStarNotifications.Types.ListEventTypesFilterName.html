@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName"><span class="hs-identifier">ListEventTypesFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName_RESOURCE_TYPE"><span class="hs-identifier">ListEventTypesFilterName_RESOURCE_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName_SERVICE_NAME"><span class="hs-identifier">ListEventTypesFilterName_SERVICE_NAME</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679166612"><span id="local-6989586621679166613"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListEventTypesFilterName"><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName"><span class="hs-identifier hs-var">ListEventTypesFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEventTypesFilterName%27"><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName%27"><span class="hs-identifier hs-var">ListEventTypesFilterName'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromListEventTypesFilterName"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; Text
+</span><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#fromListEventTypesFilterName"><span class="hs-identifier hs-var hs-var">fromListEventTypesFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679166604"><span id="local-6989586621679166606"><span id="local-6989586621679166608"><span class="annot"><span class="annottext">Int -&gt; ListEventTypesFilterName -&gt; ShowS
+[ListEventTypesFilterName] -&gt; ShowS
+ListEventTypesFilterName -&gt; String
+(Int -&gt; ListEventTypesFilterName -&gt; ShowS)
+-&gt; (ListEventTypesFilterName -&gt; String)
+-&gt; ([ListEventTypesFilterName] -&gt; ShowS)
+-&gt; Show ListEventTypesFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEventTypesFilterName] -&gt; ShowS
+$cshowList :: [ListEventTypesFilterName] -&gt; ShowS
+show :: ListEventTypesFilterName -&gt; String
+$cshow :: ListEventTypesFilterName -&gt; String
+showsPrec :: Int -&gt; ListEventTypesFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEventTypesFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679166595"><span id="local-6989586621679166597"><span id="local-6989586621679166599"><span id="local-6989586621679166601"><span class="annot"><span class="annottext">ReadPrec [ListEventTypesFilterName]
+ReadPrec ListEventTypesFilterName
+Int -&gt; ReadS ListEventTypesFilterName
+ReadS [ListEventTypesFilterName]
+(Int -&gt; ReadS ListEventTypesFilterName)
+-&gt; ReadS [ListEventTypesFilterName]
+-&gt; ReadPrec ListEventTypesFilterName
+-&gt; ReadPrec [ListEventTypesFilterName]
+-&gt; Read ListEventTypesFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEventTypesFilterName]
+$creadListPrec :: ReadPrec [ListEventTypesFilterName]
+readPrec :: ReadPrec ListEventTypesFilterName
+$creadPrec :: ReadPrec ListEventTypesFilterName
+readList :: ReadS [ListEventTypesFilterName]
+$creadList :: ReadS [ListEventTypesFilterName]
+readsPrec :: Int -&gt; ReadS ListEventTypesFilterName
+$creadsPrec :: Int -&gt; ReadS ListEventTypesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679166590"><span id="local-6989586621679166592"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+(ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool)
+-&gt; (ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool)
+-&gt; Eq ListEventTypesFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+$c/= :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+== :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+$c== :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679166574"><span id="local-6989586621679166576"><span id="local-6989586621679166578"><span id="local-6989586621679166580"><span id="local-6989586621679166582"><span id="local-6989586621679166584"><span id="local-6989586621679166586"><span class="annot"><span class="annottext">Eq ListEventTypesFilterName
+Eq ListEventTypesFilterName
+-&gt; (ListEventTypesFilterName
+    -&gt; ListEventTypesFilterName -&gt; Ordering)
+-&gt; (ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool)
+-&gt; (ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool)
+-&gt; (ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool)
+-&gt; (ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool)
+-&gt; (ListEventTypesFilterName
+    -&gt; ListEventTypesFilterName -&gt; ListEventTypesFilterName)
+-&gt; (ListEventTypesFilterName
+    -&gt; ListEventTypesFilterName -&gt; ListEventTypesFilterName)
+-&gt; Ord ListEventTypesFilterName
+ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Ordering
+ListEventTypesFilterName
+-&gt; ListEventTypesFilterName -&gt; ListEventTypesFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ListEventTypesFilterName
+-&gt; ListEventTypesFilterName -&gt; ListEventTypesFilterName
+$cmin :: ListEventTypesFilterName
+-&gt; ListEventTypesFilterName -&gt; ListEventTypesFilterName
+max :: ListEventTypesFilterName
+-&gt; ListEventTypesFilterName -&gt; ListEventTypesFilterName
+$cmax :: ListEventTypesFilterName
+-&gt; ListEventTypesFilterName -&gt; ListEventTypesFilterName
+&gt;= :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+$c&gt;= :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+&gt; :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+$c&gt; :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+&lt;= :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+$c&lt;= :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+&lt; :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+$c&lt; :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Bool
+compare :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Ordering
+$ccompare :: ListEventTypesFilterName -&gt; ListEventTypesFilterName -&gt; Ordering
+$cp1Ord :: Eq ListEventTypesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ListEventTypesFilterName -&gt; Rep ListEventTypesFilterName x)
+-&gt; (forall x.
+    Rep ListEventTypesFilterName x -&gt; ListEventTypesFilterName)
+-&gt; Generic ListEventTypesFilterName
+forall x.
+Rep ListEventTypesFilterName x -&gt; ListEventTypesFilterName
+forall x.
+ListEventTypesFilterName -&gt; Rep ListEventTypesFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEventTypesFilterName x -&gt; ListEventTypesFilterName
+$cfrom :: forall x.
+ListEventTypesFilterName -&gt; Rep ListEventTypesFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679166566"><span id="local-6989586621679166568"><span class="annot"><span class="annottext">Int -&gt; ListEventTypesFilterName -&gt; Int
+ListEventTypesFilterName -&gt; Int
+(Int -&gt; ListEventTypesFilterName -&gt; Int)
+-&gt; (ListEventTypesFilterName -&gt; Int)
+-&gt; Hashable ListEventTypesFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ListEventTypesFilterName -&gt; Int
+$chash :: ListEventTypesFilterName -&gt; Int
+hashWithSalt :: Int -&gt; ListEventTypesFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; ListEventTypesFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679166563"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; ()
+(ListEventTypesFilterName -&gt; ()) -&gt; NFData ListEventTypesFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ListEventTypesFilterName -&gt; ()
+$crnf :: ListEventTypesFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679166560"><span class="annot"><span class="annottext">Text -&gt; Either String ListEventTypesFilterName
+(Text -&gt; Either String ListEventTypesFilterName)
+-&gt; FromText ListEventTypesFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ListEventTypesFilterName
+$cfromText :: Text -&gt; Either String ListEventTypesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679166557"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; Text
+(ListEventTypesFilterName -&gt; Text)
+-&gt; ToText ListEventTypesFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ListEventTypesFilterName -&gt; Text
+$ctoText :: ListEventTypesFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679166554"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; ByteString
+(ListEventTypesFilterName -&gt; ByteString)
+-&gt; ToByteString ListEventTypesFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ListEventTypesFilterName -&gt; ByteString
+$ctoBS :: ListEventTypesFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679166551"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; ByteStringBuilder
+(ListEventTypesFilterName -&gt; ByteStringBuilder)
+-&gt; ToLog ListEventTypesFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ListEventTypesFilterName -&gt; ByteStringBuilder
+$cbuild :: ListEventTypesFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679166548"><span class="annot"><span class="annottext">HeaderName -&gt; ListEventTypesFilterName -&gt; [Header]
+(HeaderName -&gt; ListEventTypesFilterName -&gt; [Header])
+-&gt; ToHeader ListEventTypesFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ListEventTypesFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ListEventTypesFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679166545"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; QueryString
+(ListEventTypesFilterName -&gt; QueryString)
+-&gt; ToQuery ListEventTypesFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ListEventTypesFilterName -&gt; QueryString
+$ctoQuery :: ListEventTypesFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679166540"><span id="local-6989586621679166542"><span class="annot"><span class="annottext">Value -&gt; Parser [ListEventTypesFilterName]
+Value -&gt; Parser ListEventTypesFilterName
+(Value -&gt; Parser ListEventTypesFilterName)
+-&gt; (Value -&gt; Parser [ListEventTypesFilterName])
+-&gt; FromJSON ListEventTypesFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ListEventTypesFilterName]
+$cparseJSONList :: Value -&gt; Parser [ListEventTypesFilterName]
+parseJSON :: Value -&gt; Parser ListEventTypesFilterName
+$cparseJSON :: Value -&gt; Parser ListEventTypesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679166535"><span id="local-6989586621679166537"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListEventTypesFilterName]
+FromJSONKeyFunction ListEventTypesFilterName
+FromJSONKeyFunction ListEventTypesFilterName
+-&gt; FromJSONKeyFunction [ListEventTypesFilterName]
+-&gt; FromJSONKey ListEventTypesFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ListEventTypesFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [ListEventTypesFilterName]
+fromJSONKey :: FromJSONKeyFunction ListEventTypesFilterName
+$cfromJSONKey :: FromJSONKeyFunction ListEventTypesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679166526"><span id="local-6989586621679166528"><span id="local-6989586621679166530"><span id="local-6989586621679166532"><span class="annot"><span class="annottext">[ListEventTypesFilterName] -&gt; Encoding
+[ListEventTypesFilterName] -&gt; Value
+ListEventTypesFilterName -&gt; Encoding
+ListEventTypesFilterName -&gt; Value
+(ListEventTypesFilterName -&gt; Value)
+-&gt; (ListEventTypesFilterName -&gt; Encoding)
+-&gt; ([ListEventTypesFilterName] -&gt; Value)
+-&gt; ([ListEventTypesFilterName] -&gt; Encoding)
+-&gt; ToJSON ListEventTypesFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ListEventTypesFilterName] -&gt; Encoding
+$ctoEncodingList :: [ListEventTypesFilterName] -&gt; Encoding
+toJSONList :: [ListEventTypesFilterName] -&gt; Value
+$ctoJSONList :: [ListEventTypesFilterName] -&gt; Value
+toEncoding :: ListEventTypesFilterName -&gt; Encoding
+$ctoEncoding :: ListEventTypesFilterName -&gt; Encoding
+toJSON :: ListEventTypesFilterName -&gt; Value
+$ctoJSON :: ListEventTypesFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679166521"><span id="local-6989586621679166523"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListEventTypesFilterName]
+ToJSONKeyFunction ListEventTypesFilterName
+ToJSONKeyFunction ListEventTypesFilterName
+-&gt; ToJSONKeyFunction [ListEventTypesFilterName]
+-&gt; ToJSONKey ListEventTypesFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ListEventTypesFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [ListEventTypesFilterName]
+toJSONKey :: ToJSONKeyFunction ListEventTypesFilterName
+$ctoJSONKey :: ToJSONKeyFunction ListEventTypesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679166518"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListEventTypesFilterName
+([Node] -&gt; Either String ListEventTypesFilterName)
+-&gt; FromXML ListEventTypesFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ListEventTypesFilterName
+$cparseXML :: [Node] -&gt; Either String ListEventTypesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679166515"><span class="annot"><span class="annottext">ListEventTypesFilterName -&gt; XML
+(ListEventTypesFilterName -&gt; XML) -&gt; ToXML ListEventTypesFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ListEventTypesFilterName -&gt; XML
+$ctoXML :: ListEventTypesFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName_RESOURCE_TYPE"><span class="hs-identifier hs-type">ListEventTypesFilterName_RESOURCE_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName"><span class="hs-identifier hs-type">ListEventTypesFilterName</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListEventTypesFilterName_RESOURCE_TYPE"><span id="%24mListEventTypesFilterName_RESOURCE_TYPE"><span id="ListEventTypesFilterName_RESOURCE_TYPE"><span class="annot"><span class="annottext">$bListEventTypesFilterName_RESOURCE_TYPE :: ListEventTypesFilterName
+$mListEventTypesFilterName_RESOURCE_TYPE :: forall r.
+ListEventTypesFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#%24bListEventTypesFilterName_RESOURCE_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ListEventTypesFilterName_RESOURCE_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName%27"><span class="hs-identifier hs-type">ListEventTypesFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESOURCE_TYPE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName_SERVICE_NAME"><span class="hs-identifier hs-type">ListEventTypesFilterName_SERVICE_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName"><span class="hs-identifier hs-type">ListEventTypesFilterName</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListEventTypesFilterName_SERVICE_NAME"><span id="%24mListEventTypesFilterName_SERVICE_NAME"><span id="ListEventTypesFilterName_SERVICE_NAME"><span class="annot"><span class="annottext">$bListEventTypesFilterName_SERVICE_NAME :: ListEventTypesFilterName
+$mListEventTypesFilterName_SERVICE_NAME :: forall r.
+ListEventTypesFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#%24bListEventTypesFilterName_SERVICE_NAME"><span class="hs-identifier hs-var hs-var hs-var">ListEventTypesFilterName_SERVICE_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName%27"><span class="hs-identifier hs-type">ListEventTypesFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERVICE_NAME&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName_RESOURCE_TYPE"><span class="hs-pragma hs-type">ListEventTypesFilterName_RESOURCE_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName_SERVICE_NAME"><span class="hs-pragma hs-type">ListEventTypesFilterName_SERVICE_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName%27"><span class="hs-pragma hs-type">ListEventTypesFilterName'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

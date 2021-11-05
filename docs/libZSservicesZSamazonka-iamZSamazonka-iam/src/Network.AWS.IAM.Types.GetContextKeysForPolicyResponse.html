@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- or GetContextKeysForCustomPolicy request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGetContextKeysForPolicyResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679425268"><span id="local-6989586621679425269"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContextKeysForPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-var">GetContextKeysForPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContextKeysForPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-var">GetContextKeysForPolicyResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679425277"><span id="local-6989586621679425278"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContextKeysForPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-var">GetContextKeysForPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContextKeysForPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-var">GetContextKeysForPolicyResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of context keys that are referenced in the input policies.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcontextKeyNames%3AGetContextKeysForPolicyResponse%27"><span class="annot"><span class="annottext">GetContextKeysForPolicyResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#%24sel%3AcontextKeyNames%3AGetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">contextKeyNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425262"><span id="local-6989586621679425264"><span class="annot"><span class="annottext">GetContextKeysForPolicyResponse
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425271"><span id="local-6989586621679425273"><span class="annot"><span class="annottext">GetContextKeysForPolicyResponse
 -&gt; GetContextKeysForPolicyResponse -&gt; Bool
 (GetContextKeysForPolicyResponse
  -&gt; GetContextKeysForPolicyResponse -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: GetContextKeysForPolicyResponse
 -&gt; GetContextKeysForPolicyResponse -&gt; Bool
 $c== :: GetContextKeysForPolicyResponse
 -&gt; GetContextKeysForPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425253"><span id="local-6989586621679425255"><span id="local-6989586621679425257"><span id="local-6989586621679425259"><span class="annot"><span class="annottext">ReadPrec [GetContextKeysForPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425262"><span id="local-6989586621679425264"><span id="local-6989586621679425266"><span id="local-6989586621679425268"><span class="annot"><span class="annottext">ReadPrec [GetContextKeysForPolicyResponse]
 ReadPrec GetContextKeysForPolicyResponse
 Int -&gt; ReadS GetContextKeysForPolicyResponse
 ReadS [GetContextKeysForPolicyResponse]
@@ -68,7 +68,7 @@ readList :: ReadS [GetContextKeysForPolicyResponse]
 $creadList :: ReadS [GetContextKeysForPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetContextKeysForPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetContextKeysForPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425246"><span id="local-6989586621679425248"><span id="local-6989586621679425250"><span class="annot"><span class="annottext">Int -&gt; GetContextKeysForPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425255"><span id="local-6989586621679425257"><span id="local-6989586621679425259"><span class="annot"><span class="annottext">Int -&gt; GetContextKeysForPolicyResponse -&gt; ShowS
 [GetContextKeysForPolicyResponse] -&gt; ShowS
 GetContextKeysForPolicyResponse -&gt; String
 (Int -&gt; GetContextKeysForPolicyResponse -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425237"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425246"><span class="annot"><span class="annottext">Maybe [Text]
 contextKeyNames :: Maybe [Text]
 $sel:contextKeyNames:GetContextKeysForPolicyResponse' :: GetContextKeysForPolicyResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679425237"><span class="hs-identifier hs-var hs-var">contextKeyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425237"><span class="hs-identifier hs-var">contextKeyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425236"><span class="annot"><span class="annottext">s :: GetContextKeysForPolicyResponse
-</span><a href="#local-6989586621679425236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425235"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContextKeysForPolicyResponse
-</span><a href="#local-6989586621679425236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextKeyNames:GetContextKeysForPolicyResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679425246"><span class="hs-identifier hs-var hs-var">contextKeyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679425246"><span class="hs-identifier hs-var">contextKeyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425245"><span class="annot"><span class="annottext">s :: GetContextKeysForPolicyResponse
+</span><a href="#local-6989586621679425245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425244"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679425244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContextKeysForPolicyResponse
+</span><a href="#local-6989586621679425245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextKeyNames:GetContextKeysForPolicyResponse' :: Maybe [Text]
 </span><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#%24sel%3AcontextKeyNames%3AGetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-var">contextKeyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679425244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GetContextKeysForPolicyResponse
  -&gt; f GetContextKeysForPolicyResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -170,9 +170,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679425229"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GetContextKeysForPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679425227"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679425238"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GetContextKeysForPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679425236"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425236"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; GetContextKeysForPolicyResponse
 </span><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse%27"><span class="hs-identifier hs-var">GetContextKeysForPolicyResponse'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; GetContextKeysForPolicyResponse)
@@ -180,7 +180,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String GetContextKeysForPolicyResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679425236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContextKeyNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -204,10 +204,10 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-62"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679425218"><span id="local-6989586621679425220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679425227"><span id="local-6989586621679425229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679425215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679425224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.Types.GetContextKeysForPolicyResponse.html#GetContextKeysForPolicyResponse"><span class="hs-identifier hs-type">GetContextKeysForPolicyResponse</span></a></span></span><span>
 </span><span id="line-71"></span></pre></body></html>

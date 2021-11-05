@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteCustomMetadata' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679273207"><span id="local-6989586621679273208"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetadata"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-var">DeleteCustomMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetadata%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-var">DeleteCustomMetadata'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679273216"><span id="local-6989586621679273217"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetadata"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-var">DeleteCustomMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetadata%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-var">DeleteCustomMetadata'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the version, if the custom metadata is being deleted from a</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- document version.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AversionId%3ADeleteCustomMetadata%27"><span class="annot"><span class="annottext">DeleteCustomMetadata -&gt; Maybe Text
@@ -70,7 +70,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AresourceId%3ADeleteCustomMetadata%27"><span class="annot"><span class="annottext">DeleteCustomMetadata -&gt; Text
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AresourceId%3ADeleteCustomMetadata%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273197"><span id="local-6989586621679273199"><span class="annot"><span class="annottext">DeleteCustomMetadata -&gt; DeleteCustomMetadata -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273206"><span id="local-6989586621679273208"><span class="annot"><span class="annottext">DeleteCustomMetadata -&gt; DeleteCustomMetadata -&gt; Bool
 (DeleteCustomMetadata -&gt; DeleteCustomMetadata -&gt; Bool)
 -&gt; (DeleteCustomMetadata -&gt; DeleteCustomMetadata -&gt; Bool)
 -&gt; Eq DeleteCustomMetadata
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCustomMetadata -&gt; DeleteCustomMetadata -&gt; Bool
 == :: DeleteCustomMetadata -&gt; DeleteCustomMetadata -&gt; Bool
 $c== :: DeleteCustomMetadata -&gt; DeleteCustomMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273190"><span id="local-6989586621679273192"><span id="local-6989586621679273194"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273199"><span id="local-6989586621679273201"><span id="local-6989586621679273203"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetadata -&gt; ShowS
 [DeleteCustomMetadata] -&gt; ShowS
 DeleteCustomMetadata -&gt; String
 (Int -&gt; DeleteCustomMetadata -&gt; ShowS)
@@ -130,8 +130,8 @@ $cfrom :: forall x. DeleteCustomMetadata -&gt; Rep DeleteCustomMetadata x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span>
 </span><span id="line-94"></span><span id="newDeleteCustomMetadata"><span class="annot"><span class="annottext">newDeleteCustomMetadata :: Text -&gt; DeleteCustomMetadata
-</span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#newDeleteCustomMetadata"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetadata</span></a></span></span><span> </span><span id="local-6989586621679273185"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273185"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#newDeleteCustomMetadata"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetadata</span></a></span></span><span> </span><span id="local-6989586621679273194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273194"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">DeleteCustomMetadata' :: Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe (Sensitive Text)
@@ -157,7 +157,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:DeleteCustomMetadata' :: Text
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AresourceId%3ADeleteCustomMetadata%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273185"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><a href="#local-6989586621679273194"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The ID of the version, if the custom metadata is being deleted from a</span><span>
@@ -170,16 +170,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteCustomMetadata DeleteCustomMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273182"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273191"><span class="annot"><span class="annottext">Maybe Text
 versionId :: Maybe Text
 $sel:versionId:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679273182"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273182"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273181"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
-</span><a href="#local-6989586621679273181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273180"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
-</span><a href="#local-6989586621679273181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteCustomMetadata' :: Maybe Text
+</span><a href="#local-6989586621679273191"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273191"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273190"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
+</span><a href="#local-6989586621679273190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
+</span><a href="#local-6989586621679273190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteCustomMetadata' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AversionId%3ADeleteCustomMetadata%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Flag to indicate removal of all custom metadata properties from the</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- specified resource.</span><span>
@@ -191,16 +191,16 @@ $sel:versionId:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Text
 -&gt; Lens
      DeleteCustomMetadata DeleteCustomMetadata (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273179"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273188"><span class="annot"><span class="annottext">Maybe Bool
 deleteAll :: Maybe Bool
 $sel:deleteAll:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Bool
-</span><a href="#local-6989586621679273179"><span class="hs-identifier hs-var hs-var">deleteAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273179"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273178"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
-</span><a href="#local-6989586621679273178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273177"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
-</span><a href="#local-6989586621679273178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAll:DeleteCustomMetadata' :: Maybe Bool
+</span><a href="#local-6989586621679273188"><span class="hs-identifier hs-var hs-var">deleteAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273188"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273187"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
+</span><a href="#local-6989586621679273187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273186"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
+</span><a href="#local-6989586621679273187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAll:DeleteCustomMetadata' :: Maybe Bool
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AdeleteAll%3ADeleteCustomMetadata%27"><span class="hs-identifier hs-var">deleteAll</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
@@ -216,16 +216,16 @@ $sel:deleteAll:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Bool
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273176"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273185"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679273176"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679273176"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273175"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
-</span><a href="#local-6989586621679273175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273174"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679273174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
-</span><a href="#local-6989586621679273175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DeleteCustomMetadata' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679273185"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679273185"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273184"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
+</span><a href="#local-6989586621679273184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273183"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679273183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
+</span><a href="#local-6989586621679273184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DeleteCustomMetadata' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AauthenticationToken%3ADeleteCustomMetadata%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679273174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679273183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DeleteCustomMetadata -&gt; f DeleteCustomMetadata)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -258,16 +258,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273170"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273179"><span class="annot"><span class="annottext">Maybe [Text]
 keys :: Maybe [Text]
 $sel:keys:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe [Text]
-</span><a href="#local-6989586621679273170"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273170"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273169"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
-</span><a href="#local-6989586621679273169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273168"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
-</span><a href="#local-6989586621679273169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:DeleteCustomMetadata' :: Maybe [Text]
+</span><a href="#local-6989586621679273179"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679273179"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273178"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
+</span><a href="#local-6989586621679273178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273177"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679273177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
+</span><a href="#local-6989586621679273178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:DeleteCustomMetadata' :: Maybe [Text]
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3Akeys%3ADeleteCustomMetadata%27"><span class="hs-identifier hs-var">keys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679273177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DeleteCustomMetadata -&gt; f DeleteCustomMetadata)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -291,27 +291,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteCustomMetadata -&gt; Text -&gt; DeleteCustomMetadata)
 -&gt; Lens DeleteCustomMetadata DeleteCustomMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273166"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273175"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Text
-</span><a href="#local-6989586621679273166"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273166"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273165"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
-</span><a href="#local-6989586621679273165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273164"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
-</span><a href="#local-6989586621679273165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteCustomMetadata' :: Text
+</span><a href="#local-6989586621679273175"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273175"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273174"><span class="annot"><span class="annottext">s :: DeleteCustomMetadata
+</span><a href="#local-6989586621679273174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273173"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadata
+</span><a href="#local-6989586621679273174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteCustomMetadata' :: Text
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AresourceId%3ADeleteCustomMetadata%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679273160"><span class="annot"><span class="annottext">request :: DeleteCustomMetadata -&gt; Request DeleteCustomMetadata
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679273169"><span class="annot"><span class="annottext">request :: DeleteCustomMetadata -&gt; Request DeleteCustomMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCustomMetadata -&gt; Request DeleteCustomMetadata
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679273156"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679273165"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCustomMetadata
 -&gt; ClientResponse ClientBody
@@ -337,10 +337,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273153"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273153"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679273152"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679273152"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679273151"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679273151"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273162"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679273161"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679273161"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679273160"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679273160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetadataResponse
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-var">DeleteCustomMetadataResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteCustomMetadataResponse)
@@ -351,16 +351,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273153"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273162"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273144"><span id="local-6989586621679273146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273153"><span id="local-6989586621679273155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679273137"><span class="annot"><span class="annottext">toHeaders :: DeleteCustomMetadata -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273131"><span id="local-6989586621679273132"><span id="local-6989586621679273133"><span id="local-6989586621679273134"><span id="local-6989586621679273135"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679273146"><span class="annot"><span class="annottext">toHeaders :: DeleteCustomMetadata -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273140"><span id="local-6989586621679273141"><span id="local-6989586621679273142"><span id="local-6989586621679273143"><span id="local-6989586621679273144"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Maybe (Sensitive Text)
@@ -375,7 +375,7 @@ $sel:keys:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe [Text]
 $sel:authenticationToken:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe (Sensitive Text)
 $sel:deleteAll:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Bool
 $sel:versionId:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679273131"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273140"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -383,7 +383,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679273133"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273142"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
@@ -393,8 +393,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679273127"><span class="annot"><span class="annottext">toPath :: DeleteCustomMetadata -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273121"><span id="local-6989586621679273122"><span id="local-6989586621679273123"><span id="local-6989586621679273124"><span id="local-6989586621679273125"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679273136"><span class="annot"><span class="annottext">toPath :: DeleteCustomMetadata -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273130"><span id="local-6989586621679273131"><span id="local-6989586621679273132"><span id="local-6989586621679273133"><span id="local-6989586621679273134"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Maybe (Sensitive Text)
@@ -409,7 +409,7 @@ $sel:keys:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe [Text]
 $sel:authenticationToken:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe (Sensitive Text)
 $sel:deleteAll:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Bool
 $sel:versionId:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679273121"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273130"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -418,14 +418,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273121"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273130"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/customMetadata&quot;</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata"><span class="hs-identifier hs-type">DeleteCustomMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679273117"><span class="annot"><span class="annottext">toQuery :: DeleteCustomMetadata -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273111"><span id="local-6989586621679273112"><span id="local-6989586621679273113"><span id="local-6989586621679273114"><span id="local-6989586621679273115"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679273126"><span class="annot"><span class="annottext">toQuery :: DeleteCustomMetadata -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadata%27"><span class="hs-identifier hs-type">DeleteCustomMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273120"><span id="local-6989586621679273121"><span id="local-6989586621679273122"><span id="local-6989586621679273123"><span id="local-6989586621679273124"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Maybe (Sensitive Text)
@@ -440,7 +440,7 @@ $sel:keys:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe [Text]
 $sel:authenticationToken:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe (Sensitive Text)
 $sel:deleteAll:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Bool
 $sel:versionId:DeleteCustomMetadata' :: DeleteCustomMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679273111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273120"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -448,12 +448,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273115"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273124"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;deleteAll&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273114"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273123"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;keys&quot;</span></span><span>
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -469,16 +469,16 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273112"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273121"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newDeleteCustomMetadataResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679273107"><span id="local-6989586621679273108"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetadataResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-var">DeleteCustomMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetadataResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-var">DeleteCustomMetadataResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679273116"><span id="local-6989586621679273117"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetadataResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-var">DeleteCustomMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetadataResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-var">DeleteCustomMetadataResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCustomMetadataResponse%27"><span class="annot"><span class="annottext">DeleteCustomMetadataResponse -&gt; Int
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AhttpStatus%3ADeleteCustomMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273102"><span id="local-6989586621679273104"><span class="annot"><span class="annottext">DeleteCustomMetadataResponse
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273111"><span id="local-6989586621679273113"><span class="annot"><span class="annottext">DeleteCustomMetadataResponse
 -&gt; DeleteCustomMetadataResponse -&gt; Bool
 (DeleteCustomMetadataResponse
  -&gt; DeleteCustomMetadataResponse -&gt; Bool)
@@ -494,7 +494,7 @@ $c/= :: DeleteCustomMetadataResponse
 -&gt; DeleteCustomMetadataResponse -&gt; Bool
 $c== :: DeleteCustomMetadataResponse
 -&gt; DeleteCustomMetadataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273094"><span id="local-6989586621679273096"><span id="local-6989586621679273098"><span id="local-6989586621679273100"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomMetadataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273103"><span id="local-6989586621679273105"><span id="local-6989586621679273107"><span id="local-6989586621679273109"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomMetadataResponse]
 ReadPrec DeleteCustomMetadataResponse
 Int -&gt; ReadS DeleteCustomMetadataResponse
 ReadS [DeleteCustomMetadataResponse]
@@ -514,7 +514,7 @@ readList :: ReadS [DeleteCustomMetadataResponse]
 $creadList :: ReadS [DeleteCustomMetadataResponse]
 readsPrec :: Int -&gt; ReadS DeleteCustomMetadataResponse
 $creadsPrec :: Int -&gt; ReadS DeleteCustomMetadataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273087"><span id="local-6989586621679273089"><span id="local-6989586621679273091"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273096"><span id="local-6989586621679273098"><span id="local-6989586621679273100"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetadataResponse -&gt; ShowS
 [DeleteCustomMetadataResponse] -&gt; ShowS
 DeleteCustomMetadataResponse -&gt; String
 (Int -&gt; DeleteCustomMetadataResponse -&gt; ShowS)
@@ -560,14 +560,14 @@ DeleteCustomMetadataResponse -&gt; Rep DeleteCustomMetadataResponse x
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newDeleteCustomMetadataResponse"><span class="annot"><span class="annottext">newDeleteCustomMetadataResponse :: Int -&gt; DeleteCustomMetadataResponse
-</span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#newDeleteCustomMetadataResponse"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679273084"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273084"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#newDeleteCustomMetadataResponse"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679273093"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273093"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">DeleteCustomMetadataResponse' :: Int -&gt; DeleteCustomMetadataResponse
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse'</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomMetadataResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AhttpStatus%3ADeleteCustomMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273084"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679273093"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -580,16 +580,16 @@ DeleteCustomMetadataResponse -&gt; Rep DeleteCustomMetadataResponse x
 -&gt; Lens
      DeleteCustomMetadataResponse DeleteCustomMetadataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273083"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273092"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteCustomMetadataResponse' :: DeleteCustomMetadataResponse -&gt; Int
-</span><a href="#local-6989586621679273083"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273083"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273082"><span class="annot"><span class="annottext">s :: DeleteCustomMetadataResponse
-</span><a href="#local-6989586621679273082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273081"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadataResponse
-</span><a href="#local-6989586621679273082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomMetadataResponse' :: Int
+</span><a href="#local-6989586621679273092"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273092"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273091"><span class="annot"><span class="annottext">s :: DeleteCustomMetadataResponse
+</span><a href="#local-6989586621679273091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273090"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetadataResponse
+</span><a href="#local-6989586621679273091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomMetadataResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#%24sel%3AhttpStatus%3ADeleteCustomMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteCustomMetadata.html#DeleteCustomMetadataResponse"><span class="hs-identifier hs-type">DeleteCustomMetadataResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

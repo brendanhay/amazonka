@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- ObjectWriter - The uploading account will own the object if the object</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- is uploaded with the @bucket-owner-full-control@ canned ACL.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679546555"><span id="local-6989586621679546556"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectOwnership"><span class="annot"><a href="Network.AWS.S3.Types.ObjectOwnership.html#ObjectOwnership"><span class="hs-identifier hs-var">ObjectOwnership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectOwnership%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectOwnership.html#ObjectOwnership%27"><span class="hs-identifier hs-var">ObjectOwnership'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679546564"><span id="local-6989586621679546565"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectOwnership"><span class="annot"><a href="Network.AWS.S3.Types.ObjectOwnership.html#ObjectOwnership"><span class="hs-identifier hs-var">ObjectOwnership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectOwnership%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectOwnership.html#ObjectOwnership%27"><span class="hs-identifier hs-var">ObjectOwnership'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectOwnership"><span class="annot"><span class="annottext">ObjectOwnership -&gt; Text
 </span><a href="Network.AWS.S3.Types.ObjectOwnership.html#fromObjectOwnership"><span class="hs-identifier hs-var hs-var">fromObjectOwnership</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679546547"><span id="local-6989586621679546549"><span id="local-6989586621679546551"><span class="annot"><span class="annottext">Int -&gt; ObjectOwnership -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679546556"><span id="local-6989586621679546558"><span id="local-6989586621679546560"><span class="annot"><span class="annottext">Int -&gt; ObjectOwnership -&gt; ShowS
 [ObjectOwnership] -&gt; ShowS
 ObjectOwnership -&gt; String
 (Int -&gt; ObjectOwnership -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: ObjectOwnership -&gt; String
 showsPrec :: Int -&gt; ObjectOwnership -&gt; ShowS
 $cshowsPrec :: Int -&gt; ObjectOwnership -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679546538"><span id="local-6989586621679546540"><span id="local-6989586621679546542"><span id="local-6989586621679546544"><span class="annot"><span class="annottext">ReadPrec [ObjectOwnership]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679546547"><span id="local-6989586621679546549"><span id="local-6989586621679546551"><span id="local-6989586621679546553"><span class="annot"><span class="annottext">ReadPrec [ObjectOwnership]
 ReadPrec ObjectOwnership
 Int -&gt; ReadS ObjectOwnership
 ReadS [ObjectOwnership]
@@ -82,7 +82,7 @@ $creadList :: ReadS [ObjectOwnership]
 readsPrec :: Int -&gt; ReadS ObjectOwnership
 $creadsPrec :: Int -&gt; ReadS ObjectOwnership
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679546533"><span id="local-6989586621679546535"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ObjectOwnership -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679546542"><span id="local-6989586621679546544"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ObjectOwnership -&gt; Bool
 (ObjectOwnership -&gt; ObjectOwnership -&gt; Bool)
 -&gt; (ObjectOwnership -&gt; ObjectOwnership -&gt; Bool)
 -&gt; Eq ObjectOwnership
@@ -92,7 +92,7 @@ $c/= :: ObjectOwnership -&gt; ObjectOwnership -&gt; Bool
 == :: ObjectOwnership -&gt; ObjectOwnership -&gt; Bool
 $c== :: ObjectOwnership -&gt; ObjectOwnership -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679546517"><span id="local-6989586621679546519"><span id="local-6989586621679546521"><span id="local-6989586621679546523"><span id="local-6989586621679546525"><span id="local-6989586621679546527"><span id="local-6989586621679546529"><span class="annot"><span class="annottext">Eq ObjectOwnership
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679546526"><span id="local-6989586621679546528"><span id="local-6989586621679546530"><span id="local-6989586621679546532"><span id="local-6989586621679546534"><span id="local-6989586621679546536"><span id="local-6989586621679546538"><span class="annot"><span class="annottext">Eq ObjectOwnership
 Eq ObjectOwnership
 -&gt; (ObjectOwnership -&gt; ObjectOwnership -&gt; Ordering)
 -&gt; (ObjectOwnership -&gt; ObjectOwnership -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. ObjectOwnership -&gt; Rep ObjectOwnership x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679546509"><span id="local-6989586621679546511"><span class="annot"><span class="annottext">Int -&gt; ObjectOwnership -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679546518"><span id="local-6989586621679546520"><span class="annot"><span class="annottext">Int -&gt; ObjectOwnership -&gt; Int
 ObjectOwnership -&gt; Int
 (Int -&gt; ObjectOwnership -&gt; Int)
 -&gt; (ObjectOwnership -&gt; Int) -&gt; Hashable ObjectOwnership
@@ -153,50 +153,50 @@ $chash :: ObjectOwnership -&gt; Int
 hashWithSalt :: Int -&gt; ObjectOwnership -&gt; Int
 $chashWithSalt :: Int -&gt; ObjectOwnership -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679546506"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679546515"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ()
 (ObjectOwnership -&gt; ()) -&gt; NFData ObjectOwnership
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ObjectOwnership -&gt; ()
 $crnf :: ObjectOwnership -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679546503"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectOwnership
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679546512"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectOwnership
 (Text -&gt; Either String ObjectOwnership) -&gt; FromText ObjectOwnership
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectOwnership
 $cfromText :: Text -&gt; Either String ObjectOwnership
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679546500"><span class="annot"><span class="annottext">ObjectOwnership -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679546509"><span class="annot"><span class="annottext">ObjectOwnership -&gt; Text
 (ObjectOwnership -&gt; Text) -&gt; ToText ObjectOwnership
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectOwnership -&gt; Text
 $ctoText :: ObjectOwnership -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679546497"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679546506"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ByteString
 (ObjectOwnership -&gt; ByteString) -&gt; ToByteString ObjectOwnership
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectOwnership -&gt; ByteString
 $ctoBS :: ObjectOwnership -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679546494"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679546503"><span class="annot"><span class="annottext">ObjectOwnership -&gt; ByteStringBuilder
 (ObjectOwnership -&gt; ByteStringBuilder) -&gt; ToLog ObjectOwnership
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectOwnership -&gt; ByteStringBuilder
 $cbuild :: ObjectOwnership -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679546491"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectOwnership -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679546500"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectOwnership -&gt; [Header]
 (HeaderName -&gt; ObjectOwnership -&gt; [Header])
 -&gt; ToHeader ObjectOwnership
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ObjectOwnership -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ObjectOwnership -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679546488"><span class="annot"><span class="annottext">ObjectOwnership -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679546497"><span class="annot"><span class="annottext">ObjectOwnership -&gt; QueryString
 (ObjectOwnership -&gt; QueryString) -&gt; ToQuery ObjectOwnership
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectOwnership -&gt; QueryString
 $ctoQuery :: ObjectOwnership -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679546483"><span id="local-6989586621679546485"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectOwnership]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679546492"><span id="local-6989586621679546494"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectOwnership]
 Value -&gt; Parser ObjectOwnership
 (Value -&gt; Parser ObjectOwnership)
 -&gt; (Value -&gt; Parser [ObjectOwnership]) -&gt; FromJSON ObjectOwnership
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [ObjectOwnership]
 parseJSON :: Value -&gt; Parser ObjectOwnership
 $cparseJSON :: Value -&gt; Parser ObjectOwnership
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679546478"><span id="local-6989586621679546480"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectOwnership]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679546487"><span id="local-6989586621679546489"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectOwnership]
 FromJSONKeyFunction ObjectOwnership
 FromJSONKeyFunction ObjectOwnership
 -&gt; FromJSONKeyFunction [ObjectOwnership]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ObjectOwnership]
 fromJSONKey :: FromJSONKeyFunction ObjectOwnership
 $cfromJSONKey :: FromJSONKeyFunction ObjectOwnership
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679546469"><span id="local-6989586621679546471"><span id="local-6989586621679546473"><span id="local-6989586621679546475"><span class="annot"><span class="annottext">[ObjectOwnership] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679546478"><span id="local-6989586621679546480"><span id="local-6989586621679546482"><span id="local-6989586621679546484"><span class="annot"><span class="annottext">[ObjectOwnership] -&gt; Encoding
 [ObjectOwnership] -&gt; Value
 ObjectOwnership -&gt; Encoding
 ObjectOwnership -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: ObjectOwnership -&gt; Encoding
 toJSON :: ObjectOwnership -&gt; Value
 $ctoJSON :: ObjectOwnership -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679546464"><span id="local-6989586621679546466"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectOwnership]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679546473"><span id="local-6989586621679546475"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectOwnership]
 ToJSONKeyFunction ObjectOwnership
 ToJSONKeyFunction ObjectOwnership
 -&gt; ToJSONKeyFunction [ObjectOwnership] -&gt; ToJSONKey ObjectOwnership
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ObjectOwnership]
 toJSONKey :: ToJSONKeyFunction ObjectOwnership
 $ctoJSONKey :: ToJSONKeyFunction ObjectOwnership
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679546461"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectOwnership
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679546470"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectOwnership
 ([Node] -&gt; Either String ObjectOwnership)
 -&gt; FromXML ObjectOwnership
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectOwnership
 $cparseXML :: [Node] -&gt; Either String ObjectOwnership
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679546458"><span class="annot"><span class="annottext">ObjectOwnership -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679546467"><span class="annot"><span class="annottext">ObjectOwnership -&gt; XML
 (ObjectOwnership -&gt; XML) -&gt; ToXML ObjectOwnership
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectOwnership -&gt; XML

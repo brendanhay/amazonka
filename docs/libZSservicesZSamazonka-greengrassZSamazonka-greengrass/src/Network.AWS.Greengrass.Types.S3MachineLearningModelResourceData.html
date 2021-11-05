@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Attributes that define an Amazon S3 machine learning resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newS3MachineLearningModelResourceData' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679346270"><span id="local-6989586621679346271"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3MachineLearningModelResourceData"><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-var">S3MachineLearningModelResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3MachineLearningModelResourceData%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var">S3MachineLearningModelResourceData'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679346279"><span id="local-6989586621679346280"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3MachineLearningModelResourceData"><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-var">S3MachineLearningModelResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3MachineLearningModelResourceData%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var">S3MachineLearningModelResourceData'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AownerSetting%3AS3MachineLearningModelResourceData%27"><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
 -&gt; Maybe ResourceDownloadOwnerSetting
 </span><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#%24sel%3AownerSetting%3AS3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var hs-var">ownerSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3As3Uri%3AS3MachineLearningModelResourceData%27"><span class="annot"><span class="annottext">S3MachineLearningModelResourceData -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#%24sel%3As3Uri%3AS3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346262"><span id="local-6989586621679346264"><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346271"><span id="local-6989586621679346273"><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
 -&gt; S3MachineLearningModelResourceData -&gt; Bool
 (S3MachineLearningModelResourceData
  -&gt; S3MachineLearningModelResourceData -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: S3MachineLearningModelResourceData
 -&gt; S3MachineLearningModelResourceData -&gt; Bool
 $c== :: S3MachineLearningModelResourceData
 -&gt; S3MachineLearningModelResourceData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346253"><span id="local-6989586621679346255"><span id="local-6989586621679346257"><span id="local-6989586621679346259"><span class="annot"><span class="annottext">ReadPrec [S3MachineLearningModelResourceData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346262"><span id="local-6989586621679346264"><span id="local-6989586621679346266"><span id="local-6989586621679346268"><span class="annot"><span class="annottext">ReadPrec [S3MachineLearningModelResourceData]
 ReadPrec S3MachineLearningModelResourceData
 Int -&gt; ReadS S3MachineLearningModelResourceData
 ReadS [S3MachineLearningModelResourceData]
@@ -75,7 +75,7 @@ readList :: ReadS [S3MachineLearningModelResourceData]
 $creadList :: ReadS [S3MachineLearningModelResourceData]
 readsPrec :: Int -&gt; ReadS S3MachineLearningModelResourceData
 $creadsPrec :: Int -&gt; ReadS S3MachineLearningModelResourceData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346246"><span id="local-6989586621679346248"><span id="local-6989586621679346250"><span class="annot"><span class="annottext">Int -&gt; S3MachineLearningModelResourceData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346255"><span id="local-6989586621679346257"><span id="local-6989586621679346259"><span class="annot"><span class="annottext">Int -&gt; S3MachineLearningModelResourceData -&gt; ShowS
 [S3MachineLearningModelResourceData] -&gt; ShowS
 S3MachineLearningModelResourceData -&gt; String
 (Int -&gt; S3MachineLearningModelResourceData -&gt; ShowS)
@@ -166,17 +166,17 @@ forall a. Maybe a
      (Maybe ResourceDownloadOwnerSetting)
      (Maybe ResourceDownloadOwnerSetting)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346237"><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346246"><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
 ownerSetting :: Maybe ResourceDownloadOwnerSetting
 $sel:ownerSetting:S3MachineLearningModelResourceData' :: S3MachineLearningModelResourceData
 -&gt; Maybe ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346237"><span class="hs-identifier hs-var hs-var">ownerSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346237"><span class="hs-identifier hs-var">ownerSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346236"><span class="annot"><span class="annottext">s :: S3MachineLearningModelResourceData
-</span><a href="#local-6989586621679346236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346235"><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
-</span><a href="#local-6989586621679346236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerSetting:S3MachineLearningModelResourceData' :: Maybe ResourceDownloadOwnerSetting
+</span><a href="#local-6989586621679346246"><span class="hs-identifier hs-var hs-var">ownerSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
+</span><a href="#local-6989586621679346246"><span class="hs-identifier hs-var">ownerSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346245"><span class="annot"><span class="annottext">s :: S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346244"><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
+</span><a href="#local-6989586621679346244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerSetting:S3MachineLearningModelResourceData' :: Maybe ResourceDownloadOwnerSetting
 </span><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#%24sel%3AownerSetting%3AS3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var">ownerSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The absolute local path of the resource inside the Lambda environment.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#s3MachineLearningModelResourceData_destinationPath"><span class="hs-identifier hs-type">s3MachineLearningModelResourceData_destinationPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -192,16 +192,16 @@ $sel:ownerSetting:S3MachineLearningModelResourceData' :: S3MachineLearningModelR
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346233"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346242"><span class="annot"><span class="annottext">Maybe Text
 destinationPath :: Maybe Text
 $sel:destinationPath:S3MachineLearningModelResourceData' :: S3MachineLearningModelResourceData -&gt; Maybe Text
-</span><a href="#local-6989586621679346233"><span class="hs-identifier hs-var hs-var">destinationPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346233"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346232"><span class="annot"><span class="annottext">s :: S3MachineLearningModelResourceData
-</span><a href="#local-6989586621679346232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346231"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
-</span><a href="#local-6989586621679346232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPath:S3MachineLearningModelResourceData' :: Maybe Text
+</span><a href="#local-6989586621679346242"><span class="hs-identifier hs-var hs-var">destinationPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346242"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346241"><span class="annot"><span class="annottext">s :: S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346240"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPath:S3MachineLearningModelResourceData' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#%24sel%3AdestinationPath%3AS3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var">destinationPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The URI of the source model in an S3 bucket. The model package must be</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- in tar.gz or .zip format.</span><span>
@@ -218,22 +218,22 @@ $sel:destinationPath:S3MachineLearningModelResourceData' :: S3MachineLearningMod
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346229"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346238"><span class="annot"><span class="annottext">Maybe Text
 s3Uri :: Maybe Text
 $sel:s3Uri:S3MachineLearningModelResourceData' :: S3MachineLearningModelResourceData -&gt; Maybe Text
-</span><a href="#local-6989586621679346229"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346229"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346228"><span class="annot"><span class="annottext">s :: S3MachineLearningModelResourceData
-</span><a href="#local-6989586621679346228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346227"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
-</span><a href="#local-6989586621679346228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:S3MachineLearningModelResourceData' :: Maybe Text
+</span><a href="#local-6989586621679346238"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346238"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346237"><span class="annot"><span class="annottext">s :: S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346236"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:S3MachineLearningModelResourceData' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#%24sel%3As3Uri%3AS3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679346224"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679346233"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679346222"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3MachineLearningModelResourceData
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679346231"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3MachineLearningModelResourceData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3MachineLearningModelResourceData)
@@ -243,8 +243,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3MachineLearningModelResourceData&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346219"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346228"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346228"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
 -&gt; Maybe Text -&gt; Maybe Text -&gt; S3MachineLearningModelResourceData
 </span><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-var">S3MachineLearningModelResourceData'</span></a></span><span>
@@ -255,7 +255,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; S3MachineLearningModelResourceData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceDownloadOwnerSetting)
+</span><a href="#local-6989586621679346228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceDownloadOwnerSetting)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OwnerSetting&quot;</span></span><span class="hs-special">)</span><span>
@@ -265,7 +265,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; S3MachineLearningModelResourceData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679346228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DestinationPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,26 +273,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser S3MachineLearningModelResourceData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679346228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679346213"><span id="local-6989586621679346215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679346222"><span id="local-6989586621679346224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679346210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679346219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679346202"><span id="local-6989586621679346204"><span id="local-6989586621679346206"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679346211"><span id="local-6989586621679346213"><span id="local-6989586621679346215"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span></span></span></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679346200"><span class="annot"><span class="annottext">toJSON :: S3MachineLearningModelResourceData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346196"><span id="local-6989586621679346197"><span id="local-6989586621679346198"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679346209"><span class="annot"><span class="annottext">toJSON :: S3MachineLearningModelResourceData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData%27"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346205"><span id="local-6989586621679346206"><span id="local-6989586621679346207"><span class="annot"><span class="annottext">Maybe Text
 Maybe ResourceDownloadOwnerSetting
 s3Uri :: Maybe Text
 destinationPath :: Maybe Text
@@ -301,7 +301,7 @@ $sel:s3Uri:S3MachineLearningModelResourceData' :: S3MachineLearningModelResource
 $sel:destinationPath:S3MachineLearningModelResourceData' :: S3MachineLearningModelResourceData -&gt; Maybe Text
 $sel:ownerSetting:S3MachineLearningModelResourceData' :: S3MachineLearningModelResourceData
 -&gt; Maybe ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346196"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679346205"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,7 +314,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ResourceDownloadOwnerSetting -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346198"><span class="hs-identifier hs-var">ownerSetting</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346207"><span class="hs-identifier hs-var">ownerSetting</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DestinationPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -322,14 +322,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346197"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346206"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346196"><span class="hs-identifier hs-var">s3Uri</span></a></span><span>
+</span><a href="#local-6989586621679346205"><span class="hs-identifier hs-var">s3Uri</span></a></span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Requests API Gateway to change information about a Deployment resource.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUpdateDeployment' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679394900"><span id="local-6989586621679394901"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeployment"><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-var">UpdateDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeployment%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-var">UpdateDeployment'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679394909"><span id="local-6989586621679394910"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeployment"><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-var">UpdateDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeployment%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-var">UpdateDeployment'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateDeployment%27"><span class="annot"><span class="annottext">UpdateDeployment -&gt; Maybe [PatchOperation]
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="annot"><span class="annottext">UpdateDeployment -&gt; Text
 </span><a href="Network.AWS.APIGateway.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394892"><span id="local-6989586621679394894"><span class="annot"><span class="annottext">UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394901"><span id="local-6989586621679394903"><span class="annot"><span class="annottext">UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
 (UpdateDeployment -&gt; UpdateDeployment -&gt; Bool)
 -&gt; (UpdateDeployment -&gt; UpdateDeployment -&gt; Bool)
 -&gt; Eq UpdateDeployment
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
 == :: UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
 $c== :: UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394883"><span id="local-6989586621679394885"><span id="local-6989586621679394887"><span id="local-6989586621679394889"><span class="annot"><span class="annottext">ReadPrec [UpdateDeployment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394892"><span id="local-6989586621679394894"><span id="local-6989586621679394896"><span id="local-6989586621679394898"><span class="annot"><span class="annottext">ReadPrec [UpdateDeployment]
 ReadPrec UpdateDeployment
 Int -&gt; ReadS UpdateDeployment
 ReadS [UpdateDeployment]
@@ -95,7 +95,7 @@ readList :: ReadS [UpdateDeployment]
 $creadList :: ReadS [UpdateDeployment]
 readsPrec :: Int -&gt; ReadS UpdateDeployment
 $creadsPrec :: Int -&gt; ReadS UpdateDeployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394876"><span id="local-6989586621679394878"><span id="local-6989586621679394880"><span class="annot"><span class="annottext">Int -&gt; UpdateDeployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394885"><span id="local-6989586621679394887"><span id="local-6989586621679394889"><span class="annot"><span class="annottext">Int -&gt; UpdateDeployment -&gt; ShowS
 [UpdateDeployment] -&gt; ShowS
 UpdateDeployment -&gt; String
 (Int -&gt; UpdateDeployment -&gt; ShowS)
@@ -143,9 +143,9 @@ $cfrom :: forall x. UpdateDeployment -&gt; Rep UpdateDeployment x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span>
 </span><span id="line-89"></span><span id="newUpdateDeployment"><span class="annot"><span class="annottext">newUpdateDeployment :: Text -&gt; Text -&gt; UpdateDeployment
-</span><a href="Network.AWS.APIGateway.UpdateDeployment.html#newUpdateDeployment"><span class="hs-identifier hs-var hs-var">newUpdateDeployment</span></a></span></span><span> </span><span id="local-6989586621679394871"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394871"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679394870"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394870"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.UpdateDeployment.html#newUpdateDeployment"><span class="hs-identifier hs-var hs-var">newUpdateDeployment</span></a></span></span><span> </span><span id="local-6989586621679394880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394880"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679394879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394879"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeployment' :: Maybe [PatchOperation] -&gt; Text -&gt; Text -&gt; UpdateDeployment
 </span><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateDeployment' :: Maybe [PatchOperation]
@@ -155,10 +155,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:UpdateDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateDeployment.html#%24sel%3ArestApiId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394871"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394880"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentId:UpdateDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394870"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span>
+</span><a href="#local-6989586621679394879"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
@@ -174,16 +174,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394867"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394876"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateDeployment' :: UpdateDeployment -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679394867"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679394867"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394866"><span class="annot"><span class="annottext">s :: UpdateDeployment
-</span><a href="#local-6989586621679394866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394865"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679394865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
-</span><a href="#local-6989586621679394866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateDeployment' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679394876"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679394876"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394875"><span class="annot"><span class="annottext">s :: UpdateDeployment
+</span><a href="#local-6989586621679394875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394874"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679394874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
+</span><a href="#local-6989586621679394875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateDeployment' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateDeployment.html#%24sel%3ApatchOperations%3AUpdateDeployment%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679394865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679394874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateDeployment -&gt; f UpdateDeployment)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -213,16 +213,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateDeployment -&gt; Text -&gt; UpdateDeployment)
 -&gt; Lens UpdateDeployment UpdateDeployment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394861"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394870"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:UpdateDeployment' :: UpdateDeployment -&gt; Text
-</span><a href="#local-6989586621679394861"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394861"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394860"><span class="annot"><span class="annottext">s :: UpdateDeployment
-</span><a href="#local-6989586621679394860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394859"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
-</span><a href="#local-6989586621679394860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateDeployment' :: Text
+</span><a href="#local-6989586621679394870"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394870"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394869"><span class="annot"><span class="annottext">s :: UpdateDeployment
+</span><a href="#local-6989586621679394869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
+</span><a href="#local-6989586621679394869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateDeployment.html#%24sel%3ArestApiId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The replacement identifier for the Deployment resource to change</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- information about.</span><span>
@@ -232,25 +232,25 @@ $sel:restApiId:UpdateDeployment' :: UpdateDeployment -&gt; Text
 -&gt; (UpdateDeployment -&gt; Text -&gt; UpdateDeployment)
 -&gt; Lens UpdateDeployment UpdateDeployment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394858"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394867"><span class="annot"><span class="annottext">Text
 deploymentId :: Text
 $sel:deploymentId:UpdateDeployment' :: UpdateDeployment -&gt; Text
-</span><a href="#local-6989586621679394858"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394858"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394857"><span class="annot"><span class="annottext">s :: UpdateDeployment
-</span><a href="#local-6989586621679394857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394856"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
-</span><a href="#local-6989586621679394857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:UpdateDeployment' :: Text
+</span><a href="#local-6989586621679394867"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394867"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394866"><span class="annot"><span class="annottext">s :: UpdateDeployment
+</span><a href="#local-6989586621679394866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
+</span><a href="#local-6989586621679394866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:UpdateDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679394852"><span class="annot"><span class="annottext">request :: UpdateDeployment -&gt; Request UpdateDeployment
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679394861"><span class="annot"><span class="annottext">request :: UpdateDeployment -&gt; Request UpdateDeployment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDeployment -&gt; Request UpdateDeployment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679394848"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679394857"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDeployment
 -&gt; ClientResponse ClientBody
@@ -274,20 +274,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394845"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394845"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394844"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679394844"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394843"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394843"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Deployment
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394854"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394853"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394853"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394852"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394852"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Deployment
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394843"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394852"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394838"><span id="local-6989586621679394840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394847"><span id="local-6989586621679394849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679394831"><span class="annot"><span class="annottext">toHeaders :: UpdateDeployment -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679394840"><span class="annot"><span class="annottext">toHeaders :: UpdateDeployment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDeployment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -304,9 +304,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394821"><span id="local-6989586621679394823"><span id="local-6989586621679394825"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679394819"><span class="annot"><span class="annottext">toJSON :: UpdateDeployment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394815"><span id="local-6989586621679394816"><span id="local-6989586621679394817"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394830"><span id="local-6989586621679394832"><span id="local-6989586621679394834"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679394828"><span class="annot"><span class="annottext">toJSON :: UpdateDeployment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394824"><span id="local-6989586621679394825"><span id="local-6989586621679394826"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 deploymentId :: Text
 restApiId :: Text
@@ -314,7 +314,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:deploymentId:UpdateDeployment' :: UpdateDeployment -&gt; Text
 $sel:restApiId:UpdateDeployment' :: UpdateDeployment -&gt; Text
 $sel:patchOperations:UpdateDeployment' :: UpdateDeployment -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679394815"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,13 +327,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679394817"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679394826"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679394808"><span class="annot"><span class="annottext">toPath :: UpdateDeployment -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394804"><span id="local-6989586621679394805"><span id="local-6989586621679394806"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679394817"><span class="annot"><span class="annottext">toPath :: UpdateDeployment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394813"><span id="local-6989586621679394814"><span id="local-6989586621679394815"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 deploymentId :: Text
 restApiId :: Text
@@ -341,7 +341,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:deploymentId:UpdateDeployment' :: UpdateDeployment -&gt; Text
 $sel:restApiId:UpdateDeployment' :: UpdateDeployment -&gt; Text
 $sel:patchOperations:UpdateDeployment' :: UpdateDeployment -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679394804"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394813"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -350,17 +350,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394805"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394814"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/deployments/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394804"><span class="hs-identifier hs-var">deploymentId</span></a></span><span>
+</span><a href="#local-6989586621679394813"><span class="hs-identifier hs-var">deploymentId</span></a></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679394800"><span class="annot"><span class="annottext">toQuery :: UpdateDeployment -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679394809"><span class="annot"><span class="annottext">toQuery :: UpdateDeployment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDeployment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourcePolicies' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679228785"><span id="local-6989586621679228786"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourcePolicies"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-var">DescribeResourcePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourcePolicies%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-var">DescribeResourcePolicies'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679228794"><span id="local-6989586621679228795"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourcePolicies"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-var">DescribeResourcePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourcePolicies%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-var">DescribeResourcePolicies'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3ADescribeResourcePolicies%27"><span class="annot"><span class="annottext">DescribeResourcePolicies -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AnextToken%3ADescribeResourcePolicies%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The maximum number of resource policies to be displayed with one call of</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeResourcePolicies%27"><span class="annot"><span class="annottext">DescribeResourcePolicies -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3Alimit%3ADescribeResourcePolicies%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228778"><span id="local-6989586621679228780"><span class="annot"><span class="annottext">DescribeResourcePolicies -&gt; DescribeResourcePolicies -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228787"><span id="local-6989586621679228789"><span class="annot"><span class="annottext">DescribeResourcePolicies -&gt; DescribeResourcePolicies -&gt; Bool
 (DescribeResourcePolicies -&gt; DescribeResourcePolicies -&gt; Bool)
 -&gt; (DescribeResourcePolicies -&gt; DescribeResourcePolicies -&gt; Bool)
 -&gt; Eq DescribeResourcePolicies
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeResourcePolicies -&gt; DescribeResourcePolicies -&gt; Bool
 == :: DescribeResourcePolicies -&gt; DescribeResourcePolicies -&gt; Bool
 $c== :: DescribeResourcePolicies -&gt; DescribeResourcePolicies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228769"><span id="local-6989586621679228771"><span id="local-6989586621679228773"><span id="local-6989586621679228775"><span class="annot"><span class="annottext">ReadPrec [DescribeResourcePolicies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228778"><span id="local-6989586621679228780"><span id="local-6989586621679228782"><span id="local-6989586621679228784"><span class="annot"><span class="annottext">ReadPrec [DescribeResourcePolicies]
 ReadPrec DescribeResourcePolicies
 Int -&gt; ReadS DescribeResourcePolicies
 ReadS [DescribeResourcePolicies]
@@ -88,7 +88,7 @@ readList :: ReadS [DescribeResourcePolicies]
 $creadList :: ReadS [DescribeResourcePolicies]
 readsPrec :: Int -&gt; ReadS DescribeResourcePolicies
 $creadsPrec :: Int -&gt; ReadS DescribeResourcePolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228762"><span id="local-6989586621679228764"><span id="local-6989586621679228766"><span class="annot"><span class="annottext">Int -&gt; DescribeResourcePolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228771"><span id="local-6989586621679228773"><span id="local-6989586621679228775"><span class="annot"><span class="annottext">Int -&gt; DescribeResourcePolicies -&gt; ShowS
 [DescribeResourcePolicies] -&gt; ShowS
 DescribeResourcePolicies -&gt; String
 (Int -&gt; DescribeResourcePolicies -&gt; ShowS)
@@ -162,16 +162,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228756"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228765"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeResourcePolicies' :: DescribeResourcePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679228756"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228756"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228755"><span class="annot"><span class="annottext">s :: DescribeResourcePolicies
-</span><a href="#local-6989586621679228755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228754"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePolicies
-</span><a href="#local-6989586621679228755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeResourcePolicies' :: Maybe Text
+</span><a href="#local-6989586621679228765"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228765"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228764"><span class="annot"><span class="annottext">s :: DescribeResourcePolicies
+</span><a href="#local-6989586621679228764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePolicies
+</span><a href="#local-6989586621679228764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeResourcePolicies' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AnextToken%3ADescribeResourcePolicies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The maximum number of resource policies to be displayed with one call of</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- this API.</span><span>
@@ -187,30 +187,30 @@ $sel:nextToken:DescribeResourcePolicies' :: DescribeResourcePolicies -&gt; Maybe
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228753"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228762"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeResourcePolicies' :: DescribeResourcePolicies -&gt; Maybe Natural
-</span><a href="#local-6989586621679228753"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228753"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228752"><span class="annot"><span class="annottext">s :: DescribeResourcePolicies
-</span><a href="#local-6989586621679228752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228751"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePolicies
-</span><a href="#local-6989586621679228752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeResourcePolicies' :: Maybe Natural
+</span><a href="#local-6989586621679228762"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228762"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228761"><span class="annot"><span class="annottext">s :: DescribeResourcePolicies
+</span><a href="#local-6989586621679228761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228760"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePolicies
+</span><a href="#local-6989586621679228761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeResourcePolicies' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3Alimit%3ADescribeResourcePolicies%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679228747"><span class="annot"><span class="annottext">page :: DescribeResourcePolicies
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679228756"><span class="annot"><span class="annottext">page :: DescribeResourcePolicies
 -&gt; AWSResponse DescribeResourcePolicies
 -&gt; Maybe DescribeResourcePolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679228745"><span class="annot"><span class="annottext">DescribeResourcePolicies
-</span><a href="#local-6989586621679228745"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679228744"><span class="annot"><span class="annottext">AWSResponse DescribeResourcePolicies
-</span><a href="#local-6989586621679228744"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679228754"><span class="annot"><span class="annottext">DescribeResourcePolicies
+</span><a href="#local-6989586621679228754"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679228753"><span class="annot"><span class="annottext">AWSResponse DescribeResourcePolicies
+</span><a href="#local-6989586621679228753"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-95"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeResourcePolicies
 DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228744"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228753"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
 -&gt; Getting (First Text) DescribeResourcePoliciesResponse Text
 -&gt; Maybe Text
@@ -240,7 +240,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-101"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeResourcePolicies
 DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228744"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228753"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
 -&gt; Getting
      (First [ResourcePolicy])
@@ -286,7 +286,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">DescribeResourcePolicies
-</span><a href="#local-6989586621679228745"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679228754"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">DescribeResourcePolicies
 -&gt; (DescribeResourcePolicies -&gt; DescribeResourcePolicies)
 -&gt; DescribeResourcePolicies
@@ -307,7 +307,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeResourcePolicies
 DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228744"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228753"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
 -&gt; Getting (First Text) DescribeResourcePoliciesResponse Text
 -&gt; Maybe Text
@@ -333,13 +333,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679228734"><span class="annot"><span class="annottext">request :: DescribeResourcePolicies -&gt; Request DescribeResourcePolicies
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679228743"><span class="annot"><span class="annottext">request :: DescribeResourcePolicies -&gt; Request DescribeResourcePolicies
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeResourcePolicies -&gt; Request DescribeResourcePolicies
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679228730"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679228739"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeResourcePolicies
 -&gt; ClientResponse ClientBody
@@ -365,10 +365,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228727"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228727"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228726"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679228726"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228725"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228725"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228736"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228735"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679228735"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228734"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228734"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeResourcePoliciesResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var">DescribeResourcePoliciesResponse'</span></a></span><span>
@@ -379,7 +379,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DescribeResourcePoliciesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ResourcePolicy]))
+</span><a href="#local-6989586621679228734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ResourcePolicy]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourcePolicies&quot;</span></span><span>
@@ -396,7 +396,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeResourcePoliciesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679228734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -409,15 +409,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228727"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228736"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228716"><span id="local-6989586621679228718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228725"><span id="local-6989586621679228727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679228709"><span class="annot"><span class="annottext">toHeaders :: DescribeResourcePolicies -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679228718"><span class="annot"><span class="annottext">toHeaders :: DescribeResourcePolicies -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeResourcePolicies -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -444,15 +444,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228699"><span id="local-6989586621679228701"><span id="local-6989586621679228703"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679228697"><span class="annot"><span class="annottext">toJSON :: DescribeResourcePolicies -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228694"><span id="local-6989586621679228695"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228708"><span id="local-6989586621679228710"><span id="local-6989586621679228712"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679228706"><span class="annot"><span class="annottext">toJSON :: DescribeResourcePolicies -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies%27"><span class="hs-identifier hs-type">DescribeResourcePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228703"><span id="local-6989586621679228704"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextToken :: Maybe Text
 $sel:limit:DescribeResourcePolicies' :: DescribeResourcePolicies -&gt; Maybe Natural
 $sel:nextToken:DescribeResourcePolicies' :: DescribeResourcePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679228694"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679228703"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -464,26 +464,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228695"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228704"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228694"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679228703"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679228688"><span class="annot"><span class="annottext">toPath :: DescribeResourcePolicies -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679228697"><span class="annot"><span class="annottext">toPath :: DescribeResourcePolicies -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeResourcePolicies -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePolicies"><span class="hs-identifier hs-type">DescribeResourcePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679228684"><span class="annot"><span class="annottext">toQuery :: DescribeResourcePolicies -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679228693"><span class="annot"><span class="annottext">toQuery :: DescribeResourcePolicies -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeResourcePolicies -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -491,7 +491,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourcePoliciesResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679228681"><span id="local-6989586621679228682"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourcePoliciesResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-var">DescribeResourcePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourcePoliciesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var">DescribeResourcePoliciesResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679228690"><span id="local-6989586621679228691"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourcePoliciesResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-var">DescribeResourcePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourcePoliciesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var">DescribeResourcePoliciesResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource policies that exist in this account.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3AresourcePolicies%3ADescribeResourcePoliciesResponse%27"><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse -&gt; Maybe [ResourcePolicy]
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AresourcePolicies%3ADescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">resourcePolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResourcePolicy.html#ResourcePolicy"><span class="hs-identifier hs-type">ResourcePolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -501,7 +501,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeResourcePoliciesResponse%27"><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AhttpStatus%3ADescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228674"><span id="local-6989586621679228676"><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228683"><span id="local-6989586621679228685"><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
 -&gt; DescribeResourcePoliciesResponse -&gt; Bool
 (DescribeResourcePoliciesResponse
  -&gt; DescribeResourcePoliciesResponse -&gt; Bool)
@@ -517,7 +517,7 @@ $c/= :: DescribeResourcePoliciesResponse
 -&gt; DescribeResourcePoliciesResponse -&gt; Bool
 $c== :: DescribeResourcePoliciesResponse
 -&gt; DescribeResourcePoliciesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228666"><span id="local-6989586621679228668"><span id="local-6989586621679228670"><span id="local-6989586621679228672"><span class="annot"><span class="annottext">ReadPrec [DescribeResourcePoliciesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228675"><span id="local-6989586621679228677"><span id="local-6989586621679228679"><span id="local-6989586621679228681"><span class="annot"><span class="annottext">ReadPrec [DescribeResourcePoliciesResponse]
 ReadPrec DescribeResourcePoliciesResponse
 Int -&gt; ReadS DescribeResourcePoliciesResponse
 ReadS [DescribeResourcePoliciesResponse]
@@ -537,7 +537,7 @@ readList :: ReadS [DescribeResourcePoliciesResponse]
 $creadList :: ReadS [DescribeResourcePoliciesResponse]
 readsPrec :: Int -&gt; ReadS DescribeResourcePoliciesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeResourcePoliciesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228660"><span id="local-6989586621679228662"><span id="local-6989586621679228664"><span class="annot"><span class="annottext">Int -&gt; DescribeResourcePoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228669"><span id="local-6989586621679228671"><span id="local-6989586621679228673"><span class="annot"><span class="annottext">Int -&gt; DescribeResourcePoliciesResponse -&gt; ShowS
 [DescribeResourcePoliciesResponse] -&gt; ShowS
 DescribeResourcePoliciesResponse -&gt; String
 (Int -&gt; DescribeResourcePoliciesResponse -&gt; ShowS)
@@ -593,8 +593,8 @@ DescribeResourcePoliciesResponse
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newDescribeResourcePoliciesResponse"><span class="annot"><span class="annottext">newDescribeResourcePoliciesResponse :: Int -&gt; DescribeResourcePoliciesResponse
-</span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#newDescribeResourcePoliciesResponse"><span class="hs-identifier hs-var hs-var">newDescribeResourcePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679228657"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228657"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#newDescribeResourcePoliciesResponse"><span class="hs-identifier hs-var hs-var">newDescribeResourcePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679228666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse' :: Maybe [ResourcePolicy]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeResourcePoliciesResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span>
@@ -609,7 +609,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourcePoliciesResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AhttpStatus%3ADescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228657"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679228666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The resource policies that exist in this account.</span><span>
@@ -622,16 +622,16 @@ forall a. Maybe a
     -&gt; Maybe [ResourcePolicy] -&gt; DescribeResourcePoliciesResponse)
 -&gt; Lens' DescribeResourcePoliciesResponse (Maybe [ResourcePolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228656"><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228665"><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
 resourcePolicies :: Maybe [ResourcePolicy]
 $sel:resourcePolicies:DescribeResourcePoliciesResponse' :: DescribeResourcePoliciesResponse -&gt; Maybe [ResourcePolicy]
-</span><a href="#local-6989586621679228656"><span class="hs-identifier hs-var hs-var">resourcePolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
-</span><a href="#local-6989586621679228656"><span class="hs-identifier hs-var">resourcePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228655"><span class="annot"><span class="annottext">s :: DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228654"><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
-</span><a href="#local-6989586621679228654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcePolicies:DescribeResourcePoliciesResponse' :: Maybe [ResourcePolicy]
+</span><a href="#local-6989586621679228665"><span class="hs-identifier hs-var hs-var">resourcePolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
+</span><a href="#local-6989586621679228665"><span class="hs-identifier hs-var">resourcePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228664"><span class="annot"><span class="annottext">s :: DescribeResourcePoliciesResponse
+</span><a href="#local-6989586621679228664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228663"><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
+</span><a href="#local-6989586621679228663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
+</span><a href="#local-6989586621679228664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcePolicies:DescribeResourcePoliciesResponse' :: Maybe [ResourcePolicy]
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AresourcePolicies%3ADescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var">resourcePolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePolicy]
-</span><a href="#local-6989586621679228654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourcePolicy] -&gt; f (Maybe [ResourcePolicy]))
+</span><a href="#local-6989586621679228663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourcePolicy] -&gt; f (Maybe [ResourcePolicy]))
  -&gt; DescribeResourcePoliciesResponse
  -&gt; f DescribeResourcePoliciesResponse)
 -&gt; ((Maybe [ResourcePolicy] -&gt; f (Maybe [ResourcePolicy]))
@@ -665,16 +665,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeResourcePoliciesResponse)
 -&gt; Lens' DescribeResourcePoliciesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228651"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228660"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeResourcePoliciesResponse' :: DescribeResourcePoliciesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679228651"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228651"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228650"><span class="annot"><span class="annottext">s :: DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeResourcePoliciesResponse' :: Maybe Text
+</span><a href="#local-6989586621679228660"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228660"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228659"><span class="annot"><span class="annottext">s :: DescribeResourcePoliciesResponse
+</span><a href="#local-6989586621679228659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
+</span><a href="#local-6989586621679228659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeResourcePoliciesResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AnextToken%3ADescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#describeResourcePoliciesResponse_httpStatus"><span class="hs-identifier hs-type">describeResourcePoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -690,18 +690,18 @@ $sel:nextToken:DescribeResourcePoliciesResponse' :: DescribeResourcePoliciesResp
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228648"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228657"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeResourcePoliciesResponse' :: DescribeResourcePoliciesResponse -&gt; Int
-</span><a href="#local-6989586621679228648"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228648"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228647"><span class="annot"><span class="annottext">s :: DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
-</span><a href="#local-6989586621679228647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourcePoliciesResponse' :: Int
+</span><a href="#local-6989586621679228657"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228657"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228656"><span class="annot"><span class="annottext">s :: DescribeResourcePoliciesResponse
+</span><a href="#local-6989586621679228656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228655"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourcePoliciesResponse
+</span><a href="#local-6989586621679228656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourcePoliciesResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#%24sel%3AhttpStatus%3ADescribeResourcePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679228644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679228653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeResourcePolicies.html#DescribeResourcePoliciesResponse"><span class="hs-identifier hs-type">DescribeResourcePoliciesResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

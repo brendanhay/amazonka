@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679595328"><span id="local-6989586621679595329"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefinitionFormat"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat"><span class="hs-identifier hs-var">DefinitionFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefinitionFormat%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat%27"><span class="hs-identifier hs-var">DefinitionFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679595337"><span id="local-6989586621679595338"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefinitionFormat"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat"><span class="hs-identifier hs-var">DefinitionFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefinitionFormat%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat%27"><span class="hs-identifier hs-var">DefinitionFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDefinitionFormat"><span class="annot"><span class="annottext">DefinitionFormat -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.DefinitionFormat.html#fromDefinitionFormat"><span class="hs-identifier hs-var hs-var">fromDefinitionFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595320"><span id="local-6989586621679595322"><span id="local-6989586621679595324"><span class="annot"><span class="annottext">Int -&gt; DefinitionFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595329"><span id="local-6989586621679595331"><span id="local-6989586621679595333"><span class="annot"><span class="annottext">Int -&gt; DefinitionFormat -&gt; ShowS
 [DefinitionFormat] -&gt; ShowS
 DefinitionFormat -&gt; String
 (Int -&gt; DefinitionFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DefinitionFormat -&gt; String
 showsPrec :: Int -&gt; DefinitionFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; DefinitionFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679595311"><span id="local-6989586621679595313"><span id="local-6989586621679595315"><span id="local-6989586621679595317"><span class="annot"><span class="annottext">ReadPrec [DefinitionFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679595320"><span id="local-6989586621679595322"><span id="local-6989586621679595324"><span id="local-6989586621679595326"><span class="annot"><span class="annottext">ReadPrec [DefinitionFormat]
 ReadPrec DefinitionFormat
 Int -&gt; ReadS DefinitionFormat
 ReadS [DefinitionFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DefinitionFormat]
 readsPrec :: Int -&gt; ReadS DefinitionFormat
 $creadsPrec :: Int -&gt; ReadS DefinitionFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679595306"><span id="local-6989586621679595308"><span class="annot"><span class="annottext">DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679595315"><span id="local-6989586621679595317"><span class="annot"><span class="annottext">DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
 (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
 -&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
 -&gt; Eq DefinitionFormat
@@ -82,7 +82,7 @@ $c/= :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
 == :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
 $c== :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679595290"><span id="local-6989586621679595292"><span id="local-6989586621679595294"><span id="local-6989586621679595296"><span id="local-6989586621679595298"><span id="local-6989586621679595300"><span id="local-6989586621679595302"><span class="annot"><span class="annottext">Eq DefinitionFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679595299"><span id="local-6989586621679595301"><span id="local-6989586621679595303"><span id="local-6989586621679595305"><span id="local-6989586621679595307"><span id="local-6989586621679595309"><span id="local-6989586621679595311"><span class="annot"><span class="annottext">Eq DefinitionFormat
 Eq DefinitionFormat
 -&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Ordering)
 -&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DefinitionFormat -&gt; Rep DefinitionFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595282"><span id="local-6989586621679595284"><span class="annot"><span class="annottext">Int -&gt; DefinitionFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595291"><span id="local-6989586621679595293"><span class="annot"><span class="annottext">Int -&gt; DefinitionFormat -&gt; Int
 DefinitionFormat -&gt; Int
 (Int -&gt; DefinitionFormat -&gt; Int)
 -&gt; (DefinitionFormat -&gt; Int) -&gt; Hashable DefinitionFormat
@@ -143,51 +143,51 @@ $chash :: DefinitionFormat -&gt; Int
 hashWithSalt :: Int -&gt; DefinitionFormat -&gt; Int
 $chashWithSalt :: Int -&gt; DefinitionFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679595279"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679595288"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ()
 (DefinitionFormat -&gt; ()) -&gt; NFData DefinitionFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DefinitionFormat -&gt; ()
 $crnf :: DefinitionFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679595276"><span class="annot"><span class="annottext">Text -&gt; Either String DefinitionFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679595285"><span class="annot"><span class="annottext">Text -&gt; Either String DefinitionFormat
 (Text -&gt; Either String DefinitionFormat)
 -&gt; FromText DefinitionFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DefinitionFormat
 $cfromText :: Text -&gt; Either String DefinitionFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679595273"><span class="annot"><span class="annottext">DefinitionFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679595282"><span class="annot"><span class="annottext">DefinitionFormat -&gt; Text
 (DefinitionFormat -&gt; Text) -&gt; ToText DefinitionFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DefinitionFormat -&gt; Text
 $ctoText :: DefinitionFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679595270"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679595279"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ByteString
 (DefinitionFormat -&gt; ByteString) -&gt; ToByteString DefinitionFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DefinitionFormat -&gt; ByteString
 $ctoBS :: DefinitionFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679595267"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679595276"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ByteStringBuilder
 (DefinitionFormat -&gt; ByteStringBuilder) -&gt; ToLog DefinitionFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DefinitionFormat -&gt; ByteStringBuilder
 $cbuild :: DefinitionFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679595264"><span class="annot"><span class="annottext">HeaderName -&gt; DefinitionFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679595273"><span class="annot"><span class="annottext">HeaderName -&gt; DefinitionFormat -&gt; [Header]
 (HeaderName -&gt; DefinitionFormat -&gt; [Header])
 -&gt; ToHeader DefinitionFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DefinitionFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DefinitionFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679595261"><span class="annot"><span class="annottext">DefinitionFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679595270"><span class="annot"><span class="annottext">DefinitionFormat -&gt; QueryString
 (DefinitionFormat -&gt; QueryString) -&gt; ToQuery DefinitionFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DefinitionFormat -&gt; QueryString
 $ctoQuery :: DefinitionFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679595256"><span id="local-6989586621679595258"><span class="annot"><span class="annottext">Value -&gt; Parser [DefinitionFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679595265"><span id="local-6989586621679595267"><span class="annot"><span class="annottext">Value -&gt; Parser [DefinitionFormat]
 Value -&gt; Parser DefinitionFormat
 (Value -&gt; Parser DefinitionFormat)
 -&gt; (Value -&gt; Parser [DefinitionFormat])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [DefinitionFormat]
 parseJSON :: Value -&gt; Parser DefinitionFormat
 $cparseJSON :: Value -&gt; Parser DefinitionFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679595251"><span id="local-6989586621679595253"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefinitionFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679595260"><span id="local-6989586621679595262"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefinitionFormat]
 FromJSONKeyFunction DefinitionFormat
 FromJSONKeyFunction DefinitionFormat
 -&gt; FromJSONKeyFunction [DefinitionFormat]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DefinitionFormat]
 fromJSONKey :: FromJSONKeyFunction DefinitionFormat
 $cfromJSONKey :: FromJSONKeyFunction DefinitionFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679595242"><span id="local-6989586621679595244"><span id="local-6989586621679595246"><span id="local-6989586621679595248"><span class="annot"><span class="annottext">[DefinitionFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679595251"><span id="local-6989586621679595253"><span id="local-6989586621679595255"><span id="local-6989586621679595257"><span class="annot"><span class="annottext">[DefinitionFormat] -&gt; Encoding
 [DefinitionFormat] -&gt; Value
 DefinitionFormat -&gt; Encoding
 DefinitionFormat -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: DefinitionFormat -&gt; Encoding
 toJSON :: DefinitionFormat -&gt; Value
 $ctoJSON :: DefinitionFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679595237"><span id="local-6989586621679595239"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefinitionFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679595246"><span id="local-6989586621679595248"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefinitionFormat]
 ToJSONKeyFunction DefinitionFormat
 ToJSONKeyFunction DefinitionFormat
 -&gt; ToJSONKeyFunction [DefinitionFormat]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DefinitionFormat]
 toJSONKey :: ToJSONKeyFunction DefinitionFormat
 $ctoJSONKey :: ToJSONKeyFunction DefinitionFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679595234"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefinitionFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679595243"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefinitionFormat
 ([Node] -&gt; Either String DefinitionFormat)
 -&gt; FromXML DefinitionFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DefinitionFormat
 $cparseXML :: [Node] -&gt; Either String DefinitionFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679595231"><span class="annot"><span class="annottext">DefinitionFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679595240"><span class="annot"><span class="annottext">DefinitionFormat -&gt; XML
 (DefinitionFormat -&gt; XML) -&gt; ToXML DefinitionFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DefinitionFormat -&gt; XML

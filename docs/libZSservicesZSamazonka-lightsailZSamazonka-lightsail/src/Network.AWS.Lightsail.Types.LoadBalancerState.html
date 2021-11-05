@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679614092"><span id="local-6989586621679614093"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoadBalancerState"><span class="annot"><a href="Network.AWS.Lightsail.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-var">LoadBalancerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-var">LoadBalancerState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679614101"><span id="local-6989586621679614102"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoadBalancerState"><span class="annot"><a href="Network.AWS.Lightsail.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-var">LoadBalancerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-var">LoadBalancerState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLoadBalancerState"><span class="annot"><span class="annottext">LoadBalancerState -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.LoadBalancerState.html#fromLoadBalancerState"><span class="hs-identifier hs-var hs-var">fromLoadBalancerState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679614084"><span id="local-6989586621679614086"><span id="local-6989586621679614088"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679614093"><span id="local-6989586621679614095"><span id="local-6989586621679614097"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerState -&gt; ShowS
 [LoadBalancerState] -&gt; ShowS
 LoadBalancerState -&gt; String
 (Int -&gt; LoadBalancerState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: LoadBalancerState -&gt; String
 showsPrec :: Int -&gt; LoadBalancerState -&gt; ShowS
 $cshowsPrec :: Int -&gt; LoadBalancerState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679614075"><span id="local-6989586621679614077"><span id="local-6989586621679614079"><span id="local-6989586621679614081"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679614084"><span id="local-6989586621679614086"><span id="local-6989586621679614088"><span id="local-6989586621679614090"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerState]
 ReadPrec LoadBalancerState
 Int -&gt; ReadS LoadBalancerState
 ReadS [LoadBalancerState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [LoadBalancerState]
 readsPrec :: Int -&gt; ReadS LoadBalancerState
 $creadsPrec :: Int -&gt; ReadS LoadBalancerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679614070"><span id="local-6989586621679614072"><span class="annot"><span class="annottext">LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679614079"><span id="local-6989586621679614081"><span class="annot"><span class="annottext">LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
 (LoadBalancerState -&gt; LoadBalancerState -&gt; Bool)
 -&gt; (LoadBalancerState -&gt; LoadBalancerState -&gt; Bool)
 -&gt; Eq LoadBalancerState
@@ -85,7 +85,7 @@ $c/= :: LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
 == :: LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
 $c== :: LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679614054"><span id="local-6989586621679614056"><span id="local-6989586621679614058"><span id="local-6989586621679614060"><span id="local-6989586621679614062"><span id="local-6989586621679614064"><span id="local-6989586621679614066"><span class="annot"><span class="annottext">Eq LoadBalancerState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679614063"><span id="local-6989586621679614065"><span id="local-6989586621679614067"><span id="local-6989586621679614069"><span id="local-6989586621679614071"><span id="local-6989586621679614073"><span id="local-6989586621679614075"><span class="annot"><span class="annottext">Eq LoadBalancerState
 Eq LoadBalancerState
 -&gt; (LoadBalancerState -&gt; LoadBalancerState -&gt; Ordering)
 -&gt; (LoadBalancerState -&gt; LoadBalancerState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. LoadBalancerState -&gt; Rep LoadBalancerState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679614046"><span id="local-6989586621679614048"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679614055"><span id="local-6989586621679614057"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerState -&gt; Int
 LoadBalancerState -&gt; Int
 (Int -&gt; LoadBalancerState -&gt; Int)
 -&gt; (LoadBalancerState -&gt; Int) -&gt; Hashable LoadBalancerState
@@ -146,51 +146,51 @@ $chash :: LoadBalancerState -&gt; Int
 hashWithSalt :: Int -&gt; LoadBalancerState -&gt; Int
 $chashWithSalt :: Int -&gt; LoadBalancerState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679614043"><span class="annot"><span class="annottext">LoadBalancerState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679614052"><span class="annot"><span class="annottext">LoadBalancerState -&gt; ()
 (LoadBalancerState -&gt; ()) -&gt; NFData LoadBalancerState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LoadBalancerState -&gt; ()
 $crnf :: LoadBalancerState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679614040"><span class="annot"><span class="annottext">Text -&gt; Either String LoadBalancerState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679614049"><span class="annot"><span class="annottext">Text -&gt; Either String LoadBalancerState
 (Text -&gt; Either String LoadBalancerState)
 -&gt; FromText LoadBalancerState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LoadBalancerState
 $cfromText :: Text -&gt; Either String LoadBalancerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679614037"><span class="annot"><span class="annottext">LoadBalancerState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679614046"><span class="annot"><span class="annottext">LoadBalancerState -&gt; Text
 (LoadBalancerState -&gt; Text) -&gt; ToText LoadBalancerState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LoadBalancerState -&gt; Text
 $ctoText :: LoadBalancerState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679614034"><span class="annot"><span class="annottext">LoadBalancerState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679614043"><span class="annot"><span class="annottext">LoadBalancerState -&gt; ByteString
 (LoadBalancerState -&gt; ByteString) -&gt; ToByteString LoadBalancerState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LoadBalancerState -&gt; ByteString
 $ctoBS :: LoadBalancerState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679614031"><span class="annot"><span class="annottext">LoadBalancerState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679614040"><span class="annot"><span class="annottext">LoadBalancerState -&gt; ByteStringBuilder
 (LoadBalancerState -&gt; ByteStringBuilder) -&gt; ToLog LoadBalancerState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LoadBalancerState -&gt; ByteStringBuilder
 $cbuild :: LoadBalancerState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679614028"><span class="annot"><span class="annottext">HeaderName -&gt; LoadBalancerState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679614037"><span class="annot"><span class="annottext">HeaderName -&gt; LoadBalancerState -&gt; [Header]
 (HeaderName -&gt; LoadBalancerState -&gt; [Header])
 -&gt; ToHeader LoadBalancerState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LoadBalancerState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LoadBalancerState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679614025"><span class="annot"><span class="annottext">LoadBalancerState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679614034"><span class="annot"><span class="annottext">LoadBalancerState -&gt; QueryString
 (LoadBalancerState -&gt; QueryString) -&gt; ToQuery LoadBalancerState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LoadBalancerState -&gt; QueryString
 $ctoQuery :: LoadBalancerState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679614020"><span id="local-6989586621679614022"><span class="annot"><span class="annottext">Value -&gt; Parser [LoadBalancerState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679614029"><span id="local-6989586621679614031"><span class="annot"><span class="annottext">Value -&gt; Parser [LoadBalancerState]
 Value -&gt; Parser LoadBalancerState
 (Value -&gt; Parser LoadBalancerState)
 -&gt; (Value -&gt; Parser [LoadBalancerState])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [LoadBalancerState]
 parseJSON :: Value -&gt; Parser LoadBalancerState
 $cparseJSON :: Value -&gt; Parser LoadBalancerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679614015"><span id="local-6989586621679614017"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoadBalancerState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679614024"><span id="local-6989586621679614026"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoadBalancerState]
 FromJSONKeyFunction LoadBalancerState
 FromJSONKeyFunction LoadBalancerState
 -&gt; FromJSONKeyFunction [LoadBalancerState]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LoadBalancerState]
 fromJSONKey :: FromJSONKeyFunction LoadBalancerState
 $cfromJSONKey :: FromJSONKeyFunction LoadBalancerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679614006"><span id="local-6989586621679614008"><span id="local-6989586621679614010"><span id="local-6989586621679614012"><span class="annot"><span class="annottext">[LoadBalancerState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679614015"><span id="local-6989586621679614017"><span id="local-6989586621679614019"><span id="local-6989586621679614021"><span class="annot"><span class="annottext">[LoadBalancerState] -&gt; Encoding
 [LoadBalancerState] -&gt; Value
 LoadBalancerState -&gt; Encoding
 LoadBalancerState -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: LoadBalancerState -&gt; Encoding
 toJSON :: LoadBalancerState -&gt; Value
 $ctoJSON :: LoadBalancerState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679614001"><span id="local-6989586621679614003"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoadBalancerState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679614010"><span id="local-6989586621679614012"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoadBalancerState]
 ToJSONKeyFunction LoadBalancerState
 ToJSONKeyFunction LoadBalancerState
 -&gt; ToJSONKeyFunction [LoadBalancerState]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LoadBalancerState]
 toJSONKey :: ToJSONKeyFunction LoadBalancerState
 $ctoJSONKey :: ToJSONKeyFunction LoadBalancerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679613998"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoadBalancerState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679614007"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoadBalancerState
 ([Node] -&gt; Either String LoadBalancerState)
 -&gt; FromXML LoadBalancerState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LoadBalancerState
 $cparseXML :: [Node] -&gt; Either String LoadBalancerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679613995"><span class="annot"><span class="annottext">LoadBalancerState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679614004"><span class="annot"><span class="annottext">LoadBalancerState -&gt; XML
 (LoadBalancerState -&gt; XML) -&gt; ToXML LoadBalancerState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LoadBalancerState -&gt; XML

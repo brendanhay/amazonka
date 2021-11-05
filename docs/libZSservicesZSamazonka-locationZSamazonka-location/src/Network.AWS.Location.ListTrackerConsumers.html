@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Location.ListTrackerConsumers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists geofence collections currently associated to the given tracker</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.ListTrackerConsumers</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier">ListTrackerConsumers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#newListTrackerConsumers"><span class="hs-identifier">newListTrackerConsumers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_nextToken"><span class="hs-identifier">listTrackerConsumers_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_maxResults"><span class="hs-identifier">listTrackerConsumers_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_trackerName"><span class="hs-identifier">listTrackerConsumers_trackerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier">ListTrackerConsumersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#newListTrackerConsumersResponse"><span class="hs-identifier">newListTrackerConsumersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_nextToken"><span class="hs-identifier">listTrackerConsumersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_httpStatus"><span class="hs-identifier">listTrackerConsumersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_consumerArns"><span class="hs-identifier">listTrackerConsumersResponse_consumerArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.html"><span class="hs-identifier">Network.AWS.Location.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListTrackerConsumers' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679265545"><span id="local-6989586621679265546"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrackerConsumers"><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-var">ListTrackerConsumers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrackerConsumers%27"><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-var">ListTrackerConsumers'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token specifying which page of results to return in the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- response. If no token is provided, the default page is the first page.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Default value: @null@</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListTrackerConsumers%27"><span class="annot"><span class="annottext">ListTrackerConsumers -&gt; Maybe Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AnextToken%3AListTrackerConsumers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | An optional limit for the number of resources returned in a single call.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Default value: @100@</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTrackerConsumers%27"><span class="annot"><span class="annottext">ListTrackerConsumers -&gt; Maybe Natural
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AmaxResults%3AListTrackerConsumers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The tracker resource whose associated geofence collections you want to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AtrackerName%3AListTrackerConsumers%27"><span class="annot"><span class="annottext">ListTrackerConsumers -&gt; Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AtrackerName%3AListTrackerConsumers%27"><span class="hs-identifier hs-var hs-var">trackerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265537"><span id="local-6989586621679265539"><span class="annot"><span class="annottext">ListTrackerConsumers -&gt; ListTrackerConsumers -&gt; Bool
+(ListTrackerConsumers -&gt; ListTrackerConsumers -&gt; Bool)
+-&gt; (ListTrackerConsumers -&gt; ListTrackerConsumers -&gt; Bool)
+-&gt; Eq ListTrackerConsumers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTrackerConsumers -&gt; ListTrackerConsumers -&gt; Bool
+$c/= :: ListTrackerConsumers -&gt; ListTrackerConsumers -&gt; Bool
+== :: ListTrackerConsumers -&gt; ListTrackerConsumers -&gt; Bool
+$c== :: ListTrackerConsumers -&gt; ListTrackerConsumers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265528"><span id="local-6989586621679265530"><span id="local-6989586621679265532"><span id="local-6989586621679265534"><span class="annot"><span class="annottext">ReadPrec [ListTrackerConsumers]
+ReadPrec ListTrackerConsumers
+Int -&gt; ReadS ListTrackerConsumers
+ReadS [ListTrackerConsumers]
+(Int -&gt; ReadS ListTrackerConsumers)
+-&gt; ReadS [ListTrackerConsumers]
+-&gt; ReadPrec ListTrackerConsumers
+-&gt; ReadPrec [ListTrackerConsumers]
+-&gt; Read ListTrackerConsumers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTrackerConsumers]
+$creadListPrec :: ReadPrec [ListTrackerConsumers]
+readPrec :: ReadPrec ListTrackerConsumers
+$creadPrec :: ReadPrec ListTrackerConsumers
+readList :: ReadS [ListTrackerConsumers]
+$creadList :: ReadS [ListTrackerConsumers]
+readsPrec :: Int -&gt; ReadS ListTrackerConsumers
+$creadsPrec :: Int -&gt; ReadS ListTrackerConsumers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265521"><span id="local-6989586621679265523"><span id="local-6989586621679265525"><span class="annot"><span class="annottext">Int -&gt; ListTrackerConsumers -&gt; ShowS
+[ListTrackerConsumers] -&gt; ShowS
+ListTrackerConsumers -&gt; String
+(Int -&gt; ListTrackerConsumers -&gt; ShowS)
+-&gt; (ListTrackerConsumers -&gt; String)
+-&gt; ([ListTrackerConsumers] -&gt; ShowS)
+-&gt; Show ListTrackerConsumers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTrackerConsumers] -&gt; ShowS
+$cshowList :: [ListTrackerConsumers] -&gt; ShowS
+show :: ListTrackerConsumers -&gt; String
+$cshow :: ListTrackerConsumers -&gt; String
+showsPrec :: Int -&gt; ListTrackerConsumers -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTrackerConsumers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTrackerConsumers -&gt; Rep ListTrackerConsumers x)
+-&gt; (forall x. Rep ListTrackerConsumers x -&gt; ListTrackerConsumers)
+-&gt; Generic ListTrackerConsumers
+forall x. Rep ListTrackerConsumers x -&gt; ListTrackerConsumers
+forall x. ListTrackerConsumers -&gt; Rep ListTrackerConsumers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTrackerConsumers x -&gt; ListTrackerConsumers
+$cfrom :: forall x. ListTrackerConsumers -&gt; Rep ListTrackerConsumers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'ListTrackerConsumers' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listTrackerConsumers_nextToken' - The pagination token specifying which page of results to return in the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- response. If no token is provided, the default page is the first page.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Default value: @null@</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'listTrackerConsumers_maxResults' - An optional limit for the number of resources returned in a single call.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Default value: @100@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'trackerName', 'listTrackerConsumers_trackerName' - The tracker resource whose associated geofence collections you want to</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#newListTrackerConsumers"><span class="hs-identifier hs-type">newListTrackerConsumers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'trackerName'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span>
+</span><span id="line-95"></span><span id="newListTrackerConsumers"><span class="annot"><span class="annottext">newListTrackerConsumers :: Text -&gt; ListTrackerConsumers
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#newListTrackerConsumers"><span class="hs-identifier hs-var hs-var">newListTrackerConsumers</span></a></span></span><span> </span><span id="local-6989586621679265516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265516"><span class="hs-identifier hs-var">pTrackerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ListTrackerConsumers' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListTrackerConsumers
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTrackerConsumers' :: Maybe Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AnextToken%3AListTrackerConsumers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTrackerConsumers' :: Maybe Natural
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AmaxResults%3AListTrackerConsumers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:trackerName:ListTrackerConsumers' :: Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AtrackerName%3AListTrackerConsumers%27"><span class="hs-identifier hs-var">trackerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265516"><span class="hs-identifier hs-var">pTrackerName_</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The pagination token specifying which page of results to return in the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- response. If no token is provided, the default page is the first page.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Default value: @null@</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_nextToken"><span class="hs-identifier hs-type">listTrackerConsumers_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listTrackerConsumers_nextToken"><span class="annot"><span class="annottext">listTrackerConsumers_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrackerConsumers -&gt; f ListTrackerConsumers
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_nextToken"><span class="hs-identifier hs-var hs-var">listTrackerConsumers_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrackerConsumers -&gt; Maybe Text)
+-&gt; (ListTrackerConsumers -&gt; Maybe Text -&gt; ListTrackerConsumers)
+-&gt; Lens
+     ListTrackerConsumers ListTrackerConsumers (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265514"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Maybe Text
+</span><a href="#local-6989586621679265514"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265514"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265513"><span class="annot"><span class="annottext">s :: ListTrackerConsumers
+</span><a href="#local-6989586621679265513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrackerConsumers
+</span><a href="#local-6989586621679265513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTrackerConsumers' :: Maybe Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AnextToken%3AListTrackerConsumers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | An optional limit for the number of resources returned in a single call.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Default value: @100@</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_maxResults"><span class="hs-identifier hs-type">listTrackerConsumers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listTrackerConsumers_maxResults"><span class="annot"><span class="annottext">listTrackerConsumers_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListTrackerConsumers -&gt; f ListTrackerConsumers
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_maxResults"><span class="hs-identifier hs-var hs-var">listTrackerConsumers_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrackerConsumers -&gt; Maybe Natural)
+-&gt; (ListTrackerConsumers -&gt; Maybe Natural -&gt; ListTrackerConsumers)
+-&gt; Lens
+     ListTrackerConsumers
+     ListTrackerConsumers
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265511"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Maybe Natural
+</span><a href="#local-6989586621679265511"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265511"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265510"><span class="annot"><span class="annottext">s :: ListTrackerConsumers
+</span><a href="#local-6989586621679265510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265509"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrackerConsumers
+</span><a href="#local-6989586621679265510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTrackerConsumers' :: Maybe Natural
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AmaxResults%3AListTrackerConsumers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The tracker resource whose associated geofence collections you want to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_trackerName"><span class="hs-identifier hs-type">listTrackerConsumers_trackerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="listTrackerConsumers_trackerName"><span class="annot"><span class="annottext">listTrackerConsumers_trackerName :: (Text -&gt; f Text) -&gt; ListTrackerConsumers -&gt; f ListTrackerConsumers
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_trackerName"><span class="hs-identifier hs-var hs-var">listTrackerConsumers_trackerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrackerConsumers -&gt; Text)
+-&gt; (ListTrackerConsumers -&gt; Text -&gt; ListTrackerConsumers)
+-&gt; Lens ListTrackerConsumers ListTrackerConsumers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265508"><span class="annot"><span class="annottext">Text
+trackerName :: Text
+$sel:trackerName:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Text
+</span><a href="#local-6989586621679265508"><span class="hs-identifier hs-var hs-var">trackerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265508"><span class="hs-identifier hs-var">trackerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265507"><span class="annot"><span class="annottext">s :: ListTrackerConsumers
+</span><a href="#local-6989586621679265507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrackerConsumers
+</span><a href="#local-6989586621679265507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackerName:ListTrackerConsumers' :: Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AtrackerName%3AListTrackerConsumers%27"><span class="hs-identifier hs-var">trackerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679265502"><span class="annot"><span class="annottext">page :: ListTrackerConsumers
+-&gt; AWSResponse ListTrackerConsumers -&gt; Maybe ListTrackerConsumers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679265500"><span class="annot"><span class="annottext">ListTrackerConsumers
+</span><a href="#local-6989586621679265500"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679265499"><span class="annot"><span class="annottext">AWSResponse ListTrackerConsumers
+</span><a href="#local-6989586621679265499"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTrackerConsumers
+ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265499"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListTrackerConsumersResponse
+-&gt; Getting (First Text) ListTrackerConsumersResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTrackerConsumersResponse
+-&gt; Const (First Text) ListTrackerConsumersResponse
+Lens' ListTrackerConsumersResponse (Maybe Text)
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_nextToken"><span class="hs-identifier hs-var">listTrackerConsumersResponse_nextToken</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTrackerConsumersResponse
+ -&gt; Const (First Text) ListTrackerConsumersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTrackerConsumersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTrackerConsumers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTrackerConsumers
+ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265499"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">ListTrackerConsumersResponse
+-&gt; Getting [Text] ListTrackerConsumersResponse [Text] -&gt; [Text]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [Text] ListTrackerConsumersResponse [Text]
+Lens' ListTrackerConsumersResponse [Text]
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_consumerArns"><span class="hs-identifier hs-var">listTrackerConsumersResponse_consumerArns</span></a></span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTrackerConsumers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">ListTrackerConsumers -&gt; Maybe ListTrackerConsumers
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListTrackerConsumers -&gt; Maybe ListTrackerConsumers)
+-&gt; ListTrackerConsumers -&gt; Maybe ListTrackerConsumers
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ListTrackerConsumers
+</span><a href="#local-6989586621679265500"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListTrackerConsumers
+-&gt; (ListTrackerConsumers -&gt; ListTrackerConsumers)
+-&gt; ListTrackerConsumers
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListTrackerConsumers -&gt; Identity ListTrackerConsumers
+Lens
+  ListTrackerConsumers ListTrackerConsumers (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumers_nextToken"><span class="hs-identifier hs-var">listTrackerConsumers_nextToken</span></a></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListTrackerConsumers -&gt; Identity ListTrackerConsumers)
+-&gt; Maybe Text -&gt; ListTrackerConsumers -&gt; ListTrackerConsumers
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTrackerConsumers
+ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265499"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListTrackerConsumersResponse
+-&gt; Getting (First Text) ListTrackerConsumersResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTrackerConsumersResponse
+-&gt; Const (First Text) ListTrackerConsumersResponse
+Lens' ListTrackerConsumersResponse (Maybe Text)
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_nextToken"><span class="hs-identifier hs-var">listTrackerConsumersResponse_nextToken</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTrackerConsumersResponse
+ -&gt; Const (First Text) ListTrackerConsumersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTrackerConsumersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679265488"><span class="annot"><span class="annottext">request :: ListTrackerConsumers -&gt; Request ListTrackerConsumers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTrackerConsumers -&gt; Request ListTrackerConsumers
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679265484"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListTrackerConsumers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTrackerConsumers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListTrackerConsumers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListTrackerConsumers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTrackerConsumers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265481"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679265480"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679265480"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679265479"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Text] -&gt; ListTrackerConsumersResponse
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">ListTrackerConsumersResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Text] -&gt; ListTrackerConsumersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; [Text] -&gt; ListTrackerConsumersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [Text] -&gt; ListTrackerConsumersResponse)
+-&gt; Either String Int
+-&gt; Either String ([Text] -&gt; ListTrackerConsumersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; ListTrackerConsumersResponse)
+-&gt; Either String [Text]
+-&gt; Either String ListTrackerConsumersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumerArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Text]) -&gt; [Text] -&gt; Either String [Text]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265470"><span id="local-6989586621679265472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679265463"><span class="annot"><span class="annottext">toHeaders :: ListTrackerConsumers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTrackerConsumers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265453"><span id="local-6989586621679265455"><span id="local-6989586621679265457"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679265451"><span class="annot"><span class="annottext">toJSON :: ListTrackerConsumers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265447"><span id="local-6989586621679265448"><span id="local-6989586621679265449"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+trackerName :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:trackerName:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Text
+$sel:maxResults:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Maybe Natural
+$sel:nextToken:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Maybe Text
+</span><a href="#local-6989586621679265447"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265449"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265448"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679265441"><span class="annot"><span class="annottext">toPath :: ListTrackerConsumers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers%27"><span class="hs-identifier hs-type">ListTrackerConsumers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265437"><span id="local-6989586621679265438"><span id="local-6989586621679265439"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+trackerName :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:trackerName:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Text
+$sel:maxResults:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Maybe Natural
+$sel:nextToken:ListTrackerConsumers' :: ListTrackerConsumers -&gt; Maybe Text
+</span><a href="#local-6989586621679265437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/tracking/v0/trackers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265437"><span class="hs-identifier hs-var">trackerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/list-consumers&quot;</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumers"><span class="hs-identifier hs-type">ListTrackerConsumers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679265433"><span class="annot"><span class="annottext">toQuery :: ListTrackerConsumers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTrackerConsumers -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newListTrackerConsumersResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679265430"><span id="local-6989586621679265431"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrackerConsumersResponse"><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-var">ListTrackerConsumersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrackerConsumersResponse%27"><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">ListTrackerConsumersResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token indicating there are additional pages available. You</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- can use the token in a following request to fetch the next set of</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AnextToken%3AListTrackerConsumersResponse%27"><span class="annot"><span class="annottext">ListTrackerConsumersResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AnextToken%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTrackerConsumersResponse%27"><span class="annot"><span class="annottext">ListTrackerConsumersResponse -&gt; Int
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AhttpStatus%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | Contains the list of geofence collection ARNs associated to the tracker</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AconsumerArns%3AListTrackerConsumersResponse%27"><span class="annot"><span class="annottext">ListTrackerConsumersResponse -&gt; [Text]
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AconsumerArns%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var hs-var">consumerArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265423"><span id="local-6989586621679265425"><span class="annot"><span class="annottext">ListTrackerConsumersResponse
+-&gt; ListTrackerConsumersResponse -&gt; Bool
+(ListTrackerConsumersResponse
+ -&gt; ListTrackerConsumersResponse -&gt; Bool)
+-&gt; (ListTrackerConsumersResponse
+    -&gt; ListTrackerConsumersResponse -&gt; Bool)
+-&gt; Eq ListTrackerConsumersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTrackerConsumersResponse
+-&gt; ListTrackerConsumersResponse -&gt; Bool
+$c/= :: ListTrackerConsumersResponse
+-&gt; ListTrackerConsumersResponse -&gt; Bool
+== :: ListTrackerConsumersResponse
+-&gt; ListTrackerConsumersResponse -&gt; Bool
+$c== :: ListTrackerConsumersResponse
+-&gt; ListTrackerConsumersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265415"><span id="local-6989586621679265417"><span id="local-6989586621679265419"><span id="local-6989586621679265421"><span class="annot"><span class="annottext">ReadPrec [ListTrackerConsumersResponse]
+ReadPrec ListTrackerConsumersResponse
+Int -&gt; ReadS ListTrackerConsumersResponse
+ReadS [ListTrackerConsumersResponse]
+(Int -&gt; ReadS ListTrackerConsumersResponse)
+-&gt; ReadS [ListTrackerConsumersResponse]
+-&gt; ReadPrec ListTrackerConsumersResponse
+-&gt; ReadPrec [ListTrackerConsumersResponse]
+-&gt; Read ListTrackerConsumersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTrackerConsumersResponse]
+$creadListPrec :: ReadPrec [ListTrackerConsumersResponse]
+readPrec :: ReadPrec ListTrackerConsumersResponse
+$creadPrec :: ReadPrec ListTrackerConsumersResponse
+readList :: ReadS [ListTrackerConsumersResponse]
+$creadList :: ReadS [ListTrackerConsumersResponse]
+readsPrec :: Int -&gt; ReadS ListTrackerConsumersResponse
+$creadsPrec :: Int -&gt; ReadS ListTrackerConsumersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265409"><span id="local-6989586621679265411"><span id="local-6989586621679265413"><span class="annot"><span class="annottext">Int -&gt; ListTrackerConsumersResponse -&gt; ShowS
+[ListTrackerConsumersResponse] -&gt; ShowS
+ListTrackerConsumersResponse -&gt; String
+(Int -&gt; ListTrackerConsumersResponse -&gt; ShowS)
+-&gt; (ListTrackerConsumersResponse -&gt; String)
+-&gt; ([ListTrackerConsumersResponse] -&gt; ShowS)
+-&gt; Show ListTrackerConsumersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTrackerConsumersResponse] -&gt; ShowS
+$cshowList :: [ListTrackerConsumersResponse] -&gt; ShowS
+show :: ListTrackerConsumersResponse -&gt; String
+$cshow :: ListTrackerConsumersResponse -&gt; String
+showsPrec :: Int -&gt; ListTrackerConsumersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTrackerConsumersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListTrackerConsumersResponse -&gt; Rep ListTrackerConsumersResponse x)
+-&gt; (forall x.
+    Rep ListTrackerConsumersResponse x -&gt; ListTrackerConsumersResponse)
+-&gt; Generic ListTrackerConsumersResponse
+forall x.
+Rep ListTrackerConsumersResponse x -&gt; ListTrackerConsumersResponse
+forall x.
+ListTrackerConsumersResponse -&gt; Rep ListTrackerConsumersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListTrackerConsumersResponse x -&gt; ListTrackerConsumersResponse
+$cfrom :: forall x.
+ListTrackerConsumersResponse -&gt; Rep ListTrackerConsumersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Create a value of 'ListTrackerConsumersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'nextToken', 'listTrackerConsumersResponse_nextToken' - A pagination token indicating there are additional pages available. You</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- can use the token in a following request to fetch the next set of</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'httpStatus', 'listTrackerConsumersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'consumerArns', 'listTrackerConsumersResponse_consumerArns' - Contains the list of geofence collection ARNs associated to the tracker</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#newListTrackerConsumersResponse"><span class="hs-identifier hs-type">newListTrackerConsumersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newListTrackerConsumersResponse"><span class="annot"><span class="annottext">newListTrackerConsumersResponse :: Int -&gt; ListTrackerConsumersResponse
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#newListTrackerConsumersResponse"><span class="hs-identifier hs-var hs-var">newListTrackerConsumersResponse</span></a></span></span><span> </span><span id="local-6989586621679265406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">ListTrackerConsumersResponse' :: Maybe Text -&gt; Int -&gt; [Text] -&gt; ListTrackerConsumersResponse
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-type">ListTrackerConsumersResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTrackerConsumersResponse' :: Maybe Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AnextToken%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTrackerConsumersResponse' :: Int
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AhttpStatus%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumerArns:ListTrackerConsumersResponse' :: [Text]
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AconsumerArns%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">consumerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | A pagination token indicating there are additional pages available. You</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- can use the token in a following request to fetch the next set of</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_nextToken"><span class="hs-identifier hs-type">listTrackerConsumersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="listTrackerConsumersResponse_nextToken"><span class="annot"><span class="annottext">listTrackerConsumersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrackerConsumersResponse -&gt; f ListTrackerConsumersResponse
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listTrackerConsumersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrackerConsumersResponse -&gt; Maybe Text)
+-&gt; (ListTrackerConsumersResponse
+    -&gt; Maybe Text -&gt; ListTrackerConsumersResponse)
+-&gt; Lens' ListTrackerConsumersResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-type">ListTrackerConsumersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265405"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTrackerConsumersResponse' :: ListTrackerConsumersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679265405"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265405"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265404"><span class="annot"><span class="annottext">s :: ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-type">ListTrackerConsumersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTrackerConsumersResponse' :: Maybe Text
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AnextToken%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_httpStatus"><span class="hs-identifier hs-type">listTrackerConsumersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span id="listTrackerConsumersResponse_httpStatus"><span class="annot"><span class="annottext">listTrackerConsumersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListTrackerConsumersResponse -&gt; f ListTrackerConsumersResponse
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listTrackerConsumersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrackerConsumersResponse -&gt; Int)
+-&gt; (ListTrackerConsumersResponse
+    -&gt; Int -&gt; ListTrackerConsumersResponse)
+-&gt; Lens
+     ListTrackerConsumersResponse ListTrackerConsumersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-type">ListTrackerConsumersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265402"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListTrackerConsumersResponse' :: ListTrackerConsumersResponse -&gt; Int
+</span><a href="#local-6989586621679265402"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265402"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265401"><span class="annot"><span class="annottext">s :: ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-type">ListTrackerConsumersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTrackerConsumersResponse' :: Int
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AhttpStatus%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Contains the list of geofence collection ARNs associated to the tracker</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_consumerArns"><span class="hs-identifier hs-type">listTrackerConsumersResponse_consumerArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-245"></span><span id="listTrackerConsumersResponse_consumerArns"><span class="annot"><span class="annottext">listTrackerConsumersResponse_consumerArns :: ([Text] -&gt; f [Text])
+-&gt; ListTrackerConsumersResponse -&gt; f ListTrackerConsumersResponse
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#listTrackerConsumersResponse_consumerArns"><span class="hs-identifier hs-var hs-var">listTrackerConsumersResponse_consumerArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrackerConsumersResponse -&gt; [Text])
+-&gt; (ListTrackerConsumersResponse
+    -&gt; [Text] -&gt; ListTrackerConsumersResponse)
+-&gt; Lens' ListTrackerConsumersResponse [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-type">ListTrackerConsumersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265399"><span class="annot"><span class="annottext">[Text]
+consumerArns :: [Text]
+$sel:consumerArns:ListTrackerConsumersResponse' :: ListTrackerConsumersResponse -&gt; [Text]
+</span><a href="#local-6989586621679265399"><span class="hs-identifier hs-var hs-var">consumerArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679265399"><span class="hs-identifier hs-var">consumerArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265398"><span class="annot"><span class="annottext">s :: ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse%27"><span class="hs-identifier hs-type">ListTrackerConsumersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265397"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679265397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrackerConsumersResponse
+</span><a href="#local-6989586621679265398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerArns:ListTrackerConsumersResponse' :: [Text]
+</span><a href="Network.AWS.Location.ListTrackerConsumers.html#%24sel%3AconsumerArns%3AListTrackerConsumersResponse%27"><span class="hs-identifier hs-var">consumerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679265397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; ListTrackerConsumersResponse -&gt; f ListTrackerConsumersResponse)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; ListTrackerConsumersResponse
+-&gt; f ListTrackerConsumersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.ListTrackerConsumers.html#ListTrackerConsumersResponse"><span class="hs-identifier hs-type">ListTrackerConsumersResponse</span></a></span></span><span>
+</span><span id="line-248"></span></pre></body></html>

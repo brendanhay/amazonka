@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679756138"><span id="local-6989586621679756139"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActivityStreamMode"><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamMode.html#ActivityStreamMode"><span class="hs-identifier hs-var">ActivityStreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityStreamMode%27"><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamMode.html#ActivityStreamMode%27"><span class="hs-identifier hs-var">ActivityStreamMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679756147"><span id="local-6989586621679756148"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActivityStreamMode"><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamMode.html#ActivityStreamMode"><span class="hs-identifier hs-var">ActivityStreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityStreamMode%27"><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamMode.html#ActivityStreamMode%27"><span class="hs-identifier hs-var">ActivityStreamMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActivityStreamMode"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; Text
 </span><a href="Network.AWS.RDS.Types.ActivityStreamMode.html#fromActivityStreamMode"><span class="hs-identifier hs-var hs-var">fromActivityStreamMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679756130"><span id="local-6989586621679756132"><span id="local-6989586621679756134"><span class="annot"><span class="annottext">Int -&gt; ActivityStreamMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679756139"><span id="local-6989586621679756141"><span id="local-6989586621679756143"><span class="annot"><span class="annottext">Int -&gt; ActivityStreamMode -&gt; ShowS
 [ActivityStreamMode] -&gt; ShowS
 ActivityStreamMode -&gt; String
 (Int -&gt; ActivityStreamMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ActivityStreamMode -&gt; String
 showsPrec :: Int -&gt; ActivityStreamMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActivityStreamMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679756121"><span id="local-6989586621679756123"><span id="local-6989586621679756125"><span id="local-6989586621679756127"><span class="annot"><span class="annottext">ReadPrec [ActivityStreamMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679756130"><span id="local-6989586621679756132"><span id="local-6989586621679756134"><span id="local-6989586621679756136"><span class="annot"><span class="annottext">ReadPrec [ActivityStreamMode]
 ReadPrec ActivityStreamMode
 Int -&gt; ReadS ActivityStreamMode
 ReadS [ActivityStreamMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ActivityStreamMode]
 readsPrec :: Int -&gt; ReadS ActivityStreamMode
 $creadsPrec :: Int -&gt; ReadS ActivityStreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679756116"><span id="local-6989586621679756118"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679756125"><span id="local-6989586621679756127"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool
 (ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool)
 -&gt; (ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool)
 -&gt; Eq ActivityStreamMode
@@ -82,7 +82,7 @@ $c/= :: ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool
 == :: ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool
 $c== :: ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679756100"><span id="local-6989586621679756102"><span id="local-6989586621679756104"><span id="local-6989586621679756106"><span id="local-6989586621679756108"><span id="local-6989586621679756110"><span id="local-6989586621679756112"><span class="annot"><span class="annottext">Eq ActivityStreamMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679756109"><span id="local-6989586621679756111"><span id="local-6989586621679756113"><span id="local-6989586621679756115"><span id="local-6989586621679756117"><span id="local-6989586621679756119"><span id="local-6989586621679756121"><span class="annot"><span class="annottext">Eq ActivityStreamMode
 Eq ActivityStreamMode
 -&gt; (ActivityStreamMode -&gt; ActivityStreamMode -&gt; Ordering)
 -&gt; (ActivityStreamMode -&gt; ActivityStreamMode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ActivityStreamMode -&gt; Rep ActivityStreamMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679756092"><span id="local-6989586621679756094"><span class="annot"><span class="annottext">Int -&gt; ActivityStreamMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679756101"><span id="local-6989586621679756103"><span class="annot"><span class="annottext">Int -&gt; ActivityStreamMode -&gt; Int
 ActivityStreamMode -&gt; Int
 (Int -&gt; ActivityStreamMode -&gt; Int)
 -&gt; (ActivityStreamMode -&gt; Int) -&gt; Hashable ActivityStreamMode
@@ -143,53 +143,53 @@ $chash :: ActivityStreamMode -&gt; Int
 hashWithSalt :: Int -&gt; ActivityStreamMode -&gt; Int
 $chashWithSalt :: Int -&gt; ActivityStreamMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679756089"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679756098"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ()
 (ActivityStreamMode -&gt; ()) -&gt; NFData ActivityStreamMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActivityStreamMode -&gt; ()
 $crnf :: ActivityStreamMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679756086"><span class="annot"><span class="annottext">Text -&gt; Either String ActivityStreamMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679756095"><span class="annot"><span class="annottext">Text -&gt; Either String ActivityStreamMode
 (Text -&gt; Either String ActivityStreamMode)
 -&gt; FromText ActivityStreamMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActivityStreamMode
 $cfromText :: Text -&gt; Either String ActivityStreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679756083"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679756092"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; Text
 (ActivityStreamMode -&gt; Text) -&gt; ToText ActivityStreamMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActivityStreamMode -&gt; Text
 $ctoText :: ActivityStreamMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679756080"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679756089"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ByteString
 (ActivityStreamMode -&gt; ByteString)
 -&gt; ToByteString ActivityStreamMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActivityStreamMode -&gt; ByteString
 $ctoBS :: ActivityStreamMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679756077"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679756086"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; ByteStringBuilder
 (ActivityStreamMode -&gt; ByteStringBuilder)
 -&gt; ToLog ActivityStreamMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActivityStreamMode -&gt; ByteStringBuilder
 $cbuild :: ActivityStreamMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679756074"><span class="annot"><span class="annottext">HeaderName -&gt; ActivityStreamMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679756083"><span class="annot"><span class="annottext">HeaderName -&gt; ActivityStreamMode -&gt; [Header]
 (HeaderName -&gt; ActivityStreamMode -&gt; [Header])
 -&gt; ToHeader ActivityStreamMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActivityStreamMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActivityStreamMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679756071"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679756080"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; QueryString
 (ActivityStreamMode -&gt; QueryString) -&gt; ToQuery ActivityStreamMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActivityStreamMode -&gt; QueryString
 $ctoQuery :: ActivityStreamMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679756066"><span id="local-6989586621679756068"><span class="annot"><span class="annottext">Value -&gt; Parser [ActivityStreamMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679756075"><span id="local-6989586621679756077"><span class="annot"><span class="annottext">Value -&gt; Parser [ActivityStreamMode]
 Value -&gt; Parser ActivityStreamMode
 (Value -&gt; Parser ActivityStreamMode)
 -&gt; (Value -&gt; Parser [ActivityStreamMode])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [ActivityStreamMode]
 parseJSON :: Value -&gt; Parser ActivityStreamMode
 $cparseJSON :: Value -&gt; Parser ActivityStreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679756061"><span id="local-6989586621679756063"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActivityStreamMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679756070"><span id="local-6989586621679756072"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActivityStreamMode]
 FromJSONKeyFunction ActivityStreamMode
 FromJSONKeyFunction ActivityStreamMode
 -&gt; FromJSONKeyFunction [ActivityStreamMode]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActivityStreamMode]
 fromJSONKey :: FromJSONKeyFunction ActivityStreamMode
 $cfromJSONKey :: FromJSONKeyFunction ActivityStreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679756052"><span id="local-6989586621679756054"><span id="local-6989586621679756056"><span id="local-6989586621679756058"><span class="annot"><span class="annottext">[ActivityStreamMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679756061"><span id="local-6989586621679756063"><span id="local-6989586621679756065"><span id="local-6989586621679756067"><span class="annot"><span class="annottext">[ActivityStreamMode] -&gt; Encoding
 [ActivityStreamMode] -&gt; Value
 ActivityStreamMode -&gt; Encoding
 ActivityStreamMode -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ActivityStreamMode -&gt; Encoding
 toJSON :: ActivityStreamMode -&gt; Value
 $ctoJSON :: ActivityStreamMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679756047"><span id="local-6989586621679756049"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActivityStreamMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679756056"><span id="local-6989586621679756058"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActivityStreamMode]
 ToJSONKeyFunction ActivityStreamMode
 ToJSONKeyFunction ActivityStreamMode
 -&gt; ToJSONKeyFunction [ActivityStreamMode]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActivityStreamMode]
 toJSONKey :: ToJSONKeyFunction ActivityStreamMode
 $ctoJSONKey :: ToJSONKeyFunction ActivityStreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679756044"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActivityStreamMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679756053"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActivityStreamMode
 ([Node] -&gt; Either String ActivityStreamMode)
 -&gt; FromXML ActivityStreamMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActivityStreamMode
 $cparseXML :: [Node] -&gt; Either String ActivityStreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679756041"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679756050"><span class="annot"><span class="annottext">ActivityStreamMode -&gt; XML
 (ActivityStreamMode -&gt; XML) -&gt; ToXML ActivityStreamMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActivityStreamMode -&gt; XML

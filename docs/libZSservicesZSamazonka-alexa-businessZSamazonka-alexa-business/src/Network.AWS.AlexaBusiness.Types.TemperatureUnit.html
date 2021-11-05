@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679373618"><span id="local-6989586621679373619"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TemperatureUnit"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html#TemperatureUnit"><span class="hs-identifier hs-var">TemperatureUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemperatureUnit%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html#TemperatureUnit%27"><span class="hs-identifier hs-var">TemperatureUnit'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679373627"><span id="local-6989586621679373628"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TemperatureUnit"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html#TemperatureUnit"><span class="hs-identifier hs-var">TemperatureUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemperatureUnit%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html#TemperatureUnit%27"><span class="hs-identifier hs-var">TemperatureUnit'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTemperatureUnit"><span class="annot"><span class="annottext">TemperatureUnit -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html#fromTemperatureUnit"><span class="hs-identifier hs-var hs-var">fromTemperatureUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373610"><span id="local-6989586621679373612"><span id="local-6989586621679373614"><span class="annot"><span class="annottext">Int -&gt; TemperatureUnit -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373619"><span id="local-6989586621679373621"><span id="local-6989586621679373623"><span class="annot"><span class="annottext">Int -&gt; TemperatureUnit -&gt; ShowS
 [TemperatureUnit] -&gt; ShowS
 TemperatureUnit -&gt; String
 (Int -&gt; TemperatureUnit -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TemperatureUnit -&gt; String
 showsPrec :: Int -&gt; TemperatureUnit -&gt; ShowS
 $cshowsPrec :: Int -&gt; TemperatureUnit -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679373601"><span id="local-6989586621679373603"><span id="local-6989586621679373605"><span id="local-6989586621679373607"><span class="annot"><span class="annottext">ReadPrec [TemperatureUnit]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679373610"><span id="local-6989586621679373612"><span id="local-6989586621679373614"><span id="local-6989586621679373616"><span class="annot"><span class="annottext">ReadPrec [TemperatureUnit]
 ReadPrec TemperatureUnit
 Int -&gt; ReadS TemperatureUnit
 ReadS [TemperatureUnit]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TemperatureUnit]
 readsPrec :: Int -&gt; ReadS TemperatureUnit
 $creadsPrec :: Int -&gt; ReadS TemperatureUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679373596"><span id="local-6989586621679373598"><span class="annot"><span class="annottext">TemperatureUnit -&gt; TemperatureUnit -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679373605"><span id="local-6989586621679373607"><span class="annot"><span class="annottext">TemperatureUnit -&gt; TemperatureUnit -&gt; Bool
 (TemperatureUnit -&gt; TemperatureUnit -&gt; Bool)
 -&gt; (TemperatureUnit -&gt; TemperatureUnit -&gt; Bool)
 -&gt; Eq TemperatureUnit
@@ -82,7 +82,7 @@ $c/= :: TemperatureUnit -&gt; TemperatureUnit -&gt; Bool
 == :: TemperatureUnit -&gt; TemperatureUnit -&gt; Bool
 $c== :: TemperatureUnit -&gt; TemperatureUnit -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679373580"><span id="local-6989586621679373582"><span id="local-6989586621679373584"><span id="local-6989586621679373586"><span id="local-6989586621679373588"><span id="local-6989586621679373590"><span id="local-6989586621679373592"><span class="annot"><span class="annottext">Eq TemperatureUnit
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679373589"><span id="local-6989586621679373591"><span id="local-6989586621679373593"><span id="local-6989586621679373595"><span id="local-6989586621679373597"><span id="local-6989586621679373599"><span id="local-6989586621679373601"><span class="annot"><span class="annottext">Eq TemperatureUnit
 Eq TemperatureUnit
 -&gt; (TemperatureUnit -&gt; TemperatureUnit -&gt; Ordering)
 -&gt; (TemperatureUnit -&gt; TemperatureUnit -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TemperatureUnit -&gt; Rep TemperatureUnit x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373572"><span id="local-6989586621679373574"><span class="annot"><span class="annottext">Int -&gt; TemperatureUnit -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373581"><span id="local-6989586621679373583"><span class="annot"><span class="annottext">Int -&gt; TemperatureUnit -&gt; Int
 TemperatureUnit -&gt; Int
 (Int -&gt; TemperatureUnit -&gt; Int)
 -&gt; (TemperatureUnit -&gt; Int) -&gt; Hashable TemperatureUnit
@@ -143,50 +143,50 @@ $chash :: TemperatureUnit -&gt; Int
 hashWithSalt :: Int -&gt; TemperatureUnit -&gt; Int
 $chashWithSalt :: Int -&gt; TemperatureUnit -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679373569"><span class="annot"><span class="annottext">TemperatureUnit -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679373578"><span class="annot"><span class="annottext">TemperatureUnit -&gt; ()
 (TemperatureUnit -&gt; ()) -&gt; NFData TemperatureUnit
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TemperatureUnit -&gt; ()
 $crnf :: TemperatureUnit -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679373566"><span class="annot"><span class="annottext">Text -&gt; Either String TemperatureUnit
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679373575"><span class="annot"><span class="annottext">Text -&gt; Either String TemperatureUnit
 (Text -&gt; Either String TemperatureUnit) -&gt; FromText TemperatureUnit
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TemperatureUnit
 $cfromText :: Text -&gt; Either String TemperatureUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679373563"><span class="annot"><span class="annottext">TemperatureUnit -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679373572"><span class="annot"><span class="annottext">TemperatureUnit -&gt; Text
 (TemperatureUnit -&gt; Text) -&gt; ToText TemperatureUnit
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TemperatureUnit -&gt; Text
 $ctoText :: TemperatureUnit -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373560"><span class="annot"><span class="annottext">TemperatureUnit -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373569"><span class="annot"><span class="annottext">TemperatureUnit -&gt; ByteString
 (TemperatureUnit -&gt; ByteString) -&gt; ToByteString TemperatureUnit
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TemperatureUnit -&gt; ByteString
 $ctoBS :: TemperatureUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373557"><span class="annot"><span class="annottext">TemperatureUnit -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373566"><span class="annot"><span class="annottext">TemperatureUnit -&gt; ByteStringBuilder
 (TemperatureUnit -&gt; ByteStringBuilder) -&gt; ToLog TemperatureUnit
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TemperatureUnit -&gt; ByteStringBuilder
 $cbuild :: TemperatureUnit -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373554"><span class="annot"><span class="annottext">HeaderName -&gt; TemperatureUnit -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373563"><span class="annot"><span class="annottext">HeaderName -&gt; TemperatureUnit -&gt; [Header]
 (HeaderName -&gt; TemperatureUnit -&gt; [Header])
 -&gt; ToHeader TemperatureUnit
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TemperatureUnit -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TemperatureUnit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373551"><span class="annot"><span class="annottext">TemperatureUnit -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373560"><span class="annot"><span class="annottext">TemperatureUnit -&gt; QueryString
 (TemperatureUnit -&gt; QueryString) -&gt; ToQuery TemperatureUnit
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TemperatureUnit -&gt; QueryString
 $ctoQuery :: TemperatureUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373546"><span id="local-6989586621679373548"><span class="annot"><span class="annottext">Value -&gt; Parser [TemperatureUnit]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373555"><span id="local-6989586621679373557"><span class="annot"><span class="annottext">Value -&gt; Parser [TemperatureUnit]
 Value -&gt; Parser TemperatureUnit
 (Value -&gt; Parser TemperatureUnit)
 -&gt; (Value -&gt; Parser [TemperatureUnit]) -&gt; FromJSON TemperatureUnit
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [TemperatureUnit]
 parseJSON :: Value -&gt; Parser TemperatureUnit
 $cparseJSON :: Value -&gt; Parser TemperatureUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373541"><span id="local-6989586621679373543"><span class="annot"><span class="annottext">FromJSONKeyFunction [TemperatureUnit]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373550"><span id="local-6989586621679373552"><span class="annot"><span class="annottext">FromJSONKeyFunction [TemperatureUnit]
 FromJSONKeyFunction TemperatureUnit
 FromJSONKeyFunction TemperatureUnit
 -&gt; FromJSONKeyFunction [TemperatureUnit]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TemperatureUnit]
 fromJSONKey :: FromJSONKeyFunction TemperatureUnit
 $cfromJSONKey :: FromJSONKeyFunction TemperatureUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373532"><span id="local-6989586621679373534"><span id="local-6989586621679373536"><span id="local-6989586621679373538"><span class="annot"><span class="annottext">[TemperatureUnit] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373541"><span id="local-6989586621679373543"><span id="local-6989586621679373545"><span id="local-6989586621679373547"><span class="annot"><span class="annottext">[TemperatureUnit] -&gt; Encoding
 [TemperatureUnit] -&gt; Value
 TemperatureUnit -&gt; Encoding
 TemperatureUnit -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: TemperatureUnit -&gt; Encoding
 toJSON :: TemperatureUnit -&gt; Value
 $ctoJSON :: TemperatureUnit -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373527"><span id="local-6989586621679373529"><span class="annot"><span class="annottext">ToJSONKeyFunction [TemperatureUnit]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373536"><span id="local-6989586621679373538"><span class="annot"><span class="annottext">ToJSONKeyFunction [TemperatureUnit]
 ToJSONKeyFunction TemperatureUnit
 ToJSONKeyFunction TemperatureUnit
 -&gt; ToJSONKeyFunction [TemperatureUnit] -&gt; ToJSONKey TemperatureUnit
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TemperatureUnit]
 toJSONKey :: ToJSONKeyFunction TemperatureUnit
 $ctoJSONKey :: ToJSONKeyFunction TemperatureUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373524"><span class="annot"><span class="annottext">[Node] -&gt; Either String TemperatureUnit
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373533"><span class="annot"><span class="annottext">[Node] -&gt; Either String TemperatureUnit
 ([Node] -&gt; Either String TemperatureUnit)
 -&gt; FromXML TemperatureUnit
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TemperatureUnit
 $cparseXML :: [Node] -&gt; Either String TemperatureUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373521"><span class="annot"><span class="annottext">TemperatureUnit -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373530"><span class="annot"><span class="annottext">TemperatureUnit -&gt; XML
 (TemperatureUnit -&gt; XML) -&gt; ToXML TemperatureUnit
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TemperatureUnit -&gt; XML

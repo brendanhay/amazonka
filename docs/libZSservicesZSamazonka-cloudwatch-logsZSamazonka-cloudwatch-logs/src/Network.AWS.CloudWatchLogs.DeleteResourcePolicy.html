@@ -44,12 +44,12 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourcePolicy' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679231391"><span id="local-6989586621679231392"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourcePolicy"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-var">DeleteResourcePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourcePolicy%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-var">DeleteResourcePolicy'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679231400"><span id="local-6989586621679231401"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourcePolicy"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-var">DeleteResourcePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourcePolicy%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-var">DeleteResourcePolicy'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the policy to be revoked. This parameter is required.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3ApolicyName%3ADeleteResourcePolicy%27"><span class="annot"><span class="annottext">DeleteResourcePolicy -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#%24sel%3ApolicyName%3ADeleteResourcePolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231385"><span id="local-6989586621679231387"><span class="annot"><span class="annottext">DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231394"><span id="local-6989586621679231396"><span class="annot"><span class="annottext">DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
 (DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool)
 -&gt; (DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool)
 -&gt; Eq DeleteResourcePolicy
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
 == :: DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
 $c== :: DeleteResourcePolicy -&gt; DeleteResourcePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231376"><span id="local-6989586621679231378"><span id="local-6989586621679231380"><span id="local-6989586621679231382"><span class="annot"><span class="annottext">ReadPrec [DeleteResourcePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231385"><span id="local-6989586621679231387"><span id="local-6989586621679231389"><span id="local-6989586621679231391"><span class="annot"><span class="annottext">ReadPrec [DeleteResourcePolicy]
 ReadPrec DeleteResourcePolicy
 Int -&gt; ReadS DeleteResourcePolicy
 ReadS [DeleteResourcePolicy]
@@ -78,7 +78,7 @@ readList :: ReadS [DeleteResourcePolicy]
 $creadList :: ReadS [DeleteResourcePolicy]
 readsPrec :: Int -&gt; ReadS DeleteResourcePolicy
 $creadsPrec :: Int -&gt; ReadS DeleteResourcePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231369"><span id="local-6989586621679231371"><span id="local-6989586621679231373"><span class="annot"><span class="annottext">Int -&gt; DeleteResourcePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231378"><span id="local-6989586621679231380"><span id="local-6989586621679231382"><span class="annot"><span class="annottext">Int -&gt; DeleteResourcePolicy -&gt; ShowS
 [DeleteResourcePolicy] -&gt; ShowS
 DeleteResourcePolicy -&gt; String
 (Int -&gt; DeleteResourcePolicy -&gt; ShowS)
@@ -132,27 +132,27 @@ forall a. Maybe a
 -&gt; Lens
      DeleteResourcePolicy DeleteResourcePolicy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231362"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231371"><span class="annot"><span class="annottext">Maybe Text
 policyName :: Maybe Text
 $sel:policyName:DeleteResourcePolicy' :: DeleteResourcePolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679231362"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231362"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231361"><span class="annot"><span class="annottext">s :: DeleteResourcePolicy
-</span><a href="#local-6989586621679231361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231360"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourcePolicy
-</span><a href="#local-6989586621679231361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteResourcePolicy' :: Maybe Text
+</span><a href="#local-6989586621679231371"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231371"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231370"><span class="annot"><span class="annottext">s :: DeleteResourcePolicy
+</span><a href="#local-6989586621679231370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourcePolicy
+</span><a href="#local-6989586621679231370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteResourcePolicy' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#%24sel%3ApolicyName%3ADeleteResourcePolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-73"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679231356"><span class="annot"><span class="annottext">request :: DeleteResourcePolicy -&gt; Request DeleteResourcePolicy
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679231365"><span class="annot"><span class="annottext">request :: DeleteResourcePolicy -&gt; Request DeleteResourcePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteResourcePolicy -&gt; Request DeleteResourcePolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679231352"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679231361"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteResourcePolicy
 -&gt; ClientResponse ClientBody
@@ -178,12 +178,12 @@ AWSResponse a
 DeleteResourcePolicyResponse
 </span><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse'</span></a></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231345"><span id="local-6989586621679231347"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231354"><span id="local-6989586621679231356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679231338"><span class="annot"><span class="annottext">toHeaders :: DeleteResourcePolicy -&gt; [Header]
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679231347"><span class="annot"><span class="annottext">toHeaders :: DeleteResourcePolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteResourcePolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -210,12 +210,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231328"><span id="local-6989586621679231330"><span id="local-6989586621679231332"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679231326"><span class="annot"><span class="annottext">toJSON :: DeleteResourcePolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231324"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231337"><span id="local-6989586621679231339"><span id="local-6989586621679231341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679231335"><span class="annot"><span class="annottext">toJSON :: DeleteResourcePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy%27"><span class="hs-identifier hs-type">DeleteResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231333"><span class="annot"><span class="annottext">Maybe Text
 policyName :: Maybe Text
 $sel:policyName:DeleteResourcePolicy' :: DeleteResourcePolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679231324"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679231333"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -227,18 +227,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231324"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679231333"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679231317"><span class="annot"><span class="annottext">toPath :: DeleteResourcePolicy -&gt; ByteString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679231326"><span class="annot"><span class="annottext">toPath :: DeleteResourcePolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteResourcePolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicy"><span class="hs-identifier hs-type">DeleteResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679231313"><span class="annot"><span class="annottext">toQuery :: DeleteResourcePolicy -&gt; QueryString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679231322"><span class="annot"><span class="annottext">toQuery :: DeleteResourcePolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteResourcePolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -246,10 +246,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679231310"><span id="local-6989586621679231311"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourcePolicyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourcePolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679231319"><span id="local-6989586621679231320"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourcePolicyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourcePolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231306"><span id="local-6989586621679231308"><span class="annot"><span class="annottext">DeleteResourcePolicyResponse
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231315"><span id="local-6989586621679231317"><span class="annot"><span class="annottext">DeleteResourcePolicyResponse
 -&gt; DeleteResourcePolicyResponse -&gt; Bool
 (DeleteResourcePolicyResponse
  -&gt; DeleteResourcePolicyResponse -&gt; Bool)
@@ -265,7 +265,7 @@ $c/= :: DeleteResourcePolicyResponse
 -&gt; DeleteResourcePolicyResponse -&gt; Bool
 $c== :: DeleteResourcePolicyResponse
 -&gt; DeleteResourcePolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231298"><span id="local-6989586621679231300"><span id="local-6989586621679231302"><span id="local-6989586621679231304"><span class="annot"><span class="annottext">ReadPrec [DeleteResourcePolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231307"><span id="local-6989586621679231309"><span id="local-6989586621679231311"><span id="local-6989586621679231313"><span class="annot"><span class="annottext">ReadPrec [DeleteResourcePolicyResponse]
 ReadPrec DeleteResourcePolicyResponse
 Int -&gt; ReadS DeleteResourcePolicyResponse
 ReadS [DeleteResourcePolicyResponse]
@@ -285,7 +285,7 @@ readList :: ReadS [DeleteResourcePolicyResponse]
 $creadList :: ReadS [DeleteResourcePolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteResourcePolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteResourcePolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231292"><span id="local-6989586621679231294"><span id="local-6989586621679231296"><span class="annot"><span class="annottext">Int -&gt; DeleteResourcePolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231301"><span id="local-6989586621679231303"><span id="local-6989586621679231305"><span class="annot"><span class="annottext">Int -&gt; DeleteResourcePolicyResponse -&gt; ShowS
 [DeleteResourcePolicyResponse] -&gt; ShowS
 DeleteResourcePolicyResponse -&gt; String
 (Int -&gt; DeleteResourcePolicyResponse -&gt; ShowS)
@@ -328,5 +328,5 @@ DeleteResourcePolicyResponse -&gt; Rep DeleteResourcePolicyResponse x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">DeleteResourcePolicyResponse
 </span><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse%27"><span class="hs-identifier hs-var">DeleteResourcePolicyResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteResourcePolicy.html#DeleteResourcePolicyResponse"><span class="hs-identifier hs-type">DeleteResourcePolicyResponse</span></a></span></span><span>
 </span><span id="line-127"></span></pre></body></html>

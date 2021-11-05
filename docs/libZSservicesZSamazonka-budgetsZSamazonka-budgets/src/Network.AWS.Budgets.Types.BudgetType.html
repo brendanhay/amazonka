@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- @COST@, @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@,</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- @SAVINGS_PLANS_UTILIZATION@, or @SAVINGS_PLANS_COVERAGE@.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679206168"><span id="local-6989586621679206169"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BudgetType"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetType.html#BudgetType"><span class="hs-identifier hs-var">BudgetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BudgetType%27"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetType.html#BudgetType%27"><span class="hs-identifier hs-var">BudgetType'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679206177"><span id="local-6989586621679206178"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BudgetType"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetType.html#BudgetType"><span class="hs-identifier hs-var">BudgetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BudgetType%27"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetType.html#BudgetType%27"><span class="hs-identifier hs-var">BudgetType'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBudgetType"><span class="annot"><span class="annottext">BudgetType -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.BudgetType.html#fromBudgetType"><span class="hs-identifier hs-var hs-var">fromBudgetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206160"><span id="local-6989586621679206162"><span id="local-6989586621679206164"><span class="annot"><span class="annottext">Int -&gt; BudgetType -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206169"><span id="local-6989586621679206171"><span id="local-6989586621679206173"><span class="annot"><span class="annottext">Int -&gt; BudgetType -&gt; ShowS
 [BudgetType] -&gt; ShowS
 BudgetType -&gt; String
 (Int -&gt; BudgetType -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: BudgetType -&gt; String
 showsPrec :: Int -&gt; BudgetType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BudgetType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679206151"><span id="local-6989586621679206153"><span id="local-6989586621679206155"><span id="local-6989586621679206157"><span class="annot"><span class="annottext">ReadPrec [BudgetType]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679206160"><span id="local-6989586621679206162"><span id="local-6989586621679206164"><span id="local-6989586621679206166"><span class="annot"><span class="annottext">ReadPrec [BudgetType]
 ReadPrec BudgetType
 Int -&gt; ReadS BudgetType
 ReadS [BudgetType]
@@ -80,7 +80,7 @@ $creadList :: ReadS [BudgetType]
 readsPrec :: Int -&gt; ReadS BudgetType
 $creadsPrec :: Int -&gt; ReadS BudgetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679206146"><span id="local-6989586621679206148"><span class="annot"><span class="annottext">BudgetType -&gt; BudgetType -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679206155"><span id="local-6989586621679206157"><span class="annot"><span class="annottext">BudgetType -&gt; BudgetType -&gt; Bool
 (BudgetType -&gt; BudgetType -&gt; Bool)
 -&gt; (BudgetType -&gt; BudgetType -&gt; Bool) -&gt; Eq BudgetType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: BudgetType -&gt; BudgetType -&gt; Bool
 == :: BudgetType -&gt; BudgetType -&gt; Bool
 $c== :: BudgetType -&gt; BudgetType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679206130"><span id="local-6989586621679206132"><span id="local-6989586621679206134"><span id="local-6989586621679206136"><span id="local-6989586621679206138"><span id="local-6989586621679206140"><span id="local-6989586621679206142"><span class="annot"><span class="annottext">Eq BudgetType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679206139"><span id="local-6989586621679206141"><span id="local-6989586621679206143"><span id="local-6989586621679206145"><span id="local-6989586621679206147"><span id="local-6989586621679206149"><span id="local-6989586621679206151"><span class="annot"><span class="annottext">Eq BudgetType
 Eq BudgetType
 -&gt; (BudgetType -&gt; BudgetType -&gt; Ordering)
 -&gt; (BudgetType -&gt; BudgetType -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. BudgetType -&gt; Rep BudgetType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206122"><span id="local-6989586621679206124"><span class="annot"><span class="annottext">Int -&gt; BudgetType -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206131"><span id="local-6989586621679206133"><span class="annot"><span class="annottext">Int -&gt; BudgetType -&gt; Int
 BudgetType -&gt; Int
 (Int -&gt; BudgetType -&gt; Int)
 -&gt; (BudgetType -&gt; Int) -&gt; Hashable BudgetType
@@ -149,49 +149,49 @@ $chash :: BudgetType -&gt; Int
 hashWithSalt :: Int -&gt; BudgetType -&gt; Int
 $chashWithSalt :: Int -&gt; BudgetType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679206119"><span class="annot"><span class="annottext">BudgetType -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679206128"><span class="annot"><span class="annottext">BudgetType -&gt; ()
 (BudgetType -&gt; ()) -&gt; NFData BudgetType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BudgetType -&gt; ()
 $crnf :: BudgetType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679206116"><span class="annot"><span class="annottext">Text -&gt; Either String BudgetType
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679206125"><span class="annot"><span class="annottext">Text -&gt; Either String BudgetType
 (Text -&gt; Either String BudgetType) -&gt; FromText BudgetType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BudgetType
 $cfromText :: Text -&gt; Either String BudgetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679206113"><span class="annot"><span class="annottext">BudgetType -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679206122"><span class="annot"><span class="annottext">BudgetType -&gt; Text
 (BudgetType -&gt; Text) -&gt; ToText BudgetType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BudgetType -&gt; Text
 $ctoText :: BudgetType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679206110"><span class="annot"><span class="annottext">BudgetType -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679206119"><span class="annot"><span class="annottext">BudgetType -&gt; ByteString
 (BudgetType -&gt; ByteString) -&gt; ToByteString BudgetType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BudgetType -&gt; ByteString
 $ctoBS :: BudgetType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679206107"><span class="annot"><span class="annottext">BudgetType -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679206116"><span class="annot"><span class="annottext">BudgetType -&gt; ByteStringBuilder
 (BudgetType -&gt; ByteStringBuilder) -&gt; ToLog BudgetType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BudgetType -&gt; ByteStringBuilder
 $cbuild :: BudgetType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679206104"><span class="annot"><span class="annottext">HeaderName -&gt; BudgetType -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679206113"><span class="annot"><span class="annottext">HeaderName -&gt; BudgetType -&gt; [Header]
 (HeaderName -&gt; BudgetType -&gt; [Header]) -&gt; ToHeader BudgetType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BudgetType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BudgetType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679206101"><span class="annot"><span class="annottext">BudgetType -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679206110"><span class="annot"><span class="annottext">BudgetType -&gt; QueryString
 (BudgetType -&gt; QueryString) -&gt; ToQuery BudgetType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BudgetType -&gt; QueryString
 $ctoQuery :: BudgetType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679206096"><span id="local-6989586621679206098"><span class="annot"><span class="annottext">Value -&gt; Parser [BudgetType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679206105"><span id="local-6989586621679206107"><span class="annot"><span class="annottext">Value -&gt; Parser [BudgetType]
 Value -&gt; Parser BudgetType
 (Value -&gt; Parser BudgetType)
 -&gt; (Value -&gt; Parser [BudgetType]) -&gt; FromJSON BudgetType
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [BudgetType]
 parseJSON :: Value -&gt; Parser BudgetType
 $cparseJSON :: Value -&gt; Parser BudgetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679206091"><span id="local-6989586621679206093"><span class="annot"><span class="annottext">FromJSONKeyFunction [BudgetType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679206100"><span id="local-6989586621679206102"><span class="annot"><span class="annottext">FromJSONKeyFunction [BudgetType]
 FromJSONKeyFunction BudgetType
 FromJSONKeyFunction BudgetType
 -&gt; FromJSONKeyFunction [BudgetType] -&gt; FromJSONKey BudgetType
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BudgetType]
 fromJSONKey :: FromJSONKeyFunction BudgetType
 $cfromJSONKey :: FromJSONKeyFunction BudgetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679206082"><span id="local-6989586621679206084"><span id="local-6989586621679206086"><span id="local-6989586621679206088"><span class="annot"><span class="annottext">[BudgetType] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679206091"><span id="local-6989586621679206093"><span id="local-6989586621679206095"><span id="local-6989586621679206097"><span class="annot"><span class="annottext">[BudgetType] -&gt; Encoding
 [BudgetType] -&gt; Value
 BudgetType -&gt; Encoding
 BudgetType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: BudgetType -&gt; Encoding
 toJSON :: BudgetType -&gt; Value
 $ctoJSON :: BudgetType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679206077"><span id="local-6989586621679206079"><span class="annot"><span class="annottext">ToJSONKeyFunction [BudgetType]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679206086"><span id="local-6989586621679206088"><span class="annot"><span class="annottext">ToJSONKeyFunction [BudgetType]
 ToJSONKeyFunction BudgetType
 ToJSONKeyFunction BudgetType
 -&gt; ToJSONKeyFunction [BudgetType] -&gt; ToJSONKey BudgetType
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BudgetType]
 toJSONKey :: ToJSONKeyFunction BudgetType
 $ctoJSONKey :: ToJSONKeyFunction BudgetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679206074"><span class="annot"><span class="annottext">[Node] -&gt; Either String BudgetType
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679206083"><span class="annot"><span class="annottext">[Node] -&gt; Either String BudgetType
 ([Node] -&gt; Either String BudgetType) -&gt; FromXML BudgetType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BudgetType
 $cparseXML :: [Node] -&gt; Either String BudgetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679206071"><span class="annot"><span class="annottext">BudgetType -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679206080"><span class="annot"><span class="annottext">BudgetType -&gt; XML
 (BudgetType -&gt; XML) -&gt; ToXML BudgetType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BudgetType -&gt; XML

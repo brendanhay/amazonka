@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- it\'s @ InstanceRole @ .</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAdditionalLimit' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679293086"><span id="local-6989586621679293087"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdditionalLimit"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-var">AdditionalLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdditionalLimit%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-var">AdditionalLimit'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679293095"><span id="local-6989586621679293096"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdditionalLimit"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-var">AdditionalLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdditionalLimit%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-var">AdditionalLimit'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of Additional Limit is specific to a given InstanceType and for</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- each of it\'s @ InstanceRole @ etc.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Attributes and their details:</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AlimitValues%3AAdditionalLimit%27"><span class="annot"><span class="annottext">AdditionalLimit -&gt; Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#%24sel%3AlimitValues%3AAdditionalLimit%27"><span class="hs-identifier hs-var hs-var">limitValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293079"><span id="local-6989586621679293081"><span class="annot"><span class="annottext">AdditionalLimit -&gt; AdditionalLimit -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293088"><span id="local-6989586621679293090"><span class="annot"><span class="annottext">AdditionalLimit -&gt; AdditionalLimit -&gt; Bool
 (AdditionalLimit -&gt; AdditionalLimit -&gt; Bool)
 -&gt; (AdditionalLimit -&gt; AdditionalLimit -&gt; Bool)
 -&gt; Eq AdditionalLimit
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdditionalLimit -&gt; AdditionalLimit -&gt; Bool
 == :: AdditionalLimit -&gt; AdditionalLimit -&gt; Bool
 $c== :: AdditionalLimit -&gt; AdditionalLimit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293070"><span id="local-6989586621679293072"><span id="local-6989586621679293074"><span id="local-6989586621679293076"><span class="annot"><span class="annottext">ReadPrec [AdditionalLimit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293079"><span id="local-6989586621679293081"><span id="local-6989586621679293083"><span id="local-6989586621679293085"><span class="annot"><span class="annottext">ReadPrec [AdditionalLimit]
 ReadPrec AdditionalLimit
 Int -&gt; ReadS AdditionalLimit
 ReadS [AdditionalLimit]
@@ -69,7 +69,7 @@ readList :: ReadS [AdditionalLimit]
 $creadList :: ReadS [AdditionalLimit]
 readsPrec :: Int -&gt; ReadS AdditionalLimit
 $creadsPrec :: Int -&gt; ReadS AdditionalLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293063"><span id="local-6989586621679293065"><span id="local-6989586621679293067"><span class="annot"><span class="annottext">Int -&gt; AdditionalLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293072"><span id="local-6989586621679293074"><span id="local-6989586621679293076"><span class="annot"><span class="annottext">Int -&gt; AdditionalLimit -&gt; ShowS
 [AdditionalLimit] -&gt; ShowS
 AdditionalLimit -&gt; String
 (Int -&gt; AdditionalLimit -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (AdditionalLimit -&gt; Maybe Text -&gt; AdditionalLimit)
 -&gt; Lens AdditionalLimit AdditionalLimit (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293054"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293063"><span class="annot"><span class="annottext">Maybe Text
 limitName :: Maybe Text
 $sel:limitName:AdditionalLimit' :: AdditionalLimit -&gt; Maybe Text
-</span><a href="#local-6989586621679293054"><span class="hs-identifier hs-var hs-var">limitName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293054"><span class="hs-identifier hs-var">limitName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293053"><span class="annot"><span class="annottext">s :: AdditionalLimit
-</span><a href="#local-6989586621679293053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293052"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalLimit
-</span><a href="#local-6989586621679293053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitName:AdditionalLimit' :: Maybe Text
+</span><a href="#local-6989586621679293063"><span class="hs-identifier hs-var hs-var">limitName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293063"><span class="hs-identifier hs-var">limitName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293062"><span class="annot"><span class="annottext">s :: AdditionalLimit
+</span><a href="#local-6989586621679293062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293061"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalLimit
+</span><a href="#local-6989586621679293062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitName:AdditionalLimit' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#%24sel%3AlimitName%3AAdditionalLimit%27"><span class="hs-identifier hs-var">limitName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Value for given @ AdditionalLimit$LimitName @ .</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#additionalLimit_limitValues"><span class="hs-identifier hs-type">additionalLimit_limitValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ $sel:limitName:AdditionalLimit' :: AdditionalLimit -&gt; Maybe Text
 -&gt; Lens
      AdditionalLimit AdditionalLimit (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293050"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293059"><span class="annot"><span class="annottext">Maybe [Text]
 limitValues :: Maybe [Text]
 $sel:limitValues:AdditionalLimit' :: AdditionalLimit -&gt; Maybe [Text]
-</span><a href="#local-6989586621679293050"><span class="hs-identifier hs-var hs-var">limitValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679293050"><span class="hs-identifier hs-var">limitValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293049"><span class="annot"><span class="annottext">s :: AdditionalLimit
-</span><a href="#local-6989586621679293049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293048"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679293048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalLimit
-</span><a href="#local-6989586621679293049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitValues:AdditionalLimit' :: Maybe [Text]
+</span><a href="#local-6989586621679293059"><span class="hs-identifier hs-var hs-var">limitValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679293059"><span class="hs-identifier hs-var">limitValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293058"><span class="annot"><span class="annottext">s :: AdditionalLimit
+</span><a href="#local-6989586621679293058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-type">AdditionalLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293057"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679293057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalLimit
+</span><a href="#local-6989586621679293058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitValues:AdditionalLimit' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#%24sel%3AlimitValues%3AAdditionalLimit%27"><span class="hs-identifier hs-var">limitValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679293048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679293057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AdditionalLimit -&gt; f AdditionalLimit)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -186,8 +186,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293042"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679293040"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdditionalLimit
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293051"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679293049"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdditionalLimit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AdditionalLimit)
@@ -197,15 +197,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AdditionalLimit&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293037"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293046"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; AdditionalLimit
 </span><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit%27"><span class="hs-identifier hs-var">AdditionalLimit'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; AdditionalLimit)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; AdditionalLimit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679293046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LimitName&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,7 +213,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser AdditionalLimit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679293046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LimitValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -224,7 +224,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293030"><span id="local-6989586621679293032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293039"><span id="local-6989586621679293041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdditionalLimit.html#AdditionalLimit"><span class="hs-identifier hs-type">AdditionalLimit</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

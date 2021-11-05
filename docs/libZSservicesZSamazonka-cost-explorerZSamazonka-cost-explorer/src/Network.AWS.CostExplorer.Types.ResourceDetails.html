@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Details on the resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679334658"><span id="local-6989586621679334659"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDetails"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-var">ResourceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDetails%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails%27"><span class="hs-identifier hs-var">ResourceDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679334667"><span id="local-6989586621679334668"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDetails"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-var">ResourceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDetails%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails%27"><span class="hs-identifier hs-var">ResourceDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details on the Amazon EC2 resource.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AeC2ResourceDetails%3AResourceDetails%27"><span class="annot"><span class="annottext">ResourceDetails -&gt; Maybe EC2ResourceDetails
 </span><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#%24sel%3AeC2ResourceDetails%3AResourceDetails%27"><span class="hs-identifier hs-var hs-var">eC2ResourceDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceDetails.html#EC2ResourceDetails"><span class="hs-identifier hs-type">EC2ResourceDetails</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334652"><span id="local-6989586621679334654"><span class="annot"><span class="annottext">ResourceDetails -&gt; ResourceDetails -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334661"><span id="local-6989586621679334663"><span class="annot"><span class="annottext">ResourceDetails -&gt; ResourceDetails -&gt; Bool
 (ResourceDetails -&gt; ResourceDetails -&gt; Bool)
 -&gt; (ResourceDetails -&gt; ResourceDetails -&gt; Bool)
 -&gt; Eq ResourceDetails
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceDetails -&gt; ResourceDetails -&gt; Bool
 == :: ResourceDetails -&gt; ResourceDetails -&gt; Bool
 $c== :: ResourceDetails -&gt; ResourceDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334643"><span id="local-6989586621679334645"><span id="local-6989586621679334647"><span id="local-6989586621679334649"><span class="annot"><span class="annottext">ReadPrec [ResourceDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334652"><span id="local-6989586621679334654"><span id="local-6989586621679334656"><span id="local-6989586621679334658"><span class="annot"><span class="annottext">ReadPrec [ResourceDetails]
 ReadPrec ResourceDetails
 Int -&gt; ReadS ResourceDetails
 ReadS [ResourceDetails]
@@ -61,7 +61,7 @@ readList :: ReadS [ResourceDetails]
 $creadList :: ReadS [ResourceDetails]
 readsPrec :: Int -&gt; ReadS ResourceDetails
 $creadsPrec :: Int -&gt; ReadS ResourceDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334636"><span id="local-6989586621679334638"><span id="local-6989586621679334640"><span class="annot"><span class="annottext">Int -&gt; ResourceDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334645"><span id="local-6989586621679334647"><span id="local-6989586621679334649"><span class="annot"><span class="annottext">Int -&gt; ResourceDetails -&gt; ShowS
 [ResourceDetails] -&gt; ShowS
 ResourceDetails -&gt; String
 (Int -&gt; ResourceDetails -&gt; ShowS)
@@ -121,19 +121,19 @@ forall a. Maybe a
      (Maybe EC2ResourceDetails)
      (Maybe EC2ResourceDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails%27"><span class="hs-identifier hs-type">ResourceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334627"><span class="annot"><span class="annottext">Maybe EC2ResourceDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails%27"><span class="hs-identifier hs-type">ResourceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334636"><span class="annot"><span class="annottext">Maybe EC2ResourceDetails
 eC2ResourceDetails :: Maybe EC2ResourceDetails
 $sel:eC2ResourceDetails:ResourceDetails' :: ResourceDetails -&gt; Maybe EC2ResourceDetails
-</span><a href="#local-6989586621679334627"><span class="hs-identifier hs-var hs-var">eC2ResourceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ResourceDetails
-</span><a href="#local-6989586621679334627"><span class="hs-identifier hs-var">eC2ResourceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334626"><span class="annot"><span class="annottext">s :: ResourceDetails
-</span><a href="#local-6989586621679334626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails%27"><span class="hs-identifier hs-type">ResourceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334625"><span class="annot"><span class="annottext">Maybe EC2ResourceDetails
-</span><a href="#local-6989586621679334625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDetails
-</span><a href="#local-6989586621679334626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2ResourceDetails:ResourceDetails' :: Maybe EC2ResourceDetails
+</span><a href="#local-6989586621679334636"><span class="hs-identifier hs-var hs-var">eC2ResourceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ResourceDetails
+</span><a href="#local-6989586621679334636"><span class="hs-identifier hs-var">eC2ResourceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334635"><span class="annot"><span class="annottext">s :: ResourceDetails
+</span><a href="#local-6989586621679334635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails%27"><span class="hs-identifier hs-type">ResourceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334634"><span class="annot"><span class="annottext">Maybe EC2ResourceDetails
+</span><a href="#local-6989586621679334634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDetails
+</span><a href="#local-6989586621679334635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2ResourceDetails:ResourceDetails' :: Maybe EC2ResourceDetails
 </span><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#%24sel%3AeC2ResourceDetails%3AResourceDetails%27"><span class="hs-identifier hs-var">eC2ResourceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ResourceDetails
-</span><a href="#local-6989586621679334625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334622"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679334620"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceDetails
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334631"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679334629"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceDetails)
@@ -143,21 +143,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceDetails&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334617"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334617"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334626"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe EC2ResourceDetails -&gt; ResourceDetails
 </span><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails%27"><span class="hs-identifier hs-var">ResourceDetails'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EC2ResourceDetails -&gt; ResourceDetails)
 -&gt; Parser (Maybe EC2ResourceDetails) -&gt; Parser ResourceDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334617"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2ResourceDetails)
+</span><a href="#local-6989586621679334626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2ResourceDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2ResourceDetails&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334611"><span id="local-6989586621679334613"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334620"><span id="local-6989586621679334622"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334617"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

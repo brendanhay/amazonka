@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679236596"><span id="local-6989586621679236597"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PeriodTriggersElement"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PeriodTriggersElement.html#PeriodTriggersElement"><span class="hs-identifier hs-var">PeriodTriggersElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PeriodTriggersElement%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PeriodTriggersElement.html#PeriodTriggersElement%27"><span class="hs-identifier hs-var">PeriodTriggersElement'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679236605"><span id="local-6989586621679236606"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PeriodTriggersElement"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PeriodTriggersElement.html#PeriodTriggersElement"><span class="hs-identifier hs-var">PeriodTriggersElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PeriodTriggersElement%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PeriodTriggersElement.html#PeriodTriggersElement%27"><span class="hs-identifier hs-var">PeriodTriggersElement'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPeriodTriggersElement"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.PeriodTriggersElement.html#fromPeriodTriggersElement"><span class="hs-identifier hs-var hs-var">fromPeriodTriggersElement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236588"><span id="local-6989586621679236590"><span id="local-6989586621679236592"><span class="annot"><span class="annottext">Int -&gt; PeriodTriggersElement -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236597"><span id="local-6989586621679236599"><span id="local-6989586621679236601"><span class="annot"><span class="annottext">Int -&gt; PeriodTriggersElement -&gt; ShowS
 [PeriodTriggersElement] -&gt; ShowS
 PeriodTriggersElement -&gt; String
 (Int -&gt; PeriodTriggersElement -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: PeriodTriggersElement -&gt; String
 showsPrec :: Int -&gt; PeriodTriggersElement -&gt; ShowS
 $cshowsPrec :: Int -&gt; PeriodTriggersElement -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679236579"><span id="local-6989586621679236581"><span id="local-6989586621679236583"><span id="local-6989586621679236585"><span class="annot"><span class="annottext">ReadPrec [PeriodTriggersElement]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679236588"><span id="local-6989586621679236590"><span id="local-6989586621679236592"><span id="local-6989586621679236594"><span class="annot"><span class="annottext">ReadPrec [PeriodTriggersElement]
 ReadPrec PeriodTriggersElement
 Int -&gt; ReadS PeriodTriggersElement
 ReadS [PeriodTriggersElement]
@@ -71,7 +71,7 @@ $creadList :: ReadS [PeriodTriggersElement]
 readsPrec :: Int -&gt; ReadS PeriodTriggersElement
 $creadsPrec :: Int -&gt; ReadS PeriodTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679236574"><span id="local-6989586621679236576"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679236583"><span id="local-6989586621679236585"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool
 (PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool)
 -&gt; (PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool)
 -&gt; Eq PeriodTriggersElement
@@ -81,7 +81,7 @@ $c/= :: PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool
 == :: PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool
 $c== :: PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236558"><span id="local-6989586621679236560"><span id="local-6989586621679236562"><span id="local-6989586621679236564"><span id="local-6989586621679236566"><span id="local-6989586621679236568"><span id="local-6989586621679236570"><span class="annot"><span class="annottext">Eq PeriodTriggersElement
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236567"><span id="local-6989586621679236569"><span id="local-6989586621679236571"><span id="local-6989586621679236573"><span id="local-6989586621679236575"><span id="local-6989586621679236577"><span id="local-6989586621679236579"><span class="annot"><span class="annottext">Eq PeriodTriggersElement
 Eq PeriodTriggersElement
 -&gt; (PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Ordering)
 -&gt; (PeriodTriggersElement -&gt; PeriodTriggersElement -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. PeriodTriggersElement -&gt; Rep PeriodTriggersElement x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236550"><span id="local-6989586621679236552"><span class="annot"><span class="annottext">Int -&gt; PeriodTriggersElement -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236559"><span id="local-6989586621679236561"><span class="annot"><span class="annottext">Int -&gt; PeriodTriggersElement -&gt; Int
 PeriodTriggersElement -&gt; Int
 (Int -&gt; PeriodTriggersElement -&gt; Int)
 -&gt; (PeriodTriggersElement -&gt; Int) -&gt; Hashable PeriodTriggersElement
@@ -149,54 +149,54 @@ $chash :: PeriodTriggersElement -&gt; Int
 hashWithSalt :: Int -&gt; PeriodTriggersElement -&gt; Int
 $chashWithSalt :: Int -&gt; PeriodTriggersElement -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679236547"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679236556"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; ()
 (PeriodTriggersElement -&gt; ()) -&gt; NFData PeriodTriggersElement
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PeriodTriggersElement -&gt; ()
 $crnf :: PeriodTriggersElement -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679236544"><span class="annot"><span class="annottext">Text -&gt; Either String PeriodTriggersElement
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679236553"><span class="annot"><span class="annottext">Text -&gt; Either String PeriodTriggersElement
 (Text -&gt; Either String PeriodTriggersElement)
 -&gt; FromText PeriodTriggersElement
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PeriodTriggersElement
 $cfromText :: Text -&gt; Either String PeriodTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236541"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236550"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; Text
 (PeriodTriggersElement -&gt; Text) -&gt; ToText PeriodTriggersElement
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PeriodTriggersElement -&gt; Text
 $ctoText :: PeriodTriggersElement -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236538"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236547"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; ByteString
 (PeriodTriggersElement -&gt; ByteString)
 -&gt; ToByteString PeriodTriggersElement
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PeriodTriggersElement -&gt; ByteString
 $ctoBS :: PeriodTriggersElement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236535"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236544"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; ByteStringBuilder
 (PeriodTriggersElement -&gt; ByteStringBuilder)
 -&gt; ToLog PeriodTriggersElement
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PeriodTriggersElement -&gt; ByteStringBuilder
 $cbuild :: PeriodTriggersElement -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236532"><span class="annot"><span class="annottext">HeaderName -&gt; PeriodTriggersElement -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236541"><span class="annot"><span class="annottext">HeaderName -&gt; PeriodTriggersElement -&gt; [Header]
 (HeaderName -&gt; PeriodTriggersElement -&gt; [Header])
 -&gt; ToHeader PeriodTriggersElement
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PeriodTriggersElement -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PeriodTriggersElement -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236529"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236538"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; QueryString
 (PeriodTriggersElement -&gt; QueryString)
 -&gt; ToQuery PeriodTriggersElement
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PeriodTriggersElement -&gt; QueryString
 $ctoQuery :: PeriodTriggersElement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236524"><span id="local-6989586621679236526"><span class="annot"><span class="annottext">Value -&gt; Parser [PeriodTriggersElement]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236533"><span id="local-6989586621679236535"><span class="annot"><span class="annottext">Value -&gt; Parser [PeriodTriggersElement]
 Value -&gt; Parser PeriodTriggersElement
 (Value -&gt; Parser PeriodTriggersElement)
 -&gt; (Value -&gt; Parser [PeriodTriggersElement])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [PeriodTriggersElement]
 parseJSON :: Value -&gt; Parser PeriodTriggersElement
 $cparseJSON :: Value -&gt; Parser PeriodTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236519"><span id="local-6989586621679236521"><span class="annot"><span class="annottext">FromJSONKeyFunction [PeriodTriggersElement]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236528"><span id="local-6989586621679236530"><span class="annot"><span class="annottext">FromJSONKeyFunction [PeriodTriggersElement]
 FromJSONKeyFunction PeriodTriggersElement
 FromJSONKeyFunction PeriodTriggersElement
 -&gt; FromJSONKeyFunction [PeriodTriggersElement]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PeriodTriggersElement]
 fromJSONKey :: FromJSONKeyFunction PeriodTriggersElement
 $cfromJSONKey :: FromJSONKeyFunction PeriodTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236510"><span id="local-6989586621679236512"><span id="local-6989586621679236514"><span id="local-6989586621679236516"><span class="annot"><span class="annottext">[PeriodTriggersElement] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236519"><span id="local-6989586621679236521"><span id="local-6989586621679236523"><span id="local-6989586621679236525"><span class="annot"><span class="annottext">[PeriodTriggersElement] -&gt; Encoding
 [PeriodTriggersElement] -&gt; Value
 PeriodTriggersElement -&gt; Encoding
 PeriodTriggersElement -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: PeriodTriggersElement -&gt; Encoding
 toJSON :: PeriodTriggersElement -&gt; Value
 $ctoJSON :: PeriodTriggersElement -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236505"><span id="local-6989586621679236507"><span class="annot"><span class="annottext">ToJSONKeyFunction [PeriodTriggersElement]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236514"><span id="local-6989586621679236516"><span class="annot"><span class="annottext">ToJSONKeyFunction [PeriodTriggersElement]
 ToJSONKeyFunction PeriodTriggersElement
 ToJSONKeyFunction PeriodTriggersElement
 -&gt; ToJSONKeyFunction [PeriodTriggersElement]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PeriodTriggersElement]
 toJSONKey :: ToJSONKeyFunction PeriodTriggersElement
 $ctoJSONKey :: ToJSONKeyFunction PeriodTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236502"><span class="annot"><span class="annottext">[Node] -&gt; Either String PeriodTriggersElement
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236511"><span class="annot"><span class="annottext">[Node] -&gt; Either String PeriodTriggersElement
 ([Node] -&gt; Either String PeriodTriggersElement)
 -&gt; FromXML PeriodTriggersElement
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PeriodTriggersElement
 $cparseXML :: [Node] -&gt; Either String PeriodTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236499"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236508"><span class="annot"><span class="annottext">PeriodTriggersElement -&gt; XML
 (PeriodTriggersElement -&gt; XML) -&gt; ToXML PeriodTriggersElement
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PeriodTriggersElement -&gt; XML

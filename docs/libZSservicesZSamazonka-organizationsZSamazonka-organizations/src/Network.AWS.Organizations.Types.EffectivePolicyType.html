@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679236800"><span id="local-6989586621679236801"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EffectivePolicyType"><span class="annot"><a href="Network.AWS.Organizations.Types.EffectivePolicyType.html#EffectivePolicyType"><span class="hs-identifier hs-var">EffectivePolicyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EffectivePolicyType%27"><span class="annot"><a href="Network.AWS.Organizations.Types.EffectivePolicyType.html#EffectivePolicyType%27"><span class="hs-identifier hs-var">EffectivePolicyType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679236809"><span id="local-6989586621679236810"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EffectivePolicyType"><span class="annot"><a href="Network.AWS.Organizations.Types.EffectivePolicyType.html#EffectivePolicyType"><span class="hs-identifier hs-var">EffectivePolicyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EffectivePolicyType%27"><span class="annot"><a href="Network.AWS.Organizations.Types.EffectivePolicyType.html#EffectivePolicyType%27"><span class="hs-identifier hs-var">EffectivePolicyType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEffectivePolicyType"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; Text
 </span><a href="Network.AWS.Organizations.Types.EffectivePolicyType.html#fromEffectivePolicyType"><span class="hs-identifier hs-var hs-var">fromEffectivePolicyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236792"><span id="local-6989586621679236794"><span id="local-6989586621679236796"><span class="annot"><span class="annottext">Int -&gt; EffectivePolicyType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236801"><span id="local-6989586621679236803"><span id="local-6989586621679236805"><span class="annot"><span class="annottext">Int -&gt; EffectivePolicyType -&gt; ShowS
 [EffectivePolicyType] -&gt; ShowS
 EffectivePolicyType -&gt; String
 (Int -&gt; EffectivePolicyType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: EffectivePolicyType -&gt; String
 showsPrec :: Int -&gt; EffectivePolicyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EffectivePolicyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236783"><span id="local-6989586621679236785"><span id="local-6989586621679236787"><span id="local-6989586621679236789"><span class="annot"><span class="annottext">ReadPrec [EffectivePolicyType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236792"><span id="local-6989586621679236794"><span id="local-6989586621679236796"><span id="local-6989586621679236798"><span class="annot"><span class="annottext">ReadPrec [EffectivePolicyType]
 ReadPrec EffectivePolicyType
 Int -&gt; ReadS EffectivePolicyType
 ReadS [EffectivePolicyType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [EffectivePolicyType]
 readsPrec :: Int -&gt; ReadS EffectivePolicyType
 $creadsPrec :: Int -&gt; ReadS EffectivePolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236778"><span id="local-6989586621679236780"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236787"><span id="local-6989586621679236789"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool
 (EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool)
 -&gt; (EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool)
 -&gt; Eq EffectivePolicyType
@@ -83,7 +83,7 @@ $c/= :: EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool
 == :: EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool
 $c== :: EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679236762"><span id="local-6989586621679236764"><span id="local-6989586621679236766"><span id="local-6989586621679236768"><span id="local-6989586621679236770"><span id="local-6989586621679236772"><span id="local-6989586621679236774"><span class="annot"><span class="annottext">Eq EffectivePolicyType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679236771"><span id="local-6989586621679236773"><span id="local-6989586621679236775"><span id="local-6989586621679236777"><span id="local-6989586621679236779"><span id="local-6989586621679236781"><span id="local-6989586621679236783"><span class="annot"><span class="annottext">Eq EffectivePolicyType
 Eq EffectivePolicyType
 -&gt; (EffectivePolicyType -&gt; EffectivePolicyType -&gt; Ordering)
 -&gt; (EffectivePolicyType -&gt; EffectivePolicyType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. EffectivePolicyType -&gt; Rep EffectivePolicyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236754"><span id="local-6989586621679236756"><span class="annot"><span class="annottext">Int -&gt; EffectivePolicyType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236763"><span id="local-6989586621679236765"><span class="annot"><span class="annottext">Int -&gt; EffectivePolicyType -&gt; Int
 EffectivePolicyType -&gt; Int
 (Int -&gt; EffectivePolicyType -&gt; Int)
 -&gt; (EffectivePolicyType -&gt; Int) -&gt; Hashable EffectivePolicyType
@@ -146,53 +146,53 @@ $chash :: EffectivePolicyType -&gt; Int
 hashWithSalt :: Int -&gt; EffectivePolicyType -&gt; Int
 $chashWithSalt :: Int -&gt; EffectivePolicyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236751"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236760"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; ()
 (EffectivePolicyType -&gt; ()) -&gt; NFData EffectivePolicyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EffectivePolicyType -&gt; ()
 $crnf :: EffectivePolicyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236748"><span class="annot"><span class="annottext">Text -&gt; Either String EffectivePolicyType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236757"><span class="annot"><span class="annottext">Text -&gt; Either String EffectivePolicyType
 (Text -&gt; Either String EffectivePolicyType)
 -&gt; FromText EffectivePolicyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EffectivePolicyType
 $cfromText :: Text -&gt; Either String EffectivePolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236745"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236754"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; Text
 (EffectivePolicyType -&gt; Text) -&gt; ToText EffectivePolicyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EffectivePolicyType -&gt; Text
 $ctoText :: EffectivePolicyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236742"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236751"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; ByteString
 (EffectivePolicyType -&gt; ByteString)
 -&gt; ToByteString EffectivePolicyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EffectivePolicyType -&gt; ByteString
 $ctoBS :: EffectivePolicyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236739"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236748"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; ByteStringBuilder
 (EffectivePolicyType -&gt; ByteStringBuilder)
 -&gt; ToLog EffectivePolicyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EffectivePolicyType -&gt; ByteStringBuilder
 $cbuild :: EffectivePolicyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236736"><span class="annot"><span class="annottext">HeaderName -&gt; EffectivePolicyType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236745"><span class="annot"><span class="annottext">HeaderName -&gt; EffectivePolicyType -&gt; [Header]
 (HeaderName -&gt; EffectivePolicyType -&gt; [Header])
 -&gt; ToHeader EffectivePolicyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EffectivePolicyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EffectivePolicyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236733"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236742"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; QueryString
 (EffectivePolicyType -&gt; QueryString) -&gt; ToQuery EffectivePolicyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EffectivePolicyType -&gt; QueryString
 $ctoQuery :: EffectivePolicyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236728"><span id="local-6989586621679236730"><span class="annot"><span class="annottext">Value -&gt; Parser [EffectivePolicyType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236737"><span id="local-6989586621679236739"><span class="annot"><span class="annottext">Value -&gt; Parser [EffectivePolicyType]
 Value -&gt; Parser EffectivePolicyType
 (Value -&gt; Parser EffectivePolicyType)
 -&gt; (Value -&gt; Parser [EffectivePolicyType])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [EffectivePolicyType]
 parseJSON :: Value -&gt; Parser EffectivePolicyType
 $cparseJSON :: Value -&gt; Parser EffectivePolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236723"><span id="local-6989586621679236725"><span class="annot"><span class="annottext">FromJSONKeyFunction [EffectivePolicyType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236732"><span id="local-6989586621679236734"><span class="annot"><span class="annottext">FromJSONKeyFunction [EffectivePolicyType]
 FromJSONKeyFunction EffectivePolicyType
 FromJSONKeyFunction EffectivePolicyType
 -&gt; FromJSONKeyFunction [EffectivePolicyType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EffectivePolicyType]
 fromJSONKey :: FromJSONKeyFunction EffectivePolicyType
 $cfromJSONKey :: FromJSONKeyFunction EffectivePolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236714"><span id="local-6989586621679236716"><span id="local-6989586621679236718"><span id="local-6989586621679236720"><span class="annot"><span class="annottext">[EffectivePolicyType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236723"><span id="local-6989586621679236725"><span id="local-6989586621679236727"><span id="local-6989586621679236729"><span class="annot"><span class="annottext">[EffectivePolicyType] -&gt; Encoding
 [EffectivePolicyType] -&gt; Value
 EffectivePolicyType -&gt; Encoding
 EffectivePolicyType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: EffectivePolicyType -&gt; Encoding
 toJSON :: EffectivePolicyType -&gt; Value
 $ctoJSON :: EffectivePolicyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236709"><span id="local-6989586621679236711"><span class="annot"><span class="annottext">ToJSONKeyFunction [EffectivePolicyType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236718"><span id="local-6989586621679236720"><span class="annot"><span class="annottext">ToJSONKeyFunction [EffectivePolicyType]
 ToJSONKeyFunction EffectivePolicyType
 ToJSONKeyFunction EffectivePolicyType
 -&gt; ToJSONKeyFunction [EffectivePolicyType]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EffectivePolicyType]
 toJSONKey :: ToJSONKeyFunction EffectivePolicyType
 $ctoJSONKey :: ToJSONKeyFunction EffectivePolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236706"><span class="annot"><span class="annottext">[Node] -&gt; Either String EffectivePolicyType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236715"><span class="annot"><span class="annottext">[Node] -&gt; Either String EffectivePolicyType
 ([Node] -&gt; Either String EffectivePolicyType)
 -&gt; FromXML EffectivePolicyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EffectivePolicyType
 $cparseXML :: [Node] -&gt; Either String EffectivePolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679236703"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679236712"><span class="annot"><span class="annottext">EffectivePolicyType -&gt; XML
 (EffectivePolicyType -&gt; XML) -&gt; ToXML EffectivePolicyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EffectivePolicyType -&gt; XML

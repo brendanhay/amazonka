@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679301632"><span id="local-6989586621679301633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrustDirection"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustDirection.html#TrustDirection"><span class="hs-identifier hs-var">TrustDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrustDirection%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustDirection.html#TrustDirection%27"><span class="hs-identifier hs-var">TrustDirection'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679301641"><span id="local-6989586621679301642"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrustDirection"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustDirection.html#TrustDirection"><span class="hs-identifier hs-var">TrustDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrustDirection%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustDirection.html#TrustDirection%27"><span class="hs-identifier hs-var">TrustDirection'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrustDirection"><span class="annot"><span class="annottext">TrustDirection -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.TrustDirection.html#fromTrustDirection"><span class="hs-identifier hs-var hs-var">fromTrustDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301624"><span id="local-6989586621679301626"><span id="local-6989586621679301628"><span class="annot"><span class="annottext">Int -&gt; TrustDirection -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301633"><span id="local-6989586621679301635"><span id="local-6989586621679301637"><span class="annot"><span class="annottext">Int -&gt; TrustDirection -&gt; ShowS
 [TrustDirection] -&gt; ShowS
 TrustDirection -&gt; String
 (Int -&gt; TrustDirection -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TrustDirection -&gt; String
 showsPrec :: Int -&gt; TrustDirection -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrustDirection -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679301615"><span id="local-6989586621679301617"><span id="local-6989586621679301619"><span id="local-6989586621679301621"><span class="annot"><span class="annottext">ReadPrec [TrustDirection]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679301624"><span id="local-6989586621679301626"><span id="local-6989586621679301628"><span id="local-6989586621679301630"><span class="annot"><span class="annottext">ReadPrec [TrustDirection]
 ReadPrec TrustDirection
 Int -&gt; ReadS TrustDirection
 ReadS [TrustDirection]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TrustDirection]
 readsPrec :: Int -&gt; ReadS TrustDirection
 $creadsPrec :: Int -&gt; ReadS TrustDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301610"><span id="local-6989586621679301612"><span class="annot"><span class="annottext">TrustDirection -&gt; TrustDirection -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301619"><span id="local-6989586621679301621"><span class="annot"><span class="annottext">TrustDirection -&gt; TrustDirection -&gt; Bool
 (TrustDirection -&gt; TrustDirection -&gt; Bool)
 -&gt; (TrustDirection -&gt; TrustDirection -&gt; Bool) -&gt; Eq TrustDirection
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: TrustDirection -&gt; TrustDirection -&gt; Bool
 == :: TrustDirection -&gt; TrustDirection -&gt; Bool
 $c== :: TrustDirection -&gt; TrustDirection -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679301594"><span id="local-6989586621679301596"><span id="local-6989586621679301598"><span id="local-6989586621679301600"><span id="local-6989586621679301602"><span id="local-6989586621679301604"><span id="local-6989586621679301606"><span class="annot"><span class="annottext">Eq TrustDirection
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679301603"><span id="local-6989586621679301605"><span id="local-6989586621679301607"><span id="local-6989586621679301609"><span id="local-6989586621679301611"><span id="local-6989586621679301613"><span id="local-6989586621679301615"><span class="annot"><span class="annottext">Eq TrustDirection
 Eq TrustDirection
 -&gt; (TrustDirection -&gt; TrustDirection -&gt; Ordering)
 -&gt; (TrustDirection -&gt; TrustDirection -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TrustDirection -&gt; Rep TrustDirection x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301586"><span id="local-6989586621679301588"><span class="annot"><span class="annottext">Int -&gt; TrustDirection -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301595"><span id="local-6989586621679301597"><span class="annot"><span class="annottext">Int -&gt; TrustDirection -&gt; Int
 TrustDirection -&gt; Int
 (Int -&gt; TrustDirection -&gt; Int)
 -&gt; (TrustDirection -&gt; Int) -&gt; Hashable TrustDirection
@@ -143,50 +143,50 @@ $chash :: TrustDirection -&gt; Int
 hashWithSalt :: Int -&gt; TrustDirection -&gt; Int
 $chashWithSalt :: Int -&gt; TrustDirection -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301583"><span class="annot"><span class="annottext">TrustDirection -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301592"><span class="annot"><span class="annottext">TrustDirection -&gt; ()
 (TrustDirection -&gt; ()) -&gt; NFData TrustDirection
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrustDirection -&gt; ()
 $crnf :: TrustDirection -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301580"><span class="annot"><span class="annottext">Text -&gt; Either String TrustDirection
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301589"><span class="annot"><span class="annottext">Text -&gt; Either String TrustDirection
 (Text -&gt; Either String TrustDirection) -&gt; FromText TrustDirection
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrustDirection
 $cfromText :: Text -&gt; Either String TrustDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301577"><span class="annot"><span class="annottext">TrustDirection -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301586"><span class="annot"><span class="annottext">TrustDirection -&gt; Text
 (TrustDirection -&gt; Text) -&gt; ToText TrustDirection
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrustDirection -&gt; Text
 $ctoText :: TrustDirection -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301574"><span class="annot"><span class="annottext">TrustDirection -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301583"><span class="annot"><span class="annottext">TrustDirection -&gt; ByteString
 (TrustDirection -&gt; ByteString) -&gt; ToByteString TrustDirection
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrustDirection -&gt; ByteString
 $ctoBS :: TrustDirection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301571"><span class="annot"><span class="annottext">TrustDirection -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301580"><span class="annot"><span class="annottext">TrustDirection -&gt; ByteStringBuilder
 (TrustDirection -&gt; ByteStringBuilder) -&gt; ToLog TrustDirection
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrustDirection -&gt; ByteStringBuilder
 $cbuild :: TrustDirection -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301568"><span class="annot"><span class="annottext">HeaderName -&gt; TrustDirection -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301577"><span class="annot"><span class="annottext">HeaderName -&gt; TrustDirection -&gt; [Header]
 (HeaderName -&gt; TrustDirection -&gt; [Header])
 -&gt; ToHeader TrustDirection
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrustDirection -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrustDirection -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301565"><span class="annot"><span class="annottext">TrustDirection -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301574"><span class="annot"><span class="annottext">TrustDirection -&gt; QueryString
 (TrustDirection -&gt; QueryString) -&gt; ToQuery TrustDirection
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrustDirection -&gt; QueryString
 $ctoQuery :: TrustDirection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301560"><span id="local-6989586621679301562"><span class="annot"><span class="annottext">Value -&gt; Parser [TrustDirection]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301569"><span id="local-6989586621679301571"><span class="annot"><span class="annottext">Value -&gt; Parser [TrustDirection]
 Value -&gt; Parser TrustDirection
 (Value -&gt; Parser TrustDirection)
 -&gt; (Value -&gt; Parser [TrustDirection]) -&gt; FromJSON TrustDirection
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [TrustDirection]
 parseJSON :: Value -&gt; Parser TrustDirection
 $cparseJSON :: Value -&gt; Parser TrustDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301555"><span id="local-6989586621679301557"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrustDirection]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301564"><span id="local-6989586621679301566"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrustDirection]
 FromJSONKeyFunction TrustDirection
 FromJSONKeyFunction TrustDirection
 -&gt; FromJSONKeyFunction [TrustDirection]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrustDirection]
 fromJSONKey :: FromJSONKeyFunction TrustDirection
 $cfromJSONKey :: FromJSONKeyFunction TrustDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301546"><span id="local-6989586621679301548"><span id="local-6989586621679301550"><span id="local-6989586621679301552"><span class="annot"><span class="annottext">[TrustDirection] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301555"><span id="local-6989586621679301557"><span id="local-6989586621679301559"><span id="local-6989586621679301561"><span class="annot"><span class="annottext">[TrustDirection] -&gt; Encoding
 [TrustDirection] -&gt; Value
 TrustDirection -&gt; Encoding
 TrustDirection -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: TrustDirection -&gt; Encoding
 toJSON :: TrustDirection -&gt; Value
 $ctoJSON :: TrustDirection -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301541"><span id="local-6989586621679301543"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrustDirection]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301550"><span id="local-6989586621679301552"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrustDirection]
 ToJSONKeyFunction TrustDirection
 ToJSONKeyFunction TrustDirection
 -&gt; ToJSONKeyFunction [TrustDirection] -&gt; ToJSONKey TrustDirection
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrustDirection]
 toJSONKey :: ToJSONKeyFunction TrustDirection
 $ctoJSONKey :: ToJSONKeyFunction TrustDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301538"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrustDirection
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301547"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrustDirection
 ([Node] -&gt; Either String TrustDirection) -&gt; FromXML TrustDirection
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrustDirection
 $cparseXML :: [Node] -&gt; Either String TrustDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301535"><span class="annot"><span class="annottext">TrustDirection -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301544"><span class="annot"><span class="annottext">TrustDirection -&gt; XML
 (TrustDirection -&gt; XML) -&gt; ToXML TrustDirection
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TrustDirection -&gt; XML

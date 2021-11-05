@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679177296"><span id="local-6989586621679177297"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredictiveScalingMode"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode.html#PredictiveScalingMode"><span class="hs-identifier hs-var">PredictiveScalingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredictiveScalingMode%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode.html#PredictiveScalingMode%27"><span class="hs-identifier hs-var">PredictiveScalingMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679177305"><span id="local-6989586621679177306"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredictiveScalingMode"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode.html#PredictiveScalingMode"><span class="hs-identifier hs-var">PredictiveScalingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredictiveScalingMode%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode.html#PredictiveScalingMode%27"><span class="hs-identifier hs-var">PredictiveScalingMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPredictiveScalingMode"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode.html#fromPredictiveScalingMode"><span class="hs-identifier hs-var hs-var">fromPredictiveScalingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177288"><span id="local-6989586621679177290"><span id="local-6989586621679177292"><span class="annot"><span class="annottext">Int -&gt; PredictiveScalingMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177297"><span id="local-6989586621679177299"><span id="local-6989586621679177301"><span class="annot"><span class="annottext">Int -&gt; PredictiveScalingMode -&gt; ShowS
 [PredictiveScalingMode] -&gt; ShowS
 PredictiveScalingMode -&gt; String
 (Int -&gt; PredictiveScalingMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PredictiveScalingMode -&gt; String
 showsPrec :: Int -&gt; PredictiveScalingMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; PredictiveScalingMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679177279"><span id="local-6989586621679177281"><span id="local-6989586621679177283"><span id="local-6989586621679177285"><span class="annot"><span class="annottext">ReadPrec [PredictiveScalingMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679177288"><span id="local-6989586621679177290"><span id="local-6989586621679177292"><span id="local-6989586621679177294"><span class="annot"><span class="annottext">ReadPrec [PredictiveScalingMode]
 ReadPrec PredictiveScalingMode
 Int -&gt; ReadS PredictiveScalingMode
 ReadS [PredictiveScalingMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PredictiveScalingMode]
 readsPrec :: Int -&gt; ReadS PredictiveScalingMode
 $creadsPrec :: Int -&gt; ReadS PredictiveScalingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679177274"><span id="local-6989586621679177276"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679177283"><span id="local-6989586621679177285"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool
 (PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool)
 -&gt; (PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool)
 -&gt; Eq PredictiveScalingMode
@@ -82,7 +82,7 @@ $c/= :: PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool
 == :: PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool
 $c== :: PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679177258"><span id="local-6989586621679177260"><span id="local-6989586621679177262"><span id="local-6989586621679177264"><span id="local-6989586621679177266"><span id="local-6989586621679177268"><span id="local-6989586621679177270"><span class="annot"><span class="annottext">Eq PredictiveScalingMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679177267"><span id="local-6989586621679177269"><span id="local-6989586621679177271"><span id="local-6989586621679177273"><span id="local-6989586621679177275"><span id="local-6989586621679177277"><span id="local-6989586621679177279"><span class="annot"><span class="annottext">Eq PredictiveScalingMode
 Eq PredictiveScalingMode
 -&gt; (PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Ordering)
 -&gt; (PredictiveScalingMode -&gt; PredictiveScalingMode -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. PredictiveScalingMode -&gt; Rep PredictiveScalingMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177250"><span id="local-6989586621679177252"><span class="annot"><span class="annottext">Int -&gt; PredictiveScalingMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177259"><span id="local-6989586621679177261"><span class="annot"><span class="annottext">Int -&gt; PredictiveScalingMode -&gt; Int
 PredictiveScalingMode -&gt; Int
 (Int -&gt; PredictiveScalingMode -&gt; Int)
 -&gt; (PredictiveScalingMode -&gt; Int) -&gt; Hashable PredictiveScalingMode
@@ -150,54 +150,54 @@ $chash :: PredictiveScalingMode -&gt; Int
 hashWithSalt :: Int -&gt; PredictiveScalingMode -&gt; Int
 $chashWithSalt :: Int -&gt; PredictiveScalingMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679177247"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679177256"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; ()
 (PredictiveScalingMode -&gt; ()) -&gt; NFData PredictiveScalingMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PredictiveScalingMode -&gt; ()
 $crnf :: PredictiveScalingMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679177244"><span class="annot"><span class="annottext">Text -&gt; Either String PredictiveScalingMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679177253"><span class="annot"><span class="annottext">Text -&gt; Either String PredictiveScalingMode
 (Text -&gt; Either String PredictiveScalingMode)
 -&gt; FromText PredictiveScalingMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PredictiveScalingMode
 $cfromText :: Text -&gt; Either String PredictiveScalingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679177241"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679177250"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; Text
 (PredictiveScalingMode -&gt; Text) -&gt; ToText PredictiveScalingMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PredictiveScalingMode -&gt; Text
 $ctoText :: PredictiveScalingMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679177238"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679177247"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; ByteString
 (PredictiveScalingMode -&gt; ByteString)
 -&gt; ToByteString PredictiveScalingMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PredictiveScalingMode -&gt; ByteString
 $ctoBS :: PredictiveScalingMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679177235"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679177244"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; ByteStringBuilder
 (PredictiveScalingMode -&gt; ByteStringBuilder)
 -&gt; ToLog PredictiveScalingMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PredictiveScalingMode -&gt; ByteStringBuilder
 $cbuild :: PredictiveScalingMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679177232"><span class="annot"><span class="annottext">HeaderName -&gt; PredictiveScalingMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679177241"><span class="annot"><span class="annottext">HeaderName -&gt; PredictiveScalingMode -&gt; [Header]
 (HeaderName -&gt; PredictiveScalingMode -&gt; [Header])
 -&gt; ToHeader PredictiveScalingMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PredictiveScalingMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PredictiveScalingMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679177229"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679177238"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; QueryString
 (PredictiveScalingMode -&gt; QueryString)
 -&gt; ToQuery PredictiveScalingMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PredictiveScalingMode -&gt; QueryString
 $ctoQuery :: PredictiveScalingMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679177224"><span id="local-6989586621679177226"><span class="annot"><span class="annottext">Value -&gt; Parser [PredictiveScalingMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679177233"><span id="local-6989586621679177235"><span class="annot"><span class="annottext">Value -&gt; Parser [PredictiveScalingMode]
 Value -&gt; Parser PredictiveScalingMode
 (Value -&gt; Parser PredictiveScalingMode)
 -&gt; (Value -&gt; Parser [PredictiveScalingMode])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [PredictiveScalingMode]
 parseJSON :: Value -&gt; Parser PredictiveScalingMode
 $cparseJSON :: Value -&gt; Parser PredictiveScalingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679177219"><span id="local-6989586621679177221"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredictiveScalingMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679177228"><span id="local-6989586621679177230"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredictiveScalingMode]
 FromJSONKeyFunction PredictiveScalingMode
 FromJSONKeyFunction PredictiveScalingMode
 -&gt; FromJSONKeyFunction [PredictiveScalingMode]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PredictiveScalingMode]
 fromJSONKey :: FromJSONKeyFunction PredictiveScalingMode
 $cfromJSONKey :: FromJSONKeyFunction PredictiveScalingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679177210"><span id="local-6989586621679177212"><span id="local-6989586621679177214"><span id="local-6989586621679177216"><span class="annot"><span class="annottext">[PredictiveScalingMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679177219"><span id="local-6989586621679177221"><span id="local-6989586621679177223"><span id="local-6989586621679177225"><span class="annot"><span class="annottext">[PredictiveScalingMode] -&gt; Encoding
 [PredictiveScalingMode] -&gt; Value
 PredictiveScalingMode -&gt; Encoding
 PredictiveScalingMode -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: PredictiveScalingMode -&gt; Encoding
 toJSON :: PredictiveScalingMode -&gt; Value
 $ctoJSON :: PredictiveScalingMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679177205"><span id="local-6989586621679177207"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredictiveScalingMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679177214"><span id="local-6989586621679177216"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredictiveScalingMode]
 ToJSONKeyFunction PredictiveScalingMode
 ToJSONKeyFunction PredictiveScalingMode
 -&gt; ToJSONKeyFunction [PredictiveScalingMode]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PredictiveScalingMode]
 toJSONKey :: ToJSONKeyFunction PredictiveScalingMode
 $ctoJSONKey :: ToJSONKeyFunction PredictiveScalingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679177202"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredictiveScalingMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679177211"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredictiveScalingMode
 ([Node] -&gt; Either String PredictiveScalingMode)
 -&gt; FromXML PredictiveScalingMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PredictiveScalingMode
 $cparseXML :: [Node] -&gt; Either String PredictiveScalingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679177199"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679177208"><span class="annot"><span class="annottext">PredictiveScalingMode -&gt; XML
 (PredictiveScalingMode -&gt; XML) -&gt; ToXML PredictiveScalingMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PredictiveScalingMode -&gt; XML

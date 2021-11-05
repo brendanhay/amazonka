@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679271169"><span id="local-6989586621679271170"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BaseModelName"><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-var">BaseModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BaseModelName%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName%27"><span class="hs-identifier hs-var">BaseModelName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679271178"><span id="local-6989586621679271179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BaseModelName"><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-var">BaseModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BaseModelName%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.BaseModelName.html#BaseModelName%27"><span class="hs-identifier hs-var">BaseModelName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBaseModelName"><span class="annot"><span class="annottext">BaseModelName -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.BaseModelName.html#fromBaseModelName"><span class="hs-identifier hs-var hs-var">fromBaseModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271161"><span id="local-6989586621679271163"><span id="local-6989586621679271165"><span class="annot"><span class="annottext">Int -&gt; BaseModelName -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271170"><span id="local-6989586621679271172"><span id="local-6989586621679271174"><span class="annot"><span class="annottext">Int -&gt; BaseModelName -&gt; ShowS
 [BaseModelName] -&gt; ShowS
 BaseModelName -&gt; String
 (Int -&gt; BaseModelName -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BaseModelName -&gt; String
 showsPrec :: Int -&gt; BaseModelName -&gt; ShowS
 $cshowsPrec :: Int -&gt; BaseModelName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679271152"><span id="local-6989586621679271154"><span id="local-6989586621679271156"><span id="local-6989586621679271158"><span class="annot"><span class="annottext">ReadPrec [BaseModelName]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679271161"><span id="local-6989586621679271163"><span id="local-6989586621679271165"><span id="local-6989586621679271167"><span class="annot"><span class="annottext">ReadPrec [BaseModelName]
 ReadPrec BaseModelName
 Int -&gt; ReadS BaseModelName
 ReadS [BaseModelName]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BaseModelName]
 readsPrec :: Int -&gt; ReadS BaseModelName
 $creadsPrec :: Int -&gt; ReadS BaseModelName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679271147"><span id="local-6989586621679271149"><span class="annot"><span class="annottext">BaseModelName -&gt; BaseModelName -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679271156"><span id="local-6989586621679271158"><span class="annot"><span class="annottext">BaseModelName -&gt; BaseModelName -&gt; Bool
 (BaseModelName -&gt; BaseModelName -&gt; Bool)
 -&gt; (BaseModelName -&gt; BaseModelName -&gt; Bool) -&gt; Eq BaseModelName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: BaseModelName -&gt; BaseModelName -&gt; Bool
 == :: BaseModelName -&gt; BaseModelName -&gt; Bool
 $c== :: BaseModelName -&gt; BaseModelName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271131"><span id="local-6989586621679271133"><span id="local-6989586621679271135"><span id="local-6989586621679271137"><span id="local-6989586621679271139"><span id="local-6989586621679271141"><span id="local-6989586621679271143"><span class="annot"><span class="annottext">Eq BaseModelName
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271140"><span id="local-6989586621679271142"><span id="local-6989586621679271144"><span id="local-6989586621679271146"><span id="local-6989586621679271148"><span id="local-6989586621679271150"><span id="local-6989586621679271152"><span class="annot"><span class="annottext">Eq BaseModelName
 Eq BaseModelName
 -&gt; (BaseModelName -&gt; BaseModelName -&gt; Ordering)
 -&gt; (BaseModelName -&gt; BaseModelName -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. BaseModelName -&gt; Rep BaseModelName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271123"><span id="local-6989586621679271125"><span class="annot"><span class="annottext">Int -&gt; BaseModelName -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271132"><span id="local-6989586621679271134"><span class="annot"><span class="annottext">Int -&gt; BaseModelName -&gt; Int
 BaseModelName -&gt; Int
 (Int -&gt; BaseModelName -&gt; Int)
 -&gt; (BaseModelName -&gt; Int) -&gt; Hashable BaseModelName
@@ -142,49 +142,49 @@ $chash :: BaseModelName -&gt; Int
 hashWithSalt :: Int -&gt; BaseModelName -&gt; Int
 $chashWithSalt :: Int -&gt; BaseModelName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679271120"><span class="annot"><span class="annottext">BaseModelName -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679271129"><span class="annot"><span class="annottext">BaseModelName -&gt; ()
 (BaseModelName -&gt; ()) -&gt; NFData BaseModelName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BaseModelName -&gt; ()
 $crnf :: BaseModelName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679271117"><span class="annot"><span class="annottext">Text -&gt; Either String BaseModelName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679271126"><span class="annot"><span class="annottext">Text -&gt; Either String BaseModelName
 (Text -&gt; Either String BaseModelName) -&gt; FromText BaseModelName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BaseModelName
 $cfromText :: Text -&gt; Either String BaseModelName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271114"><span class="annot"><span class="annottext">BaseModelName -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271123"><span class="annot"><span class="annottext">BaseModelName -&gt; Text
 (BaseModelName -&gt; Text) -&gt; ToText BaseModelName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BaseModelName -&gt; Text
 $ctoText :: BaseModelName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271111"><span class="annot"><span class="annottext">BaseModelName -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271120"><span class="annot"><span class="annottext">BaseModelName -&gt; ByteString
 (BaseModelName -&gt; ByteString) -&gt; ToByteString BaseModelName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BaseModelName -&gt; ByteString
 $ctoBS :: BaseModelName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271108"><span class="annot"><span class="annottext">BaseModelName -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271117"><span class="annot"><span class="annottext">BaseModelName -&gt; ByteStringBuilder
 (BaseModelName -&gt; ByteStringBuilder) -&gt; ToLog BaseModelName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BaseModelName -&gt; ByteStringBuilder
 $cbuild :: BaseModelName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271105"><span class="annot"><span class="annottext">HeaderName -&gt; BaseModelName -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271114"><span class="annot"><span class="annottext">HeaderName -&gt; BaseModelName -&gt; [Header]
 (HeaderName -&gt; BaseModelName -&gt; [Header]) -&gt; ToHeader BaseModelName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BaseModelName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BaseModelName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271102"><span class="annot"><span class="annottext">BaseModelName -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271111"><span class="annot"><span class="annottext">BaseModelName -&gt; QueryString
 (BaseModelName -&gt; QueryString) -&gt; ToQuery BaseModelName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BaseModelName -&gt; QueryString
 $ctoQuery :: BaseModelName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271097"><span id="local-6989586621679271099"><span class="annot"><span class="annottext">Value -&gt; Parser [BaseModelName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271106"><span id="local-6989586621679271108"><span class="annot"><span class="annottext">Value -&gt; Parser [BaseModelName]
 Value -&gt; Parser BaseModelName
 (Value -&gt; Parser BaseModelName)
 -&gt; (Value -&gt; Parser [BaseModelName]) -&gt; FromJSON BaseModelName
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [BaseModelName]
 parseJSON :: Value -&gt; Parser BaseModelName
 $cparseJSON :: Value -&gt; Parser BaseModelName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271092"><span id="local-6989586621679271094"><span class="annot"><span class="annottext">FromJSONKeyFunction [BaseModelName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271101"><span id="local-6989586621679271103"><span class="annot"><span class="annottext">FromJSONKeyFunction [BaseModelName]
 FromJSONKeyFunction BaseModelName
 FromJSONKeyFunction BaseModelName
 -&gt; FromJSONKeyFunction [BaseModelName] -&gt; FromJSONKey BaseModelName
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BaseModelName]
 fromJSONKey :: FromJSONKeyFunction BaseModelName
 $cfromJSONKey :: FromJSONKeyFunction BaseModelName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271083"><span id="local-6989586621679271085"><span id="local-6989586621679271087"><span id="local-6989586621679271089"><span class="annot"><span class="annottext">[BaseModelName] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271092"><span id="local-6989586621679271094"><span id="local-6989586621679271096"><span id="local-6989586621679271098"><span class="annot"><span class="annottext">[BaseModelName] -&gt; Encoding
 [BaseModelName] -&gt; Value
 BaseModelName -&gt; Encoding
 BaseModelName -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: BaseModelName -&gt; Encoding
 toJSON :: BaseModelName -&gt; Value
 $ctoJSON :: BaseModelName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271078"><span id="local-6989586621679271080"><span class="annot"><span class="annottext">ToJSONKeyFunction [BaseModelName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271087"><span id="local-6989586621679271089"><span class="annot"><span class="annottext">ToJSONKeyFunction [BaseModelName]
 ToJSONKeyFunction BaseModelName
 ToJSONKeyFunction BaseModelName
 -&gt; ToJSONKeyFunction [BaseModelName] -&gt; ToJSONKey BaseModelName
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BaseModelName]
 toJSONKey :: ToJSONKeyFunction BaseModelName
 $ctoJSONKey :: ToJSONKeyFunction BaseModelName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271075"><span class="annot"><span class="annottext">[Node] -&gt; Either String BaseModelName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271084"><span class="annot"><span class="annottext">[Node] -&gt; Either String BaseModelName
 ([Node] -&gt; Either String BaseModelName) -&gt; FromXML BaseModelName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BaseModelName
 $cparseXML :: [Node] -&gt; Either String BaseModelName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271072"><span class="annot"><span class="annottext">BaseModelName -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271081"><span class="annot"><span class="annottext">BaseModelName -&gt; XML
 (BaseModelName -&gt; XML) -&gt; ToXML BaseModelName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BaseModelName -&gt; XML

@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryControlConfig.Waiters</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-16"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Waiters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeCluster.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.DescribeCluster</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Lens.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Lens</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Types</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeCluster' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.</span><span>
+</span><span id="line-28"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newClusterCreated"><span class="hs-identifier hs-type">newClusterCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeCluster.html#DescribeCluster"><span class="hs-identifier hs-type">DescribeCluster</span></a></span><span>
+</span><span id="line-29"></span><span id="newClusterCreated"><span class="annot"><span class="annottext">newClusterCreated :: Wait DescribeCluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newClusterCreated"><span class="hs-identifier hs-var hs-var">newClusterCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-30"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClusterCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">26</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeCluster]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-35"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeCluster) (CI Text)
+-&gt; Acceptor DescribeCluster
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DEPLOYED&quot;</span></span><span>
+</span><span id="line-37"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-38"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; DescribeClusterResponse -&gt; f DescribeClusterResponse
+Lens' DescribeClusterResponse (Maybe Cluster)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeCluster.html#describeClusterResponse_cluster"><span class="hs-identifier hs-var">describeClusterResponse_cluster</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Cluster -&gt; f (Maybe Cluster))
+ -&gt; DescribeClusterResponse -&gt; f DescribeClusterResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeClusterResponse
+-&gt; f DescribeClusterResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; f Cluster) -&gt; Maybe Cluster -&gt; f (Maybe Cluster)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-39"></span><span>                </span><span class="annot"><span class="annottext">((Cluster -&gt; f Cluster) -&gt; Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Cluster -&gt; f Cluster)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Cluster
+-&gt; f (Maybe Cluster)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status)) -&gt; Cluster -&gt; f Cluster
+Lens' Cluster (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.Cluster.html#cluster_status"><span class="hs-identifier hs-var">cluster_status</span></a></span><span>
+</span><span id="line-40"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status)) -&gt; Cluster -&gt; f Cluster)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-41"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-42"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeCluster) (CI Text)
+-&gt; Acceptor DescribeCluster
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-44"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-45"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-46"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; DescribeClusterResponse -&gt; f DescribeClusterResponse
+Lens' DescribeClusterResponse (Maybe Cluster)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeCluster.html#describeClusterResponse_cluster"><span class="hs-identifier hs-var">describeClusterResponse_cluster</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Cluster -&gt; f (Maybe Cluster))
+ -&gt; DescribeClusterResponse -&gt; f DescribeClusterResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeClusterResponse
+-&gt; f DescribeClusterResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; f Cluster) -&gt; Maybe Cluster -&gt; f (Maybe Cluster)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-47"></span><span>                </span><span class="annot"><span class="annottext">((Cluster -&gt; f Cluster) -&gt; Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Cluster -&gt; f Cluster)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Cluster
+-&gt; f (Maybe Cluster)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status)) -&gt; Cluster -&gt; f Cluster
+Lens' Cluster (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.Cluster.html#cluster_status"><span class="hs-identifier hs-var">cluster_status</span></a></span><span>
+</span><span id="line-48"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status)) -&gt; Cluster -&gt; f Cluster)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-49"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-50"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeCluster
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-52"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newRoutingControlCreated"><span class="hs-identifier hs-type">newRoutingControlCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span>
+</span><span id="line-57"></span><span id="newRoutingControlCreated"><span class="annot"><span class="annottext">newRoutingControlCreated :: Wait DescribeRoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newRoutingControlCreated"><span class="hs-identifier hs-var hs-var">newRoutingControlCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoutingControlCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">26</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeRoutingControl]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeRoutingControl) (CI Text)
+-&gt; Acceptor DescribeRoutingControl
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DEPLOYED&quot;</span></span><span>
+</span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-66"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+Lens' DescribeRoutingControlResponse (Maybe RoutingControl)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_routingControl"><span class="hs-identifier hs-var">describeRoutingControlResponse_routingControl</span></a></span><span>
+</span><span id="line-67"></span><span>                </span><span class="annot"><span class="annottext">((Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+ -&gt; DescribeRoutingControlResponse
+ -&gt; f DescribeRoutingControlResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(RoutingControl -&gt; f RoutingControl)
+-&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-68"></span><span>                </span><span class="annot"><span class="annottext">((RoutingControl -&gt; f RoutingControl)
+ -&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; RoutingControl -&gt; f RoutingControl)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe RoutingControl
+-&gt; f (Maybe RoutingControl)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status))
+-&gt; RoutingControl -&gt; f RoutingControl
+Lens' RoutingControl (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl.html#routingControl_status"><span class="hs-identifier hs-var">routingControl_status</span></a></span><span>
+</span><span id="line-69"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status))
+ -&gt; RoutingControl -&gt; f RoutingControl)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; RoutingControl
+-&gt; f RoutingControl
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-70"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-71"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeRoutingControl) (CI Text)
+-&gt; Acceptor DescribeRoutingControl
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-75"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+Lens' DescribeRoutingControlResponse (Maybe RoutingControl)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_routingControl"><span class="hs-identifier hs-var">describeRoutingControlResponse_routingControl</span></a></span><span>
+</span><span id="line-76"></span><span>                </span><span class="annot"><span class="annottext">((Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+ -&gt; DescribeRoutingControlResponse
+ -&gt; f DescribeRoutingControlResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(RoutingControl -&gt; f RoutingControl)
+-&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-77"></span><span>                </span><span class="annot"><span class="annottext">((RoutingControl -&gt; f RoutingControl)
+ -&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; RoutingControl -&gt; f RoutingControl)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe RoutingControl
+-&gt; f (Maybe RoutingControl)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status))
+-&gt; RoutingControl -&gt; f RoutingControl
+Lens' RoutingControl (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl.html#routingControl_status"><span class="hs-identifier hs-var">routingControl_status</span></a></span><span>
+</span><span id="line-78"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status))
+ -&gt; RoutingControl -&gt; f RoutingControl)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; RoutingControl
+-&gt; f RoutingControl
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-79"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-80"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeRoutingControl
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-82"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newRoutingControlDeleted"><span class="hs-identifier hs-type">newRoutingControlDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl.html#DescribeRoutingControl"><span class="hs-identifier hs-type">DescribeRoutingControl</span></a></span><span>
+</span><span id="line-87"></span><span id="newRoutingControlDeleted"><span class="annot"><span class="annottext">newRoutingControlDeleted :: Wait DescribeRoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newRoutingControlDeleted"><span class="hs-identifier hs-var hs-var">newRoutingControlDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoutingControlDeleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">26</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeRoutingControl]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeRoutingControl
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeRoutingControl) (CI Text)
+-&gt; Acceptor DescribeRoutingControl
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PENDING_DELETION&quot;</span></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+Lens' DescribeRoutingControlResponse (Maybe RoutingControl)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl.html#describeRoutingControlResponse_routingControl"><span class="hs-identifier hs-var">describeRoutingControlResponse_routingControl</span></a></span><span>
+</span><span id="line-98"></span><span>                </span><span class="annot"><span class="annottext">((Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+ -&gt; DescribeRoutingControlResponse
+ -&gt; f DescribeRoutingControlResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeRoutingControlResponse
+-&gt; f DescribeRoutingControlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(RoutingControl -&gt; f RoutingControl)
+-&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-99"></span><span>                </span><span class="annot"><span class="annottext">((RoutingControl -&gt; f RoutingControl)
+ -&gt; Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; RoutingControl -&gt; f RoutingControl)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe RoutingControl
+-&gt; f (Maybe RoutingControl)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status))
+-&gt; RoutingControl -&gt; f RoutingControl
+Lens' RoutingControl (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl.html#routingControl_status"><span class="hs-identifier hs-var">routingControl_status</span></a></span><span>
+</span><span id="line-100"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status))
+ -&gt; RoutingControl -&gt; f RoutingControl)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; RoutingControl
+-&gt; f RoutingControl
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-101"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeRoutingControl
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newControlPanelCreated"><span class="hs-identifier hs-type">newControlPanelCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel.html#DescribeControlPanel"><span class="hs-identifier hs-type">DescribeControlPanel</span></a></span><span>
+</span><span id="line-109"></span><span id="newControlPanelCreated"><span class="annot"><span class="annottext">newControlPanelCreated :: Wait DescribeControlPanel
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newControlPanelCreated"><span class="hs-identifier hs-var hs-var">newControlPanelCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ControlPanelCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">26</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeControlPanel]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeControlPanel) (CI Text)
+-&gt; Acceptor DescribeControlPanel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DEPLOYED&quot;</span></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; DescribeControlPanelResponse -&gt; f DescribeControlPanelResponse
+Lens' DescribeControlPanelResponse (Maybe ControlPanel)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel.html#describeControlPanelResponse_controlPanel"><span class="hs-identifier hs-var">describeControlPanelResponse_controlPanel</span></a></span><span>
+</span><span id="line-119"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+ -&gt; DescribeControlPanelResponse -&gt; f DescribeControlPanelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeControlPanelResponse
+-&gt; f DescribeControlPanelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ControlPanel -&gt; f ControlPanel)
+-&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-120"></span><span>                </span><span class="annot"><span class="annottext">((ControlPanel -&gt; f ControlPanel)
+ -&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ControlPanel -&gt; f ControlPanel)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ControlPanel
+-&gt; f (Maybe ControlPanel)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status))
+-&gt; ControlPanel -&gt; f ControlPanel
+Lens' ControlPanel (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.ControlPanel.html#controlPanel_status"><span class="hs-identifier hs-var">controlPanel_status</span></a></span><span>
+</span><span id="line-121"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status))
+ -&gt; ControlPanel -&gt; f ControlPanel)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ControlPanel
+-&gt; f ControlPanel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-122"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeControlPanel) (CI Text)
+-&gt; Acceptor DescribeControlPanel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; DescribeControlPanelResponse -&gt; f DescribeControlPanelResponse
+Lens' DescribeControlPanelResponse (Maybe ControlPanel)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel.html#describeControlPanelResponse_controlPanel"><span class="hs-identifier hs-var">describeControlPanelResponse_controlPanel</span></a></span><span>
+</span><span id="line-128"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+ -&gt; DescribeControlPanelResponse -&gt; f DescribeControlPanelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeControlPanelResponse
+-&gt; f DescribeControlPanelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ControlPanel -&gt; f ControlPanel)
+-&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-129"></span><span>                </span><span class="annot"><span class="annottext">((ControlPanel -&gt; f ControlPanel)
+ -&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ControlPanel -&gt; f ControlPanel)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ControlPanel
+-&gt; f (Maybe ControlPanel)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status))
+-&gt; ControlPanel -&gt; f ControlPanel
+Lens' ControlPanel (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.ControlPanel.html#controlPanel_status"><span class="hs-identifier hs-var">controlPanel_status</span></a></span><span>
+</span><span id="line-130"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status))
+ -&gt; ControlPanel -&gt; f ControlPanel)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ControlPanel
+-&gt; f ControlPanel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-131"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeControlPanel
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-134"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newControlPanelDeleted"><span class="hs-identifier hs-type">newControlPanelDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel.html#DescribeControlPanel"><span class="hs-identifier hs-type">DescribeControlPanel</span></a></span><span>
+</span><span id="line-139"></span><span id="newControlPanelDeleted"><span class="annot"><span class="annottext">newControlPanelDeleted :: Wait DescribeControlPanel
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newControlPanelDeleted"><span class="hs-identifier hs-var hs-var">newControlPanelDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ControlPanelDeleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">26</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeControlPanel]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeControlPanel
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeControlPanel) (CI Text)
+-&gt; Acceptor DescribeControlPanel
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PENDING_DELETION&quot;</span></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; DescribeControlPanelResponse -&gt; f DescribeControlPanelResponse
+Lens' DescribeControlPanelResponse (Maybe ControlPanel)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel.html#describeControlPanelResponse_controlPanel"><span class="hs-identifier hs-var">describeControlPanelResponse_controlPanel</span></a></span><span>
+</span><span id="line-150"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+ -&gt; DescribeControlPanelResponse -&gt; f DescribeControlPanelResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeControlPanelResponse
+-&gt; f DescribeControlPanelResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ControlPanel -&gt; f ControlPanel)
+-&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-151"></span><span>                </span><span class="annot"><span class="annottext">((ControlPanel -&gt; f ControlPanel)
+ -&gt; Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ControlPanel -&gt; f ControlPanel)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ControlPanel
+-&gt; f (Maybe ControlPanel)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status))
+-&gt; ControlPanel -&gt; f ControlPanel
+Lens' ControlPanel (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.ControlPanel.html#controlPanel_status"><span class="hs-identifier hs-var">controlPanel_status</span></a></span><span>
+</span><span id="line-152"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status))
+ -&gt; ControlPanel -&gt; f ControlPanel)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ControlPanel
+-&gt; f ControlPanel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-153"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeControlPanel
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-156"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeCluster' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newClusterDeleted"><span class="hs-identifier hs-type">newClusterDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.DescribeCluster.html#DescribeCluster"><span class="hs-identifier hs-type">DescribeCluster</span></a></span><span>
+</span><span id="line-161"></span><span id="newClusterDeleted"><span class="annot"><span class="annottext">newClusterDeleted :: Wait DescribeCluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Waiters.html#newClusterDeleted"><span class="hs-identifier hs-var hs-var">newClusterDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClusterDeleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">26</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeCluster]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeCluster
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse DescribeCluster) (CI Text)
+-&gt; Acceptor DescribeCluster
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PENDING_DELETION&quot;</span></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; DescribeClusterResponse -&gt; f DescribeClusterResponse
+Lens' DescribeClusterResponse (Maybe Cluster)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.DescribeCluster.html#describeClusterResponse_cluster"><span class="hs-identifier hs-var">describeClusterResponse_cluster</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Cluster -&gt; f (Maybe Cluster))
+ -&gt; DescribeClusterResponse -&gt; f DescribeClusterResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeClusterResponse
+-&gt; f DescribeClusterResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; f Cluster) -&gt; Maybe Cluster -&gt; f (Maybe Cluster)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-172"></span><span>                </span><span class="annot"><span class="annottext">((Cluster -&gt; f Cluster) -&gt; Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Cluster -&gt; f Cluster)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Cluster
+-&gt; f (Maybe Cluster)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Status -&gt; f (Maybe Status)) -&gt; Cluster -&gt; f Cluster
+Lens' Cluster (Maybe Status)
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.Cluster.html#cluster_status"><span class="hs-identifier hs-var">cluster_status</span></a></span><span>
+</span><span id="line-173"></span><span>                </span><span class="annot"><span class="annottext">((Maybe Status -&gt; f (Maybe Status)) -&gt; Cluster -&gt; f Cluster)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-174"></span><span>                </span><span class="annot"><span class="annottext">((Status -&gt; f Status) -&gt; Maybe Status -&gt; f (Maybe Status))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Status
+-&gt; f (Maybe Status)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Status -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; Status -&gt; f Status
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">Status -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor DescribeCluster
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-177"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span></pre></body></html>

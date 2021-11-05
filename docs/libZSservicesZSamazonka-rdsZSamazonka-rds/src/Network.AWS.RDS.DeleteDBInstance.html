@@ -80,7 +80,7 @@
 </span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- /See:/ 'newDeleteDBInstance' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679799064"><span id="local-6989586621679799065"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBInstance"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-var">DeleteDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBInstance%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-var">DeleteDBInstance'</span></a></span></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679799073"><span id="local-6989586621679799074"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBInstance"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-var">DeleteDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBInstance%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-var">DeleteDBInstance'</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @SkipFinalSnapshot@ parameter is disabled.</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -129,7 +129,7 @@
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AdbInstanceIdentifier%3ADeleteDBInstance%27"><span class="annot"><span class="annottext">DeleteDBInstance -&gt; Text
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AdbInstanceIdentifier%3ADeleteDBInstance%27"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799055"><span id="local-6989586621679799057"><span class="annot"><span class="annottext">DeleteDBInstance -&gt; DeleteDBInstance -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799064"><span id="local-6989586621679799066"><span class="annot"><span class="annottext">DeleteDBInstance -&gt; DeleteDBInstance -&gt; Bool
 (DeleteDBInstance -&gt; DeleteDBInstance -&gt; Bool)
 -&gt; (DeleteDBInstance -&gt; DeleteDBInstance -&gt; Bool)
 -&gt; Eq DeleteDBInstance
@@ -138,7 +138,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBInstance -&gt; DeleteDBInstance -&gt; Bool
 == :: DeleteDBInstance -&gt; DeleteDBInstance -&gt; Bool
 $c== :: DeleteDBInstance -&gt; DeleteDBInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799046"><span id="local-6989586621679799048"><span id="local-6989586621679799050"><span id="local-6989586621679799052"><span class="annot"><span class="annottext">ReadPrec [DeleteDBInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799055"><span id="local-6989586621679799057"><span id="local-6989586621679799059"><span id="local-6989586621679799061"><span class="annot"><span class="annottext">ReadPrec [DeleteDBInstance]
 ReadPrec DeleteDBInstance
 Int -&gt; ReadS DeleteDBInstance
 ReadS [DeleteDBInstance]
@@ -158,7 +158,7 @@ readList :: ReadS [DeleteDBInstance]
 $creadList :: ReadS [DeleteDBInstance]
 readsPrec :: Int -&gt; ReadS DeleteDBInstance
 $creadsPrec :: Int -&gt; ReadS DeleteDBInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799039"><span id="local-6989586621679799041"><span id="local-6989586621679799043"><span class="annot"><span class="annottext">Int -&gt; DeleteDBInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799048"><span id="local-6989586621679799050"><span id="local-6989586621679799052"><span class="annot"><span class="annottext">Int -&gt; DeleteDBInstance -&gt; ShowS
 [DeleteDBInstance] -&gt; ShowS
 DeleteDBInstance -&gt; String
 (Int -&gt; DeleteDBInstance -&gt; ShowS)
@@ -239,8 +239,8 @@ $cfrom :: forall x. DeleteDBInstance -&gt; Rep DeleteDBInstance x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span>
 </span><span id="line-184"></span><span id="newDeleteDBInstance"><span class="annot"><span class="annottext">newDeleteDBInstance :: Text -&gt; DeleteDBInstance
-</span><a href="Network.AWS.RDS.DeleteDBInstance.html#newDeleteDBInstance"><span class="hs-identifier hs-var hs-var">newDeleteDBInstance</span></a></span></span><span> </span><span id="local-6989586621679799034"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799034"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBInstance.html#newDeleteDBInstance"><span class="hs-identifier hs-var hs-var">newDeleteDBInstance</span></a></span></span><span> </span><span id="local-6989586621679799043"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799043"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBInstance' :: Maybe Text -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Text -&gt; DeleteDBInstance
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:finalDBSnapshotIdentifier:DeleteDBInstance' :: Maybe Text
@@ -258,7 +258,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:DeleteDBInstance' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AdbInstanceIdentifier%3ADeleteDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799034"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679799043"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the</span><span>
@@ -283,16 +283,16 @@ forall a. Maybe a
 -&gt; (DeleteDBInstance -&gt; Maybe Text -&gt; DeleteDBInstance)
 -&gt; Lens DeleteDBInstance DeleteDBInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799031"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799040"><span class="annot"><span class="annottext">Maybe Text
 finalDBSnapshotIdentifier :: Maybe Text
 $sel:finalDBSnapshotIdentifier:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679799031"><span class="hs-identifier hs-var hs-var">finalDBSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799031"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799030"><span class="annot"><span class="annottext">s :: DeleteDBInstance
-</span><a href="#local-6989586621679799030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799029"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
-</span><a href="#local-6989586621679799030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalDBSnapshotIdentifier:DeleteDBInstance' :: Maybe Text
+</span><a href="#local-6989586621679799040"><span class="hs-identifier hs-var hs-var">finalDBSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799040"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799039"><span class="annot"><span class="annottext">s :: DeleteDBInstance
+</span><a href="#local-6989586621679799039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
+</span><a href="#local-6989586621679799039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalDBSnapshotIdentifier:DeleteDBInstance' :: Maybe Text
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AfinalDBSnapshotIdentifier%3ADeleteDBInstance%27"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | A value that indicates whether to remove automated backups immediately</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- after the DB instance is deleted. This parameter isn\'t case-sensitive.</span><span>
@@ -305,16 +305,16 @@ $sel:finalDBSnapshotIdentifier:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe
 -&gt; (DeleteDBInstance -&gt; Maybe Bool -&gt; DeleteDBInstance)
 -&gt; Lens DeleteDBInstance DeleteDBInstance (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799028"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799037"><span class="annot"><span class="annottext">Maybe Bool
 deleteAutomatedBackups :: Maybe Bool
 $sel:deleteAutomatedBackups:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Bool
-</span><a href="#local-6989586621679799028"><span class="hs-identifier hs-var hs-var">deleteAutomatedBackups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799028"><span class="hs-identifier hs-var">deleteAutomatedBackups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799027"><span class="annot"><span class="annottext">s :: DeleteDBInstance
-</span><a href="#local-6989586621679799027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799026"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
-</span><a href="#local-6989586621679799027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAutomatedBackups:DeleteDBInstance' :: Maybe Bool
+</span><a href="#local-6989586621679799037"><span class="hs-identifier hs-var hs-var">deleteAutomatedBackups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799037"><span class="hs-identifier hs-var">deleteAutomatedBackups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799036"><span class="annot"><span class="annottext">s :: DeleteDBInstance
+</span><a href="#local-6989586621679799036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799035"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
+</span><a href="#local-6989586621679799036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAutomatedBackups:DeleteDBInstance' :: Maybe Bool
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AdeleteAutomatedBackups%3ADeleteDBInstance%27"><span class="hs-identifier hs-var">deleteAutomatedBackups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | A value that indicates whether to skip the creation of a final DB</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- snapshot before the DB instance is deleted. If skip is specified, no DB</span><span>
@@ -337,16 +337,16 @@ $sel:deleteAutomatedBackups:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Bo
 -&gt; (DeleteDBInstance -&gt; Maybe Bool -&gt; DeleteDBInstance)
 -&gt; Lens DeleteDBInstance DeleteDBInstance (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799025"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799034"><span class="annot"><span class="annottext">Maybe Bool
 skipFinalSnapshot :: Maybe Bool
 $sel:skipFinalSnapshot:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Bool
-</span><a href="#local-6989586621679799025"><span class="hs-identifier hs-var hs-var">skipFinalSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799025"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799024"><span class="annot"><span class="annottext">s :: DeleteDBInstance
-</span><a href="#local-6989586621679799024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799023"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
-</span><a href="#local-6989586621679799024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipFinalSnapshot:DeleteDBInstance' :: Maybe Bool
+</span><a href="#local-6989586621679799034"><span class="hs-identifier hs-var hs-var">skipFinalSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799034"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799033"><span class="annot"><span class="annottext">s :: DeleteDBInstance
+</span><a href="#local-6989586621679799033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799032"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
+</span><a href="#local-6989586621679799033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipFinalSnapshot:DeleteDBInstance' :: Maybe Bool
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AskipFinalSnapshot%3ADeleteDBInstance%27"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The DB instance identifier for the DB instance to be deleted. This</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
@@ -360,27 +360,27 @@ $sel:skipFinalSnapshot:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Bool
 -&gt; (DeleteDBInstance -&gt; Text -&gt; DeleteDBInstance)
 -&gt; Lens DeleteDBInstance DeleteDBInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799022"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799031"><span class="annot"><span class="annottext">Text
 dbInstanceIdentifier :: Text
 $sel:dbInstanceIdentifier:DeleteDBInstance' :: DeleteDBInstance -&gt; Text
-</span><a href="#local-6989586621679799022"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799022"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799021"><span class="annot"><span class="annottext">s :: DeleteDBInstance
-</span><a href="#local-6989586621679799021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799020"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
-</span><a href="#local-6989586621679799021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:DeleteDBInstance' :: Text
+</span><a href="#local-6989586621679799031"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799031"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799030"><span class="annot"><span class="annottext">s :: DeleteDBInstance
+</span><a href="#local-6989586621679799030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstance
+</span><a href="#local-6989586621679799030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:DeleteDBInstance' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AdbInstanceIdentifier%3ADeleteDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-245"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-246"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621679799016"><span class="annot"><span class="annottext">request :: DeleteDBInstance -&gt; Request DeleteDBInstance
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679799025"><span class="annot"><span class="annottext">request :: DeleteDBInstance -&gt; Request DeleteDBInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDBInstance -&gt; Request DeleteDBInstance
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679799012"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679799021"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDBInstance
 -&gt; ClientResponse ClientBody
@@ -409,10 +409,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteDBInstanceResult&quot;</span></span><span>
-</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799009"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799009"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679799008"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679799008"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679799007"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679799007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799018"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799018"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679799017"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679799017"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679799016"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679799016"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBInstance -&gt; Int -&gt; DeleteDBInstanceResponse
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-var">DeleteDBInstanceResponse'</span></a></span><span>
 </span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBInstance -&gt; Int -&gt; DeleteDBInstanceResponse)
@@ -420,7 +420,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteDBInstanceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679799007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstance)
+</span><a href="#local-6989586621679799016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstance)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBInstance&quot;</span></span><span class="hs-special">)</span><span>
@@ -432,15 +432,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799009"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799018"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798999"><span id="local-6989586621679799001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span></span></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799008"><span id="local-6989586621679799010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span></span></span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span></span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679798992"><span class="annot"><span class="annottext">toHeaders :: DeleteDBInstance -&gt; ResponseHeaders
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679799001"><span class="annot"><span class="annottext">toHeaders :: DeleteDBInstance -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDBInstance -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -448,15 +448,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679798987"><span class="annot"><span class="annottext">toPath :: DeleteDBInstance -&gt; ByteString
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679798996"><span class="annot"><span class="annottext">toPath :: DeleteDBInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDBInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance"><span class="hs-identifier hs-type">DeleteDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-269"></span><span>  </span><span id="local-6989586621679798983"><span class="annot"><span class="annottext">toQuery :: DeleteDBInstance -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798978"><span id="local-6989586621679798979"><span id="local-6989586621679798980"><span id="local-6989586621679798981"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679798992"><span class="annot"><span class="annottext">toQuery :: DeleteDBInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstance%27"><span class="hs-identifier hs-type">DeleteDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798987"><span id="local-6989586621679798988"><span id="local-6989586621679798989"><span id="local-6989586621679798990"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 dbInstanceIdentifier :: Text
@@ -467,7 +467,7 @@ $sel:dbInstanceIdentifier:DeleteDBInstance' :: DeleteDBInstance -&gt; Text
 $sel:skipFinalSnapshot:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Bool
 $sel:deleteAutomatedBackups:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Bool
 $sel:finalDBSnapshotIdentifier:DeleteDBInstance' :: DeleteDBInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679798978"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679798987"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-270"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -488,34 +488,34 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679798981"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798990"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DeleteAutomatedBackups&quot;</span></span><span>
 </span><span id="line-278"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798980"><span class="hs-identifier hs-var">deleteAutomatedBackups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798989"><span class="hs-identifier hs-var">deleteAutomatedBackups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SkipFinalSnapshot&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798979"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798988"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798978"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679798987"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
 </span><span id="line-281"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | /See:/ 'newDeleteDBInstanceResponse' smart constructor.</span><span>
-</span><span id="line-284"></span><span id="local-6989586621679798975"><span id="local-6989586621679798976"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBInstanceResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-var">DeleteDBInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBInstanceResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-var">DeleteDBInstanceResponse'</span></a></span></span><span>
+</span><span id="line-284"></span><span id="local-6989586621679798984"><span id="local-6989586621679798985"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBInstanceResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-var">DeleteDBInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBInstanceResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-var">DeleteDBInstanceResponse'</span></a></span></span><span>
 </span><span id="line-285"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbInstance%3ADeleteDBInstanceResponse%27"><span class="annot"><span class="annottext">DeleteDBInstanceResponse -&gt; Maybe DBInstance
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AdbInstance%3ADeleteDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstance.html#DBInstance"><span class="hs-identifier hs-type">DBInstance</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-286"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-287"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDBInstanceResponse%27"><span class="annot"><span class="annottext">DeleteDBInstanceResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AhttpStatus%3ADeleteDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-288"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-289"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798969"><span id="local-6989586621679798971"><span class="annot"><span class="annottext">DeleteDBInstanceResponse -&gt; DeleteDBInstanceResponse -&gt; Bool
+</span><span id="line-289"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798978"><span id="local-6989586621679798980"><span class="annot"><span class="annottext">DeleteDBInstanceResponse -&gt; DeleteDBInstanceResponse -&gt; Bool
 (DeleteDBInstanceResponse -&gt; DeleteDBInstanceResponse -&gt; Bool)
 -&gt; (DeleteDBInstanceResponse -&gt; DeleteDBInstanceResponse -&gt; Bool)
 -&gt; Eq DeleteDBInstanceResponse
@@ -524,7 +524,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBInstanceResponse -&gt; DeleteDBInstanceResponse -&gt; Bool
 == :: DeleteDBInstanceResponse -&gt; DeleteDBInstanceResponse -&gt; Bool
 $c== :: DeleteDBInstanceResponse -&gt; DeleteDBInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798961"><span id="local-6989586621679798963"><span id="local-6989586621679798965"><span id="local-6989586621679798967"><span class="annot"><span class="annottext">ReadPrec [DeleteDBInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798970"><span id="local-6989586621679798972"><span id="local-6989586621679798974"><span id="local-6989586621679798976"><span class="annot"><span class="annottext">ReadPrec [DeleteDBInstanceResponse]
 ReadPrec DeleteDBInstanceResponse
 Int -&gt; ReadS DeleteDBInstanceResponse
 ReadS [DeleteDBInstanceResponse]
@@ -544,7 +544,7 @@ readList :: ReadS [DeleteDBInstanceResponse]
 $creadList :: ReadS [DeleteDBInstanceResponse]
 readsPrec :: Int -&gt; ReadS DeleteDBInstanceResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDBInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798955"><span id="local-6989586621679798957"><span id="local-6989586621679798959"><span class="annot"><span class="annottext">Int -&gt; DeleteDBInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798964"><span id="local-6989586621679798966"><span id="local-6989586621679798968"><span class="annot"><span class="annottext">Int -&gt; DeleteDBInstanceResponse -&gt; ShowS
 [DeleteDBInstanceResponse] -&gt; ShowS
 DeleteDBInstanceResponse -&gt; String
 (Int -&gt; DeleteDBInstanceResponse -&gt; ShowS)
@@ -592,8 +592,8 @@ DeleteDBInstanceResponse -&gt; Rep DeleteDBInstanceResponse x
 </span><span id="line-304"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-305"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span><span>
 </span><span id="line-306"></span><span id="newDeleteDBInstanceResponse"><span class="annot"><span class="annottext">newDeleteDBInstanceResponse :: Int -&gt; DeleteDBInstanceResponse
-</span><a href="Network.AWS.RDS.DeleteDBInstance.html#newDeleteDBInstanceResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679798952"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBInstance.html#newDeleteDBInstanceResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679798961"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-307"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBInstanceResponse' :: Maybe DBInstance -&gt; Int -&gt; DeleteDBInstanceResponse
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span>
 </span><span id="line-308"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstance:DeleteDBInstanceResponse' :: Maybe DBInstance
@@ -603,7 +603,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBInstanceResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AhttpStatus%3ADeleteDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679798961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-311"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -619,16 +619,16 @@ forall a. Maybe a
      (Maybe DBInstance)
      (Maybe DBInstance)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798951"><span class="annot"><span class="annottext">Maybe DBInstance
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798960"><span class="annot"><span class="annottext">Maybe DBInstance
 dbInstance :: Maybe DBInstance
 $sel:dbInstance:DeleteDBInstanceResponse' :: DeleteDBInstanceResponse -&gt; Maybe DBInstance
-</span><a href="#local-6989586621679798951"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679798951"><span class="hs-identifier hs-var">dbInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798950"><span class="annot"><span class="annottext">s :: DeleteDBInstanceResponse
-</span><a href="#local-6989586621679798950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798949"><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679798949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstanceResponse
-</span><a href="#local-6989586621679798950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstance:DeleteDBInstanceResponse' :: Maybe DBInstance
+</span><a href="#local-6989586621679798960"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679798960"><span class="hs-identifier hs-var">dbInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798959"><span class="annot"><span class="annottext">s :: DeleteDBInstanceResponse
+</span><a href="#local-6989586621679798959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798958"><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679798958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstanceResponse
+</span><a href="#local-6989586621679798959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstance:DeleteDBInstanceResponse' :: Maybe DBInstance
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AdbInstance%3ADeleteDBInstanceResponse%27"><span class="hs-identifier hs-var">dbInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679798949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>
 </span><span id="line-317"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-318"></span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#deleteDBInstanceResponse_httpStatus"><span class="hs-identifier hs-type">deleteDBInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -638,16 +638,16 @@ $sel:dbInstance:DeleteDBInstanceResponse' :: DeleteDBInstanceResponse -&gt; Mayb
 -&gt; (DeleteDBInstanceResponse -&gt; Int -&gt; DeleteDBInstanceResponse)
 -&gt; Lens DeleteDBInstanceResponse DeleteDBInstanceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798948"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798957"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDBInstanceResponse' :: DeleteDBInstanceResponse -&gt; Int
-</span><a href="#local-6989586621679798948"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798948"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798947"><span class="annot"><span class="annottext">s :: DeleteDBInstanceResponse
-</span><a href="#local-6989586621679798947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798946"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstanceResponse
-</span><a href="#local-6989586621679798947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBInstanceResponse' :: Int
+</span><a href="#local-6989586621679798957"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798957"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798956"><span class="annot"><span class="annottext">s :: DeleteDBInstanceResponse
+</span><a href="#local-6989586621679798956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse%27"><span class="hs-identifier hs-type">DeleteDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798955"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBInstanceResponse
+</span><a href="#local-6989586621679798956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBInstanceResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBInstance.html#%24sel%3AhttpStatus%3ADeleteDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-320"></span><span>
-</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBInstance.html#DeleteDBInstanceResponse"><span class="hs-identifier hs-type">DeleteDBInstanceResponse</span></a></span></span><span>
 </span><span id="line-322"></span></pre></body></html>

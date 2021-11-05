@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- resources.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSecurityServicePolicyData' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679249037"><span id="local-6989586621679249038"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityServicePolicyData"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-var">SecurityServicePolicyData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityServicePolicyData%27"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-var">SecurityServicePolicyData'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679249046"><span id="local-6989586621679249047"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityServicePolicyData"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-var">SecurityServicePolicyData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityServicePolicyData%27"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-var">SecurityServicePolicyData'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the service that are specific to the service type, in JSON</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- format. For service type @SHIELD_ADVANCED@, this is an empty string.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3Atype%27%3ASecurityServicePolicyData%27"><span class="annot"><span class="annottext">SecurityServicePolicyData -&gt; SecurityServiceType
 </span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#%24sel%3Atype%27%3ASecurityServicePolicyData%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249030"><span id="local-6989586621679249032"><span class="annot"><span class="annottext">SecurityServicePolicyData -&gt; SecurityServicePolicyData -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249039"><span id="local-6989586621679249041"><span class="annot"><span class="annottext">SecurityServicePolicyData -&gt; SecurityServicePolicyData -&gt; Bool
 (SecurityServicePolicyData -&gt; SecurityServicePolicyData -&gt; Bool)
 -&gt; (SecurityServicePolicyData -&gt; SecurityServicePolicyData -&gt; Bool)
 -&gt; Eq SecurityServicePolicyData
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SecurityServicePolicyData -&gt; SecurityServicePolicyData -&gt; Bool
 == :: SecurityServicePolicyData -&gt; SecurityServicePolicyData -&gt; Bool
 $c== :: SecurityServicePolicyData -&gt; SecurityServicePolicyData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249021"><span id="local-6989586621679249023"><span id="local-6989586621679249025"><span id="local-6989586621679249027"><span class="annot"><span class="annottext">ReadPrec [SecurityServicePolicyData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249030"><span id="local-6989586621679249032"><span id="local-6989586621679249034"><span id="local-6989586621679249036"><span class="annot"><span class="annottext">ReadPrec [SecurityServicePolicyData]
 ReadPrec SecurityServicePolicyData
 Int -&gt; ReadS SecurityServicePolicyData
 ReadS [SecurityServicePolicyData]
@@ -119,7 +119,7 @@ readList :: ReadS [SecurityServicePolicyData]
 $creadList :: ReadS [SecurityServicePolicyData]
 readsPrec :: Int -&gt; ReadS SecurityServicePolicyData
 $creadsPrec :: Int -&gt; ReadS SecurityServicePolicyData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249014"><span id="local-6989586621679249016"><span id="local-6989586621679249018"><span class="annot"><span class="annottext">Int -&gt; SecurityServicePolicyData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249023"><span id="local-6989586621679249025"><span id="local-6989586621679249027"><span class="annot"><span class="annottext">Int -&gt; SecurityServicePolicyData -&gt; ShowS
 [SecurityServicePolicyData] -&gt; ShowS
 SecurityServicePolicyData -&gt; String
 (Int -&gt; SecurityServicePolicyData -&gt; ShowS)
@@ -221,8 +221,8 @@ SecurityServicePolicyData -&gt; Rep SecurityServicePolicyData x
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServiceType.html#SecurityServiceType"><span class="hs-identifier hs-type">SecurityServiceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span><span>
 </span><span id="line-162"></span><span id="newSecurityServicePolicyData"><span class="annot"><span class="annottext">newSecurityServicePolicyData :: SecurityServiceType -&gt; SecurityServicePolicyData
-</span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#newSecurityServicePolicyData"><span class="hs-identifier hs-var hs-var">newSecurityServicePolicyData</span></a></span></span><span> </span><span id="local-6989586621679249008"><span class="annot"><span class="annottext">SecurityServiceType
-</span><a href="#local-6989586621679249008"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#newSecurityServicePolicyData"><span class="hs-identifier hs-var hs-var">newSecurityServicePolicyData</span></a></span></span><span> </span><span id="local-6989586621679249017"><span class="annot"><span class="annottext">SecurityServiceType
+</span><a href="#local-6989586621679249017"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">SecurityServicePolicyData' :: Maybe Text -&gt; SecurityServiceType -&gt; SecurityServicePolicyData
 </span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:managedServiceData:SecurityServicePolicyData' :: Maybe Text
@@ -232,7 +232,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':SecurityServicePolicyData' :: SecurityServiceType
 </span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#%24sel%3Atype%27%3ASecurityServicePolicyData%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SecurityServiceType
-</span><a href="#local-6989586621679249008"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679249017"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Details about the service that are specific to the service type, in JSON</span><span>
@@ -297,16 +297,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249004"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249013"><span class="annot"><span class="annottext">Maybe Text
 managedServiceData :: Maybe Text
 $sel:managedServiceData:SecurityServicePolicyData' :: SecurityServicePolicyData -&gt; Maybe Text
-</span><a href="#local-6989586621679249004"><span class="hs-identifier hs-var hs-var">managedServiceData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249004"><span class="hs-identifier hs-var">managedServiceData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249003"><span class="annot"><span class="annottext">s :: SecurityServicePolicyData
-</span><a href="#local-6989586621679249003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249002"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679249003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedServiceData:SecurityServicePolicyData' :: Maybe Text
+</span><a href="#local-6989586621679249013"><span class="hs-identifier hs-var hs-var">managedServiceData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249013"><span class="hs-identifier hs-var">managedServiceData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249012"><span class="annot"><span class="annottext">s :: SecurityServicePolicyData
+</span><a href="#local-6989586621679249012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
+</span><a href="#local-6989586621679249012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedServiceData:SecurityServicePolicyData' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#%24sel%3AmanagedServiceData%3ASecurityServicePolicyData%27"><span class="hs-identifier hs-var">managedServiceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The service that the policy is using to protect the resources. This</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- specifies the type of policy that is created, either an WAF policy, a</span><span>
@@ -326,19 +326,19 @@ $sel:managedServiceData:SecurityServicePolicyData' :: SecurityServicePolicyData 
      SecurityServiceType
      SecurityServiceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249000"><span class="annot"><span class="annottext">SecurityServiceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249009"><span class="annot"><span class="annottext">SecurityServiceType
 type' :: SecurityServiceType
 $sel:type':SecurityServicePolicyData' :: SecurityServicePolicyData -&gt; SecurityServiceType
-</span><a href="#local-6989586621679249000"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServiceType
-</span><a href="#local-6989586621679249000"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248999"><span class="annot"><span class="annottext">s :: SecurityServicePolicyData
-</span><a href="#local-6989586621679248999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248998"><span class="annot"><span class="annottext">SecurityServiceType
-</span><a href="#local-6989586621679248998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679248999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SecurityServicePolicyData' :: SecurityServiceType
+</span><a href="#local-6989586621679249009"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServiceType
+</span><a href="#local-6989586621679249009"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249008"><span class="annot"><span class="annottext">s :: SecurityServicePolicyData
+</span><a href="#local-6989586621679249008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249007"><span class="annot"><span class="annottext">SecurityServiceType
+</span><a href="#local-6989586621679249007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
+</span><a href="#local-6989586621679249008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SecurityServicePolicyData' :: SecurityServiceType
 </span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#%24sel%3Atype%27%3ASecurityServicePolicyData%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SecurityServiceType
-</span><a href="#local-6989586621679248998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248995"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679248993"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityServicePolicyData
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249004"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679249002"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityServicePolicyData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SecurityServicePolicyData)
@@ -348,8 +348,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SecurityServicePolicyData&quot;</span></span><span>
-</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248990"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248990"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248999"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248999"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; SecurityServiceType -&gt; SecurityServicePolicyData
 </span><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-var">SecurityServicePolicyData'</span></a></span><span>
 </span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; SecurityServiceType -&gt; SecurityServicePolicyData)
@@ -357,7 +357,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (SecurityServiceType -&gt; SecurityServicePolicyData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ManagedServiceData&quot;</span></span><span class="hs-special">)</span><span>
@@ -365,25 +365,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SecurityServiceType -&gt; Parser SecurityServicePolicyData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SecurityServiceType
+</span><a href="#local-6989586621679248999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SecurityServiceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248983"><span id="local-6989586621679248985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248992"><span id="local-6989586621679248994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span></span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248972"><span id="local-6989586621679248974"><span id="local-6989586621679248976"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679248970"><span class="annot"><span class="annottext">toJSON :: SecurityServicePolicyData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248967"><span id="local-6989586621679248968"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248981"><span id="local-6989586621679248983"><span id="local-6989586621679248985"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData"><span class="hs-identifier hs-type">SecurityServicePolicyData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679248979"><span class="annot"><span class="annottext">toJSON :: SecurityServicePolicyData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityServicePolicyData.html#SecurityServicePolicyData%27"><span class="hs-identifier hs-type">SecurityServicePolicyData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248976"><span id="local-6989586621679248977"><span class="annot"><span class="annottext">Maybe Text
 SecurityServiceType
 type' :: SecurityServiceType
 managedServiceData :: Maybe Text
 $sel:type':SecurityServicePolicyData' :: SecurityServicePolicyData -&gt; SecurityServiceType
 $sel:managedServiceData:SecurityServicePolicyData' :: SecurityServicePolicyData -&gt; Maybe Text
-</span><a href="#local-6989586621679248967"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679248976"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -396,14 +396,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248968"><span class="hs-identifier hs-var">managedServiceData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248977"><span class="hs-identifier hs-var">managedServiceData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SecurityServiceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SecurityServiceType
-</span><a href="#local-6989586621679248967"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248976"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span></pre></body></html>

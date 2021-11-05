@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- (S3 RTC) and replication metrics @EventThreshold@.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReplicationTimeValue' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679550604"><span id="local-6989586621679550605"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTimeValue"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-var">ReplicationTimeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTimeValue%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-var">ReplicationTimeValue'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679550613"><span id="local-6989586621679550614"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTimeValue"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-var">ReplicationTimeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTimeValue%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-var">ReplicationTimeValue'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains an integer specifying time in minutes.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Valid value: 15</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aminutes%3AReplicationTimeValue%27"><span class="annot"><span class="annottext">ReplicationTimeValue -&gt; Maybe Int
 </span><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#%24sel%3Aminutes%3AReplicationTimeValue%27"><span class="hs-identifier hs-var hs-var">minutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679550598"><span id="local-6989586621679550600"><span class="annot"><span class="annottext">ReplicationTimeValue -&gt; ReplicationTimeValue -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679550607"><span id="local-6989586621679550609"><span class="annot"><span class="annottext">ReplicationTimeValue -&gt; ReplicationTimeValue -&gt; Bool
 (ReplicationTimeValue -&gt; ReplicationTimeValue -&gt; Bool)
 -&gt; (ReplicationTimeValue -&gt; ReplicationTimeValue -&gt; Bool)
 -&gt; Eq ReplicationTimeValue
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplicationTimeValue -&gt; ReplicationTimeValue -&gt; Bool
 == :: ReplicationTimeValue -&gt; ReplicationTimeValue -&gt; Bool
 $c== :: ReplicationTimeValue -&gt; ReplicationTimeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550589"><span id="local-6989586621679550591"><span id="local-6989586621679550593"><span id="local-6989586621679550595"><span class="annot"><span class="annottext">ReadPrec [ReplicationTimeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550598"><span id="local-6989586621679550600"><span id="local-6989586621679550602"><span id="local-6989586621679550604"><span class="annot"><span class="annottext">ReadPrec [ReplicationTimeValue]
 ReadPrec ReplicationTimeValue
 Int -&gt; ReadS ReplicationTimeValue
 ReadS [ReplicationTimeValue]
@@ -64,7 +64,7 @@ readList :: ReadS [ReplicationTimeValue]
 $creadList :: ReadS [ReplicationTimeValue]
 readsPrec :: Int -&gt; ReadS ReplicationTimeValue
 $creadsPrec :: Int -&gt; ReadS ReplicationTimeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550582"><span id="local-6989586621679550584"><span id="local-6989586621679550586"><span class="annot"><span class="annottext">Int -&gt; ReplicationTimeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550591"><span id="local-6989586621679550593"><span id="local-6989586621679550595"><span class="annot"><span class="annottext">Int -&gt; ReplicationTimeValue -&gt; ShowS
 [ReplicationTimeValue] -&gt; ShowS
 ReplicationTimeValue -&gt; String
 (Int -&gt; ReplicationTimeValue -&gt; ShowS)
@@ -122,47 +122,47 @@ forall a. Maybe a
 -&gt; Lens
      ReplicationTimeValue ReplicationTimeValue (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-type">ReplicationTimeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550573"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-type">ReplicationTimeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550582"><span class="annot"><span class="annottext">Maybe Int
 minutes :: Maybe Int
 $sel:minutes:ReplicationTimeValue' :: ReplicationTimeValue -&gt; Maybe Int
-</span><a href="#local-6989586621679550573"><span class="hs-identifier hs-var hs-var">minutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679550573"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550572"><span class="annot"><span class="annottext">s :: ReplicationTimeValue
-</span><a href="#local-6989586621679550572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-type">ReplicationTimeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550571"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679550571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeValue
-</span><a href="#local-6989586621679550572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minutes:ReplicationTimeValue' :: Maybe Int
+</span><a href="#local-6989586621679550582"><span class="hs-identifier hs-var hs-var">minutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679550582"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550581"><span class="annot"><span class="annottext">s :: ReplicationTimeValue
+</span><a href="#local-6989586621679550581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-type">ReplicationTimeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550580"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679550580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeValue
+</span><a href="#local-6989586621679550581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minutes:ReplicationTimeValue' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#%24sel%3Aminutes%3AReplicationTimeValue%27"><span class="hs-identifier hs-var">minutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679550571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679550580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679550568"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationTimeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679550566"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679550566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679550577"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationTimeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679550575"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679550575"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; ReplicationTimeValue
 </span><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-var">ReplicationTimeValue'</span></a></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; ReplicationTimeValue)
 -&gt; Either String (Maybe Int) -&gt; Either String ReplicationTimeValue
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679550566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679550575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Minutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550560"><span id="local-6989586621679550562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550569"><span id="local-6989586621679550571"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679550553"><span class="annot"><span class="annottext">toXML :: ReplicationTimeValue -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-type">ReplicationTimeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550551"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679550562"><span class="annot"><span class="annottext">toXML :: ReplicationTimeValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue%27"><span class="hs-identifier hs-type">ReplicationTimeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550560"><span class="annot"><span class="annottext">Maybe Int
 minutes :: Maybe Int
 $sel:minutes:ReplicationTimeValue' :: ReplicationTimeValue -&gt; Maybe Int
-</span><a href="#local-6989586621679550551"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679550560"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Minutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679550551"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679550560"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span></pre></body></html>

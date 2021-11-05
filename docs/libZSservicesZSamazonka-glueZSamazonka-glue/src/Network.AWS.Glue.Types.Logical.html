@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679690316"><span id="local-6989586621679690317"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Logical"><span class="annot"><a href="Network.AWS.Glue.Types.Logical.html#Logical"><span class="hs-identifier hs-var">Logical</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Logical%27"><span class="annot"><a href="Network.AWS.Glue.Types.Logical.html#Logical%27"><span class="hs-identifier hs-var">Logical'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromLogical"><span class="annot"><span class="annottext">Logical -&gt; Text
+</span><span id="line-32"></span><span id="local-6989586621679690325"><span id="local-6989586621679690326"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Logical"><span class="annot"><a href="Network.AWS.Glue.Types.Logical.html#Logical"><span class="hs-identifier hs-var">Logical</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Logical%27"><span class="annot"><a href="Network.AWS.Glue.Types.Logical.html#Logical%27"><span class="hs-identifier hs-var">Logical'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromLogical"><span class="annot"><span class="annottext">Logical -&gt; Text
 </span><a href="Network.AWS.Glue.Types.Logical.html#fromLogical"><span class="hs-identifier hs-var hs-var">fromLogical</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679690308"><span id="local-6989586621679690310"><span id="local-6989586621679690312"><span class="annot"><span class="annottext">Int -&gt; Logical -&gt; ShowS
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679690317"><span id="local-6989586621679690319"><span id="local-6989586621679690321"><span class="annot"><span class="annottext">Int -&gt; Logical -&gt; ShowS
 [Logical] -&gt; ShowS
 Logical -&gt; String
 (Int -&gt; Logical -&gt; ShowS)
@@ -46,7 +46,7 @@ $cshow :: Logical -&gt; String
 showsPrec :: Int -&gt; Logical -&gt; ShowS
 $cshowsPrec :: Int -&gt; Logical -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>      </span><span id="local-6989586621679690299"><span id="local-6989586621679690301"><span id="local-6989586621679690303"><span id="local-6989586621679690305"><span class="annot"><span class="annottext">ReadPrec [Logical]
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679690308"><span id="local-6989586621679690310"><span id="local-6989586621679690312"><span id="local-6989586621679690314"><span class="annot"><span class="annottext">ReadPrec [Logical]
 ReadPrec Logical
 Int -&gt; ReadS Logical
 ReadS [Logical]
@@ -67,7 +67,7 @@ $creadList :: ReadS [Logical]
 readsPrec :: Int -&gt; ReadS Logical
 $creadsPrec :: Int -&gt; ReadS Logical
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679690294"><span id="local-6989586621679690296"><span class="annot"><span class="annottext">Logical -&gt; Logical -&gt; Bool
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679690303"><span id="local-6989586621679690305"><span class="annot"><span class="annottext">Logical -&gt; Logical -&gt; Bool
 (Logical -&gt; Logical -&gt; Bool)
 -&gt; (Logical -&gt; Logical -&gt; Bool) -&gt; Eq Logical
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ $c/= :: Logical -&gt; Logical -&gt; Bool
 == :: Logical -&gt; Logical -&gt; Bool
 $c== :: Logical -&gt; Logical -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679690278"><span id="local-6989586621679690280"><span id="local-6989586621679690282"><span id="local-6989586621679690284"><span id="local-6989586621679690286"><span id="local-6989586621679690288"><span id="local-6989586621679690290"><span class="annot"><span class="annottext">Eq Logical
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679690287"><span id="local-6989586621679690289"><span id="local-6989586621679690291"><span id="local-6989586621679690293"><span id="local-6989586621679690295"><span id="local-6989586621679690297"><span id="local-6989586621679690299"><span class="annot"><span class="annottext">Eq Logical
 Eq Logical
 -&gt; (Logical -&gt; Logical -&gt; Ordering)
 -&gt; (Logical -&gt; Logical -&gt; Bool)
@@ -126,7 +126,7 @@ $cfrom :: forall x. Logical -&gt; Rep Logical x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679690270"><span id="local-6989586621679690272"><span class="annot"><span class="annottext">Int -&gt; Logical -&gt; Int
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679690279"><span id="local-6989586621679690281"><span class="annot"><span class="annottext">Int -&gt; Logical -&gt; Int
 Logical -&gt; Int
 (Int -&gt; Logical -&gt; Int) -&gt; (Logical -&gt; Int) -&gt; Hashable Logical
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -135,49 +135,49 @@ $chash :: Logical -&gt; Int
 hashWithSalt :: Int -&gt; Logical -&gt; Int
 $chashWithSalt :: Int -&gt; Logical -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679690267"><span class="annot"><span class="annottext">Logical -&gt; ()
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679690276"><span class="annot"><span class="annottext">Logical -&gt; ()
 (Logical -&gt; ()) -&gt; NFData Logical
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Logical -&gt; ()
 $crnf :: Logical -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679690264"><span class="annot"><span class="annottext">Text -&gt; Either String Logical
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679690273"><span class="annot"><span class="annottext">Text -&gt; Either String Logical
 (Text -&gt; Either String Logical) -&gt; FromText Logical
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Logical
 $cfromText :: Text -&gt; Either String Logical
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679690261"><span class="annot"><span class="annottext">Logical -&gt; Text
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679690270"><span class="annot"><span class="annottext">Logical -&gt; Text
 (Logical -&gt; Text) -&gt; ToText Logical
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Logical -&gt; Text
 $ctoText :: Logical -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679690258"><span class="annot"><span class="annottext">Logical -&gt; ByteString
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679690267"><span class="annot"><span class="annottext">Logical -&gt; ByteString
 (Logical -&gt; ByteString) -&gt; ToByteString Logical
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Logical -&gt; ByteString
 $ctoBS :: Logical -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679690255"><span class="annot"><span class="annottext">Logical -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679690264"><span class="annot"><span class="annottext">Logical -&gt; ByteStringBuilder
 (Logical -&gt; ByteStringBuilder) -&gt; ToLog Logical
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Logical -&gt; ByteStringBuilder
 $cbuild :: Logical -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679690252"><span class="annot"><span class="annottext">HeaderName -&gt; Logical -&gt; [Header]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679690261"><span class="annot"><span class="annottext">HeaderName -&gt; Logical -&gt; [Header]
 (HeaderName -&gt; Logical -&gt; [Header]) -&gt; ToHeader Logical
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Logical -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Logical -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679690249"><span class="annot"><span class="annottext">Logical -&gt; QueryString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679690258"><span class="annot"><span class="annottext">Logical -&gt; QueryString
 (Logical -&gt; QueryString) -&gt; ToQuery Logical
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Logical -&gt; QueryString
 $ctoQuery :: Logical -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679690244"><span id="local-6989586621679690246"><span class="annot"><span class="annottext">Value -&gt; Parser [Logical]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679690253"><span id="local-6989586621679690255"><span class="annot"><span class="annottext">Value -&gt; Parser [Logical]
 Value -&gt; Parser Logical
 (Value -&gt; Parser Logical)
 -&gt; (Value -&gt; Parser [Logical]) -&gt; FromJSON Logical
@@ -188,7 +188,7 @@ $cparseJSONList :: Value -&gt; Parser [Logical]
 parseJSON :: Value -&gt; Parser Logical
 $cparseJSON :: Value -&gt; Parser Logical
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679690239"><span id="local-6989586621679690241"><span class="annot"><span class="annottext">FromJSONKeyFunction [Logical]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679690248"><span id="local-6989586621679690250"><span class="annot"><span class="annottext">FromJSONKeyFunction [Logical]
 FromJSONKeyFunction Logical
 FromJSONKeyFunction Logical
 -&gt; FromJSONKeyFunction [Logical] -&gt; FromJSONKey Logical
@@ -199,7 +199,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Logical]
 fromJSONKey :: FromJSONKeyFunction Logical
 $cfromJSONKey :: FromJSONKeyFunction Logical
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679690230"><span id="local-6989586621679690232"><span id="local-6989586621679690234"><span id="local-6989586621679690236"><span class="annot"><span class="annottext">[Logical] -&gt; Encoding
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679690239"><span id="local-6989586621679690241"><span id="local-6989586621679690243"><span id="local-6989586621679690245"><span class="annot"><span class="annottext">[Logical] -&gt; Encoding
 [Logical] -&gt; Value
 Logical -&gt; Encoding
 Logical -&gt; Value
@@ -223,7 +223,7 @@ $ctoEncoding :: Logical -&gt; Encoding
 toJSON :: Logical -&gt; Value
 $ctoJSON :: Logical -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679690225"><span id="local-6989586621679690227"><span class="annot"><span class="annottext">ToJSONKeyFunction [Logical]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679690234"><span id="local-6989586621679690236"><span class="annot"><span class="annottext">ToJSONKeyFunction [Logical]
 ToJSONKeyFunction Logical
 ToJSONKeyFunction Logical
 -&gt; ToJSONKeyFunction [Logical] -&gt; ToJSONKey Logical
@@ -234,13 +234,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Logical]
 toJSONKey :: ToJSONKeyFunction Logical
 $ctoJSONKey :: ToJSONKeyFunction Logical
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679690222"><span class="annot"><span class="annottext">[Node] -&gt; Either String Logical
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679690231"><span class="annot"><span class="annottext">[Node] -&gt; Either String Logical
 ([Node] -&gt; Either String Logical) -&gt; FromXML Logical
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Logical
 $cparseXML :: [Node] -&gt; Either String Logical
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679690219"><span class="annot"><span class="annottext">Logical -&gt; XML
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679690228"><span class="annot"><span class="annottext">Logical -&gt; XML
 (Logical -&gt; XML) -&gt; ToXML Logical
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Logical -&gt; XML

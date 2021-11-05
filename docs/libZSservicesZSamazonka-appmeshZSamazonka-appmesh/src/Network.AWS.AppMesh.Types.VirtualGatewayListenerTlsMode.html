@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode"><span class="hs-identifier">VirtualGatewayListenerTlsMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_DISABLED"><span class="hs-identifier">VirtualGatewayListenerTlsMode_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_PERMISSIVE"><span class="hs-identifier">VirtualGatewayListenerTlsMode_PERMISSIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_STRICT"><span class="hs-identifier">VirtualGatewayListenerTlsMode_STRICT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679335632"><span id="local-6989586621679335633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VirtualGatewayListenerTlsMode"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualGatewayListenerTlsMode%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode%27"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVirtualGatewayListenerTlsMode"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#fromVirtualGatewayListenerTlsMode"><span class="hs-identifier hs-var hs-var">fromVirtualGatewayListenerTlsMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335624"><span id="local-6989586621679335626"><span id="local-6989586621679335628"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayListenerTlsMode -&gt; ShowS
+[VirtualGatewayListenerTlsMode] -&gt; ShowS
+VirtualGatewayListenerTlsMode -&gt; String
+(Int -&gt; VirtualGatewayListenerTlsMode -&gt; ShowS)
+-&gt; (VirtualGatewayListenerTlsMode -&gt; String)
+-&gt; ([VirtualGatewayListenerTlsMode] -&gt; ShowS)
+-&gt; Show VirtualGatewayListenerTlsMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualGatewayListenerTlsMode] -&gt; ShowS
+$cshowList :: [VirtualGatewayListenerTlsMode] -&gt; ShowS
+show :: VirtualGatewayListenerTlsMode -&gt; String
+$cshow :: VirtualGatewayListenerTlsMode -&gt; String
+showsPrec :: Int -&gt; VirtualGatewayListenerTlsMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualGatewayListenerTlsMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679335615"><span id="local-6989586621679335617"><span id="local-6989586621679335619"><span id="local-6989586621679335621"><span class="annot"><span class="annottext">ReadPrec [VirtualGatewayListenerTlsMode]
+ReadPrec VirtualGatewayListenerTlsMode
+Int -&gt; ReadS VirtualGatewayListenerTlsMode
+ReadS [VirtualGatewayListenerTlsMode]
+(Int -&gt; ReadS VirtualGatewayListenerTlsMode)
+-&gt; ReadS [VirtualGatewayListenerTlsMode]
+-&gt; ReadPrec VirtualGatewayListenerTlsMode
+-&gt; ReadPrec [VirtualGatewayListenerTlsMode]
+-&gt; Read VirtualGatewayListenerTlsMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualGatewayListenerTlsMode]
+$creadListPrec :: ReadPrec [VirtualGatewayListenerTlsMode]
+readPrec :: ReadPrec VirtualGatewayListenerTlsMode
+$creadPrec :: ReadPrec VirtualGatewayListenerTlsMode
+readList :: ReadS [VirtualGatewayListenerTlsMode]
+$creadList :: ReadS [VirtualGatewayListenerTlsMode]
+readsPrec :: Int -&gt; ReadS VirtualGatewayListenerTlsMode
+$creadsPrec :: Int -&gt; ReadS VirtualGatewayListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679335610"><span id="local-6989586621679335612"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+(VirtualGatewayListenerTlsMode
+ -&gt; VirtualGatewayListenerTlsMode -&gt; Bool)
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; Bool)
+-&gt; Eq VirtualGatewayListenerTlsMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+$c/= :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+== :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+$c== :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679335594"><span id="local-6989586621679335596"><span id="local-6989586621679335598"><span id="local-6989586621679335600"><span id="local-6989586621679335602"><span id="local-6989586621679335604"><span id="local-6989586621679335606"><span class="annot"><span class="annottext">Eq VirtualGatewayListenerTlsMode
+Eq VirtualGatewayListenerTlsMode
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; Ordering)
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; Bool)
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; Bool)
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; Bool)
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; Bool)
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; VirtualGatewayListenerTlsMode)
+-&gt; (VirtualGatewayListenerTlsMode
+    -&gt; VirtualGatewayListenerTlsMode -&gt; VirtualGatewayListenerTlsMode)
+-&gt; Ord VirtualGatewayListenerTlsMode
+VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Ordering
+VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; VirtualGatewayListenerTlsMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; VirtualGatewayListenerTlsMode
+$cmin :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; VirtualGatewayListenerTlsMode
+max :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; VirtualGatewayListenerTlsMode
+$cmax :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; VirtualGatewayListenerTlsMode
+&gt;= :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+$c&gt;= :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+&gt; :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+$c&gt; :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+&lt;= :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+$c&lt;= :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+&lt; :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+$c&lt; :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Bool
+compare :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Ordering
+$ccompare :: VirtualGatewayListenerTlsMode
+-&gt; VirtualGatewayListenerTlsMode -&gt; Ordering
+$cp1Ord :: Eq VirtualGatewayListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ VirtualGatewayListenerTlsMode
+ -&gt; Rep VirtualGatewayListenerTlsMode x)
+-&gt; (forall x.
+    Rep VirtualGatewayListenerTlsMode x
+    -&gt; VirtualGatewayListenerTlsMode)
+-&gt; Generic VirtualGatewayListenerTlsMode
+forall x.
+Rep VirtualGatewayListenerTlsMode x
+-&gt; VirtualGatewayListenerTlsMode
+forall x.
+VirtualGatewayListenerTlsMode
+-&gt; Rep VirtualGatewayListenerTlsMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VirtualGatewayListenerTlsMode x
+-&gt; VirtualGatewayListenerTlsMode
+$cfrom :: forall x.
+VirtualGatewayListenerTlsMode
+-&gt; Rep VirtualGatewayListenerTlsMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335586"><span id="local-6989586621679335588"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayListenerTlsMode -&gt; Int
+VirtualGatewayListenerTlsMode -&gt; Int
+(Int -&gt; VirtualGatewayListenerTlsMode -&gt; Int)
+-&gt; (VirtualGatewayListenerTlsMode -&gt; Int)
+-&gt; Hashable VirtualGatewayListenerTlsMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VirtualGatewayListenerTlsMode -&gt; Int
+$chash :: VirtualGatewayListenerTlsMode -&gt; Int
+hashWithSalt :: Int -&gt; VirtualGatewayListenerTlsMode -&gt; Int
+$chashWithSalt :: Int -&gt; VirtualGatewayListenerTlsMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679335583"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode -&gt; ()
+(VirtualGatewayListenerTlsMode -&gt; ())
+-&gt; NFData VirtualGatewayListenerTlsMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VirtualGatewayListenerTlsMode -&gt; ()
+$crnf :: VirtualGatewayListenerTlsMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679335580"><span class="annot"><span class="annottext">Text -&gt; Either String VirtualGatewayListenerTlsMode
+(Text -&gt; Either String VirtualGatewayListenerTlsMode)
+-&gt; FromText VirtualGatewayListenerTlsMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VirtualGatewayListenerTlsMode
+$cfromText :: Text -&gt; Either String VirtualGatewayListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679335577"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode -&gt; Text
+(VirtualGatewayListenerTlsMode -&gt; Text)
+-&gt; ToText VirtualGatewayListenerTlsMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VirtualGatewayListenerTlsMode -&gt; Text
+$ctoText :: VirtualGatewayListenerTlsMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679335574"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode -&gt; ByteString
+(VirtualGatewayListenerTlsMode -&gt; ByteString)
+-&gt; ToByteString VirtualGatewayListenerTlsMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VirtualGatewayListenerTlsMode -&gt; ByteString
+$ctoBS :: VirtualGatewayListenerTlsMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679335571"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode -&gt; ByteStringBuilder
+(VirtualGatewayListenerTlsMode -&gt; ByteStringBuilder)
+-&gt; ToLog VirtualGatewayListenerTlsMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VirtualGatewayListenerTlsMode -&gt; ByteStringBuilder
+$cbuild :: VirtualGatewayListenerTlsMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679335568"><span class="annot"><span class="annottext">HeaderName -&gt; VirtualGatewayListenerTlsMode -&gt; [Header]
+(HeaderName -&gt; VirtualGatewayListenerTlsMode -&gt; [Header])
+-&gt; ToHeader VirtualGatewayListenerTlsMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VirtualGatewayListenerTlsMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VirtualGatewayListenerTlsMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679335565"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode -&gt; QueryString
+(VirtualGatewayListenerTlsMode -&gt; QueryString)
+-&gt; ToQuery VirtualGatewayListenerTlsMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VirtualGatewayListenerTlsMode -&gt; QueryString
+$ctoQuery :: VirtualGatewayListenerTlsMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679335560"><span id="local-6989586621679335562"><span class="annot"><span class="annottext">Value -&gt; Parser [VirtualGatewayListenerTlsMode]
+Value -&gt; Parser VirtualGatewayListenerTlsMode
+(Value -&gt; Parser VirtualGatewayListenerTlsMode)
+-&gt; (Value -&gt; Parser [VirtualGatewayListenerTlsMode])
+-&gt; FromJSON VirtualGatewayListenerTlsMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VirtualGatewayListenerTlsMode]
+$cparseJSONList :: Value -&gt; Parser [VirtualGatewayListenerTlsMode]
+parseJSON :: Value -&gt; Parser VirtualGatewayListenerTlsMode
+$cparseJSON :: Value -&gt; Parser VirtualGatewayListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679335555"><span id="local-6989586621679335557"><span class="annot"><span class="annottext">FromJSONKeyFunction [VirtualGatewayListenerTlsMode]
+FromJSONKeyFunction VirtualGatewayListenerTlsMode
+FromJSONKeyFunction VirtualGatewayListenerTlsMode
+-&gt; FromJSONKeyFunction [VirtualGatewayListenerTlsMode]
+-&gt; FromJSONKey VirtualGatewayListenerTlsMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VirtualGatewayListenerTlsMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [VirtualGatewayListenerTlsMode]
+fromJSONKey :: FromJSONKeyFunction VirtualGatewayListenerTlsMode
+$cfromJSONKey :: FromJSONKeyFunction VirtualGatewayListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679335546"><span id="local-6989586621679335548"><span id="local-6989586621679335550"><span id="local-6989586621679335552"><span class="annot"><span class="annottext">[VirtualGatewayListenerTlsMode] -&gt; Encoding
+[VirtualGatewayListenerTlsMode] -&gt; Value
+VirtualGatewayListenerTlsMode -&gt; Encoding
+VirtualGatewayListenerTlsMode -&gt; Value
+(VirtualGatewayListenerTlsMode -&gt; Value)
+-&gt; (VirtualGatewayListenerTlsMode -&gt; Encoding)
+-&gt; ([VirtualGatewayListenerTlsMode] -&gt; Value)
+-&gt; ([VirtualGatewayListenerTlsMode] -&gt; Encoding)
+-&gt; ToJSON VirtualGatewayListenerTlsMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VirtualGatewayListenerTlsMode] -&gt; Encoding
+$ctoEncodingList :: [VirtualGatewayListenerTlsMode] -&gt; Encoding
+toJSONList :: [VirtualGatewayListenerTlsMode] -&gt; Value
+$ctoJSONList :: [VirtualGatewayListenerTlsMode] -&gt; Value
+toEncoding :: VirtualGatewayListenerTlsMode -&gt; Encoding
+$ctoEncoding :: VirtualGatewayListenerTlsMode -&gt; Encoding
+toJSON :: VirtualGatewayListenerTlsMode -&gt; Value
+$ctoJSON :: VirtualGatewayListenerTlsMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679335541"><span id="local-6989586621679335543"><span class="annot"><span class="annottext">ToJSONKeyFunction [VirtualGatewayListenerTlsMode]
+ToJSONKeyFunction VirtualGatewayListenerTlsMode
+ToJSONKeyFunction VirtualGatewayListenerTlsMode
+-&gt; ToJSONKeyFunction [VirtualGatewayListenerTlsMode]
+-&gt; ToJSONKey VirtualGatewayListenerTlsMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VirtualGatewayListenerTlsMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [VirtualGatewayListenerTlsMode]
+toJSONKey :: ToJSONKeyFunction VirtualGatewayListenerTlsMode
+$ctoJSONKey :: ToJSONKeyFunction VirtualGatewayListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679335538"><span class="annot"><span class="annottext">[Node] -&gt; Either String VirtualGatewayListenerTlsMode
+([Node] -&gt; Either String VirtualGatewayListenerTlsMode)
+-&gt; FromXML VirtualGatewayListenerTlsMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VirtualGatewayListenerTlsMode
+$cparseXML :: [Node] -&gt; Either String VirtualGatewayListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679335535"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsMode -&gt; XML
+(VirtualGatewayListenerTlsMode -&gt; XML)
+-&gt; ToXML VirtualGatewayListenerTlsMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VirtualGatewayListenerTlsMode -&gt; XML
+$ctoXML :: VirtualGatewayListenerTlsMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_DISABLED"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayListenerTlsMode_DISABLED"><span id="%24mVirtualGatewayListenerTlsMode_DISABLED"><span id="VirtualGatewayListenerTlsMode_DISABLED"><span class="annot"><span class="annottext">$bVirtualGatewayListenerTlsMode_DISABLED :: VirtualGatewayListenerTlsMode
+$mVirtualGatewayListenerTlsMode_DISABLED :: forall r.
+VirtualGatewayListenerTlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#%24bVirtualGatewayListenerTlsMode_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayListenerTlsMode_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_PERMISSIVE"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode_PERMISSIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayListenerTlsMode_PERMISSIVE"><span id="%24mVirtualGatewayListenerTlsMode_PERMISSIVE"><span id="VirtualGatewayListenerTlsMode_PERMISSIVE"><span class="annot"><span class="annottext">$bVirtualGatewayListenerTlsMode_PERMISSIVE :: VirtualGatewayListenerTlsMode
+$mVirtualGatewayListenerTlsMode_PERMISSIVE :: forall r.
+VirtualGatewayListenerTlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#%24bVirtualGatewayListenerTlsMode_PERMISSIVE"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayListenerTlsMode_PERMISSIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERMISSIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_STRICT"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode_STRICT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayListenerTlsMode_STRICT"><span id="%24mVirtualGatewayListenerTlsMode_STRICT"><span id="VirtualGatewayListenerTlsMode_STRICT"><span class="annot"><span class="annottext">$bVirtualGatewayListenerTlsMode_STRICT :: VirtualGatewayListenerTlsMode
+$mVirtualGatewayListenerTlsMode_STRICT :: forall r.
+VirtualGatewayListenerTlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#%24bVirtualGatewayListenerTlsMode_STRICT"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayListenerTlsMode_STRICT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRICT&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_DISABLED"><span class="hs-pragma hs-type">VirtualGatewayListenerTlsMode_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_PERMISSIVE"><span class="hs-pragma hs-type">VirtualGatewayListenerTlsMode_PERMISSIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode_STRICT"><span class="hs-pragma hs-type">VirtualGatewayListenerTlsMode_STRICT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode.html#VirtualGatewayListenerTlsMode%27"><span class="hs-pragma hs-type">VirtualGatewayListenerTlsMode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

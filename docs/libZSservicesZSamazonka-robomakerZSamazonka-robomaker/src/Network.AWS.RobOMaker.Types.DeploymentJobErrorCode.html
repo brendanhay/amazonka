@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.DeploymentJobErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.DeploymentJobErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_BadLambdaAssociated"><span class="hs-identifier">DeploymentJobErrorCode_BadLambdaAssociated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_BadPermissionError"><span class="hs-identifier">DeploymentJobErrorCode_BadPermissionError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_DeploymentFleetDoesNotExist"><span class="hs-identifier">DeploymentJobErrorCode_DeploymentFleetDoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_DownloadConditionFailed"><span class="hs-identifier">DeploymentJobErrorCode_DownloadConditionFailed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_EnvironmentSetupError"><span class="hs-identifier">DeploymentJobErrorCode_EnvironmentSetupError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_EtagMismatch"><span class="hs-identifier">DeploymentJobErrorCode_EtagMismatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_ExtractingBundleFailure"><span class="hs-identifier">DeploymentJobErrorCode_ExtractingBundleFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_FailureThresholdBreached"><span class="hs-identifier">DeploymentJobErrorCode_FailureThresholdBreached</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_FleetDeploymentTimeout"><span class="hs-identifier">DeploymentJobErrorCode_FleetDeploymentTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_GreengrassDeploymentFailed"><span class="hs-identifier">DeploymentJobErrorCode_GreengrassDeploymentFailed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist"><span class="hs-identifier">DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_InternalServerError"><span class="hs-identifier">DeploymentJobErrorCode_InternalServerError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_InvalidGreengrassGroup"><span class="hs-identifier">DeploymentJobErrorCode_InvalidGreengrassGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_LambdaDeleted"><span class="hs-identifier">DeploymentJobErrorCode_LambdaDeleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotApplicationArchitecture"><span class="hs-identifier">DeploymentJobErrorCode_MissingRobotApplicationArchitecture</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotArchitecture"><span class="hs-identifier">DeploymentJobErrorCode_MissingRobotArchitecture</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotDeploymentResource"><span class="hs-identifier">DeploymentJobErrorCode_MissingRobotDeploymentResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_PostLaunchFileFailure"><span class="hs-identifier">DeploymentJobErrorCode_PostLaunchFileFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_PreLaunchFileFailure"><span class="hs-identifier">DeploymentJobErrorCode_PreLaunchFileFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_ResourceNotFound"><span class="hs-identifier">DeploymentJobErrorCode_ResourceNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotAgentConnectionTimeout"><span class="hs-identifier">DeploymentJobErrorCode_RobotAgentConnectionTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotApplicationDoesNotExist"><span class="hs-identifier">DeploymentJobErrorCode_RobotApplicationDoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotDeploymentAborted"><span class="hs-identifier">DeploymentJobErrorCode_RobotDeploymentAborted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotDeploymentNoResponse"><span class="hs-identifier">DeploymentJobErrorCode_RobotDeploymentNoResponse</span></a></span><span>
+</span><span id="line-47"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679366061"><span id="local-6989586621679366062"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentJobErrorCode"><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-var">DeploymentJobErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentJobErrorCode%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-var">DeploymentJobErrorCode'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentJobErrorCode"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#fromDeploymentJobErrorCode"><span class="hs-identifier hs-var hs-var">fromDeploymentJobErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366053"><span id="local-6989586621679366055"><span id="local-6989586621679366057"><span class="annot"><span class="annottext">Int -&gt; DeploymentJobErrorCode -&gt; ShowS
+[DeploymentJobErrorCode] -&gt; ShowS
+DeploymentJobErrorCode -&gt; String
+(Int -&gt; DeploymentJobErrorCode -&gt; ShowS)
+-&gt; (DeploymentJobErrorCode -&gt; String)
+-&gt; ([DeploymentJobErrorCode] -&gt; ShowS)
+-&gt; Show DeploymentJobErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentJobErrorCode] -&gt; ShowS
+$cshowList :: [DeploymentJobErrorCode] -&gt; ShowS
+show :: DeploymentJobErrorCode -&gt; String
+$cshow :: DeploymentJobErrorCode -&gt; String
+showsPrec :: Int -&gt; DeploymentJobErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentJobErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366044"><span id="local-6989586621679366046"><span id="local-6989586621679366048"><span id="local-6989586621679366050"><span class="annot"><span class="annottext">ReadPrec [DeploymentJobErrorCode]
+ReadPrec DeploymentJobErrorCode
+Int -&gt; ReadS DeploymentJobErrorCode
+ReadS [DeploymentJobErrorCode]
+(Int -&gt; ReadS DeploymentJobErrorCode)
+-&gt; ReadS [DeploymentJobErrorCode]
+-&gt; ReadPrec DeploymentJobErrorCode
+-&gt; ReadPrec [DeploymentJobErrorCode]
+-&gt; Read DeploymentJobErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentJobErrorCode]
+$creadListPrec :: ReadPrec [DeploymentJobErrorCode]
+readPrec :: ReadPrec DeploymentJobErrorCode
+$creadPrec :: ReadPrec DeploymentJobErrorCode
+readList :: ReadS [DeploymentJobErrorCode]
+$creadList :: ReadS [DeploymentJobErrorCode]
+readsPrec :: Int -&gt; ReadS DeploymentJobErrorCode
+$creadsPrec :: Int -&gt; ReadS DeploymentJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366039"><span id="local-6989586621679366041"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+(DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool)
+-&gt; (DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool)
+-&gt; Eq DeploymentJobErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+$c/= :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+== :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+$c== :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366023"><span id="local-6989586621679366025"><span id="local-6989586621679366027"><span id="local-6989586621679366029"><span id="local-6989586621679366031"><span id="local-6989586621679366033"><span id="local-6989586621679366035"><span class="annot"><span class="annottext">Eq DeploymentJobErrorCode
+Eq DeploymentJobErrorCode
+-&gt; (DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Ordering)
+-&gt; (DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool)
+-&gt; (DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool)
+-&gt; (DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool)
+-&gt; (DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool)
+-&gt; (DeploymentJobErrorCode
+    -&gt; DeploymentJobErrorCode -&gt; DeploymentJobErrorCode)
+-&gt; (DeploymentJobErrorCode
+    -&gt; DeploymentJobErrorCode -&gt; DeploymentJobErrorCode)
+-&gt; Ord DeploymentJobErrorCode
+DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Ordering
+DeploymentJobErrorCode
+-&gt; DeploymentJobErrorCode -&gt; DeploymentJobErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentJobErrorCode
+-&gt; DeploymentJobErrorCode -&gt; DeploymentJobErrorCode
+$cmin :: DeploymentJobErrorCode
+-&gt; DeploymentJobErrorCode -&gt; DeploymentJobErrorCode
+max :: DeploymentJobErrorCode
+-&gt; DeploymentJobErrorCode -&gt; DeploymentJobErrorCode
+$cmax :: DeploymentJobErrorCode
+-&gt; DeploymentJobErrorCode -&gt; DeploymentJobErrorCode
+&gt;= :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+$c&gt;= :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+&gt; :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+$c&gt; :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+&lt;= :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+$c&lt;= :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+&lt; :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+$c&lt; :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Bool
+compare :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Ordering
+$ccompare :: DeploymentJobErrorCode -&gt; DeploymentJobErrorCode -&gt; Ordering
+$cp1Ord :: Eq DeploymentJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeploymentJobErrorCode -&gt; Rep DeploymentJobErrorCode x)
+-&gt; (forall x.
+    Rep DeploymentJobErrorCode x -&gt; DeploymentJobErrorCode)
+-&gt; Generic DeploymentJobErrorCode
+forall x. Rep DeploymentJobErrorCode x -&gt; DeploymentJobErrorCode
+forall x. DeploymentJobErrorCode -&gt; Rep DeploymentJobErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentJobErrorCode x -&gt; DeploymentJobErrorCode
+$cfrom :: forall x. DeploymentJobErrorCode -&gt; Rep DeploymentJobErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366015"><span id="local-6989586621679366017"><span class="annot"><span class="annottext">Int -&gt; DeploymentJobErrorCode -&gt; Int
+DeploymentJobErrorCode -&gt; Int
+(Int -&gt; DeploymentJobErrorCode -&gt; Int)
+-&gt; (DeploymentJobErrorCode -&gt; Int)
+-&gt; Hashable DeploymentJobErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentJobErrorCode -&gt; Int
+$chash :: DeploymentJobErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentJobErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentJobErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679366012"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; ()
+(DeploymentJobErrorCode -&gt; ()) -&gt; NFData DeploymentJobErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentJobErrorCode -&gt; ()
+$crnf :: DeploymentJobErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679366009"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentJobErrorCode
+(Text -&gt; Either String DeploymentJobErrorCode)
+-&gt; FromText DeploymentJobErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentJobErrorCode
+$cfromText :: Text -&gt; Either String DeploymentJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679366006"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; Text
+(DeploymentJobErrorCode -&gt; Text) -&gt; ToText DeploymentJobErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentJobErrorCode -&gt; Text
+$ctoText :: DeploymentJobErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679366003"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; ByteString
+(DeploymentJobErrorCode -&gt; ByteString)
+-&gt; ToByteString DeploymentJobErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentJobErrorCode -&gt; ByteString
+$ctoBS :: DeploymentJobErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679366000"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; ByteStringBuilder
+(DeploymentJobErrorCode -&gt; ByteStringBuilder)
+-&gt; ToLog DeploymentJobErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentJobErrorCode -&gt; ByteStringBuilder
+$cbuild :: DeploymentJobErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679365997"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentJobErrorCode -&gt; [Header]
+(HeaderName -&gt; DeploymentJobErrorCode -&gt; [Header])
+-&gt; ToHeader DeploymentJobErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentJobErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentJobErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679365994"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; QueryString
+(DeploymentJobErrorCode -&gt; QueryString)
+-&gt; ToQuery DeploymentJobErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentJobErrorCode -&gt; QueryString
+$ctoQuery :: DeploymentJobErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679365989"><span id="local-6989586621679365991"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentJobErrorCode]
+Value -&gt; Parser DeploymentJobErrorCode
+(Value -&gt; Parser DeploymentJobErrorCode)
+-&gt; (Value -&gt; Parser [DeploymentJobErrorCode])
+-&gt; FromJSON DeploymentJobErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentJobErrorCode]
+$cparseJSONList :: Value -&gt; Parser [DeploymentJobErrorCode]
+parseJSON :: Value -&gt; Parser DeploymentJobErrorCode
+$cparseJSON :: Value -&gt; Parser DeploymentJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679365984"><span id="local-6989586621679365986"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentJobErrorCode]
+FromJSONKeyFunction DeploymentJobErrorCode
+FromJSONKeyFunction DeploymentJobErrorCode
+-&gt; FromJSONKeyFunction [DeploymentJobErrorCode]
+-&gt; FromJSONKey DeploymentJobErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentJobErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentJobErrorCode]
+fromJSONKey :: FromJSONKeyFunction DeploymentJobErrorCode
+$cfromJSONKey :: FromJSONKeyFunction DeploymentJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679365975"><span id="local-6989586621679365977"><span id="local-6989586621679365979"><span id="local-6989586621679365981"><span class="annot"><span class="annottext">[DeploymentJobErrorCode] -&gt; Encoding
+[DeploymentJobErrorCode] -&gt; Value
+DeploymentJobErrorCode -&gt; Encoding
+DeploymentJobErrorCode -&gt; Value
+(DeploymentJobErrorCode -&gt; Value)
+-&gt; (DeploymentJobErrorCode -&gt; Encoding)
+-&gt; ([DeploymentJobErrorCode] -&gt; Value)
+-&gt; ([DeploymentJobErrorCode] -&gt; Encoding)
+-&gt; ToJSON DeploymentJobErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentJobErrorCode] -&gt; Encoding
+$ctoEncodingList :: [DeploymentJobErrorCode] -&gt; Encoding
+toJSONList :: [DeploymentJobErrorCode] -&gt; Value
+$ctoJSONList :: [DeploymentJobErrorCode] -&gt; Value
+toEncoding :: DeploymentJobErrorCode -&gt; Encoding
+$ctoEncoding :: DeploymentJobErrorCode -&gt; Encoding
+toJSON :: DeploymentJobErrorCode -&gt; Value
+$ctoJSON :: DeploymentJobErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679365970"><span id="local-6989586621679365972"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentJobErrorCode]
+ToJSONKeyFunction DeploymentJobErrorCode
+ToJSONKeyFunction DeploymentJobErrorCode
+-&gt; ToJSONKeyFunction [DeploymentJobErrorCode]
+-&gt; ToJSONKey DeploymentJobErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentJobErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentJobErrorCode]
+toJSONKey :: ToJSONKeyFunction DeploymentJobErrorCode
+$ctoJSONKey :: ToJSONKeyFunction DeploymentJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679365967"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentJobErrorCode
+([Node] -&gt; Either String DeploymentJobErrorCode)
+-&gt; FromXML DeploymentJobErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentJobErrorCode
+$cparseXML :: [Node] -&gt; Either String DeploymentJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679365964"><span class="annot"><span class="annottext">DeploymentJobErrorCode -&gt; XML
+(DeploymentJobErrorCode -&gt; XML) -&gt; ToXML DeploymentJobErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentJobErrorCode -&gt; XML
+$ctoXML :: DeploymentJobErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_BadLambdaAssociated"><span class="hs-identifier hs-type">DeploymentJobErrorCode_BadLambdaAssociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_BadLambdaAssociated"><span id="%24mDeploymentJobErrorCode_BadLambdaAssociated"><span id="DeploymentJobErrorCode_BadLambdaAssociated"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_BadLambdaAssociated :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_BadLambdaAssociated :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_BadLambdaAssociated"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_BadLambdaAssociated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadLambdaAssociated&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_BadPermissionError"><span class="hs-identifier hs-type">DeploymentJobErrorCode_BadPermissionError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_BadPermissionError"><span id="%24mDeploymentJobErrorCode_BadPermissionError"><span id="DeploymentJobErrorCode_BadPermissionError"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_BadPermissionError :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_BadPermissionError :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_BadPermissionError"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_BadPermissionError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadPermissionError&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_DeploymentFleetDoesNotExist"><span class="hs-identifier hs-type">DeploymentJobErrorCode_DeploymentFleetDoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_DeploymentFleetDoesNotExist"><span id="%24mDeploymentJobErrorCode_DeploymentFleetDoesNotExist"><span id="DeploymentJobErrorCode_DeploymentFleetDoesNotExist"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_DeploymentFleetDoesNotExist :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_DeploymentFleetDoesNotExist :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_DeploymentFleetDoesNotExist"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_DeploymentFleetDoesNotExist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DeploymentFleetDoesNotExist&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_DownloadConditionFailed"><span class="hs-identifier hs-type">DeploymentJobErrorCode_DownloadConditionFailed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_DownloadConditionFailed"><span id="%24mDeploymentJobErrorCode_DownloadConditionFailed"><span id="DeploymentJobErrorCode_DownloadConditionFailed"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_DownloadConditionFailed :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_DownloadConditionFailed :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_DownloadConditionFailed"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_DownloadConditionFailed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DownloadConditionFailed&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_EnvironmentSetupError"><span class="hs-identifier hs-type">DeploymentJobErrorCode_EnvironmentSetupError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_EnvironmentSetupError"><span id="%24mDeploymentJobErrorCode_EnvironmentSetupError"><span id="DeploymentJobErrorCode_EnvironmentSetupError"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_EnvironmentSetupError :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_EnvironmentSetupError :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_EnvironmentSetupError"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_EnvironmentSetupError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EnvironmentSetupError&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_EtagMismatch"><span class="hs-identifier hs-type">DeploymentJobErrorCode_EtagMismatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_EtagMismatch"><span id="%24mDeploymentJobErrorCode_EtagMismatch"><span id="DeploymentJobErrorCode_EtagMismatch"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_EtagMismatch :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_EtagMismatch :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_EtagMismatch"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_EtagMismatch</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EtagMismatch&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_ExtractingBundleFailure"><span class="hs-identifier hs-type">DeploymentJobErrorCode_ExtractingBundleFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_ExtractingBundleFailure"><span id="%24mDeploymentJobErrorCode_ExtractingBundleFailure"><span id="DeploymentJobErrorCode_ExtractingBundleFailure"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_ExtractingBundleFailure :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_ExtractingBundleFailure :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_ExtractingBundleFailure"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_ExtractingBundleFailure</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ExtractingBundleFailure&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_FailureThresholdBreached"><span class="hs-identifier hs-type">DeploymentJobErrorCode_FailureThresholdBreached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_FailureThresholdBreached"><span id="%24mDeploymentJobErrorCode_FailureThresholdBreached"><span id="DeploymentJobErrorCode_FailureThresholdBreached"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_FailureThresholdBreached :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_FailureThresholdBreached :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_FailureThresholdBreached"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_FailureThresholdBreached</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FailureThresholdBreached&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_FleetDeploymentTimeout"><span class="hs-identifier hs-type">DeploymentJobErrorCode_FleetDeploymentTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_FleetDeploymentTimeout"><span id="%24mDeploymentJobErrorCode_FleetDeploymentTimeout"><span id="DeploymentJobErrorCode_FleetDeploymentTimeout"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_FleetDeploymentTimeout :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_FleetDeploymentTimeout :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_FleetDeploymentTimeout"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_FleetDeploymentTimeout</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FleetDeploymentTimeout&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_GreengrassDeploymentFailed"><span class="hs-identifier hs-type">DeploymentJobErrorCode_GreengrassDeploymentFailed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_GreengrassDeploymentFailed"><span id="%24mDeploymentJobErrorCode_GreengrassDeploymentFailed"><span id="DeploymentJobErrorCode_GreengrassDeploymentFailed"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_GreengrassDeploymentFailed :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_GreengrassDeploymentFailed :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_GreengrassDeploymentFailed"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_GreengrassDeploymentFailed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GreengrassDeploymentFailed&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist"><span class="hs-identifier hs-type">DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist"><span id="%24mDeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist"><span id="DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GreengrassGroupVersionDoesNotExist&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_InternalServerError"><span class="hs-identifier hs-type">DeploymentJobErrorCode_InternalServerError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_InternalServerError"><span id="%24mDeploymentJobErrorCode_InternalServerError"><span id="DeploymentJobErrorCode_InternalServerError"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_InternalServerError :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_InternalServerError :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_InternalServerError"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_InternalServerError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InternalServerError&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_InvalidGreengrassGroup"><span class="hs-identifier hs-type">DeploymentJobErrorCode_InvalidGreengrassGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_InvalidGreengrassGroup"><span id="%24mDeploymentJobErrorCode_InvalidGreengrassGroup"><span id="DeploymentJobErrorCode_InvalidGreengrassGroup"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_InvalidGreengrassGroup :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_InvalidGreengrassGroup :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_InvalidGreengrassGroup"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_InvalidGreengrassGroup</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvalidGreengrassGroup&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_LambdaDeleted"><span class="hs-identifier hs-type">DeploymentJobErrorCode_LambdaDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_LambdaDeleted"><span id="%24mDeploymentJobErrorCode_LambdaDeleted"><span id="DeploymentJobErrorCode_LambdaDeleted"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_LambdaDeleted :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_LambdaDeleted :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_LambdaDeleted"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_LambdaDeleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LambdaDeleted&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotApplicationArchitecture"><span class="hs-identifier hs-type">DeploymentJobErrorCode_MissingRobotApplicationArchitecture</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_MissingRobotApplicationArchitecture"><span id="%24mDeploymentJobErrorCode_MissingRobotApplicationArchitecture"><span id="DeploymentJobErrorCode_MissingRobotApplicationArchitecture"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_MissingRobotApplicationArchitecture :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_MissingRobotApplicationArchitecture :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_MissingRobotApplicationArchitecture"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_MissingRobotApplicationArchitecture</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MissingRobotApplicationArchitecture&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotArchitecture"><span class="hs-identifier hs-type">DeploymentJobErrorCode_MissingRobotArchitecture</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_MissingRobotArchitecture"><span id="%24mDeploymentJobErrorCode_MissingRobotArchitecture"><span id="DeploymentJobErrorCode_MissingRobotArchitecture"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_MissingRobotArchitecture :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_MissingRobotArchitecture :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_MissingRobotArchitecture"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_MissingRobotArchitecture</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MissingRobotArchitecture&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotDeploymentResource"><span class="hs-identifier hs-type">DeploymentJobErrorCode_MissingRobotDeploymentResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_MissingRobotDeploymentResource"><span id="%24mDeploymentJobErrorCode_MissingRobotDeploymentResource"><span id="DeploymentJobErrorCode_MissingRobotDeploymentResource"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_MissingRobotDeploymentResource :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_MissingRobotDeploymentResource :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_MissingRobotDeploymentResource"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_MissingRobotDeploymentResource</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MissingRobotDeploymentResource&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_PostLaunchFileFailure"><span class="hs-identifier hs-type">DeploymentJobErrorCode_PostLaunchFileFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_PostLaunchFileFailure"><span id="%24mDeploymentJobErrorCode_PostLaunchFileFailure"><span id="DeploymentJobErrorCode_PostLaunchFileFailure"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_PostLaunchFileFailure :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_PostLaunchFileFailure :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_PostLaunchFileFailure"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_PostLaunchFileFailure</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PostLaunchFileFailure&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_PreLaunchFileFailure"><span class="hs-identifier hs-type">DeploymentJobErrorCode_PreLaunchFileFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_PreLaunchFileFailure"><span id="%24mDeploymentJobErrorCode_PreLaunchFileFailure"><span id="DeploymentJobErrorCode_PreLaunchFileFailure"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_PreLaunchFileFailure :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_PreLaunchFileFailure :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_PreLaunchFileFailure"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_PreLaunchFileFailure</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PreLaunchFileFailure&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_ResourceNotFound"><span class="hs-identifier hs-type">DeploymentJobErrorCode_ResourceNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_ResourceNotFound"><span id="%24mDeploymentJobErrorCode_ResourceNotFound"><span id="DeploymentJobErrorCode_ResourceNotFound"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_ResourceNotFound :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_ResourceNotFound :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_ResourceNotFound"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_ResourceNotFound</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceNotFound&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotAgentConnectionTimeout"><span class="hs-identifier hs-type">DeploymentJobErrorCode_RobotAgentConnectionTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_RobotAgentConnectionTimeout"><span id="%24mDeploymentJobErrorCode_RobotAgentConnectionTimeout"><span id="DeploymentJobErrorCode_RobotAgentConnectionTimeout"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_RobotAgentConnectionTimeout :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_RobotAgentConnectionTimeout :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_RobotAgentConnectionTimeout"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_RobotAgentConnectionTimeout</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RobotAgentConnectionTimeout&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotApplicationDoesNotExist"><span class="hs-identifier hs-type">DeploymentJobErrorCode_RobotApplicationDoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_RobotApplicationDoesNotExist"><span id="%24mDeploymentJobErrorCode_RobotApplicationDoesNotExist"><span id="DeploymentJobErrorCode_RobotApplicationDoesNotExist"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_RobotApplicationDoesNotExist :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_RobotApplicationDoesNotExist :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_RobotApplicationDoesNotExist"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_RobotApplicationDoesNotExist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RobotApplicationDoesNotExist&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotDeploymentAborted"><span class="hs-identifier hs-type">DeploymentJobErrorCode_RobotDeploymentAborted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_RobotDeploymentAborted"><span id="%24mDeploymentJobErrorCode_RobotDeploymentAborted"><span id="DeploymentJobErrorCode_RobotDeploymentAborted"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_RobotDeploymentAborted :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_RobotDeploymentAborted :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_RobotDeploymentAborted"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_RobotDeploymentAborted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RobotDeploymentAborted&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotDeploymentNoResponse"><span class="hs-identifier hs-type">DeploymentJobErrorCode_RobotDeploymentNoResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentJobErrorCode_RobotDeploymentNoResponse"><span id="%24mDeploymentJobErrorCode_RobotDeploymentNoResponse"><span id="DeploymentJobErrorCode_RobotDeploymentNoResponse"><span class="annot"><span class="annottext">$bDeploymentJobErrorCode_RobotDeploymentNoResponse :: DeploymentJobErrorCode
+$mDeploymentJobErrorCode_RobotDeploymentNoResponse :: forall r.
+DeploymentJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#%24bDeploymentJobErrorCode_RobotDeploymentNoResponse"><span class="hs-identifier hs-var hs-var hs-var">DeploymentJobErrorCode_RobotDeploymentNoResponse</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-identifier hs-type">DeploymentJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RobotDeploymentNoResponse&quot;</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_BadLambdaAssociated"><span class="hs-pragma hs-type">DeploymentJobErrorCode_BadLambdaAssociated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_BadPermissionError"><span class="hs-pragma hs-type">DeploymentJobErrorCode_BadPermissionError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_DeploymentFleetDoesNotExist"><span class="hs-pragma hs-type">DeploymentJobErrorCode_DeploymentFleetDoesNotExist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_DownloadConditionFailed"><span class="hs-pragma hs-type">DeploymentJobErrorCode_DownloadConditionFailed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_EnvironmentSetupError"><span class="hs-pragma hs-type">DeploymentJobErrorCode_EnvironmentSetupError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_EtagMismatch"><span class="hs-pragma hs-type">DeploymentJobErrorCode_EtagMismatch</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_ExtractingBundleFailure"><span class="hs-pragma hs-type">DeploymentJobErrorCode_ExtractingBundleFailure</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_FailureThresholdBreached"><span class="hs-pragma hs-type">DeploymentJobErrorCode_FailureThresholdBreached</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_FleetDeploymentTimeout"><span class="hs-pragma hs-type">DeploymentJobErrorCode_FleetDeploymentTimeout</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_GreengrassDeploymentFailed"><span class="hs-pragma hs-type">DeploymentJobErrorCode_GreengrassDeploymentFailed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist"><span class="hs-pragma hs-type">DeploymentJobErrorCode_GreengrassGroupVersionDoesNotExist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_InternalServerError"><span class="hs-pragma hs-type">DeploymentJobErrorCode_InternalServerError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_InvalidGreengrassGroup"><span class="hs-pragma hs-type">DeploymentJobErrorCode_InvalidGreengrassGroup</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_LambdaDeleted"><span class="hs-pragma hs-type">DeploymentJobErrorCode_LambdaDeleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotApplicationArchitecture"><span class="hs-pragma hs-type">DeploymentJobErrorCode_MissingRobotApplicationArchitecture</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotArchitecture"><span class="hs-pragma hs-type">DeploymentJobErrorCode_MissingRobotArchitecture</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_MissingRobotDeploymentResource"><span class="hs-pragma hs-type">DeploymentJobErrorCode_MissingRobotDeploymentResource</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_PostLaunchFileFailure"><span class="hs-pragma hs-type">DeploymentJobErrorCode_PostLaunchFileFailure</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_PreLaunchFileFailure"><span class="hs-pragma hs-type">DeploymentJobErrorCode_PreLaunchFileFailure</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_ResourceNotFound"><span class="hs-pragma hs-type">DeploymentJobErrorCode_ResourceNotFound</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotAgentConnectionTimeout"><span class="hs-pragma hs-type">DeploymentJobErrorCode_RobotAgentConnectionTimeout</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotApplicationDoesNotExist"><span class="hs-pragma hs-type">DeploymentJobErrorCode_RobotApplicationDoesNotExist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotDeploymentAborted"><span class="hs-pragma hs-type">DeploymentJobErrorCode_RobotDeploymentAborted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode_RobotDeploymentNoResponse"><span class="hs-pragma hs-type">DeploymentJobErrorCode_RobotDeploymentNoResponse</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode%27"><span class="hs-pragma hs-type">DeploymentJobErrorCode'</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-181"></span></pre></body></html>

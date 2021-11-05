@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679173920"><span id="local-6989586621679173921"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClientVersion"><span class="annot"><a href="Network.AWS.CloudHSM.Types.ClientVersion.html#ClientVersion"><span class="hs-identifier hs-var">ClientVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVersion%27"><span class="annot"><a href="Network.AWS.CloudHSM.Types.ClientVersion.html#ClientVersion%27"><span class="hs-identifier hs-var">ClientVersion'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679173929"><span id="local-6989586621679173930"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClientVersion"><span class="annot"><a href="Network.AWS.CloudHSM.Types.ClientVersion.html#ClientVersion"><span class="hs-identifier hs-var">ClientVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVersion%27"><span class="annot"><a href="Network.AWS.CloudHSM.Types.ClientVersion.html#ClientVersion%27"><span class="hs-identifier hs-var">ClientVersion'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClientVersion"><span class="annot"><span class="annottext">ClientVersion -&gt; Text
 </span><a href="Network.AWS.CloudHSM.Types.ClientVersion.html#fromClientVersion"><span class="hs-identifier hs-var hs-var">fromClientVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173912"><span id="local-6989586621679173914"><span id="local-6989586621679173916"><span class="annot"><span class="annottext">Int -&gt; ClientVersion -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173921"><span id="local-6989586621679173923"><span id="local-6989586621679173925"><span class="annot"><span class="annottext">Int -&gt; ClientVersion -&gt; ShowS
 [ClientVersion] -&gt; ShowS
 ClientVersion -&gt; String
 (Int -&gt; ClientVersion -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ClientVersion -&gt; String
 showsPrec :: Int -&gt; ClientVersion -&gt; ShowS
 $cshowsPrec :: Int -&gt; ClientVersion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679173903"><span id="local-6989586621679173905"><span id="local-6989586621679173907"><span id="local-6989586621679173909"><span class="annot"><span class="annottext">ReadPrec [ClientVersion]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679173912"><span id="local-6989586621679173914"><span id="local-6989586621679173916"><span id="local-6989586621679173918"><span class="annot"><span class="annottext">ReadPrec [ClientVersion]
 ReadPrec ClientVersion
 Int -&gt; ReadS ClientVersion
 ReadS [ClientVersion]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ClientVersion]
 readsPrec :: Int -&gt; ReadS ClientVersion
 $creadsPrec :: Int -&gt; ReadS ClientVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679173898"><span id="local-6989586621679173900"><span class="annot"><span class="annottext">ClientVersion -&gt; ClientVersion -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679173907"><span id="local-6989586621679173909"><span class="annot"><span class="annottext">ClientVersion -&gt; ClientVersion -&gt; Bool
 (ClientVersion -&gt; ClientVersion -&gt; Bool)
 -&gt; (ClientVersion -&gt; ClientVersion -&gt; Bool) -&gt; Eq ClientVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: ClientVersion -&gt; ClientVersion -&gt; Bool
 == :: ClientVersion -&gt; ClientVersion -&gt; Bool
 $c== :: ClientVersion -&gt; ClientVersion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679173882"><span id="local-6989586621679173884"><span id="local-6989586621679173886"><span id="local-6989586621679173888"><span id="local-6989586621679173890"><span id="local-6989586621679173892"><span id="local-6989586621679173894"><span class="annot"><span class="annottext">Eq ClientVersion
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679173891"><span id="local-6989586621679173893"><span id="local-6989586621679173895"><span id="local-6989586621679173897"><span id="local-6989586621679173899"><span id="local-6989586621679173901"><span id="local-6989586621679173903"><span class="annot"><span class="annottext">Eq ClientVersion
 Eq ClientVersion
 -&gt; (ClientVersion -&gt; ClientVersion -&gt; Ordering)
 -&gt; (ClientVersion -&gt; ClientVersion -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. ClientVersion -&gt; Rep ClientVersion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173874"><span id="local-6989586621679173876"><span class="annot"><span class="annottext">Int -&gt; ClientVersion -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173883"><span id="local-6989586621679173885"><span class="annot"><span class="annottext">Int -&gt; ClientVersion -&gt; Int
 ClientVersion -&gt; Int
 (Int -&gt; ClientVersion -&gt; Int)
 -&gt; (ClientVersion -&gt; Int) -&gt; Hashable ClientVersion
@@ -141,49 +141,49 @@ $chash :: ClientVersion -&gt; Int
 hashWithSalt :: Int -&gt; ClientVersion -&gt; Int
 $chashWithSalt :: Int -&gt; ClientVersion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679173871"><span class="annot"><span class="annottext">ClientVersion -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679173880"><span class="annot"><span class="annottext">ClientVersion -&gt; ()
 (ClientVersion -&gt; ()) -&gt; NFData ClientVersion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ClientVersion -&gt; ()
 $crnf :: ClientVersion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679173868"><span class="annot"><span class="annottext">Text -&gt; Either String ClientVersion
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679173877"><span class="annot"><span class="annottext">Text -&gt; Either String ClientVersion
 (Text -&gt; Either String ClientVersion) -&gt; FromText ClientVersion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ClientVersion
 $cfromText :: Text -&gt; Either String ClientVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679173865"><span class="annot"><span class="annottext">ClientVersion -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679173874"><span class="annot"><span class="annottext">ClientVersion -&gt; Text
 (ClientVersion -&gt; Text) -&gt; ToText ClientVersion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ClientVersion -&gt; Text
 $ctoText :: ClientVersion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679173862"><span class="annot"><span class="annottext">ClientVersion -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679173871"><span class="annot"><span class="annottext">ClientVersion -&gt; ByteString
 (ClientVersion -&gt; ByteString) -&gt; ToByteString ClientVersion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ClientVersion -&gt; ByteString
 $ctoBS :: ClientVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679173859"><span class="annot"><span class="annottext">ClientVersion -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679173868"><span class="annot"><span class="annottext">ClientVersion -&gt; ByteStringBuilder
 (ClientVersion -&gt; ByteStringBuilder) -&gt; ToLog ClientVersion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ClientVersion -&gt; ByteStringBuilder
 $cbuild :: ClientVersion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679173856"><span class="annot"><span class="annottext">HeaderName -&gt; ClientVersion -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679173865"><span class="annot"><span class="annottext">HeaderName -&gt; ClientVersion -&gt; [Header]
 (HeaderName -&gt; ClientVersion -&gt; [Header]) -&gt; ToHeader ClientVersion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ClientVersion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ClientVersion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679173853"><span class="annot"><span class="annottext">ClientVersion -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679173862"><span class="annot"><span class="annottext">ClientVersion -&gt; QueryString
 (ClientVersion -&gt; QueryString) -&gt; ToQuery ClientVersion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ClientVersion -&gt; QueryString
 $ctoQuery :: ClientVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679173848"><span id="local-6989586621679173850"><span class="annot"><span class="annottext">Value -&gt; Parser [ClientVersion]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679173857"><span id="local-6989586621679173859"><span class="annot"><span class="annottext">Value -&gt; Parser [ClientVersion]
 Value -&gt; Parser ClientVersion
 (Value -&gt; Parser ClientVersion)
 -&gt; (Value -&gt; Parser [ClientVersion]) -&gt; FromJSON ClientVersion
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [ClientVersion]
 parseJSON :: Value -&gt; Parser ClientVersion
 $cparseJSON :: Value -&gt; Parser ClientVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679173843"><span id="local-6989586621679173845"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClientVersion]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679173852"><span id="local-6989586621679173854"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClientVersion]
 FromJSONKeyFunction ClientVersion
 FromJSONKeyFunction ClientVersion
 -&gt; FromJSONKeyFunction [ClientVersion] -&gt; FromJSONKey ClientVersion
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ClientVersion]
 fromJSONKey :: FromJSONKeyFunction ClientVersion
 $cfromJSONKey :: FromJSONKeyFunction ClientVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679173834"><span id="local-6989586621679173836"><span id="local-6989586621679173838"><span id="local-6989586621679173840"><span class="annot"><span class="annottext">[ClientVersion] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679173843"><span id="local-6989586621679173845"><span id="local-6989586621679173847"><span id="local-6989586621679173849"><span class="annot"><span class="annottext">[ClientVersion] -&gt; Encoding
 [ClientVersion] -&gt; Value
 ClientVersion -&gt; Encoding
 ClientVersion -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: ClientVersion -&gt; Encoding
 toJSON :: ClientVersion -&gt; Value
 $ctoJSON :: ClientVersion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679173829"><span id="local-6989586621679173831"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClientVersion]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679173838"><span id="local-6989586621679173840"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClientVersion]
 ToJSONKeyFunction ClientVersion
 ToJSONKeyFunction ClientVersion
 -&gt; ToJSONKeyFunction [ClientVersion] -&gt; ToJSONKey ClientVersion
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ClientVersion]
 toJSONKey :: ToJSONKeyFunction ClientVersion
 $ctoJSONKey :: ToJSONKeyFunction ClientVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173826"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClientVersion
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173835"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClientVersion
 ([Node] -&gt; Either String ClientVersion) -&gt; FromXML ClientVersion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ClientVersion
 $cparseXML :: [Node] -&gt; Either String ClientVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173823"><span class="annot"><span class="annottext">ClientVersion -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173832"><span class="annot"><span class="annottext">ClientVersion -&gt; XML
 (ClientVersion -&gt; XML) -&gt; ToXML ClientVersion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ClientVersion -&gt; XML

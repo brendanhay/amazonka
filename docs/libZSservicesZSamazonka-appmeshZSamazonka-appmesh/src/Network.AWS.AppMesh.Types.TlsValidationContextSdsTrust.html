@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that represents a Transport Layer Security (TLS) Secret</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Discovery Service validation context trust. The proxy must be configured</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- with a local SDS provider via a Unix Domain Socket. See App Mesh</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html TLS documentation&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- for more info.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTlsValidationContextSdsTrust' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679333535"><span id="local-6989586621679333536"></span></span><span class="hs-keyword">data</span><span> </span><span id="TlsValidationContextSdsTrust"><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-var">TlsValidationContextSdsTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TlsValidationContextSdsTrust%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust%27"><span class="hs-identifier hs-var">TlsValidationContextSdsTrust'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A reference to an object that represents the name of the secret for a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Transport Layer Security (TLS) Secret Discovery Service validation</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- context trust.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsecretName%3ATlsValidationContextSdsTrust%27"><span class="annot"><span class="annottext">TlsValidationContextSdsTrust -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#%24sel%3AsecretName%3ATlsValidationContextSdsTrust%27"><span class="hs-identifier hs-var hs-var">secretName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333529"><span id="local-6989586621679333531"><span class="annot"><span class="annottext">TlsValidationContextSdsTrust
+-&gt; TlsValidationContextSdsTrust -&gt; Bool
+(TlsValidationContextSdsTrust
+ -&gt; TlsValidationContextSdsTrust -&gt; Bool)
+-&gt; (TlsValidationContextSdsTrust
+    -&gt; TlsValidationContextSdsTrust -&gt; Bool)
+-&gt; Eq TlsValidationContextSdsTrust
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TlsValidationContextSdsTrust
+-&gt; TlsValidationContextSdsTrust -&gt; Bool
+$c/= :: TlsValidationContextSdsTrust
+-&gt; TlsValidationContextSdsTrust -&gt; Bool
+== :: TlsValidationContextSdsTrust
+-&gt; TlsValidationContextSdsTrust -&gt; Bool
+$c== :: TlsValidationContextSdsTrust
+-&gt; TlsValidationContextSdsTrust -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333520"><span id="local-6989586621679333522"><span id="local-6989586621679333524"><span id="local-6989586621679333526"><span class="annot"><span class="annottext">ReadPrec [TlsValidationContextSdsTrust]
+ReadPrec TlsValidationContextSdsTrust
+Int -&gt; ReadS TlsValidationContextSdsTrust
+ReadS [TlsValidationContextSdsTrust]
+(Int -&gt; ReadS TlsValidationContextSdsTrust)
+-&gt; ReadS [TlsValidationContextSdsTrust]
+-&gt; ReadPrec TlsValidationContextSdsTrust
+-&gt; ReadPrec [TlsValidationContextSdsTrust]
+-&gt; Read TlsValidationContextSdsTrust
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TlsValidationContextSdsTrust]
+$creadListPrec :: ReadPrec [TlsValidationContextSdsTrust]
+readPrec :: ReadPrec TlsValidationContextSdsTrust
+$creadPrec :: ReadPrec TlsValidationContextSdsTrust
+readList :: ReadS [TlsValidationContextSdsTrust]
+$creadList :: ReadS [TlsValidationContextSdsTrust]
+readsPrec :: Int -&gt; ReadS TlsValidationContextSdsTrust
+$creadsPrec :: Int -&gt; ReadS TlsValidationContextSdsTrust
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333513"><span id="local-6989586621679333515"><span id="local-6989586621679333517"><span class="annot"><span class="annottext">Int -&gt; TlsValidationContextSdsTrust -&gt; ShowS
+[TlsValidationContextSdsTrust] -&gt; ShowS
+TlsValidationContextSdsTrust -&gt; String
+(Int -&gt; TlsValidationContextSdsTrust -&gt; ShowS)
+-&gt; (TlsValidationContextSdsTrust -&gt; String)
+-&gt; ([TlsValidationContextSdsTrust] -&gt; ShowS)
+-&gt; Show TlsValidationContextSdsTrust
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TlsValidationContextSdsTrust] -&gt; ShowS
+$cshowList :: [TlsValidationContextSdsTrust] -&gt; ShowS
+show :: TlsValidationContextSdsTrust -&gt; String
+$cshow :: TlsValidationContextSdsTrust -&gt; String
+showsPrec :: Int -&gt; TlsValidationContextSdsTrust -&gt; ShowS
+$cshowsPrec :: Int -&gt; TlsValidationContextSdsTrust -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TlsValidationContextSdsTrust -&gt; Rep TlsValidationContextSdsTrust x)
+-&gt; (forall x.
+    Rep TlsValidationContextSdsTrust x -&gt; TlsValidationContextSdsTrust)
+-&gt; Generic TlsValidationContextSdsTrust
+forall x.
+Rep TlsValidationContextSdsTrust x -&gt; TlsValidationContextSdsTrust
+forall x.
+TlsValidationContextSdsTrust -&gt; Rep TlsValidationContextSdsTrust x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TlsValidationContextSdsTrust x -&gt; TlsValidationContextSdsTrust
+$cfrom :: forall x.
+TlsValidationContextSdsTrust -&gt; Rep TlsValidationContextSdsTrust x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'TlsValidationContextSdsTrust' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'secretName', 'tlsValidationContextSdsTrust_secretName' - A reference to an object that represents the name of the secret for a</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Transport Layer Security (TLS) Secret Discovery Service validation</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- context trust.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#newTlsValidationContextSdsTrust"><span class="hs-identifier hs-type">newTlsValidationContextSdsTrust</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'secretName'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust</span></a></span><span>
+</span><span id="line-56"></span><span id="newTlsValidationContextSdsTrust"><span class="annot"><span class="annottext">newTlsValidationContextSdsTrust :: Text -&gt; TlsValidationContextSdsTrust
+</span><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#newTlsValidationContextSdsTrust"><span class="hs-identifier hs-var hs-var">newTlsValidationContextSdsTrust</span></a></span></span><span> </span><span id="local-6989586621679333507"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333507"><span class="hs-identifier hs-var">pSecretName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">TlsValidationContextSdsTrust' :: Text -&gt; TlsValidationContextSdsTrust
+</span><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust%27"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:secretName:TlsValidationContextSdsTrust' :: Text
+</span><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#%24sel%3AsecretName%3ATlsValidationContextSdsTrust%27"><span class="hs-identifier hs-var">secretName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333507"><span class="hs-identifier hs-var">pSecretName_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A reference to an object that represents the name of the secret for a</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Transport Layer Security (TLS) Secret Discovery Service validation</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- context trust.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#tlsValidationContextSdsTrust_secretName"><span class="hs-identifier hs-type">tlsValidationContextSdsTrust_secretName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span id="tlsValidationContextSdsTrust_secretName"><span class="annot"><span class="annottext">tlsValidationContextSdsTrust_secretName :: (Text -&gt; f Text)
+-&gt; TlsValidationContextSdsTrust -&gt; f TlsValidationContextSdsTrust
+</span><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#tlsValidationContextSdsTrust_secretName"><span class="hs-identifier hs-var hs-var">tlsValidationContextSdsTrust_secretName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TlsValidationContextSdsTrust -&gt; Text)
+-&gt; (TlsValidationContextSdsTrust
+    -&gt; Text -&gt; TlsValidationContextSdsTrust)
+-&gt; Lens
+     TlsValidationContextSdsTrust TlsValidationContextSdsTrust Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust%27"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333503"><span class="annot"><span class="annottext">Text
+secretName :: Text
+$sel:secretName:TlsValidationContextSdsTrust' :: TlsValidationContextSdsTrust -&gt; Text
+</span><a href="#local-6989586621679333503"><span class="hs-identifier hs-var hs-var">secretName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333503"><span class="hs-identifier hs-var">secretName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333502"><span class="annot"><span class="annottext">s :: TlsValidationContextSdsTrust
+</span><a href="#local-6989586621679333502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust%27"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TlsValidationContextSdsTrust
+</span><a href="#local-6989586621679333502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretName:TlsValidationContextSdsTrust' :: Text
+</span><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#%24sel%3AsecretName%3ATlsValidationContextSdsTrust%27"><span class="hs-identifier hs-var">secretName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333498"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679333496"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TlsValidationContextSdsTrust
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TlsValidationContextSdsTrust)
+-&gt; Value
+-&gt; Parser TlsValidationContextSdsTrust
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TlsValidationContextSdsTrust&quot;</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333493"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; TlsValidationContextSdsTrust
+</span><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust%27"><span class="hs-identifier hs-var">TlsValidationContextSdsTrust'</span></a></span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; TlsValidationContextSdsTrust)
+-&gt; Parser Text -&gt; Parser TlsValidationContextSdsTrust
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679333487"><span id="local-6989586621679333489"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust</span></a></span></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust</span></a></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333476"><span id="local-6989586621679333478"><span id="local-6989586621679333480"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679333474"><span class="annot"><span class="annottext">toJSON :: TlsValidationContextSdsTrust -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust.html#TlsValidationContextSdsTrust%27"><span class="hs-identifier hs-type">TlsValidationContextSdsTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333472"><span class="annot"><span class="annottext">Text
+secretName :: Text
+$sel:secretName:TlsValidationContextSdsTrust' :: TlsValidationContextSdsTrust -&gt; Text
+</span><a href="#local-6989586621679333472"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333472"><span class="hs-identifier hs-var">secretName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span></pre></body></html>

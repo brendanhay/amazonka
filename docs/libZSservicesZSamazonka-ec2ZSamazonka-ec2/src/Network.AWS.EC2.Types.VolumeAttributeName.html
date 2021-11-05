@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681181090"><span id="local-6989586621681181091"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttributeName.html#VolumeAttributeName"><span class="hs-identifier hs-var">VolumeAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttributeName.html#VolumeAttributeName%27"><span class="hs-identifier hs-var">VolumeAttributeName'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681181099"><span id="local-6989586621681181100"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttributeName.html#VolumeAttributeName"><span class="hs-identifier hs-var">VolumeAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttributeName.html#VolumeAttributeName%27"><span class="hs-identifier hs-var">VolumeAttributeName'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVolumeAttributeName"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VolumeAttributeName.html#fromVolumeAttributeName"><span class="hs-identifier hs-var hs-var">fromVolumeAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681181082"><span id="local-6989586621681181084"><span id="local-6989586621681181086"><span class="annot"><span class="annottext">Int -&gt; VolumeAttributeName -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681181091"><span id="local-6989586621681181093"><span id="local-6989586621681181095"><span class="annot"><span class="annottext">Int -&gt; VolumeAttributeName -&gt; ShowS
 [VolumeAttributeName] -&gt; ShowS
 VolumeAttributeName -&gt; String
 (Int -&gt; VolumeAttributeName -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: VolumeAttributeName -&gt; String
 showsPrec :: Int -&gt; VolumeAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; VolumeAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681181073"><span id="local-6989586621681181075"><span id="local-6989586621681181077"><span id="local-6989586621681181079"><span class="annot"><span class="annottext">ReadPrec [VolumeAttributeName]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681181082"><span id="local-6989586621681181084"><span id="local-6989586621681181086"><span id="local-6989586621681181088"><span class="annot"><span class="annottext">ReadPrec [VolumeAttributeName]
 ReadPrec VolumeAttributeName
 Int -&gt; ReadS VolumeAttributeName
 ReadS [VolumeAttributeName]
@@ -73,7 +73,7 @@ $creadList :: ReadS [VolumeAttributeName]
 readsPrec :: Int -&gt; ReadS VolumeAttributeName
 $creadsPrec :: Int -&gt; ReadS VolumeAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681181068"><span id="local-6989586621681181070"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681181077"><span id="local-6989586621681181079"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool
 (VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool)
 -&gt; (VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool)
 -&gt; Eq VolumeAttributeName
@@ -83,7 +83,7 @@ $c/= :: VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool
 == :: VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool
 $c== :: VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681181052"><span id="local-6989586621681181054"><span id="local-6989586621681181056"><span id="local-6989586621681181058"><span id="local-6989586621681181060"><span id="local-6989586621681181062"><span id="local-6989586621681181064"><span class="annot"><span class="annottext">Eq VolumeAttributeName
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681181061"><span id="local-6989586621681181063"><span id="local-6989586621681181065"><span id="local-6989586621681181067"><span id="local-6989586621681181069"><span id="local-6989586621681181071"><span id="local-6989586621681181073"><span class="annot"><span class="annottext">Eq VolumeAttributeName
 Eq VolumeAttributeName
 -&gt; (VolumeAttributeName -&gt; VolumeAttributeName -&gt; Ordering)
 -&gt; (VolumeAttributeName -&gt; VolumeAttributeName -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. VolumeAttributeName -&gt; Rep VolumeAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681181044"><span id="local-6989586621681181046"><span class="annot"><span class="annottext">Int -&gt; VolumeAttributeName -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681181053"><span id="local-6989586621681181055"><span class="annot"><span class="annottext">Int -&gt; VolumeAttributeName -&gt; Int
 VolumeAttributeName -&gt; Int
 (Int -&gt; VolumeAttributeName -&gt; Int)
 -&gt; (VolumeAttributeName -&gt; Int) -&gt; Hashable VolumeAttributeName
@@ -146,53 +146,53 @@ $chash :: VolumeAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; VolumeAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; VolumeAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681181041"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681181050"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; ()
 (VolumeAttributeName -&gt; ()) -&gt; NFData VolumeAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VolumeAttributeName -&gt; ()
 $crnf :: VolumeAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681181038"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeAttributeName
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681181047"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeAttributeName
 (Text -&gt; Either String VolumeAttributeName)
 -&gt; FromText VolumeAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VolumeAttributeName
 $cfromText :: Text -&gt; Either String VolumeAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681181035"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681181044"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; Text
 (VolumeAttributeName -&gt; Text) -&gt; ToText VolumeAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VolumeAttributeName -&gt; Text
 $ctoText :: VolumeAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681181032"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681181041"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; ByteString
 (VolumeAttributeName -&gt; ByteString)
 -&gt; ToByteString VolumeAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VolumeAttributeName -&gt; ByteString
 $ctoBS :: VolumeAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681181029"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681181038"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; ByteStringBuilder
 (VolumeAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog VolumeAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VolumeAttributeName -&gt; ByteStringBuilder
 $cbuild :: VolumeAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681181026"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeAttributeName -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681181035"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeAttributeName -&gt; [Header]
 (HeaderName -&gt; VolumeAttributeName -&gt; [Header])
 -&gt; ToHeader VolumeAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VolumeAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VolumeAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681181023"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681181032"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; QueryString
 (VolumeAttributeName -&gt; QueryString) -&gt; ToQuery VolumeAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VolumeAttributeName -&gt; QueryString
 $ctoQuery :: VolumeAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681181018"><span id="local-6989586621681181020"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeAttributeName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681181027"><span id="local-6989586621681181029"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeAttributeName]
 Value -&gt; Parser VolumeAttributeName
 (Value -&gt; Parser VolumeAttributeName)
 -&gt; (Value -&gt; Parser [VolumeAttributeName])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [VolumeAttributeName]
 parseJSON :: Value -&gt; Parser VolumeAttributeName
 $cparseJSON :: Value -&gt; Parser VolumeAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681181013"><span id="local-6989586621681181015"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeAttributeName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681181022"><span id="local-6989586621681181024"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeAttributeName]
 FromJSONKeyFunction VolumeAttributeName
 FromJSONKeyFunction VolumeAttributeName
 -&gt; FromJSONKeyFunction [VolumeAttributeName]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VolumeAttributeName]
 fromJSONKey :: FromJSONKeyFunction VolumeAttributeName
 $cfromJSONKey :: FromJSONKeyFunction VolumeAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681181004"><span id="local-6989586621681181006"><span id="local-6989586621681181008"><span id="local-6989586621681181010"><span class="annot"><span class="annottext">[VolumeAttributeName] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681181013"><span id="local-6989586621681181015"><span id="local-6989586621681181017"><span id="local-6989586621681181019"><span class="annot"><span class="annottext">[VolumeAttributeName] -&gt; Encoding
 [VolumeAttributeName] -&gt; Value
 VolumeAttributeName -&gt; Encoding
 VolumeAttributeName -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: VolumeAttributeName -&gt; Encoding
 toJSON :: VolumeAttributeName -&gt; Value
 $ctoJSON :: VolumeAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681180999"><span id="local-6989586621681181001"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeAttributeName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681181008"><span id="local-6989586621681181010"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeAttributeName]
 ToJSONKeyFunction VolumeAttributeName
 ToJSONKeyFunction VolumeAttributeName
 -&gt; ToJSONKeyFunction [VolumeAttributeName]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VolumeAttributeName]
 toJSONKey :: ToJSONKeyFunction VolumeAttributeName
 $ctoJSONKey :: ToJSONKeyFunction VolumeAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681180996"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttributeName
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681181005"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttributeName
 ([Node] -&gt; Either String VolumeAttributeName)
 -&gt; FromXML VolumeAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VolumeAttributeName
 $cparseXML :: [Node] -&gt; Either String VolumeAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681180993"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681181002"><span class="annot"><span class="annottext">VolumeAttributeName -&gt; XML
 (VolumeAttributeName -&gt; XML) -&gt; ToXML VolumeAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VolumeAttributeName -&gt; XML

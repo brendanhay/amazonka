@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A filter used to determine which webhooks trigger a build.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWebhookFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679381377"><span id="local-6989586621679381378"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebhookFilter"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-var">WebhookFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookFilter%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-var">WebhookFilter'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679381386"><span id="local-6989586621679381387"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebhookFilter"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-var">WebhookFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookFilter%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-var">WebhookFilter'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to indicate that the @pattern@ determines which webhook events do</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- not trigger a build. If true, then a webhook event that does not match</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the @pattern@ triggers a build. If false, then a webhook event that</span><span>
@@ -100,7 +100,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3Apattern%27%3AWebhookFilter%27"><span class="annot"><span class="annottext">WebhookFilter -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#%24sel%3Apattern%27%3AWebhookFilter%27"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381369"><span id="local-6989586621679381371"><span class="annot"><span class="annottext">WebhookFilter -&gt; WebhookFilter -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381378"><span id="local-6989586621679381380"><span class="annot"><span class="annottext">WebhookFilter -&gt; WebhookFilter -&gt; Bool
 (WebhookFilter -&gt; WebhookFilter -&gt; Bool)
 -&gt; (WebhookFilter -&gt; WebhookFilter -&gt; Bool) -&gt; Eq WebhookFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -108,7 +108,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WebhookFilter -&gt; WebhookFilter -&gt; Bool
 == :: WebhookFilter -&gt; WebhookFilter -&gt; Bool
 $c== :: WebhookFilter -&gt; WebhookFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381360"><span id="local-6989586621679381362"><span id="local-6989586621679381364"><span id="local-6989586621679381366"><span class="annot"><span class="annottext">ReadPrec [WebhookFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381369"><span id="local-6989586621679381371"><span id="local-6989586621679381373"><span id="local-6989586621679381375"><span class="annot"><span class="annottext">ReadPrec [WebhookFilter]
 ReadPrec WebhookFilter
 Int -&gt; ReadS WebhookFilter
 ReadS [WebhookFilter]
@@ -128,7 +128,7 @@ readList :: ReadS [WebhookFilter]
 $creadList :: ReadS [WebhookFilter]
 readsPrec :: Int -&gt; ReadS WebhookFilter
 $creadsPrec :: Int -&gt; ReadS WebhookFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381353"><span id="local-6989586621679381355"><span id="local-6989586621679381357"><span class="annot"><span class="annottext">Int -&gt; WebhookFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381362"><span id="local-6989586621679381364"><span id="local-6989586621679381366"><span class="annot"><span class="annottext">Int -&gt; WebhookFilter -&gt; ShowS
 [WebhookFilter] -&gt; ShowS
 WebhookFilter -&gt; String
 (Int -&gt; WebhookFilter -&gt; ShowS)
@@ -236,9 +236,9 @@ $cfrom :: forall x. WebhookFilter -&gt; Rep WebhookFilter x
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span>
 </span><span id="line-183"></span><span id="newWebhookFilter"><span class="annot"><span class="annottext">newWebhookFilter :: WebhookFilterType -&gt; Text -&gt; WebhookFilter
-</span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#newWebhookFilter"><span class="hs-identifier hs-var hs-var">newWebhookFilter</span></a></span></span><span> </span><span id="local-6989586621679381347"><span class="annot"><span class="annottext">WebhookFilterType
-</span><a href="#local-6989586621679381347"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679381346"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381346"><span class="hs-identifier hs-var">pPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#newWebhookFilter"><span class="hs-identifier hs-var hs-var">newWebhookFilter</span></a></span></span><span> </span><span id="local-6989586621679381356"><span class="annot"><span class="annottext">WebhookFilterType
+</span><a href="#local-6989586621679381356"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679381355"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381355"><span class="hs-identifier hs-var">pPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">WebhookFilter' :: Maybe Bool -&gt; WebhookFilterType -&gt; Text -&gt; WebhookFilter
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:excludeMatchedPattern:WebhookFilter' :: Maybe Bool
@@ -248,10 +248,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':WebhookFilter' :: WebhookFilterType
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#%24sel%3Atype%27%3AWebhookFilter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WebhookFilterType
-</span><a href="#local-6989586621679381347"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381356"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:pattern':WebhookFilter' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#%24sel%3Apattern%27%3AWebhookFilter%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381346"><span class="hs-identifier hs-var">pPattern_</span></a></span><span>
+</span><a href="#local-6989586621679381355"><span class="hs-identifier hs-var">pPattern_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | Used to indicate that the @pattern@ determines which webhook events do</span><span>
@@ -264,16 +264,16 @@ forall a. Maybe a
 -&gt; (WebhookFilter -&gt; Maybe Bool -&gt; WebhookFilter)
 -&gt; Lens WebhookFilter WebhookFilter (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381342"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381351"><span class="annot"><span class="annottext">Maybe Bool
 excludeMatchedPattern :: Maybe Bool
 $sel:excludeMatchedPattern:WebhookFilter' :: WebhookFilter -&gt; Maybe Bool
-</span><a href="#local-6989586621679381342"><span class="hs-identifier hs-var hs-var">excludeMatchedPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679381342"><span class="hs-identifier hs-var">excludeMatchedPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381341"><span class="annot"><span class="annottext">s :: WebhookFilter
-</span><a href="#local-6989586621679381341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381340"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679381340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilter
-</span><a href="#local-6989586621679381341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeMatchedPattern:WebhookFilter' :: Maybe Bool
+</span><a href="#local-6989586621679381351"><span class="hs-identifier hs-var hs-var">excludeMatchedPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679381351"><span class="hs-identifier hs-var">excludeMatchedPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381350"><span class="annot"><span class="annottext">s :: WebhookFilter
+</span><a href="#local-6989586621679381350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381349"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679381349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilter
+</span><a href="#local-6989586621679381350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeMatchedPattern:WebhookFilter' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#%24sel%3AexcludeMatchedPattern%3AWebhookFilter%27"><span class="hs-identifier hs-var">excludeMatchedPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679381340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The type of webhook filter. There are six webhook filter types: @EVENT@,</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- @ACTOR_ACCOUNT_ID@, @HEAD_REF@, @BASE_REF@, @FILE_PATH@, and</span><span>
@@ -334,16 +334,16 @@ $sel:excludeMatchedPattern:WebhookFilter' :: WebhookFilter -&gt; Maybe Bool
 -&gt; Lens
      WebhookFilter WebhookFilter WebhookFilterType WebhookFilterType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381338"><span class="annot"><span class="annottext">WebhookFilterType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381347"><span class="annot"><span class="annottext">WebhookFilterType
 type' :: WebhookFilterType
 $sel:type':WebhookFilter' :: WebhookFilter -&gt; WebhookFilterType
-</span><a href="#local-6989586621679381338"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilterType
-</span><a href="#local-6989586621679381338"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381337"><span class="annot"><span class="annottext">s :: WebhookFilter
-</span><a href="#local-6989586621679381337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381336"><span class="annot"><span class="annottext">WebhookFilterType
-</span><a href="#local-6989586621679381336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilter
-</span><a href="#local-6989586621679381337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':WebhookFilter' :: WebhookFilterType
+</span><a href="#local-6989586621679381347"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilterType
+</span><a href="#local-6989586621679381347"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381346"><span class="annot"><span class="annottext">s :: WebhookFilter
+</span><a href="#local-6989586621679381346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381345"><span class="annot"><span class="annottext">WebhookFilterType
+</span><a href="#local-6989586621679381345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilter
+</span><a href="#local-6989586621679381346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':WebhookFilter' :: WebhookFilterType
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#%24sel%3Atype%27%3AWebhookFilter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WebhookFilterType
-</span><a href="#local-6989586621679381336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | For a @WebHookFilter@ that uses @EVENT@ type, a comma-separated string</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- that specifies one or more events. For example, the webhook filter</span><span>
@@ -361,19 +361,19 @@ $sel:type':WebhookFilter' :: WebhookFilter -&gt; WebhookFilterType
 -&gt; (WebhookFilter -&gt; Text -&gt; WebhookFilter)
 -&gt; Lens WebhookFilter WebhookFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381334"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381343"><span class="annot"><span class="annottext">Text
 pattern' :: Text
 $sel:pattern':WebhookFilter' :: WebhookFilter -&gt; Text
-</span><a href="#local-6989586621679381334"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381334"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381333"><span class="annot"><span class="annottext">s :: WebhookFilter
-</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381332"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilter
-</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':WebhookFilter' :: Text
+</span><a href="#local-6989586621679381343"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381343"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381342"><span class="annot"><span class="annottext">s :: WebhookFilter
+</span><a href="#local-6989586621679381342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookFilter
+</span><a href="#local-6989586621679381342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':WebhookFilter' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#%24sel%3Apattern%27%3AWebhookFilter%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381329"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679381327"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebhookFilter
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679381336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebhookFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WebhookFilter)
@@ -383,8 +383,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WebhookFilter&quot;</span></span><span>
-</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381324"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; WebhookFilterType -&gt; Text -&gt; WebhookFilter
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-var">WebhookFilter'</span></a></span><span>
 </span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; WebhookFilterType -&gt; Text -&gt; WebhookFilter)
@@ -392,7 +392,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (WebhookFilterType -&gt; Text -&gt; WebhookFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;excludeMatchedPattern&quot;</span></span><span class="hs-special">)</span><span>
@@ -400,7 +400,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser WebhookFilterType -&gt; Parser (Text -&gt; WebhookFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WebhookFilterType
+</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WebhookFilterType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -408,19 +408,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser WebhookFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pattern&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>
-</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381317"><span id="local-6989586621679381319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381326"><span id="local-6989586621679381328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span></span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span><span>
 </span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381306"><span id="local-6989586621679381308"><span id="local-6989586621679381310"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679381304"><span class="annot"><span class="annottext">toJSON :: WebhookFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381300"><span id="local-6989586621679381301"><span id="local-6989586621679381302"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381315"><span id="local-6989586621679381317"><span id="local-6989586621679381319"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter"><span class="hs-identifier hs-type">WebhookFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679381313"><span class="annot"><span class="annottext">toJSON :: WebhookFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilter.html#WebhookFilter%27"><span class="hs-identifier hs-type">WebhookFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381309"><span id="local-6989586621679381310"><span id="local-6989586621679381311"><span class="annot"><span class="annottext">Maybe Bool
 Text
 WebhookFilterType
 pattern' :: Text
@@ -429,7 +429,7 @@ excludeMatchedPattern :: Maybe Bool
 $sel:pattern':WebhookFilter' :: WebhookFilter -&gt; Text
 $sel:type':WebhookFilter' :: WebhookFilter -&gt; WebhookFilterType
 $sel:excludeMatchedPattern:WebhookFilter' :: WebhookFilter -&gt; Maybe Bool
-</span><a href="#local-6989586621679381300"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381309"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -442,21 +442,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679381302"><span class="hs-identifier hs-var">excludeMatchedPattern</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381311"><span class="hs-identifier hs-var">excludeMatchedPattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WebhookFilterType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WebhookFilterType
-</span><a href="#local-6989586621679381301"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381310"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381300"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381309"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-289"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span></pre></body></html>

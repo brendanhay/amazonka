@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679301983"><span id="local-6989586621679301984"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventSeverity"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventSeverity.html#EventSeverity"><span class="hs-identifier hs-var">EventSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSeverity%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventSeverity.html#EventSeverity%27"><span class="hs-identifier hs-var">EventSeverity'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679301992"><span id="local-6989586621679301993"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventSeverity"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventSeverity.html#EventSeverity"><span class="hs-identifier hs-var">EventSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSeverity%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EventSeverity.html#EventSeverity%27"><span class="hs-identifier hs-var">EventSeverity'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEventSeverity"><span class="annot"><span class="annottext">EventSeverity -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EventSeverity.html#fromEventSeverity"><span class="hs-identifier hs-var hs-var">fromEventSeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301975"><span id="local-6989586621679301977"><span id="local-6989586621679301979"><span class="annot"><span class="annottext">Int -&gt; EventSeverity -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301984"><span id="local-6989586621679301986"><span id="local-6989586621679301988"><span class="annot"><span class="annottext">Int -&gt; EventSeverity -&gt; ShowS
 [EventSeverity] -&gt; ShowS
 EventSeverity -&gt; String
 (Int -&gt; EventSeverity -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: EventSeverity -&gt; String
 showsPrec :: Int -&gt; EventSeverity -&gt; ShowS
 $cshowsPrec :: Int -&gt; EventSeverity -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301966"><span id="local-6989586621679301968"><span id="local-6989586621679301970"><span id="local-6989586621679301972"><span class="annot"><span class="annottext">ReadPrec [EventSeverity]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301975"><span id="local-6989586621679301977"><span id="local-6989586621679301979"><span id="local-6989586621679301981"><span class="annot"><span class="annottext">ReadPrec [EventSeverity]
 ReadPrec EventSeverity
 Int -&gt; ReadS EventSeverity
 ReadS [EventSeverity]
@@ -76,7 +76,7 @@ $creadList :: ReadS [EventSeverity]
 readsPrec :: Int -&gt; ReadS EventSeverity
 $creadsPrec :: Int -&gt; ReadS EventSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679301961"><span id="local-6989586621679301963"><span class="annot"><span class="annottext">EventSeverity -&gt; EventSeverity -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679301970"><span id="local-6989586621679301972"><span class="annot"><span class="annottext">EventSeverity -&gt; EventSeverity -&gt; Bool
 (EventSeverity -&gt; EventSeverity -&gt; Bool)
 -&gt; (EventSeverity -&gt; EventSeverity -&gt; Bool) -&gt; Eq EventSeverity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: EventSeverity -&gt; EventSeverity -&gt; Bool
 == :: EventSeverity -&gt; EventSeverity -&gt; Bool
 $c== :: EventSeverity -&gt; EventSeverity -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679301945"><span id="local-6989586621679301947"><span id="local-6989586621679301949"><span id="local-6989586621679301951"><span id="local-6989586621679301953"><span id="local-6989586621679301955"><span id="local-6989586621679301957"><span class="annot"><span class="annottext">Eq EventSeverity
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679301954"><span id="local-6989586621679301956"><span id="local-6989586621679301958"><span id="local-6989586621679301960"><span id="local-6989586621679301962"><span id="local-6989586621679301964"><span id="local-6989586621679301966"><span class="annot"><span class="annottext">Eq EventSeverity
 Eq EventSeverity
 -&gt; (EventSeverity -&gt; EventSeverity -&gt; Ordering)
 -&gt; (EventSeverity -&gt; EventSeverity -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. EventSeverity -&gt; Rep EventSeverity x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301937"><span id="local-6989586621679301939"><span class="annot"><span class="annottext">Int -&gt; EventSeverity -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301946"><span id="local-6989586621679301948"><span class="annot"><span class="annottext">Int -&gt; EventSeverity -&gt; Int
 EventSeverity -&gt; Int
 (Int -&gt; EventSeverity -&gt; Int)
 -&gt; (EventSeverity -&gt; Int) -&gt; Hashable EventSeverity
@@ -146,49 +146,49 @@ $chash :: EventSeverity -&gt; Int
 hashWithSalt :: Int -&gt; EventSeverity -&gt; Int
 $chashWithSalt :: Int -&gt; EventSeverity -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301934"><span class="annot"><span class="annottext">EventSeverity -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301943"><span class="annot"><span class="annottext">EventSeverity -&gt; ()
 (EventSeverity -&gt; ()) -&gt; NFData EventSeverity
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EventSeverity -&gt; ()
 $crnf :: EventSeverity -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301931"><span class="annot"><span class="annottext">Text -&gt; Either String EventSeverity
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301940"><span class="annot"><span class="annottext">Text -&gt; Either String EventSeverity
 (Text -&gt; Either String EventSeverity) -&gt; FromText EventSeverity
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EventSeverity
 $cfromText :: Text -&gt; Either String EventSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301928"><span class="annot"><span class="annottext">EventSeverity -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301937"><span class="annot"><span class="annottext">EventSeverity -&gt; Text
 (EventSeverity -&gt; Text) -&gt; ToText EventSeverity
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EventSeverity -&gt; Text
 $ctoText :: EventSeverity -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301925"><span class="annot"><span class="annottext">EventSeverity -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301934"><span class="annot"><span class="annottext">EventSeverity -&gt; ByteString
 (EventSeverity -&gt; ByteString) -&gt; ToByteString EventSeverity
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EventSeverity -&gt; ByteString
 $ctoBS :: EventSeverity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301922"><span class="annot"><span class="annottext">EventSeverity -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301931"><span class="annot"><span class="annottext">EventSeverity -&gt; ByteStringBuilder
 (EventSeverity -&gt; ByteStringBuilder) -&gt; ToLog EventSeverity
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EventSeverity -&gt; ByteStringBuilder
 $cbuild :: EventSeverity -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301919"><span class="annot"><span class="annottext">HeaderName -&gt; EventSeverity -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301928"><span class="annot"><span class="annottext">HeaderName -&gt; EventSeverity -&gt; [Header]
 (HeaderName -&gt; EventSeverity -&gt; [Header]) -&gt; ToHeader EventSeverity
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EventSeverity -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EventSeverity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301916"><span class="annot"><span class="annottext">EventSeverity -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301925"><span class="annot"><span class="annottext">EventSeverity -&gt; QueryString
 (EventSeverity -&gt; QueryString) -&gt; ToQuery EventSeverity
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EventSeverity -&gt; QueryString
 $ctoQuery :: EventSeverity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301911"><span id="local-6989586621679301913"><span class="annot"><span class="annottext">Value -&gt; Parser [EventSeverity]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301920"><span id="local-6989586621679301922"><span class="annot"><span class="annottext">Value -&gt; Parser [EventSeverity]
 Value -&gt; Parser EventSeverity
 (Value -&gt; Parser EventSeverity)
 -&gt; (Value -&gt; Parser [EventSeverity]) -&gt; FromJSON EventSeverity
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [EventSeverity]
 parseJSON :: Value -&gt; Parser EventSeverity
 $cparseJSON :: Value -&gt; Parser EventSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301906"><span id="local-6989586621679301908"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventSeverity]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301915"><span id="local-6989586621679301917"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventSeverity]
 FromJSONKeyFunction EventSeverity
 FromJSONKeyFunction EventSeverity
 -&gt; FromJSONKeyFunction [EventSeverity] -&gt; FromJSONKey EventSeverity
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EventSeverity]
 fromJSONKey :: FromJSONKeyFunction EventSeverity
 $cfromJSONKey :: FromJSONKeyFunction EventSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301897"><span id="local-6989586621679301899"><span id="local-6989586621679301901"><span id="local-6989586621679301903"><span class="annot"><span class="annottext">[EventSeverity] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301906"><span id="local-6989586621679301908"><span id="local-6989586621679301910"><span id="local-6989586621679301912"><span class="annot"><span class="annottext">[EventSeverity] -&gt; Encoding
 [EventSeverity] -&gt; Value
 EventSeverity -&gt; Encoding
 EventSeverity -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: EventSeverity -&gt; Encoding
 toJSON :: EventSeverity -&gt; Value
 $ctoJSON :: EventSeverity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301892"><span id="local-6989586621679301894"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventSeverity]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301901"><span id="local-6989586621679301903"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventSeverity]
 ToJSONKeyFunction EventSeverity
 ToJSONKeyFunction EventSeverity
 -&gt; ToJSONKeyFunction [EventSeverity] -&gt; ToJSONKey EventSeverity
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EventSeverity]
 toJSONKey :: ToJSONKeyFunction EventSeverity
 $ctoJSONKey :: ToJSONKeyFunction EventSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301889"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventSeverity
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301898"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventSeverity
 ([Node] -&gt; Either String EventSeverity) -&gt; FromXML EventSeverity
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EventSeverity
 $cparseXML :: [Node] -&gt; Either String EventSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301886"><span class="annot"><span class="annottext">EventSeverity -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301895"><span class="annot"><span class="annottext">EventSeverity -&gt; XML
 (EventSeverity -&gt; XML) -&gt; ToXML EventSeverity
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EventSeverity -&gt; XML

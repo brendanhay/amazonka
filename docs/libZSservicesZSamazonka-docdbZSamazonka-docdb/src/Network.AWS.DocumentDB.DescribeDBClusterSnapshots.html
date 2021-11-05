@@ -1,0 +1,1180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DocumentDB.DescribeDBClusterSnapshots</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about cluster snapshots. This API operation supports</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- pagination.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DocumentDB.DescribeDBClusterSnapshots</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#newDescribeDBClusterSnapshots"><span class="hs-identifier">newDescribeDBClusterSnapshots</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_dbClusterIdentifier"><span class="hs-identifier">describeDBClusterSnapshots_dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_includeShared"><span class="hs-identifier">describeDBClusterSnapshots_includeShared</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_dbClusterSnapshotIdentifier"><span class="hs-identifier">describeDBClusterSnapshots_dbClusterSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_filters"><span class="hs-identifier">describeDBClusterSnapshots_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_snapshotType"><span class="hs-identifier">describeDBClusterSnapshots_snapshotType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_marker"><span class="hs-identifier">describeDBClusterSnapshots_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_maxRecords"><span class="hs-identifier">describeDBClusterSnapshots_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_includePublic"><span class="hs-identifier">describeDBClusterSnapshots_includePublic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier">DescribeDBClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#newDescribeDBClusterSnapshotsResponse"><span class="hs-identifier">newDescribeDBClusterSnapshotsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_marker"><span class="hs-identifier">describeDBClusterSnapshotsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_dbClusterSnapshots"><span class="hs-identifier">describeDBClusterSnapshotsResponse_dbClusterSnapshots</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_httpStatus"><span class="hs-identifier">describeDBClusterSnapshotsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.html"><span class="hs-identifier">Network.AWS.DocumentDB.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Represents the input to DescribeDBClusterSnapshots.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newDescribeDBClusterSnapshots' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679309530"><span id="local-6989586621679309531"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBClusterSnapshots"><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-var">DescribeDBClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBClusterSnapshots%27"><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">DescribeDBClusterSnapshots'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the cluster to retrieve the list of cluster snapshots for.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- This parameter can\'t be used with the @DBClusterSnapshotIdentifier@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- parameter. This parameter is not case sensitive.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   If provided, must match the identifier of an existing @DBCluster@.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterIdentifier%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Set to @true@ to include shared manual cluster snapshots from other</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- accounts that this account has been given permission to copy or restore,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- and otherwise @false@. The default is @false@.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AincludeShared%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe Bool
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AincludeShared%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">includeShared</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A specific cluster snapshot identifier to describe. This parameter</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- can\'t be used with the @DBClusterIdentifier@ parameter. This value is</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- stored as a lowercase string.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   If provided, must match the identifier of an existing</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     @DBClusterSnapshot@.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   If this identifier is for an automated snapshot, the @SnapshotType@</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     parameter must also be specified.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AdbClusterSnapshotIdentifier%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterSnapshotIdentifier%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe [Filter]
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Afilters%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The type of cluster snapshots to be returned. You can specify one of the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @automated@ - Return all cluster snapshots that Amazon DocumentDB</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     has automatically created for your account.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @manual@ - Return all cluster snapshots that you have manually</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     created for your account.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   @shared@ - Return all manual cluster snapshots that have been shared</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     to your account.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- -   @public@ - Return all cluster snapshots that have been marked as</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     public.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a @SnapshotType@ value, then both automated and</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- manual cluster snapshots are returned. You can include shared cluster</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- snapshots with these results by setting the @IncludeShared@ parameter to</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- @true@. You can include public cluster snapshots with these results by</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- setting the@IncludePublic@ parameter to @true@.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- The @IncludeShared@ and @IncludePublic@ parameters don\'t apply for</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- @SnapshotType@ values of @manual@ or @automated@. The @IncludePublic@</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- parameter doesn\'t apply when @SnapshotType@ is set to @shared@. The</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- @IncludeShared@ parameter doesn\'t apply when @SnapshotType@ is set to</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- @public@.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AsnapshotType%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AsnapshotType%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">snapshotType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Amarker%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- (marker) is included in the response so that the remaining results can</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- be retrieved.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe Int
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AmaxRecords%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | Set to @true@ to include manual cluster snapshots that are public and</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- can be copied or restored by any account, and otherwise @false@. The</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- default is @false@.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AincludePublic%3ADescribeDBClusterSnapshots%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe Bool
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AincludePublic%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">includePublic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309517"><span id="local-6989586621679309519"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; DescribeDBClusterSnapshots -&gt; Bool
+(DescribeDBClusterSnapshots -&gt; DescribeDBClusterSnapshots -&gt; Bool)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; DescribeDBClusterSnapshots -&gt; Bool)
+-&gt; Eq DescribeDBClusterSnapshots
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDBClusterSnapshots -&gt; DescribeDBClusterSnapshots -&gt; Bool
+$c/= :: DescribeDBClusterSnapshots -&gt; DescribeDBClusterSnapshots -&gt; Bool
+== :: DescribeDBClusterSnapshots -&gt; DescribeDBClusterSnapshots -&gt; Bool
+$c== :: DescribeDBClusterSnapshots -&gt; DescribeDBClusterSnapshots -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309508"><span id="local-6989586621679309510"><span id="local-6989586621679309512"><span id="local-6989586621679309514"><span class="annot"><span class="annottext">ReadPrec [DescribeDBClusterSnapshots]
+ReadPrec DescribeDBClusterSnapshots
+Int -&gt; ReadS DescribeDBClusterSnapshots
+ReadS [DescribeDBClusterSnapshots]
+(Int -&gt; ReadS DescribeDBClusterSnapshots)
+-&gt; ReadS [DescribeDBClusterSnapshots]
+-&gt; ReadPrec DescribeDBClusterSnapshots
+-&gt; ReadPrec [DescribeDBClusterSnapshots]
+-&gt; Read DescribeDBClusterSnapshots
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDBClusterSnapshots]
+$creadListPrec :: ReadPrec [DescribeDBClusterSnapshots]
+readPrec :: ReadPrec DescribeDBClusterSnapshots
+$creadPrec :: ReadPrec DescribeDBClusterSnapshots
+readList :: ReadS [DescribeDBClusterSnapshots]
+$creadList :: ReadS [DescribeDBClusterSnapshots]
+readsPrec :: Int -&gt; ReadS DescribeDBClusterSnapshots
+$creadsPrec :: Int -&gt; ReadS DescribeDBClusterSnapshots
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309501"><span id="local-6989586621679309503"><span id="local-6989586621679309505"><span class="annot"><span class="annottext">Int -&gt; DescribeDBClusterSnapshots -&gt; ShowS
+[DescribeDBClusterSnapshots] -&gt; ShowS
+DescribeDBClusterSnapshots -&gt; String
+(Int -&gt; DescribeDBClusterSnapshots -&gt; ShowS)
+-&gt; (DescribeDBClusterSnapshots -&gt; String)
+-&gt; ([DescribeDBClusterSnapshots] -&gt; ShowS)
+-&gt; Show DescribeDBClusterSnapshots
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDBClusterSnapshots] -&gt; ShowS
+$cshowList :: [DescribeDBClusterSnapshots] -&gt; ShowS
+show :: DescribeDBClusterSnapshots -&gt; String
+$cshow :: DescribeDBClusterSnapshots -&gt; String
+showsPrec :: Int -&gt; DescribeDBClusterSnapshots -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDBClusterSnapshots -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDBClusterSnapshots -&gt; Rep DescribeDBClusterSnapshots x)
+-&gt; (forall x.
+    Rep DescribeDBClusterSnapshots x -&gt; DescribeDBClusterSnapshots)
+-&gt; Generic DescribeDBClusterSnapshots
+forall x.
+Rep DescribeDBClusterSnapshots x -&gt; DescribeDBClusterSnapshots
+forall x.
+DescribeDBClusterSnapshots -&gt; Rep DescribeDBClusterSnapshots x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDBClusterSnapshots x -&gt; DescribeDBClusterSnapshots
+$cfrom :: forall x.
+DescribeDBClusterSnapshots -&gt; Rep DescribeDBClusterSnapshots x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'DescribeDBClusterSnapshots' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'dbClusterIdentifier', 'describeDBClusterSnapshots_dbClusterIdentifier' - The ID of the cluster to retrieve the list of cluster snapshots for.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- This parameter can\'t be used with the @DBClusterSnapshotIdentifier@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- parameter. This parameter is not case sensitive.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   If provided, must match the identifier of an existing @DBCluster@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'includeShared', 'describeDBClusterSnapshots_includeShared' - Set to @true@ to include shared manual cluster snapshots from other</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- accounts that this account has been given permission to copy or restore,</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- and otherwise @false@. The default is @false@.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'dbClusterSnapshotIdentifier', 'describeDBClusterSnapshots_dbClusterSnapshotIdentifier' - A specific cluster snapshot identifier to describe. This parameter</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- can\'t be used with the @DBClusterIdentifier@ parameter. This value is</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- stored as a lowercase string.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   If provided, must match the identifier of an existing</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     @DBClusterSnapshot@.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   If this identifier is for an automated snapshot, the @SnapshotType@</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     parameter must also be specified.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'filters', 'describeDBClusterSnapshots_filters' - This parameter is not currently supported.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'snapshotType', 'describeDBClusterSnapshots_snapshotType' - The type of cluster snapshots to be returned. You can specify one of the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @automated@ - Return all cluster snapshots that Amazon DocumentDB</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     has automatically created for your account.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   @manual@ - Return all cluster snapshots that you have manually</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     created for your account.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   @shared@ - Return all manual cluster snapshots that have been shared</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     to your account.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- -   @public@ - Return all cluster snapshots that have been marked as</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     public.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- If you don\'t specify a @SnapshotType@ value, then both automated and</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- manual cluster snapshots are returned. You can include shared cluster</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- snapshots with these results by setting the @IncludeShared@ parameter to</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- @true@. You can include public cluster snapshots with these results by</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- setting the@IncludePublic@ parameter to @true@.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The @IncludeShared@ and @IncludePublic@ parameters don\'t apply for</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @SnapshotType@ values of @manual@ or @automated@. The @IncludePublic@</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- parameter doesn\'t apply when @SnapshotType@ is set to @shared@. The</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- @IncludeShared@ parameter doesn\'t apply when @SnapshotType@ is set to</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @public@.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'marker', 'describeDBClusterSnapshots_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'maxRecords', 'describeDBClusterSnapshots_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- (marker) is included in the response so that the remaining results can</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- be retrieved.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'includePublic', 'describeDBClusterSnapshots_includePublic' - Set to @true@ to include manual cluster snapshots that are public and</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- can be copied or restored by any account, and otherwise @false@. The</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- default is @false@.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#newDescribeDBClusterSnapshots"><span class="hs-identifier hs-type">newDescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span>
+</span><span id="line-216"></span><span id="newDescribeDBClusterSnapshots"><span class="annot"><span class="annottext">newDescribeDBClusterSnapshots :: DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#newDescribeDBClusterSnapshots"><span class="hs-identifier hs-var hs-var">newDescribeDBClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Filter]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterIdentifier%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeShared:DescribeDBClusterSnapshots' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AincludeShared%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">includeShared</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterSnapshotIdentifier%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeDBClusterSnapshots' :: Maybe [Filter]
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Afilters%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotType:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AsnapshotType%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">snapshotType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Amarker%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBClusterSnapshots' :: Maybe Int
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AmaxRecords%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:includePublic:DescribeDBClusterSnapshots' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AincludePublic%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">includePublic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The ID of the cluster to retrieve the list of cluster snapshots for.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- This parameter can\'t be used with the @DBClusterSnapshotIdentifier@</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- parameter. This parameter is not case sensitive.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   If provided, must match the identifier of an existing @DBCluster@.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_dbClusterIdentifier"><span class="hs-identifier hs-type">describeDBClusterSnapshots_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="describeDBClusterSnapshots_dbClusterIdentifier"><span class="annot"><span class="annottext">describeDBClusterSnapshots_dbClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_dbClusterIdentifier"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe Text)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe Text -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309495"><span class="annot"><span class="annottext">Maybe Text
+dbClusterIdentifier :: Maybe Text
+$sel:dbClusterIdentifier:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="#local-6989586621679309495"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309495"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309494"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterIdentifier%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | Set to @true@ to include shared manual cluster snapshots from other</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- accounts that this account has been given permission to copy or restore,</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- and otherwise @false@. The default is @false@.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_includeShared"><span class="hs-identifier hs-type">describeDBClusterSnapshots_includeShared</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="describeDBClusterSnapshots_includeShared"><span class="annot"><span class="annottext">describeDBClusterSnapshots_includeShared :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_includeShared"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_includeShared</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe Bool)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe Bool -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309492"><span class="annot"><span class="annottext">Maybe Bool
+includeShared :: Maybe Bool
+$sel:includeShared:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Bool
+</span><a href="#local-6989586621679309492"><span class="hs-identifier hs-var hs-var">includeShared</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309492"><span class="hs-identifier hs-var">includeShared</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309491"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309490"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeShared:DescribeDBClusterSnapshots' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AincludeShared%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">includeShared</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | A specific cluster snapshot identifier to describe. This parameter</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- can\'t be used with the @DBClusterIdentifier@ parameter. This value is</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- stored as a lowercase string.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   If provided, must match the identifier of an existing</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     @DBClusterSnapshot@.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   If this identifier is for an automated snapshot, the @SnapshotType@</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     parameter must also be specified.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-type">describeDBClusterSnapshots_dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="describeDBClusterSnapshots_dbClusterSnapshotIdentifier"><span class="annot"><span class="annottext">describeDBClusterSnapshots_dbClusterSnapshotIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe Text)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe Text -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309489"><span class="annot"><span class="annottext">Maybe Text
+dbClusterSnapshotIdentifier :: Maybe Text
+$sel:dbClusterSnapshotIdentifier:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="#local-6989586621679309489"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309489"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309488"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterSnapshotIdentifier%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_filters"><span class="hs-identifier hs-type">describeDBClusterSnapshots_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="describeDBClusterSnapshots_filters"><span class="annot"><span class="annottext">describeDBClusterSnapshots_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_filters"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe [Filter])
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe [Filter] -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309486"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679309486"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679309486"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309485"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309484"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679309484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBClusterSnapshots' :: Maybe [Filter]
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Afilters%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679309484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeDBClusterSnapshots
+-&gt; f DescribeDBClusterSnapshots
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The type of cluster snapshots to be returned. You can specify one of the</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- -   @automated@ - Return all cluster snapshots that Amazon DocumentDB</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     has automatically created for your account.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- -   @manual@ - Return all cluster snapshots that you have manually</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     created for your account.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- -   @shared@ - Return all manual cluster snapshots that have been shared</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     to your account.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- -   @public@ - Return all cluster snapshots that have been marked as</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--     public.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- If you don\'t specify a @SnapshotType@ value, then both automated and</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- manual cluster snapshots are returned. You can include shared cluster</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- snapshots with these results by setting the @IncludeShared@ parameter to</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- @true@. You can include public cluster snapshots with these results by</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- setting the@IncludePublic@ parameter to @true@.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- The @IncludeShared@ and @IncludePublic@ parameters don\'t apply for</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- @SnapshotType@ values of @manual@ or @automated@. The @IncludePublic@</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- parameter doesn\'t apply when @SnapshotType@ is set to @shared@. The</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- @IncludeShared@ parameter doesn\'t apply when @SnapshotType@ is set to</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- @public@.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_snapshotType"><span class="hs-identifier hs-type">describeDBClusterSnapshots_snapshotType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="describeDBClusterSnapshots_snapshotType"><span class="annot"><span class="annottext">describeDBClusterSnapshots_snapshotType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_snapshotType"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_snapshotType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe Text)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe Text -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309480"><span class="annot"><span class="annottext">Maybe Text
+snapshotType :: Maybe Text
+$sel:snapshotType:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="#local-6989586621679309480"><span class="hs-identifier hs-var hs-var">snapshotType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309480"><span class="hs-identifier hs-var">snapshotType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309479"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotType:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AsnapshotType%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">snapshotType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_marker"><span class="hs-identifier hs-type">describeDBClusterSnapshots_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="describeDBClusterSnapshots_marker"><span class="annot"><span class="annottext">describeDBClusterSnapshots_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_marker"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe Text)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe Text -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309477"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="#local-6989586621679309477"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309477"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309476"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterSnapshots' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Amarker%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- (marker) is included in the response so that the remaining results can</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- be retrieved.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_maxRecords"><span class="hs-identifier hs-type">describeDBClusterSnapshots_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="describeDBClusterSnapshots_maxRecords"><span class="annot"><span class="annottext">describeDBClusterSnapshots_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_maxRecords"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe Int)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe Int -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309474"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Int
+</span><a href="#local-6989586621679309474"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309474"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309473"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309472"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBClusterSnapshots' :: Maybe Int
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AmaxRecords%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | Set to @true@ to include manual cluster snapshots that are public and</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- can be copied or restored by any account, and otherwise @false@. The</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- default is @false@.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_includePublic"><span class="hs-identifier hs-type">describeDBClusterSnapshots_includePublic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="describeDBClusterSnapshots_includePublic"><span class="annot"><span class="annottext">describeDBClusterSnapshots_includePublic :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeDBClusterSnapshots -&gt; f DescribeDBClusterSnapshots
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_includePublic"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshots_includePublic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe Bool)
+-&gt; (DescribeDBClusterSnapshots
+    -&gt; Maybe Bool -&gt; DescribeDBClusterSnapshots)
+-&gt; Lens
+     DescribeDBClusterSnapshots
+     DescribeDBClusterSnapshots
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309471"><span class="annot"><span class="annottext">Maybe Bool
+includePublic :: Maybe Bool
+$sel:includePublic:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Bool
+</span><a href="#local-6989586621679309471"><span class="hs-identifier hs-var hs-var">includePublic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309471"><span class="hs-identifier hs-var">includePublic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309470"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309469"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includePublic:DescribeDBClusterSnapshots' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AincludePublic%3ADescribeDBClusterSnapshots%27"><span class="hs-identifier hs-var">includePublic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679309465"><span class="annot"><span class="annottext">page :: DescribeDBClusterSnapshots
+-&gt; AWSResponse DescribeDBClusterSnapshots
+-&gt; Maybe DescribeDBClusterSnapshots
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679309463"><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309463"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679309462"><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309462"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-317"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-318"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterSnapshots
+DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309462"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse
+-&gt; Getting (First Text) DescribeDBClusterSnapshotsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeDBClusterSnapshotsResponse
+-&gt; Const (First Text) DescribeDBClusterSnapshotsResponse
+Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_marker"><span class="hs-identifier hs-var">describeDBClusterSnapshotsResponse_marker</span></a></span><span>
+</span><span id="line-320"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeDBClusterSnapshotsResponse
+ -&gt; Const (First Text) DescribeDBClusterSnapshotsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeDBClusterSnapshotsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-321"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeDBClusterSnapshots
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshot] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-324"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterSnapshots
+DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309462"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-325"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse
+-&gt; Getting
+     (First [DBClusterSnapshot])
+     DescribeDBClusterSnapshotsResponse
+     [DBClusterSnapshot]
+-&gt; Maybe [DBClusterSnapshot]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DBClusterSnapshot]
+ -&gt; Const (First [DBClusterSnapshot]) (Maybe [DBClusterSnapshot]))
+-&gt; DescribeDBClusterSnapshotsResponse
+-&gt; Const
+     (First [DBClusterSnapshot]) DescribeDBClusterSnapshotsResponse
+Lens'
+  DescribeDBClusterSnapshotsResponse (Maybe [DBClusterSnapshot])
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_dbClusterSnapshots"><span class="hs-identifier hs-var">describeDBClusterSnapshotsResponse_dbClusterSnapshots</span></a></span><span>
+</span><span id="line-326"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [DBClusterSnapshot]
+  -&gt; Const (First [DBClusterSnapshot]) (Maybe [DBClusterSnapshot]))
+ -&gt; DescribeDBClusterSnapshotsResponse
+ -&gt; Const
+      (First [DBClusterSnapshot]) DescribeDBClusterSnapshotsResponse)
+-&gt; (([DBClusterSnapshot]
+     -&gt; Const (First [DBClusterSnapshot]) [DBClusterSnapshot])
+    -&gt; Maybe [DBClusterSnapshot]
+    -&gt; Const (First [DBClusterSnapshot]) (Maybe [DBClusterSnapshot]))
+-&gt; Getting
+     (First [DBClusterSnapshot])
+     DescribeDBClusterSnapshotsResponse
+     [DBClusterSnapshot]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DBClusterSnapshot]
+ -&gt; Const (First [DBClusterSnapshot]) [DBClusterSnapshot])
+-&gt; Maybe [DBClusterSnapshot]
+-&gt; Const (First [DBClusterSnapshot]) (Maybe [DBClusterSnapshot])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-327"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeDBClusterSnapshots
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots -&gt; Maybe DescribeDBClusterSnapshots
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshots -&gt; Maybe DescribeDBClusterSnapshots)
+-&gt; DescribeDBClusterSnapshots -&gt; Maybe DescribeDBClusterSnapshots
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+</span><a href="#local-6989586621679309463"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-332"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshots
+-&gt; (DescribeDBClusterSnapshots -&gt; DescribeDBClusterSnapshots)
+-&gt; DescribeDBClusterSnapshots
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeDBClusterSnapshots
+-&gt; Identity DescribeDBClusterSnapshots
+Lens
+  DescribeDBClusterSnapshots
+  DescribeDBClusterSnapshots
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshots_marker"><span class="hs-identifier hs-var">describeDBClusterSnapshots_marker</span></a></span><span>
+</span><span id="line-333"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeDBClusterSnapshots
+ -&gt; Identity DescribeDBClusterSnapshots)
+-&gt; Maybe Text
+-&gt; DescribeDBClusterSnapshots
+-&gt; DescribeDBClusterSnapshots
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterSnapshots
+DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309462"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-334"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse
+-&gt; Getting (First Text) DescribeDBClusterSnapshotsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeDBClusterSnapshotsResponse
+-&gt; Const (First Text) DescribeDBClusterSnapshotsResponse
+Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_marker"><span class="hs-identifier hs-var">describeDBClusterSnapshotsResponse_marker</span></a></span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeDBClusterSnapshotsResponse
+ -&gt; Const (First Text) DescribeDBClusterSnapshotsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeDBClusterSnapshotsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-338"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-339"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-340"></span><span>      </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span>
+</span><span id="line-341"></span><span>  </span><span id="local-6989586621679309453"><span class="annot"><span class="annottext">request :: DescribeDBClusterSnapshots -&gt; Request DescribeDBClusterSnapshots
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeDBClusterSnapshots -&gt; Request DescribeDBClusterSnapshots
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DocumentDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-342"></span><span>  </span><span id="local-6989586621679309449"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDBClusterSnapshots
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDBClusterSnapshots)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeDBClusterSnapshots))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDBClusterSnapshots
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDBClusterSnapshots)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-344"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeDBClusterSnapshotsResult&quot;</span></span><span>
+</span><span id="line-345"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309446"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309445"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309445"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309444"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679309444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-346"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [DBClusterSnapshot]
+-&gt; Int
+-&gt; DescribeDBClusterSnapshotsResponse
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">DescribeDBClusterSnapshotsResponse'</span></a></span><span>
+</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DBClusterSnapshot]
+ -&gt; Int
+ -&gt; DescribeDBClusterSnapshotsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [DBClusterSnapshot]
+      -&gt; Int -&gt; DescribeDBClusterSnapshotsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679309444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DBClusterSnapshot]
+   -&gt; Int -&gt; DescribeDBClusterSnapshotsResponse)
+-&gt; Either String (Maybe [DBClusterSnapshot])
+-&gt; Either String (Int -&gt; DescribeDBClusterSnapshotsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679309444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterSnapshots&quot;</span></span><span>
+</span><span id="line-349"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-350"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [DBClusterSnapshot]))
+-&gt; Either String (Maybe [DBClusterSnapshot])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [DBClusterSnapshot])
+-&gt; [Node] -&gt; Either String (Maybe [DBClusterSnapshot])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [DBClusterSnapshot]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterSnapshot&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDBClusterSnapshotsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeDBClusterSnapshotsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309446"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309433"><span id="local-6989586621679309435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span></span></span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span></span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621679309426"><span class="annot"><span class="annottext">toHeaders :: DescribeDBClusterSnapshots -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDBClusterSnapshots -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-363"></span><span>  </span><span id="local-6989586621679309421"><span class="annot"><span class="annottext">toPath :: DescribeDBClusterSnapshots -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDBClusterSnapshots -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-364"></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-366"></span><span>  </span><span id="local-6989586621679309417"><span class="annot"><span class="annottext">toQuery :: DescribeDBClusterSnapshots -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshots%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309408"><span id="local-6989586621679309409"><span id="local-6989586621679309410"><span id="local-6989586621679309411"><span id="local-6989586621679309412"><span id="local-6989586621679309413"><span id="local-6989586621679309414"><span id="local-6989586621679309415"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Filter]
+Maybe Text
+includePublic :: Maybe Bool
+maxRecords :: Maybe Int
+marker :: Maybe Text
+snapshotType :: Maybe Text
+filters :: Maybe [Filter]
+dbClusterSnapshotIdentifier :: Maybe Text
+includeShared :: Maybe Bool
+dbClusterIdentifier :: Maybe Text
+$sel:includePublic:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Bool
+$sel:maxRecords:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Int
+$sel:marker:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+$sel:snapshotType:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+$sel:filters:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe [Filter]
+$sel:dbClusterSnapshotIdentifier:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+$sel:includeShared:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Bool
+$sel:dbClusterIdentifier:DescribeDBClusterSnapshots' :: DescribeDBClusterSnapshots -&gt; Maybe Text
+</span><a href="#local-6989586621679309408"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-367"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-368"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-369"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeDBClusterSnapshots&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-371"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309415"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IncludeShared&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309414"><span class="hs-identifier hs-var">includeShared</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterSnapshotIdentifier&quot;</span></span><span>
+</span><span id="line-375"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309413"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span>
+</span><span id="line-377"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-378"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679309412"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309411"><span class="hs-identifier hs-var">snapshotType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309410"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309409"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IncludePublic&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309408"><span class="hs-identifier hs-var">includePublic</span></a></span><span>
+</span><span id="line-383"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- | Represents the output of DescribeDBClusterSnapshots.</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- /See:/ 'newDescribeDBClusterSnapshotsResponse' smart constructor.</span><span>
+</span><span id="line-388"></span><span id="local-6989586621679309404"><span id="local-6989586621679309405"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBClusterSnapshotsResponse"><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-var">DescribeDBClusterSnapshotsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBClusterSnapshotsResponse%27"><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">DescribeDBClusterSnapshotsResponse'</span></a></span></span><span>
+</span><span id="line-389"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-390"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-391"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-392"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Amarker%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>    </span><span class="hs-comment">-- | Provides a list of cluster snapshots.</span><span>
+</span><span id="line-394"></span><span>    </span><span id="%24sel%3AdbClusterSnapshots%3ADescribeDBClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse -&gt; Maybe [DBClusterSnapshot]
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterSnapshots%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBClusterSnapshot.html#DBClusterSnapshot"><span class="hs-identifier hs-type">DBClusterSnapshot</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-396"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDBClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse -&gt; Int
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AhttpStatus%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-397"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-398"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309397"><span id="local-6989586621679309399"><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse
+-&gt; DescribeDBClusterSnapshotsResponse -&gt; Bool
+(DescribeDBClusterSnapshotsResponse
+ -&gt; DescribeDBClusterSnapshotsResponse -&gt; Bool)
+-&gt; (DescribeDBClusterSnapshotsResponse
+    -&gt; DescribeDBClusterSnapshotsResponse -&gt; Bool)
+-&gt; Eq DescribeDBClusterSnapshotsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDBClusterSnapshotsResponse
+-&gt; DescribeDBClusterSnapshotsResponse -&gt; Bool
+$c/= :: DescribeDBClusterSnapshotsResponse
+-&gt; DescribeDBClusterSnapshotsResponse -&gt; Bool
+== :: DescribeDBClusterSnapshotsResponse
+-&gt; DescribeDBClusterSnapshotsResponse -&gt; Bool
+$c== :: DescribeDBClusterSnapshotsResponse
+-&gt; DescribeDBClusterSnapshotsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309389"><span id="local-6989586621679309391"><span id="local-6989586621679309393"><span id="local-6989586621679309395"><span class="annot"><span class="annottext">ReadPrec [DescribeDBClusterSnapshotsResponse]
+ReadPrec DescribeDBClusterSnapshotsResponse
+Int -&gt; ReadS DescribeDBClusterSnapshotsResponse
+ReadS [DescribeDBClusterSnapshotsResponse]
+(Int -&gt; ReadS DescribeDBClusterSnapshotsResponse)
+-&gt; ReadS [DescribeDBClusterSnapshotsResponse]
+-&gt; ReadPrec DescribeDBClusterSnapshotsResponse
+-&gt; ReadPrec [DescribeDBClusterSnapshotsResponse]
+-&gt; Read DescribeDBClusterSnapshotsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDBClusterSnapshotsResponse]
+$creadListPrec :: ReadPrec [DescribeDBClusterSnapshotsResponse]
+readPrec :: ReadPrec DescribeDBClusterSnapshotsResponse
+$creadPrec :: ReadPrec DescribeDBClusterSnapshotsResponse
+readList :: ReadS [DescribeDBClusterSnapshotsResponse]
+$creadList :: ReadS [DescribeDBClusterSnapshotsResponse]
+readsPrec :: Int -&gt; ReadS DescribeDBClusterSnapshotsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDBClusterSnapshotsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309383"><span id="local-6989586621679309385"><span id="local-6989586621679309387"><span class="annot"><span class="annottext">Int -&gt; DescribeDBClusterSnapshotsResponse -&gt; ShowS
+[DescribeDBClusterSnapshotsResponse] -&gt; ShowS
+DescribeDBClusterSnapshotsResponse -&gt; String
+(Int -&gt; DescribeDBClusterSnapshotsResponse -&gt; ShowS)
+-&gt; (DescribeDBClusterSnapshotsResponse -&gt; String)
+-&gt; ([DescribeDBClusterSnapshotsResponse] -&gt; ShowS)
+-&gt; Show DescribeDBClusterSnapshotsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDBClusterSnapshotsResponse] -&gt; ShowS
+$cshowList :: [DescribeDBClusterSnapshotsResponse] -&gt; ShowS
+show :: DescribeDBClusterSnapshotsResponse -&gt; String
+$cshow :: DescribeDBClusterSnapshotsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDBClusterSnapshotsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDBClusterSnapshotsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDBClusterSnapshotsResponse
+ -&gt; Rep DescribeDBClusterSnapshotsResponse x)
+-&gt; (forall x.
+    Rep DescribeDBClusterSnapshotsResponse x
+    -&gt; DescribeDBClusterSnapshotsResponse)
+-&gt; Generic DescribeDBClusterSnapshotsResponse
+forall x.
+Rep DescribeDBClusterSnapshotsResponse x
+-&gt; DescribeDBClusterSnapshotsResponse
+forall x.
+DescribeDBClusterSnapshotsResponse
+-&gt; Rep DescribeDBClusterSnapshotsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDBClusterSnapshotsResponse x
+-&gt; DescribeDBClusterSnapshotsResponse
+$cfrom :: forall x.
+DescribeDBClusterSnapshotsResponse
+-&gt; Rep DescribeDBClusterSnapshotsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- Create a value of 'DescribeDBClusterSnapshotsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- 'marker', 'describeDBClusterSnapshotsResponse_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- 'dbClusterSnapshots', 'describeDBClusterSnapshotsResponse_dbClusterSnapshots' - Provides a list of cluster snapshots.</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- 'httpStatus', 'describeDBClusterSnapshotsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#newDescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">newDescribeDBClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-416"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-417"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-418"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span>
+</span><span id="line-419"></span><span id="newDescribeDBClusterSnapshotsResponse"><span class="annot"><span class="annottext">newDescribeDBClusterSnapshotsResponse :: Int -&gt; DescribeDBClusterSnapshotsResponse
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#newDescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBClusterSnapshotsResponse</span></a></span></span><span> </span><span id="local-6989586621679309380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-420"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse' :: Maybe Text
+-&gt; Maybe [DBClusterSnapshot]
+-&gt; Int
+-&gt; DescribeDBClusterSnapshotsResponse
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse'</span></a></span><span>
+</span><span id="line-421"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterSnapshotsResponse' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Amarker%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-422"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-423"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshots:DescribeDBClusterSnapshotsResponse' :: Maybe [DBClusterSnapshot]
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterSnapshots%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">dbClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshot]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBClusterSnapshotsResponse' :: Int
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AhttpStatus%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-425"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-426"></span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_marker"><span class="hs-identifier hs-type">describeDBClusterSnapshotsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span id="describeDBClusterSnapshotsResponse_marker"><span class="annot"><span class="annottext">describeDBClusterSnapshotsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBClusterSnapshotsResponse
+-&gt; f DescribeDBClusterSnapshotsResponse
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_marker"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshotsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshotsResponse -&gt; Maybe Text)
+-&gt; (DescribeDBClusterSnapshotsResponse
+    -&gt; Maybe Text -&gt; DescribeDBClusterSnapshotsResponse)
+-&gt; Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309379"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeDBClusterSnapshotsResponse' :: DescribeDBClusterSnapshotsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679309379"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309379"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309378"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterSnapshotsResponse' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3Amarker%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | Provides a list of cluster snapshots.</span><span>
+</span><span id="line-434"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_dbClusterSnapshots"><span class="hs-identifier hs-type">describeDBClusterSnapshotsResponse_dbClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBClusterSnapshot.html#DBClusterSnapshot"><span class="hs-identifier hs-type">DBClusterSnapshot</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-435"></span><span id="describeDBClusterSnapshotsResponse_dbClusterSnapshots"><span class="annot"><span class="annottext">describeDBClusterSnapshotsResponse_dbClusterSnapshots :: (Maybe [DBClusterSnapshot] -&gt; f (Maybe [DBClusterSnapshot]))
+-&gt; DescribeDBClusterSnapshotsResponse
+-&gt; f DescribeDBClusterSnapshotsResponse
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_dbClusterSnapshots"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshotsResponse_dbClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshotsResponse -&gt; Maybe [DBClusterSnapshot])
+-&gt; (DescribeDBClusterSnapshotsResponse
+    -&gt; Maybe [DBClusterSnapshot] -&gt; DescribeDBClusterSnapshotsResponse)
+-&gt; Lens'
+     DescribeDBClusterSnapshotsResponse (Maybe [DBClusterSnapshot])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309376"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshot]
+dbClusterSnapshots :: Maybe [DBClusterSnapshot]
+$sel:dbClusterSnapshots:DescribeDBClusterSnapshotsResponse' :: DescribeDBClusterSnapshotsResponse -&gt; Maybe [DBClusterSnapshot]
+</span><a href="#local-6989586621679309376"><span class="hs-identifier hs-var hs-var">dbClusterSnapshots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshot]
+</span><a href="#local-6989586621679309376"><span class="hs-identifier hs-var">dbClusterSnapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309375"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309374"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshot]
+</span><a href="#local-6989586621679309374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshots:DescribeDBClusterSnapshotsResponse' :: Maybe [DBClusterSnapshot]
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AdbClusterSnapshots%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">dbClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshot]
+</span><a href="#local-6989586621679309374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBClusterSnapshot] -&gt; f (Maybe [DBClusterSnapshot]))
+ -&gt; DescribeDBClusterSnapshotsResponse
+ -&gt; f DescribeDBClusterSnapshotsResponse)
+-&gt; ((Maybe [DBClusterSnapshot] -&gt; f (Maybe [DBClusterSnapshot]))
+    -&gt; Maybe [DBClusterSnapshot] -&gt; f (Maybe [DBClusterSnapshot]))
+-&gt; (Maybe [DBClusterSnapshot] -&gt; f (Maybe [DBClusterSnapshot]))
+-&gt; DescribeDBClusterSnapshotsResponse
+-&gt; f DescribeDBClusterSnapshotsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DBClusterSnapshot]
+  [DBClusterSnapshot]
+  [DBClusterSnapshot]
+  [DBClusterSnapshot]
+-&gt; Iso
+     (Maybe [DBClusterSnapshot])
+     (Maybe [DBClusterSnapshot])
+     (Maybe [DBClusterSnapshot])
+     (Maybe [DBClusterSnapshot])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DBClusterSnapshot]
+  [DBClusterSnapshot]
+  [DBClusterSnapshot]
+  [DBClusterSnapshot]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-436"></span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-438"></span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_httpStatus"><span class="hs-identifier hs-type">describeDBClusterSnapshotsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-439"></span><span id="describeDBClusterSnapshotsResponse_httpStatus"><span class="annot"><span class="annottext">describeDBClusterSnapshotsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeDBClusterSnapshotsResponse
+-&gt; f DescribeDBClusterSnapshotsResponse
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#describeDBClusterSnapshotsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeDBClusterSnapshotsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBClusterSnapshotsResponse -&gt; Int)
+-&gt; (DescribeDBClusterSnapshotsResponse
+    -&gt; Int -&gt; DescribeDBClusterSnapshotsResponse)
+-&gt; Lens
+     DescribeDBClusterSnapshotsResponse
+     DescribeDBClusterSnapshotsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309373"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeDBClusterSnapshotsResponse' :: DescribeDBClusterSnapshotsResponse -&gt; Int
+</span><a href="#local-6989586621679309373"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309373"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309372"><span class="annot"><span class="annottext">s :: DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterSnapshotsResponse
+</span><a href="#local-6989586621679309372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBClusterSnapshotsResponse' :: Int
+</span><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#%24sel%3AhttpStatus%3ADescribeDBClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-442"></span><span>  </span><span id="local-6989586621679309369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-443"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.DescribeDBClusterSnapshots.html#DescribeDBClusterSnapshotsResponse"><span class="hs-identifier hs-type">DescribeDBClusterSnapshotsResponse</span></a></span></span><span>
+</span><span id="line-444"></span></pre></body></html>

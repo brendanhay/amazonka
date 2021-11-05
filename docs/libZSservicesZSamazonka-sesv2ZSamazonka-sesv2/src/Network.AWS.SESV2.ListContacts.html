@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SESV2.ListContacts</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the contacts present in a specific contact list.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESV2.ListContacts</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier">ListContacts</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#newListContacts"><span class="hs-identifier">newListContacts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_nextToken"><span class="hs-identifier">listContacts_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_filter"><span class="hs-identifier">listContacts_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_pageSize"><span class="hs-identifier">listContacts_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_contactListName"><span class="hs-identifier">listContacts_contactListName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier">ListContactsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#newListContactsResponse"><span class="hs-identifier">newListContactsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_nextToken"><span class="hs-identifier">listContactsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_contacts"><span class="hs-identifier">listContactsResponse_contacts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_httpStatus"><span class="hs-identifier">listContactsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.html"><span class="hs-identifier">Network.AWS.SESV2.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListContacts' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679343860"><span id="local-6989586621679343861"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContacts"><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-var">ListContacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContacts%27"><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-var">ListContacts'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string token indicating that there might be additional contacts</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- available to be listed. Use the token provided in the Response to use in</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the subsequent call to ListContacts with the same parameters to retrieve</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the next page of contacts.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListContacts%27"><span class="annot"><span class="annottext">ListContacts -&gt; Maybe Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AnextToken%3AListContacts%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A filter that can be applied to a list of contacts.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Afilter%27%3AListContacts%27"><span class="annot"><span class="annottext">ListContacts -&gt; Maybe ListContactsFilter
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3Afilter%27%3AListContacts%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The number of contacts that may be returned at once, which is dependent</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- on if there are more or less contacts than the value of the PageSize.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Use this parameter to paginate results. If additional contacts exist</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- beyond the specified limit, the @NextToken@ element is sent in the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- response. Use the @NextToken@ value in subsequent requests to retrieve</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- additional contacts.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3ApageSize%3AListContacts%27"><span class="annot"><span class="annottext">ListContacts -&gt; Maybe Int
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3ApageSize%3AListContacts%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the contact list.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AcontactListName%3AListContacts%27"><span class="annot"><span class="annottext">ListContacts -&gt; Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AcontactListName%3AListContacts%27"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343851"><span id="local-6989586621679343853"><span class="annot"><span class="annottext">ListContacts -&gt; ListContacts -&gt; Bool
+(ListContacts -&gt; ListContacts -&gt; Bool)
+-&gt; (ListContacts -&gt; ListContacts -&gt; Bool) -&gt; Eq ListContacts
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListContacts -&gt; ListContacts -&gt; Bool
+$c/= :: ListContacts -&gt; ListContacts -&gt; Bool
+== :: ListContacts -&gt; ListContacts -&gt; Bool
+$c== :: ListContacts -&gt; ListContacts -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343842"><span id="local-6989586621679343844"><span id="local-6989586621679343846"><span id="local-6989586621679343848"><span class="annot"><span class="annottext">ReadPrec [ListContacts]
+ReadPrec ListContacts
+Int -&gt; ReadS ListContacts
+ReadS [ListContacts]
+(Int -&gt; ReadS ListContacts)
+-&gt; ReadS [ListContacts]
+-&gt; ReadPrec ListContacts
+-&gt; ReadPrec [ListContacts]
+-&gt; Read ListContacts
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListContacts]
+$creadListPrec :: ReadPrec [ListContacts]
+readPrec :: ReadPrec ListContacts
+$creadPrec :: ReadPrec ListContacts
+readList :: ReadS [ListContacts]
+$creadList :: ReadS [ListContacts]
+readsPrec :: Int -&gt; ReadS ListContacts
+$creadsPrec :: Int -&gt; ReadS ListContacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343835"><span id="local-6989586621679343837"><span id="local-6989586621679343839"><span class="annot"><span class="annottext">Int -&gt; ListContacts -&gt; ShowS
+[ListContacts] -&gt; ShowS
+ListContacts -&gt; String
+(Int -&gt; ListContacts -&gt; ShowS)
+-&gt; (ListContacts -&gt; String)
+-&gt; ([ListContacts] -&gt; ShowS)
+-&gt; Show ListContacts
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListContacts] -&gt; ShowS
+$cshowList :: [ListContacts] -&gt; ShowS
+show :: ListContacts -&gt; String
+$cshow :: ListContacts -&gt; String
+showsPrec :: Int -&gt; ListContacts -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListContacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListContacts -&gt; Rep ListContacts x)
+-&gt; (forall x. Rep ListContacts x -&gt; ListContacts)
+-&gt; Generic ListContacts
+forall x. Rep ListContacts x -&gt; ListContacts
+forall x. ListContacts -&gt; Rep ListContacts x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListContacts x -&gt; ListContacts
+$cfrom :: forall x. ListContacts -&gt; Rep ListContacts x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'ListContacts' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'listContacts_nextToken' - A string token indicating that there might be additional contacts</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- available to be listed. Use the token provided in the Response to use in</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the subsequent call to ListContacts with the same parameters to retrieve</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the next page of contacts.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'filter'', 'listContacts_filter' - A filter that can be applied to a list of contacts.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'pageSize', 'listContacts_pageSize' - The number of contacts that may be returned at once, which is dependent</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- on if there are more or less contacts than the value of the PageSize.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use this parameter to paginate results. If additional contacts exist</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- beyond the specified limit, the @NextToken@ element is sent in the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- response. Use the @NextToken@ value in subsequent requests to retrieve</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- additional contacts.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'contactListName', 'listContacts_contactListName' - The name of the contact list.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#newListContacts"><span class="hs-identifier hs-type">newListContacts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'contactListName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span>
+</span><span id="line-101"></span><span id="newListContacts"><span class="annot"><span class="annottext">newListContacts :: Text -&gt; ListContacts
+</span><a href="Network.AWS.SESV2.ListContacts.html#newListContacts"><span class="hs-identifier hs-var hs-var">newListContacts</span></a></span></span><span> </span><span id="local-6989586621679343830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343830"><span class="hs-identifier hs-var">pContactListName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">ListContacts' :: Maybe Text
+-&gt; Maybe ListContactsFilter -&gt; Maybe Int -&gt; Text -&gt; ListContacts
+</span><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListContacts' :: Maybe Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AnextToken%3AListContacts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ListContacts' :: Maybe ListContactsFilter
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3Afilter%27%3AListContacts%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListContactsFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListContacts' :: Maybe Int
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3ApageSize%3AListContacts%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactListName:ListContacts' :: Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AcontactListName%3AListContacts%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343830"><span class="hs-identifier hs-var">pContactListName_</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | A string token indicating that there might be additional contacts</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- available to be listed. Use the token provided in the Response to use in</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the subsequent call to ListContacts with the same parameters to retrieve</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the next page of contacts.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_nextToken"><span class="hs-identifier hs-type">listContacts_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="listContacts_nextToken"><span class="annot"><span class="annottext">listContacts_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListContacts -&gt; f ListContacts
+</span><a href="Network.AWS.SESV2.ListContacts.html#listContacts_nextToken"><span class="hs-identifier hs-var hs-var">listContacts_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContacts -&gt; Maybe Text)
+-&gt; (ListContacts -&gt; Maybe Text -&gt; ListContacts)
+-&gt; Lens ListContacts ListContacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343827"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListContacts' :: ListContacts -&gt; Maybe Text
+</span><a href="#local-6989586621679343827"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343827"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343826"><span class="annot"><span class="annottext">s :: ListContacts
+</span><a href="#local-6989586621679343826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343825"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContacts
+</span><a href="#local-6989586621679343826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContacts' :: Maybe Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AnextToken%3AListContacts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | A filter that can be applied to a list of contacts.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_filter"><span class="hs-identifier hs-type">listContacts_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listContacts_filter"><span class="annot"><span class="annottext">listContacts_filter :: (Maybe ListContactsFilter -&gt; f (Maybe ListContactsFilter))
+-&gt; ListContacts -&gt; f ListContacts
+</span><a href="Network.AWS.SESV2.ListContacts.html#listContacts_filter"><span class="hs-identifier hs-var hs-var">listContacts_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContacts -&gt; Maybe ListContactsFilter)
+-&gt; (ListContacts -&gt; Maybe ListContactsFilter -&gt; ListContacts)
+-&gt; Lens
+     ListContacts
+     ListContacts
+     (Maybe ListContactsFilter)
+     (Maybe ListContactsFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343824"><span class="annot"><span class="annottext">Maybe ListContactsFilter
+filter' :: Maybe ListContactsFilter
+$sel:filter':ListContacts' :: ListContacts -&gt; Maybe ListContactsFilter
+</span><a href="#local-6989586621679343824"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListContactsFilter
+</span><a href="#local-6989586621679343824"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343823"><span class="annot"><span class="annottext">s :: ListContacts
+</span><a href="#local-6989586621679343823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343822"><span class="annot"><span class="annottext">Maybe ListContactsFilter
+</span><a href="#local-6989586621679343822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContacts
+</span><a href="#local-6989586621679343823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListContacts' :: Maybe ListContactsFilter
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3Afilter%27%3AListContacts%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListContactsFilter
+</span><a href="#local-6989586621679343822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The number of contacts that may be returned at once, which is dependent</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- on if there are more or less contacts than the value of the PageSize.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use this parameter to paginate results. If additional contacts exist</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- beyond the specified limit, the @NextToken@ element is sent in the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- response. Use the @NextToken@ value in subsequent requests to retrieve</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- additional contacts.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_pageSize"><span class="hs-identifier hs-type">listContacts_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="listContacts_pageSize"><span class="annot"><span class="annottext">listContacts_pageSize :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ListContacts -&gt; f ListContacts
+</span><a href="Network.AWS.SESV2.ListContacts.html#listContacts_pageSize"><span class="hs-identifier hs-var hs-var">listContacts_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContacts -&gt; Maybe Int)
+-&gt; (ListContacts -&gt; Maybe Int -&gt; ListContacts)
+-&gt; Lens ListContacts ListContacts (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343821"><span class="annot"><span class="annottext">Maybe Int
+pageSize :: Maybe Int
+$sel:pageSize:ListContacts' :: ListContacts -&gt; Maybe Int
+</span><a href="#local-6989586621679343821"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343821"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343820"><span class="annot"><span class="annottext">s :: ListContacts
+</span><a href="#local-6989586621679343820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343819"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContacts
+</span><a href="#local-6989586621679343820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListContacts' :: Maybe Int
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3ApageSize%3AListContacts%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of the contact list.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContacts_contactListName"><span class="hs-identifier hs-type">listContacts_contactListName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="listContacts_contactListName"><span class="annot"><span class="annottext">listContacts_contactListName :: (Text -&gt; f Text) -&gt; ListContacts -&gt; f ListContacts
+</span><a href="Network.AWS.SESV2.ListContacts.html#listContacts_contactListName"><span class="hs-identifier hs-var hs-var">listContacts_contactListName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContacts -&gt; Text)
+-&gt; (ListContacts -&gt; Text -&gt; ListContacts)
+-&gt; Lens ListContacts ListContacts Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343818"><span class="annot"><span class="annottext">Text
+contactListName :: Text
+$sel:contactListName:ListContacts' :: ListContacts -&gt; Text
+</span><a href="#local-6989586621679343818"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343818"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343817"><span class="annot"><span class="annottext">s :: ListContacts
+</span><a href="#local-6989586621679343817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContacts
+</span><a href="#local-6989586621679343817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListName:ListContacts' :: Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AcontactListName%3AListContacts%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679343812"><span class="annot"><span class="annottext">request :: ListContacts -&gt; Request ListContacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListContacts -&gt; Request ListContacts
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SESV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679343808"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListContacts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListContacts)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListContacts))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListContacts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListContacts)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343805"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343805"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343804"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343804"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343803"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Contact] -&gt; Int -&gt; ListContactsResponse
+</span><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-var">ListContactsResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Contact] -&gt; Int -&gt; ListContactsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Contact] -&gt; Int -&gt; ListContactsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Contact] -&gt; Int -&gt; ListContactsResponse)
+-&gt; Either String (Maybe [Contact])
+-&gt; Either String (Int -&gt; ListContactsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Contact]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Contacts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Contact]))
+-&gt; Maybe [Contact] -&gt; Either String (Maybe [Contact])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Contact]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListContactsResponse)
+-&gt; Either String Int -&gt; Either String ListContactsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343805"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343794"><span id="local-6989586621679343796"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679343787"><span class="annot"><span class="annottext">toHeaders :: ListContacts -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListContacts -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679343781"><span class="annot"><span class="annottext">toPath :: ListContacts -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343776"><span id="local-6989586621679343777"><span id="local-6989586621679343778"><span id="local-6989586621679343779"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe ListContactsFilter
+Text
+contactListName :: Text
+pageSize :: Maybe Int
+filter' :: Maybe ListContactsFilter
+nextToken :: Maybe Text
+$sel:contactListName:ListContacts' :: ListContacts -&gt; Text
+$sel:pageSize:ListContacts' :: ListContacts -&gt; Maybe Int
+$sel:filter':ListContacts' :: ListContacts -&gt; Maybe ListContactsFilter
+$sel:nextToken:ListContacts' :: ListContacts -&gt; Maybe Text
+</span><a href="#local-6989586621679343776"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/email/contact-lists/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343776"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/contacts&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts"><span class="hs-identifier hs-type">ListContacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679343772"><span class="annot"><span class="annottext">toQuery :: ListContacts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContacts%27"><span class="hs-identifier hs-type">ListContacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343767"><span id="local-6989586621679343768"><span id="local-6989586621679343769"><span id="local-6989586621679343770"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe ListContactsFilter
+Text
+contactListName :: Text
+pageSize :: Maybe Int
+filter' :: Maybe ListContactsFilter
+nextToken :: Maybe Text
+$sel:contactListName:ListContacts' :: ListContacts -&gt; Text
+$sel:pageSize:ListContacts' :: ListContacts -&gt; Maybe Int
+$sel:filter':ListContacts' :: ListContacts -&gt; Maybe ListContactsFilter
+$sel:nextToken:ListContacts' :: ListContacts -&gt; Maybe Text
+</span><a href="#local-6989586621679343767"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343770"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343768"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListContactsResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679343764"><span id="local-6989586621679343765"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContactsResponse"><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-var">ListContactsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContactsResponse%27"><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-var">ListContactsResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string token indicating that there might be additional contacts</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- @ListContacts@ with the same parameters to retrieve the next page of</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- contacts.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AnextToken%3AListContactsResponse%27"><span class="annot"><span class="annottext">ListContactsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AnextToken%3AListContactsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The contacts present in a specific contact list.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3Acontacts%3AListContactsResponse%27"><span class="annot"><span class="annottext">ListContactsResponse -&gt; Maybe [Contact]
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3Acontacts%3AListContactsResponse%27"><span class="hs-identifier hs-var hs-var">contacts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESV2.Types.Contact.html#Contact"><span class="hs-identifier hs-type">Contact</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListContactsResponse%27"><span class="annot"><span class="annottext">ListContactsResponse -&gt; Int
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AhttpStatus%3AListContactsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343757"><span id="local-6989586621679343759"><span class="annot"><span class="annottext">ListContactsResponse -&gt; ListContactsResponse -&gt; Bool
+(ListContactsResponse -&gt; ListContactsResponse -&gt; Bool)
+-&gt; (ListContactsResponse -&gt; ListContactsResponse -&gt; Bool)
+-&gt; Eq ListContactsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListContactsResponse -&gt; ListContactsResponse -&gt; Bool
+$c/= :: ListContactsResponse -&gt; ListContactsResponse -&gt; Bool
+== :: ListContactsResponse -&gt; ListContactsResponse -&gt; Bool
+$c== :: ListContactsResponse -&gt; ListContactsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343749"><span id="local-6989586621679343751"><span id="local-6989586621679343753"><span id="local-6989586621679343755"><span class="annot"><span class="annottext">ReadPrec [ListContactsResponse]
+ReadPrec ListContactsResponse
+Int -&gt; ReadS ListContactsResponse
+ReadS [ListContactsResponse]
+(Int -&gt; ReadS ListContactsResponse)
+-&gt; ReadS [ListContactsResponse]
+-&gt; ReadPrec ListContactsResponse
+-&gt; ReadPrec [ListContactsResponse]
+-&gt; Read ListContactsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListContactsResponse]
+$creadListPrec :: ReadPrec [ListContactsResponse]
+readPrec :: ReadPrec ListContactsResponse
+$creadPrec :: ReadPrec ListContactsResponse
+readList :: ReadS [ListContactsResponse]
+$creadList :: ReadS [ListContactsResponse]
+readsPrec :: Int -&gt; ReadS ListContactsResponse
+$creadsPrec :: Int -&gt; ReadS ListContactsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343743"><span id="local-6989586621679343745"><span id="local-6989586621679343747"><span class="annot"><span class="annottext">Int -&gt; ListContactsResponse -&gt; ShowS
+[ListContactsResponse] -&gt; ShowS
+ListContactsResponse -&gt; String
+(Int -&gt; ListContactsResponse -&gt; ShowS)
+-&gt; (ListContactsResponse -&gt; String)
+-&gt; ([ListContactsResponse] -&gt; ShowS)
+-&gt; Show ListContactsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListContactsResponse] -&gt; ShowS
+$cshowList :: [ListContactsResponse] -&gt; ShowS
+show :: ListContactsResponse -&gt; String
+$cshow :: ListContactsResponse -&gt; String
+showsPrec :: Int -&gt; ListContactsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListContactsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListContactsResponse -&gt; Rep ListContactsResponse x)
+-&gt; (forall x. Rep ListContactsResponse x -&gt; ListContactsResponse)
+-&gt; Generic ListContactsResponse
+forall x. Rep ListContactsResponse x -&gt; ListContactsResponse
+forall x. ListContactsResponse -&gt; Rep ListContactsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListContactsResponse x -&gt; ListContactsResponse
+$cfrom :: forall x. ListContactsResponse -&gt; Rep ListContactsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'ListContactsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextToken', 'listContactsResponse_nextToken' - A string token indicating that there might be additional contacts</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- @ListContacts@ with the same parameters to retrieve the next page of</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- contacts.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'contacts', 'listContactsResponse_contacts' - The contacts present in a specific contact list.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'httpStatus', 'listContactsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#newListContactsResponse"><span class="hs-identifier hs-type">newListContactsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span>
+</span><span id="line-209"></span><span id="newListContactsResponse"><span class="annot"><span class="annottext">newListContactsResponse :: Int -&gt; ListContactsResponse
+</span><a href="Network.AWS.SESV2.ListContacts.html#newListContactsResponse"><span class="hs-identifier hs-var hs-var">newListContactsResponse</span></a></span></span><span> </span><span id="local-6989586621679343740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">ListContactsResponse' :: Maybe Text -&gt; Maybe [Contact] -&gt; Int -&gt; ListContactsResponse
+</span><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-type">ListContactsResponse'</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListContactsResponse' :: Maybe Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AnextToken%3AListContactsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:contacts:ListContactsResponse' :: Maybe [Contact]
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3Acontacts%3AListContactsResponse%27"><span class="hs-identifier hs-var">contacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Contact]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListContactsResponse' :: Int
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AhttpStatus%3AListContactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | A string token indicating that there might be additional contacts</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- @ListContacts@ with the same parameters to retrieve the next page of</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- contacts.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_nextToken"><span class="hs-identifier hs-type">listContactsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="listContactsResponse_nextToken"><span class="annot"><span class="annottext">listContactsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListContactsResponse -&gt; f ListContactsResponse
+</span><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listContactsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContactsResponse -&gt; Maybe Text)
+-&gt; (ListContactsResponse -&gt; Maybe Text -&gt; ListContactsResponse)
+-&gt; Lens
+     ListContactsResponse ListContactsResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-type">ListContactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343739"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListContactsResponse' :: ListContactsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679343739"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343739"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343738"><span class="annot"><span class="annottext">s :: ListContactsResponse
+</span><a href="#local-6989586621679343738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-type">ListContactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343737"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactsResponse
+</span><a href="#local-6989586621679343738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContactsResponse' :: Maybe Text
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AnextToken%3AListContactsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The contacts present in a specific contact list.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_contacts"><span class="hs-identifier hs-type">listContactsResponse_contacts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESV2.Types.Contact.html#Contact"><span class="hs-identifier hs-type">Contact</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="listContactsResponse_contacts"><span class="annot"><span class="annottext">listContactsResponse_contacts :: (Maybe [Contact] -&gt; f (Maybe [Contact]))
+-&gt; ListContactsResponse -&gt; f ListContactsResponse
+</span><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_contacts"><span class="hs-identifier hs-var hs-var">listContactsResponse_contacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContactsResponse -&gt; Maybe [Contact])
+-&gt; (ListContactsResponse
+    -&gt; Maybe [Contact] -&gt; ListContactsResponse)
+-&gt; Lens
+     ListContactsResponse
+     ListContactsResponse
+     (Maybe [Contact])
+     (Maybe [Contact])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-type">ListContactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343736"><span class="annot"><span class="annottext">Maybe [Contact]
+contacts :: Maybe [Contact]
+$sel:contacts:ListContactsResponse' :: ListContactsResponse -&gt; Maybe [Contact]
+</span><a href="#local-6989586621679343736"><span class="hs-identifier hs-var hs-var">contacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Contact]
+</span><a href="#local-6989586621679343736"><span class="hs-identifier hs-var">contacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343735"><span class="annot"><span class="annottext">s :: ListContactsResponse
+</span><a href="#local-6989586621679343735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-type">ListContactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343734"><span class="annot"><span class="annottext">Maybe [Contact]
+</span><a href="#local-6989586621679343734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactsResponse
+</span><a href="#local-6989586621679343735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contacts:ListContactsResponse' :: Maybe [Contact]
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3Acontacts%3AListContactsResponse%27"><span class="hs-identifier hs-var">contacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Contact]
+</span><a href="#local-6989586621679343734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Contact] -&gt; f (Maybe [Contact]))
+ -&gt; ListContactsResponse -&gt; f ListContactsResponse)
+-&gt; ((Maybe [Contact] -&gt; f (Maybe [Contact]))
+    -&gt; Maybe [Contact] -&gt; f (Maybe [Contact]))
+-&gt; (Maybe [Contact] -&gt; f (Maybe [Contact]))
+-&gt; ListContactsResponse
+-&gt; f ListContactsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Contact] [Contact] [Contact] [Contact]
+-&gt; Iso
+     (Maybe [Contact])
+     (Maybe [Contact])
+     (Maybe [Contact])
+     (Maybe [Contact])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Contact] [Contact] [Contact] [Contact]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_httpStatus"><span class="hs-identifier hs-type">listContactsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-229"></span><span id="listContactsResponse_httpStatus"><span class="annot"><span class="annottext">listContactsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListContactsResponse -&gt; f ListContactsResponse
+</span><a href="Network.AWS.SESV2.ListContacts.html#listContactsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listContactsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContactsResponse -&gt; Int)
+-&gt; (ListContactsResponse -&gt; Int -&gt; ListContactsResponse)
+-&gt; Lens ListContactsResponse ListContactsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-type">ListContactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343730"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListContactsResponse' :: ListContactsResponse -&gt; Int
+</span><a href="#local-6989586621679343730"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343730"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343729"><span class="annot"><span class="annottext">s :: ListContactsResponse
+</span><a href="#local-6989586621679343729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse%27"><span class="hs-identifier hs-type">ListContactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactsResponse
+</span><a href="#local-6989586621679343729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListContactsResponse' :: Int
+</span><a href="Network.AWS.SESV2.ListContacts.html#%24sel%3AhttpStatus%3AListContactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.ListContacts.html#ListContactsResponse"><span class="hs-identifier hs-type">ListContactsResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

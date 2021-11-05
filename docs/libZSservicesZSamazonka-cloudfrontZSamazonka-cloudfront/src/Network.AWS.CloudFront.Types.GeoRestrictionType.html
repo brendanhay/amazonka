@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679392106"><span id="local-6989586621679392107"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GeoRestrictionType"><span class="annot"><a href="Network.AWS.CloudFront.Types.GeoRestrictionType.html#GeoRestrictionType"><span class="hs-identifier hs-var">GeoRestrictionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoRestrictionType%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.GeoRestrictionType.html#GeoRestrictionType%27"><span class="hs-identifier hs-var">GeoRestrictionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679392115"><span id="local-6989586621679392116"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GeoRestrictionType"><span class="annot"><a href="Network.AWS.CloudFront.Types.GeoRestrictionType.html#GeoRestrictionType"><span class="hs-identifier hs-var">GeoRestrictionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoRestrictionType%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.GeoRestrictionType.html#GeoRestrictionType%27"><span class="hs-identifier hs-var">GeoRestrictionType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGeoRestrictionType"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.GeoRestrictionType.html#fromGeoRestrictionType"><span class="hs-identifier hs-var hs-var">fromGeoRestrictionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392098"><span id="local-6989586621679392100"><span id="local-6989586621679392102"><span class="annot"><span class="annottext">Int -&gt; GeoRestrictionType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392107"><span id="local-6989586621679392109"><span id="local-6989586621679392111"><span class="annot"><span class="annottext">Int -&gt; GeoRestrictionType -&gt; ShowS
 [GeoRestrictionType] -&gt; ShowS
 GeoRestrictionType -&gt; String
 (Int -&gt; GeoRestrictionType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: GeoRestrictionType -&gt; String
 showsPrec :: Int -&gt; GeoRestrictionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; GeoRestrictionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679392089"><span id="local-6989586621679392091"><span id="local-6989586621679392093"><span id="local-6989586621679392095"><span class="annot"><span class="annottext">ReadPrec [GeoRestrictionType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679392098"><span id="local-6989586621679392100"><span id="local-6989586621679392102"><span id="local-6989586621679392104"><span class="annot"><span class="annottext">ReadPrec [GeoRestrictionType]
 ReadPrec GeoRestrictionType
 Int -&gt; ReadS GeoRestrictionType
 ReadS [GeoRestrictionType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [GeoRestrictionType]
 readsPrec :: Int -&gt; ReadS GeoRestrictionType
 $creadsPrec :: Int -&gt; ReadS GeoRestrictionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679392084"><span id="local-6989586621679392086"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679392093"><span id="local-6989586621679392095"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool
 (GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool)
 -&gt; (GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool)
 -&gt; Eq GeoRestrictionType
@@ -83,7 +83,7 @@ $c/= :: GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool
 == :: GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool
 $c== :: GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679392068"><span id="local-6989586621679392070"><span id="local-6989586621679392072"><span id="local-6989586621679392074"><span id="local-6989586621679392076"><span id="local-6989586621679392078"><span id="local-6989586621679392080"><span class="annot"><span class="annottext">Eq GeoRestrictionType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679392077"><span id="local-6989586621679392079"><span id="local-6989586621679392081"><span id="local-6989586621679392083"><span id="local-6989586621679392085"><span id="local-6989586621679392087"><span id="local-6989586621679392089"><span class="annot"><span class="annottext">Eq GeoRestrictionType
 Eq GeoRestrictionType
 -&gt; (GeoRestrictionType -&gt; GeoRestrictionType -&gt; Ordering)
 -&gt; (GeoRestrictionType -&gt; GeoRestrictionType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. GeoRestrictionType -&gt; Rep GeoRestrictionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392060"><span id="local-6989586621679392062"><span class="annot"><span class="annottext">Int -&gt; GeoRestrictionType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392069"><span id="local-6989586621679392071"><span class="annot"><span class="annottext">Int -&gt; GeoRestrictionType -&gt; Int
 GeoRestrictionType -&gt; Int
 (Int -&gt; GeoRestrictionType -&gt; Int)
 -&gt; (GeoRestrictionType -&gt; Int) -&gt; Hashable GeoRestrictionType
@@ -144,53 +144,53 @@ $chash :: GeoRestrictionType -&gt; Int
 hashWithSalt :: Int -&gt; GeoRestrictionType -&gt; Int
 $chashWithSalt :: Int -&gt; GeoRestrictionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679392057"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679392066"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; ()
 (GeoRestrictionType -&gt; ()) -&gt; NFData GeoRestrictionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GeoRestrictionType -&gt; ()
 $crnf :: GeoRestrictionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679392054"><span class="annot"><span class="annottext">Text -&gt; Either String GeoRestrictionType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679392063"><span class="annot"><span class="annottext">Text -&gt; Either String GeoRestrictionType
 (Text -&gt; Either String GeoRestrictionType)
 -&gt; FromText GeoRestrictionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GeoRestrictionType
 $cfromText :: Text -&gt; Either String GeoRestrictionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679392051"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679392060"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; Text
 (GeoRestrictionType -&gt; Text) -&gt; ToText GeoRestrictionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GeoRestrictionType -&gt; Text
 $ctoText :: GeoRestrictionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679392048"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679392057"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; ByteString
 (GeoRestrictionType -&gt; ByteString)
 -&gt; ToByteString GeoRestrictionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GeoRestrictionType -&gt; ByteString
 $ctoBS :: GeoRestrictionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679392045"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679392054"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; ByteStringBuilder
 (GeoRestrictionType -&gt; ByteStringBuilder)
 -&gt; ToLog GeoRestrictionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GeoRestrictionType -&gt; ByteStringBuilder
 $cbuild :: GeoRestrictionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679392042"><span class="annot"><span class="annottext">HeaderName -&gt; GeoRestrictionType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679392051"><span class="annot"><span class="annottext">HeaderName -&gt; GeoRestrictionType -&gt; [Header]
 (HeaderName -&gt; GeoRestrictionType -&gt; [Header])
 -&gt; ToHeader GeoRestrictionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GeoRestrictionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GeoRestrictionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679392039"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679392048"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; QueryString
 (GeoRestrictionType -&gt; QueryString) -&gt; ToQuery GeoRestrictionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GeoRestrictionType -&gt; QueryString
 $ctoQuery :: GeoRestrictionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679392034"><span id="local-6989586621679392036"><span class="annot"><span class="annottext">Value -&gt; Parser [GeoRestrictionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679392043"><span id="local-6989586621679392045"><span class="annot"><span class="annottext">Value -&gt; Parser [GeoRestrictionType]
 Value -&gt; Parser GeoRestrictionType
 (Value -&gt; Parser GeoRestrictionType)
 -&gt; (Value -&gt; Parser [GeoRestrictionType])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [GeoRestrictionType]
 parseJSON :: Value -&gt; Parser GeoRestrictionType
 $cparseJSON :: Value -&gt; Parser GeoRestrictionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679392029"><span id="local-6989586621679392031"><span class="annot"><span class="annottext">FromJSONKeyFunction [GeoRestrictionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679392038"><span id="local-6989586621679392040"><span class="annot"><span class="annottext">FromJSONKeyFunction [GeoRestrictionType]
 FromJSONKeyFunction GeoRestrictionType
 FromJSONKeyFunction GeoRestrictionType
 -&gt; FromJSONKeyFunction [GeoRestrictionType]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GeoRestrictionType]
 fromJSONKey :: FromJSONKeyFunction GeoRestrictionType
 $cfromJSONKey :: FromJSONKeyFunction GeoRestrictionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679392020"><span id="local-6989586621679392022"><span id="local-6989586621679392024"><span id="local-6989586621679392026"><span class="annot"><span class="annottext">[GeoRestrictionType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679392029"><span id="local-6989586621679392031"><span id="local-6989586621679392033"><span id="local-6989586621679392035"><span class="annot"><span class="annottext">[GeoRestrictionType] -&gt; Encoding
 [GeoRestrictionType] -&gt; Value
 GeoRestrictionType -&gt; Encoding
 GeoRestrictionType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: GeoRestrictionType -&gt; Encoding
 toJSON :: GeoRestrictionType -&gt; Value
 $ctoJSON :: GeoRestrictionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679392015"><span id="local-6989586621679392017"><span class="annot"><span class="annottext">ToJSONKeyFunction [GeoRestrictionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679392024"><span id="local-6989586621679392026"><span class="annot"><span class="annottext">ToJSONKeyFunction [GeoRestrictionType]
 ToJSONKeyFunction GeoRestrictionType
 ToJSONKeyFunction GeoRestrictionType
 -&gt; ToJSONKeyFunction [GeoRestrictionType]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GeoRestrictionType]
 toJSONKey :: ToJSONKeyFunction GeoRestrictionType
 $ctoJSONKey :: ToJSONKeyFunction GeoRestrictionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679392012"><span class="annot"><span class="annottext">[Node] -&gt; Either String GeoRestrictionType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679392021"><span class="annot"><span class="annottext">[Node] -&gt; Either String GeoRestrictionType
 ([Node] -&gt; Either String GeoRestrictionType)
 -&gt; FromXML GeoRestrictionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GeoRestrictionType
 $cparseXML :: [Node] -&gt; Either String GeoRestrictionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679392009"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679392018"><span class="annot"><span class="annottext">GeoRestrictionType -&gt; XML
 (GeoRestrictionType -&gt; XML) -&gt; ToXML GeoRestrictionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GeoRestrictionType -&gt; XML

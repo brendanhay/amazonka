@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetOTAUpdate' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679831842"><span id="local-6989586621679831843"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOTAUpdate"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-var">GetOTAUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOTAUpdate%27"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-var">GetOTAUpdate'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679831851"><span id="local-6989586621679831852"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOTAUpdate"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-var">GetOTAUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOTAUpdate%27"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-var">GetOTAUpdate'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The OTA update ID.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AotaUpdateId%3AGetOTAUpdate%27"><span class="annot"><span class="annottext">GetOTAUpdate -&gt; Text
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AotaUpdateId%3AGetOTAUpdate%27"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831836"><span id="local-6989586621679831838"><span class="annot"><span class="annottext">GetOTAUpdate -&gt; GetOTAUpdate -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831845"><span id="local-6989586621679831847"><span class="annot"><span class="annottext">GetOTAUpdate -&gt; GetOTAUpdate -&gt; Bool
 (GetOTAUpdate -&gt; GetOTAUpdate -&gt; Bool)
 -&gt; (GetOTAUpdate -&gt; GetOTAUpdate -&gt; Bool) -&gt; Eq GetOTAUpdate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetOTAUpdate -&gt; GetOTAUpdate -&gt; Bool
 == :: GetOTAUpdate -&gt; GetOTAUpdate -&gt; Bool
 $c== :: GetOTAUpdate -&gt; GetOTAUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831827"><span id="local-6989586621679831829"><span id="local-6989586621679831831"><span id="local-6989586621679831833"><span class="annot"><span class="annottext">ReadPrec [GetOTAUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831836"><span id="local-6989586621679831838"><span id="local-6989586621679831840"><span id="local-6989586621679831842"><span class="annot"><span class="annottext">ReadPrec [GetOTAUpdate]
 ReadPrec GetOTAUpdate
 Int -&gt; ReadS GetOTAUpdate
 ReadS [GetOTAUpdate]
@@ -84,7 +84,7 @@ readList :: ReadS [GetOTAUpdate]
 $creadList :: ReadS [GetOTAUpdate]
 readsPrec :: Int -&gt; ReadS GetOTAUpdate
 $creadsPrec :: Int -&gt; ReadS GetOTAUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831820"><span id="local-6989586621679831822"><span id="local-6989586621679831824"><span class="annot"><span class="annottext">Int -&gt; GetOTAUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831829"><span id="local-6989586621679831831"><span id="local-6989586621679831833"><span class="annot"><span class="annottext">Int -&gt; GetOTAUpdate -&gt; ShowS
 [GetOTAUpdate] -&gt; ShowS
 GetOTAUpdate -&gt; String
 (Int -&gt; GetOTAUpdate -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. GetOTAUpdate -&gt; Rep GetOTAUpdate x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span>
 </span><span id="line-73"></span><span id="newGetOTAUpdate"><span class="annot"><span class="annottext">newGetOTAUpdate :: Text -&gt; GetOTAUpdate
-</span><a href="Network.AWS.IoT.GetOTAUpdate.html#newGetOTAUpdate"><span class="hs-identifier hs-var hs-var">newGetOTAUpdate</span></a></span></span><span> </span><span id="local-6989586621679831815"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831815"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetOTAUpdate.html#newGetOTAUpdate"><span class="hs-identifier hs-var hs-var">newGetOTAUpdate</span></a></span></span><span> </span><span id="local-6989586621679831824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679831824"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">GetOTAUpdate' :: Text -&gt; GetOTAUpdate
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-type">GetOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:GetOTAUpdate' :: Text
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AotaUpdateId%3AGetOTAUpdate%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831815"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679831824"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The OTA update ID.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#getOTAUpdate_otaUpdateId"><span class="hs-identifier hs-type">getOTAUpdate_otaUpdateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,25 +138,25 @@ $cfrom :: forall x. GetOTAUpdate -&gt; Rep GetOTAUpdate x
 -&gt; (GetOTAUpdate -&gt; Text -&gt; GetOTAUpdate)
 -&gt; Lens GetOTAUpdate GetOTAUpdate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-type">GetOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831812"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-type">GetOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831821"><span class="annot"><span class="annottext">Text
 otaUpdateId :: Text
 $sel:otaUpdateId:GetOTAUpdate' :: GetOTAUpdate -&gt; Text
-</span><a href="#local-6989586621679831812"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831812"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831811"><span class="annot"><span class="annottext">s :: GetOTAUpdate
-</span><a href="#local-6989586621679831811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-type">GetOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831810"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOTAUpdate
-</span><a href="#local-6989586621679831811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:GetOTAUpdate' :: Text
+</span><a href="#local-6989586621679831821"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679831821"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831820"><span class="annot"><span class="annottext">s :: GetOTAUpdate
+</span><a href="#local-6989586621679831820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-type">GetOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831819"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679831819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOTAUpdate
+</span><a href="#local-6989586621679831820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:GetOTAUpdate' :: Text
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AotaUpdateId%3AGetOTAUpdate%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679831806"><span class="annot"><span class="annottext">request :: GetOTAUpdate -&gt; Request GetOTAUpdate
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679831815"><span class="annot"><span class="annottext">request :: GetOTAUpdate -&gt; Request GetOTAUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetOTAUpdate -&gt; Request GetOTAUpdate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679831802"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679831811"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetOTAUpdate
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679831799"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831799"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679831798"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679831798"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679831797"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679831808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831808"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679831807"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679831807"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679831806"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679831806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe OTAUpdateInfo -&gt; Int -&gt; GetOTAUpdateResponse
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-var">GetOTAUpdateResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OTAUpdateInfo -&gt; Int -&gt; GetOTAUpdateResponse)
@@ -191,7 +191,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetOTAUpdateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OTAUpdateInfo)
+</span><a href="#local-6989586621679831806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OTAUpdateInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;otaUpdateInfo&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,15 +203,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831799"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831808"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831789"><span id="local-6989586621679831791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831798"><span id="local-6989586621679831800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679831782"><span class="annot"><span class="annottext">toHeaders :: GetOTAUpdate -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679831791"><span class="annot"><span class="annottext">toHeaders :: GetOTAUpdate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetOTAUpdate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -219,11 +219,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679831777"><span class="annot"><span class="annottext">toPath :: GetOTAUpdate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-type">GetOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831775"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679831786"><span class="annot"><span class="annottext">toPath :: GetOTAUpdate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate%27"><span class="hs-identifier hs-type">GetOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831784"><span class="annot"><span class="annottext">Text
 otaUpdateId :: Text
 $sel:otaUpdateId:GetOTAUpdate' :: GetOTAUpdate -&gt; Text
-</span><a href="#local-6989586621679831775"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679831784"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -231,10 +231,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/otaUpdates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831775"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679831784"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdate"><span class="hs-identifier hs-type">GetOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679831771"><span class="annot"><span class="annottext">toQuery :: GetOTAUpdate -&gt; QueryString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679831780"><span class="annot"><span class="annottext">toQuery :: GetOTAUpdate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetOTAUpdate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -242,7 +242,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newGetOTAUpdateResponse' smart constructor.</span><span>
-</span><span id="line-107"></span><span id="local-6989586621679831768"><span id="local-6989586621679831769"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOTAUpdateResponse"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-var">GetOTAUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOTAUpdateResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-var">GetOTAUpdateResponse'</span></a></span></span><span>
+</span><span id="line-107"></span><span id="local-6989586621679831777"><span id="local-6989586621679831778"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOTAUpdateResponse"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-var">GetOTAUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOTAUpdateResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-var">GetOTAUpdateResponse'</span></a></span></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The OTA update info.</span><span>
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AotaUpdateInfo%3AGetOTAUpdateResponse%27"><span class="annot"><span class="annottext">GetOTAUpdateResponse -&gt; Maybe OTAUpdateInfo
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AotaUpdateInfo%3AGetOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">otaUpdateInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateInfo.html#OTAUpdateInfo"><span class="hs-identifier hs-type">OTAUpdateInfo</span></a></span><span class="hs-special">,</span><span>
@@ -250,7 +250,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOTAUpdateResponse%27"><span class="annot"><span class="annottext">GetOTAUpdateResponse -&gt; Int
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AhttpStatus%3AGetOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831762"><span id="local-6989586621679831764"><span class="annot"><span class="annottext">GetOTAUpdateResponse -&gt; GetOTAUpdateResponse -&gt; Bool
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831771"><span id="local-6989586621679831773"><span class="annot"><span class="annottext">GetOTAUpdateResponse -&gt; GetOTAUpdateResponse -&gt; Bool
 (GetOTAUpdateResponse -&gt; GetOTAUpdateResponse -&gt; Bool)
 -&gt; (GetOTAUpdateResponse -&gt; GetOTAUpdateResponse -&gt; Bool)
 -&gt; Eq GetOTAUpdateResponse
@@ -259,7 +259,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetOTAUpdateResponse -&gt; GetOTAUpdateResponse -&gt; Bool
 == :: GetOTAUpdateResponse -&gt; GetOTAUpdateResponse -&gt; Bool
 $c== :: GetOTAUpdateResponse -&gt; GetOTAUpdateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831754"><span id="local-6989586621679831756"><span id="local-6989586621679831758"><span id="local-6989586621679831760"><span class="annot"><span class="annottext">ReadPrec [GetOTAUpdateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831763"><span id="local-6989586621679831765"><span id="local-6989586621679831767"><span id="local-6989586621679831769"><span class="annot"><span class="annottext">ReadPrec [GetOTAUpdateResponse]
 ReadPrec GetOTAUpdateResponse
 Int -&gt; ReadS GetOTAUpdateResponse
 ReadS [GetOTAUpdateResponse]
@@ -279,7 +279,7 @@ readList :: ReadS [GetOTAUpdateResponse]
 $creadList :: ReadS [GetOTAUpdateResponse]
 readsPrec :: Int -&gt; ReadS GetOTAUpdateResponse
 $creadsPrec :: Int -&gt; ReadS GetOTAUpdateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831748"><span id="local-6989586621679831750"><span id="local-6989586621679831752"><span class="annot"><span class="annottext">Int -&gt; GetOTAUpdateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831757"><span id="local-6989586621679831759"><span id="local-6989586621679831761"><span class="annot"><span class="annottext">Int -&gt; GetOTAUpdateResponse -&gt; ShowS
 [GetOTAUpdateResponse] -&gt; ShowS
 GetOTAUpdateResponse -&gt; String
 (Int -&gt; GetOTAUpdateResponse -&gt; ShowS)
@@ -321,8 +321,8 @@ $cfrom :: forall x. GetOTAUpdateResponse -&gt; Rep GetOTAUpdateResponse x
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span><span>
 </span><span id="line-130"></span><span id="newGetOTAUpdateResponse"><span class="annot"><span class="annottext">newGetOTAUpdateResponse :: Int -&gt; GetOTAUpdateResponse
-</span><a href="Network.AWS.IoT.GetOTAUpdate.html#newGetOTAUpdateResponse"><span class="hs-identifier hs-var hs-var">newGetOTAUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679831745"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831745"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetOTAUpdate.html#newGetOTAUpdateResponse"><span class="hs-identifier hs-var hs-var">newGetOTAUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679831754"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831754"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">GetOTAUpdateResponse' :: Maybe OTAUpdateInfo -&gt; Int -&gt; GetOTAUpdateResponse
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:otaUpdateInfo:GetOTAUpdateResponse' :: Maybe OTAUpdateInfo
@@ -332,7 +332,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOTAUpdateResponse' :: Int
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AhttpStatus%3AGetOTAUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831745"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679831754"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The OTA update info.</span><span>
@@ -348,16 +348,16 @@ forall a. Maybe a
      (Maybe OTAUpdateInfo)
      (Maybe OTAUpdateInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831744"><span class="annot"><span class="annottext">Maybe OTAUpdateInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831753"><span class="annot"><span class="annottext">Maybe OTAUpdateInfo
 otaUpdateInfo :: Maybe OTAUpdateInfo
 $sel:otaUpdateInfo:GetOTAUpdateResponse' :: GetOTAUpdateResponse -&gt; Maybe OTAUpdateInfo
-</span><a href="#local-6989586621679831744"><span class="hs-identifier hs-var hs-var">otaUpdateInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateInfo
-</span><a href="#local-6989586621679831744"><span class="hs-identifier hs-var">otaUpdateInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831743"><span class="annot"><span class="annottext">s :: GetOTAUpdateResponse
-</span><a href="#local-6989586621679831743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831742"><span class="annot"><span class="annottext">Maybe OTAUpdateInfo
-</span><a href="#local-6989586621679831742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOTAUpdateResponse
-</span><a href="#local-6989586621679831743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateInfo:GetOTAUpdateResponse' :: Maybe OTAUpdateInfo
+</span><a href="#local-6989586621679831753"><span class="hs-identifier hs-var hs-var">otaUpdateInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateInfo
+</span><a href="#local-6989586621679831753"><span class="hs-identifier hs-var">otaUpdateInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831752"><span class="annot"><span class="annottext">s :: GetOTAUpdateResponse
+</span><a href="#local-6989586621679831752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831751"><span class="annot"><span class="annottext">Maybe OTAUpdateInfo
+</span><a href="#local-6989586621679831751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOTAUpdateResponse
+</span><a href="#local-6989586621679831752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateInfo:GetOTAUpdateResponse' :: Maybe OTAUpdateInfo
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AotaUpdateInfo%3AGetOTAUpdateResponse%27"><span class="hs-identifier hs-var">otaUpdateInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OTAUpdateInfo
-</span><a href="#local-6989586621679831742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#getOTAUpdateResponse_httpStatus"><span class="hs-identifier hs-type">getOTAUpdateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -366,16 +366,16 @@ $sel:otaUpdateInfo:GetOTAUpdateResponse' :: GetOTAUpdateResponse -&gt; Maybe OTA
 -&gt; (GetOTAUpdateResponse -&gt; Int -&gt; GetOTAUpdateResponse)
 -&gt; Lens GetOTAUpdateResponse GetOTAUpdateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831741"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831750"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetOTAUpdateResponse' :: GetOTAUpdateResponse -&gt; Int
-</span><a href="#local-6989586621679831741"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831741"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831740"><span class="annot"><span class="annottext">s :: GetOTAUpdateResponse
-</span><a href="#local-6989586621679831740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831739"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOTAUpdateResponse
-</span><a href="#local-6989586621679831740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOTAUpdateResponse' :: Int
+</span><a href="#local-6989586621679831750"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831750"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831749"><span class="annot"><span class="annottext">s :: GetOTAUpdateResponse
+</span><a href="#local-6989586621679831749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse%27"><span class="hs-identifier hs-type">GetOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOTAUpdateResponse
+</span><a href="#local-6989586621679831749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOTAUpdateResponse' :: Int
 </span><a href="Network.AWS.IoT.GetOTAUpdate.html#%24sel%3AhttpStatus%3AGetOTAUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetOTAUpdate.html#GetOTAUpdateResponse"><span class="hs-identifier hs-type">GetOTAUpdateResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

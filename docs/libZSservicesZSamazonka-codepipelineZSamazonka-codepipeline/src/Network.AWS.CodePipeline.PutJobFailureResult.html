@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- | Represents the input of a @PutJobFailureResult@ action.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newPutJobFailureResult' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679287759"><span id="local-6989586621679287760"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobFailureResult"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-var">PutJobFailureResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobFailureResult%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-var">PutJobFailureResult'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679287768"><span id="local-6989586621679287769"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobFailureResult"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-var">PutJobFailureResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobFailureResult%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-var">PutJobFailureResult'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique system-generated ID of the job that failed. This is the same</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- ID returned from @PollForJobs@.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AjobId%3APutJobFailureResult%27"><span class="annot"><span class="annottext">PutJobFailureResult -&gt; Text
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AfailureDetails%3APutJobFailureResult%27"><span class="annot"><span class="annottext">PutJobFailureResult -&gt; FailureDetails
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#%24sel%3AfailureDetails%3APutJobFailureResult%27"><span class="hs-identifier hs-var hs-var">failureDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287752"><span id="local-6989586621679287754"><span class="annot"><span class="annottext">PutJobFailureResult -&gt; PutJobFailureResult -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287761"><span id="local-6989586621679287763"><span class="annot"><span class="annottext">PutJobFailureResult -&gt; PutJobFailureResult -&gt; Bool
 (PutJobFailureResult -&gt; PutJobFailureResult -&gt; Bool)
 -&gt; (PutJobFailureResult -&gt; PutJobFailureResult -&gt; Bool)
 -&gt; Eq PutJobFailureResult
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutJobFailureResult -&gt; PutJobFailureResult -&gt; Bool
 == :: PutJobFailureResult -&gt; PutJobFailureResult -&gt; Bool
 $c== :: PutJobFailureResult -&gt; PutJobFailureResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287743"><span id="local-6989586621679287745"><span id="local-6989586621679287747"><span id="local-6989586621679287749"><span class="annot"><span class="annottext">ReadPrec [PutJobFailureResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287752"><span id="local-6989586621679287754"><span id="local-6989586621679287756"><span id="local-6989586621679287758"><span class="annot"><span class="annottext">ReadPrec [PutJobFailureResult]
 ReadPrec PutJobFailureResult
 Int -&gt; ReadS PutJobFailureResult
 ReadS [PutJobFailureResult]
@@ -85,7 +85,7 @@ readList :: ReadS [PutJobFailureResult]
 $creadList :: ReadS [PutJobFailureResult]
 readsPrec :: Int -&gt; ReadS PutJobFailureResult
 $creadsPrec :: Int -&gt; ReadS PutJobFailureResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287736"><span id="local-6989586621679287738"><span id="local-6989586621679287740"><span class="annot"><span class="annottext">Int -&gt; PutJobFailureResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287745"><span id="local-6989586621679287747"><span id="local-6989586621679287749"><span class="annot"><span class="annottext">Int -&gt; PutJobFailureResult -&gt; ShowS
 [PutJobFailureResult] -&gt; ShowS
 PutJobFailureResult -&gt; String
 (Int -&gt; PutJobFailureResult -&gt; ShowS)
@@ -130,17 +130,17 @@ $cfrom :: forall x. PutJobFailureResult -&gt; Rep PutJobFailureResult x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span>
 </span><span id="line-77"></span><span id="newPutJobFailureResult"><span class="annot"><span class="annottext">newPutJobFailureResult :: Text -&gt; FailureDetails -&gt; PutJobFailureResult
-</span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#newPutJobFailureResult"><span class="hs-identifier hs-var hs-var">newPutJobFailureResult</span></a></span></span><span> </span><span id="local-6989586621679287731"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287731"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span id="local-6989586621679287730"><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679287730"><span class="hs-identifier hs-var">pFailureDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#newPutJobFailureResult"><span class="hs-identifier hs-var hs-var">newPutJobFailureResult</span></a></span></span><span> </span><span id="local-6989586621679287740"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287740"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span id="local-6989586621679287739"><span class="annot"><span class="annottext">FailureDetails
+</span><a href="#local-6989586621679287739"><span class="hs-identifier hs-var">pFailureDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">PutJobFailureResult' :: Text -&gt; FailureDetails -&gt; PutJobFailureResult
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:PutJobFailureResult' :: Text
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#%24sel%3AjobId%3APutJobFailureResult%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287731"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287740"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureDetails:PutJobFailureResult' :: FailureDetails
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#%24sel%3AfailureDetails%3APutJobFailureResult%27"><span class="hs-identifier hs-var">failureDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679287730"><span class="hs-identifier hs-var">pFailureDetails_</span></a></span><span>
+</span><a href="#local-6989586621679287739"><span class="hs-identifier hs-var">pFailureDetails_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The unique system-generated ID of the job that failed. This is the same</span><span>
@@ -151,16 +151,16 @@ $cfrom :: forall x. PutJobFailureResult -&gt; Rep PutJobFailureResult x
 -&gt; (PutJobFailureResult -&gt; Text -&gt; PutJobFailureResult)
 -&gt; Lens PutJobFailureResult PutJobFailureResult Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287727"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287736"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:PutJobFailureResult' :: PutJobFailureResult -&gt; Text
-</span><a href="#local-6989586621679287727"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287727"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287726"><span class="annot"><span class="annottext">s :: PutJobFailureResult
-</span><a href="#local-6989586621679287726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287725"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobFailureResult
-</span><a href="#local-6989586621679287726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:PutJobFailureResult' :: Text
+</span><a href="#local-6989586621679287736"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287736"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287735"><span class="annot"><span class="annottext">s :: PutJobFailureResult
+</span><a href="#local-6989586621679287735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287734"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobFailureResult
+</span><a href="#local-6989586621679287735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:PutJobFailureResult' :: Text
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#%24sel%3AjobId%3APutJobFailureResult%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The details about the failure of a job.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#putJobFailureResult_failureDetails"><span class="hs-identifier hs-type">putJobFailureResult_failureDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.FailureDetails.html#FailureDetails"><span class="hs-identifier hs-type">FailureDetails</span></a></span><span>
@@ -174,27 +174,27 @@ $sel:jobId:PutJobFailureResult' :: PutJobFailureResult -&gt; Text
      FailureDetails
      FailureDetails
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287724"><span class="annot"><span class="annottext">FailureDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287733"><span class="annot"><span class="annottext">FailureDetails
 failureDetails :: FailureDetails
 $sel:failureDetails:PutJobFailureResult' :: PutJobFailureResult -&gt; FailureDetails
-</span><a href="#local-6989586621679287724"><span class="hs-identifier hs-var hs-var">failureDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679287724"><span class="hs-identifier hs-var">failureDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287723"><span class="annot"><span class="annottext">s :: PutJobFailureResult
-</span><a href="#local-6989586621679287723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287722"><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679287722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobFailureResult
-</span><a href="#local-6989586621679287723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureDetails:PutJobFailureResult' :: FailureDetails
+</span><a href="#local-6989586621679287733"><span class="hs-identifier hs-var hs-var">failureDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDetails
+</span><a href="#local-6989586621679287733"><span class="hs-identifier hs-var">failureDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287732"><span class="annot"><span class="annottext">s :: PutJobFailureResult
+</span><a href="#local-6989586621679287732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287731"><span class="annot"><span class="annottext">FailureDetails
+</span><a href="#local-6989586621679287731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobFailureResult
+</span><a href="#local-6989586621679287732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureDetails:PutJobFailureResult' :: FailureDetails
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#%24sel%3AfailureDetails%3APutJobFailureResult%27"><span class="hs-identifier hs-var">failureDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679287722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse"><span class="hs-identifier hs-type">PutJobFailureResultResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679287718"><span class="annot"><span class="annottext">request :: PutJobFailureResult -&gt; Request PutJobFailureResult
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679287727"><span class="annot"><span class="annottext">request :: PutJobFailureResult -&gt; Request PutJobFailureResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutJobFailureResult -&gt; Request PutJobFailureResult
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679287714"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679287723"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutJobFailureResult
 -&gt; ClientResponse ClientBody
@@ -220,12 +220,12 @@ AWSResponse a
 PutJobFailureResultResponse
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse%27"><span class="hs-identifier hs-var">PutJobFailureResultResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287707"><span id="local-6989586621679287709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287716"><span id="local-6989586621679287718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679287700"><span class="annot"><span class="annottext">toHeaders :: PutJobFailureResult -&gt; [Header]
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679287709"><span class="annot"><span class="annottext">toHeaders :: PutJobFailureResult -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutJobFailureResult -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -252,15 +252,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287690"><span id="local-6989586621679287692"><span id="local-6989586621679287694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679287688"><span class="annot"><span class="annottext">toJSON :: PutJobFailureResult -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287685"><span id="local-6989586621679287686"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287699"><span id="local-6989586621679287701"><span id="local-6989586621679287703"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679287697"><span class="annot"><span class="annottext">toJSON :: PutJobFailureResult -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult%27"><span class="hs-identifier hs-type">PutJobFailureResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287694"><span id="local-6989586621679287695"><span class="annot"><span class="annottext">Text
 FailureDetails
 failureDetails :: FailureDetails
 jobId :: Text
 $sel:failureDetails:PutJobFailureResult' :: PutJobFailureResult -&gt; FailureDetails
 $sel:jobId:PutJobFailureResult' :: PutJobFailureResult -&gt; Text
-</span><a href="#local-6989586621679287685"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679287694"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,7 +272,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;jobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287686"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287695"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -280,19 +280,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;failureDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FailureDetails -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FailureDetails
-</span><a href="#local-6989586621679287685"><span class="hs-identifier hs-var">failureDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287694"><span class="hs-identifier hs-var">failureDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679287679"><span class="annot"><span class="annottext">toPath :: PutJobFailureResult -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679287688"><span class="annot"><span class="annottext">toPath :: PutJobFailureResult -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutJobFailureResult -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResult"><span class="hs-identifier hs-type">PutJobFailureResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679287675"><span class="annot"><span class="annottext">toQuery :: PutJobFailureResult -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679287684"><span class="annot"><span class="annottext">toQuery :: PutJobFailureResult -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutJobFailureResult -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -300,10 +300,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newPutJobFailureResultResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679287672"><span id="local-6989586621679287673"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobFailureResultResponse"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse"><span class="hs-identifier hs-var">PutJobFailureResultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobFailureResultResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse%27"><span class="hs-identifier hs-var">PutJobFailureResultResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679287681"><span id="local-6989586621679287682"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobFailureResultResponse"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse"><span class="hs-identifier hs-var">PutJobFailureResultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobFailureResultResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse%27"><span class="hs-identifier hs-var">PutJobFailureResultResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287668"><span id="local-6989586621679287670"><span class="annot"><span class="annottext">PutJobFailureResultResponse -&gt; PutJobFailureResultResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287677"><span id="local-6989586621679287679"><span class="annot"><span class="annottext">PutJobFailureResultResponse -&gt; PutJobFailureResultResponse -&gt; Bool
 (PutJobFailureResultResponse
  -&gt; PutJobFailureResultResponse -&gt; Bool)
 -&gt; (PutJobFailureResultResponse
@@ -314,7 +314,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutJobFailureResultResponse -&gt; PutJobFailureResultResponse -&gt; Bool
 == :: PutJobFailureResultResponse -&gt; PutJobFailureResultResponse -&gt; Bool
 $c== :: PutJobFailureResultResponse -&gt; PutJobFailureResultResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287660"><span id="local-6989586621679287662"><span id="local-6989586621679287664"><span id="local-6989586621679287666"><span class="annot"><span class="annottext">ReadPrec [PutJobFailureResultResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287669"><span id="local-6989586621679287671"><span id="local-6989586621679287673"><span id="local-6989586621679287675"><span class="annot"><span class="annottext">ReadPrec [PutJobFailureResultResponse]
 ReadPrec PutJobFailureResultResponse
 Int -&gt; ReadS PutJobFailureResultResponse
 ReadS [PutJobFailureResultResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [PutJobFailureResultResponse]
 $creadList :: ReadS [PutJobFailureResultResponse]
 readsPrec :: Int -&gt; ReadS PutJobFailureResultResponse
 $creadsPrec :: Int -&gt; ReadS PutJobFailureResultResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287654"><span id="local-6989586621679287656"><span id="local-6989586621679287658"><span class="annot"><span class="annottext">Int -&gt; PutJobFailureResultResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287663"><span id="local-6989586621679287665"><span id="local-6989586621679287667"><span class="annot"><span class="annottext">Int -&gt; PutJobFailureResultResponse -&gt; ShowS
 [PutJobFailureResultResponse] -&gt; ShowS
 PutJobFailureResultResponse -&gt; String
 (Int -&gt; PutJobFailureResultResponse -&gt; ShowS)
@@ -377,5 +377,5 @@ PutJobFailureResultResponse -&gt; Rep PutJobFailureResultResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">PutJobFailureResultResponse
 </span><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse%27"><span class="hs-identifier hs-var">PutJobFailureResultResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse"><span class="hs-identifier hs-type">PutJobFailureResultResponse</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobFailureResult.html#PutJobFailureResultResponse"><span class="hs-identifier hs-type">PutJobFailureResultResponse</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

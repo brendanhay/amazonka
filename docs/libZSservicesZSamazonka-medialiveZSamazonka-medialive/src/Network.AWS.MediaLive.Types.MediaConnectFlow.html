@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The settings for a MediaConnect Flow.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMediaConnectFlow' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679903272"><span id="local-6989586621679903273"></span></span><span class="hs-keyword">data</span><span> </span><span id="MediaConnectFlow"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-var">MediaConnectFlow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaConnectFlow%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow%27"><span class="hs-identifier hs-var">MediaConnectFlow'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679903281"><span id="local-6989586621679903282"></span></span><span class="hs-keyword">data</span><span> </span><span id="MediaConnectFlow"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-var">MediaConnectFlow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaConnectFlow%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow%27"><span class="hs-identifier hs-var">MediaConnectFlow'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ARN of the MediaConnect Flow being used as a source.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AflowArn%3AMediaConnectFlow%27"><span class="annot"><span class="annottext">MediaConnectFlow -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#%24sel%3AflowArn%3AMediaConnectFlow%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679903266"><span id="local-6989586621679903268"><span class="annot"><span class="annottext">MediaConnectFlow -&gt; MediaConnectFlow -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679903275"><span id="local-6989586621679903277"><span class="annot"><span class="annottext">MediaConnectFlow -&gt; MediaConnectFlow -&gt; Bool
 (MediaConnectFlow -&gt; MediaConnectFlow -&gt; Bool)
 -&gt; (MediaConnectFlow -&gt; MediaConnectFlow -&gt; Bool)
 -&gt; Eq MediaConnectFlow
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MediaConnectFlow -&gt; MediaConnectFlow -&gt; Bool
 == :: MediaConnectFlow -&gt; MediaConnectFlow -&gt; Bool
 $c== :: MediaConnectFlow -&gt; MediaConnectFlow -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903257"><span id="local-6989586621679903259"><span id="local-6989586621679903261"><span id="local-6989586621679903263"><span class="annot"><span class="annottext">ReadPrec [MediaConnectFlow]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903266"><span id="local-6989586621679903268"><span id="local-6989586621679903270"><span id="local-6989586621679903272"><span class="annot"><span class="annottext">ReadPrec [MediaConnectFlow]
 ReadPrec MediaConnectFlow
 Int -&gt; ReadS MediaConnectFlow
 ReadS [MediaConnectFlow]
@@ -60,7 +60,7 @@ readList :: ReadS [MediaConnectFlow]
 $creadList :: ReadS [MediaConnectFlow]
 readsPrec :: Int -&gt; ReadS MediaConnectFlow
 $creadsPrec :: Int -&gt; ReadS MediaConnectFlow
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903250"><span id="local-6989586621679903252"><span id="local-6989586621679903254"><span class="annot"><span class="annottext">Int -&gt; MediaConnectFlow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903259"><span id="local-6989586621679903261"><span id="local-6989586621679903263"><span class="annot"><span class="annottext">Int -&gt; MediaConnectFlow -&gt; ShowS
 [MediaConnectFlow] -&gt; ShowS
 MediaConnectFlow -&gt; String
 (Int -&gt; MediaConnectFlow -&gt; ShowS)
@@ -113,19 +113,19 @@ forall a. Maybe a
 -&gt; (MediaConnectFlow -&gt; Maybe Text -&gt; MediaConnectFlow)
 -&gt; Lens MediaConnectFlow MediaConnectFlow (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow%27"><span class="hs-identifier hs-type">MediaConnectFlow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903241"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow%27"><span class="hs-identifier hs-type">MediaConnectFlow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903250"><span class="annot"><span class="annottext">Maybe Text
 flowArn :: Maybe Text
 $sel:flowArn:MediaConnectFlow' :: MediaConnectFlow -&gt; Maybe Text
-</span><a href="#local-6989586621679903241"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903241"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903240"><span class="annot"><span class="annottext">s :: MediaConnectFlow
-</span><a href="#local-6989586621679903240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow%27"><span class="hs-identifier hs-type">MediaConnectFlow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903239"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaConnectFlow
-</span><a href="#local-6989586621679903240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:MediaConnectFlow' :: Maybe Text
+</span><a href="#local-6989586621679903250"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903250"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903249"><span class="annot"><span class="annottext">s :: MediaConnectFlow
+</span><a href="#local-6989586621679903249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow%27"><span class="hs-identifier hs-type">MediaConnectFlow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaConnectFlow
+</span><a href="#local-6989586621679903249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:MediaConnectFlow' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#%24sel%3AflowArn%3AMediaConnectFlow%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679903239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903236"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679903234"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MediaConnectFlow
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903245"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679903243"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MediaConnectFlow
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MediaConnectFlow)
@@ -135,20 +135,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MediaConnectFlow&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679903231"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679903240"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679903240"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; MediaConnectFlow
 </span><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow%27"><span class="hs-identifier hs-var">MediaConnectFlow'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; MediaConnectFlow)
 -&gt; Parser (Maybe Text) -&gt; Parser MediaConnectFlow
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679903231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903225"><span id="local-6989586621679903227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903234"><span id="local-6989586621679903236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679903231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaConnectFlow.html#MediaConnectFlow"><span class="hs-identifier hs-type">MediaConnectFlow</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

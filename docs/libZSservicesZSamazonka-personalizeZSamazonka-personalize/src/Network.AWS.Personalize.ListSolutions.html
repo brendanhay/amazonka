@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.ListSolutions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of solutions that use the given dataset group. When a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- dataset group is not specified, all the solutions associated with the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- account are listed. The response provides the properties for each</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- solution, including the Amazon Resource Name (ARN). For more information</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- on solutions, see CreateSolution.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.ListSolutions</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier">ListSolutions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#newListSolutions"><span class="hs-identifier">newListSolutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_nextToken"><span class="hs-identifier">listSolutions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_datasetGroupArn"><span class="hs-identifier">listSolutions_datasetGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_maxResults"><span class="hs-identifier">listSolutions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier">ListSolutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#newListSolutionsResponse"><span class="hs-identifier">newListSolutionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_nextToken"><span class="hs-identifier">listSolutionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_solutions"><span class="hs-identifier">listSolutionsResponse_solutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_httpStatus"><span class="hs-identifier">listSolutionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.html"><span class="hs-identifier">Network.AWS.Personalize.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListSolutions' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679275772"><span id="local-6989586621679275773"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSolutions"><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-var">ListSolutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSolutions%27"><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-var">ListSolutions'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token returned from the previous call to @ListSolutions@ for getting</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the next set of solutions (if they exist).</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListSolutions%27"><span class="annot"><span class="annottext">ListSolutions -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AnextToken%3AListSolutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset group.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdatasetGroupArn%3AListSolutions%27"><span class="annot"><span class="annottext">ListSolutions -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AdatasetGroupArn%3AListSolutions%27"><span class="hs-identifier hs-var hs-var">datasetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of solutions to return.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3AListSolutions%27"><span class="annot"><span class="annottext">ListSolutions -&gt; Maybe Natural
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AmaxResults%3AListSolutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275764"><span id="local-6989586621679275766"><span class="annot"><span class="annottext">ListSolutions -&gt; ListSolutions -&gt; Bool
+(ListSolutions -&gt; ListSolutions -&gt; Bool)
+-&gt; (ListSolutions -&gt; ListSolutions -&gt; Bool) -&gt; Eq ListSolutions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSolutions -&gt; ListSolutions -&gt; Bool
+$c/= :: ListSolutions -&gt; ListSolutions -&gt; Bool
+== :: ListSolutions -&gt; ListSolutions -&gt; Bool
+$c== :: ListSolutions -&gt; ListSolutions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275755"><span id="local-6989586621679275757"><span id="local-6989586621679275759"><span id="local-6989586621679275761"><span class="annot"><span class="annottext">ReadPrec [ListSolutions]
+ReadPrec ListSolutions
+Int -&gt; ReadS ListSolutions
+ReadS [ListSolutions]
+(Int -&gt; ReadS ListSolutions)
+-&gt; ReadS [ListSolutions]
+-&gt; ReadPrec ListSolutions
+-&gt; ReadPrec [ListSolutions]
+-&gt; Read ListSolutions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSolutions]
+$creadListPrec :: ReadPrec [ListSolutions]
+readPrec :: ReadPrec ListSolutions
+$creadPrec :: ReadPrec ListSolutions
+readList :: ReadS [ListSolutions]
+$creadList :: ReadS [ListSolutions]
+readsPrec :: Int -&gt; ReadS ListSolutions
+$creadsPrec :: Int -&gt; ReadS ListSolutions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275748"><span id="local-6989586621679275750"><span id="local-6989586621679275752"><span class="annot"><span class="annottext">Int -&gt; ListSolutions -&gt; ShowS
+[ListSolutions] -&gt; ShowS
+ListSolutions -&gt; String
+(Int -&gt; ListSolutions -&gt; ShowS)
+-&gt; (ListSolutions -&gt; String)
+-&gt; ([ListSolutions] -&gt; ShowS)
+-&gt; Show ListSolutions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSolutions] -&gt; ShowS
+$cshowList :: [ListSolutions] -&gt; ShowS
+show :: ListSolutions -&gt; String
+$cshow :: ListSolutions -&gt; String
+showsPrec :: Int -&gt; ListSolutions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSolutions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSolutions -&gt; Rep ListSolutions x)
+-&gt; (forall x. Rep ListSolutions x -&gt; ListSolutions)
+-&gt; Generic ListSolutions
+forall x. Rep ListSolutions x -&gt; ListSolutions
+forall x. ListSolutions -&gt; Rep ListSolutions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSolutions x -&gt; ListSolutions
+$cfrom :: forall x. ListSolutions -&gt; Rep ListSolutions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'ListSolutions' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'listSolutions_nextToken' - A token returned from the previous call to @ListSolutions@ for getting</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the next set of solutions (if they exist).</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'datasetGroupArn', 'listSolutions_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'maxResults', 'listSolutions_maxResults' - The maximum number of solutions to return.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#newListSolutions"><span class="hs-identifier hs-type">newListSolutions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span>
+</span><span id="line-86"></span><span id="newListSolutions"><span class="annot"><span class="annottext">newListSolutions :: ListSolutions
+</span><a href="Network.AWS.Personalize.ListSolutions.html#newListSolutions"><span class="hs-identifier hs-var hs-var">newListSolutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListSolutions' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListSolutions
+</span><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSolutions' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AnextToken%3AListSolutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetGroupArn:ListSolutions' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AdatasetGroupArn%3AListSolutions%27"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListSolutions' :: Maybe Natural
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AmaxResults%3AListSolutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A token returned from the previous call to @ListSolutions@ for getting</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the next set of solutions (if they exist).</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_nextToken"><span class="hs-identifier hs-type">listSolutions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listSolutions_nextToken"><span class="annot"><span class="annottext">listSolutions_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSolutions -&gt; f ListSolutions
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_nextToken"><span class="hs-identifier hs-var hs-var">listSolutions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSolutions -&gt; Maybe Text)
+-&gt; (ListSolutions -&gt; Maybe Text -&gt; ListSolutions)
+-&gt; Lens ListSolutions ListSolutions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275742"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSolutions' :: ListSolutions -&gt; Maybe Text
+</span><a href="#local-6989586621679275742"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275742"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275741"><span class="annot"><span class="annottext">s :: ListSolutions
+</span><a href="#local-6989586621679275741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275740"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSolutions
+</span><a href="#local-6989586621679275741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSolutions' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AnextToken%3AListSolutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset group.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_datasetGroupArn"><span class="hs-identifier hs-type">listSolutions_datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listSolutions_datasetGroupArn"><span class="annot"><span class="annottext">listSolutions_datasetGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSolutions -&gt; f ListSolutions
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_datasetGroupArn"><span class="hs-identifier hs-var hs-var">listSolutions_datasetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSolutions -&gt; Maybe Text)
+-&gt; (ListSolutions -&gt; Maybe Text -&gt; ListSolutions)
+-&gt; Lens ListSolutions ListSolutions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275739"><span class="annot"><span class="annottext">Maybe Text
+datasetGroupArn :: Maybe Text
+$sel:datasetGroupArn:ListSolutions' :: ListSolutions -&gt; Maybe Text
+</span><a href="#local-6989586621679275739"><span class="hs-identifier hs-var hs-var">datasetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275739"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275738"><span class="annot"><span class="annottext">s :: ListSolutions
+</span><a href="#local-6989586621679275738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275737"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSolutions
+</span><a href="#local-6989586621679275738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetGroupArn:ListSolutions' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AdatasetGroupArn%3AListSolutions%27"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The maximum number of solutions to return.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_maxResults"><span class="hs-identifier hs-type">listSolutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listSolutions_maxResults"><span class="annot"><span class="annottext">listSolutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListSolutions -&gt; f ListSolutions
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_maxResults"><span class="hs-identifier hs-var hs-var">listSolutions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSolutions -&gt; Maybe Natural)
+-&gt; (ListSolutions -&gt; Maybe Natural -&gt; ListSolutions)
+-&gt; Lens ListSolutions ListSolutions (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275736"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListSolutions' :: ListSolutions -&gt; Maybe Natural
+</span><a href="#local-6989586621679275736"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679275736"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275735"><span class="annot"><span class="annottext">s :: ListSolutions
+</span><a href="#local-6989586621679275735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275734"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679275734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSolutions
+</span><a href="#local-6989586621679275735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSolutions' :: Maybe Natural
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AmaxResults%3AListSolutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679275734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679275730"><span class="annot"><span class="annottext">page :: ListSolutions -&gt; AWSResponse ListSolutions -&gt; Maybe ListSolutions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679275728"><span class="annot"><span class="annottext">ListSolutions
+</span><a href="#local-6989586621679275728"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679275727"><span class="annot"><span class="annottext">AWSResponse ListSolutions
+</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSolutions
+ListSolutionsResponse
+</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">ListSolutionsResponse
+-&gt; Getting (First Text) ListSolutionsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSolutionsResponse
+-&gt; Const (First Text) ListSolutionsResponse
+Lens' ListSolutionsResponse (Maybe Text)
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_nextToken"><span class="hs-identifier hs-var">listSolutionsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSolutionsResponse
+ -&gt; Const (First Text) ListSolutionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSolutionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSolutions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [SolutionSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSolutions
+ListSolutionsResponse
+</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">ListSolutionsResponse
+-&gt; Getting
+     (First [SolutionSummary]) ListSolutionsResponse [SolutionSummary]
+-&gt; Maybe [SolutionSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [SolutionSummary]
+ -&gt; Const (First [SolutionSummary]) (Maybe [SolutionSummary]))
+-&gt; ListSolutionsResponse
+-&gt; Const (First [SolutionSummary]) ListSolutionsResponse
+Lens' ListSolutionsResponse (Maybe [SolutionSummary])
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_solutions"><span class="hs-identifier hs-var">listSolutionsResponse_solutions</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [SolutionSummary]
+  -&gt; Const (First [SolutionSummary]) (Maybe [SolutionSummary]))
+ -&gt; ListSolutionsResponse
+ -&gt; Const (First [SolutionSummary]) ListSolutionsResponse)
+-&gt; (([SolutionSummary]
+     -&gt; Const (First [SolutionSummary]) [SolutionSummary])
+    -&gt; Maybe [SolutionSummary]
+    -&gt; Const (First [SolutionSummary]) (Maybe [SolutionSummary]))
+-&gt; Getting
+     (First [SolutionSummary]) ListSolutionsResponse [SolutionSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SolutionSummary]
+ -&gt; Const (First [SolutionSummary]) [SolutionSummary])
+-&gt; Maybe [SolutionSummary]
+-&gt; Const (First [SolutionSummary]) (Maybe [SolutionSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSolutions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">ListSolutions -&gt; Maybe ListSolutions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListSolutions -&gt; Maybe ListSolutions)
+-&gt; ListSolutions -&gt; Maybe ListSolutions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListSolutions
+</span><a href="#local-6989586621679275728"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListSolutions -&gt; (ListSolutions -&gt; ListSolutions) -&gt; ListSolutions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListSolutions -&gt; Identity ListSolutions
+Lens ListSolutions ListSolutions (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutions_nextToken"><span class="hs-identifier hs-var">listSolutions_nextToken</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListSolutions -&gt; Identity ListSolutions)
+-&gt; Maybe Text -&gt; ListSolutions -&gt; ListSolutions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSolutions
+ListSolutionsResponse
+</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListSolutionsResponse
+-&gt; Getting (First Text) ListSolutionsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSolutionsResponse
+-&gt; Const (First Text) ListSolutionsResponse
+Lens' ListSolutionsResponse (Maybe Text)
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_nextToken"><span class="hs-identifier hs-var">listSolutionsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSolutionsResponse
+ -&gt; Const (First Text) ListSolutionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSolutionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679275717"><span class="annot"><span class="annottext">request :: ListSolutions -&gt; Request ListSolutions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSolutions -&gt; Request ListSolutions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679275713"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListSolutions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSolutions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListSolutions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListSolutions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSolutions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275710"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275709"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679275709"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275708"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [SolutionSummary] -&gt; Int -&gt; ListSolutionsResponse
+</span><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-var">ListSolutionsResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [SolutionSummary] -&gt; Int -&gt; ListSolutionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [SolutionSummary] -&gt; Int -&gt; ListSolutionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [SolutionSummary] -&gt; Int -&gt; ListSolutionsResponse)
+-&gt; Either String (Maybe [SolutionSummary])
+-&gt; Either String (Int -&gt; ListSolutionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SolutionSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;solutions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SolutionSummary]))
+-&gt; Maybe [SolutionSummary]
+-&gt; Either String (Maybe [SolutionSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SolutionSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListSolutionsResponse)
+-&gt; Either String Int -&gt; Either String ListSolutionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275710"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275699"><span id="local-6989586621679275701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679275692"><span class="annot"><span class="annottext">toHeaders :: ListSolutions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSolutions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.ListSolutions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275682"><span id="local-6989586621679275684"><span id="local-6989586621679275686"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679275680"><span class="annot"><span class="annottext">toJSON :: ListSolutions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions%27"><span class="hs-identifier hs-type">ListSolutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275676"><span id="local-6989586621679275677"><span id="local-6989586621679275678"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+datasetGroupArn :: Maybe Text
+nextToken :: Maybe Text
+$sel:maxResults:ListSolutions' :: ListSolutions -&gt; Maybe Natural
+$sel:datasetGroupArn:ListSolutions' :: ListSolutions -&gt; Maybe Text
+$sel:nextToken:ListSolutions' :: ListSolutions -&gt; Maybe Text
+</span><a href="#local-6989586621679275676"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275678"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275677"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679275676"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679275670"><span class="annot"><span class="annottext">toPath :: ListSolutions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSolutions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutions"><span class="hs-identifier hs-type">ListSolutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679275666"><span class="annot"><span class="annottext">toQuery :: ListSolutions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListSolutions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListSolutionsResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679275663"><span id="local-6989586621679275664"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSolutionsResponse"><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-var">ListSolutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSolutionsResponse%27"><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-var">ListSolutionsResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token for getting the next set of solutions (if they exist).</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AnextToken%3AListSolutionsResponse%27"><span class="annot"><span class="annottext">ListSolutionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AnextToken%3AListSolutionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | A list of the current solutions.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3Asolutions%3AListSolutionsResponse%27"><span class="annot"><span class="annottext">ListSolutionsResponse -&gt; Maybe [SolutionSummary]
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3Asolutions%3AListSolutionsResponse%27"><span class="hs-identifier hs-var hs-var">solutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.SolutionSummary.html#SolutionSummary"><span class="hs-identifier hs-type">SolutionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSolutionsResponse%27"><span class="annot"><span class="annottext">ListSolutionsResponse -&gt; Int
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AhttpStatus%3AListSolutionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275656"><span id="local-6989586621679275658"><span class="annot"><span class="annottext">ListSolutionsResponse -&gt; ListSolutionsResponse -&gt; Bool
+(ListSolutionsResponse -&gt; ListSolutionsResponse -&gt; Bool)
+-&gt; (ListSolutionsResponse -&gt; ListSolutionsResponse -&gt; Bool)
+-&gt; Eq ListSolutionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSolutionsResponse -&gt; ListSolutionsResponse -&gt; Bool
+$c/= :: ListSolutionsResponse -&gt; ListSolutionsResponse -&gt; Bool
+== :: ListSolutionsResponse -&gt; ListSolutionsResponse -&gt; Bool
+$c== :: ListSolutionsResponse -&gt; ListSolutionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275648"><span id="local-6989586621679275650"><span id="local-6989586621679275652"><span id="local-6989586621679275654"><span class="annot"><span class="annottext">ReadPrec [ListSolutionsResponse]
+ReadPrec ListSolutionsResponse
+Int -&gt; ReadS ListSolutionsResponse
+ReadS [ListSolutionsResponse]
+(Int -&gt; ReadS ListSolutionsResponse)
+-&gt; ReadS [ListSolutionsResponse]
+-&gt; ReadPrec ListSolutionsResponse
+-&gt; ReadPrec [ListSolutionsResponse]
+-&gt; Read ListSolutionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSolutionsResponse]
+$creadListPrec :: ReadPrec [ListSolutionsResponse]
+readPrec :: ReadPrec ListSolutionsResponse
+$creadPrec :: ReadPrec ListSolutionsResponse
+readList :: ReadS [ListSolutionsResponse]
+$creadList :: ReadS [ListSolutionsResponse]
+readsPrec :: Int -&gt; ReadS ListSolutionsResponse
+$creadsPrec :: Int -&gt; ReadS ListSolutionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275642"><span id="local-6989586621679275644"><span id="local-6989586621679275646"><span class="annot"><span class="annottext">Int -&gt; ListSolutionsResponse -&gt; ShowS
+[ListSolutionsResponse] -&gt; ShowS
+ListSolutionsResponse -&gt; String
+(Int -&gt; ListSolutionsResponse -&gt; ShowS)
+-&gt; (ListSolutionsResponse -&gt; String)
+-&gt; ([ListSolutionsResponse] -&gt; ShowS)
+-&gt; Show ListSolutionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSolutionsResponse] -&gt; ShowS
+$cshowList :: [ListSolutionsResponse] -&gt; ShowS
+show :: ListSolutionsResponse -&gt; String
+$cshow :: ListSolutionsResponse -&gt; String
+showsPrec :: Int -&gt; ListSolutionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSolutionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSolutionsResponse -&gt; Rep ListSolutionsResponse x)
+-&gt; (forall x. Rep ListSolutionsResponse x -&gt; ListSolutionsResponse)
+-&gt; Generic ListSolutionsResponse
+forall x. Rep ListSolutionsResponse x -&gt; ListSolutionsResponse
+forall x. ListSolutionsResponse -&gt; Rep ListSolutionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSolutionsResponse x -&gt; ListSolutionsResponse
+$cfrom :: forall x. ListSolutionsResponse -&gt; Rep ListSolutionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Create a value of 'ListSolutionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'nextToken', 'listSolutionsResponse_nextToken' - A token for getting the next set of solutions (if they exist).</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'solutions', 'listSolutionsResponse_solutions' - A list of the current solutions.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'listSolutionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#newListSolutionsResponse"><span class="hs-identifier hs-type">newListSolutionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newListSolutionsResponse"><span class="annot"><span class="annottext">newListSolutionsResponse :: Int -&gt; ListSolutionsResponse
+</span><a href="Network.AWS.Personalize.ListSolutions.html#newListSolutionsResponse"><span class="hs-identifier hs-var hs-var">newListSolutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679275639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">ListSolutionsResponse' :: Maybe Text
+-&gt; Maybe [SolutionSummary] -&gt; Int -&gt; ListSolutionsResponse
+</span><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-type">ListSolutionsResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSolutionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AnextToken%3AListSolutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:solutions:ListSolutionsResponse' :: Maybe [SolutionSummary]
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3Asolutions%3AListSolutionsResponse%27"><span class="hs-identifier hs-var">solutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SolutionSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSolutionsResponse' :: Int
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AhttpStatus%3AListSolutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275639"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | A token for getting the next set of solutions (if they exist).</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_nextToken"><span class="hs-identifier hs-type">listSolutionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="listSolutionsResponse_nextToken"><span class="annot"><span class="annottext">listSolutionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSolutionsResponse -&gt; f ListSolutionsResponse
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listSolutionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSolutionsResponse -&gt; Maybe Text)
+-&gt; (ListSolutionsResponse -&gt; Maybe Text -&gt; ListSolutionsResponse)
+-&gt; Lens' ListSolutionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-type">ListSolutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275638"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSolutionsResponse' :: ListSolutionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275638"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275638"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275637"><span class="annot"><span class="annottext">s :: ListSolutionsResponse
+</span><a href="#local-6989586621679275637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-type">ListSolutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSolutionsResponse
+</span><a href="#local-6989586621679275637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSolutionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AnextToken%3AListSolutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | A list of the current solutions.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_solutions"><span class="hs-identifier hs-type">listSolutionsResponse_solutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.SolutionSummary.html#SolutionSummary"><span class="hs-identifier hs-type">SolutionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="listSolutionsResponse_solutions"><span class="annot"><span class="annottext">listSolutionsResponse_solutions :: (Maybe [SolutionSummary] -&gt; f (Maybe [SolutionSummary]))
+-&gt; ListSolutionsResponse -&gt; f ListSolutionsResponse
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_solutions"><span class="hs-identifier hs-var hs-var">listSolutionsResponse_solutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSolutionsResponse -&gt; Maybe [SolutionSummary])
+-&gt; (ListSolutionsResponse
+    -&gt; Maybe [SolutionSummary] -&gt; ListSolutionsResponse)
+-&gt; Lens' ListSolutionsResponse (Maybe [SolutionSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-type">ListSolutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275635"><span class="annot"><span class="annottext">Maybe [SolutionSummary]
+solutions :: Maybe [SolutionSummary]
+$sel:solutions:ListSolutionsResponse' :: ListSolutionsResponse -&gt; Maybe [SolutionSummary]
+</span><a href="#local-6989586621679275635"><span class="hs-identifier hs-var hs-var">solutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SolutionSummary]
+</span><a href="#local-6989586621679275635"><span class="hs-identifier hs-var">solutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275634"><span class="annot"><span class="annottext">s :: ListSolutionsResponse
+</span><a href="#local-6989586621679275634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-type">ListSolutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275633"><span class="annot"><span class="annottext">Maybe [SolutionSummary]
+</span><a href="#local-6989586621679275633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSolutionsResponse
+</span><a href="#local-6989586621679275634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:solutions:ListSolutionsResponse' :: Maybe [SolutionSummary]
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3Asolutions%3AListSolutionsResponse%27"><span class="hs-identifier hs-var">solutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SolutionSummary]
+</span><a href="#local-6989586621679275633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SolutionSummary] -&gt; f (Maybe [SolutionSummary]))
+ -&gt; ListSolutionsResponse -&gt; f ListSolutionsResponse)
+-&gt; ((Maybe [SolutionSummary] -&gt; f (Maybe [SolutionSummary]))
+    -&gt; Maybe [SolutionSummary] -&gt; f (Maybe [SolutionSummary]))
+-&gt; (Maybe [SolutionSummary] -&gt; f (Maybe [SolutionSummary]))
+-&gt; ListSolutionsResponse
+-&gt; f ListSolutionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SolutionSummary]
+  [SolutionSummary]
+  [SolutionSummary]
+  [SolutionSummary]
+-&gt; Iso
+     (Maybe [SolutionSummary])
+     (Maybe [SolutionSummary])
+     (Maybe [SolutionSummary])
+     (Maybe [SolutionSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SolutionSummary]
+  [SolutionSummary]
+  [SolutionSummary]
+  [SolutionSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_httpStatus"><span class="hs-identifier hs-type">listSolutionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span id="listSolutionsResponse_httpStatus"><span class="annot"><span class="annottext">listSolutionsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListSolutionsResponse -&gt; f ListSolutionsResponse
+</span><a href="Network.AWS.Personalize.ListSolutions.html#listSolutionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listSolutionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSolutionsResponse -&gt; Int)
+-&gt; (ListSolutionsResponse -&gt; Int -&gt; ListSolutionsResponse)
+-&gt; Lens ListSolutionsResponse ListSolutionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-type">ListSolutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275630"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListSolutionsResponse' :: ListSolutionsResponse -&gt; Int
+</span><a href="#local-6989586621679275630"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275630"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275629"><span class="annot"><span class="annottext">s :: ListSolutionsResponse
+</span><a href="#local-6989586621679275629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse%27"><span class="hs-identifier hs-type">ListSolutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275628"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSolutionsResponse
+</span><a href="#local-6989586621679275629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSolutionsResponse' :: Int
+</span><a href="Network.AWS.Personalize.ListSolutions.html#%24sel%3AhttpStatus%3AListSolutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSolutions.html#ListSolutionsResponse"><span class="hs-identifier hs-type">ListSolutionsResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

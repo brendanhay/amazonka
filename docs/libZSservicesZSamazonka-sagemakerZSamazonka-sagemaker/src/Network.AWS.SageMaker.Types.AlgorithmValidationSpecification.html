@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- SageMaker runs to test the algorithm.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAlgorithmValidationSpecification' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680353034"><span id="local-6989586621680353035"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlgorithmValidationSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-var">AlgorithmValidationSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmValidationSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-var">AlgorithmValidationSpecification'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680353043"><span id="local-6989586621680353044"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlgorithmValidationSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-var">AlgorithmValidationSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmValidationSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-var">AlgorithmValidationSpecification'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM roles that Amazon SageMaker uses to run the training jobs.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AvalidationRole%3AAlgorithmValidationSpecification%27"><span class="annot"><span class="annottext">AlgorithmValidationSpecification -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#%24sel%3AvalidationRole%3AAlgorithmValidationSpecification%27"><span class="hs-identifier hs-var hs-var">validationRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 -&gt; NonEmpty AlgorithmValidationProfile
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#%24sel%3AvalidationProfiles%3AAlgorithmValidationSpecification%27"><span class="hs-identifier hs-var hs-var">validationProfiles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationProfile.html#AlgorithmValidationProfile"><span class="hs-identifier hs-type">AlgorithmValidationProfile</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353027"><span id="local-6989586621680353029"><span class="annot"><span class="annottext">AlgorithmValidationSpecification
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353036"><span id="local-6989586621680353038"><span class="annot"><span class="annottext">AlgorithmValidationSpecification
 -&gt; AlgorithmValidationSpecification -&gt; Bool
 (AlgorithmValidationSpecification
  -&gt; AlgorithmValidationSpecification -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: AlgorithmValidationSpecification
 -&gt; AlgorithmValidationSpecification -&gt; Bool
 $c== :: AlgorithmValidationSpecification
 -&gt; AlgorithmValidationSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353018"><span id="local-6989586621680353020"><span id="local-6989586621680353022"><span id="local-6989586621680353024"><span class="annot"><span class="annottext">ReadPrec [AlgorithmValidationSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353027"><span id="local-6989586621680353029"><span id="local-6989586621680353031"><span id="local-6989586621680353033"><span class="annot"><span class="annottext">ReadPrec [AlgorithmValidationSpecification]
 ReadPrec AlgorithmValidationSpecification
 Int -&gt; ReadS AlgorithmValidationSpecification
 ReadS [AlgorithmValidationSpecification]
@@ -75,7 +75,7 @@ readList :: ReadS [AlgorithmValidationSpecification]
 $creadList :: ReadS [AlgorithmValidationSpecification]
 readsPrec :: Int -&gt; ReadS AlgorithmValidationSpecification
 $creadsPrec :: Int -&gt; ReadS AlgorithmValidationSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353011"><span id="local-6989586621680353013"><span id="local-6989586621680353015"><span class="annot"><span class="annottext">Int -&gt; AlgorithmValidationSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353020"><span id="local-6989586621680353022"><span id="local-6989586621680353024"><span class="annot"><span class="annottext">Int -&gt; AlgorithmValidationSpecification -&gt; ShowS
 [AlgorithmValidationSpecification] -&gt; ShowS
 AlgorithmValidationSpecification -&gt; String
 (Int -&gt; AlgorithmValidationSpecification -&gt; ShowS)
@@ -136,10 +136,10 @@ AlgorithmValidationSpecification
 -&gt; NonEmpty AlgorithmValidationProfile
 -&gt; AlgorithmValidationSpecification
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#newAlgorithmValidationSpecification"><span class="hs-identifier hs-var hs-var">newAlgorithmValidationSpecification</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621680353005"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680353005"><span class="hs-identifier hs-var">pValidationRole_</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621680353004"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
-</span><a href="#local-6989586621680353004"><span class="hs-identifier hs-var">pValidationProfiles_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621680353014"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680353014"><span class="hs-identifier hs-var">pValidationRole_</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621680353013"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
+</span><a href="#local-6989586621680353013"><span class="hs-identifier hs-var">pValidationProfiles_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">AlgorithmValidationSpecification' :: Text
 -&gt; NonEmpty AlgorithmValidationProfile
 -&gt; AlgorithmValidationSpecification
@@ -147,7 +147,7 @@ AlgorithmValidationSpecification
 </span><span id="line-64"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:validationRole:AlgorithmValidationSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#%24sel%3AvalidationRole%3AAlgorithmValidationSpecification%27"><span class="hs-identifier hs-var">validationRole</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680353005"><span class="hs-identifier hs-var">pValidationRole_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680353014"><span class="hs-identifier hs-var">pValidationRole_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">$sel:validationProfiles:AlgorithmValidationSpecification' :: NonEmpty AlgorithmValidationProfile
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#%24sel%3AvalidationProfiles%3AAlgorithmValidationSpecification%27"><span class="hs-identifier hs-var">validationProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Tagged
@@ -168,7 +168,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty AlgorithmValidationProfile
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
-</span><a href="#local-6989586621680353004"><span class="hs-identifier hs-var">pValidationProfiles_</span></a></span><span>
+</span><a href="#local-6989586621680353013"><span class="hs-identifier hs-var">pValidationProfiles_</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The IAM roles that Amazon SageMaker uses to run the training jobs.</span><span>
@@ -185,16 +185,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680352998"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353007"><span class="annot"><span class="annottext">Text
 validationRole :: Text
 $sel:validationRole:AlgorithmValidationSpecification' :: AlgorithmValidationSpecification -&gt; Text
-</span><a href="#local-6989586621680352998"><span class="hs-identifier hs-var hs-var">validationRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680352998"><span class="hs-identifier hs-var">validationRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680352997"><span class="annot"><span class="annottext">s :: AlgorithmValidationSpecification
-</span><a href="#local-6989586621680352997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680352996"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680352996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmValidationSpecification
-</span><a href="#local-6989586621680352997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationRole:AlgorithmValidationSpecification' :: Text
+</span><a href="#local-6989586621680353007"><span class="hs-identifier hs-var hs-var">validationRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680353007"><span class="hs-identifier hs-var">validationRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353006"><span class="annot"><span class="annottext">s :: AlgorithmValidationSpecification
+</span><a href="#local-6989586621680353006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353005"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680353005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmValidationSpecification
+</span><a href="#local-6989586621680353006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationRole:AlgorithmValidationSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#%24sel%3AvalidationRole%3AAlgorithmValidationSpecification%27"><span class="hs-identifier hs-var">validationRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680352996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680353005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | An array of @AlgorithmValidationProfile@ objects, each of which</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- specifies a training job and batch transform job that Amazon SageMaker</span><span>
@@ -215,17 +215,17 @@ $sel:validationRole:AlgorithmValidationSpecification' :: AlgorithmValidationSpec
      (NonEmpty AlgorithmValidationProfile)
      (NonEmpty AlgorithmValidationProfile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680352994"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353003"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
 validationProfiles :: NonEmpty AlgorithmValidationProfile
 $sel:validationProfiles:AlgorithmValidationSpecification' :: AlgorithmValidationSpecification
 -&gt; NonEmpty AlgorithmValidationProfile
-</span><a href="#local-6989586621680352994"><span class="hs-identifier hs-var hs-var">validationProfiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
-</span><a href="#local-6989586621680352994"><span class="hs-identifier hs-var">validationProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680352993"><span class="annot"><span class="annottext">s :: AlgorithmValidationSpecification
-</span><a href="#local-6989586621680352993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680352992"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
-</span><a href="#local-6989586621680352992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmValidationSpecification
-</span><a href="#local-6989586621680352993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationProfiles:AlgorithmValidationSpecification' :: NonEmpty AlgorithmValidationProfile
+</span><a href="#local-6989586621680353003"><span class="hs-identifier hs-var hs-var">validationProfiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
+</span><a href="#local-6989586621680353003"><span class="hs-identifier hs-var">validationProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353002"><span class="annot"><span class="annottext">s :: AlgorithmValidationSpecification
+</span><a href="#local-6989586621680353002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353001"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
+</span><a href="#local-6989586621680353001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmValidationSpecification
+</span><a href="#local-6989586621680353002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationProfiles:AlgorithmValidationSpecification' :: NonEmpty AlgorithmValidationProfile
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#%24sel%3AvalidationProfiles%3AAlgorithmValidationSpecification%27"><span class="hs-identifier hs-var">validationProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
-</span><a href="#local-6989586621680352992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AlgorithmValidationProfile
+</span><a href="#local-6989586621680353001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AlgorithmValidationProfile
   -&gt; f (NonEmpty AlgorithmValidationProfile))
  -&gt; AlgorithmValidationSpecification
  -&gt; f AlgorithmValidationSpecification)
@@ -246,10 +246,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621680352988"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621680352997"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621680352986"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlgorithmValidationSpecification
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680352995"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlgorithmValidationSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AlgorithmValidationSpecification)
@@ -259,8 +259,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AlgorithmValidationSpecification&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680352983"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680352983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680352992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680352992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; NonEmpty AlgorithmValidationProfile
 -&gt; AlgorithmValidationSpecification
@@ -274,7 +274,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AlgorithmValidationSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680352983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680352992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidationRole&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,30 +285,30 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser AlgorithmValidationSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680352983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty AlgorithmValidationProfile)
+</span><a href="#local-6989586621680352992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty AlgorithmValidationProfile)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidationProfiles&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621680352977"><span id="local-6989586621680352979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621680352986"><span id="local-6989586621680352988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680352974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680352983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680352966"><span id="local-6989586621680352968"><span id="local-6989586621680352970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680352964"><span class="annot"><span class="annottext">toJSON :: AlgorithmValidationSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680352961"><span id="local-6989586621680352962"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680352975"><span id="local-6989586621680352977"><span id="local-6989586621680352979"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680352973"><span class="annot"><span class="annottext">toJSON :: AlgorithmValidationSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification%27"><span class="hs-identifier hs-type">AlgorithmValidationSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680352970"><span id="local-6989586621680352971"><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
 Text
 validationProfiles :: NonEmpty AlgorithmValidationProfile
 validationRole :: Text
 $sel:validationProfiles:AlgorithmValidationSpecification' :: AlgorithmValidationSpecification
 -&gt; NonEmpty AlgorithmValidationProfile
 $sel:validationRole:AlgorithmValidationSpecification' :: AlgorithmValidationSpecification -&gt; Text
-</span><a href="#local-6989586621680352961"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680352970"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -321,7 +321,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ValidationRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680352962"><span class="hs-identifier hs-var">validationRole</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680352971"><span class="hs-identifier hs-var">validationRole</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -329,7 +329,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ValidationProfiles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AlgorithmValidationProfile -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AlgorithmValidationProfile
-</span><a href="#local-6989586621680352961"><span class="hs-identifier hs-var">validationProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680352970"><span class="hs-identifier hs-var">validationProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

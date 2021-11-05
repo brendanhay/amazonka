@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679333875"><span id="local-6989586621679333876"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TextTypes"><span class="annot"><a href="Network.AWS.Rekognition.Types.TextTypes.html#TextTypes"><span class="hs-identifier hs-var">TextTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TextTypes%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TextTypes.html#TextTypes%27"><span class="hs-identifier hs-var">TextTypes'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679333884"><span id="local-6989586621679333885"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TextTypes"><span class="annot"><a href="Network.AWS.Rekognition.Types.TextTypes.html#TextTypes"><span class="hs-identifier hs-var">TextTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TextTypes%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TextTypes.html#TextTypes%27"><span class="hs-identifier hs-var">TextTypes'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTextTypes"><span class="annot"><span class="annottext">TextTypes -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.TextTypes.html#fromTextTypes"><span class="hs-identifier hs-var hs-var">fromTextTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333867"><span id="local-6989586621679333869"><span id="local-6989586621679333871"><span class="annot"><span class="annottext">Int -&gt; TextTypes -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333876"><span id="local-6989586621679333878"><span id="local-6989586621679333880"><span class="annot"><span class="annottext">Int -&gt; TextTypes -&gt; ShowS
 [TextTypes] -&gt; ShowS
 TextTypes -&gt; String
 (Int -&gt; TextTypes -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TextTypes -&gt; String
 showsPrec :: Int -&gt; TextTypes -&gt; ShowS
 $cshowsPrec :: Int -&gt; TextTypes -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679333858"><span id="local-6989586621679333860"><span id="local-6989586621679333862"><span id="local-6989586621679333864"><span class="annot"><span class="annottext">ReadPrec [TextTypes]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679333867"><span id="local-6989586621679333869"><span id="local-6989586621679333871"><span id="local-6989586621679333873"><span class="annot"><span class="annottext">ReadPrec [TextTypes]
 ReadPrec TextTypes
 Int -&gt; ReadS TextTypes
 ReadS [TextTypes]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TextTypes]
 readsPrec :: Int -&gt; ReadS TextTypes
 $creadsPrec :: Int -&gt; ReadS TextTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679333853"><span id="local-6989586621679333855"><span class="annot"><span class="annottext">TextTypes -&gt; TextTypes -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679333862"><span id="local-6989586621679333864"><span class="annot"><span class="annottext">TextTypes -&gt; TextTypes -&gt; Bool
 (TextTypes -&gt; TextTypes -&gt; Bool)
 -&gt; (TextTypes -&gt; TextTypes -&gt; Bool) -&gt; Eq TextTypes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: TextTypes -&gt; TextTypes -&gt; Bool
 == :: TextTypes -&gt; TextTypes -&gt; Bool
 $c== :: TextTypes -&gt; TextTypes -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679333837"><span id="local-6989586621679333839"><span id="local-6989586621679333841"><span id="local-6989586621679333843"><span id="local-6989586621679333845"><span id="local-6989586621679333847"><span id="local-6989586621679333849"><span class="annot"><span class="annottext">Eq TextTypes
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679333846"><span id="local-6989586621679333848"><span id="local-6989586621679333850"><span id="local-6989586621679333852"><span id="local-6989586621679333854"><span id="local-6989586621679333856"><span id="local-6989586621679333858"><span class="annot"><span class="annottext">Eq TextTypes
 Eq TextTypes
 -&gt; (TextTypes -&gt; TextTypes -&gt; Ordering)
 -&gt; (TextTypes -&gt; TextTypes -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. TextTypes -&gt; Rep TextTypes x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333829"><span id="local-6989586621679333831"><span class="annot"><span class="annottext">Int -&gt; TextTypes -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333838"><span id="local-6989586621679333840"><span class="annot"><span class="annottext">Int -&gt; TextTypes -&gt; Int
 TextTypes -&gt; Int
 (Int -&gt; TextTypes -&gt; Int)
 -&gt; (TextTypes -&gt; Int) -&gt; Hashable TextTypes
@@ -141,49 +141,49 @@ $chash :: TextTypes -&gt; Int
 hashWithSalt :: Int -&gt; TextTypes -&gt; Int
 $chashWithSalt :: Int -&gt; TextTypes -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679333826"><span class="annot"><span class="annottext">TextTypes -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679333835"><span class="annot"><span class="annottext">TextTypes -&gt; ()
 (TextTypes -&gt; ()) -&gt; NFData TextTypes
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TextTypes -&gt; ()
 $crnf :: TextTypes -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679333823"><span class="annot"><span class="annottext">Text -&gt; Either String TextTypes
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679333832"><span class="annot"><span class="annottext">Text -&gt; Either String TextTypes
 (Text -&gt; Either String TextTypes) -&gt; FromText TextTypes
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TextTypes
 $cfromText :: Text -&gt; Either String TextTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679333820"><span class="annot"><span class="annottext">TextTypes -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679333829"><span class="annot"><span class="annottext">TextTypes -&gt; Text
 (TextTypes -&gt; Text) -&gt; ToText TextTypes
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TextTypes -&gt; Text
 $ctoText :: TextTypes -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679333817"><span class="annot"><span class="annottext">TextTypes -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679333826"><span class="annot"><span class="annottext">TextTypes -&gt; ByteString
 (TextTypes -&gt; ByteString) -&gt; ToByteString TextTypes
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TextTypes -&gt; ByteString
 $ctoBS :: TextTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679333814"><span class="annot"><span class="annottext">TextTypes -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679333823"><span class="annot"><span class="annottext">TextTypes -&gt; ByteStringBuilder
 (TextTypes -&gt; ByteStringBuilder) -&gt; ToLog TextTypes
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TextTypes -&gt; ByteStringBuilder
 $cbuild :: TextTypes -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679333811"><span class="annot"><span class="annottext">HeaderName -&gt; TextTypes -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679333820"><span class="annot"><span class="annottext">HeaderName -&gt; TextTypes -&gt; [Header]
 (HeaderName -&gt; TextTypes -&gt; [Header]) -&gt; ToHeader TextTypes
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TextTypes -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TextTypes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679333808"><span class="annot"><span class="annottext">TextTypes -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679333817"><span class="annot"><span class="annottext">TextTypes -&gt; QueryString
 (TextTypes -&gt; QueryString) -&gt; ToQuery TextTypes
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TextTypes -&gt; QueryString
 $ctoQuery :: TextTypes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679333803"><span id="local-6989586621679333805"><span class="annot"><span class="annottext">Value -&gt; Parser [TextTypes]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679333812"><span id="local-6989586621679333814"><span class="annot"><span class="annottext">Value -&gt; Parser [TextTypes]
 Value -&gt; Parser TextTypes
 (Value -&gt; Parser TextTypes)
 -&gt; (Value -&gt; Parser [TextTypes]) -&gt; FromJSON TextTypes
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [TextTypes]
 parseJSON :: Value -&gt; Parser TextTypes
 $cparseJSON :: Value -&gt; Parser TextTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679333798"><span id="local-6989586621679333800"><span class="annot"><span class="annottext">FromJSONKeyFunction [TextTypes]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679333807"><span id="local-6989586621679333809"><span class="annot"><span class="annottext">FromJSONKeyFunction [TextTypes]
 FromJSONKeyFunction TextTypes
 FromJSONKeyFunction TextTypes
 -&gt; FromJSONKeyFunction [TextTypes] -&gt; FromJSONKey TextTypes
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TextTypes]
 fromJSONKey :: FromJSONKeyFunction TextTypes
 $cfromJSONKey :: FromJSONKeyFunction TextTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679333789"><span id="local-6989586621679333791"><span id="local-6989586621679333793"><span id="local-6989586621679333795"><span class="annot"><span class="annottext">[TextTypes] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679333798"><span id="local-6989586621679333800"><span id="local-6989586621679333802"><span id="local-6989586621679333804"><span class="annot"><span class="annottext">[TextTypes] -&gt; Encoding
 [TextTypes] -&gt; Value
 TextTypes -&gt; Encoding
 TextTypes -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: TextTypes -&gt; Encoding
 toJSON :: TextTypes -&gt; Value
 $ctoJSON :: TextTypes -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679333784"><span id="local-6989586621679333786"><span class="annot"><span class="annottext">ToJSONKeyFunction [TextTypes]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679333793"><span id="local-6989586621679333795"><span class="annot"><span class="annottext">ToJSONKeyFunction [TextTypes]
 ToJSONKeyFunction TextTypes
 ToJSONKeyFunction TextTypes
 -&gt; ToJSONKeyFunction [TextTypes] -&gt; ToJSONKey TextTypes
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TextTypes]
 toJSONKey :: ToJSONKeyFunction TextTypes
 $ctoJSONKey :: ToJSONKeyFunction TextTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679333781"><span class="annot"><span class="annottext">[Node] -&gt; Either String TextTypes
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679333790"><span class="annot"><span class="annottext">[Node] -&gt; Either String TextTypes
 ([Node] -&gt; Either String TextTypes) -&gt; FromXML TextTypes
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TextTypes
 $cparseXML :: [Node] -&gt; Either String TextTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679333778"><span class="annot"><span class="annottext">TextTypes -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679333787"><span class="annot"><span class="annottext">TextTypes -&gt; XML
 (TextTypes -&gt; XML) -&gt; ToXML TextTypes
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TextTypes -&gt; XML

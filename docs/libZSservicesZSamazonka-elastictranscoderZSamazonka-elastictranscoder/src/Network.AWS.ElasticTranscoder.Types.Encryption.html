@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- use to encrypt your output files.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEncryption' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679210180"><span id="local-6989586621679210181"></span></span><span class="hs-keyword">data</span><span> </span><span id="Encryption"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-var">Encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Encryption%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679210189"><span id="local-6989586621679210190"></span></span><span class="hs-keyword">data</span><span> </span><span id="Encryption"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-var">Encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Encryption%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific server-side encryption mode that you want Elastic</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Transcoder to use when decrypting your input files or encrypting your</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- output files. Elastic Transcoder supports the following options:</span><span>
@@ -95,7 +95,7 @@
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3AinitializationVector%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#%24sel%3AinitializationVector%3AEncryption%27"><span class="hs-identifier hs-var hs-var">initializationVector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210171"><span id="local-6989586621679210173"><span class="annot"><span class="annottext">Encryption -&gt; Encryption -&gt; Bool
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210180"><span id="local-6989586621679210182"><span class="annot"><span class="annottext">Encryption -&gt; Encryption -&gt; Bool
 (Encryption -&gt; Encryption -&gt; Bool)
 -&gt; (Encryption -&gt; Encryption -&gt; Bool) -&gt; Eq Encryption
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -103,7 +103,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Encryption -&gt; Encryption -&gt; Bool
 == :: Encryption -&gt; Encryption -&gt; Bool
 $c== :: Encryption -&gt; Encryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210162"><span id="local-6989586621679210164"><span id="local-6989586621679210166"><span id="local-6989586621679210168"><span class="annot"><span class="annottext">ReadPrec [Encryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210171"><span id="local-6989586621679210173"><span id="local-6989586621679210175"><span id="local-6989586621679210177"><span class="annot"><span class="annottext">ReadPrec [Encryption]
 ReadPrec Encryption
 Int -&gt; ReadS Encryption
 ReadS [Encryption]
@@ -123,7 +123,7 @@ readList :: ReadS [Encryption]
 $creadList :: ReadS [Encryption]
 readsPrec :: Int -&gt; ReadS Encryption
 $creadsPrec :: Int -&gt; ReadS Encryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210155"><span id="local-6989586621679210157"><span id="local-6989586621679210159"><span class="annot"><span class="annottext">Int -&gt; Encryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210164"><span id="local-6989586621679210166"><span id="local-6989586621679210168"><span class="annot"><span class="annottext">Int -&gt; Encryption -&gt; ShowS
 [Encryption] -&gt; ShowS
 Encryption -&gt; String
 (Int -&gt; Encryption -&gt; ShowS)
@@ -280,16 +280,16 @@ forall a. Maybe a
 -&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
 -&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210146"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210155"><span class="annot"><span class="annottext">Maybe Text
 mode :: Maybe Text
 $sel:mode:Encryption' :: Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679210146"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210146"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210145"><span class="annot"><span class="annottext">s :: Encryption
-</span><a href="#local-6989586621679210145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210144"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
-</span><a href="#local-6989586621679210145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:Encryption' :: Maybe Text
+</span><a href="#local-6989586621679210155"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210155"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210154"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679210154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679210154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:Encryption' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#%24sel%3Amode%3AEncryption%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The MD5 digest of the key that you used to encrypt your input file, or</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- that you want Elastic Transcoder to use to encrypt your output file.</span><span>
@@ -302,16 +302,16 @@ $sel:mode:Encryption' :: Encryption -&gt; Maybe Text
 -&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
 -&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210142"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210151"><span class="annot"><span class="annottext">Maybe Text
 keyMd5 :: Maybe Text
 $sel:keyMd5:Encryption' :: Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679210142"><span class="hs-identifier hs-var hs-var">keyMd5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210142"><span class="hs-identifier hs-var">keyMd5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210141"><span class="annot"><span class="annottext">s :: Encryption
-</span><a href="#local-6989586621679210141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210140"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
-</span><a href="#local-6989586621679210141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyMd5:Encryption' :: Maybe Text
+</span><a href="#local-6989586621679210151"><span class="hs-identifier hs-var hs-var">keyMd5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210151"><span class="hs-identifier hs-var">keyMd5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210150"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679210150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679210150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyMd5:Encryption' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#%24sel%3AkeyMd5%3AEncryption%27"><span class="hs-identifier hs-var">keyMd5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The data encryption key that you want Elastic Transcoder to use to</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- encrypt your output file, or that was used to encrypt your input file.</span><span>
@@ -328,16 +328,16 @@ $sel:keyMd5:Encryption' :: Encryption -&gt; Maybe Text
 -&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
 -&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210138"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210147"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:Encryption' :: Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679210138"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210138"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210137"><span class="annot"><span class="annottext">s :: Encryption
-</span><a href="#local-6989586621679210137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210136"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
-</span><a href="#local-6989586621679210137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Encryption' :: Maybe Text
+</span><a href="#local-6989586621679210147"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210147"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210146"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679210146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210145"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679210146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Encryption' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#%24sel%3Akey%3AEncryption%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The series of random bits created by a random bit generator, unique for</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- every encryption operation, that you used to encrypt your input files or</span><span>
@@ -350,19 +350,19 @@ $sel:key:Encryption' :: Encryption -&gt; Maybe Text
 -&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
 -&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210134"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210143"><span class="annot"><span class="annottext">Maybe Text
 initializationVector :: Maybe Text
 $sel:initializationVector:Encryption' :: Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679210134"><span class="hs-identifier hs-var hs-var">initializationVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210134"><span class="hs-identifier hs-var">initializationVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210133"><span class="annot"><span class="annottext">s :: Encryption
-</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210132"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
-</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initializationVector:Encryption' :: Maybe Text
+</span><a href="#local-6989586621679210143"><span class="hs-identifier hs-var hs-var">initializationVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210143"><span class="hs-identifier hs-var">initializationVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210142"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679210142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210141"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679210142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initializationVector:Encryption' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#%24sel%3AinitializationVector%3AEncryption%27"><span class="hs-identifier hs-var">initializationVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679210127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Encryption
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210138"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679210136"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Encryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Encryption) -&gt; Value -&gt; Parser Encryption
@@ -370,8 +370,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span>
-</span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210124"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210133"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Encryption
 </span><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span><span>
 </span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -380,7 +380,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Encryption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,7 +389,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Encryption)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyMd5&quot;</span></span><span class="hs-special">)</span><span>
@@ -397,7 +397,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Encryption)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
@@ -405,19 +405,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Encryption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitializationVector&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210118"><span id="local-6989586621679210120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210127"><span id="local-6989586621679210129"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210107"><span id="local-6989586621679210109"><span id="local-6989586621679210111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679210105"><span class="annot"><span class="annottext">toJSON :: Encryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210100"><span id="local-6989586621679210101"><span id="local-6989586621679210102"><span id="local-6989586621679210103"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210116"><span id="local-6989586621679210118"><span id="local-6989586621679210120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679210114"><span class="annot"><span class="annottext">toJSON :: Encryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210109"><span id="local-6989586621679210110"><span id="local-6989586621679210111"><span id="local-6989586621679210112"><span class="annot"><span class="annottext">Maybe Text
 initializationVector :: Maybe Text
 key :: Maybe Text
 keyMd5 :: Maybe Text
@@ -426,7 +426,7 @@ $sel:initializationVector:Encryption' :: Encryption -&gt; Maybe Text
 $sel:key:Encryption' :: Encryption -&gt; Maybe Text
 $sel:keyMd5:Encryption' :: Encryption -&gt; Maybe Text
 $sel:mode:Encryption' :: Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679210100"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210109"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -438,21 +438,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210103"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210112"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyMd5&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210102"><span class="hs-identifier hs-var">keyMd5</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210111"><span class="hs-identifier hs-var">keyMd5</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210101"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210110"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitializationVector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -460,7 +460,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-263"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210100"><span class="hs-identifier hs-var">initializationVector</span></a></span><span>
+</span><a href="#local-6989586621679210109"><span class="hs-identifier hs-var">initializationVector</span></a></span><span>
 </span><span id="line-264"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-265"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span></pre></body></html>

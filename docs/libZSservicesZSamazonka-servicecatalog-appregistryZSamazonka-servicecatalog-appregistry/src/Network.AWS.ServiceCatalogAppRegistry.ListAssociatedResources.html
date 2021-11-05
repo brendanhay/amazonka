@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all resources that are associated with specified application.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Results are paginated.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier">ListAssociatedResources</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#newListAssociatedResources"><span class="hs-identifier">newListAssociatedResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_nextToken"><span class="hs-identifier">listAssociatedResources_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_maxResults"><span class="hs-identifier">listAssociatedResources_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_application"><span class="hs-identifier">listAssociatedResources_application</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier">ListAssociatedResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#newListAssociatedResourcesResponse"><span class="hs-identifier">newListAssociatedResourcesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_resources"><span class="hs-identifier">listAssociatedResourcesResponse_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_nextToken"><span class="hs-identifier">listAssociatedResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_httpStatus"><span class="hs-identifier">listAssociatedResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedResources' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679181339"><span id="local-6989586621679181340"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedResources"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-var">ListAssociatedResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedResources%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-var">ListAssociatedResources'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedResources%27"><span class="annot"><span class="annottext">ListAssociatedResources -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AnextToken%3AListAssociatedResources%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAssociatedResources%27"><span class="annot"><span class="annottext">ListAssociatedResources -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AmaxResults%3AListAssociatedResources%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name or ID of the application.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aapplication%3AListAssociatedResources%27"><span class="annot"><span class="annottext">ListAssociatedResources -&gt; Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3Aapplication%3AListAssociatedResources%27"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181331"><span id="local-6989586621679181333"><span class="annot"><span class="annottext">ListAssociatedResources -&gt; ListAssociatedResources -&gt; Bool
+(ListAssociatedResources -&gt; ListAssociatedResources -&gt; Bool)
+-&gt; (ListAssociatedResources -&gt; ListAssociatedResources -&gt; Bool)
+-&gt; Eq ListAssociatedResources
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssociatedResources -&gt; ListAssociatedResources -&gt; Bool
+$c/= :: ListAssociatedResources -&gt; ListAssociatedResources -&gt; Bool
+== :: ListAssociatedResources -&gt; ListAssociatedResources -&gt; Bool
+$c== :: ListAssociatedResources -&gt; ListAssociatedResources -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181322"><span id="local-6989586621679181324"><span id="local-6989586621679181326"><span id="local-6989586621679181328"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedResources]
+ReadPrec ListAssociatedResources
+Int -&gt; ReadS ListAssociatedResources
+ReadS [ListAssociatedResources]
+(Int -&gt; ReadS ListAssociatedResources)
+-&gt; ReadS [ListAssociatedResources]
+-&gt; ReadPrec ListAssociatedResources
+-&gt; ReadPrec [ListAssociatedResources]
+-&gt; Read ListAssociatedResources
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssociatedResources]
+$creadListPrec :: ReadPrec [ListAssociatedResources]
+readPrec :: ReadPrec ListAssociatedResources
+$creadPrec :: ReadPrec ListAssociatedResources
+readList :: ReadS [ListAssociatedResources]
+$creadList :: ReadS [ListAssociatedResources]
+readsPrec :: Int -&gt; ReadS ListAssociatedResources
+$creadsPrec :: Int -&gt; ReadS ListAssociatedResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181315"><span id="local-6989586621679181317"><span id="local-6989586621679181319"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedResources -&gt; ShowS
+[ListAssociatedResources] -&gt; ShowS
+ListAssociatedResources -&gt; String
+(Int -&gt; ListAssociatedResources -&gt; ShowS)
+-&gt; (ListAssociatedResources -&gt; String)
+-&gt; ([ListAssociatedResources] -&gt; ShowS)
+-&gt; Show ListAssociatedResources
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssociatedResources] -&gt; ShowS
+$cshowList :: [ListAssociatedResources] -&gt; ShowS
+show :: ListAssociatedResources -&gt; String
+$cshow :: ListAssociatedResources -&gt; String
+showsPrec :: Int -&gt; ListAssociatedResources -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssociatedResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAssociatedResources -&gt; Rep ListAssociatedResources x)
+-&gt; (forall x.
+    Rep ListAssociatedResources x -&gt; ListAssociatedResources)
+-&gt; Generic ListAssociatedResources
+forall x. Rep ListAssociatedResources x -&gt; ListAssociatedResources
+forall x. ListAssociatedResources -&gt; Rep ListAssociatedResources x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAssociatedResources x -&gt; ListAssociatedResources
+$cfrom :: forall x. ListAssociatedResources -&gt; Rep ListAssociatedResources x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListAssociatedResources' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedResources_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'listAssociatedResources_maxResults' - The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'application', 'listAssociatedResources_application' - The name or ID of the application.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#newListAssociatedResources"><span class="hs-identifier hs-type">newListAssociatedResources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'application'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span>
+</span><span id="line-87"></span><span id="newListAssociatedResources"><span class="annot"><span class="annottext">newListAssociatedResources :: Text -&gt; ListAssociatedResources
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#newListAssociatedResources"><span class="hs-identifier hs-var hs-var">newListAssociatedResources</span></a></span></span><span> </span><span id="local-6989586621679181310"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181310"><span class="hs-identifier hs-var">pApplication_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedResources' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListAssociatedResources
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedResources' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AnextToken%3AListAssociatedResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAssociatedResources' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AmaxResults%3AListAssociatedResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:application:ListAssociatedResources' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3Aapplication%3AListAssociatedResources%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181310"><span class="hs-identifier hs-var">pApplication_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_nextToken"><span class="hs-identifier hs-type">listAssociatedResources_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listAssociatedResources_nextToken"><span class="annot"><span class="annottext">listAssociatedResources_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssociatedResources -&gt; f ListAssociatedResources
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedResources_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedResources -&gt; Maybe Text)
+-&gt; (ListAssociatedResources
+    -&gt; Maybe Text -&gt; ListAssociatedResources)
+-&gt; Lens
+     ListAssociatedResources
+     ListAssociatedResources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181308"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssociatedResources' :: ListAssociatedResources -&gt; Maybe Text
+</span><a href="#local-6989586621679181308"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181308"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181307"><span class="annot"><span class="annottext">s :: ListAssociatedResources
+</span><a href="#local-6989586621679181307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedResources
+</span><a href="#local-6989586621679181307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedResources' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AnextToken%3AListAssociatedResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_maxResults"><span class="hs-identifier hs-type">listAssociatedResources_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listAssociatedResources_maxResults"><span class="annot"><span class="annottext">listAssociatedResources_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAssociatedResources -&gt; f ListAssociatedResources
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_maxResults"><span class="hs-identifier hs-var hs-var">listAssociatedResources_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedResources -&gt; Maybe Natural)
+-&gt; (ListAssociatedResources
+    -&gt; Maybe Natural -&gt; ListAssociatedResources)
+-&gt; Lens
+     ListAssociatedResources
+     ListAssociatedResources
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181305"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAssociatedResources' :: ListAssociatedResources -&gt; Maybe Natural
+</span><a href="#local-6989586621679181305"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181305"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181304"><span class="annot"><span class="annottext">s :: ListAssociatedResources
+</span><a href="#local-6989586621679181304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181303"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedResources
+</span><a href="#local-6989586621679181304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAssociatedResources' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AmaxResults%3AListAssociatedResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name or ID of the application.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_application"><span class="hs-identifier hs-type">listAssociatedResources_application</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="listAssociatedResources_application"><span class="annot"><span class="annottext">listAssociatedResources_application :: (Text -&gt; f Text)
+-&gt; ListAssociatedResources -&gt; f ListAssociatedResources
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_application"><span class="hs-identifier hs-var hs-var">listAssociatedResources_application</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedResources -&gt; Text)
+-&gt; (ListAssociatedResources -&gt; Text -&gt; ListAssociatedResources)
+-&gt; Lens ListAssociatedResources ListAssociatedResources Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181302"><span class="annot"><span class="annottext">Text
+application :: Text
+$sel:application:ListAssociatedResources' :: ListAssociatedResources -&gt; Text
+</span><a href="#local-6989586621679181302"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181302"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181301"><span class="annot"><span class="annottext">s :: ListAssociatedResources
+</span><a href="#local-6989586621679181301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedResources
+</span><a href="#local-6989586621679181301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:ListAssociatedResources' :: Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3Aapplication%3AListAssociatedResources%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679181296"><span class="annot"><span class="annottext">page :: ListAssociatedResources
+-&gt; AWSResponse ListAssociatedResources
+-&gt; Maybe ListAssociatedResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679181294"><span class="annot"><span class="annottext">ListAssociatedResources
+</span><a href="#local-6989586621679181294"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679181293"><span class="annot"><span class="annottext">AWSResponse ListAssociatedResources
+</span><a href="#local-6989586621679181293"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedResources
+ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181293"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedResourcesResponse
+-&gt; Getting (First Text) ListAssociatedResourcesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAssociatedResourcesResponse
+-&gt; Const (First Text) ListAssociatedResourcesResponse
+Lens' ListAssociatedResourcesResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_nextToken"><span class="hs-identifier hs-var">listAssociatedResourcesResponse_nextToken</span></a></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAssociatedResourcesResponse
+ -&gt; Const (First Text) ListAssociatedResourcesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAssociatedResourcesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAssociatedResources
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceInfo] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedResources
+ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181293"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedResourcesResponse
+-&gt; Getting
+     (First [ResourceInfo])
+     ListAssociatedResourcesResponse
+     [ResourceInfo]
+-&gt; Maybe [ResourceInfo]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ResourceInfo]
+ -&gt; Const (First [ResourceInfo]) (Maybe [ResourceInfo]))
+-&gt; ListAssociatedResourcesResponse
+-&gt; Const (First [ResourceInfo]) ListAssociatedResourcesResponse
+Lens' ListAssociatedResourcesResponse (Maybe [ResourceInfo])
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_resources"><span class="hs-identifier hs-var">listAssociatedResourcesResponse_resources</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ResourceInfo]
+  -&gt; Const (First [ResourceInfo]) (Maybe [ResourceInfo]))
+ -&gt; ListAssociatedResourcesResponse
+ -&gt; Const (First [ResourceInfo]) ListAssociatedResourcesResponse)
+-&gt; (([ResourceInfo] -&gt; Const (First [ResourceInfo]) [ResourceInfo])
+    -&gt; Maybe [ResourceInfo]
+    -&gt; Const (First [ResourceInfo]) (Maybe [ResourceInfo]))
+-&gt; Getting
+     (First [ResourceInfo])
+     ListAssociatedResourcesResponse
+     [ResourceInfo]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceInfo] -&gt; Const (First [ResourceInfo]) [ResourceInfo])
+-&gt; Maybe [ResourceInfo]
+-&gt; Const (First [ResourceInfo]) (Maybe [ResourceInfo])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAssociatedResources
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">ListAssociatedResources -&gt; Maybe ListAssociatedResources
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAssociatedResources -&gt; Maybe ListAssociatedResources)
+-&gt; ListAssociatedResources -&gt; Maybe ListAssociatedResources
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ListAssociatedResources
+</span><a href="#local-6989586621679181294"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedResources
+-&gt; (ListAssociatedResources -&gt; ListAssociatedResources)
+-&gt; ListAssociatedResources
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAssociatedResources -&gt; Identity ListAssociatedResources
+Lens
+  ListAssociatedResources
+  ListAssociatedResources
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResources_nextToken"><span class="hs-identifier hs-var">listAssociatedResources_nextToken</span></a></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAssociatedResources -&gt; Identity ListAssociatedResources)
+-&gt; Maybe Text -&gt; ListAssociatedResources -&gt; ListAssociatedResources
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedResources
+ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181293"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedResourcesResponse
+-&gt; Getting (First Text) ListAssociatedResourcesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAssociatedResourcesResponse
+-&gt; Const (First Text) ListAssociatedResourcesResponse
+Lens' ListAssociatedResourcesResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_nextToken"><span class="hs-identifier hs-var">listAssociatedResourcesResponse_nextToken</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAssociatedResourcesResponse
+ -&gt; Const (First Text) ListAssociatedResourcesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAssociatedResourcesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679181283"><span class="annot"><span class="annottext">request :: ListAssociatedResources -&gt; Request ListAssociatedResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListAssociatedResources -&gt; Request ListAssociatedResources
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679181279"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAssociatedResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAssociatedResources)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAssociatedResources))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAssociatedResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAssociatedResources)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181276"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181276"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181275"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181275"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181274"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181274"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourceInfo]
+-&gt; Maybe Text -&gt; Int -&gt; ListAssociatedResourcesResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">ListAssociatedResourcesResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ResourceInfo]
+ -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedResourcesResponse)
+-&gt; Either String (Maybe [ResourceInfo])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListAssociatedResourcesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ResourceInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceInfo]))
+-&gt; Maybe [ResourceInfo] -&gt; Either String (Maybe [ResourceInfo])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListAssociatedResourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListAssociatedResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAssociatedResourcesResponse)
+-&gt; Either String Int
+-&gt; Either String ListAssociatedResourcesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181276"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181265"><span id="local-6989586621679181267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679181258"><span class="annot"><span class="annottext">toHeaders :: ListAssociatedResources -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssociatedResources -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679181252"><span class="annot"><span class="annottext">toPath :: ListAssociatedResources -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181248"><span id="local-6989586621679181249"><span id="local-6989586621679181250"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+application :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:application:ListAssociatedResources' :: ListAssociatedResources -&gt; Text
+$sel:maxResults:ListAssociatedResources' :: ListAssociatedResources -&gt; Maybe Natural
+$sel:nextToken:ListAssociatedResources' :: ListAssociatedResources -&gt; Maybe Text
+</span><a href="#local-6989586621679181248"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/applications/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181248"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/resources&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources"><span class="hs-identifier hs-type">ListAssociatedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679181244"><span class="annot"><span class="annottext">toQuery :: ListAssociatedResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResources%27"><span class="hs-identifier hs-type">ListAssociatedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181240"><span id="local-6989586621679181241"><span id="local-6989586621679181242"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+application :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:application:ListAssociatedResources' :: ListAssociatedResources -&gt; Text
+$sel:maxResults:ListAssociatedResources' :: ListAssociatedResources -&gt; Maybe Natural
+$sel:nextToken:ListAssociatedResources' :: ListAssociatedResources -&gt; Maybe Text
+</span><a href="#local-6989586621679181240"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181242"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181241"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedResourcesResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679181237"><span id="local-6989586621679181238"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedResourcesResponse"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-var">ListAssociatedResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedResourcesResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">ListAssociatedResourcesResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the resources.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Aresources%3AListAssociatedResourcesResponse%27"><span class="annot"><span class="annottext">ListAssociatedResourcesResponse -&gt; Maybe [ResourceInfo]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3Aresources%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.html#ResourceInfo"><span class="hs-identifier hs-type">ResourceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedResourcesResponse%27"><span class="annot"><span class="annottext">ListAssociatedResourcesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AnextToken%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAssociatedResourcesResponse%27"><span class="annot"><span class="annottext">ListAssociatedResourcesResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AhttpStatus%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181230"><span id="local-6989586621679181232"><span class="annot"><span class="annottext">ListAssociatedResourcesResponse
+-&gt; ListAssociatedResourcesResponse -&gt; Bool
+(ListAssociatedResourcesResponse
+ -&gt; ListAssociatedResourcesResponse -&gt; Bool)
+-&gt; (ListAssociatedResourcesResponse
+    -&gt; ListAssociatedResourcesResponse -&gt; Bool)
+-&gt; Eq ListAssociatedResourcesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssociatedResourcesResponse
+-&gt; ListAssociatedResourcesResponse -&gt; Bool
+$c/= :: ListAssociatedResourcesResponse
+-&gt; ListAssociatedResourcesResponse -&gt; Bool
+== :: ListAssociatedResourcesResponse
+-&gt; ListAssociatedResourcesResponse -&gt; Bool
+$c== :: ListAssociatedResourcesResponse
+-&gt; ListAssociatedResourcesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181222"><span id="local-6989586621679181224"><span id="local-6989586621679181226"><span id="local-6989586621679181228"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedResourcesResponse]
+ReadPrec ListAssociatedResourcesResponse
+Int -&gt; ReadS ListAssociatedResourcesResponse
+ReadS [ListAssociatedResourcesResponse]
+(Int -&gt; ReadS ListAssociatedResourcesResponse)
+-&gt; ReadS [ListAssociatedResourcesResponse]
+-&gt; ReadPrec ListAssociatedResourcesResponse
+-&gt; ReadPrec [ListAssociatedResourcesResponse]
+-&gt; Read ListAssociatedResourcesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssociatedResourcesResponse]
+$creadListPrec :: ReadPrec [ListAssociatedResourcesResponse]
+readPrec :: ReadPrec ListAssociatedResourcesResponse
+$creadPrec :: ReadPrec ListAssociatedResourcesResponse
+readList :: ReadS [ListAssociatedResourcesResponse]
+$creadList :: ReadS [ListAssociatedResourcesResponse]
+readsPrec :: Int -&gt; ReadS ListAssociatedResourcesResponse
+$creadsPrec :: Int -&gt; ReadS ListAssociatedResourcesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181216"><span id="local-6989586621679181218"><span id="local-6989586621679181220"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedResourcesResponse -&gt; ShowS
+[ListAssociatedResourcesResponse] -&gt; ShowS
+ListAssociatedResourcesResponse -&gt; String
+(Int -&gt; ListAssociatedResourcesResponse -&gt; ShowS)
+-&gt; (ListAssociatedResourcesResponse -&gt; String)
+-&gt; ([ListAssociatedResourcesResponse] -&gt; ShowS)
+-&gt; Show ListAssociatedResourcesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssociatedResourcesResponse] -&gt; ShowS
+$cshowList :: [ListAssociatedResourcesResponse] -&gt; ShowS
+show :: ListAssociatedResourcesResponse -&gt; String
+$cshow :: ListAssociatedResourcesResponse -&gt; String
+showsPrec :: Int -&gt; ListAssociatedResourcesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssociatedResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAssociatedResourcesResponse
+ -&gt; Rep ListAssociatedResourcesResponse x)
+-&gt; (forall x.
+    Rep ListAssociatedResourcesResponse x
+    -&gt; ListAssociatedResourcesResponse)
+-&gt; Generic ListAssociatedResourcesResponse
+forall x.
+Rep ListAssociatedResourcesResponse x
+-&gt; ListAssociatedResourcesResponse
+forall x.
+ListAssociatedResourcesResponse
+-&gt; Rep ListAssociatedResourcesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAssociatedResourcesResponse x
+-&gt; ListAssociatedResourcesResponse
+$cfrom :: forall x.
+ListAssociatedResourcesResponse
+-&gt; Rep ListAssociatedResourcesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'ListAssociatedResourcesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'resources', 'listAssociatedResourcesResponse_resources' - Information about the resources.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedResourcesResponse_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'listAssociatedResourcesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#newListAssociatedResourcesResponse"><span class="hs-identifier hs-type">newListAssociatedResourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newListAssociatedResourcesResponse"><span class="annot"><span class="annottext">newListAssociatedResourcesResponse :: Int -&gt; ListAssociatedResourcesResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#newListAssociatedResourcesResponse"><span class="hs-identifier hs-var hs-var">newListAssociatedResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679181213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181213"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedResourcesResponse' :: Maybe [ResourceInfo]
+-&gt; Maybe Text -&gt; Int -&gt; ListAssociatedResourcesResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:ListAssociatedResourcesResponse' :: Maybe [ResourceInfo]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3Aresources%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ResourceInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedResourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AnextToken%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedResourcesResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AhttpStatus%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181213"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Information about the resources.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_resources"><span class="hs-identifier hs-type">listAssociatedResourcesResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.html#ResourceInfo"><span class="hs-identifier hs-type">ResourceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="listAssociatedResourcesResponse_resources"><span class="annot"><span class="annottext">listAssociatedResourcesResponse_resources :: (Maybe [ResourceInfo] -&gt; f (Maybe [ResourceInfo]))
+-&gt; ListAssociatedResourcesResponse
+-&gt; f ListAssociatedResourcesResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_resources"><span class="hs-identifier hs-var hs-var">listAssociatedResourcesResponse_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedResourcesResponse -&gt; Maybe [ResourceInfo])
+-&gt; (ListAssociatedResourcesResponse
+    -&gt; Maybe [ResourceInfo] -&gt; ListAssociatedResourcesResponse)
+-&gt; Lens' ListAssociatedResourcesResponse (Maybe [ResourceInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181212"><span class="annot"><span class="annottext">Maybe [ResourceInfo]
+resources :: Maybe [ResourceInfo]
+$sel:resources:ListAssociatedResourcesResponse' :: ListAssociatedResourcesResponse -&gt; Maybe [ResourceInfo]
+</span><a href="#local-6989586621679181212"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceInfo]
+</span><a href="#local-6989586621679181212"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181211"><span class="annot"><span class="annottext">s :: ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181210"><span class="annot"><span class="annottext">Maybe [ResourceInfo]
+</span><a href="#local-6989586621679181210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ListAssociatedResourcesResponse' :: Maybe [ResourceInfo]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3Aresources%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceInfo]
+</span><a href="#local-6989586621679181210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceInfo] -&gt; f (Maybe [ResourceInfo]))
+ -&gt; ListAssociatedResourcesResponse
+ -&gt; f ListAssociatedResourcesResponse)
+-&gt; ((Maybe [ResourceInfo] -&gt; f (Maybe [ResourceInfo]))
+    -&gt; Maybe [ResourceInfo] -&gt; f (Maybe [ResourceInfo]))
+-&gt; (Maybe [ResourceInfo] -&gt; f (Maybe [ResourceInfo]))
+-&gt; ListAssociatedResourcesResponse
+-&gt; f ListAssociatedResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ResourceInfo] [ResourceInfo] [ResourceInfo] [ResourceInfo]
+-&gt; Iso
+     (Maybe [ResourceInfo])
+     (Maybe [ResourceInfo])
+     (Maybe [ResourceInfo])
+     (Maybe [ResourceInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ResourceInfo] [ResourceInfo] [ResourceInfo] [ResourceInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_nextToken"><span class="hs-identifier hs-type">listAssociatedResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="listAssociatedResourcesResponse_nextToken"><span class="annot"><span class="annottext">listAssociatedResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssociatedResourcesResponse
+-&gt; f ListAssociatedResourcesResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedResourcesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedResourcesResponse -&gt; Maybe Text)
+-&gt; (ListAssociatedResourcesResponse
+    -&gt; Maybe Text -&gt; ListAssociatedResourcesResponse)
+-&gt; Lens' ListAssociatedResourcesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181207"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssociatedResourcesResponse' :: ListAssociatedResourcesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181207"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181207"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181206"><span class="annot"><span class="annottext">s :: ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181205"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedResourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AnextToken%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_httpStatus"><span class="hs-identifier hs-type">listAssociatedResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="listAssociatedResourcesResponse_httpStatus"><span class="annot"><span class="annottext">listAssociatedResourcesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAssociatedResourcesResponse
+-&gt; f ListAssociatedResourcesResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#listAssociatedResourcesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAssociatedResourcesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedResourcesResponse -&gt; Int)
+-&gt; (ListAssociatedResourcesResponse
+    -&gt; Int -&gt; ListAssociatedResourcesResponse)
+-&gt; Lens
+     ListAssociatedResourcesResponse
+     ListAssociatedResourcesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181204"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAssociatedResourcesResponse' :: ListAssociatedResourcesResponse -&gt; Int
+</span><a href="#local-6989586621679181204"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181204"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181203"><span class="annot"><span class="annottext">s :: ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse%27"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181202"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedResourcesResponse
+</span><a href="#local-6989586621679181203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedResourcesResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#%24sel%3AhttpStatus%3AListAssociatedResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679181200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.html#ListAssociatedResourcesResponse"><span class="hs-identifier hs-type">ListAssociatedResourcesResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

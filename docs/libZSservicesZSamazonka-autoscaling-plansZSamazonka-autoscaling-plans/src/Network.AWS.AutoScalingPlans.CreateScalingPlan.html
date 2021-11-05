@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateScalingPlan' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679181215"><span id="local-6989586621679181216"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScalingPlan"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-var">CreateScalingPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScalingPlan%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-var">CreateScalingPlan'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679181224"><span id="local-6989586621679181225"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScalingPlan"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-var">CreateScalingPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScalingPlan%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-var">CreateScalingPlan'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the scaling plan. Names cannot contain vertical bars,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- colons, or forward slashes.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AscalingPlanName%3ACreateScalingPlan%27"><span class="annot"><span class="annottext">CreateScalingPlan -&gt; Text
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AscalingInstructions%3ACreateScalingPlan%27"><span class="annot"><span class="annottext">CreateScalingPlan -&gt; [ScalingInstruction]
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingInstructions%3ACreateScalingPlan%27"><span class="hs-identifier hs-var hs-var">scalingInstructions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingInstruction.html#ScalingInstruction"><span class="hs-identifier hs-type">ScalingInstruction</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181207"><span id="local-6989586621679181209"><span class="annot"><span class="annottext">CreateScalingPlan -&gt; CreateScalingPlan -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181216"><span id="local-6989586621679181218"><span class="annot"><span class="annottext">CreateScalingPlan -&gt; CreateScalingPlan -&gt; Bool
 (CreateScalingPlan -&gt; CreateScalingPlan -&gt; Bool)
 -&gt; (CreateScalingPlan -&gt; CreateScalingPlan -&gt; Bool)
 -&gt; Eq CreateScalingPlan
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateScalingPlan -&gt; CreateScalingPlan -&gt; Bool
 == :: CreateScalingPlan -&gt; CreateScalingPlan -&gt; Bool
 $c== :: CreateScalingPlan -&gt; CreateScalingPlan -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181198"><span id="local-6989586621679181200"><span id="local-6989586621679181202"><span id="local-6989586621679181204"><span class="annot"><span class="annottext">ReadPrec [CreateScalingPlan]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181207"><span id="local-6989586621679181209"><span id="local-6989586621679181211"><span id="local-6989586621679181213"><span class="annot"><span class="annottext">ReadPrec [CreateScalingPlan]
 ReadPrec CreateScalingPlan
 Int -&gt; ReadS CreateScalingPlan
 ReadS [CreateScalingPlan]
@@ -99,7 +99,7 @@ readList :: ReadS [CreateScalingPlan]
 $creadList :: ReadS [CreateScalingPlan]
 readsPrec :: Int -&gt; ReadS CreateScalingPlan
 $creadsPrec :: Int -&gt; ReadS CreateScalingPlan
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181191"><span id="local-6989586621679181193"><span id="local-6989586621679181195"><span class="annot"><span class="annottext">Int -&gt; CreateScalingPlan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181200"><span id="local-6989586621679181202"><span id="local-6989586621679181204"><span class="annot"><span class="annottext">Int -&gt; CreateScalingPlan -&gt; ShowS
 [CreateScalingPlan] -&gt; ShowS
 CreateScalingPlan -&gt; String
 (Int -&gt; CreateScalingPlan -&gt; ShowS)
@@ -156,20 +156,20 @@ $cfrom :: forall x. CreateScalingPlan -&gt; Rep CreateScalingPlan x
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span>
 </span><span id="line-101"></span><span id="newCreateScalingPlan"><span class="annot"><span class="annottext">newCreateScalingPlan :: Text -&gt; ApplicationSource -&gt; CreateScalingPlan
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#newCreateScalingPlan"><span class="hs-identifier hs-var hs-var">newCreateScalingPlan</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679181186"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181186"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679181185"><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679181185"><span class="hs-identifier hs-var">pApplicationSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679181195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181195"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679181194"><span class="annot"><span class="annottext">ApplicationSource
+</span><a href="#local-6989586621679181194"><span class="hs-identifier hs-var">pApplicationSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">CreateScalingPlan' :: Text
 -&gt; ApplicationSource -&gt; [ScalingInstruction] -&gt; CreateScalingPlan
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scalingPlanName:CreateScalingPlan' :: Text
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingPlanName%3ACreateScalingPlan%27"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181186"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679181195"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationSource:CreateScalingPlan' :: ApplicationSource
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AapplicationSource%3ACreateScalingPlan%27"><span class="hs-identifier hs-var">applicationSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679181185"><span class="hs-identifier hs-var">pApplicationSource_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679181194"><span class="hs-identifier hs-var">pApplicationSource_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingInstructions:CreateScalingPlan' :: [ScalingInstruction]
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingInstructions%3ACreateScalingPlan%27"><span class="hs-identifier hs-var">scalingInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ScalingInstruction]
 forall a. Monoid a =&gt; a
@@ -184,16 +184,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CreateScalingPlan -&gt; Text -&gt; CreateScalingPlan)
 -&gt; Lens CreateScalingPlan CreateScalingPlan Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181182"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181191"><span class="annot"><span class="annottext">Text
 scalingPlanName :: Text
 $sel:scalingPlanName:CreateScalingPlan' :: CreateScalingPlan -&gt; Text
-</span><a href="#local-6989586621679181182"><span class="hs-identifier hs-var hs-var">scalingPlanName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181182"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181181"><span class="annot"><span class="annottext">s :: CreateScalingPlan
-</span><a href="#local-6989586621679181181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181180"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlan
-</span><a href="#local-6989586621679181181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanName:CreateScalingPlan' :: Text
+</span><a href="#local-6989586621679181191"><span class="hs-identifier hs-var hs-var">scalingPlanName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181191"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181190"><span class="annot"><span class="annottext">s :: CreateScalingPlan
+</span><a href="#local-6989586621679181190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlan
+</span><a href="#local-6989586621679181190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanName:CreateScalingPlan' :: Text
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingPlanName%3ACreateScalingPlan%27"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A CloudFormation stack or set of tags. You can create one scaling plan</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- per application source.</span><span>
@@ -212,16 +212,16 @@ $sel:scalingPlanName:CreateScalingPlan' :: CreateScalingPlan -&gt; Text
      ApplicationSource
      ApplicationSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181179"><span class="annot"><span class="annottext">ApplicationSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181188"><span class="annot"><span class="annottext">ApplicationSource
 applicationSource :: ApplicationSource
 $sel:applicationSource:CreateScalingPlan' :: CreateScalingPlan -&gt; ApplicationSource
-</span><a href="#local-6989586621679181179"><span class="hs-identifier hs-var hs-var">applicationSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679181179"><span class="hs-identifier hs-var">applicationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181178"><span class="annot"><span class="annottext">s :: CreateScalingPlan
-</span><a href="#local-6989586621679181178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181177"><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679181177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlan
-</span><a href="#local-6989586621679181178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSource:CreateScalingPlan' :: ApplicationSource
+</span><a href="#local-6989586621679181188"><span class="hs-identifier hs-var hs-var">applicationSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
+</span><a href="#local-6989586621679181188"><span class="hs-identifier hs-var">applicationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181187"><span class="annot"><span class="annottext">s :: CreateScalingPlan
+</span><a href="#local-6989586621679181187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181186"><span class="annot"><span class="annottext">ApplicationSource
+</span><a href="#local-6989586621679181186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlan
+</span><a href="#local-6989586621679181187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSource:CreateScalingPlan' :: ApplicationSource
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AapplicationSource%3ACreateScalingPlan%27"><span class="hs-identifier hs-var">applicationSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679181177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The scaling instructions.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
@@ -239,16 +239,16 @@ $sel:applicationSource:CreateScalingPlan' :: CreateScalingPlan -&gt; Application
      [ScalingInstruction]
      [ScalingInstruction]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181176"><span class="annot"><span class="annottext">[ScalingInstruction]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181185"><span class="annot"><span class="annottext">[ScalingInstruction]
 scalingInstructions :: [ScalingInstruction]
 $sel:scalingInstructions:CreateScalingPlan' :: CreateScalingPlan -&gt; [ScalingInstruction]
-</span><a href="#local-6989586621679181176"><span class="hs-identifier hs-var hs-var">scalingInstructions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScalingInstruction]
-</span><a href="#local-6989586621679181176"><span class="hs-identifier hs-var">scalingInstructions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181175"><span class="annot"><span class="annottext">s :: CreateScalingPlan
-</span><a href="#local-6989586621679181175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181174"><span class="annot"><span class="annottext">[ScalingInstruction]
-</span><a href="#local-6989586621679181174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlan
-</span><a href="#local-6989586621679181175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingInstructions:CreateScalingPlan' :: [ScalingInstruction]
+</span><a href="#local-6989586621679181185"><span class="hs-identifier hs-var hs-var">scalingInstructions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScalingInstruction]
+</span><a href="#local-6989586621679181185"><span class="hs-identifier hs-var">scalingInstructions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181184"><span class="annot"><span class="annottext">s :: CreateScalingPlan
+</span><a href="#local-6989586621679181184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181183"><span class="annot"><span class="annottext">[ScalingInstruction]
+</span><a href="#local-6989586621679181183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlan
+</span><a href="#local-6989586621679181184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingInstructions:CreateScalingPlan' :: [ScalingInstruction]
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingInstructions%3ACreateScalingPlan%27"><span class="hs-identifier hs-var">scalingInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ScalingInstruction]
-</span><a href="#local-6989586621679181174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScalingInstruction] -&gt; f [ScalingInstruction])
+</span><a href="#local-6989586621679181183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScalingInstruction] -&gt; f [ScalingInstruction])
  -&gt; CreateScalingPlan -&gt; f CreateScalingPlan)
 -&gt; (([ScalingInstruction] -&gt; f [ScalingInstruction])
     -&gt; [ScalingInstruction] -&gt; f [ScalingInstruction])
@@ -265,12 +265,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679181168"><span class="annot"><span class="annottext">request :: CreateScalingPlan -&gt; Request CreateScalingPlan
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679181177"><span class="annot"><span class="annottext">request :: CreateScalingPlan -&gt; Request CreateScalingPlan
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateScalingPlan -&gt; Request CreateScalingPlan
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679181164"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679181173"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateScalingPlan
 -&gt; ClientResponse ClientBody
@@ -296,10 +296,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181161"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181161"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181160"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679181160"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181159"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679181159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181170"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181169"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181168"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Integer -&gt; CreateScalingPlanResponse
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-var">CreateScalingPlanResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Integer -&gt; CreateScalingPlanResponse)
@@ -311,23 +311,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181161"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Integer -&gt; CreateScalingPlanResponse)
 -&gt; Either String Integer -&gt; Either String CreateScalingPlanResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679181159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Integer
+</span><a href="#local-6989586621679181168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingPlanVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181151"><span id="local-6989586621679181153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181160"><span id="local-6989586621679181162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679181144"><span class="annot"><span class="annottext">toHeaders :: CreateScalingPlan -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679181153"><span class="annot"><span class="annottext">toHeaders :: CreateScalingPlan -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateScalingPlan -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -354,9 +354,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181134"><span id="local-6989586621679181136"><span id="local-6989586621679181138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679181132"><span class="annot"><span class="annottext">toJSON :: CreateScalingPlan -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181128"><span id="local-6989586621679181129"><span id="local-6989586621679181130"><span class="annot"><span class="annottext">[ScalingInstruction]
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181143"><span id="local-6989586621679181145"><span id="local-6989586621679181147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679181141"><span class="annot"><span class="annottext">toJSON :: CreateScalingPlan -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan%27"><span class="hs-identifier hs-type">CreateScalingPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181137"><span id="local-6989586621679181138"><span id="local-6989586621679181139"><span class="annot"><span class="annottext">[ScalingInstruction]
 Text
 ApplicationSource
 scalingInstructions :: [ScalingInstruction]
@@ -365,7 +365,7 @@ scalingPlanName :: Text
 $sel:scalingInstructions:CreateScalingPlan' :: CreateScalingPlan -&gt; [ScalingInstruction]
 $sel:applicationSource:CreateScalingPlan' :: CreateScalingPlan -&gt; ApplicationSource
 $sel:scalingPlanName:CreateScalingPlan' :: CreateScalingPlan -&gt; Text
-</span><a href="#local-6989586621679181128"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679181137"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -378,7 +378,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ScalingPlanName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181130"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679181139"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -386,7 +386,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ApplicationSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679181129"><span class="hs-identifier hs-var">applicationSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679181138"><span class="hs-identifier hs-var">applicationSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -394,19 +394,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ScalingInstructions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ScalingInstruction] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ScalingInstruction]
-</span><a href="#local-6989586621679181128"><span class="hs-identifier hs-var">scalingInstructions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181137"><span class="hs-identifier hs-var">scalingInstructions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679181122"><span class="annot"><span class="annottext">toPath :: CreateScalingPlan -&gt; ByteString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679181131"><span class="annot"><span class="annottext">toPath :: CreateScalingPlan -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateScalingPlan -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlan"><span class="hs-identifier hs-type">CreateScalingPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679181118"><span class="annot"><span class="annottext">toQuery :: CreateScalingPlan -&gt; QueryString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679181127"><span class="annot"><span class="annottext">toQuery :: CreateScalingPlan -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateScalingPlan -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -414,7 +414,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newCreateScalingPlanResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621679181115"><span id="local-6989586621679181116"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScalingPlanResponse"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-var">CreateScalingPlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScalingPlanResponse%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-var">CreateScalingPlanResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621679181124"><span id="local-6989586621679181125"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScalingPlanResponse"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-var">CreateScalingPlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScalingPlanResponse%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-var">CreateScalingPlanResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateScalingPlanResponse%27"><span class="annot"><span class="annottext">CreateScalingPlanResponse -&gt; Int
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AhttpStatus%3ACreateScalingPlanResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -423,7 +423,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AscalingPlanVersion%3ACreateScalingPlanResponse%27"><span class="annot"><span class="annottext">CreateScalingPlanResponse -&gt; Integer
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingPlanVersion%3ACreateScalingPlanResponse%27"><span class="hs-identifier hs-var hs-var">scalingPlanVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181109"><span id="local-6989586621679181111"><span class="annot"><span class="annottext">CreateScalingPlanResponse -&gt; CreateScalingPlanResponse -&gt; Bool
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181118"><span id="local-6989586621679181120"><span class="annot"><span class="annottext">CreateScalingPlanResponse -&gt; CreateScalingPlanResponse -&gt; Bool
 (CreateScalingPlanResponse -&gt; CreateScalingPlanResponse -&gt; Bool)
 -&gt; (CreateScalingPlanResponse -&gt; CreateScalingPlanResponse -&gt; Bool)
 -&gt; Eq CreateScalingPlanResponse
@@ -432,7 +432,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateScalingPlanResponse -&gt; CreateScalingPlanResponse -&gt; Bool
 == :: CreateScalingPlanResponse -&gt; CreateScalingPlanResponse -&gt; Bool
 $c== :: CreateScalingPlanResponse -&gt; CreateScalingPlanResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181101"><span id="local-6989586621679181103"><span id="local-6989586621679181105"><span id="local-6989586621679181107"><span class="annot"><span class="annottext">ReadPrec [CreateScalingPlanResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181110"><span id="local-6989586621679181112"><span id="local-6989586621679181114"><span id="local-6989586621679181116"><span class="annot"><span class="annottext">ReadPrec [CreateScalingPlanResponse]
 ReadPrec CreateScalingPlanResponse
 Int -&gt; ReadS CreateScalingPlanResponse
 ReadS [CreateScalingPlanResponse]
@@ -452,7 +452,7 @@ readList :: ReadS [CreateScalingPlanResponse]
 $creadList :: ReadS [CreateScalingPlanResponse]
 readsPrec :: Int -&gt; ReadS CreateScalingPlanResponse
 $creadsPrec :: Int -&gt; ReadS CreateScalingPlanResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181095"><span id="local-6989586621679181097"><span id="local-6989586621679181099"><span class="annot"><span class="annottext">Int -&gt; CreateScalingPlanResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181104"><span id="local-6989586621679181106"><span id="local-6989586621679181108"><span class="annot"><span class="annottext">Int -&gt; CreateScalingPlanResponse -&gt; ShowS
 [CreateScalingPlanResponse] -&gt; ShowS
 CreateScalingPlanResponse -&gt; String
 (Int -&gt; CreateScalingPlanResponse -&gt; ShowS)
@@ -504,19 +504,19 @@ CreateScalingPlanResponse -&gt; Rep CreateScalingPlanResponse x
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newCreateScalingPlanResponse"><span class="annot"><span class="annottext">newCreateScalingPlanResponse :: Int -&gt; Integer -&gt; CreateScalingPlanResponse
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#newCreateScalingPlanResponse"><span class="hs-identifier hs-var hs-var">newCreateScalingPlanResponse</span></a></span></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679181092"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181092"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679181091"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679181091"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679181101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679181100"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679181100"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">CreateScalingPlanResponse' :: Int -&gt; Integer -&gt; CreateScalingPlanResponse
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateScalingPlanResponse' :: Int
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AhttpStatus%3ACreateScalingPlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181092"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679181101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingPlanVersion:CreateScalingPlanResponse' :: Integer
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingPlanVersion%3ACreateScalingPlanResponse%27"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679181091"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span><span>
+</span><a href="#local-6989586621679181100"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -527,16 +527,16 @@ CreateScalingPlanResponse -&gt; Rep CreateScalingPlanResponse x
 -&gt; (CreateScalingPlanResponse -&gt; Int -&gt; CreateScalingPlanResponse)
 -&gt; Lens CreateScalingPlanResponse CreateScalingPlanResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181090"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181099"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateScalingPlanResponse' :: CreateScalingPlanResponse -&gt; Int
-</span><a href="#local-6989586621679181090"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181090"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181089"><span class="annot"><span class="annottext">s :: CreateScalingPlanResponse
-</span><a href="#local-6989586621679181089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181088"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlanResponse
-</span><a href="#local-6989586621679181089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateScalingPlanResponse' :: Int
+</span><a href="#local-6989586621679181099"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181099"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181098"><span class="annot"><span class="annottext">s :: CreateScalingPlanResponse
+</span><a href="#local-6989586621679181098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181097"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlanResponse
+</span><a href="#local-6989586621679181098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateScalingPlanResponse' :: Int
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AhttpStatus%3ACreateScalingPlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The version number of the scaling plan. This value is always @1@.</span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- Currently, you cannot have multiple scaling plan versions.</span><span>
@@ -549,16 +549,16 @@ $sel:httpStatus:CreateScalingPlanResponse' :: CreateScalingPlanResponse -&gt; In
 -&gt; Lens
      CreateScalingPlanResponse CreateScalingPlanResponse Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181087"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181096"><span class="annot"><span class="annottext">Integer
 scalingPlanVersion :: Integer
 $sel:scalingPlanVersion:CreateScalingPlanResponse' :: CreateScalingPlanResponse -&gt; Integer
-</span><a href="#local-6989586621679181087"><span class="hs-identifier hs-var hs-var">scalingPlanVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679181087"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181086"><span class="annot"><span class="annottext">s :: CreateScalingPlanResponse
-</span><a href="#local-6989586621679181086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181085"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679181085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlanResponse
-</span><a href="#local-6989586621679181086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanVersion:CreateScalingPlanResponse' :: Integer
+</span><a href="#local-6989586621679181096"><span class="hs-identifier hs-var hs-var">scalingPlanVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679181096"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181095"><span class="annot"><span class="annottext">s :: CreateScalingPlanResponse
+</span><a href="#local-6989586621679181095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse%27"><span class="hs-identifier hs-type">CreateScalingPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181094"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679181094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScalingPlanResponse
+</span><a href="#local-6989586621679181095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanVersion:CreateScalingPlanResponse' :: Integer
 </span><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#%24sel%3AscalingPlanVersion%3ACreateScalingPlanResponse%27"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679181085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.CreateScalingPlan.html#CreateScalingPlanResponse"><span class="hs-identifier hs-type">CreateScalingPlanResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

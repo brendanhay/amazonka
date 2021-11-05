@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- are not progressive. Do not turn on otherwise; processing frames that</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- are already progressive into progressive will probably result in lower</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- quality video.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679956164"><span id="local-6989586621679956165"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeinterlacerControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerControl.html#DeinterlacerControl"><span class="hs-identifier hs-var">DeinterlacerControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeinterlacerControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerControl.html#DeinterlacerControl%27"><span class="hs-identifier hs-var">DeinterlacerControl'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679956173"><span id="local-6989586621679956174"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeinterlacerControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerControl.html#DeinterlacerControl"><span class="hs-identifier hs-var">DeinterlacerControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeinterlacerControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerControl.html#DeinterlacerControl%27"><span class="hs-identifier hs-var">DeinterlacerControl'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeinterlacerControl"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DeinterlacerControl.html#fromDeinterlacerControl"><span class="hs-identifier hs-var hs-var">fromDeinterlacerControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956156"><span id="local-6989586621679956158"><span id="local-6989586621679956160"><span class="annot"><span class="annottext">Int -&gt; DeinterlacerControl -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956165"><span id="local-6989586621679956167"><span id="local-6989586621679956169"><span class="annot"><span class="annottext">Int -&gt; DeinterlacerControl -&gt; ShowS
 [DeinterlacerControl] -&gt; ShowS
 DeinterlacerControl -&gt; String
 (Int -&gt; DeinterlacerControl -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: DeinterlacerControl -&gt; String
 showsPrec :: Int -&gt; DeinterlacerControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeinterlacerControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679956147"><span id="local-6989586621679956149"><span id="local-6989586621679956151"><span id="local-6989586621679956153"><span class="annot"><span class="annottext">ReadPrec [DeinterlacerControl]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679956156"><span id="local-6989586621679956158"><span id="local-6989586621679956160"><span id="local-6989586621679956162"><span class="annot"><span class="annottext">ReadPrec [DeinterlacerControl]
 ReadPrec DeinterlacerControl
 Int -&gt; ReadS DeinterlacerControl
 ReadS [DeinterlacerControl]
@@ -81,7 +81,7 @@ $creadList :: ReadS [DeinterlacerControl]
 readsPrec :: Int -&gt; ReadS DeinterlacerControl
 $creadsPrec :: Int -&gt; ReadS DeinterlacerControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679956142"><span id="local-6989586621679956144"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679956151"><span id="local-6989586621679956153"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool
 (DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool)
 -&gt; (DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool)
 -&gt; Eq DeinterlacerControl
@@ -91,7 +91,7 @@ $c/= :: DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool
 == :: DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool
 $c== :: DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679956126"><span id="local-6989586621679956128"><span id="local-6989586621679956130"><span id="local-6989586621679956132"><span id="local-6989586621679956134"><span id="local-6989586621679956136"><span id="local-6989586621679956138"><span class="annot"><span class="annottext">Eq DeinterlacerControl
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679956135"><span id="local-6989586621679956137"><span id="local-6989586621679956139"><span id="local-6989586621679956141"><span id="local-6989586621679956143"><span id="local-6989586621679956145"><span id="local-6989586621679956147"><span class="annot"><span class="annottext">Eq DeinterlacerControl
 Eq DeinterlacerControl
 -&gt; (DeinterlacerControl -&gt; DeinterlacerControl -&gt; Ordering)
 -&gt; (DeinterlacerControl -&gt; DeinterlacerControl -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. DeinterlacerControl -&gt; Rep DeinterlacerControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956118"><span id="local-6989586621679956120"><span class="annot"><span class="annottext">Int -&gt; DeinterlacerControl -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956127"><span id="local-6989586621679956129"><span class="annot"><span class="annottext">Int -&gt; DeinterlacerControl -&gt; Int
 DeinterlacerControl -&gt; Int
 (Int -&gt; DeinterlacerControl -&gt; Int)
 -&gt; (DeinterlacerControl -&gt; Int) -&gt; Hashable DeinterlacerControl
@@ -154,53 +154,53 @@ $chash :: DeinterlacerControl -&gt; Int
 hashWithSalt :: Int -&gt; DeinterlacerControl -&gt; Int
 $chashWithSalt :: Int -&gt; DeinterlacerControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679956115"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679956124"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; ()
 (DeinterlacerControl -&gt; ()) -&gt; NFData DeinterlacerControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeinterlacerControl -&gt; ()
 $crnf :: DeinterlacerControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679956112"><span class="annot"><span class="annottext">Text -&gt; Either String DeinterlacerControl
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679956121"><span class="annot"><span class="annottext">Text -&gt; Either String DeinterlacerControl
 (Text -&gt; Either String DeinterlacerControl)
 -&gt; FromText DeinterlacerControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeinterlacerControl
 $cfromText :: Text -&gt; Either String DeinterlacerControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679956109"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679956118"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; Text
 (DeinterlacerControl -&gt; Text) -&gt; ToText DeinterlacerControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeinterlacerControl -&gt; Text
 $ctoText :: DeinterlacerControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679956106"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679956115"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; ByteString
 (DeinterlacerControl -&gt; ByteString)
 -&gt; ToByteString DeinterlacerControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeinterlacerControl -&gt; ByteString
 $ctoBS :: DeinterlacerControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679956103"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679956112"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; ByteStringBuilder
 (DeinterlacerControl -&gt; ByteStringBuilder)
 -&gt; ToLog DeinterlacerControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeinterlacerControl -&gt; ByteStringBuilder
 $cbuild :: DeinterlacerControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679956100"><span class="annot"><span class="annottext">HeaderName -&gt; DeinterlacerControl -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679956109"><span class="annot"><span class="annottext">HeaderName -&gt; DeinterlacerControl -&gt; [Header]
 (HeaderName -&gt; DeinterlacerControl -&gt; [Header])
 -&gt; ToHeader DeinterlacerControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeinterlacerControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeinterlacerControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679956097"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679956106"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; QueryString
 (DeinterlacerControl -&gt; QueryString) -&gt; ToQuery DeinterlacerControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeinterlacerControl -&gt; QueryString
 $ctoQuery :: DeinterlacerControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679956092"><span id="local-6989586621679956094"><span class="annot"><span class="annottext">Value -&gt; Parser [DeinterlacerControl]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679956101"><span id="local-6989586621679956103"><span class="annot"><span class="annottext">Value -&gt; Parser [DeinterlacerControl]
 Value -&gt; Parser DeinterlacerControl
 (Value -&gt; Parser DeinterlacerControl)
 -&gt; (Value -&gt; Parser [DeinterlacerControl])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [DeinterlacerControl]
 parseJSON :: Value -&gt; Parser DeinterlacerControl
 $cparseJSON :: Value -&gt; Parser DeinterlacerControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679956087"><span id="local-6989586621679956089"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeinterlacerControl]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679956096"><span id="local-6989586621679956098"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeinterlacerControl]
 FromJSONKeyFunction DeinterlacerControl
 FromJSONKeyFunction DeinterlacerControl
 -&gt; FromJSONKeyFunction [DeinterlacerControl]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeinterlacerControl]
 fromJSONKey :: FromJSONKeyFunction DeinterlacerControl
 $cfromJSONKey :: FromJSONKeyFunction DeinterlacerControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679956078"><span id="local-6989586621679956080"><span id="local-6989586621679956082"><span id="local-6989586621679956084"><span class="annot"><span class="annottext">[DeinterlacerControl] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679956087"><span id="local-6989586621679956089"><span id="local-6989586621679956091"><span id="local-6989586621679956093"><span class="annot"><span class="annottext">[DeinterlacerControl] -&gt; Encoding
 [DeinterlacerControl] -&gt; Value
 DeinterlacerControl -&gt; Encoding
 DeinterlacerControl -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: DeinterlacerControl -&gt; Encoding
 toJSON :: DeinterlacerControl -&gt; Value
 $ctoJSON :: DeinterlacerControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679956073"><span id="local-6989586621679956075"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeinterlacerControl]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679956082"><span id="local-6989586621679956084"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeinterlacerControl]
 ToJSONKeyFunction DeinterlacerControl
 ToJSONKeyFunction DeinterlacerControl
 -&gt; ToJSONKeyFunction [DeinterlacerControl]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeinterlacerControl]
 toJSONKey :: ToJSONKeyFunction DeinterlacerControl
 $ctoJSONKey :: ToJSONKeyFunction DeinterlacerControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679956070"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeinterlacerControl
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679956079"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeinterlacerControl
 ([Node] -&gt; Either String DeinterlacerControl)
 -&gt; FromXML DeinterlacerControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeinterlacerControl
 $cparseXML :: [Node] -&gt; Either String DeinterlacerControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679956067"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679956076"><span class="annot"><span class="annottext">DeinterlacerControl -&gt; XML
 (DeinterlacerControl -&gt; XML) -&gt; ToXML DeinterlacerControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeinterlacerControl -&gt; XML

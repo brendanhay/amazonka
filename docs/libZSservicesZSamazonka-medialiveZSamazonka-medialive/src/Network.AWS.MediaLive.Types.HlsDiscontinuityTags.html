@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Hls Discontinuity Tags</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679886200"><span id="local-6989586621679886201"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsDiscontinuityTags"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsDiscontinuityTags.html#HlsDiscontinuityTags"><span class="hs-identifier hs-var">HlsDiscontinuityTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsDiscontinuityTags%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsDiscontinuityTags.html#HlsDiscontinuityTags%27"><span class="hs-identifier hs-var">HlsDiscontinuityTags'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679886209"><span id="local-6989586621679886210"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsDiscontinuityTags"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsDiscontinuityTags.html#HlsDiscontinuityTags"><span class="hs-identifier hs-var">HlsDiscontinuityTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsDiscontinuityTags%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsDiscontinuityTags.html#HlsDiscontinuityTags%27"><span class="hs-identifier hs-var">HlsDiscontinuityTags'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsDiscontinuityTags"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.HlsDiscontinuityTags.html#fromHlsDiscontinuityTags"><span class="hs-identifier hs-var hs-var">fromHlsDiscontinuityTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886192"><span id="local-6989586621679886194"><span id="local-6989586621679886196"><span class="annot"><span class="annottext">Int -&gt; HlsDiscontinuityTags -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886201"><span id="local-6989586621679886203"><span id="local-6989586621679886205"><span class="annot"><span class="annottext">Int -&gt; HlsDiscontinuityTags -&gt; ShowS
 [HlsDiscontinuityTags] -&gt; ShowS
 HlsDiscontinuityTags -&gt; String
 (Int -&gt; HlsDiscontinuityTags -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HlsDiscontinuityTags -&gt; String
 showsPrec :: Int -&gt; HlsDiscontinuityTags -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsDiscontinuityTags -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679886183"><span id="local-6989586621679886185"><span id="local-6989586621679886187"><span id="local-6989586621679886189"><span class="annot"><span class="annottext">ReadPrec [HlsDiscontinuityTags]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679886192"><span id="local-6989586621679886194"><span id="local-6989586621679886196"><span id="local-6989586621679886198"><span class="annot"><span class="annottext">ReadPrec [HlsDiscontinuityTags]
 ReadPrec HlsDiscontinuityTags
 Int -&gt; ReadS HlsDiscontinuityTags
 ReadS [HlsDiscontinuityTags]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HlsDiscontinuityTags]
 readsPrec :: Int -&gt; ReadS HlsDiscontinuityTags
 $creadsPrec :: Int -&gt; ReadS HlsDiscontinuityTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679886178"><span id="local-6989586621679886180"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679886187"><span id="local-6989586621679886189"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool
 (HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool)
 -&gt; (HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool)
 -&gt; Eq HlsDiscontinuityTags
@@ -83,7 +83,7 @@ $c/= :: HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool
 == :: HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool
 $c== :: HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679886162"><span id="local-6989586621679886164"><span id="local-6989586621679886166"><span id="local-6989586621679886168"><span id="local-6989586621679886170"><span id="local-6989586621679886172"><span id="local-6989586621679886174"><span class="annot"><span class="annottext">Eq HlsDiscontinuityTags
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679886171"><span id="local-6989586621679886173"><span id="local-6989586621679886175"><span id="local-6989586621679886177"><span id="local-6989586621679886179"><span id="local-6989586621679886181"><span id="local-6989586621679886183"><span class="annot"><span class="annottext">Eq HlsDiscontinuityTags
 Eq HlsDiscontinuityTags
 -&gt; (HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Ordering)
 -&gt; (HlsDiscontinuityTags -&gt; HlsDiscontinuityTags -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. HlsDiscontinuityTags -&gt; Rep HlsDiscontinuityTags x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886154"><span id="local-6989586621679886156"><span class="annot"><span class="annottext">Int -&gt; HlsDiscontinuityTags -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886163"><span id="local-6989586621679886165"><span class="annot"><span class="annottext">Int -&gt; HlsDiscontinuityTags -&gt; Int
 HlsDiscontinuityTags -&gt; Int
 (Int -&gt; HlsDiscontinuityTags -&gt; Int)
 -&gt; (HlsDiscontinuityTags -&gt; Int) -&gt; Hashable HlsDiscontinuityTags
@@ -151,54 +151,54 @@ $chash :: HlsDiscontinuityTags -&gt; Int
 hashWithSalt :: Int -&gt; HlsDiscontinuityTags -&gt; Int
 $chashWithSalt :: Int -&gt; HlsDiscontinuityTags -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679886151"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679886160"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; ()
 (HlsDiscontinuityTags -&gt; ()) -&gt; NFData HlsDiscontinuityTags
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsDiscontinuityTags -&gt; ()
 $crnf :: HlsDiscontinuityTags -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679886148"><span class="annot"><span class="annottext">Text -&gt; Either String HlsDiscontinuityTags
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679886157"><span class="annot"><span class="annottext">Text -&gt; Either String HlsDiscontinuityTags
 (Text -&gt; Either String HlsDiscontinuityTags)
 -&gt; FromText HlsDiscontinuityTags
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsDiscontinuityTags
 $cfromText :: Text -&gt; Either String HlsDiscontinuityTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679886145"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679886154"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; Text
 (HlsDiscontinuityTags -&gt; Text) -&gt; ToText HlsDiscontinuityTags
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsDiscontinuityTags -&gt; Text
 $ctoText :: HlsDiscontinuityTags -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679886142"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679886151"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; ByteString
 (HlsDiscontinuityTags -&gt; ByteString)
 -&gt; ToByteString HlsDiscontinuityTags
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsDiscontinuityTags -&gt; ByteString
 $ctoBS :: HlsDiscontinuityTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679886139"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679886148"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; ByteStringBuilder
 (HlsDiscontinuityTags -&gt; ByteStringBuilder)
 -&gt; ToLog HlsDiscontinuityTags
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsDiscontinuityTags -&gt; ByteStringBuilder
 $cbuild :: HlsDiscontinuityTags -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679886136"><span class="annot"><span class="annottext">HeaderName -&gt; HlsDiscontinuityTags -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679886145"><span class="annot"><span class="annottext">HeaderName -&gt; HlsDiscontinuityTags -&gt; [Header]
 (HeaderName -&gt; HlsDiscontinuityTags -&gt; [Header])
 -&gt; ToHeader HlsDiscontinuityTags
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsDiscontinuityTags -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsDiscontinuityTags -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679886133"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679886142"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; QueryString
 (HlsDiscontinuityTags -&gt; QueryString)
 -&gt; ToQuery HlsDiscontinuityTags
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsDiscontinuityTags -&gt; QueryString
 $ctoQuery :: HlsDiscontinuityTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679886128"><span id="local-6989586621679886130"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsDiscontinuityTags]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679886137"><span id="local-6989586621679886139"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsDiscontinuityTags]
 Value -&gt; Parser HlsDiscontinuityTags
 (Value -&gt; Parser HlsDiscontinuityTags)
 -&gt; (Value -&gt; Parser [HlsDiscontinuityTags])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsDiscontinuityTags]
 parseJSON :: Value -&gt; Parser HlsDiscontinuityTags
 $cparseJSON :: Value -&gt; Parser HlsDiscontinuityTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679886123"><span id="local-6989586621679886125"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsDiscontinuityTags]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679886132"><span id="local-6989586621679886134"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsDiscontinuityTags]
 FromJSONKeyFunction HlsDiscontinuityTags
 FromJSONKeyFunction HlsDiscontinuityTags
 -&gt; FromJSONKeyFunction [HlsDiscontinuityTags]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsDiscontinuityTags]
 fromJSONKey :: FromJSONKeyFunction HlsDiscontinuityTags
 $cfromJSONKey :: FromJSONKeyFunction HlsDiscontinuityTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679886114"><span id="local-6989586621679886116"><span id="local-6989586621679886118"><span id="local-6989586621679886120"><span class="annot"><span class="annottext">[HlsDiscontinuityTags] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679886123"><span id="local-6989586621679886125"><span id="local-6989586621679886127"><span id="local-6989586621679886129"><span class="annot"><span class="annottext">[HlsDiscontinuityTags] -&gt; Encoding
 [HlsDiscontinuityTags] -&gt; Value
 HlsDiscontinuityTags -&gt; Encoding
 HlsDiscontinuityTags -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: HlsDiscontinuityTags -&gt; Encoding
 toJSON :: HlsDiscontinuityTags -&gt; Value
 $ctoJSON :: HlsDiscontinuityTags -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679886109"><span id="local-6989586621679886111"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsDiscontinuityTags]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679886118"><span id="local-6989586621679886120"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsDiscontinuityTags]
 ToJSONKeyFunction HlsDiscontinuityTags
 ToJSONKeyFunction HlsDiscontinuityTags
 -&gt; ToJSONKeyFunction [HlsDiscontinuityTags]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsDiscontinuityTags]
 toJSONKey :: ToJSONKeyFunction HlsDiscontinuityTags
 $ctoJSONKey :: ToJSONKeyFunction HlsDiscontinuityTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679886106"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsDiscontinuityTags
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679886115"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsDiscontinuityTags
 ([Node] -&gt; Either String HlsDiscontinuityTags)
 -&gt; FromXML HlsDiscontinuityTags
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsDiscontinuityTags
 $cparseXML :: [Node] -&gt; Either String HlsDiscontinuityTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679886103"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679886112"><span class="annot"><span class="annottext">HlsDiscontinuityTags -&gt; XML
 (HlsDiscontinuityTags -&gt; XML) -&gt; ToXML HlsDiscontinuityTags
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsDiscontinuityTags -&gt; XML

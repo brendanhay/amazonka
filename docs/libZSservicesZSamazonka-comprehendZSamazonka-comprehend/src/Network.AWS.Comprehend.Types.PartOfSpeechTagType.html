@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span id="local-6989586621679346468"><span id="local-6989586621679346469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartOfSpeechTagType"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType"><span class="hs-identifier hs-var">PartOfSpeechTagType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartOfSpeechTagType%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType%27"><span class="hs-identifier hs-var">PartOfSpeechTagType'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679346477"><span id="local-6989586621679346478"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartOfSpeechTagType"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType"><span class="hs-identifier hs-var">PartOfSpeechTagType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartOfSpeechTagType%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType%27"><span class="hs-identifier hs-var">PartOfSpeechTagType'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPartOfSpeechTagType"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#fromPartOfSpeechTagType"><span class="hs-identifier hs-var hs-var">fromPartOfSpeechTagType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346460"><span id="local-6989586621679346462"><span id="local-6989586621679346464"><span class="annot"><span class="annottext">Int -&gt; PartOfSpeechTagType -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346469"><span id="local-6989586621679346471"><span id="local-6989586621679346473"><span class="annot"><span class="annottext">Int -&gt; PartOfSpeechTagType -&gt; ShowS
 [PartOfSpeechTagType] -&gt; ShowS
 PartOfSpeechTagType -&gt; String
 (Int -&gt; PartOfSpeechTagType -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: PartOfSpeechTagType -&gt; String
 showsPrec :: Int -&gt; PartOfSpeechTagType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PartOfSpeechTagType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679346451"><span id="local-6989586621679346453"><span id="local-6989586621679346455"><span id="local-6989586621679346457"><span class="annot"><span class="annottext">ReadPrec [PartOfSpeechTagType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679346460"><span id="local-6989586621679346462"><span id="local-6989586621679346464"><span id="local-6989586621679346466"><span class="annot"><span class="annottext">ReadPrec [PartOfSpeechTagType]
 ReadPrec PartOfSpeechTagType
 Int -&gt; ReadS PartOfSpeechTagType
 ReadS [PartOfSpeechTagType]
@@ -88,7 +88,7 @@ $creadList :: ReadS [PartOfSpeechTagType]
 readsPrec :: Int -&gt; ReadS PartOfSpeechTagType
 $creadsPrec :: Int -&gt; ReadS PartOfSpeechTagType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679346446"><span id="local-6989586621679346448"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679346455"><span id="local-6989586621679346457"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool
 (PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool)
 -&gt; (PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool)
 -&gt; Eq PartOfSpeechTagType
@@ -98,7 +98,7 @@ $c/= :: PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool
 == :: PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool
 $c== :: PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679346430"><span id="local-6989586621679346432"><span id="local-6989586621679346434"><span id="local-6989586621679346436"><span id="local-6989586621679346438"><span id="local-6989586621679346440"><span id="local-6989586621679346442"><span class="annot"><span class="annottext">Eq PartOfSpeechTagType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679346439"><span id="local-6989586621679346441"><span id="local-6989586621679346443"><span id="local-6989586621679346445"><span id="local-6989586621679346447"><span id="local-6989586621679346449"><span id="local-6989586621679346451"><span class="annot"><span class="annottext">Eq PartOfSpeechTagType
 Eq PartOfSpeechTagType
 -&gt; (PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Ordering)
 -&gt; (PartOfSpeechTagType -&gt; PartOfSpeechTagType -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. PartOfSpeechTagType -&gt; Rep PartOfSpeechTagType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346422"><span id="local-6989586621679346424"><span class="annot"><span class="annottext">Int -&gt; PartOfSpeechTagType -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346431"><span id="local-6989586621679346433"><span class="annot"><span class="annottext">Int -&gt; PartOfSpeechTagType -&gt; Int
 PartOfSpeechTagType -&gt; Int
 (Int -&gt; PartOfSpeechTagType -&gt; Int)
 -&gt; (PartOfSpeechTagType -&gt; Int) -&gt; Hashable PartOfSpeechTagType
@@ -161,53 +161,53 @@ $chash :: PartOfSpeechTagType -&gt; Int
 hashWithSalt :: Int -&gt; PartOfSpeechTagType -&gt; Int
 $chashWithSalt :: Int -&gt; PartOfSpeechTagType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679346419"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679346428"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; ()
 (PartOfSpeechTagType -&gt; ()) -&gt; NFData PartOfSpeechTagType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PartOfSpeechTagType -&gt; ()
 $crnf :: PartOfSpeechTagType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679346416"><span class="annot"><span class="annottext">Text -&gt; Either String PartOfSpeechTagType
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679346425"><span class="annot"><span class="annottext">Text -&gt; Either String PartOfSpeechTagType
 (Text -&gt; Either String PartOfSpeechTagType)
 -&gt; FromText PartOfSpeechTagType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PartOfSpeechTagType
 $cfromText :: Text -&gt; Either String PartOfSpeechTagType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679346413"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679346422"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; Text
 (PartOfSpeechTagType -&gt; Text) -&gt; ToText PartOfSpeechTagType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PartOfSpeechTagType -&gt; Text
 $ctoText :: PartOfSpeechTagType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679346410"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679346419"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; ByteString
 (PartOfSpeechTagType -&gt; ByteString)
 -&gt; ToByteString PartOfSpeechTagType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PartOfSpeechTagType -&gt; ByteString
 $ctoBS :: PartOfSpeechTagType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679346407"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679346416"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; ByteStringBuilder
 (PartOfSpeechTagType -&gt; ByteStringBuilder)
 -&gt; ToLog PartOfSpeechTagType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PartOfSpeechTagType -&gt; ByteStringBuilder
 $cbuild :: PartOfSpeechTagType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679346404"><span class="annot"><span class="annottext">HeaderName -&gt; PartOfSpeechTagType -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679346413"><span class="annot"><span class="annottext">HeaderName -&gt; PartOfSpeechTagType -&gt; [Header]
 (HeaderName -&gt; PartOfSpeechTagType -&gt; [Header])
 -&gt; ToHeader PartOfSpeechTagType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PartOfSpeechTagType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PartOfSpeechTagType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679346401"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679346410"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; QueryString
 (PartOfSpeechTagType -&gt; QueryString) -&gt; ToQuery PartOfSpeechTagType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PartOfSpeechTagType -&gt; QueryString
 $ctoQuery :: PartOfSpeechTagType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679346396"><span id="local-6989586621679346398"><span class="annot"><span class="annottext">Value -&gt; Parser [PartOfSpeechTagType]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679346405"><span id="local-6989586621679346407"><span class="annot"><span class="annottext">Value -&gt; Parser [PartOfSpeechTagType]
 Value -&gt; Parser PartOfSpeechTagType
 (Value -&gt; Parser PartOfSpeechTagType)
 -&gt; (Value -&gt; Parser [PartOfSpeechTagType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [PartOfSpeechTagType]
 parseJSON :: Value -&gt; Parser PartOfSpeechTagType
 $cparseJSON :: Value -&gt; Parser PartOfSpeechTagType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679346391"><span id="local-6989586621679346393"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartOfSpeechTagType]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679346400"><span id="local-6989586621679346402"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartOfSpeechTagType]
 FromJSONKeyFunction PartOfSpeechTagType
 FromJSONKeyFunction PartOfSpeechTagType
 -&gt; FromJSONKeyFunction [PartOfSpeechTagType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PartOfSpeechTagType]
 fromJSONKey :: FromJSONKeyFunction PartOfSpeechTagType
 $cfromJSONKey :: FromJSONKeyFunction PartOfSpeechTagType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679346382"><span id="local-6989586621679346384"><span id="local-6989586621679346386"><span id="local-6989586621679346388"><span class="annot"><span class="annottext">[PartOfSpeechTagType] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679346391"><span id="local-6989586621679346393"><span id="local-6989586621679346395"><span id="local-6989586621679346397"><span class="annot"><span class="annottext">[PartOfSpeechTagType] -&gt; Encoding
 [PartOfSpeechTagType] -&gt; Value
 PartOfSpeechTagType -&gt; Encoding
 PartOfSpeechTagType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: PartOfSpeechTagType -&gt; Encoding
 toJSON :: PartOfSpeechTagType -&gt; Value
 $ctoJSON :: PartOfSpeechTagType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679346377"><span id="local-6989586621679346379"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartOfSpeechTagType]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679346386"><span id="local-6989586621679346388"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartOfSpeechTagType]
 ToJSONKeyFunction PartOfSpeechTagType
 ToJSONKeyFunction PartOfSpeechTagType
 -&gt; ToJSONKeyFunction [PartOfSpeechTagType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PartOfSpeechTagType]
 toJSONKey :: ToJSONKeyFunction PartOfSpeechTagType
 $ctoJSONKey :: ToJSONKeyFunction PartOfSpeechTagType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679346374"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartOfSpeechTagType
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679346383"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartOfSpeechTagType
 ([Node] -&gt; Either String PartOfSpeechTagType)
 -&gt; FromXML PartOfSpeechTagType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PartOfSpeechTagType
 $cparseXML :: [Node] -&gt; Either String PartOfSpeechTagType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679346371"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679346380"><span class="annot"><span class="annottext">PartOfSpeechTagType -&gt; XML
 (PartOfSpeechTagType -&gt; XML) -&gt; ToXML PartOfSpeechTagType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PartOfSpeechTagType -&gt; XML

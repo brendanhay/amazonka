@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679496681"><span id="local-6989586621679496682"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScheduleState"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduleState.html#ScheduleState"><span class="hs-identifier hs-var">ScheduleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleState%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduleState.html#ScheduleState%27"><span class="hs-identifier hs-var">ScheduleState'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679496690"><span id="local-6989586621679496691"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScheduleState"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduleState.html#ScheduleState"><span class="hs-identifier hs-var">ScheduleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleState%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduleState.html#ScheduleState%27"><span class="hs-identifier hs-var">ScheduleState'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScheduleState"><span class="annot"><span class="annottext">ScheduleState -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.ScheduleState.html#fromScheduleState"><span class="hs-identifier hs-var hs-var">fromScheduleState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679496673"><span id="local-6989586621679496675"><span id="local-6989586621679496677"><span class="annot"><span class="annottext">Int -&gt; ScheduleState -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679496682"><span id="local-6989586621679496684"><span id="local-6989586621679496686"><span class="annot"><span class="annottext">Int -&gt; ScheduleState -&gt; ShowS
 [ScheduleState] -&gt; ShowS
 ScheduleState -&gt; String
 (Int -&gt; ScheduleState -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ScheduleState -&gt; String
 showsPrec :: Int -&gt; ScheduleState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScheduleState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679496664"><span id="local-6989586621679496666"><span id="local-6989586621679496668"><span id="local-6989586621679496670"><span class="annot"><span class="annottext">ReadPrec [ScheduleState]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679496673"><span id="local-6989586621679496675"><span id="local-6989586621679496677"><span id="local-6989586621679496679"><span class="annot"><span class="annottext">ReadPrec [ScheduleState]
 ReadPrec ScheduleState
 Int -&gt; ReadS ScheduleState
 ReadS [ScheduleState]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ScheduleState]
 readsPrec :: Int -&gt; ReadS ScheduleState
 $creadsPrec :: Int -&gt; ReadS ScheduleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679496659"><span id="local-6989586621679496661"><span class="annot"><span class="annottext">ScheduleState -&gt; ScheduleState -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679496668"><span id="local-6989586621679496670"><span class="annot"><span class="annottext">ScheduleState -&gt; ScheduleState -&gt; Bool
 (ScheduleState -&gt; ScheduleState -&gt; Bool)
 -&gt; (ScheduleState -&gt; ScheduleState -&gt; Bool) -&gt; Eq ScheduleState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ScheduleState -&gt; ScheduleState -&gt; Bool
 == :: ScheduleState -&gt; ScheduleState -&gt; Bool
 $c== :: ScheduleState -&gt; ScheduleState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679496643"><span id="local-6989586621679496645"><span id="local-6989586621679496647"><span id="local-6989586621679496649"><span id="local-6989586621679496651"><span id="local-6989586621679496653"><span id="local-6989586621679496655"><span class="annot"><span class="annottext">Eq ScheduleState
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679496652"><span id="local-6989586621679496654"><span id="local-6989586621679496656"><span id="local-6989586621679496658"><span id="local-6989586621679496660"><span id="local-6989586621679496662"><span id="local-6989586621679496664"><span class="annot"><span class="annottext">Eq ScheduleState
 Eq ScheduleState
 -&gt; (ScheduleState -&gt; ScheduleState -&gt; Ordering)
 -&gt; (ScheduleState -&gt; ScheduleState -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ScheduleState -&gt; Rep ScheduleState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679496635"><span id="local-6989586621679496637"><span class="annot"><span class="annottext">Int -&gt; ScheduleState -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679496644"><span id="local-6989586621679496646"><span class="annot"><span class="annottext">Int -&gt; ScheduleState -&gt; Int
 ScheduleState -&gt; Int
 (Int -&gt; ScheduleState -&gt; Int)
 -&gt; (ScheduleState -&gt; Int) -&gt; Hashable ScheduleState
@@ -144,49 +144,49 @@ $chash :: ScheduleState -&gt; Int
 hashWithSalt :: Int -&gt; ScheduleState -&gt; Int
 $chashWithSalt :: Int -&gt; ScheduleState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679496632"><span class="annot"><span class="annottext">ScheduleState -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679496641"><span class="annot"><span class="annottext">ScheduleState -&gt; ()
 (ScheduleState -&gt; ()) -&gt; NFData ScheduleState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScheduleState -&gt; ()
 $crnf :: ScheduleState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679496629"><span class="annot"><span class="annottext">Text -&gt; Either String ScheduleState
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679496638"><span class="annot"><span class="annottext">Text -&gt; Either String ScheduleState
 (Text -&gt; Either String ScheduleState) -&gt; FromText ScheduleState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScheduleState
 $cfromText :: Text -&gt; Either String ScheduleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679496626"><span class="annot"><span class="annottext">ScheduleState -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679496635"><span class="annot"><span class="annottext">ScheduleState -&gt; Text
 (ScheduleState -&gt; Text) -&gt; ToText ScheduleState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScheduleState -&gt; Text
 $ctoText :: ScheduleState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679496623"><span class="annot"><span class="annottext">ScheduleState -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679496632"><span class="annot"><span class="annottext">ScheduleState -&gt; ByteString
 (ScheduleState -&gt; ByteString) -&gt; ToByteString ScheduleState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScheduleState -&gt; ByteString
 $ctoBS :: ScheduleState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679496620"><span class="annot"><span class="annottext">ScheduleState -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679496629"><span class="annot"><span class="annottext">ScheduleState -&gt; ByteStringBuilder
 (ScheduleState -&gt; ByteStringBuilder) -&gt; ToLog ScheduleState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScheduleState -&gt; ByteStringBuilder
 $cbuild :: ScheduleState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679496617"><span class="annot"><span class="annottext">HeaderName -&gt; ScheduleState -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679496626"><span class="annot"><span class="annottext">HeaderName -&gt; ScheduleState -&gt; [Header]
 (HeaderName -&gt; ScheduleState -&gt; [Header]) -&gt; ToHeader ScheduleState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScheduleState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScheduleState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679496614"><span class="annot"><span class="annottext">ScheduleState -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679496623"><span class="annot"><span class="annottext">ScheduleState -&gt; QueryString
 (ScheduleState -&gt; QueryString) -&gt; ToQuery ScheduleState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScheduleState -&gt; QueryString
 $ctoQuery :: ScheduleState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679496609"><span id="local-6989586621679496611"><span class="annot"><span class="annottext">Value -&gt; Parser [ScheduleState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679496618"><span id="local-6989586621679496620"><span class="annot"><span class="annottext">Value -&gt; Parser [ScheduleState]
 Value -&gt; Parser ScheduleState
 (Value -&gt; Parser ScheduleState)
 -&gt; (Value -&gt; Parser [ScheduleState]) -&gt; FromJSON ScheduleState
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ScheduleState]
 parseJSON :: Value -&gt; Parser ScheduleState
 $cparseJSON :: Value -&gt; Parser ScheduleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679496604"><span id="local-6989586621679496606"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScheduleState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679496613"><span id="local-6989586621679496615"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScheduleState]
 FromJSONKeyFunction ScheduleState
 FromJSONKeyFunction ScheduleState
 -&gt; FromJSONKeyFunction [ScheduleState] -&gt; FromJSONKey ScheduleState
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScheduleState]
 fromJSONKey :: FromJSONKeyFunction ScheduleState
 $cfromJSONKey :: FromJSONKeyFunction ScheduleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679496595"><span id="local-6989586621679496597"><span id="local-6989586621679496599"><span id="local-6989586621679496601"><span class="annot"><span class="annottext">[ScheduleState] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679496604"><span id="local-6989586621679496606"><span id="local-6989586621679496608"><span id="local-6989586621679496610"><span class="annot"><span class="annottext">[ScheduleState] -&gt; Encoding
 [ScheduleState] -&gt; Value
 ScheduleState -&gt; Encoding
 ScheduleState -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ScheduleState -&gt; Encoding
 toJSON :: ScheduleState -&gt; Value
 $ctoJSON :: ScheduleState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679496590"><span id="local-6989586621679496592"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScheduleState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679496599"><span id="local-6989586621679496601"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScheduleState]
 ToJSONKeyFunction ScheduleState
 ToJSONKeyFunction ScheduleState
 -&gt; ToJSONKeyFunction [ScheduleState] -&gt; ToJSONKey ScheduleState
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScheduleState]
 toJSONKey :: ToJSONKeyFunction ScheduleState
 $ctoJSONKey :: ToJSONKeyFunction ScheduleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679496587"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScheduleState
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679496596"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScheduleState
 ([Node] -&gt; Either String ScheduleState) -&gt; FromXML ScheduleState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScheduleState
 $cparseXML :: [Node] -&gt; Either String ScheduleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679496584"><span class="annot"><span class="annottext">ScheduleState -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679496593"><span class="annot"><span class="annottext">ScheduleState -&gt; XML
 (ScheduleState -&gt; XML) -&gt; ToXML ScheduleState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScheduleState -&gt; XML

@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Request a new generated client SDK for a RestApi and Stage.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetSdk' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679379033"><span id="local-6989586621679379034"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdk"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-var">GetSdk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdk%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-var">GetSdk'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679379042"><span id="local-6989586621679379043"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdk"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-var">GetSdk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdk%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-var">GetSdk'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string-to-string key-value map of query parameters @sdkType@-dependent</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- properties of the SDK. For @sdkType@ of @objectivec@ or @swift@, a</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- parameter named @classPrefix@ is required. For @sdkType@ of @android@,</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AsdkType%3AGetSdk%27"><span class="annot"><span class="annottext">GetSdk -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AsdkType%3AGetSdk%27"><span class="hs-identifier hs-var hs-var">sdkType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379024"><span id="local-6989586621679379026"><span class="annot"><span class="annottext">GetSdk -&gt; GetSdk -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379033"><span id="local-6989586621679379035"><span class="annot"><span class="annottext">GetSdk -&gt; GetSdk -&gt; Bool
 (GetSdk -&gt; GetSdk -&gt; Bool)
 -&gt; (GetSdk -&gt; GetSdk -&gt; Bool) -&gt; Eq GetSdk
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSdk -&gt; GetSdk -&gt; Bool
 == :: GetSdk -&gt; GetSdk -&gt; Bool
 $c== :: GetSdk -&gt; GetSdk -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379015"><span id="local-6989586621679379017"><span id="local-6989586621679379019"><span id="local-6989586621679379021"><span class="annot"><span class="annottext">ReadPrec [GetSdk]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379024"><span id="local-6989586621679379026"><span id="local-6989586621679379028"><span id="local-6989586621679379030"><span class="annot"><span class="annottext">ReadPrec [GetSdk]
 ReadPrec GetSdk
 Int -&gt; ReadS GetSdk
 ReadS [GetSdk]
@@ -103,7 +103,7 @@ readList :: ReadS [GetSdk]
 $creadList :: ReadS [GetSdk]
 readsPrec :: Int -&gt; ReadS GetSdk
 $creadsPrec :: Int -&gt; ReadS GetSdk
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379008"><span id="local-6989586621679379010"><span id="local-6989586621679379012"><span class="annot"><span class="annottext">Int -&gt; GetSdk -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379017"><span id="local-6989586621679379019"><span id="local-6989586621679379021"><span class="annot"><span class="annottext">Int -&gt; GetSdk -&gt; ShowS
 [GetSdk] -&gt; ShowS
 GetSdk -&gt; String
 (Int -&gt; GetSdk -&gt; ShowS)
@@ -157,10 +157,10 @@ $cfrom :: forall x. GetSdk -&gt; Rep GetSdk x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span>
 </span><span id="line-106"></span><span id="newGetSdk"><span class="annot"><span class="annottext">newGetSdk :: Text -&gt; Text -&gt; Text -&gt; GetSdk
-</span><a href="Network.AWS.APIGateway.GetSdk.html#newGetSdk"><span class="hs-identifier hs-var hs-var">newGetSdk</span></a></span></span><span> </span><span id="local-6989586621679379003"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379003"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679379002"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379002"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span> </span><span id="local-6989586621679379001"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379001"><span class="hs-identifier hs-var">pSdkType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetSdk.html#newGetSdk"><span class="hs-identifier hs-var hs-var">newGetSdk</span></a></span></span><span> </span><span id="local-6989586621679379012"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379012"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679379011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379011"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span> </span><span id="local-6989586621679379010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379010"><span class="hs-identifier hs-var">pSdkType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">GetSdk' :: Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; Text -&gt; GetSdk
 </span><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:GetSdk' :: Maybe (HashMap Text Text)
@@ -169,13 +169,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:GetSdk' :: Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3ArestApiId%3AGetSdk%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379003"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379012"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageName:GetSdk' :: Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AstageName%3AGetSdk%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379002"><span class="hs-identifier hs-var">pStageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379011"><span class="hs-identifier hs-var">pStageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:sdkType:GetSdk' :: Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AsdkType%3AGetSdk%27"><span class="hs-identifier hs-var">sdkType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379001"><span class="hs-identifier hs-var">pSdkType_</span></a></span><span>
+</span><a href="#local-6989586621679379010"><span class="hs-identifier hs-var">pSdkType_</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | A string-to-string key-value map of query parameters @sdkType@-dependent</span><span>
@@ -195,16 +195,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378998"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379007"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:GetSdk' :: GetSdk -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378997"><span class="annot"><span class="annottext">s :: GetSdk
-</span><a href="#local-6989586621679378997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378996"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679378996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
-</span><a href="#local-6989586621679378997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:GetSdk' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379007"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379007"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379006"><span class="annot"><span class="annottext">s :: GetSdk
+</span><a href="#local-6989586621679379006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379005"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679379005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
+</span><a href="#local-6989586621679379006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:GetSdk' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3Aparameters%3AGetSdk%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679378996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679379005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetSdk -&gt; f GetSdk)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -239,16 +239,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.APIGateway.GetSdk.html#getSdk_restApiId"><span class="hs-identifier hs-var hs-var">getSdk_restApiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSdk -&gt; Text)
 -&gt; (GetSdk -&gt; Text -&gt; GetSdk) -&gt; Lens GetSdk GetSdk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378992"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379001"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:GetSdk' :: GetSdk -&gt; Text
-</span><a href="#local-6989586621679378992"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378992"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378991"><span class="annot"><span class="annottext">s :: GetSdk
-</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378990"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
-</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetSdk' :: Text
+</span><a href="#local-6989586621679379001"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379001"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379000"><span class="annot"><span class="annottext">s :: GetSdk
+</span><a href="#local-6989586621679379000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378999"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
+</span><a href="#local-6989586621679379000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetSdk' :: Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3ArestApiId%3AGetSdk%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | [Required] The name of the Stage that the SDK will use.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#getSdk_stageName"><span class="hs-identifier hs-type">getSdk_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -256,16 +256,16 @@ $sel:restApiId:GetSdk' :: GetSdk -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#getSdk_stageName"><span class="hs-identifier hs-var hs-var">getSdk_stageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSdk -&gt; Text)
 -&gt; (GetSdk -&gt; Text -&gt; GetSdk) -&gt; Lens GetSdk GetSdk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378989"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378998"><span class="annot"><span class="annottext">Text
 stageName :: Text
 $sel:stageName:GetSdk' :: GetSdk -&gt; Text
-</span><a href="#local-6989586621679378989"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378989"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378988"><span class="annot"><span class="annottext">s :: GetSdk
-</span><a href="#local-6989586621679378988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378987"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
-</span><a href="#local-6989586621679378988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:GetSdk' :: Text
+</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378997"><span class="annot"><span class="annottext">s :: GetSdk
+</span><a href="#local-6989586621679378997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
+</span><a href="#local-6989586621679378997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:GetSdk' :: Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AstageName%3AGetSdk%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | [Required] The language for the generated SDK. Currently @java@,</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- @javascript@, @android@, @objectivec@ (for iOS), @swift@ (for iOS), and</span><span>
@@ -275,25 +275,25 @@ $sel:stageName:GetSdk' :: GetSdk -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#getSdk_sdkType"><span class="hs-identifier hs-var hs-var">getSdk_sdkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSdk -&gt; Text)
 -&gt; (GetSdk -&gt; Text -&gt; GetSdk) -&gt; Lens GetSdk GetSdk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378986"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378995"><span class="annot"><span class="annottext">Text
 sdkType :: Text
 $sel:sdkType:GetSdk' :: GetSdk -&gt; Text
-</span><a href="#local-6989586621679378986"><span class="hs-identifier hs-var hs-var">sdkType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378986"><span class="hs-identifier hs-var">sdkType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378985"><span class="annot"><span class="annottext">s :: GetSdk
-</span><a href="#local-6989586621679378985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378984"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
-</span><a href="#local-6989586621679378985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sdkType:GetSdk' :: Text
+</span><a href="#local-6989586621679378995"><span class="hs-identifier hs-var hs-var">sdkType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378995"><span class="hs-identifier hs-var">sdkType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378994"><span class="annot"><span class="annottext">s :: GetSdk
+</span><a href="#local-6989586621679378994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdk
+</span><a href="#local-6989586621679378994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sdkType:GetSdk' :: Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AsdkType%3AGetSdk%27"><span class="hs-identifier hs-var">sdkType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679378980"><span class="annot"><span class="annottext">request :: GetSdk -&gt; Request GetSdk
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679378989"><span class="annot"><span class="annottext">request :: GetSdk -&gt; Request GetSdk
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSdk -&gt; Request GetSdk
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679378976"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679378985"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSdk
 -&gt; ClientResponse ClientBody
@@ -318,10 +318,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveBytes</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378973"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378973"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378972"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679378972"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378971"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679378971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378982"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378981"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679378981"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378980"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679378980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe ByteString
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSdkResponse
 </span><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-var">GetSdkResponse'</span></a></span><span>
@@ -337,13 +337,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
 </span><span class="hs-identifier hs-var">Prelude.coerce</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679378971"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378980"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSdkResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetSdkResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679378972"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679378981"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -354,7 +354,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetSdkResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679378972"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679378981"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -368,15 +368,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378973"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378982"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378963"><span id="local-6989586621679378965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378972"><span id="local-6989586621679378974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679378956"><span class="annot"><span class="annottext">toHeaders :: GetSdk -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679378965"><span class="annot"><span class="annottext">toHeaders :: GetSdk -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSdk -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -394,8 +394,44 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679378950"><span class="annot"><span class="annottext">toPath :: GetSdk -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378945"><span id="local-6989586621679378946"><span id="local-6989586621679378947"><span id="local-6989586621679378948"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679378959"><span class="annot"><span class="annottext">toPath :: GetSdk -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378954"><span id="local-6989586621679378955"><span id="local-6989586621679378956"><span id="local-6989586621679378957"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+Text
+sdkType :: Text
+stageName :: Text
+restApiId :: Text
+parameters :: Maybe (HashMap Text Text)
+$sel:sdkType:GetSdk' :: GetSdk -&gt; Text
+$sel:stageName:GetSdk' :: GetSdk -&gt; Text
+$sel:restApiId:GetSdk' :: GetSdk -&gt; Text
+$sel:parameters:GetSdk' :: GetSdk -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679378954"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/restapis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378956"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/stages/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378955"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sdks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378954"><span class="hs-identifier hs-var">sdkType</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679378950"><span class="annot"><span class="annottext">toQuery :: GetSdk -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378945"><span id="local-6989586621679378946"><span id="local-6989586621679378947"><span id="local-6989586621679378948"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 sdkType :: Text
 stageName :: Text
@@ -406,42 +442,6 @@ $sel:stageName:GetSdk' :: GetSdk -&gt; Text
 $sel:restApiId:GetSdk' :: GetSdk -&gt; Text
 $sel:parameters:GetSdk' :: GetSdk -&gt; Maybe (HashMap Text Text)
 </span><a href="#local-6989586621679378945"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-166"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/restapis/&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378947"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/stages/&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378946"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/sdks/&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378945"><span class="hs-identifier hs-var">sdkType</span></a></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk"><span class="hs-identifier hs-type">GetSdk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679378941"><span class="annot"><span class="annottext">toQuery :: GetSdk -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdk%27"><span class="hs-identifier hs-type">GetSdk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378936"><span id="local-6989586621679378937"><span id="local-6989586621679378938"><span id="local-6989586621679378939"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-Text
-sdkType :: Text
-stageName :: Text
-restApiId :: Text
-parameters :: Maybe (HashMap Text Text)
-$sel:sdkType:GetSdk' :: GetSdk -&gt; Text
-$sel:stageName:GetSdk' :: GetSdk -&gt; Text
-$sel:restApiId:GetSdk' :: GetSdk -&gt; Text
-$sel:parameters:GetSdk' :: GetSdk -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679378936"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -466,14 +466,14 @@ ByteString
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679378939"><span class="hs-identifier hs-var">parameters</span></a></span><span>
+</span><a href="#local-6989586621679378948"><span class="hs-identifier hs-var">parameters</span></a></span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The binary blob response to GetSdk, which contains the generated SDK.</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- /See:/ 'newGetSdkResponse' smart constructor.</span><span>
-</span><span id="line-187"></span><span id="local-6989586621679378932"><span id="local-6989586621679378933"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdkResponse"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-var">GetSdkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdkResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-var">GetSdkResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span id="local-6989586621679378941"><span id="local-6989586621679378942"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdkResponse"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-var">GetSdkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdkResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-var">GetSdkResponse'</span></a></span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The binary blob response to GetSdk, which contains the generated SDK.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3Abody%3AGetSdkResponse%27"><span class="annot"><span class="annottext">GetSdkResponse -&gt; Maybe ByteString
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3Abody%3AGetSdkResponse%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">,</span><span>
@@ -487,7 +487,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSdkResponse%27"><span class="annot"><span class="annottext">GetSdkResponse -&gt; Int
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AhttpStatus%3AGetSdkResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378924"><span id="local-6989586621679378926"><span class="annot"><span class="annottext">GetSdkResponse -&gt; GetSdkResponse -&gt; Bool
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378933"><span id="local-6989586621679378935"><span class="annot"><span class="annottext">GetSdkResponse -&gt; GetSdkResponse -&gt; Bool
 (GetSdkResponse -&gt; GetSdkResponse -&gt; Bool)
 -&gt; (GetSdkResponse -&gt; GetSdkResponse -&gt; Bool) -&gt; Eq GetSdkResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -495,7 +495,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSdkResponse -&gt; GetSdkResponse -&gt; Bool
 == :: GetSdkResponse -&gt; GetSdkResponse -&gt; Bool
 $c== :: GetSdkResponse -&gt; GetSdkResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378918"><span id="local-6989586621679378920"><span id="local-6989586621679378922"><span class="annot"><span class="annottext">Int -&gt; GetSdkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378927"><span id="local-6989586621679378929"><span id="local-6989586621679378931"><span class="annot"><span class="annottext">Int -&gt; GetSdkResponse -&gt; ShowS
 [GetSdkResponse] -&gt; ShowS
 GetSdkResponse -&gt; String
 (Int -&gt; GetSdkResponse -&gt; ShowS)
@@ -541,8 +541,8 @@ $cfrom :: forall x. GetSdkResponse -&gt; Rep GetSdkResponse x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newGetSdkResponse"><span class="annot"><span class="annottext">newGetSdkResponse :: Int -&gt; GetSdkResponse
-</span><a href="Network.AWS.APIGateway.GetSdk.html#newGetSdkResponse"><span class="hs-identifier hs-var hs-var">newGetSdkResponse</span></a></span></span><span> </span><span id="local-6989586621679378915"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetSdk.html#newGetSdkResponse"><span class="hs-identifier hs-var hs-var">newGetSdkResponse</span></a></span></span><span> </span><span id="local-6989586621679378924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">GetSdkResponse' :: Maybe ByteString
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSdkResponse
 </span><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span>
@@ -560,7 +560,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSdkResponse' :: Int
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AhttpStatus%3AGetSdkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679378924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The binary blob response to GetSdk, which contains the generated SDK.</span><span>
@@ -572,16 +572,16 @@ forall a. Maybe a
 -&gt; Lens
      GetSdkResponse GetSdkResponse (Maybe ByteString) (Maybe ByteString)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378914"><span class="annot"><span class="annottext">Maybe ByteString
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378923"><span class="annot"><span class="annottext">Maybe ByteString
 body :: Maybe ByteString
 $sel:body:GetSdkResponse' :: GetSdkResponse -&gt; Maybe ByteString
-</span><a href="#local-6989586621679378914"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679378914"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378913"><span class="annot"><span class="annottext">s :: GetSdkResponse
-</span><a href="#local-6989586621679378913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378912"><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679378912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
-</span><a href="#local-6989586621679378913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:GetSdkResponse' :: Maybe ByteString
+</span><a href="#local-6989586621679378923"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679378923"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378922"><span class="annot"><span class="annottext">s :: GetSdkResponse
+</span><a href="#local-6989586621679378922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378921"><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679378921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
+</span><a href="#local-6989586621679378922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:GetSdkResponse' :: Maybe ByteString
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3Abody%3AGetSdkResponse%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679378912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The content-disposition header value in the HTTP response.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#getSdkResponse_contentDisposition"><span class="hs-identifier hs-type">getSdkResponse_contentDisposition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -591,16 +591,16 @@ $sel:body:GetSdkResponse' :: GetSdkResponse -&gt; Maybe ByteString
 -&gt; (GetSdkResponse -&gt; Maybe Text -&gt; GetSdkResponse)
 -&gt; Lens GetSdkResponse GetSdkResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378911"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378920"><span class="annot"><span class="annottext">Maybe Text
 contentDisposition :: Maybe Text
 $sel:contentDisposition:GetSdkResponse' :: GetSdkResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679378911"><span class="hs-identifier hs-var hs-var">contentDisposition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378911"><span class="hs-identifier hs-var">contentDisposition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378910"><span class="annot"><span class="annottext">s :: GetSdkResponse
-</span><a href="#local-6989586621679378910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378909"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
-</span><a href="#local-6989586621679378910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentDisposition:GetSdkResponse' :: Maybe Text
+</span><a href="#local-6989586621679378920"><span class="hs-identifier hs-var hs-var">contentDisposition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378920"><span class="hs-identifier hs-var">contentDisposition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378919"><span class="annot"><span class="annottext">s :: GetSdkResponse
+</span><a href="#local-6989586621679378919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
+</span><a href="#local-6989586621679378919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentDisposition:GetSdkResponse' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AcontentDisposition%3AGetSdkResponse%27"><span class="hs-identifier hs-var">contentDisposition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The content-type header value in the HTTP response.</span><span>
 </span><span id="line-235"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#getSdkResponse_contentType"><span class="hs-identifier hs-type">getSdkResponse_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -610,16 +610,16 @@ $sel:contentDisposition:GetSdkResponse' :: GetSdkResponse -&gt; Maybe Text
 -&gt; (GetSdkResponse -&gt; Maybe Text -&gt; GetSdkResponse)
 -&gt; Lens GetSdkResponse GetSdkResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378908"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378917"><span class="annot"><span class="annottext">Maybe Text
 contentType :: Maybe Text
 $sel:contentType:GetSdkResponse' :: GetSdkResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679378908"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378908"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378907"><span class="annot"><span class="annottext">s :: GetSdkResponse
-</span><a href="#local-6989586621679378907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378906"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
-</span><a href="#local-6989586621679378907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetSdkResponse' :: Maybe Text
+</span><a href="#local-6989586621679378917"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378917"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378916"><span class="annot"><span class="annottext">s :: GetSdkResponse
+</span><a href="#local-6989586621679378916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378915"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
+</span><a href="#local-6989586621679378916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetSdkResponse' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AcontentType%3AGetSdkResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-239"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#getSdkResponse_httpStatus"><span class="hs-identifier hs-type">getSdkResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -628,16 +628,16 @@ $sel:contentType:GetSdkResponse' :: GetSdkResponse -&gt; Maybe Text
 -&gt; (GetSdkResponse -&gt; Int -&gt; GetSdkResponse)
 -&gt; Lens GetSdkResponse GetSdkResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378905"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378914"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSdkResponse' :: GetSdkResponse -&gt; Int
-</span><a href="#local-6989586621679378905"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378905"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378904"><span class="annot"><span class="annottext">s :: GetSdkResponse
-</span><a href="#local-6989586621679378904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
-</span><a href="#local-6989586621679378904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSdkResponse' :: Int
+</span><a href="#local-6989586621679378914"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378914"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378913"><span class="annot"><span class="annottext">s :: GetSdkResponse
+</span><a href="#local-6989586621679378913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse%27"><span class="hs-identifier hs-type">GetSdkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkResponse
+</span><a href="#local-6989586621679378913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSdkResponse' :: Int
 </span><a href="Network.AWS.APIGateway.GetSdk.html#%24sel%3AhttpStatus%3AGetSdkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdk.html#GetSdkResponse"><span class="hs-identifier hs-type">GetSdkResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

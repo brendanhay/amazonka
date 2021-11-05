@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- S3 detects specified events.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTopicConfiguration' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679557792"><span id="local-6989586621679557793"></span></span><span class="hs-keyword">data</span><span> </span><span id="TopicConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-var">TopicConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-var">TopicConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679557801"><span id="local-6989586621679557802"></span></span><span class="hs-keyword">data</span><span> </span><span id="TopicConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-var">TopicConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-var">TopicConfiguration'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aid%3ATopicConfiguration%27"><span class="annot"><span class="annottext">TopicConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3Aid%3ATopicConfiguration%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Afilter%27%3ATopicConfiguration%27"><span class="annot"><span class="annottext">TopicConfiguration -&gt; Maybe NotificationConfigurationFilter
@@ -47,7 +47,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aevents%3ATopicConfiguration%27"><span class="annot"><span class="annottext">TopicConfiguration -&gt; [Event]
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3Aevents%3ATopicConfiguration%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557783"><span id="local-6989586621679557785"><span class="annot"><span class="annottext">TopicConfiguration -&gt; TopicConfiguration -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557792"><span id="local-6989586621679557794"><span class="annot"><span class="annottext">TopicConfiguration -&gt; TopicConfiguration -&gt; Bool
 (TopicConfiguration -&gt; TopicConfiguration -&gt; Bool)
 -&gt; (TopicConfiguration -&gt; TopicConfiguration -&gt; Bool)
 -&gt; Eq TopicConfiguration
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TopicConfiguration -&gt; TopicConfiguration -&gt; Bool
 == :: TopicConfiguration -&gt; TopicConfiguration -&gt; Bool
 $c== :: TopicConfiguration -&gt; TopicConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557774"><span id="local-6989586621679557776"><span id="local-6989586621679557778"><span id="local-6989586621679557780"><span class="annot"><span class="annottext">ReadPrec [TopicConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557783"><span id="local-6989586621679557785"><span id="local-6989586621679557787"><span id="local-6989586621679557789"><span class="annot"><span class="annottext">ReadPrec [TopicConfiguration]
 ReadPrec TopicConfiguration
 Int -&gt; ReadS TopicConfiguration
 ReadS [TopicConfiguration]
@@ -76,7 +76,7 @@ readList :: ReadS [TopicConfiguration]
 $creadList :: ReadS [TopicConfiguration]
 readsPrec :: Int -&gt; ReadS TopicConfiguration
 $creadsPrec :: Int -&gt; ReadS TopicConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557767"><span id="local-6989586621679557769"><span id="local-6989586621679557771"><span class="annot"><span class="annottext">Int -&gt; TopicConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557776"><span id="local-6989586621679557778"><span id="local-6989586621679557780"><span class="annot"><span class="annottext">Int -&gt; TopicConfiguration -&gt; ShowS
 [TopicConfiguration] -&gt; ShowS
 TopicConfiguration -&gt; String
 (Int -&gt; TopicConfiguration -&gt; ShowS)
@@ -126,8 +126,8 @@ $cfrom :: forall x. TopicConfiguration -&gt; Rep TopicConfiguration x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span>
 </span><span id="line-71"></span><span id="newTopicConfiguration"><span class="annot"><span class="annottext">newTopicConfiguration :: Text -&gt; TopicConfiguration
-</span><a href="Network.AWS.S3.Types.TopicConfiguration.html#newTopicConfiguration"><span class="hs-identifier hs-var hs-var">newTopicConfiguration</span></a></span></span><span> </span><span id="local-6989586621679557761"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557761"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.TopicConfiguration.html#newTopicConfiguration"><span class="hs-identifier hs-var hs-var">newTopicConfiguration</span></a></span></span><span> </span><span id="local-6989586621679557770"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557770"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">TopicConfiguration' :: Maybe Text
 -&gt; Maybe NotificationConfigurationFilter
 -&gt; Text
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:TopicConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3AtopicArn%3ATopicConfiguration%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557761"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557770"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:TopicConfiguration' :: [Event]
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3Aevents%3ATopicConfiguration%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Event]
 forall a. Monoid a =&gt; a
@@ -160,16 +160,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      TopicConfiguration TopicConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557757"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557766"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:TopicConfiguration' :: TopicConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679557757"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679557757"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557756"><span class="annot"><span class="annottext">s :: TopicConfiguration
-</span><a href="#local-6989586621679557756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557755"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679557755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
-</span><a href="#local-6989586621679557756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TopicConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679557766"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557766"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557765"><span class="annot"><span class="annottext">s :: TopicConfiguration
+</span><a href="#local-6989586621679557765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557764"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
+</span><a href="#local-6989586621679557765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TopicConfiguration' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3Aid%3ATopicConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679557755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#topicConfiguration_filter"><span class="hs-identifier hs-type">topicConfiguration_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span><span class="hs-special">)</span><span>
@@ -185,16 +185,16 @@ $sel:id:TopicConfiguration' :: TopicConfiguration -&gt; Maybe Text
      (Maybe NotificationConfigurationFilter)
      (Maybe NotificationConfigurationFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557753"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557762"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
 filter' :: Maybe NotificationConfigurationFilter
 $sel:filter':TopicConfiguration' :: TopicConfiguration -&gt; Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679557753"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679557753"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557752"><span class="annot"><span class="annottext">s :: TopicConfiguration
-</span><a href="#local-6989586621679557752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557751"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679557751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
-</span><a href="#local-6989586621679557752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':TopicConfiguration' :: Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679557762"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679557762"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557761"><span class="annot"><span class="annottext">s :: TopicConfiguration
+</span><a href="#local-6989586621679557761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557760"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679557760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
+</span><a href="#local-6989586621679557761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':TopicConfiguration' :: Maybe NotificationConfigurationFilter
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3Afilter%27%3ATopicConfiguration%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679557751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- S3 publishes a message when it detects events of the specified type.</span><span>
@@ -204,16 +204,16 @@ $sel:filter':TopicConfiguration' :: TopicConfiguration -&gt; Maybe NotificationC
 -&gt; (TopicConfiguration -&gt; Text -&gt; TopicConfiguration)
 -&gt; Lens TopicConfiguration TopicConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557749"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557758"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:TopicConfiguration' :: TopicConfiguration -&gt; Text
-</span><a href="#local-6989586621679557749"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557749"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557748"><span class="annot"><span class="annottext">s :: TopicConfiguration
-</span><a href="#local-6989586621679557748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557747"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
-</span><a href="#local-6989586621679557748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:TopicConfiguration' :: Text
+</span><a href="#local-6989586621679557758"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557758"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557757"><span class="annot"><span class="annottext">s :: TopicConfiguration
+</span><a href="#local-6989586621679557757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557756"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
+</span><a href="#local-6989586621679557757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:TopicConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3AtopicArn%3ATopicConfiguration%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The Amazon S3 bucket event about which to send notifications. For more</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- information, see</span><span>
@@ -226,16 +226,16 @@ $sel:topicArn:TopicConfiguration' :: TopicConfiguration -&gt; Text
 -&gt; (TopicConfiguration -&gt; [Event] -&gt; TopicConfiguration)
 -&gt; Lens TopicConfiguration TopicConfiguration [Event] [Event]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557745"><span class="annot"><span class="annottext">[Event]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557754"><span class="annot"><span class="annottext">[Event]
 events :: [Event]
 $sel:events:TopicConfiguration' :: TopicConfiguration -&gt; [Event]
-</span><a href="#local-6989586621679557745"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679557745"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557744"><span class="annot"><span class="annottext">s :: TopicConfiguration
-</span><a href="#local-6989586621679557744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557743"><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679557743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
-</span><a href="#local-6989586621679557744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:TopicConfiguration' :: [Event]
+</span><a href="#local-6989586621679557754"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Event]
+</span><a href="#local-6989586621679557754"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557753"><span class="annot"><span class="annottext">s :: TopicConfiguration
+</span><a href="#local-6989586621679557753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557752"><span class="annot"><span class="annottext">[Event]
+</span><a href="#local-6989586621679557752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicConfiguration
+</span><a href="#local-6989586621679557753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:TopicConfiguration' :: [Event]
 </span><a href="Network.AWS.S3.Types.TopicConfiguration.html#%24sel%3Aevents%3ATopicConfiguration%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679557743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Event] -&gt; f [Event])
+</span><a href="#local-6989586621679557752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Event] -&gt; f [Event])
  -&gt; TopicConfiguration -&gt; f TopicConfiguration)
 -&gt; (([Event] -&gt; f [Event]) -&gt; [Event] -&gt; f [Event])
 -&gt; ([Event] -&gt; f [Event])
@@ -247,9 +247,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679557738"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TopicConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557736"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557736"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679557747"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TopicConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557745"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557745"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe NotificationConfigurationFilter
 -&gt; Text
@@ -268,7 +268,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
       -&gt; Text -&gt; [Event] -&gt; TopicConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679557745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,7 +280,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; [Event] -&gt; TopicConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe NotificationConfigurationFilter)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -290,7 +290,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String ([Event] -&gt; TopicConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679557745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Topic&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,15 +301,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Event&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557736"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557745"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557728"><span id="local-6989586621679557730"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557737"><span id="local-6989586621679557739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration"><span class="hs-identifier hs-type">TopicConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679557721"><span class="annot"><span class="annottext">toXML :: TopicConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557716"><span id="local-6989586621679557717"><span id="local-6989586621679557718"><span id="local-6989586621679557719"><span class="annot"><span class="annottext">[Event]
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679557730"><span class="annot"><span class="annottext">toXML :: TopicConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TopicConfiguration.html#TopicConfiguration%27"><span class="hs-identifier hs-type">TopicConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557725"><span id="local-6989586621679557726"><span id="local-6989586621679557727"><span id="local-6989586621679557728"><span class="annot"><span class="annottext">[Event]
 Maybe Text
 Maybe NotificationConfigurationFilter
 Text
@@ -321,7 +321,7 @@ $sel:events:TopicConfiguration' :: TopicConfiguration -&gt; [Event]
 $sel:topicArn:TopicConfiguration' :: TopicConfiguration -&gt; Text
 $sel:filter':TopicConfiguration' :: TopicConfiguration -&gt; Maybe NotificationConfigurationFilter
 $sel:id:TopicConfiguration' :: TopicConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679557716"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679557725"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -329,21 +329,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679557719"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557728"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe NotificationConfigurationFilter -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679557718"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557727"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Topic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557717"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557726"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Name -&gt; [Event] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Event&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679557716"><span class="hs-identifier hs-var">events</span></a></span><span>
+</span><a href="#local-6989586621679557725"><span class="hs-identifier hs-var">events</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span></pre></body></html>

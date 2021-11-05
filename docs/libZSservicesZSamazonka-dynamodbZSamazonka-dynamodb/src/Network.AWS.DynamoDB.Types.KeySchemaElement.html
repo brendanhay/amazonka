@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- attribute cannot be nested within a List or a Map.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newKeySchemaElement' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679373993"><span id="local-6989586621679373994"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeySchemaElement"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-var">KeySchemaElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeySchemaElement%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-var">KeySchemaElement'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679374002"><span id="local-6989586621679374003"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeySchemaElement"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-var">KeySchemaElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeySchemaElement%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-var">KeySchemaElement'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a key attribute.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AattributeName%3AKeySchemaElement%27"><span class="annot"><span class="annottext">KeySchemaElement -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#%24sel%3AattributeName%3AKeySchemaElement%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AkeyType%3AKeySchemaElement%27"><span class="annot"><span class="annottext">KeySchemaElement -&gt; KeyType
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#%24sel%3AkeyType%3AKeySchemaElement%27"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373986"><span id="local-6989586621679373988"><span class="annot"><span class="annottext">KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373995"><span id="local-6989586621679373997"><span class="annot"><span class="annottext">KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
 (KeySchemaElement -&gt; KeySchemaElement -&gt; Bool)
 -&gt; (KeySchemaElement -&gt; KeySchemaElement -&gt; Bool)
 -&gt; Eq KeySchemaElement
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
 == :: KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
 $c== :: KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373977"><span id="local-6989586621679373979"><span id="local-6989586621679373981"><span id="local-6989586621679373983"><span class="annot"><span class="annottext">ReadPrec [KeySchemaElement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373986"><span id="local-6989586621679373988"><span id="local-6989586621679373990"><span id="local-6989586621679373992"><span class="annot"><span class="annottext">ReadPrec [KeySchemaElement]
 ReadPrec KeySchemaElement
 Int -&gt; ReadS KeySchemaElement
 ReadS [KeySchemaElement]
@@ -90,7 +90,7 @@ readList :: ReadS [KeySchemaElement]
 $creadList :: ReadS [KeySchemaElement]
 readsPrec :: Int -&gt; ReadS KeySchemaElement
 $creadsPrec :: Int -&gt; ReadS KeySchemaElement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373970"><span id="local-6989586621679373972"><span id="local-6989586621679373974"><span class="annot"><span class="annottext">Int -&gt; KeySchemaElement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373979"><span id="local-6989586621679373981"><span id="local-6989586621679373983"><span class="annot"><span class="annottext">Int -&gt; KeySchemaElement -&gt; ShowS
 [KeySchemaElement] -&gt; ShowS
 KeySchemaElement -&gt; String
 (Int -&gt; KeySchemaElement -&gt; ShowS)
@@ -148,17 +148,17 @@ $cfrom :: forall x. KeySchemaElement -&gt; Rep KeySchemaElement x
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span>
 </span><span id="line-95"></span><span id="newKeySchemaElement"><span class="annot"><span class="annottext">newKeySchemaElement :: Text -&gt; KeyType -&gt; KeySchemaElement
-</span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#newKeySchemaElement"><span class="hs-identifier hs-var hs-var">newKeySchemaElement</span></a></span></span><span> </span><span id="local-6989586621679373964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373964"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span> </span><span id="local-6989586621679373963"><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679373963"><span class="hs-identifier hs-var">pKeyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#newKeySchemaElement"><span class="hs-identifier hs-var hs-var">newKeySchemaElement</span></a></span></span><span> </span><span id="local-6989586621679373973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373973"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span> </span><span id="local-6989586621679373972"><span class="annot"><span class="annottext">KeyType
+</span><a href="#local-6989586621679373972"><span class="hs-identifier hs-var">pKeyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">KeySchemaElement' :: Text -&gt; KeyType -&gt; KeySchemaElement
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeName:KeySchemaElement' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#%24sel%3AattributeName%3AKeySchemaElement%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373964"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373973"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyType:KeySchemaElement' :: KeyType
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#%24sel%3AkeyType%3AKeySchemaElement%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679373963"><span class="hs-identifier hs-var">pKeyType_</span></a></span><span>
+</span><a href="#local-6989586621679373972"><span class="hs-identifier hs-var">pKeyType_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of a key attribute.</span><span>
@@ -168,16 +168,16 @@ $cfrom :: forall x. KeySchemaElement -&gt; Rep KeySchemaElement x
 -&gt; (KeySchemaElement -&gt; Text -&gt; KeySchemaElement)
 -&gt; Lens KeySchemaElement KeySchemaElement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373959"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373968"><span class="annot"><span class="annottext">Text
 attributeName :: Text
 $sel:attributeName:KeySchemaElement' :: KeySchemaElement -&gt; Text
-</span><a href="#local-6989586621679373959"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373959"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373958"><span class="annot"><span class="annottext">s :: KeySchemaElement
-</span><a href="#local-6989586621679373958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373957"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
-</span><a href="#local-6989586621679373958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:KeySchemaElement' :: Text
+</span><a href="#local-6989586621679373968"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373968"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373967"><span class="annot"><span class="annottext">s :: KeySchemaElement
+</span><a href="#local-6989586621679373967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
+</span><a href="#local-6989586621679373967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:KeySchemaElement' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#%24sel%3AattributeName%3AKeySchemaElement%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The role that this key attribute will assume:</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
@@ -200,19 +200,19 @@ $sel:attributeName:KeySchemaElement' :: KeySchemaElement -&gt; Text
 -&gt; (KeySchemaElement -&gt; KeyType -&gt; KeySchemaElement)
 -&gt; Lens KeySchemaElement KeySchemaElement KeyType KeyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373955"><span class="annot"><span class="annottext">KeyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373964"><span class="annot"><span class="annottext">KeyType
 keyType :: KeyType
 $sel:keyType:KeySchemaElement' :: KeySchemaElement -&gt; KeyType
-</span><a href="#local-6989586621679373955"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679373955"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373954"><span class="annot"><span class="annottext">s :: KeySchemaElement
-</span><a href="#local-6989586621679373954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373953"><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679373953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
-</span><a href="#local-6989586621679373954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:KeySchemaElement' :: KeyType
+</span><a href="#local-6989586621679373964"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyType
+</span><a href="#local-6989586621679373964"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373963"><span class="annot"><span class="annottext">s :: KeySchemaElement
+</span><a href="#local-6989586621679373963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373962"><span class="annot"><span class="annottext">KeyType
+</span><a href="#local-6989586621679373962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
+</span><a href="#local-6989586621679373963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:KeySchemaElement' :: KeyType
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#%24sel%3AkeyType%3AKeySchemaElement%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679373953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373950"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679373948"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeySchemaElement
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373959"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679373957"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeySchemaElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KeySchemaElement)
@@ -222,15 +222,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeySchemaElement&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373945"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373945"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373954"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; KeyType -&gt; KeySchemaElement
 </span><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-var">KeySchemaElement'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; KeyType -&gt; KeySchemaElement)
 -&gt; Parser Text -&gt; Parser (KeyType -&gt; KeySchemaElement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679373954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeName&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,25 +238,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser KeyType -&gt; Parser KeySchemaElement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser KeyType
+</span><a href="#local-6989586621679373954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser KeyType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373939"><span id="local-6989586621679373941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373948"><span id="local-6989586621679373950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373928"><span id="local-6989586621679373930"><span id="local-6989586621679373932"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679373926"><span class="annot"><span class="annottext">toJSON :: KeySchemaElement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373923"><span id="local-6989586621679373924"><span class="annot"><span class="annottext">Text
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373937"><span id="local-6989586621679373939"><span id="local-6989586621679373941"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679373935"><span class="annot"><span class="annottext">toJSON :: KeySchemaElement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373932"><span id="local-6989586621679373933"><span class="annot"><span class="annottext">Text
 KeyType
 keyType :: KeyType
 attributeName :: Text
 $sel:keyType:KeySchemaElement' :: KeySchemaElement -&gt; KeyType
 $sel:attributeName:KeySchemaElement' :: KeySchemaElement -&gt; Text
-</span><a href="#local-6989586621679373923"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373932"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -269,14 +269,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AttributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373924"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373933"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679373923"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373932"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span></pre></body></html>

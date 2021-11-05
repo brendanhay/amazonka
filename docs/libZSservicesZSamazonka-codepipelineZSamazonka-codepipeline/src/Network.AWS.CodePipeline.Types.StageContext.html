@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents information about a stage to a job worker.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStageContext' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679281284"><span id="local-6989586621679281285"></span></span><span class="hs-keyword">data</span><span> </span><span id="StageContext"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-var">StageContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageContext%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext%27"><span class="hs-identifier hs-var">StageContext'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679281293"><span id="local-6989586621679281294"></span></span><span class="hs-keyword">data</span><span> </span><span id="StageContext"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-var">StageContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageContext%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext%27"><span class="hs-identifier hs-var">StageContext'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stage.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AStageContext%27"><span class="annot"><span class="annottext">StageContext -&gt; Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.StageContext.html#%24sel%3Aname%3AStageContext%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281278"><span id="local-6989586621679281280"><span class="annot"><span class="annottext">StageContext -&gt; StageContext -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281287"><span id="local-6989586621679281289"><span class="annot"><span class="annottext">StageContext -&gt; StageContext -&gt; Bool
 (StageContext -&gt; StageContext -&gt; Bool)
 -&gt; (StageContext -&gt; StageContext -&gt; Bool) -&gt; Eq StageContext
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StageContext -&gt; StageContext -&gt; Bool
 == :: StageContext -&gt; StageContext -&gt; Bool
 $c== :: StageContext -&gt; StageContext -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281269"><span id="local-6989586621679281271"><span id="local-6989586621679281273"><span id="local-6989586621679281275"><span class="annot"><span class="annottext">ReadPrec [StageContext]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281278"><span id="local-6989586621679281280"><span id="local-6989586621679281282"><span id="local-6989586621679281284"><span class="annot"><span class="annottext">ReadPrec [StageContext]
 ReadPrec StageContext
 Int -&gt; ReadS StageContext
 ReadS [StageContext]
@@ -59,7 +59,7 @@ readList :: ReadS [StageContext]
 $creadList :: ReadS [StageContext]
 readsPrec :: Int -&gt; ReadS StageContext
 $creadsPrec :: Int -&gt; ReadS StageContext
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281262"><span id="local-6989586621679281264"><span id="local-6989586621679281266"><span class="annot"><span class="annottext">Int -&gt; StageContext -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281271"><span id="local-6989586621679281273"><span id="local-6989586621679281275"><span class="annot"><span class="annottext">Int -&gt; StageContext -&gt; ShowS
 [StageContext] -&gt; ShowS
 StageContext -&gt; String
 (Int -&gt; StageContext -&gt; ShowS)
@@ -111,19 +111,19 @@ forall a. Maybe a
 -&gt; (StageContext -&gt; Maybe Text -&gt; StageContext)
 -&gt; Lens StageContext StageContext (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext%27"><span class="hs-identifier hs-type">StageContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281253"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext%27"><span class="hs-identifier hs-type">StageContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281262"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:StageContext' :: StageContext -&gt; Maybe Text
-</span><a href="#local-6989586621679281253"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281253"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281252"><span class="annot"><span class="annottext">s :: StageContext
-</span><a href="#local-6989586621679281252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext%27"><span class="hs-identifier hs-type">StageContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281251"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageContext
-</span><a href="#local-6989586621679281252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StageContext' :: Maybe Text
+</span><a href="#local-6989586621679281262"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281262"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281261"><span class="annot"><span class="annottext">s :: StageContext
+</span><a href="#local-6989586621679281261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext%27"><span class="hs-identifier hs-type">StageContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageContext
+</span><a href="#local-6989586621679281261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StageContext' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.StageContext.html#%24sel%3Aname%3AStageContext%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281248"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679281246"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StageContext
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281257"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679281255"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StageContext
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StageContext) -&gt; Value -&gt; Parser StageContext
@@ -131,20 +131,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StageContext&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281243"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281243"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281252"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; StageContext
 </span><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext%27"><span class="hs-identifier hs-var">StageContext'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; StageContext)
 -&gt; Parser (Maybe Text) -&gt; Parser StageContext
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281243"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679281252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281237"><span id="local-6989586621679281239"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281246"><span id="local-6989586621679281248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageContext.html#StageContext"><span class="hs-identifier hs-type">StageContext</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

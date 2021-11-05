@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeletePartitionIndex' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679735117"><span id="local-6989586621679735118"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePartitionIndex"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-var">DeletePartitionIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePartitionIndex%27"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-var">DeletePartitionIndex'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679735126"><span id="local-6989586621679735127"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePartitionIndex"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-var">DeletePartitionIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePartitionIndex%27"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-var">DeletePartitionIndex'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The catalog ID where the table resides.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcatalogId%3ADeletePartitionIndex%27"><span class="annot"><span class="annottext">DeletePartitionIndex -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AcatalogId%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AindexName%3ADeletePartitionIndex%27"><span class="annot"><span class="annottext">DeletePartitionIndex -&gt; Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AindexName%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735108"><span id="local-6989586621679735110"><span class="annot"><span class="annottext">DeletePartitionIndex -&gt; DeletePartitionIndex -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735117"><span id="local-6989586621679735119"><span class="annot"><span class="annottext">DeletePartitionIndex -&gt; DeletePartitionIndex -&gt; Bool
 (DeletePartitionIndex -&gt; DeletePartitionIndex -&gt; Bool)
 -&gt; (DeletePartitionIndex -&gt; DeletePartitionIndex -&gt; Bool)
 -&gt; Eq DeletePartitionIndex
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePartitionIndex -&gt; DeletePartitionIndex -&gt; Bool
 == :: DeletePartitionIndex -&gt; DeletePartitionIndex -&gt; Bool
 $c== :: DeletePartitionIndex -&gt; DeletePartitionIndex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735099"><span id="local-6989586621679735101"><span id="local-6989586621679735103"><span id="local-6989586621679735105"><span class="annot"><span class="annottext">ReadPrec [DeletePartitionIndex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735108"><span id="local-6989586621679735110"><span id="local-6989586621679735112"><span id="local-6989586621679735114"><span class="annot"><span class="annottext">ReadPrec [DeletePartitionIndex]
 ReadPrec DeletePartitionIndex
 Int -&gt; ReadS DeletePartitionIndex
 ReadS [DeletePartitionIndex]
@@ -94,7 +94,7 @@ readList :: ReadS [DeletePartitionIndex]
 $creadList :: ReadS [DeletePartitionIndex]
 readsPrec :: Int -&gt; ReadS DeletePartitionIndex
 $creadsPrec :: Int -&gt; ReadS DeletePartitionIndex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735092"><span id="local-6989586621679735094"><span id="local-6989586621679735096"><span class="annot"><span class="annottext">Int -&gt; DeletePartitionIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735101"><span id="local-6989586621679735103"><span id="local-6989586621679735105"><span class="annot"><span class="annottext">Int -&gt; DeletePartitionIndex -&gt; ShowS
 [DeletePartitionIndex] -&gt; ShowS
 DeletePartitionIndex -&gt; String
 (Int -&gt; DeletePartitionIndex -&gt; ShowS)
@@ -147,12 +147,12 @@ $cfrom :: forall x. DeletePartitionIndex -&gt; Rep DeletePartitionIndex x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span>
 </span><span id="line-91"></span><span id="newDeletePartitionIndex"><span class="annot"><span class="annottext">newDeletePartitionIndex :: Text -&gt; Text -&gt; Text -&gt; DeletePartitionIndex
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#newDeletePartitionIndex"><span class="hs-identifier hs-var hs-var">newDeletePartitionIndex</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679735087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735087"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679735086"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735086"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679735085"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735085"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679735096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735096"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679735095"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735095"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679735094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735094"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">DeletePartitionIndex' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; DeletePartitionIndex
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:DeletePartitionIndex' :: Maybe Text
@@ -161,13 +161,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:DeletePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AdatabaseName%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735087"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679735096"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:DeletePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AtableName%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735086"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679735095"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:DeletePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AindexName%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735085"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
+</span><a href="#local-6989586621679735094"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The catalog ID where the table resides.</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; Lens
      DeletePartitionIndex DeletePartitionIndex (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735082"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735091"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679735082"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679735082"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735081"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
-</span><a href="#local-6989586621679735081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735080"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679735080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
-</span><a href="#local-6989586621679735081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:DeletePartitionIndex' :: Maybe Text
+</span><a href="#local-6989586621679735091"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679735091"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735090"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
+</span><a href="#local-6989586621679735090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679735089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
+</span><a href="#local-6989586621679735090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:DeletePartitionIndex' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AcatalogId%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679735080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | Specifies the name of a database from which you want to delete a</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- partition index.</span><span>
@@ -198,16 +198,16 @@ $sel:catalogId:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Maybe Text
 -&gt; (DeletePartitionIndex -&gt; Text -&gt; DeletePartitionIndex)
 -&gt; Lens DeletePartitionIndex DeletePartitionIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735079"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735088"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
-</span><a href="#local-6989586621679735079"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735079"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735078"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
-</span><a href="#local-6989586621679735078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735077"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
-</span><a href="#local-6989586621679735078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DeletePartitionIndex' :: Text
+</span><a href="#local-6989586621679735088"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735088"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735087"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
+</span><a href="#local-6989586621679735087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
+</span><a href="#local-6989586621679735087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DeletePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AdatabaseName%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | Specifies the name of a table from which you want to delete a partition</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- index.</span><span>
@@ -217,16 +217,16 @@ $sel:databaseName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
 -&gt; (DeletePartitionIndex -&gt; Text -&gt; DeletePartitionIndex)
 -&gt; Lens DeletePartitionIndex DeletePartitionIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735076"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735085"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
-</span><a href="#local-6989586621679735076"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735076"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735075"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
-</span><a href="#local-6989586621679735075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735074"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
-</span><a href="#local-6989586621679735075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DeletePartitionIndex' :: Text
+</span><a href="#local-6989586621679735085"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735085"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735084"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
+</span><a href="#local-6989586621679735084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735083"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
+</span><a href="#local-6989586621679735084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DeletePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AtableName%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The name of the partition index to be deleted.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#deletePartitionIndex_indexName"><span class="hs-identifier hs-type">deletePartitionIndex_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -235,27 +235,27 @@ $sel:tableName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
 -&gt; (DeletePartitionIndex -&gt; Text -&gt; DeletePartitionIndex)
 -&gt; Lens DeletePartitionIndex DeletePartitionIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735073"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735082"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
-</span><a href="#local-6989586621679735073"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735073"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735072"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
-</span><a href="#local-6989586621679735072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735071"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
-</span><a href="#local-6989586621679735072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DeletePartitionIndex' :: Text
+</span><a href="#local-6989586621679735082"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735082"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735081"><span class="annot"><span class="annottext">s :: DeletePartitionIndex
+</span><a href="#local-6989586621679735081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndex
+</span><a href="#local-6989586621679735081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DeletePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AindexName%3ADeletePartitionIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-type">DeletePartitionIndexResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679735067"><span class="annot"><span class="annottext">request :: DeletePartitionIndex -&gt; Request DeletePartitionIndex
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679735076"><span class="annot"><span class="annottext">request :: DeletePartitionIndex -&gt; Request DeletePartitionIndex
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePartitionIndex -&gt; Request DeletePartitionIndex
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679735063"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679735072"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePartitionIndex
 -&gt; ClientResponse ClientBody
@@ -281,10 +281,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679735060"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735060"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679735059"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679735059"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679735058"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679735058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679735069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679735069"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679735068"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679735068"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679735067"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679735067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeletePartitionIndexResponse
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-var">DeletePartitionIndexResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeletePartitionIndexResponse)
@@ -295,15 +295,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735060"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735069"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735051"><span id="local-6989586621679735053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735060"><span id="local-6989586621679735062"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679735044"><span class="annot"><span class="annottext">toHeaders :: DeletePartitionIndex -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679735053"><span class="annot"><span class="annottext">toHeaders :: DeletePartitionIndex -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePartitionIndex -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -330,9 +330,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735034"><span id="local-6989586621679735036"><span id="local-6989586621679735038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679735032"><span class="annot"><span class="annottext">toJSON :: DeletePartitionIndex -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735027"><span id="local-6989586621679735028"><span id="local-6989586621679735029"><span id="local-6989586621679735030"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735043"><span id="local-6989586621679735045"><span id="local-6989586621679735047"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679735041"><span class="annot"><span class="annottext">toJSON :: DeletePartitionIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex%27"><span class="hs-identifier hs-type">DeletePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735036"><span id="local-6989586621679735037"><span id="local-6989586621679735038"><span id="local-6989586621679735039"><span class="annot"><span class="annottext">Maybe Text
 Text
 indexName :: Text
 tableName :: Text
@@ -342,7 +342,7 @@ $sel:indexName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
 $sel:tableName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
 $sel:databaseName:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Text
 $sel:catalogId:DeletePartitionIndex' :: DeletePartitionIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679735027"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679735036"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -354,40 +354,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679735030"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679735039"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735029"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679735038"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735028"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679735037"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735027"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735036"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679735021"><span class="annot"><span class="annottext">toPath :: DeletePartitionIndex -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679735030"><span class="annot"><span class="annottext">toPath :: DeletePartitionIndex -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePartitionIndex -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndex"><span class="hs-identifier hs-type">DeletePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679735017"><span class="annot"><span class="annottext">toQuery :: DeletePartitionIndex -&gt; QueryString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679735026"><span class="annot"><span class="annottext">toQuery :: DeletePartitionIndex -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePartitionIndex -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -395,12 +395,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newDeletePartitionIndexResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679735014"><span id="local-6989586621679735015"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePartitionIndexResponse"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-var">DeletePartitionIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePartitionIndexResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-var">DeletePartitionIndexResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679735023"><span id="local-6989586621679735024"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePartitionIndexResponse"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-var">DeletePartitionIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePartitionIndexResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-var">DeletePartitionIndexResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePartitionIndexResponse%27"><span class="annot"><span class="annottext">DeletePartitionIndexResponse -&gt; Int
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AhttpStatus%3ADeletePartitionIndexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735009"><span id="local-6989586621679735011"><span class="annot"><span class="annottext">DeletePartitionIndexResponse
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735018"><span id="local-6989586621679735020"><span class="annot"><span class="annottext">DeletePartitionIndexResponse
 -&gt; DeletePartitionIndexResponse -&gt; Bool
 (DeletePartitionIndexResponse
  -&gt; DeletePartitionIndexResponse -&gt; Bool)
@@ -416,7 +416,7 @@ $c/= :: DeletePartitionIndexResponse
 -&gt; DeletePartitionIndexResponse -&gt; Bool
 $c== :: DeletePartitionIndexResponse
 -&gt; DeletePartitionIndexResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735001"><span id="local-6989586621679735003"><span id="local-6989586621679735005"><span id="local-6989586621679735007"><span class="annot"><span class="annottext">ReadPrec [DeletePartitionIndexResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735010"><span id="local-6989586621679735012"><span id="local-6989586621679735014"><span id="local-6989586621679735016"><span class="annot"><span class="annottext">ReadPrec [DeletePartitionIndexResponse]
 ReadPrec DeletePartitionIndexResponse
 Int -&gt; ReadS DeletePartitionIndexResponse
 ReadS [DeletePartitionIndexResponse]
@@ -436,7 +436,7 @@ readList :: ReadS [DeletePartitionIndexResponse]
 $creadList :: ReadS [DeletePartitionIndexResponse]
 readsPrec :: Int -&gt; ReadS DeletePartitionIndexResponse
 $creadsPrec :: Int -&gt; ReadS DeletePartitionIndexResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734995"><span id="local-6989586621679734997"><span id="local-6989586621679734999"><span class="annot"><span class="annottext">Int -&gt; DeletePartitionIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735004"><span id="local-6989586621679735006"><span id="local-6989586621679735008"><span class="annot"><span class="annottext">Int -&gt; DeletePartitionIndexResponse -&gt; ShowS
 [DeletePartitionIndexResponse] -&gt; ShowS
 DeletePartitionIndexResponse -&gt; String
 (Int -&gt; DeletePartitionIndexResponse -&gt; ShowS)
@@ -482,14 +482,14 @@ DeletePartitionIndexResponse -&gt; Rep DeletePartitionIndexResponse x
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-type">DeletePartitionIndexResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newDeletePartitionIndexResponse"><span class="annot"><span class="annottext">newDeletePartitionIndexResponse :: Int -&gt; DeletePartitionIndexResponse
-</span><a href="Network.AWS.Glue.DeletePartitionIndex.html#newDeletePartitionIndexResponse"><span class="hs-identifier hs-var hs-var">newDeletePartitionIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679734992"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeletePartitionIndex.html#newDeletePartitionIndexResponse"><span class="hs-identifier hs-var hs-var">newDeletePartitionIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679735001"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679735001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">DeletePartitionIndexResponse' :: Int -&gt; DeletePartitionIndexResponse
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-type">DeletePartitionIndexResponse'</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePartitionIndexResponse' :: Int
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AhttpStatus%3ADeletePartitionIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679735001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -502,16 +502,16 @@ DeletePartitionIndexResponse -&gt; Rep DeletePartitionIndexResponse x
 -&gt; Lens
      DeletePartitionIndexResponse DeletePartitionIndexResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-type">DeletePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734991"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-type">DeletePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735000"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeletePartitionIndexResponse' :: DeletePartitionIndexResponse -&gt; Int
-</span><a href="#local-6989586621679734991"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734991"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734990"><span class="annot"><span class="annottext">s :: DeletePartitionIndexResponse
-</span><a href="#local-6989586621679734990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-type">DeletePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734989"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndexResponse
-</span><a href="#local-6989586621679734990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePartitionIndexResponse' :: Int
+</span><a href="#local-6989586621679735000"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679735000"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734999"><span class="annot"><span class="annottext">s :: DeletePartitionIndexResponse
+</span><a href="#local-6989586621679734999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse%27"><span class="hs-identifier hs-type">DeletePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePartitionIndexResponse
+</span><a href="#local-6989586621679734999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePartitionIndexResponse' :: Int
 </span><a href="Network.AWS.Glue.DeletePartitionIndex.html#%24sel%3AhttpStatus%3ADeletePartitionIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-type">DeletePartitionIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-type">DeletePartitionIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734987"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-type">DeletePartitionIndexResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeletePartitionIndex.html#DeletePartitionIndexResponse"><span class="hs-identifier hs-type">DeletePartitionIndexResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

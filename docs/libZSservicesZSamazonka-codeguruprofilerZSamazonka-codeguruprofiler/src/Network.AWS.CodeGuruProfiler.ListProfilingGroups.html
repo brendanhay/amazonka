@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruProfiler.ListProfilingGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of profiling groups. The profiling groups are returned as</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- objects.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruProfiler.ListProfilingGroups</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier">ListProfilingGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#newListProfilingGroups"><span class="hs-identifier">newListProfilingGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_includeDescription"><span class="hs-identifier">listProfilingGroups_includeDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_nextToken"><span class="hs-identifier">listProfilingGroups_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_maxResults"><span class="hs-identifier">listProfilingGroups_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier">ListProfilingGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#newListProfilingGroupsResponse"><span class="hs-identifier">newListProfilingGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_nextToken"><span class="hs-identifier">listProfilingGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_profilingGroups"><span class="hs-identifier">listProfilingGroupsResponse_profilingGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_httpStatus"><span class="hs-identifier">listProfilingGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_profilingGroupNames"><span class="hs-identifier">listProfilingGroupsResponse_profilingGroupNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.html"><span class="hs-identifier">Network.AWS.CodeGuruProfiler.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | The structure representing the listProfilingGroupsRequest.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListProfilingGroups' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679202647"><span id="local-6989586621679202648"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProfilingGroups"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-var">ListProfilingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProfilingGroups%27"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-var">ListProfilingGroups'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @Boolean@ value indicating whether to include a description. If</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @true@, then a list of</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- objects that contain detailed information about profiling groups is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- returned. If @false@, then a list of profiling group names is returned.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AincludeDescription%3AListProfilingGroups%27"><span class="annot"><span class="annottext">ListProfilingGroups -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AincludeDescription%3AListProfilingGroups%27"><span class="hs-identifier hs-var hs-var">includeDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @ListProfilingGroups@ request where @maxResults@ was used and the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnextToken%3AListProfilingGroups%27"><span class="annot"><span class="annottext">ListProfilingGroups -&gt; Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AnextToken%3AListProfilingGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The maximum number of profiling groups results returned by</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @ListProfilingGroups@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @ListProfilingGroups@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- along with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- initial request can be seen by sending another @ListProfilingGroups@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- request with the returned @nextToken@ value.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmaxResults%3AListProfilingGroups%27"><span class="annot"><span class="annottext">ListProfilingGroups -&gt; Maybe Natural
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AmaxResults%3AListProfilingGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202639"><span id="local-6989586621679202641"><span class="annot"><span class="annottext">ListProfilingGroups -&gt; ListProfilingGroups -&gt; Bool
+(ListProfilingGroups -&gt; ListProfilingGroups -&gt; Bool)
+-&gt; (ListProfilingGroups -&gt; ListProfilingGroups -&gt; Bool)
+-&gt; Eq ListProfilingGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProfilingGroups -&gt; ListProfilingGroups -&gt; Bool
+$c/= :: ListProfilingGroups -&gt; ListProfilingGroups -&gt; Bool
+== :: ListProfilingGroups -&gt; ListProfilingGroups -&gt; Bool
+$c== :: ListProfilingGroups -&gt; ListProfilingGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202630"><span id="local-6989586621679202632"><span id="local-6989586621679202634"><span id="local-6989586621679202636"><span class="annot"><span class="annottext">ReadPrec [ListProfilingGroups]
+ReadPrec ListProfilingGroups
+Int -&gt; ReadS ListProfilingGroups
+ReadS [ListProfilingGroups]
+(Int -&gt; ReadS ListProfilingGroups)
+-&gt; ReadS [ListProfilingGroups]
+-&gt; ReadPrec ListProfilingGroups
+-&gt; ReadPrec [ListProfilingGroups]
+-&gt; Read ListProfilingGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProfilingGroups]
+$creadListPrec :: ReadPrec [ListProfilingGroups]
+readPrec :: ReadPrec ListProfilingGroups
+$creadPrec :: ReadPrec ListProfilingGroups
+readList :: ReadS [ListProfilingGroups]
+$creadList :: ReadS [ListProfilingGroups]
+readsPrec :: Int -&gt; ReadS ListProfilingGroups
+$creadsPrec :: Int -&gt; ReadS ListProfilingGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202623"><span id="local-6989586621679202625"><span id="local-6989586621679202627"><span class="annot"><span class="annottext">Int -&gt; ListProfilingGroups -&gt; ShowS
+[ListProfilingGroups] -&gt; ShowS
+ListProfilingGroups -&gt; String
+(Int -&gt; ListProfilingGroups -&gt; ShowS)
+-&gt; (ListProfilingGroups -&gt; String)
+-&gt; ([ListProfilingGroups] -&gt; ShowS)
+-&gt; Show ListProfilingGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProfilingGroups] -&gt; ShowS
+$cshowList :: [ListProfilingGroups] -&gt; ShowS
+show :: ListProfilingGroups -&gt; String
+$cshow :: ListProfilingGroups -&gt; String
+showsPrec :: Int -&gt; ListProfilingGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProfilingGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListProfilingGroups -&gt; Rep ListProfilingGroups x)
+-&gt; (forall x. Rep ListProfilingGroups x -&gt; ListProfilingGroups)
+-&gt; Generic ListProfilingGroups
+forall x. Rep ListProfilingGroups x -&gt; ListProfilingGroups
+forall x. ListProfilingGroups -&gt; Rep ListProfilingGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListProfilingGroups x -&gt; ListProfilingGroups
+$cfrom :: forall x. ListProfilingGroups -&gt; Rep ListProfilingGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'ListProfilingGroups' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'includeDescription', 'listProfilingGroups_includeDescription' - A @Boolean@ value indicating whether to include a description. If</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @true@, then a list of</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- objects that contain detailed information about profiling groups is</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- returned. If @false@, then a list of profiling group names is returned.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'nextToken', 'listProfilingGroups_nextToken' - The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @ListProfilingGroups@ request where @maxResults@ was used and the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'maxResults', 'listProfilingGroups_maxResults' - The maximum number of profiling groups results returned by</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @ListProfilingGroups@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @ListProfilingGroups@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- along with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- initial request can be seen by sending another @ListProfilingGroups@</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- request with the returned @nextToken@ value.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#newListProfilingGroups"><span class="hs-identifier hs-type">newListProfilingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span>
+</span><span id="line-115"></span><span id="newListProfilingGroups"><span class="annot"><span class="annottext">newListProfilingGroups :: ListProfilingGroups
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#newListProfilingGroups"><span class="hs-identifier hs-var hs-var">newListProfilingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">ListProfilingGroups' :: Maybe Bool -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListProfilingGroups
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeDescription:ListProfilingGroups' :: Maybe Bool
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AincludeDescription%3AListProfilingGroups%27"><span class="hs-identifier hs-var">includeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilingGroups' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AnextToken%3AListProfilingGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListProfilingGroups' :: Maybe Natural
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AmaxResults%3AListProfilingGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | A @Boolean@ value indicating whether to include a description. If</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @true@, then a list of</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- objects that contain detailed information about profiling groups is</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- returned. If @false@, then a list of profiling group names is returned.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_includeDescription"><span class="hs-identifier hs-type">listProfilingGroups_includeDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listProfilingGroups_includeDescription"><span class="annot"><span class="annottext">listProfilingGroups_includeDescription :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListProfilingGroups -&gt; f ListProfilingGroups
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_includeDescription"><span class="hs-identifier hs-var hs-var">listProfilingGroups_includeDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilingGroups -&gt; Maybe Bool)
+-&gt; (ListProfilingGroups -&gt; Maybe Bool -&gt; ListProfilingGroups)
+-&gt; Lens
+     ListProfilingGroups ListProfilingGroups (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202616"><span class="annot"><span class="annottext">Maybe Bool
+includeDescription :: Maybe Bool
+$sel:includeDescription:ListProfilingGroups' :: ListProfilingGroups -&gt; Maybe Bool
+</span><a href="#local-6989586621679202616"><span class="hs-identifier hs-var hs-var">includeDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202616"><span class="hs-identifier hs-var">includeDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202615"><span class="annot"><span class="annottext">s :: ListProfilingGroups
+</span><a href="#local-6989586621679202615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202614"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilingGroups
+</span><a href="#local-6989586621679202615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDescription:ListProfilingGroups' :: Maybe Bool
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AincludeDescription%3AListProfilingGroups%27"><span class="hs-identifier hs-var">includeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @ListProfilingGroups@ request where @maxResults@ was used and the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_nextToken"><span class="hs-identifier hs-type">listProfilingGroups_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listProfilingGroups_nextToken"><span class="annot"><span class="annottext">listProfilingGroups_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProfilingGroups -&gt; f ListProfilingGroups
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_nextToken"><span class="hs-identifier hs-var hs-var">listProfilingGroups_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilingGroups -&gt; Maybe Text)
+-&gt; (ListProfilingGroups -&gt; Maybe Text -&gt; ListProfilingGroups)
+-&gt; Lens
+     ListProfilingGroups ListProfilingGroups (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202613"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProfilingGroups' :: ListProfilingGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679202613"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202613"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202612"><span class="annot"><span class="annottext">s :: ListProfilingGroups
+</span><a href="#local-6989586621679202612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202611"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilingGroups
+</span><a href="#local-6989586621679202612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilingGroups' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AnextToken%3AListProfilingGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The maximum number of profiling groups results returned by</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @ListProfilingGroups@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @ListProfilingGroups@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- along with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- initial request can be seen by sending another @ListProfilingGroups@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- request with the returned @nextToken@ value.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_maxResults"><span class="hs-identifier hs-type">listProfilingGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="listProfilingGroups_maxResults"><span class="annot"><span class="annottext">listProfilingGroups_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListProfilingGroups -&gt; f ListProfilingGroups
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroups_maxResults"><span class="hs-identifier hs-var hs-var">listProfilingGroups_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilingGroups -&gt; Maybe Natural)
+-&gt; (ListProfilingGroups -&gt; Maybe Natural -&gt; ListProfilingGroups)
+-&gt; Lens
+     ListProfilingGroups
+     ListProfilingGroups
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202610"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListProfilingGroups' :: ListProfilingGroups -&gt; Maybe Natural
+</span><a href="#local-6989586621679202610"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202610"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202609"><span class="annot"><span class="annottext">s :: ListProfilingGroups
+</span><a href="#local-6989586621679202609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202608"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilingGroups
+</span><a href="#local-6989586621679202609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListProfilingGroups' :: Maybe Natural
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AmaxResults%3AListProfilingGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679202604"><span class="annot"><span class="annottext">request :: ListProfilingGroups -&gt; Request ListProfilingGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListProfilingGroups -&gt; Request ListProfilingGroups
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeGuruProfiler.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679202600"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListProfilingGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProfilingGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListProfilingGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListProfilingGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProfilingGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202597"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202596"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202596"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202595"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ProfilingGroupDescription]
+-&gt; Int
+-&gt; [Text]
+-&gt; ListProfilingGroupsResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">ListProfilingGroupsResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ProfilingGroupDescription]
+ -&gt; Int
+ -&gt; [Text]
+ -&gt; ListProfilingGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ProfilingGroupDescription]
+      -&gt; Int -&gt; [Text] -&gt; ListProfilingGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ProfilingGroupDescription]
+   -&gt; Int -&gt; [Text] -&gt; ListProfilingGroupsResponse)
+-&gt; Either String (Maybe [ProfilingGroupDescription])
+-&gt; Either String (Int -&gt; [Text] -&gt; ListProfilingGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ProfilingGroupDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profilingGroups&quot;</span></span><span>
+</span><span id="line-162"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProfilingGroupDescription]))
+-&gt; Maybe [ProfilingGroupDescription]
+-&gt; Either String (Maybe [ProfilingGroupDescription])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProfilingGroupDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [Text] -&gt; ListProfilingGroupsResponse)
+-&gt; Either String Int
+-&gt; Either String ([Text] -&gt; ListProfilingGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202597"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; ListProfilingGroupsResponse)
+-&gt; Either String [Text]
+-&gt; Either String ListProfilingGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profilingGroupNames&quot;</span></span><span>
+</span><span id="line-166"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Text]) -&gt; [Text] -&gt; Either String [Text]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202586"><span id="local-6989586621679202588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679202579"><span class="annot"><span class="annottext">toHeaders :: ListProfilingGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListProfilingGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-181"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679202573"><span class="annot"><span class="annottext">toPath :: ListProfilingGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListProfilingGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profilingGroups&quot;</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups"><span class="hs-identifier hs-type">ListProfilingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679202569"><span class="annot"><span class="annottext">toQuery :: ListProfilingGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroups%27"><span class="hs-identifier hs-type">ListProfilingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202565"><span id="local-6989586621679202566"><span id="local-6989586621679202567"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+includeDescription :: Maybe Bool
+$sel:maxResults:ListProfilingGroups' :: ListProfilingGroups -&gt; Maybe Natural
+$sel:nextToken:ListProfilingGroups' :: ListProfilingGroups -&gt; Maybe Text
+$sel:includeDescription:ListProfilingGroups' :: ListProfilingGroups -&gt; Maybe Bool
+</span><a href="#local-6989586621679202565"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;includeDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202567"><span class="hs-identifier hs-var">includeDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202566"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202565"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The structure representing the listProfilingGroupsResponse.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- /See:/ 'newListProfilingGroupsResponse' smart constructor.</span><span>
+</span><span id="line-199"></span><span id="local-6989586621679202562"><span id="local-6989586621679202563"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProfilingGroupsResponse"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-var">ListProfilingGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProfilingGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">ListProfilingGroupsResponse'</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListProfilingGroups@</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- request. When the results of a @ListProfilingGroups@ request exceed</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AnextToken%3AListProfilingGroupsResponse%27"><span class="annot"><span class="annottext">ListProfilingGroupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AnextToken%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | A returned list</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- objects. A list of</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- objects is returned only if @includeDescription@ is @true@, otherwise a</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- list of profiling group names is returned.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AprofilingGroups%3AListProfilingGroupsResponse%27"><span class="annot"><span class="annottext">ListProfilingGroupsResponse -&gt; Maybe [ProfilingGroupDescription]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AprofilingGroups%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var hs-var">profilingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.html#ProfilingGroupDescription"><span class="hs-identifier hs-type">ProfilingGroupDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProfilingGroupsResponse%27"><span class="annot"><span class="annottext">ListProfilingGroupsResponse -&gt; Int
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AhttpStatus%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | A returned list of profiling group names. A list of the names is</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- returned only if @includeDescription@ is @false@, otherwise a list of</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- objects is returned.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AprofilingGroupNames%3AListProfilingGroupsResponse%27"><span class="annot"><span class="annottext">ListProfilingGroupsResponse -&gt; [Text]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AprofilingGroupNames%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var hs-var">profilingGroupNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202554"><span id="local-6989586621679202556"><span class="annot"><span class="annottext">ListProfilingGroupsResponse -&gt; ListProfilingGroupsResponse -&gt; Bool
+(ListProfilingGroupsResponse
+ -&gt; ListProfilingGroupsResponse -&gt; Bool)
+-&gt; (ListProfilingGroupsResponse
+    -&gt; ListProfilingGroupsResponse -&gt; Bool)
+-&gt; Eq ListProfilingGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProfilingGroupsResponse -&gt; ListProfilingGroupsResponse -&gt; Bool
+$c/= :: ListProfilingGroupsResponse -&gt; ListProfilingGroupsResponse -&gt; Bool
+== :: ListProfilingGroupsResponse -&gt; ListProfilingGroupsResponse -&gt; Bool
+$c== :: ListProfilingGroupsResponse -&gt; ListProfilingGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202546"><span id="local-6989586621679202548"><span id="local-6989586621679202550"><span id="local-6989586621679202552"><span class="annot"><span class="annottext">ReadPrec [ListProfilingGroupsResponse]
+ReadPrec ListProfilingGroupsResponse
+Int -&gt; ReadS ListProfilingGroupsResponse
+ReadS [ListProfilingGroupsResponse]
+(Int -&gt; ReadS ListProfilingGroupsResponse)
+-&gt; ReadS [ListProfilingGroupsResponse]
+-&gt; ReadPrec ListProfilingGroupsResponse
+-&gt; ReadPrec [ListProfilingGroupsResponse]
+-&gt; Read ListProfilingGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProfilingGroupsResponse]
+$creadListPrec :: ReadPrec [ListProfilingGroupsResponse]
+readPrec :: ReadPrec ListProfilingGroupsResponse
+$creadPrec :: ReadPrec ListProfilingGroupsResponse
+readList :: ReadS [ListProfilingGroupsResponse]
+$creadList :: ReadS [ListProfilingGroupsResponse]
+readsPrec :: Int -&gt; ReadS ListProfilingGroupsResponse
+$creadsPrec :: Int -&gt; ReadS ListProfilingGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202540"><span id="local-6989586621679202542"><span id="local-6989586621679202544"><span class="annot"><span class="annottext">Int -&gt; ListProfilingGroupsResponse -&gt; ShowS
+[ListProfilingGroupsResponse] -&gt; ShowS
+ListProfilingGroupsResponse -&gt; String
+(Int -&gt; ListProfilingGroupsResponse -&gt; ShowS)
+-&gt; (ListProfilingGroupsResponse -&gt; String)
+-&gt; ([ListProfilingGroupsResponse] -&gt; ShowS)
+-&gt; Show ListProfilingGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProfilingGroupsResponse] -&gt; ShowS
+$cshowList :: [ListProfilingGroupsResponse] -&gt; ShowS
+show :: ListProfilingGroupsResponse -&gt; String
+$cshow :: ListProfilingGroupsResponse -&gt; String
+showsPrec :: Int -&gt; ListProfilingGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProfilingGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProfilingGroupsResponse -&gt; Rep ListProfilingGroupsResponse x)
+-&gt; (forall x.
+    Rep ListProfilingGroupsResponse x -&gt; ListProfilingGroupsResponse)
+-&gt; Generic ListProfilingGroupsResponse
+forall x.
+Rep ListProfilingGroupsResponse x -&gt; ListProfilingGroupsResponse
+forall x.
+ListProfilingGroupsResponse -&gt; Rep ListProfilingGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProfilingGroupsResponse x -&gt; ListProfilingGroupsResponse
+$cfrom :: forall x.
+ListProfilingGroupsResponse -&gt; Rep ListProfilingGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Create a value of 'ListProfilingGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'nextToken', 'listProfilingGroupsResponse_nextToken' - The @nextToken@ value to include in a future @ListProfilingGroups@</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- request. When the results of a @ListProfilingGroups@ request exceed</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'profilingGroups', 'listProfilingGroupsResponse_profilingGroups' - A returned list</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- objects. A list of</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- objects is returned only if @includeDescription@ is @true@, otherwise a</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- list of profiling group names is returned.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'httpStatus', 'listProfilingGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'profilingGroupNames', 'listProfilingGroupsResponse_profilingGroupNames' - A returned list of profiling group names. A list of the names is</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- returned only if @includeDescription@ is @false@, otherwise a list of</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- objects is returned.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#newListProfilingGroupsResponse"><span class="hs-identifier hs-type">newListProfilingGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span>
+</span><span id="line-252"></span><span id="newListProfilingGroupsResponse"><span class="annot"><span class="annottext">newListProfilingGroupsResponse :: Int -&gt; ListProfilingGroupsResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#newListProfilingGroupsResponse"><span class="hs-identifier hs-var hs-var">newListProfilingGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679202537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">ListProfilingGroupsResponse' :: Maybe Text
+-&gt; Maybe [ProfilingGroupDescription]
+-&gt; Int
+-&gt; [Text]
+-&gt; ListProfilingGroupsResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilingGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AnextToken%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:profilingGroups:ListProfilingGroupsResponse' :: Maybe [ProfilingGroupDescription]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AprofilingGroups%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">profilingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProfilingGroupDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProfilingGroupsResponse' :: Int
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AhttpStatus%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:profilingGroupNames:ListProfilingGroupsResponse' :: [Text]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AprofilingGroupNames%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">profilingGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListProfilingGroups@</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- request. When the results of a @ListProfilingGroups@ request exceed</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_nextToken"><span class="hs-identifier hs-type">listProfilingGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="listProfilingGroupsResponse_nextToken"><span class="annot"><span class="annottext">listProfilingGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProfilingGroupsResponse -&gt; f ListProfilingGroupsResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listProfilingGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilingGroupsResponse -&gt; Maybe Text)
+-&gt; (ListProfilingGroupsResponse
+    -&gt; Maybe Text -&gt; ListProfilingGroupsResponse)
+-&gt; Lens
+     ListProfilingGroupsResponse
+     ListProfilingGroupsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202536"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProfilingGroupsResponse' :: ListProfilingGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679202536"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202536"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202535"><span class="annot"><span class="annottext">s :: ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202534"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilingGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AnextToken%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | A returned list</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- objects. A list of</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- objects is returned only if @includeDescription@ is @true@, otherwise a</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- list of profiling group names is returned.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_profilingGroups"><span class="hs-identifier hs-type">listProfilingGroupsResponse_profilingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription.html#ProfilingGroupDescription"><span class="hs-identifier hs-type">ProfilingGroupDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="listProfilingGroupsResponse_profilingGroups"><span class="annot"><span class="annottext">listProfilingGroupsResponse_profilingGroups :: (Maybe [ProfilingGroupDescription]
+ -&gt; f (Maybe [ProfilingGroupDescription]))
+-&gt; ListProfilingGroupsResponse -&gt; f ListProfilingGroupsResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_profilingGroups"><span class="hs-identifier hs-var hs-var">listProfilingGroupsResponse_profilingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilingGroupsResponse -&gt; Maybe [ProfilingGroupDescription])
+-&gt; (ListProfilingGroupsResponse
+    -&gt; Maybe [ProfilingGroupDescription]
+    -&gt; ListProfilingGroupsResponse)
+-&gt; Lens
+     ListProfilingGroupsResponse
+     ListProfilingGroupsResponse
+     (Maybe [ProfilingGroupDescription])
+     (Maybe [ProfilingGroupDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202533"><span class="annot"><span class="annottext">Maybe [ProfilingGroupDescription]
+profilingGroups :: Maybe [ProfilingGroupDescription]
+$sel:profilingGroups:ListProfilingGroupsResponse' :: ListProfilingGroupsResponse -&gt; Maybe [ProfilingGroupDescription]
+</span><a href="#local-6989586621679202533"><span class="hs-identifier hs-var hs-var">profilingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProfilingGroupDescription]
+</span><a href="#local-6989586621679202533"><span class="hs-identifier hs-var">profilingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202532"><span class="annot"><span class="annottext">s :: ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202531"><span class="annot"><span class="annottext">Maybe [ProfilingGroupDescription]
+</span><a href="#local-6989586621679202531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroups:ListProfilingGroupsResponse' :: Maybe [ProfilingGroupDescription]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AprofilingGroups%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">profilingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProfilingGroupDescription]
+</span><a href="#local-6989586621679202531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProfilingGroupDescription]
+  -&gt; f (Maybe [ProfilingGroupDescription]))
+ -&gt; ListProfilingGroupsResponse -&gt; f ListProfilingGroupsResponse)
+-&gt; ((Maybe [ProfilingGroupDescription]
+     -&gt; f (Maybe [ProfilingGroupDescription]))
+    -&gt; Maybe [ProfilingGroupDescription]
+    -&gt; f (Maybe [ProfilingGroupDescription]))
+-&gt; (Maybe [ProfilingGroupDescription]
+    -&gt; f (Maybe [ProfilingGroupDescription]))
+-&gt; ListProfilingGroupsResponse
+-&gt; f ListProfilingGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProfilingGroupDescription]
+  [ProfilingGroupDescription]
+  [ProfilingGroupDescription]
+  [ProfilingGroupDescription]
+-&gt; Iso
+     (Maybe [ProfilingGroupDescription])
+     (Maybe [ProfilingGroupDescription])
+     (Maybe [ProfilingGroupDescription])
+     (Maybe [ProfilingGroupDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProfilingGroupDescription]
+  [ProfilingGroupDescription]
+  [ProfilingGroupDescription]
+  [ProfilingGroupDescription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_httpStatus"><span class="hs-identifier hs-type">listProfilingGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-279"></span><span id="listProfilingGroupsResponse_httpStatus"><span class="annot"><span class="annottext">listProfilingGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListProfilingGroupsResponse -&gt; f ListProfilingGroupsResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listProfilingGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilingGroupsResponse -&gt; Int)
+-&gt; (ListProfilingGroupsResponse
+    -&gt; Int -&gt; ListProfilingGroupsResponse)
+-&gt; Lens
+     ListProfilingGroupsResponse ListProfilingGroupsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202527"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListProfilingGroupsResponse' :: ListProfilingGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679202527"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202527"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202526"><span class="annot"><span class="annottext">s :: ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202525"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProfilingGroupsResponse' :: Int
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AhttpStatus%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | A returned list of profiling group names. A list of the names is</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- returned only if @includeDescription@ is @false@, otherwise a list of</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription&gt;</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- objects is returned.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_profilingGroupNames"><span class="hs-identifier hs-type">listProfilingGroupsResponse_profilingGroupNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-286"></span><span id="listProfilingGroupsResponse_profilingGroupNames"><span class="annot"><span class="annottext">listProfilingGroupsResponse_profilingGroupNames :: ([Text] -&gt; f [Text])
+-&gt; ListProfilingGroupsResponse -&gt; f ListProfilingGroupsResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#listProfilingGroupsResponse_profilingGroupNames"><span class="hs-identifier hs-var hs-var">listProfilingGroupsResponse_profilingGroupNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilingGroupsResponse -&gt; [Text])
+-&gt; (ListProfilingGroupsResponse
+    -&gt; [Text] -&gt; ListProfilingGroupsResponse)
+-&gt; Lens
+     ListProfilingGroupsResponse
+     ListProfilingGroupsResponse
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202524"><span class="annot"><span class="annottext">[Text]
+profilingGroupNames :: [Text]
+$sel:profilingGroupNames:ListProfilingGroupsResponse' :: ListProfilingGroupsResponse -&gt; [Text]
+</span><a href="#local-6989586621679202524"><span class="hs-identifier hs-var hs-var">profilingGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679202524"><span class="hs-identifier hs-var">profilingGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202523"><span class="annot"><span class="annottext">s :: ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse%27"><span class="hs-identifier hs-type">ListProfilingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202522"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679202522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilingGroupsResponse
+</span><a href="#local-6989586621679202523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroupNames:ListProfilingGroupsResponse' :: [Text]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#%24sel%3AprofilingGroupNames%3AListProfilingGroupsResponse%27"><span class="hs-identifier hs-var">profilingGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679202522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; ListProfilingGroupsResponse -&gt; f ListProfilingGroupsResponse)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; ListProfilingGroupsResponse
+-&gt; f ListProfilingGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfilingGroups.html#ListProfilingGroupsResponse"><span class="hs-identifier hs-type">ListProfilingGroupsResponse</span></a></span></span><span>
+</span><span id="line-289"></span></pre></body></html>

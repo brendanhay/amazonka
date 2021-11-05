@@ -1,0 +1,1197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.BatchUpdateFindings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Used by Security Hub customers to update information about their</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- investigation into a finding. Requested by administrator accounts or</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- member accounts. Administrator accounts can update findings for their</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- account and their member accounts. Member accounts can update findings</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- for their account.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Updates from @BatchUpdateFindings@ do not affect the value of</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @UpdatedAt@ for a finding.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Administrator and member accounts can use @BatchUpdateFindings@ to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- update the following finding fields and objects.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   @Confidence@</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   @Criticality@</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   @Note@</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   @RelatedFindings@</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   @Severity@</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   @Types@</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- -   @UserDefinedFields@</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- -   @VerificationState@</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   @Workflow@</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- You can configure IAM policies to restrict access to fields and field</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- values. For example, you might not want member accounts to be able to</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- suppress findings or change the finding severity. See</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access Configuring access to BatchUpdateFindings&gt;</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- in the /Security Hub User Guide/.</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.BatchUpdateFindings</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#newBatchUpdateFindings"><span class="hs-identifier">newBatchUpdateFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_criticality"><span class="hs-identifier">batchUpdateFindings_criticality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_note"><span class="hs-identifier">batchUpdateFindings_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_severity"><span class="hs-identifier">batchUpdateFindings_severity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_types"><span class="hs-identifier">batchUpdateFindings_types</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_relatedFindings"><span class="hs-identifier">batchUpdateFindings_relatedFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_confidence"><span class="hs-identifier">batchUpdateFindings_confidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_workflow"><span class="hs-identifier">batchUpdateFindings_workflow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_verificationState"><span class="hs-identifier">batchUpdateFindings_verificationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_userDefinedFields"><span class="hs-identifier">batchUpdateFindings_userDefinedFields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_findingIdentifiers"><span class="hs-identifier">batchUpdateFindings_findingIdentifiers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier">BatchUpdateFindingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#newBatchUpdateFindingsResponse"><span class="hs-identifier">newBatchUpdateFindingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_httpStatus"><span class="hs-identifier">batchUpdateFindingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_processedFindings"><span class="hs-identifier">batchUpdateFindingsResponse_processedFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_unprocessedFindings"><span class="hs-identifier">batchUpdateFindingsResponse_unprocessedFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types</span></a></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | /See:/ 'newBatchUpdateFindings' smart constructor.</span><span>
+</span><span id="line-94"></span><span id="local-6989586621680007252"><span id="local-6989586621680007253"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdateFindings"><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-var">BatchUpdateFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdateFindings%27"><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-var">BatchUpdateFindings'</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated value for the level of importance assigned to the resources</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- associated with the findings.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- A score of 0 means that the underlying resources have no criticality,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- and a score of 100 is reserved for the most critical resources.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Acriticality%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe Natural
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Acriticality%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">criticality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Anote%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe NoteUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Anote%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">note</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Used to update the finding severity.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3Aseverity%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe SeverityUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aseverity%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.SeverityUpdate.html#SeverityUpdate"><span class="hs-identifier hs-type">SeverityUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | One or more finding types in the format of</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- namespace\/category\/classifier that classify a finding.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Valid namespace values are as follows.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   Software and Configuration Checks</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   TTPs</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   Effects</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   Unusual Behaviors</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   Sensitive Data Identifications</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Atypes%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Atypes%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">types</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | A list of findings that are related to the updated findings.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3ArelatedFindings%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe [RelatedFinding]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3ArelatedFindings%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">relatedFindings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.RelatedFinding.html#RelatedFinding"><span class="hs-identifier hs-type">RelatedFinding</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The updated value for the finding confidence. Confidence is defined as</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- the likelihood that a finding accurately identifies the behavior or</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- issue that it was intended to identify.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- zero percent confidence and 100 means 100 percent confidence.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3Aconfidence%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe Natural
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aconfidence%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | Used to update the workflow status of a finding.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- The workflow status indicates the progress of the investigation into the</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Aworkflow%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe WorkflowUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aworkflow%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">workflow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.WorkflowUpdate.html#WorkflowUpdate"><span class="hs-identifier hs-type">WorkflowUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | Indicates the veracity of a finding.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- The available values for @VerificationState@ are as follows.</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- -   @UNKNOWN@ &#8211; The default disposition of a security finding</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- -   @TRUE_POSITIVE@ &#8211; The security finding is confirmed</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @FALSE_POSITIVE@ &#8211; The security finding was determined to be a false</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--     alarm</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- -   @BENIGN_POSITIVE@ &#8211; A special case of @TRUE_POSITIVE@ where the</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--     finding doesn\'t pose any threat, is expected, or both</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AverificationState%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe VerificationState
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AverificationState%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">verificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.VerificationState.html#VerificationState"><span class="hs-identifier hs-type">VerificationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | A list of name\/value string pairs associated with the finding. These</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- are custom, user-defined fields added to a finding.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AuserDefinedFields%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AuserDefinedFields%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">userDefinedFields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The list of findings to update. @BatchUpdateFindings@ can be used to</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- update up to 100 findings at a time.</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- For each finding, the list provides the finding identifier and the ARN</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- of the finding provider.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AfindingIdentifiers%3ABatchUpdateFindings%27"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; [AwsSecurityFindingIdentifier]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AfindingIdentifiers%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var hs-var">findingIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSecurityFindingIdentifier.html#AwsSecurityFindingIdentifier"><span class="hs-identifier hs-type">AwsSecurityFindingIdentifier</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680007237"><span id="local-6989586621680007239"><span class="annot"><span class="annottext">BatchUpdateFindings -&gt; BatchUpdateFindings -&gt; Bool
+(BatchUpdateFindings -&gt; BatchUpdateFindings -&gt; Bool)
+-&gt; (BatchUpdateFindings -&gt; BatchUpdateFindings -&gt; Bool)
+-&gt; Eq BatchUpdateFindings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchUpdateFindings -&gt; BatchUpdateFindings -&gt; Bool
+$c/= :: BatchUpdateFindings -&gt; BatchUpdateFindings -&gt; Bool
+== :: BatchUpdateFindings -&gt; BatchUpdateFindings -&gt; Bool
+$c== :: BatchUpdateFindings -&gt; BatchUpdateFindings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007228"><span id="local-6989586621680007230"><span id="local-6989586621680007232"><span id="local-6989586621680007234"><span class="annot"><span class="annottext">ReadPrec [BatchUpdateFindings]
+ReadPrec BatchUpdateFindings
+Int -&gt; ReadS BatchUpdateFindings
+ReadS [BatchUpdateFindings]
+(Int -&gt; ReadS BatchUpdateFindings)
+-&gt; ReadS [BatchUpdateFindings]
+-&gt; ReadPrec BatchUpdateFindings
+-&gt; ReadPrec [BatchUpdateFindings]
+-&gt; Read BatchUpdateFindings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchUpdateFindings]
+$creadListPrec :: ReadPrec [BatchUpdateFindings]
+readPrec :: ReadPrec BatchUpdateFindings
+$creadPrec :: ReadPrec BatchUpdateFindings
+readList :: ReadS [BatchUpdateFindings]
+$creadList :: ReadS [BatchUpdateFindings]
+readsPrec :: Int -&gt; ReadS BatchUpdateFindings
+$creadsPrec :: Int -&gt; ReadS BatchUpdateFindings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007221"><span id="local-6989586621680007223"><span id="local-6989586621680007225"><span class="annot"><span class="annottext">Int -&gt; BatchUpdateFindings -&gt; ShowS
+[BatchUpdateFindings] -&gt; ShowS
+BatchUpdateFindings -&gt; String
+(Int -&gt; BatchUpdateFindings -&gt; ShowS)
+-&gt; (BatchUpdateFindings -&gt; String)
+-&gt; ([BatchUpdateFindings] -&gt; ShowS)
+-&gt; Show BatchUpdateFindings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchUpdateFindings] -&gt; ShowS
+$cshowList :: [BatchUpdateFindings] -&gt; ShowS
+show :: BatchUpdateFindings -&gt; String
+$cshow :: BatchUpdateFindings -&gt; String
+showsPrec :: Int -&gt; BatchUpdateFindings -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchUpdateFindings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchUpdateFindings -&gt; Rep BatchUpdateFindings x)
+-&gt; (forall x. Rep BatchUpdateFindings x -&gt; BatchUpdateFindings)
+-&gt; Generic BatchUpdateFindings
+forall x. Rep BatchUpdateFindings x -&gt; BatchUpdateFindings
+forall x. BatchUpdateFindings -&gt; Rep BatchUpdateFindings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchUpdateFindings x -&gt; BatchUpdateFindings
+$cfrom :: forall x. BatchUpdateFindings -&gt; Rep BatchUpdateFindings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'BatchUpdateFindings' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'criticality', 'batchUpdateFindings_criticality' - The updated value for the level of importance assigned to the resources</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- associated with the findings.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- A score of 0 means that the underlying resources have no criticality,</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- and a score of 100 is reserved for the most critical resources.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'note', 'batchUpdateFindings_note' - Undocumented member.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'severity', 'batchUpdateFindings_severity' - Used to update the finding severity.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'types', 'batchUpdateFindings_types' - One or more finding types in the format of</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- namespace\/category\/classifier that classify a finding.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Valid namespace values are as follows.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   Software and Configuration Checks</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   TTPs</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   Effects</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   Unusual Behaviors</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   Sensitive Data Identifications</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'relatedFindings', 'batchUpdateFindings_relatedFindings' - A list of findings that are related to the updated findings.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'confidence', 'batchUpdateFindings_confidence' - The updated value for the finding confidence. Confidence is defined as</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- the likelihood that a finding accurately identifies the behavior or</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- issue that it was intended to identify.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- zero percent confidence and 100 means 100 percent confidence.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'workflow', 'batchUpdateFindings_workflow' - Used to update the workflow status of a finding.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The workflow status indicates the progress of the investigation into the</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'verificationState', 'batchUpdateFindings_verificationState' - Indicates the veracity of a finding.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The available values for @VerificationState@ are as follows.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   @UNKNOWN@ &#8211; The default disposition of a security finding</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   @TRUE_POSITIVE@ &#8211; The security finding is confirmed</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   @FALSE_POSITIVE@ &#8211; The security finding was determined to be a false</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     alarm</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @BENIGN_POSITIVE@ &#8211; A special case of @TRUE_POSITIVE@ where the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     finding doesn\'t pose any threat, is expected, or both</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'userDefinedFields', 'batchUpdateFindings_userDefinedFields' - A list of name\/value string pairs associated with the finding. These</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- are custom, user-defined fields added to a finding.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'findingIdentifiers', 'batchUpdateFindings_findingIdentifiers' - The list of findings to update. @BatchUpdateFindings@ can be used to</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- update up to 100 findings at a time.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- For each finding, the list provides the finding identifier and the ARN</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- of the finding provider.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#newBatchUpdateFindings"><span class="hs-identifier hs-type">newBatchUpdateFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span>
+</span><span id="line-230"></span><span id="newBatchUpdateFindings"><span class="annot"><span class="annottext">newBatchUpdateFindings :: BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#newBatchUpdateFindings"><span class="hs-identifier hs-var hs-var">newBatchUpdateFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">BatchUpdateFindings' :: Maybe Natural
+-&gt; Maybe NoteUpdate
+-&gt; Maybe SeverityUpdate
+-&gt; Maybe [Text]
+-&gt; Maybe [RelatedFinding]
+-&gt; Maybe Natural
+-&gt; Maybe WorkflowUpdate
+-&gt; Maybe VerificationState
+-&gt; Maybe (HashMap Text Text)
+-&gt; [AwsSecurityFindingIdentifier]
+-&gt; BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:criticality:BatchUpdateFindings' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Acriticality%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">criticality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:note:BatchUpdateFindings' :: Maybe NoteUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Anote%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">note</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NoteUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:BatchUpdateFindings' :: Maybe SeverityUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aseverity%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SeverityUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:types:BatchUpdateFindings' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Atypes%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">types</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:relatedFindings:BatchUpdateFindings' :: Maybe [RelatedFinding]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3ArelatedFindings%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:confidence:BatchUpdateFindings' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aconfidence%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:workflow:BatchUpdateFindings' :: Maybe WorkflowUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aworkflow%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">workflow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkflowUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:verificationState:BatchUpdateFindings' :: Maybe VerificationState
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AverificationState%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">verificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:userDefinedFields:BatchUpdateFindings' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AuserDefinedFields%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">userDefinedFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:findingIdentifiers:BatchUpdateFindings' :: [AwsSecurityFindingIdentifier]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AfindingIdentifiers%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">findingIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The updated value for the level of importance assigned to the resources</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- associated with the findings.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- A score of 0 means that the underlying resources have no criticality,</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- and a score of 100 is reserved for the most critical resources.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_criticality"><span class="hs-identifier hs-type">batchUpdateFindings_criticality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="batchUpdateFindings_criticality"><span class="annot"><span class="annottext">batchUpdateFindings_criticality :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_criticality"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_criticality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe Natural)
+-&gt; (BatchUpdateFindings -&gt; Maybe Natural -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007214"><span class="annot"><span class="annottext">Maybe Natural
+criticality :: Maybe Natural
+$sel:criticality:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe Natural
+</span><a href="#local-6989586621680007214"><span class="hs-identifier hs-var hs-var">criticality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007214"><span class="hs-identifier hs-var">criticality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007213"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007212"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criticality:BatchUpdateFindings' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Acriticality%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">criticality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_note"><span class="hs-identifier hs-type">batchUpdateFindings_note</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.NoteUpdate.html#NoteUpdate"><span class="hs-identifier hs-type">NoteUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="batchUpdateFindings_note"><span class="annot"><span class="annottext">batchUpdateFindings_note :: (Maybe NoteUpdate -&gt; f (Maybe NoteUpdate))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_note"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_note</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe NoteUpdate)
+-&gt; (BatchUpdateFindings -&gt; Maybe NoteUpdate -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe NoteUpdate)
+     (Maybe NoteUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007211"><span class="annot"><span class="annottext">Maybe NoteUpdate
+note :: Maybe NoteUpdate
+$sel:note:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe NoteUpdate
+</span><a href="#local-6989586621680007211"><span class="hs-identifier hs-var hs-var">note</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NoteUpdate
+</span><a href="#local-6989586621680007211"><span class="hs-identifier hs-var">note</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007210"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007209"><span class="annot"><span class="annottext">Maybe NoteUpdate
+</span><a href="#local-6989586621680007209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:note:BatchUpdateFindings' :: Maybe NoteUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Anote%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">note</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NoteUpdate
+</span><a href="#local-6989586621680007209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Used to update the finding severity.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_severity"><span class="hs-identifier hs-type">batchUpdateFindings_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.SeverityUpdate.html#SeverityUpdate"><span class="hs-identifier hs-type">SeverityUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="batchUpdateFindings_severity"><span class="annot"><span class="annottext">batchUpdateFindings_severity :: (Maybe SeverityUpdate -&gt; f (Maybe SeverityUpdate))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_severity"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe SeverityUpdate)
+-&gt; (BatchUpdateFindings
+    -&gt; Maybe SeverityUpdate -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe SeverityUpdate)
+     (Maybe SeverityUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007208"><span class="annot"><span class="annottext">Maybe SeverityUpdate
+severity :: Maybe SeverityUpdate
+$sel:severity:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe SeverityUpdate
+</span><a href="#local-6989586621680007208"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SeverityUpdate
+</span><a href="#local-6989586621680007208"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007207"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007206"><span class="annot"><span class="annottext">Maybe SeverityUpdate
+</span><a href="#local-6989586621680007206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:BatchUpdateFindings' :: Maybe SeverityUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aseverity%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SeverityUpdate
+</span><a href="#local-6989586621680007206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | One or more finding types in the format of</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- namespace\/category\/classifier that classify a finding.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Valid namespace values are as follows.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- -   Software and Configuration Checks</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- -   TTPs</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- -   Effects</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- -   Unusual Behaviors</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- -   Sensitive Data Identifications</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_types"><span class="hs-identifier hs-type">batchUpdateFindings_types</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="batchUpdateFindings_types"><span class="annot"><span class="annottext">batchUpdateFindings_types :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_types"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_types</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe [Text])
+-&gt; (BatchUpdateFindings -&gt; Maybe [Text] -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007205"><span class="annot"><span class="annottext">Maybe [Text]
+types :: Maybe [Text]
+$sel:types:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe [Text]
+</span><a href="#local-6989586621680007205"><span class="hs-identifier hs-var hs-var">types</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680007205"><span class="hs-identifier hs-var">types</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007204"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007203"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680007203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:types:BatchUpdateFindings' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Atypes%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">types</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680007203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BatchUpdateFindings
+-&gt; f BatchUpdateFindings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | A list of findings that are related to the updated findings.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_relatedFindings"><span class="hs-identifier hs-type">batchUpdateFindings_relatedFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.RelatedFinding.html#RelatedFinding"><span class="hs-identifier hs-type">RelatedFinding</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="batchUpdateFindings_relatedFindings"><span class="annot"><span class="annottext">batchUpdateFindings_relatedFindings :: (Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_relatedFindings"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_relatedFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe [RelatedFinding])
+-&gt; (BatchUpdateFindings
+    -&gt; Maybe [RelatedFinding] -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007199"><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+relatedFindings :: Maybe [RelatedFinding]
+$sel:relatedFindings:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe [RelatedFinding]
+</span><a href="#local-6989586621680007199"><span class="hs-identifier hs-var hs-var">relatedFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621680007199"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007198"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007197"><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621680007197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relatedFindings:BatchUpdateFindings' :: Maybe [RelatedFinding]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3ArelatedFindings%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621680007197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+ -&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings)
+-&gt; ((Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+    -&gt; Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+-&gt; (Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+-&gt; BatchUpdateFindings
+-&gt; f BatchUpdateFindings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RelatedFinding] [RelatedFinding] [RelatedFinding] [RelatedFinding]
+-&gt; Iso
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RelatedFinding] [RelatedFinding] [RelatedFinding] [RelatedFinding]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The updated value for the finding confidence. Confidence is defined as</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- the likelihood that a finding accurately identifies the behavior or</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- issue that it was intended to identify.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- zero percent confidence and 100 means 100 percent confidence.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_confidence"><span class="hs-identifier hs-type">batchUpdateFindings_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="batchUpdateFindings_confidence"><span class="annot"><span class="annottext">batchUpdateFindings_confidence :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_confidence"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_confidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe Natural)
+-&gt; (BatchUpdateFindings -&gt; Maybe Natural -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007196"><span class="annot"><span class="annottext">Maybe Natural
+confidence :: Maybe Natural
+$sel:confidence:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe Natural
+</span><a href="#local-6989586621680007196"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007196"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007195"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007194"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:BatchUpdateFindings' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aconfidence%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Used to update the workflow status of a finding.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- The workflow status indicates the progress of the investigation into the</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_workflow"><span class="hs-identifier hs-type">batchUpdateFindings_workflow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.WorkflowUpdate.html#WorkflowUpdate"><span class="hs-identifier hs-type">WorkflowUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="batchUpdateFindings_workflow"><span class="annot"><span class="annottext">batchUpdateFindings_workflow :: (Maybe WorkflowUpdate -&gt; f (Maybe WorkflowUpdate))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_workflow"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_workflow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe WorkflowUpdate)
+-&gt; (BatchUpdateFindings
+    -&gt; Maybe WorkflowUpdate -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe WorkflowUpdate)
+     (Maybe WorkflowUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007193"><span class="annot"><span class="annottext">Maybe WorkflowUpdate
+workflow :: Maybe WorkflowUpdate
+$sel:workflow:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe WorkflowUpdate
+</span><a href="#local-6989586621680007193"><span class="hs-identifier hs-var hs-var">workflow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkflowUpdate
+</span><a href="#local-6989586621680007193"><span class="hs-identifier hs-var">workflow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007192"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007191"><span class="annot"><span class="annottext">Maybe WorkflowUpdate
+</span><a href="#local-6989586621680007191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflow:BatchUpdateFindings' :: Maybe WorkflowUpdate
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3Aworkflow%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">workflow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkflowUpdate
+</span><a href="#local-6989586621680007191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | Indicates the veracity of a finding.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- The available values for @VerificationState@ are as follows.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- -   @UNKNOWN@ &#8211; The default disposition of a security finding</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- -   @TRUE_POSITIVE@ &#8211; The security finding is confirmed</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   @FALSE_POSITIVE@ &#8211; The security finding was determined to be a false</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     alarm</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- -   @BENIGN_POSITIVE@ &#8211; A special case of @TRUE_POSITIVE@ where the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     finding doesn\'t pose any threat, is expected, or both</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_verificationState"><span class="hs-identifier hs-type">batchUpdateFindings_verificationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.VerificationState.html#VerificationState"><span class="hs-identifier hs-type">VerificationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="batchUpdateFindings_verificationState"><span class="annot"><span class="annottext">batchUpdateFindings_verificationState :: (Maybe VerificationState -&gt; f (Maybe VerificationState))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_verificationState"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_verificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe VerificationState)
+-&gt; (BatchUpdateFindings
+    -&gt; Maybe VerificationState -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe VerificationState)
+     (Maybe VerificationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007190"><span class="annot"><span class="annottext">Maybe VerificationState
+verificationState :: Maybe VerificationState
+$sel:verificationState:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe VerificationState
+</span><a href="#local-6989586621680007190"><span class="hs-identifier hs-var hs-var">verificationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
+</span><a href="#local-6989586621680007190"><span class="hs-identifier hs-var">verificationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007189"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007188"><span class="annot"><span class="annottext">Maybe VerificationState
+</span><a href="#local-6989586621680007188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationState:BatchUpdateFindings' :: Maybe VerificationState
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AverificationState%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">verificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
+</span><a href="#local-6989586621680007188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | A list of name\/value string pairs associated with the finding. These</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- are custom, user-defined fields added to a finding.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_userDefinedFields"><span class="hs-identifier hs-type">batchUpdateFindings_userDefinedFields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="batchUpdateFindings_userDefinedFields"><span class="annot"><span class="annottext">batchUpdateFindings_userDefinedFields :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_userDefinedFields"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_userDefinedFields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; Maybe (HashMap Text Text))
+-&gt; (BatchUpdateFindings
+    -&gt; Maybe (HashMap Text Text) -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007187"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+userDefinedFields :: Maybe (HashMap Text Text)
+$sel:userDefinedFields:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680007187"><span class="hs-identifier hs-var hs-var">userDefinedFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680007187"><span class="hs-identifier hs-var">userDefinedFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007186"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007185"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680007185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userDefinedFields:BatchUpdateFindings' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AuserDefinedFields%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">userDefinedFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680007185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; BatchUpdateFindings
+-&gt; f BatchUpdateFindings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | The list of findings to update. @BatchUpdateFindings@ can be used to</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- update up to 100 findings at a time.</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- For each finding, the list provides the finding identifier and the ARN</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- of the finding provider.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_findingIdentifiers"><span class="hs-identifier hs-type">batchUpdateFindings_findingIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSecurityFindingIdentifier.html#AwsSecurityFindingIdentifier"><span class="hs-identifier hs-type">AwsSecurityFindingIdentifier</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-324"></span><span id="batchUpdateFindings_findingIdentifiers"><span class="annot"><span class="annottext">batchUpdateFindings_findingIdentifiers :: ([AwsSecurityFindingIdentifier]
+ -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindings_findingIdentifiers"><span class="hs-identifier hs-var hs-var">batchUpdateFindings_findingIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindings -&gt; [AwsSecurityFindingIdentifier])
+-&gt; (BatchUpdateFindings
+    -&gt; [AwsSecurityFindingIdentifier] -&gt; BatchUpdateFindings)
+-&gt; Lens
+     BatchUpdateFindings
+     BatchUpdateFindings
+     [AwsSecurityFindingIdentifier]
+     [AwsSecurityFindingIdentifier]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007184"><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+findingIdentifiers :: [AwsSecurityFindingIdentifier]
+$sel:findingIdentifiers:BatchUpdateFindings' :: BatchUpdateFindings -&gt; [AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007184"><span class="hs-identifier hs-var hs-var">findingIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007184"><span class="hs-identifier hs-var">findingIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007183"><span class="annot"><span class="annottext">s :: BatchUpdateFindings
+</span><a href="#local-6989586621680007183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007182"><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindings
+</span><a href="#local-6989586621680007183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIdentifiers:BatchUpdateFindings' :: [AwsSecurityFindingIdentifier]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AfindingIdentifiers%3ABatchUpdateFindings%27"><span class="hs-identifier hs-var">findingIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AwsSecurityFindingIdentifier]
+  -&gt; f [AwsSecurityFindingIdentifier])
+ -&gt; BatchUpdateFindings -&gt; f BatchUpdateFindings)
+-&gt; (([AwsSecurityFindingIdentifier]
+     -&gt; f [AwsSecurityFindingIdentifier])
+    -&gt; [AwsSecurityFindingIdentifier]
+    -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; ([AwsSecurityFindingIdentifier]
+    -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; BatchUpdateFindings
+-&gt; f BatchUpdateFindings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AwsSecurityFindingIdentifier]
+ -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; [AwsSecurityFindingIdentifier]
+-&gt; f [AwsSecurityFindingIdentifier]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-327"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-328"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>      </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621680007178"><span class="annot"><span class="annottext">request :: BatchUpdateFindings -&gt; Request BatchUpdateFindings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchUpdateFindings -&gt; Request BatchUpdateFindings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SecurityHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621680007174"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchUpdateFindings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchUpdateFindings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchUpdateFindings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchUpdateFindings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchUpdateFindings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680007171"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007171"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680007170"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680007170"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680007169"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-334"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; [AwsSecurityFindingIdentifier]
+-&gt; [BatchUpdateFindingsUnprocessedFinding]
+-&gt; BatchUpdateFindingsResponse
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">BatchUpdateFindingsResponse'</span></a></span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; [AwsSecurityFindingIdentifier]
+ -&gt; [BatchUpdateFindingsUnprocessedFinding]
+ -&gt; BatchUpdateFindingsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([AwsSecurityFindingIdentifier]
+      -&gt; [BatchUpdateFindingsUnprocessedFinding]
+      -&gt; BatchUpdateFindingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007171"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([AwsSecurityFindingIdentifier]
+   -&gt; [BatchUpdateFindingsUnprocessedFinding]
+   -&gt; BatchUpdateFindingsResponse)
+-&gt; Either String [AwsSecurityFindingIdentifier]
+-&gt; Either
+     String
+     ([BatchUpdateFindingsUnprocessedFinding]
+      -&gt; BatchUpdateFindingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe [AwsSecurityFindingIdentifier])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessedFindings&quot;</span></span><span>
+</span><span id="line-337"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [AwsSecurityFindingIdentifier])
+-&gt; [AwsSecurityFindingIdentifier]
+-&gt; Either String [AwsSecurityFindingIdentifier]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-338"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([BatchUpdateFindingsUnprocessedFinding]
+   -&gt; BatchUpdateFindingsResponse)
+-&gt; Either String [BatchUpdateFindingsUnprocessedFinding]
+-&gt; Either String BatchUpdateFindingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe [BatchUpdateFindingsUnprocessedFinding])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UnprocessedFindings&quot;</span></span><span>
+</span><span id="line-340"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [BatchUpdateFindingsUnprocessedFinding])
+-&gt; [BatchUpdateFindingsUnprocessedFinding]
+-&gt; Either String [BatchUpdateFindingsUnprocessedFinding]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[BatchUpdateFindingsUnprocessedFinding]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-341"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007160"><span id="local-6989586621680007162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span></span></span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span></span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621680007153"><span class="annot"><span class="annottext">toHeaders :: BatchUpdateFindings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchUpdateFindings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-351"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-352"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-353"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-354"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-355"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-357"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007143"><span id="local-6989586621680007145"><span id="local-6989586621680007147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621680007141"><span class="annot"><span class="annottext">toJSON :: BatchUpdateFindings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings%27"><span class="hs-identifier hs-type">BatchUpdateFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007130"><span id="local-6989586621680007131"><span id="local-6989586621680007132"><span id="local-6989586621680007133"><span id="local-6989586621680007134"><span id="local-6989586621680007135"><span id="local-6989586621680007136"><span id="local-6989586621680007137"><span id="local-6989586621680007138"><span id="local-6989586621680007139"><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+Maybe Natural
+Maybe [Text]
+Maybe [RelatedFinding]
+Maybe (HashMap Text Text)
+Maybe NoteUpdate
+Maybe SeverityUpdate
+Maybe VerificationState
+Maybe WorkflowUpdate
+findingIdentifiers :: [AwsSecurityFindingIdentifier]
+userDefinedFields :: Maybe (HashMap Text Text)
+verificationState :: Maybe VerificationState
+workflow :: Maybe WorkflowUpdate
+confidence :: Maybe Natural
+relatedFindings :: Maybe [RelatedFinding]
+types :: Maybe [Text]
+severity :: Maybe SeverityUpdate
+note :: Maybe NoteUpdate
+criticality :: Maybe Natural
+$sel:findingIdentifiers:BatchUpdateFindings' :: BatchUpdateFindings -&gt; [AwsSecurityFindingIdentifier]
+$sel:userDefinedFields:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe (HashMap Text Text)
+$sel:verificationState:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe VerificationState
+$sel:workflow:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe WorkflowUpdate
+$sel:confidence:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe Natural
+$sel:relatedFindings:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe [RelatedFinding]
+$sel:types:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe [Text]
+$sel:severity:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe SeverityUpdate
+$sel:note:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe NoteUpdate
+$sel:criticality:BatchUpdateFindings' :: BatchUpdateFindings -&gt; Maybe Natural
+</span><a href="#local-6989586621680007130"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-361"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-362"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-363"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Criticality&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007139"><span class="hs-identifier hs-var">criticality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Note&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NoteUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NoteUpdate -&gt; Pair) -&gt; Maybe NoteUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NoteUpdate
+</span><a href="#local-6989586621680007138"><span class="hs-identifier hs-var">note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SeverityUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SeverityUpdate -&gt; Pair) -&gt; Maybe SeverityUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SeverityUpdate
+</span><a href="#local-6989586621680007137"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Types&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680007136"><span class="hs-identifier hs-var">types</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelatedFindings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RelatedFinding] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>              </span><span class="annot"><span class="annottext">([RelatedFinding] -&gt; Pair) -&gt; Maybe [RelatedFinding] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621680007135"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Confidence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007134"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Workflow&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WorkflowUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WorkflowUpdate -&gt; Pair) -&gt; Maybe WorkflowUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WorkflowUpdate
+</span><a href="#local-6989586621680007133"><span class="hs-identifier hs-var">workflow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VerificationState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VerificationState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>              </span><span class="annot"><span class="annottext">(VerificationState -&gt; Pair)
+-&gt; Maybe VerificationState -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
+</span><a href="#local-6989586621680007132"><span class="hs-identifier hs-var">verificationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserDefinedFields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680007131"><span class="hs-identifier hs-var">userDefinedFields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-376"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FindingIdentifiers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsSecurityFindingIdentifier] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007130"><span class="hs-identifier hs-var">findingIdentifiers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-378"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-381"></span><span>  </span><span id="local-6989586621680007124"><span class="annot"><span class="annottext">toPath :: BatchUpdateFindings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchUpdateFindings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/findings/batchupdate&quot;</span></span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindings"><span class="hs-identifier hs-type">BatchUpdateFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-384"></span><span>  </span><span id="local-6989586621680007120"><span class="annot"><span class="annottext">toQuery :: BatchUpdateFindings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchUpdateFindings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- | /See:/ 'newBatchUpdateFindingsResponse' smart constructor.</span><span>
+</span><span id="line-387"></span><span id="local-6989586621680007117"><span id="local-6989586621680007118"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdateFindingsResponse"><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-var">BatchUpdateFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdateFindingsResponse%27"><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">BatchUpdateFindingsResponse'</span></a></span></span><span>
+</span><span id="line-388"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-389"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchUpdateFindingsResponse%27"><span class="annot"><span class="annottext">BatchUpdateFindingsResponse -&gt; Int
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AhttpStatus%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>    </span><span class="hs-comment">-- | The list of findings that were updated successfully.</span><span>
+</span><span id="line-391"></span><span>    </span><span id="%24sel%3AprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="annot"><span class="annottext">BatchUpdateFindingsResponse -&gt; [AwsSecurityFindingIdentifier]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var hs-var">processedFindings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSecurityFindingIdentifier.html#AwsSecurityFindingIdentifier"><span class="hs-identifier hs-type">AwsSecurityFindingIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>    </span><span class="hs-comment">-- | The list of findings that were not updated.</span><span>
+</span><span id="line-393"></span><span>    </span><span id="%24sel%3AunprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="annot"><span class="annottext">BatchUpdateFindingsResponse
+-&gt; [BatchUpdateFindingsUnprocessedFinding]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AunprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedFindings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.BatchUpdateFindingsUnprocessedFinding.html#BatchUpdateFindingsUnprocessedFinding"><span class="hs-identifier hs-type">BatchUpdateFindingsUnprocessedFinding</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-394"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-395"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680007110"><span id="local-6989586621680007112"><span class="annot"><span class="annottext">BatchUpdateFindingsResponse -&gt; BatchUpdateFindingsResponse -&gt; Bool
+(BatchUpdateFindingsResponse
+ -&gt; BatchUpdateFindingsResponse -&gt; Bool)
+-&gt; (BatchUpdateFindingsResponse
+    -&gt; BatchUpdateFindingsResponse -&gt; Bool)
+-&gt; Eq BatchUpdateFindingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchUpdateFindingsResponse -&gt; BatchUpdateFindingsResponse -&gt; Bool
+$c/= :: BatchUpdateFindingsResponse -&gt; BatchUpdateFindingsResponse -&gt; Bool
+== :: BatchUpdateFindingsResponse -&gt; BatchUpdateFindingsResponse -&gt; Bool
+$c== :: BatchUpdateFindingsResponse -&gt; BatchUpdateFindingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007102"><span id="local-6989586621680007104"><span id="local-6989586621680007106"><span id="local-6989586621680007108"><span class="annot"><span class="annottext">ReadPrec [BatchUpdateFindingsResponse]
+ReadPrec BatchUpdateFindingsResponse
+Int -&gt; ReadS BatchUpdateFindingsResponse
+ReadS [BatchUpdateFindingsResponse]
+(Int -&gt; ReadS BatchUpdateFindingsResponse)
+-&gt; ReadS [BatchUpdateFindingsResponse]
+-&gt; ReadPrec BatchUpdateFindingsResponse
+-&gt; ReadPrec [BatchUpdateFindingsResponse]
+-&gt; Read BatchUpdateFindingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchUpdateFindingsResponse]
+$creadListPrec :: ReadPrec [BatchUpdateFindingsResponse]
+readPrec :: ReadPrec BatchUpdateFindingsResponse
+$creadPrec :: ReadPrec BatchUpdateFindingsResponse
+readList :: ReadS [BatchUpdateFindingsResponse]
+$creadList :: ReadS [BatchUpdateFindingsResponse]
+readsPrec :: Int -&gt; ReadS BatchUpdateFindingsResponse
+$creadsPrec :: Int -&gt; ReadS BatchUpdateFindingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007096"><span id="local-6989586621680007098"><span id="local-6989586621680007100"><span class="annot"><span class="annottext">Int -&gt; BatchUpdateFindingsResponse -&gt; ShowS
+[BatchUpdateFindingsResponse] -&gt; ShowS
+BatchUpdateFindingsResponse -&gt; String
+(Int -&gt; BatchUpdateFindingsResponse -&gt; ShowS)
+-&gt; (BatchUpdateFindingsResponse -&gt; String)
+-&gt; ([BatchUpdateFindingsResponse] -&gt; ShowS)
+-&gt; Show BatchUpdateFindingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchUpdateFindingsResponse] -&gt; ShowS
+$cshowList :: [BatchUpdateFindingsResponse] -&gt; ShowS
+show :: BatchUpdateFindingsResponse -&gt; String
+$cshow :: BatchUpdateFindingsResponse -&gt; String
+showsPrec :: Int -&gt; BatchUpdateFindingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchUpdateFindingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchUpdateFindingsResponse -&gt; Rep BatchUpdateFindingsResponse x)
+-&gt; (forall x.
+    Rep BatchUpdateFindingsResponse x -&gt; BatchUpdateFindingsResponse)
+-&gt; Generic BatchUpdateFindingsResponse
+forall x.
+Rep BatchUpdateFindingsResponse x -&gt; BatchUpdateFindingsResponse
+forall x.
+BatchUpdateFindingsResponse -&gt; Rep BatchUpdateFindingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchUpdateFindingsResponse x -&gt; BatchUpdateFindingsResponse
+$cfrom :: forall x.
+BatchUpdateFindingsResponse -&gt; Rep BatchUpdateFindingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- Create a value of 'BatchUpdateFindingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- 'httpStatus', 'batchUpdateFindingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- 'processedFindings', 'batchUpdateFindingsResponse_processedFindings' - The list of findings that were updated successfully.</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- 'unprocessedFindings', 'batchUpdateFindingsResponse_unprocessedFindings' - The list of findings that were not updated.</span><span>
+</span><span id="line-410"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#newBatchUpdateFindingsResponse"><span class="hs-identifier hs-type">newBatchUpdateFindingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-411"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-412"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-413"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span>
+</span><span id="line-414"></span><span id="newBatchUpdateFindingsResponse"><span class="annot"><span class="annottext">newBatchUpdateFindingsResponse :: Int -&gt; BatchUpdateFindingsResponse
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#newBatchUpdateFindingsResponse"><span class="hs-identifier hs-var hs-var">newBatchUpdateFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621680007093"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007093"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-415"></span><span>  </span><span class="annot"><span class="annottext">BatchUpdateFindingsResponse' :: Int
+-&gt; [AwsSecurityFindingIdentifier]
+-&gt; [BatchUpdateFindingsUnprocessedFinding]
+-&gt; BatchUpdateFindingsResponse
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse'</span></a></span><span>
+</span><span id="line-416"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchUpdateFindingsResponse' :: Int
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AhttpStatus%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-417"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007093"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>      </span><span class="annot"><span class="annottext">$sel:processedFindings:BatchUpdateFindingsResponse' :: [AwsSecurityFindingIdentifier]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">processedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedFindings:BatchUpdateFindingsResponse' :: [BatchUpdateFindingsUnprocessedFinding]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AunprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">unprocessedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchUpdateFindingsUnprocessedFinding]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-420"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_httpStatus"><span class="hs-identifier hs-type">batchUpdateFindingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-424"></span><span id="batchUpdateFindingsResponse_httpStatus"><span class="annot"><span class="annottext">batchUpdateFindingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchUpdateFindingsResponse -&gt; f BatchUpdateFindingsResponse
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchUpdateFindingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindingsResponse -&gt; Int)
+-&gt; (BatchUpdateFindingsResponse
+    -&gt; Int -&gt; BatchUpdateFindingsResponse)
+-&gt; Lens
+     BatchUpdateFindingsResponse BatchUpdateFindingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007092"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchUpdateFindingsResponse' :: BatchUpdateFindingsResponse -&gt; Int
+</span><a href="#local-6989586621680007092"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007092"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007091"><span class="annot"><span class="annottext">s :: BatchUpdateFindingsResponse
+</span><a href="#local-6989586621680007091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007090"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindingsResponse
+</span><a href="#local-6989586621680007091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchUpdateFindingsResponse' :: Int
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AhttpStatus%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680007090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- | The list of findings that were updated successfully.</span><span>
+</span><span id="line-427"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_processedFindings"><span class="hs-identifier hs-type">batchUpdateFindingsResponse_processedFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsSecurityFindingIdentifier.html#AwsSecurityFindingIdentifier"><span class="hs-identifier hs-type">AwsSecurityFindingIdentifier</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-428"></span><span id="batchUpdateFindingsResponse_processedFindings"><span class="annot"><span class="annottext">batchUpdateFindingsResponse_processedFindings :: ([AwsSecurityFindingIdentifier]
+ -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; BatchUpdateFindingsResponse -&gt; f BatchUpdateFindingsResponse
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_processedFindings"><span class="hs-identifier hs-var hs-var">batchUpdateFindingsResponse_processedFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindingsResponse -&gt; [AwsSecurityFindingIdentifier])
+-&gt; (BatchUpdateFindingsResponse
+    -&gt; [AwsSecurityFindingIdentifier] -&gt; BatchUpdateFindingsResponse)
+-&gt; Lens
+     BatchUpdateFindingsResponse
+     BatchUpdateFindingsResponse
+     [AwsSecurityFindingIdentifier]
+     [AwsSecurityFindingIdentifier]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007089"><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+processedFindings :: [AwsSecurityFindingIdentifier]
+$sel:processedFindings:BatchUpdateFindingsResponse' :: BatchUpdateFindingsResponse -&gt; [AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007089"><span class="hs-identifier hs-var hs-var">processedFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007089"><span class="hs-identifier hs-var">processedFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007088"><span class="annot"><span class="annottext">s :: BatchUpdateFindingsResponse
+</span><a href="#local-6989586621680007088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007087"><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindingsResponse
+</span><a href="#local-6989586621680007088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processedFindings:BatchUpdateFindingsResponse' :: [AwsSecurityFindingIdentifier]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">processedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AwsSecurityFindingIdentifier]
+</span><a href="#local-6989586621680007087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AwsSecurityFindingIdentifier]
+  -&gt; f [AwsSecurityFindingIdentifier])
+ -&gt; BatchUpdateFindingsResponse -&gt; f BatchUpdateFindingsResponse)
+-&gt; (([AwsSecurityFindingIdentifier]
+     -&gt; f [AwsSecurityFindingIdentifier])
+    -&gt; [AwsSecurityFindingIdentifier]
+    -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; ([AwsSecurityFindingIdentifier]
+    -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; BatchUpdateFindingsResponse
+-&gt; f BatchUpdateFindingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AwsSecurityFindingIdentifier]
+ -&gt; f [AwsSecurityFindingIdentifier])
+-&gt; [AwsSecurityFindingIdentifier]
+-&gt; f [AwsSecurityFindingIdentifier]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-429"></span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- | The list of findings that were not updated.</span><span>
+</span><span id="line-431"></span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_unprocessedFindings"><span class="hs-identifier hs-type">batchUpdateFindingsResponse_unprocessedFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.BatchUpdateFindingsUnprocessedFinding.html#BatchUpdateFindingsUnprocessedFinding"><span class="hs-identifier hs-type">BatchUpdateFindingsUnprocessedFinding</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-432"></span><span id="batchUpdateFindingsResponse_unprocessedFindings"><span class="annot"><span class="annottext">batchUpdateFindingsResponse_unprocessedFindings :: ([BatchUpdateFindingsUnprocessedFinding]
+ -&gt; f [BatchUpdateFindingsUnprocessedFinding])
+-&gt; BatchUpdateFindingsResponse -&gt; f BatchUpdateFindingsResponse
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#batchUpdateFindingsResponse_unprocessedFindings"><span class="hs-identifier hs-var hs-var">batchUpdateFindingsResponse_unprocessedFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchUpdateFindingsResponse
+ -&gt; [BatchUpdateFindingsUnprocessedFinding])
+-&gt; (BatchUpdateFindingsResponse
+    -&gt; [BatchUpdateFindingsUnprocessedFinding]
+    -&gt; BatchUpdateFindingsResponse)
+-&gt; Lens
+     BatchUpdateFindingsResponse
+     BatchUpdateFindingsResponse
+     [BatchUpdateFindingsUnprocessedFinding]
+     [BatchUpdateFindingsUnprocessedFinding]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007086"><span class="annot"><span class="annottext">[BatchUpdateFindingsUnprocessedFinding]
+unprocessedFindings :: [BatchUpdateFindingsUnprocessedFinding]
+$sel:unprocessedFindings:BatchUpdateFindingsResponse' :: BatchUpdateFindingsResponse
+-&gt; [BatchUpdateFindingsUnprocessedFinding]
+</span><a href="#local-6989586621680007086"><span class="hs-identifier hs-var hs-var">unprocessedFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchUpdateFindingsUnprocessedFinding]
+</span><a href="#local-6989586621680007086"><span class="hs-identifier hs-var">unprocessedFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007085"><span class="annot"><span class="annottext">s :: BatchUpdateFindingsResponse
+</span><a href="#local-6989586621680007085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse%27"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007084"><span class="annot"><span class="annottext">[BatchUpdateFindingsUnprocessedFinding]
+</span><a href="#local-6989586621680007084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateFindingsResponse
+</span><a href="#local-6989586621680007085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedFindings:BatchUpdateFindingsResponse' :: [BatchUpdateFindingsUnprocessedFinding]
+</span><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#%24sel%3AunprocessedFindings%3ABatchUpdateFindingsResponse%27"><span class="hs-identifier hs-var">unprocessedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchUpdateFindingsUnprocessedFinding]
+</span><a href="#local-6989586621680007084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchUpdateFindingsUnprocessedFinding]
+  -&gt; f [BatchUpdateFindingsUnprocessedFinding])
+ -&gt; BatchUpdateFindingsResponse -&gt; f BatchUpdateFindingsResponse)
+-&gt; (([BatchUpdateFindingsUnprocessedFinding]
+     -&gt; f [BatchUpdateFindingsUnprocessedFinding])
+    -&gt; [BatchUpdateFindingsUnprocessedFinding]
+    -&gt; f [BatchUpdateFindingsUnprocessedFinding])
+-&gt; ([BatchUpdateFindingsUnprocessedFinding]
+    -&gt; f [BatchUpdateFindingsUnprocessedFinding])
+-&gt; BatchUpdateFindingsResponse
+-&gt; f BatchUpdateFindingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchUpdateFindingsUnprocessedFinding]
+ -&gt; f [BatchUpdateFindingsUnprocessedFinding])
+-&gt; [BatchUpdateFindingsUnprocessedFinding]
+-&gt; f [BatchUpdateFindingsUnprocessedFinding]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-433"></span><span>
+</span><span id="line-434"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.BatchUpdateFindings.html#BatchUpdateFindingsResponse"><span class="hs-identifier hs-type">BatchUpdateFindingsResponse</span></a></span></span><span>
+</span><span id="line-435"></span></pre></body></html>

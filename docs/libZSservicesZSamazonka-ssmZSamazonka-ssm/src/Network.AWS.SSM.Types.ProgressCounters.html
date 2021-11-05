@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Automation execution.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newProgressCounters' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679810897"><span id="local-6989586621679810898"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProgressCounters"><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-var">ProgressCounters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProgressCounters%27"><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-var">ProgressCounters'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679810906"><span id="local-6989586621679810907"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProgressCounters"><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-var">ProgressCounters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProgressCounters%27"><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-var">ProgressCounters'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of steps that failed to run in all specified Amazon Web</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Services Regions and Amazon Web Services accounts for the current</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Automation execution.</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AtimedOutSteps%3AProgressCounters%27"><span class="annot"><span class="annottext">ProgressCounters -&gt; Maybe Int
 </span><a href="Network.AWS.SSM.Types.ProgressCounters.html#%24sel%3AtimedOutSteps%3AProgressCounters%27"><span class="hs-identifier hs-var hs-var">timedOutSteps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810887"><span id="local-6989586621679810889"><span class="annot"><span class="annottext">ProgressCounters -&gt; ProgressCounters -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810896"><span id="local-6989586621679810898"><span class="annot"><span class="annottext">ProgressCounters -&gt; ProgressCounters -&gt; Bool
 (ProgressCounters -&gt; ProgressCounters -&gt; Bool)
 -&gt; (ProgressCounters -&gt; ProgressCounters -&gt; Bool)
 -&gt; Eq ProgressCounters
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProgressCounters -&gt; ProgressCounters -&gt; Bool
 == :: ProgressCounters -&gt; ProgressCounters -&gt; Bool
 $c== :: ProgressCounters -&gt; ProgressCounters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810878"><span id="local-6989586621679810880"><span id="local-6989586621679810882"><span id="local-6989586621679810884"><span class="annot"><span class="annottext">ReadPrec [ProgressCounters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810887"><span id="local-6989586621679810889"><span id="local-6989586621679810891"><span id="local-6989586621679810893"><span class="annot"><span class="annottext">ReadPrec [ProgressCounters]
 ReadPrec ProgressCounters
 Int -&gt; ReadS ProgressCounters
 ReadS [ProgressCounters]
@@ -84,7 +84,7 @@ readList :: ReadS [ProgressCounters]
 $creadList :: ReadS [ProgressCounters]
 readsPrec :: Int -&gt; ReadS ProgressCounters
 $creadsPrec :: Int -&gt; ReadS ProgressCounters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810871"><span id="local-6989586621679810873"><span id="local-6989586621679810875"><span class="annot"><span class="annottext">Int -&gt; ProgressCounters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810880"><span id="local-6989586621679810882"><span id="local-6989586621679810884"><span class="annot"><span class="annottext">Int -&gt; ProgressCounters -&gt; ShowS
 [ProgressCounters] -&gt; ShowS
 ProgressCounters -&gt; String
 (Int -&gt; ProgressCounters -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; (ProgressCounters -&gt; Maybe Int -&gt; ProgressCounters)
 -&gt; Lens ProgressCounters ProgressCounters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810862"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810871"><span class="annot"><span class="annottext">Maybe Int
 failedSteps :: Maybe Int
 $sel:failedSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
-</span><a href="#local-6989586621679810862"><span class="hs-identifier hs-var hs-var">failedSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810862"><span class="hs-identifier hs-var">failedSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810861"><span class="annot"><span class="annottext">s :: ProgressCounters
-</span><a href="#local-6989586621679810861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810860"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
-</span><a href="#local-6989586621679810861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedSteps:ProgressCounters' :: Maybe Int
+</span><a href="#local-6989586621679810871"><span class="hs-identifier hs-var hs-var">failedSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810871"><span class="hs-identifier hs-var">failedSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810870"><span class="annot"><span class="annottext">s :: ProgressCounters
+</span><a href="#local-6989586621679810870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810869"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
+</span><a href="#local-6989586621679810870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedSteps:ProgressCounters' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.ProgressCounters.html#%24sel%3AfailedSteps%3AProgressCounters%27"><span class="hs-identifier hs-var">failedSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The total number of steps that the system cancelled in all specified</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- Amazon Web Services Regions and Amazon Web Services accounts for the</span><span>
@@ -201,16 +201,16 @@ $sel:failedSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
 -&gt; (ProgressCounters -&gt; Maybe Int -&gt; ProgressCounters)
 -&gt; Lens ProgressCounters ProgressCounters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810858"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810867"><span class="annot"><span class="annottext">Maybe Int
 cancelledSteps :: Maybe Int
 $sel:cancelledSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
-</span><a href="#local-6989586621679810858"><span class="hs-identifier hs-var hs-var">cancelledSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810858"><span class="hs-identifier hs-var">cancelledSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810857"><span class="annot"><span class="annottext">s :: ProgressCounters
-</span><a href="#local-6989586621679810857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810856"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
-</span><a href="#local-6989586621679810857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cancelledSteps:ProgressCounters' :: Maybe Int
+</span><a href="#local-6989586621679810867"><span class="hs-identifier hs-var hs-var">cancelledSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810867"><span class="hs-identifier hs-var">cancelledSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810866"><span class="annot"><span class="annottext">s :: ProgressCounters
+</span><a href="#local-6989586621679810866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810865"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
+</span><a href="#local-6989586621679810866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cancelledSteps:ProgressCounters' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.ProgressCounters.html#%24sel%3AcancelledSteps%3AProgressCounters%27"><span class="hs-identifier hs-var">cancelledSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The total number of steps that successfully completed in all specified</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- Amazon Web Services Regions and Amazon Web Services accounts for the</span><span>
@@ -222,16 +222,16 @@ $sel:cancelledSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
 -&gt; (ProgressCounters -&gt; Maybe Int -&gt; ProgressCounters)
 -&gt; Lens ProgressCounters ProgressCounters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810854"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810863"><span class="annot"><span class="annottext">Maybe Int
 successSteps :: Maybe Int
 $sel:successSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
-</span><a href="#local-6989586621679810854"><span class="hs-identifier hs-var hs-var">successSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810854"><span class="hs-identifier hs-var">successSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810853"><span class="annot"><span class="annottext">s :: ProgressCounters
-</span><a href="#local-6989586621679810853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810852"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
-</span><a href="#local-6989586621679810853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successSteps:ProgressCounters' :: Maybe Int
+</span><a href="#local-6989586621679810863"><span class="hs-identifier hs-var hs-var">successSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810863"><span class="hs-identifier hs-var">successSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810862"><span class="annot"><span class="annottext">s :: ProgressCounters
+</span><a href="#local-6989586621679810862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810861"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
+</span><a href="#local-6989586621679810862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successSteps:ProgressCounters' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.ProgressCounters.html#%24sel%3AsuccessSteps%3AProgressCounters%27"><span class="hs-identifier hs-var">successSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The total number of steps run in all specified Amazon Web Services</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- Regions and Amazon Web Services accounts for the current Automation</span><span>
@@ -243,16 +243,16 @@ $sel:successSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
 -&gt; (ProgressCounters -&gt; Maybe Int -&gt; ProgressCounters)
 -&gt; Lens ProgressCounters ProgressCounters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810850"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810859"><span class="annot"><span class="annottext">Maybe Int
 totalSteps :: Maybe Int
 $sel:totalSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
-</span><a href="#local-6989586621679810850"><span class="hs-identifier hs-var hs-var">totalSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810850"><span class="hs-identifier hs-var">totalSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810849"><span class="annot"><span class="annottext">s :: ProgressCounters
-</span><a href="#local-6989586621679810849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810848"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
-</span><a href="#local-6989586621679810849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalSteps:ProgressCounters' :: Maybe Int
+</span><a href="#local-6989586621679810859"><span class="hs-identifier hs-var hs-var">totalSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810859"><span class="hs-identifier hs-var">totalSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810858"><span class="annot"><span class="annottext">s :: ProgressCounters
+</span><a href="#local-6989586621679810858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810857"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
+</span><a href="#local-6989586621679810858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalSteps:ProgressCounters' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.ProgressCounters.html#%24sel%3AtotalSteps%3AProgressCounters%27"><span class="hs-identifier hs-var">totalSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The total number of steps that timed out in all specified Amazon Web</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- Services Regions and Amazon Web Services accounts for the current</span><span>
@@ -264,19 +264,19 @@ $sel:totalSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
 -&gt; (ProgressCounters -&gt; Maybe Int -&gt; ProgressCounters)
 -&gt; Lens ProgressCounters ProgressCounters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810846"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810855"><span class="annot"><span class="annottext">Maybe Int
 timedOutSteps :: Maybe Int
 $sel:timedOutSteps:ProgressCounters' :: ProgressCounters -&gt; Maybe Int
-</span><a href="#local-6989586621679810846"><span class="hs-identifier hs-var hs-var">timedOutSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810846"><span class="hs-identifier hs-var">timedOutSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810845"><span class="annot"><span class="annottext">s :: ProgressCounters
-</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810844"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
-</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedOutSteps:ProgressCounters' :: Maybe Int
+</span><a href="#local-6989586621679810855"><span class="hs-identifier hs-var hs-var">timedOutSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810855"><span class="hs-identifier hs-var">timedOutSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810854"><span class="annot"><span class="annottext">s :: ProgressCounters
+</span><a href="#local-6989586621679810854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters%27"><span class="hs-identifier hs-type">ProgressCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810853"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679810853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressCounters
+</span><a href="#local-6989586621679810854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedOutSteps:ProgressCounters' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.ProgressCounters.html#%24sel%3AtimedOutSteps%3AProgressCounters%27"><span class="hs-identifier hs-var">timedOutSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679810844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810841"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679810839"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProgressCounters
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810850"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679810848"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProgressCounters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProgressCounters)
@@ -286,8 +286,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProgressCounters&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810836"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810845"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -307,7 +307,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; ProgressCounters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailedSteps&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,7 +318,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; ProgressCounters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CancelledSteps&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,7 +327,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; ProgressCounters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SuccessSteps&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; ProgressCounters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalSteps&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,13 +343,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser ProgressCounters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679810845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimedOutSteps&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810830"><span id="local-6989586621679810832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810839"><span id="local-6989586621679810841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ProgressCounters.html#ProgressCounters"><span class="hs-identifier hs-type">ProgressCounters</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679364071"><span id="local-6989586621679364072"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiKeySourceType"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType"><span class="hs-identifier hs-var">ApiKeySourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiKeySourceType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType%27"><span class="hs-identifier hs-var">ApiKeySourceType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679364080"><span id="local-6989586621679364081"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiKeySourceType"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType"><span class="hs-identifier hs-var">ApiKeySourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiKeySourceType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeySourceType.html#ApiKeySourceType%27"><span class="hs-identifier hs-var">ApiKeySourceType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApiKeySourceType"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.ApiKeySourceType.html#fromApiKeySourceType"><span class="hs-identifier hs-var hs-var">fromApiKeySourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364063"><span id="local-6989586621679364065"><span id="local-6989586621679364067"><span class="annot"><span class="annottext">Int -&gt; ApiKeySourceType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364072"><span id="local-6989586621679364074"><span id="local-6989586621679364076"><span class="annot"><span class="annottext">Int -&gt; ApiKeySourceType -&gt; ShowS
 [ApiKeySourceType] -&gt; ShowS
 ApiKeySourceType -&gt; String
 (Int -&gt; ApiKeySourceType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ApiKeySourceType -&gt; String
 showsPrec :: Int -&gt; ApiKeySourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApiKeySourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679364054"><span id="local-6989586621679364056"><span id="local-6989586621679364058"><span id="local-6989586621679364060"><span class="annot"><span class="annottext">ReadPrec [ApiKeySourceType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679364063"><span id="local-6989586621679364065"><span id="local-6989586621679364067"><span id="local-6989586621679364069"><span class="annot"><span class="annottext">ReadPrec [ApiKeySourceType]
 ReadPrec ApiKeySourceType
 Int -&gt; ReadS ApiKeySourceType
 ReadS [ApiKeySourceType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ApiKeySourceType]
 readsPrec :: Int -&gt; ReadS ApiKeySourceType
 $creadsPrec :: Int -&gt; ReadS ApiKeySourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364049"><span id="local-6989586621679364051"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364058"><span id="local-6989586621679364060"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool
 (ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool)
 -&gt; (ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool)
 -&gt; Eq ApiKeySourceType
@@ -82,7 +82,7 @@ $c/= :: ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool
 == :: ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool
 $c== :: ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364033"><span id="local-6989586621679364035"><span id="local-6989586621679364037"><span id="local-6989586621679364039"><span id="local-6989586621679364041"><span id="local-6989586621679364043"><span id="local-6989586621679364045"><span class="annot"><span class="annottext">Eq ApiKeySourceType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364042"><span id="local-6989586621679364044"><span id="local-6989586621679364046"><span id="local-6989586621679364048"><span id="local-6989586621679364050"><span id="local-6989586621679364052"><span id="local-6989586621679364054"><span class="annot"><span class="annottext">Eq ApiKeySourceType
 Eq ApiKeySourceType
 -&gt; (ApiKeySourceType -&gt; ApiKeySourceType -&gt; Ordering)
 -&gt; (ApiKeySourceType -&gt; ApiKeySourceType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ApiKeySourceType -&gt; Rep ApiKeySourceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364025"><span id="local-6989586621679364027"><span class="annot"><span class="annottext">Int -&gt; ApiKeySourceType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364034"><span id="local-6989586621679364036"><span class="annot"><span class="annottext">Int -&gt; ApiKeySourceType -&gt; Int
 ApiKeySourceType -&gt; Int
 (Int -&gt; ApiKeySourceType -&gt; Int)
 -&gt; (ApiKeySourceType -&gt; Int) -&gt; Hashable ApiKeySourceType
@@ -143,51 +143,51 @@ $chash :: ApiKeySourceType -&gt; Int
 hashWithSalt :: Int -&gt; ApiKeySourceType -&gt; Int
 $chashWithSalt :: Int -&gt; ApiKeySourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364022"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364031"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ()
 (ApiKeySourceType -&gt; ()) -&gt; NFData ApiKeySourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApiKeySourceType -&gt; ()
 $crnf :: ApiKeySourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364019"><span class="annot"><span class="annottext">Text -&gt; Either String ApiKeySourceType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364028"><span class="annot"><span class="annottext">Text -&gt; Either String ApiKeySourceType
 (Text -&gt; Either String ApiKeySourceType)
 -&gt; FromText ApiKeySourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApiKeySourceType
 $cfromText :: Text -&gt; Either String ApiKeySourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364016"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364025"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; Text
 (ApiKeySourceType -&gt; Text) -&gt; ToText ApiKeySourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApiKeySourceType -&gt; Text
 $ctoText :: ApiKeySourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364013"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364022"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ByteString
 (ApiKeySourceType -&gt; ByteString) -&gt; ToByteString ApiKeySourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApiKeySourceType -&gt; ByteString
 $ctoBS :: ApiKeySourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364010"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364019"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; ByteStringBuilder
 (ApiKeySourceType -&gt; ByteStringBuilder) -&gt; ToLog ApiKeySourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApiKeySourceType -&gt; ByteStringBuilder
 $cbuild :: ApiKeySourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364007"><span class="annot"><span class="annottext">HeaderName -&gt; ApiKeySourceType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364016"><span class="annot"><span class="annottext">HeaderName -&gt; ApiKeySourceType -&gt; [Header]
 (HeaderName -&gt; ApiKeySourceType -&gt; [Header])
 -&gt; ToHeader ApiKeySourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApiKeySourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApiKeySourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364004"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364013"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; QueryString
 (ApiKeySourceType -&gt; QueryString) -&gt; ToQuery ApiKeySourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApiKeySourceType -&gt; QueryString
 $ctoQuery :: ApiKeySourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679363999"><span id="local-6989586621679364001"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiKeySourceType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364008"><span id="local-6989586621679364010"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiKeySourceType]
 Value -&gt; Parser ApiKeySourceType
 (Value -&gt; Parser ApiKeySourceType)
 -&gt; (Value -&gt; Parser [ApiKeySourceType])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ApiKeySourceType]
 parseJSON :: Value -&gt; Parser ApiKeySourceType
 $cparseJSON :: Value -&gt; Parser ApiKeySourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679363994"><span id="local-6989586621679363996"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiKeySourceType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364003"><span id="local-6989586621679364005"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiKeySourceType]
 FromJSONKeyFunction ApiKeySourceType
 FromJSONKeyFunction ApiKeySourceType
 -&gt; FromJSONKeyFunction [ApiKeySourceType]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApiKeySourceType]
 fromJSONKey :: FromJSONKeyFunction ApiKeySourceType
 $cfromJSONKey :: FromJSONKeyFunction ApiKeySourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679363985"><span id="local-6989586621679363987"><span id="local-6989586621679363989"><span id="local-6989586621679363991"><span class="annot"><span class="annottext">[ApiKeySourceType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679363994"><span id="local-6989586621679363996"><span id="local-6989586621679363998"><span id="local-6989586621679364000"><span class="annot"><span class="annottext">[ApiKeySourceType] -&gt; Encoding
 [ApiKeySourceType] -&gt; Value
 ApiKeySourceType -&gt; Encoding
 ApiKeySourceType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ApiKeySourceType -&gt; Encoding
 toJSON :: ApiKeySourceType -&gt; Value
 $ctoJSON :: ApiKeySourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363980"><span id="local-6989586621679363982"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiKeySourceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363989"><span id="local-6989586621679363991"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiKeySourceType]
 ToJSONKeyFunction ApiKeySourceType
 ToJSONKeyFunction ApiKeySourceType
 -&gt; ToJSONKeyFunction [ApiKeySourceType]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApiKeySourceType]
 toJSONKey :: ToJSONKeyFunction ApiKeySourceType
 $ctoJSONKey :: ToJSONKeyFunction ApiKeySourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363977"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiKeySourceType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363986"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiKeySourceType
 ([Node] -&gt; Either String ApiKeySourceType)
 -&gt; FromXML ApiKeySourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApiKeySourceType
 $cparseXML :: [Node] -&gt; Either String ApiKeySourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363974"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363983"><span class="annot"><span class="annottext">ApiKeySourceType -&gt; XML
 (ApiKeySourceType -&gt; XML) -&gt; ToXML ApiKeySourceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApiKeySourceType -&gt; XML

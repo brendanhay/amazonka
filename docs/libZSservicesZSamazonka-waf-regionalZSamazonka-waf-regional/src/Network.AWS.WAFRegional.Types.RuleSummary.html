@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span class="hs-comment">-- @Rule@.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newRuleSummary' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679307639"><span id="local-6989586621679307640"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuleSummary"><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-var">RuleSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleSummary%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-var">RuleSummary'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679307648"><span id="local-6989586621679307649"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuleSummary"><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-var">RuleSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleSummary%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-var">RuleSummary'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for a @Rule@. You use @RuleId@ to get more</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- information about a @Rule@ (see GetRule), update a @Rule@ (see</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- UpdateRule), insert a @Rule@ into a @WebACL@ or delete one from a</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3ARuleSummary%27"><span class="annot"><span class="annottext">RuleSummary -&gt; Text
 </span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#%24sel%3Aname%3ARuleSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307632"><span id="local-6989586621679307634"><span class="annot"><span class="annottext">RuleSummary -&gt; RuleSummary -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307641"><span id="local-6989586621679307643"><span class="annot"><span class="annottext">RuleSummary -&gt; RuleSummary -&gt; Bool
 (RuleSummary -&gt; RuleSummary -&gt; Bool)
 -&gt; (RuleSummary -&gt; RuleSummary -&gt; Bool) -&gt; Eq RuleSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RuleSummary -&gt; RuleSummary -&gt; Bool
 == :: RuleSummary -&gt; RuleSummary -&gt; Bool
 $c== :: RuleSummary -&gt; RuleSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307623"><span id="local-6989586621679307625"><span id="local-6989586621679307627"><span id="local-6989586621679307629"><span class="annot"><span class="annottext">ReadPrec [RuleSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307632"><span id="local-6989586621679307634"><span id="local-6989586621679307636"><span id="local-6989586621679307638"><span class="annot"><span class="annottext">ReadPrec [RuleSummary]
 ReadPrec RuleSummary
 Int -&gt; ReadS RuleSummary
 ReadS [RuleSummary]
@@ -79,7 +79,7 @@ readList :: ReadS [RuleSummary]
 $creadList :: ReadS [RuleSummary]
 readsPrec :: Int -&gt; ReadS RuleSummary
 $creadsPrec :: Int -&gt; ReadS RuleSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307616"><span id="local-6989586621679307618"><span id="local-6989586621679307620"><span class="annot"><span class="annottext">Int -&gt; RuleSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307625"><span id="local-6989586621679307627"><span id="local-6989586621679307629"><span class="annot"><span class="annottext">Int -&gt; RuleSummary -&gt; ShowS
 [RuleSummary] -&gt; ShowS
 RuleSummary -&gt; String
 (Int -&gt; RuleSummary -&gt; ShowS)
@@ -130,15 +130,15 @@ $cfrom :: forall x. RuleSummary -&gt; Rep RuleSummary x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span><span>
 </span><span id="line-78"></span><span id="newRuleSummary"><span class="annot"><span class="annottext">newRuleSummary :: Text -&gt; Text -&gt; RuleSummary
-</span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#newRuleSummary"><span class="hs-identifier hs-var hs-var">newRuleSummary</span></a></span></span><span> </span><span id="local-6989586621679307610"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307610"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679307609"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307609"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#newRuleSummary"><span class="hs-identifier hs-var hs-var">newRuleSummary</span></a></span></span><span> </span><span id="local-6989586621679307619"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307619"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679307618"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307618"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">RuleSummary' :: Text -&gt; Text -&gt; RuleSummary
 </span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:RuleSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#%24sel%3AruleId%3ARuleSummary%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307610"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:name:RuleSummary' :: Text
+</span><a href="#local-6989586621679307619"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:name:RuleSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#%24sel%3Aname%3ARuleSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307609"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679307618"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | A unique identifier for a @Rule@. You use @RuleId@ to get more</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- information about a @Rule@ (see GetRule), update a @Rule@ (see</span><span>
@@ -153,16 +153,16 @@ $cfrom :: forall x. RuleSummary -&gt; Rep RuleSummary x
 -&gt; (RuleSummary -&gt; Text -&gt; RuleSummary)
 -&gt; Lens RuleSummary RuleSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307605"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307614"><span class="annot"><span class="annottext">Text
 ruleId :: Text
 $sel:ruleId:RuleSummary' :: RuleSummary -&gt; Text
-</span><a href="#local-6989586621679307605"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307605"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307604"><span class="annot"><span class="annottext">s :: RuleSummary
-</span><a href="#local-6989586621679307604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307603"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleSummary
-</span><a href="#local-6989586621679307604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:RuleSummary' :: Text
+</span><a href="#local-6989586621679307614"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307614"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307613"><span class="annot"><span class="annottext">s :: RuleSummary
+</span><a href="#local-6989586621679307613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleSummary
+</span><a href="#local-6989586621679307613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:RuleSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#%24sel%3AruleId%3ARuleSummary%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A friendly name or description of the Rule. You can\'t change the name</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- of a @Rule@ after you create it.</span><span>
@@ -172,19 +172,19 @@ $sel:ruleId:RuleSummary' :: RuleSummary -&gt; Text
 -&gt; (RuleSummary -&gt; Text -&gt; RuleSummary)
 -&gt; Lens RuleSummary RuleSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307601"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307610"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:RuleSummary' :: RuleSummary -&gt; Text
-</span><a href="#local-6989586621679307601"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307601"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307600"><span class="annot"><span class="annottext">s :: RuleSummary
-</span><a href="#local-6989586621679307600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307599"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleSummary
-</span><a href="#local-6989586621679307600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RuleSummary' :: Text
+</span><a href="#local-6989586621679307610"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307610"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307609"><span class="annot"><span class="annottext">s :: RuleSummary
+</span><a href="#local-6989586621679307609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-type">RuleSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleSummary
+</span><a href="#local-6989586621679307609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RuleSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#%24sel%3Aname%3ARuleSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307596"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679307594"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RuleSummary
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307605"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679307603"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RuleSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RuleSummary) -&gt; Value -&gt; Parser RuleSummary
@@ -192,27 +192,27 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RuleSummary&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307591"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307591"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307600"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307600"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; RuleSummary
 </span><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary%27"><span class="hs-identifier hs-var">RuleSummary'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; RuleSummary)
 -&gt; Parser Text -&gt; Parser (Text -&gt; RuleSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679307600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleId&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; RuleSummary) -&gt; Parser Text -&gt; Parser RuleSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679307600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307585"><span id="local-6989586621679307587"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307594"><span id="local-6989586621679307596"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307582"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span></span><span>
 </span><span id="line-108"></span></pre></body></html>

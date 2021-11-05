@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A name and value pair that is specific to the engine of the server.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEngineAttribute' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679190476"><span id="local-6989586621679190477"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineAttribute"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-var">EngineAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineAttribute%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-var">EngineAttribute'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679190485"><span id="local-6989586621679190486"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineAttribute"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-var">EngineAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineAttribute%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-var">EngineAttribute'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the engine attribute.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalue%3AEngineAttribute%27"><span class="annot"><span class="annottext">EngineAttribute -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#%24sel%3Avalue%3AEngineAttribute%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AEngineAttribute%27"><span class="annot"><span class="annottext">EngineAttribute -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#%24sel%3Aname%3AEngineAttribute%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190469"><span id="local-6989586621679190471"><span class="annot"><span class="annottext">EngineAttribute -&gt; EngineAttribute -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190478"><span id="local-6989586621679190480"><span class="annot"><span class="annottext">EngineAttribute -&gt; EngineAttribute -&gt; Bool
 (EngineAttribute -&gt; EngineAttribute -&gt; Bool)
 -&gt; (EngineAttribute -&gt; EngineAttribute -&gt; Bool)
 -&gt; Eq EngineAttribute
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EngineAttribute -&gt; EngineAttribute -&gt; Bool
 == :: EngineAttribute -&gt; EngineAttribute -&gt; Bool
 $c== :: EngineAttribute -&gt; EngineAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190462"><span id="local-6989586621679190464"><span id="local-6989586621679190466"><span class="annot"><span class="annottext">Int -&gt; EngineAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190471"><span id="local-6989586621679190473"><span id="local-6989586621679190475"><span class="annot"><span class="annottext">Int -&gt; EngineAttribute -&gt; ShowS
 [EngineAttribute] -&gt; ShowS
 EngineAttribute -&gt; String
 (Int -&gt; EngineAttribute -&gt; ShowS)
@@ -108,16 +108,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190453"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190462"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 value :: Maybe (Sensitive Text)
 $sel:value:EngineAttribute' :: EngineAttribute -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679190453"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679190453"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190452"><span class="annot"><span class="annottext">s :: EngineAttribute
-</span><a href="#local-6989586621679190452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190451"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679190451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineAttribute
-</span><a href="#local-6989586621679190452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EngineAttribute' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679190462"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679190462"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190461"><span class="annot"><span class="annottext">s :: EngineAttribute
+</span><a href="#local-6989586621679190461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190460"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679190460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineAttribute
+</span><a href="#local-6989586621679190461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EngineAttribute' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#%24sel%3Avalue%3AEngineAttribute%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679190451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679190460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; EngineAttribute -&gt; f EngineAttribute)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -146,19 +146,19 @@ forall a. Iso' (Sensitive a) a
 -&gt; (EngineAttribute -&gt; Maybe Text -&gt; EngineAttribute)
 -&gt; Lens EngineAttribute EngineAttribute (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190446"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190455"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:EngineAttribute' :: EngineAttribute -&gt; Maybe Text
-</span><a href="#local-6989586621679190446"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190446"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190445"><span class="annot"><span class="annottext">s :: EngineAttribute
-</span><a href="#local-6989586621679190445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190444"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineAttribute
-</span><a href="#local-6989586621679190445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EngineAttribute' :: Maybe Text
+</span><a href="#local-6989586621679190455"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190455"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190454"><span class="annot"><span class="annottext">s :: EngineAttribute
+</span><a href="#local-6989586621679190454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190453"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineAttribute
+</span><a href="#local-6989586621679190454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EngineAttribute' :: Maybe Text
 </span><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#%24sel%3Aname%3AEngineAttribute%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679190453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190441"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679190439"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EngineAttribute
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190450"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679190448"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EngineAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EngineAttribute)
@@ -168,8 +168,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EngineAttribute&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190436"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190445"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text) -&gt; Maybe Text -&gt; EngineAttribute
 </span><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-var">EngineAttribute'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text) -&gt; Maybe Text -&gt; EngineAttribute)
@@ -177,32 +177,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; EngineAttribute)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679190445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EngineAttribute)
 -&gt; Parser (Maybe Text) -&gt; Parser EngineAttribute
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679190445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190430"><span id="local-6989586621679190432"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190439"><span id="local-6989586621679190441"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190419"><span id="local-6989586621679190421"><span id="local-6989586621679190423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679190417"><span class="annot"><span class="annottext">toJSON :: EngineAttribute -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190414"><span id="local-6989586621679190415"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190428"><span id="local-6989586621679190430"><span id="local-6989586621679190432"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier hs-type">EngineAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679190426"><span class="annot"><span class="annottext">toJSON :: EngineAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute%27"><span class="hs-identifier hs-type">EngineAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190423"><span id="local-6989586621679190424"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 name :: Maybe Text
 value :: Maybe (Sensitive Text)
 $sel:name:EngineAttribute' :: EngineAttribute -&gt; Maybe Text
 $sel:value:EngineAttribute' :: EngineAttribute -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679190414"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679190423"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -214,14 +214,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679190415"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679190424"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190414"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><a href="#local-6989586621679190423"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information about an application.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newApplicationResponse' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679591648"><span id="local-6989586621679591649"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-var">ApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-var">ApplicationResponse'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679591657"><span id="local-6989586621679591658"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-var">ApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-var">ApplicationResponse'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string-to-string map of key-value pairs that identifies the tags that</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- are associated with the application. Each tag consists of a required tag</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- key and an associated tag value.</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AApplicationResponse%27"><span class="annot"><span class="annottext">ApplicationResponse -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Aname%3AApplicationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591639"><span id="local-6989586621679591641"><span class="annot"><span class="annottext">ApplicationResponse -&gt; ApplicationResponse -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591648"><span id="local-6989586621679591650"><span class="annot"><span class="annottext">ApplicationResponse -&gt; ApplicationResponse -&gt; Bool
 (ApplicationResponse -&gt; ApplicationResponse -&gt; Bool)
 -&gt; (ApplicationResponse -&gt; ApplicationResponse -&gt; Bool)
 -&gt; Eq ApplicationResponse
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApplicationResponse -&gt; ApplicationResponse -&gt; Bool
 == :: ApplicationResponse -&gt; ApplicationResponse -&gt; Bool
 $c== :: ApplicationResponse -&gt; ApplicationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591630"><span id="local-6989586621679591632"><span id="local-6989586621679591634"><span id="local-6989586621679591636"><span class="annot"><span class="annottext">ReadPrec [ApplicationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591639"><span id="local-6989586621679591641"><span id="local-6989586621679591643"><span id="local-6989586621679591645"><span class="annot"><span class="annottext">ReadPrec [ApplicationResponse]
 ReadPrec ApplicationResponse
 Int -&gt; ReadS ApplicationResponse
 ReadS [ApplicationResponse]
@@ -73,7 +73,7 @@ readList :: ReadS [ApplicationResponse]
 $creadList :: ReadS [ApplicationResponse]
 readsPrec :: Int -&gt; ReadS ApplicationResponse
 $creadsPrec :: Int -&gt; ReadS ApplicationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591623"><span id="local-6989586621679591625"><span id="local-6989586621679591627"><span class="annot"><span class="annottext">Int -&gt; ApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591632"><span id="local-6989586621679591634"><span id="local-6989586621679591636"><span class="annot"><span class="annottext">Int -&gt; ApplicationResponse -&gt; ShowS
 [ApplicationResponse] -&gt; ShowS
 ApplicationResponse -&gt; String
 (Int -&gt; ApplicationResponse -&gt; ShowS)
@@ -127,10 +127,10 @@ $cfrom :: forall x. ApplicationResponse -&gt; Rep ApplicationResponse x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span>
 </span><span id="line-72"></span><span id="newApplicationResponse"><span class="annot"><span class="annottext">newApplicationResponse :: Text -&gt; Text -&gt; Text -&gt; ApplicationResponse
-</span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#newApplicationResponse"><span class="hs-identifier hs-var hs-var">newApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679591617"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591617"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679591616"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591616"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679591615"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591615"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#newApplicationResponse"><span class="hs-identifier hs-var hs-var">newApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679591626"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591626"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679591625"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591625"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679591624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591624"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ApplicationResponse' :: Maybe (HashMap Text Text)
 -&gt; Text -&gt; Text -&gt; Text -&gt; ApplicationResponse
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span>
@@ -140,13 +140,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ApplicationResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Aid%3AApplicationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591617"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679591626"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ApplicationResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Aarn%3AApplicationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591616"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679591625"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ApplicationResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Aname%3AApplicationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591615"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679591624"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A string-to-string map of key-value pairs that identifies the tags that</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591611"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591620"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ApplicationResponse' :: ApplicationResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679591611"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679591611"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591610"><span class="annot"><span class="annottext">s :: ApplicationResponse
-</span><a href="#local-6989586621679591610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591609"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679591609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679591610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ApplicationResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679591620"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679591620"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591619"><span class="annot"><span class="annottext">s :: ApplicationResponse
+</span><a href="#local-6989586621679591619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591618"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679591618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
+</span><a href="#local-6989586621679591619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ApplicationResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Atags%3AApplicationResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679591609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679591618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ApplicationResponse -&gt; f ApplicationResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -210,16 +210,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ApplicationResponse -&gt; Text -&gt; ApplicationResponse)
 -&gt; Lens ApplicationResponse ApplicationResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591604"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591613"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ApplicationResponse' :: ApplicationResponse -&gt; Text
-</span><a href="#local-6989586621679591604"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591604"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591603"><span class="annot"><span class="annottext">s :: ApplicationResponse
-</span><a href="#local-6989586621679591603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591602"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679591603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ApplicationResponse' :: Text
+</span><a href="#local-6989586621679591613"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591613"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591612"><span class="annot"><span class="annottext">s :: ApplicationResponse
+</span><a href="#local-6989586621679591612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591611"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
+</span><a href="#local-6989586621679591612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ApplicationResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Aid%3AApplicationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679591611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#applicationResponse_arn"><span class="hs-identifier hs-type">applicationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -228,16 +228,16 @@ $sel:id:ApplicationResponse' :: ApplicationResponse -&gt; Text
 -&gt; (ApplicationResponse -&gt; Text -&gt; ApplicationResponse)
 -&gt; Lens ApplicationResponse ApplicationResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591600"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591609"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:ApplicationResponse' :: ApplicationResponse -&gt; Text
-</span><a href="#local-6989586621679591600"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591600"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591599"><span class="annot"><span class="annottext">s :: ApplicationResponse
-</span><a href="#local-6989586621679591599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591598"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679591599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ApplicationResponse' :: Text
+</span><a href="#local-6989586621679591609"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591609"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591608"><span class="annot"><span class="annottext">s :: ApplicationResponse
+</span><a href="#local-6989586621679591608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
+</span><a href="#local-6989586621679591608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ApplicationResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Aarn%3AApplicationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679591607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The display name of the application. This name is displayed as the</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- __Project name__ on the Amazon Pinpoint console.</span><span>
@@ -247,19 +247,19 @@ $sel:arn:ApplicationResponse' :: ApplicationResponse -&gt; Text
 -&gt; (ApplicationResponse -&gt; Text -&gt; ApplicationResponse)
 -&gt; Lens ApplicationResponse ApplicationResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591596"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591605"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ApplicationResponse' :: ApplicationResponse -&gt; Text
-</span><a href="#local-6989586621679591596"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591596"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591595"><span class="annot"><span class="annottext">s :: ApplicationResponse
-</span><a href="#local-6989586621679591595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591594"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679591595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ApplicationResponse' :: Text
+</span><a href="#local-6989586621679591605"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591605"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591604"><span class="annot"><span class="annottext">s :: ApplicationResponse
+</span><a href="#local-6989586621679591604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-type">ApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591603"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
+</span><a href="#local-6989586621679591604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ApplicationResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#%24sel%3Aname%3AApplicationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679591594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679591603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679591589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationResponse
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679591598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ApplicationResponse)
@@ -269,8 +269,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ApplicationResponse&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591586"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591595"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Text -&gt; Text -&gt; Text -&gt; ApplicationResponse
 </span><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse%27"><span class="hs-identifier hs-var">ApplicationResponse'</span></a></span><span>
@@ -280,7 +280,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; ApplicationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679591595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; ApplicationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679591595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,7 +301,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; ApplicationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679591595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -309,13 +309,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ApplicationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679591595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591578"><span id="local-6989586621679591580"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591587"><span id="local-6989586621679591589"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span></span><span>
 </span><span id="line-115"></span></pre></body></html>

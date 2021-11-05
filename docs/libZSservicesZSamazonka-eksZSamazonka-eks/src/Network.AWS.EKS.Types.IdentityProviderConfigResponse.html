@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The full description of your identity configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIdentityProviderConfigResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679268336"><span id="local-6989586621679268337"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityProviderConfigResponse"><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-var">IdentityProviderConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityProviderConfigResponse%27"><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse%27"><span class="hs-identifier hs-var">IdentityProviderConfigResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679268345"><span id="local-6989586621679268346"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityProviderConfigResponse"><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-var">IdentityProviderConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityProviderConfigResponse%27"><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse%27"><span class="hs-identifier hs-var">IdentityProviderConfigResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents an OpenID Connect (OIDC) identity provider</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aoidc%3AIdentityProviderConfigResponse%27"><span class="annot"><span class="annottext">IdentityProviderConfigResponse -&gt; Maybe OidcIdentityProviderConfig
 </span><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#%24sel%3Aoidc%3AIdentityProviderConfigResponse%27"><span class="hs-identifier hs-var hs-var">oidc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OidcIdentityProviderConfig.html#OidcIdentityProviderConfig"><span class="hs-identifier hs-type">OidcIdentityProviderConfig</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268330"><span id="local-6989586621679268332"><span class="annot"><span class="annottext">IdentityProviderConfigResponse
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268339"><span id="local-6989586621679268341"><span class="annot"><span class="annottext">IdentityProviderConfigResponse
 -&gt; IdentityProviderConfigResponse -&gt; Bool
 (IdentityProviderConfigResponse
  -&gt; IdentityProviderConfigResponse -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: IdentityProviderConfigResponse
 -&gt; IdentityProviderConfigResponse -&gt; Bool
 $c== :: IdentityProviderConfigResponse
 -&gt; IdentityProviderConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268321"><span id="local-6989586621679268323"><span id="local-6989586621679268325"><span id="local-6989586621679268327"><span class="annot"><span class="annottext">ReadPrec [IdentityProviderConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268330"><span id="local-6989586621679268332"><span id="local-6989586621679268334"><span id="local-6989586621679268336"><span class="annot"><span class="annottext">ReadPrec [IdentityProviderConfigResponse]
 ReadPrec IdentityProviderConfigResponse
 Int -&gt; ReadS IdentityProviderConfigResponse
 ReadS [IdentityProviderConfigResponse]
@@ -69,7 +69,7 @@ readList :: ReadS [IdentityProviderConfigResponse]
 $creadList :: ReadS [IdentityProviderConfigResponse]
 readsPrec :: Int -&gt; ReadS IdentityProviderConfigResponse
 $creadsPrec :: Int -&gt; ReadS IdentityProviderConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268314"><span id="local-6989586621679268316"><span id="local-6989586621679268318"><span class="annot"><span class="annottext">Int -&gt; IdentityProviderConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268323"><span id="local-6989586621679268325"><span id="local-6989586621679268327"><span class="annot"><span class="annottext">Int -&gt; IdentityProviderConfigResponse -&gt; ShowS
 [IdentityProviderConfigResponse] -&gt; ShowS
 IdentityProviderConfigResponse -&gt; String
 (Int -&gt; IdentityProviderConfigResponse -&gt; ShowS)
@@ -148,19 +148,19 @@ forall a. Maybe a
      (Maybe OidcIdentityProviderConfig)
      (Maybe OidcIdentityProviderConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse%27"><span class="hs-identifier hs-type">IdentityProviderConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268305"><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse%27"><span class="hs-identifier hs-type">IdentityProviderConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268314"><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig
 oidc :: Maybe OidcIdentityProviderConfig
 $sel:oidc:IdentityProviderConfigResponse' :: IdentityProviderConfigResponse -&gt; Maybe OidcIdentityProviderConfig
-</span><a href="#local-6989586621679268305"><span class="hs-identifier hs-var hs-var">oidc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig
-</span><a href="#local-6989586621679268305"><span class="hs-identifier hs-var">oidc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268304"><span class="annot"><span class="annottext">s :: IdentityProviderConfigResponse
-</span><a href="#local-6989586621679268304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse%27"><span class="hs-identifier hs-type">IdentityProviderConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268303"><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig
-</span><a href="#local-6989586621679268303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityProviderConfigResponse
-</span><a href="#local-6989586621679268304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidc:IdentityProviderConfigResponse' :: Maybe OidcIdentityProviderConfig
+</span><a href="#local-6989586621679268314"><span class="hs-identifier hs-var hs-var">oidc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig
+</span><a href="#local-6989586621679268314"><span class="hs-identifier hs-var">oidc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268313"><span class="annot"><span class="annottext">s :: IdentityProviderConfigResponse
+</span><a href="#local-6989586621679268313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse%27"><span class="hs-identifier hs-type">IdentityProviderConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268312"><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig
+</span><a href="#local-6989586621679268312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityProviderConfigResponse
+</span><a href="#local-6989586621679268313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidc:IdentityProviderConfigResponse' :: Maybe OidcIdentityProviderConfig
 </span><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#%24sel%3Aoidc%3AIdentityProviderConfigResponse%27"><span class="hs-identifier hs-var">oidc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig
-</span><a href="#local-6989586621679268303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-type">IdentityProviderConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-type">IdentityProviderConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268300"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-type">IdentityProviderConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679268298"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IdentityProviderConfigResponse
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268309"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-type">IdentityProviderConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679268307"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IdentityProviderConfigResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IdentityProviderConfigResponse)
@@ -170,8 +170,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IdentityProviderConfigResponse&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268295"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268304"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe OidcIdentityProviderConfig -&gt; IdentityProviderConfigResponse
 </span><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse%27"><span class="hs-identifier hs-var">IdentityProviderConfigResponse'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OidcIdentityProviderConfig
@@ -180,17 +180,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser IdentityProviderConfigResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OidcIdentityProviderConfig)
+</span><a href="#local-6989586621679268304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OidcIdentityProviderConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;oidc&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679268289"><span id="local-6989586621679268291"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679268298"><span id="local-6989586621679268300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-type">IdentityProviderConfigResponse</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679268286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679268295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.Types.IdentityProviderConfigResponse.html#IdentityProviderConfigResponse"><span class="hs-identifier hs-type">IdentityProviderConfigResponse</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

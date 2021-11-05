@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSMContacts.CreateContact</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Contacts are either the contacts that Incident Manager engages during an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- incident or the escalation plans that Incident Manager uses to engage</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- contacts in phases during an incident.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMContacts.CreateContact</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier">CreateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#newCreateContact"><span class="hs-identifier">newCreateContact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_idempotencyToken"><span class="hs-identifier">createContact_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_displayName"><span class="hs-identifier">createContact_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_tags"><span class="hs-identifier">createContact_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_alias"><span class="hs-identifier">createContact_alias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_type"><span class="hs-identifier">createContact_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_plan"><span class="hs-identifier">createContact_plan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier">CreateContactResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#newCreateContactResponse"><span class="hs-identifier">newCreateContactResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContactResponse_httpStatus"><span class="hs-identifier">createContactResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContactResponse_contactArn"><span class="hs-identifier">createContactResponse_contactArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.html"><span class="hs-identifier">Network.AWS.SSMContacts.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCreateContact' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679203129"><span id="local-6989586621679203130"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContact"><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-var">CreateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContact%27"><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-var">CreateContact'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token ensuring that the operation is called only once with the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- specified details.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; Maybe Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AidempotencyToken%3ACreateContact%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The full name of the contact or escalation plan.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; Maybe Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AdisplayName%3ACreateContact%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Adds a tag to the target. You can only tag resources created in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- first Region of your replication set.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Atags%3ACreateContact%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The short name to quickly identify a contact or escalation plan. The</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- contact alias must be unique and identifiable.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aalias%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Aalias%3ACreateContact%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | To create an escalation plan use @ESCALATION@. To create a contact use</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @PERSONAL@.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; ContactType
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Atype%27%3ACreateContact%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactType.html#ContactType"><span class="hs-identifier hs-type">ContactType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A list of stages. A contact has an engagement plan with stages that</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- contact specified contact channels. An escalation plan uses stages that</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- contact specified contacts.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aplan%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; Plan
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Aplan%3ACreateContact%27"><span class="hs-identifier hs-var hs-var">plan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.Plan.html#Plan"><span class="hs-identifier hs-type">Plan</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203118"><span id="local-6989586621679203120"><span class="annot"><span class="annottext">CreateContact -&gt; CreateContact -&gt; Bool
+(CreateContact -&gt; CreateContact -&gt; Bool)
+-&gt; (CreateContact -&gt; CreateContact -&gt; Bool) -&gt; Eq CreateContact
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContact -&gt; CreateContact -&gt; Bool
+$c/= :: CreateContact -&gt; CreateContact -&gt; Bool
+== :: CreateContact -&gt; CreateContact -&gt; Bool
+$c== :: CreateContact -&gt; CreateContact -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203109"><span id="local-6989586621679203111"><span id="local-6989586621679203113"><span id="local-6989586621679203115"><span class="annot"><span class="annottext">ReadPrec [CreateContact]
+ReadPrec CreateContact
+Int -&gt; ReadS CreateContact
+ReadS [CreateContact]
+(Int -&gt; ReadS CreateContact)
+-&gt; ReadS [CreateContact]
+-&gt; ReadPrec CreateContact
+-&gt; ReadPrec [CreateContact]
+-&gt; Read CreateContact
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContact]
+$creadListPrec :: ReadPrec [CreateContact]
+readPrec :: ReadPrec CreateContact
+$creadPrec :: ReadPrec CreateContact
+readList :: ReadS [CreateContact]
+$creadList :: ReadS [CreateContact]
+readsPrec :: Int -&gt; ReadS CreateContact
+$creadsPrec :: Int -&gt; ReadS CreateContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203102"><span id="local-6989586621679203104"><span id="local-6989586621679203106"><span class="annot"><span class="annottext">Int -&gt; CreateContact -&gt; ShowS
+[CreateContact] -&gt; ShowS
+CreateContact -&gt; String
+(Int -&gt; CreateContact -&gt; ShowS)
+-&gt; (CreateContact -&gt; String)
+-&gt; ([CreateContact] -&gt; ShowS)
+-&gt; Show CreateContact
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContact] -&gt; ShowS
+$cshowList :: [CreateContact] -&gt; ShowS
+show :: CreateContact -&gt; String
+$cshow :: CreateContact -&gt; String
+showsPrec :: Int -&gt; CreateContact -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateContact -&gt; Rep CreateContact x)
+-&gt; (forall x. Rep CreateContact x -&gt; CreateContact)
+-&gt; Generic CreateContact
+forall x. Rep CreateContact x -&gt; CreateContact
+forall x. CreateContact -&gt; Rep CreateContact x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateContact x -&gt; CreateContact
+$cfrom :: forall x. CreateContact -&gt; Rep CreateContact x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'CreateContact' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'idempotencyToken', 'createContact_idempotencyToken' - A token ensuring that the operation is called only once with the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- specified details.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'displayName', 'createContact_displayName' - The full name of the contact or escalation plan.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'createContact_tags' - Adds a tag to the target. You can only tag resources created in the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- first Region of your replication set.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'alias', 'createContact_alias' - The short name to quickly identify a contact or escalation plan. The</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- contact alias must be unique and identifiable.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'type'', 'createContact_type' - To create an escalation plan use @ESCALATION@. To create a contact use</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @PERSONAL@.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'plan', 'createContact_plan' - A list of stages. A contact has an engagement plan with stages that</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- contact specified contact channels. An escalation plan uses stages that</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- contact specified contacts.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#newCreateContact"><span class="hs-identifier hs-type">newCreateContact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'alias'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactType.html#ContactType"><span class="hs-identifier hs-type">ContactType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'plan'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.Plan.html#Plan"><span class="hs-identifier hs-type">Plan</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span>
+</span><span id="line-112"></span><span id="newCreateContact"><span class="annot"><span class="annottext">newCreateContact :: Text -&gt; ContactType -&gt; Plan -&gt; CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#newCreateContact"><span class="hs-identifier hs-var hs-var">newCreateContact</span></a></span></span><span> </span><span id="local-6989586621679203097"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203097"><span class="hs-identifier hs-var">pAlias_</span></a></span></span><span> </span><span id="local-6989586621679203096"><span class="annot"><span class="annottext">ContactType
+</span><a href="#local-6989586621679203096"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679203095"><span class="annot"><span class="annottext">Plan
+</span><a href="#local-6989586621679203095"><span class="hs-identifier hs-var">pPlan_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">CreateContact' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; ContactType
+-&gt; Plan
+-&gt; CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateContact' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AidempotencyToken%3ACreateContact%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateContact' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AdisplayName%3ACreateContact%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateContact' :: Maybe [Tag]
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Atags%3ACreateContact%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:CreateContact' :: Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Aalias%3ACreateContact%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203097"><span class="hs-identifier hs-var">pAlias_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CreateContact' :: ContactType
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Atype%27%3ACreateContact%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactType
+</span><a href="#local-6989586621679203096"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:plan:CreateContact' :: Plan
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Aplan%3ACreateContact%27"><span class="hs-identifier hs-var">plan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Plan
+</span><a href="#local-6989586621679203095"><span class="hs-identifier hs-var">pPlan_</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A token ensuring that the operation is called only once with the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- specified details.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_idempotencyToken"><span class="hs-identifier hs-type">createContact_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createContact_idempotencyToken"><span class="annot"><span class="annottext">createContact_idempotencyToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateContact -&gt; f CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_idempotencyToken"><span class="hs-identifier hs-var hs-var">createContact_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContact -&gt; Maybe Text)
+-&gt; (CreateContact -&gt; Maybe Text -&gt; CreateContact)
+-&gt; Lens CreateContact CreateContact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203092"><span class="annot"><span class="annottext">Maybe Text
+idempotencyToken :: Maybe Text
+$sel:idempotencyToken:CreateContact' :: CreateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679203092"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203092"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203091"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679203091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203090"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679203091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateContact' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AidempotencyToken%3ACreateContact%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The full name of the contact or escalation plan.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_displayName"><span class="hs-identifier hs-type">createContact_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="createContact_displayName"><span class="annot"><span class="annottext">createContact_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateContact -&gt; f CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_displayName"><span class="hs-identifier hs-var hs-var">createContact_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContact -&gt; Maybe Text)
+-&gt; (CreateContact -&gt; Maybe Text -&gt; CreateContact)
+-&gt; Lens CreateContact CreateContact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203089"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:CreateContact' :: CreateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679203089"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203089"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203088"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679203088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679203088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateContact' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AdisplayName%3ACreateContact%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Adds a tag to the target. You can only tag resources created in the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- first Region of your replication set.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_tags"><span class="hs-identifier hs-type">createContact_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="createContact_tags"><span class="annot"><span class="annottext">createContact_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateContact -&gt; f CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_tags"><span class="hs-identifier hs-var hs-var">createContact_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContact -&gt; Maybe [Tag])
+-&gt; (CreateContact -&gt; Maybe [Tag] -&gt; CreateContact)
+-&gt; Lens CreateContact CreateContact (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203086"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateContact' :: CreateContact -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679203086"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679203086"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203085"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679203085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203084"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679203084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679203085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateContact' :: Maybe [Tag]
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Atags%3ACreateContact%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679203084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateContact -&gt; f CreateContact)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateContact
+-&gt; f CreateContact
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The short name to quickly identify a contact or escalation plan. The</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- contact alias must be unique and identifiable.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_alias"><span class="hs-identifier hs-type">createContact_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="createContact_alias"><span class="annot"><span class="annottext">createContact_alias :: (Text -&gt; f Text) -&gt; CreateContact -&gt; f CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_alias"><span class="hs-identifier hs-var hs-var">createContact_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContact -&gt; Text)
+-&gt; (CreateContact -&gt; Text -&gt; CreateContact)
+-&gt; Lens CreateContact CreateContact Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203080"><span class="annot"><span class="annottext">Text
+alias :: Text
+$sel:alias:CreateContact' :: CreateContact -&gt; Text
+</span><a href="#local-6989586621679203080"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203080"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203079"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679203079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679203079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:CreateContact' :: Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Aalias%3ACreateContact%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | To create an escalation plan use @ESCALATION@. To create a contact use</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @PERSONAL@.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_type"><span class="hs-identifier hs-type">createContact_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactType.html#ContactType"><span class="hs-identifier hs-type">ContactType</span></a></span><span>
+</span><span id="line-144"></span><span id="createContact_type"><span class="annot"><span class="annottext">createContact_type :: (ContactType -&gt; f ContactType) -&gt; CreateContact -&gt; f CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_type"><span class="hs-identifier hs-var hs-var">createContact_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContact -&gt; ContactType)
+-&gt; (CreateContact -&gt; ContactType -&gt; CreateContact)
+-&gt; Lens CreateContact CreateContact ContactType ContactType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203077"><span class="annot"><span class="annottext">ContactType
+type' :: ContactType
+$sel:type':CreateContact' :: CreateContact -&gt; ContactType
+</span><a href="#local-6989586621679203077"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactType
+</span><a href="#local-6989586621679203077"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203076"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679203076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203075"><span class="annot"><span class="annottext">ContactType
+</span><a href="#local-6989586621679203075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679203076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateContact' :: ContactType
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Atype%27%3ACreateContact%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactType
+</span><a href="#local-6989586621679203075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A list of stages. A contact has an engagement plan with stages that</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- contact specified contact channels. An escalation plan uses stages that</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- contact specified contacts.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_plan"><span class="hs-identifier hs-type">createContact_plan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.Plan.html#Plan"><span class="hs-identifier hs-type">Plan</span></a></span><span>
+</span><span id="line-150"></span><span id="createContact_plan"><span class="annot"><span class="annottext">createContact_plan :: (Plan -&gt; f Plan) -&gt; CreateContact -&gt; f CreateContact
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContact_plan"><span class="hs-identifier hs-var hs-var">createContact_plan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContact -&gt; Plan)
+-&gt; (CreateContact -&gt; Plan -&gt; CreateContact)
+-&gt; Lens CreateContact CreateContact Plan Plan
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203074"><span class="annot"><span class="annottext">Plan
+plan :: Plan
+$sel:plan:CreateContact' :: CreateContact -&gt; Plan
+</span><a href="#local-6989586621679203074"><span class="hs-identifier hs-var hs-var">plan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Plan
+</span><a href="#local-6989586621679203074"><span class="hs-identifier hs-var">plan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203073"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679203073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203072"><span class="annot"><span class="annottext">Plan
+</span><a href="#local-6989586621679203072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679203073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:plan:CreateContact' :: Plan
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3Aplan%3ACreateContact%27"><span class="hs-identifier hs-var">plan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Plan
+</span><a href="#local-6989586621679203072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-154"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679203068"><span class="annot"><span class="annottext">request :: CreateContact -&gt; Request CreateContact
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateContact -&gt; Request CreateContact
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSMContacts.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679203064"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateContact)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateContact))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateContact
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateContact)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203061"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203060"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203060"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203059"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateContactResponse
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-var">CreateContactResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateContactResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateContactResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203061"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateContactResponse)
+-&gt; Either String Text -&gt; Either String CreateContactResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203051"><span id="local-6989586621679203053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679203044"><span class="annot"><span class="annottext">toHeaders :: CreateContact -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateContact -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SSMContacts.CreateContact&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-178"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203034"><span id="local-6989586621679203036"><span id="local-6989586621679203038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679203032"><span class="annot"><span class="annottext">toJSON :: CreateContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203025"><span id="local-6989586621679203026"><span id="local-6989586621679203027"><span id="local-6989586621679203028"><span id="local-6989586621679203029"><span id="local-6989586621679203030"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+ContactType
+Plan
+plan :: Plan
+type' :: ContactType
+alias :: Text
+tags :: Maybe [Tag]
+displayName :: Maybe Text
+idempotencyToken :: Maybe Text
+$sel:plan:CreateContact' :: CreateContact -&gt; Plan
+$sel:type':CreateContact' :: CreateContact -&gt; ContactType
+$sel:alias:CreateContact' :: CreateContact -&gt; Text
+$sel:tags:CreateContact' :: CreateContact -&gt; Maybe [Tag]
+$sel:displayName:CreateContact' :: CreateContact -&gt; Maybe Text
+$sel:idempotencyToken:CreateContact' :: CreateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679203025"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203030"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203029"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679203028"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Alias&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203027"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContactType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContactType
+</span><a href="#local-6989586621679203026"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Plan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Plan -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Plan
+</span><a href="#local-6989586621679203025"><span class="hs-identifier hs-var">plan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679203019"><span class="annot"><span class="annottext">toPath :: CreateContact -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateContact -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679203015"><span class="annot"><span class="annottext">toQuery :: CreateContact -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateContact -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | /See:/ 'newCreateContactResponse' smart constructor.</span><span>
+</span><span id="line-203"></span><span id="local-6989586621679203012"><span id="local-6989586621679203013"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContactResponse"><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-var">CreateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContactResponse%27"><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-var">CreateContactResponse'</span></a></span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="annot"><span class="annottext">CreateContactResponse -&gt; Int
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created contact or escalation</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AcontactArn%3ACreateContactResponse%27"><span class="annot"><span class="annottext">CreateContactResponse -&gt; Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AcontactArn%3ACreateContactResponse%27"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203006"><span id="local-6989586621679203008"><span class="annot"><span class="annottext">CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
+(CreateContactResponse -&gt; CreateContactResponse -&gt; Bool)
+-&gt; (CreateContactResponse -&gt; CreateContactResponse -&gt; Bool)
+-&gt; Eq CreateContactResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
+$c/= :: CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
+== :: CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
+$c== :: CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202998"><span id="local-6989586621679203000"><span id="local-6989586621679203002"><span id="local-6989586621679203004"><span class="annot"><span class="annottext">ReadPrec [CreateContactResponse]
+ReadPrec CreateContactResponse
+Int -&gt; ReadS CreateContactResponse
+ReadS [CreateContactResponse]
+(Int -&gt; ReadS CreateContactResponse)
+-&gt; ReadS [CreateContactResponse]
+-&gt; ReadPrec CreateContactResponse
+-&gt; ReadPrec [CreateContactResponse]
+-&gt; Read CreateContactResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContactResponse]
+$creadListPrec :: ReadPrec [CreateContactResponse]
+readPrec :: ReadPrec CreateContactResponse
+$creadPrec :: ReadPrec CreateContactResponse
+readList :: ReadS [CreateContactResponse]
+$creadList :: ReadS [CreateContactResponse]
+readsPrec :: Int -&gt; ReadS CreateContactResponse
+$creadsPrec :: Int -&gt; ReadS CreateContactResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202992"><span id="local-6989586621679202994"><span id="local-6989586621679202996"><span class="annot"><span class="annottext">Int -&gt; CreateContactResponse -&gt; ShowS
+[CreateContactResponse] -&gt; ShowS
+CreateContactResponse -&gt; String
+(Int -&gt; CreateContactResponse -&gt; ShowS)
+-&gt; (CreateContactResponse -&gt; String)
+-&gt; ([CreateContactResponse] -&gt; ShowS)
+-&gt; Show CreateContactResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContactResponse] -&gt; ShowS
+$cshowList :: [CreateContactResponse] -&gt; ShowS
+show :: CreateContactResponse -&gt; String
+$cshow :: CreateContactResponse -&gt; String
+showsPrec :: Int -&gt; CreateContactResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateContactResponse -&gt; Rep CreateContactResponse x)
+-&gt; (forall x. Rep CreateContactResponse x -&gt; CreateContactResponse)
+-&gt; Generic CreateContactResponse
+forall x. Rep CreateContactResponse x -&gt; CreateContactResponse
+forall x. CreateContactResponse -&gt; Rep CreateContactResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateContactResponse x -&gt; CreateContactResponse
+$cfrom :: forall x. CreateContactResponse -&gt; Rep CreateContactResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Create a value of 'CreateContactResponse' with all optional fields omitted.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'createContactResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'contactArn', 'createContactResponse_contactArn' - The Amazon Resource Name (ARN) of the created contact or escalation</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#newCreateContactResponse"><span class="hs-identifier hs-type">newCreateContactResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-comment">-- | 'contactArn'</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span>
+</span><span id="line-230"></span><span id="newCreateContactResponse"><span class="annot"><span class="annottext">newCreateContactResponse :: Int -&gt; Text -&gt; CreateContactResponse
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#newCreateContactResponse"><span class="hs-identifier hs-var hs-var">newCreateContactResponse</span></a></span></span><span> </span><span id="local-6989586621679202989"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679202988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202988"><span class="hs-identifier hs-var">pContactArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">CreateContactResponse' :: Int -&gt; Text -&gt; CreateContactResponse
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactResponse' :: Int
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactArn:CreateContactResponse' :: Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AcontactArn%3ACreateContactResponse%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202988"><span class="hs-identifier hs-var">pContactArn_</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContactResponse_httpStatus"><span class="hs-identifier hs-type">createContactResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="createContactResponse_httpStatus"><span class="annot"><span class="annottext">createContactResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateContactResponse -&gt; f CreateContactResponse
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContactResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createContactResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactResponse -&gt; Int)
+-&gt; (CreateContactResponse -&gt; Int -&gt; CreateContactResponse)
+-&gt; Lens CreateContactResponse CreateContactResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202987"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateContactResponse' :: CreateContactResponse -&gt; Int
+</span><a href="#local-6989586621679202987"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202987"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202986"><span class="annot"><span class="annottext">s :: CreateContactResponse
+</span><a href="#local-6989586621679202986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202985"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactResponse
+</span><a href="#local-6989586621679202986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactResponse' :: Int
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created contact or escalation</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#createContactResponse_contactArn"><span class="hs-identifier hs-type">createContactResponse_contactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-243"></span><span id="createContactResponse_contactArn"><span class="annot"><span class="annottext">createContactResponse_contactArn :: (Text -&gt; f Text)
+-&gt; CreateContactResponse -&gt; f CreateContactResponse
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#createContactResponse_contactArn"><span class="hs-identifier hs-var hs-var">createContactResponse_contactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContactResponse -&gt; Text)
+-&gt; (CreateContactResponse -&gt; Text -&gt; CreateContactResponse)
+-&gt; Lens CreateContactResponse CreateContactResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202984"><span class="annot"><span class="annottext">Text
+contactArn :: Text
+$sel:contactArn:CreateContactResponse' :: CreateContactResponse -&gt; Text
+</span><a href="#local-6989586621679202984"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202984"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202983"><span class="annot"><span class="annottext">s :: CreateContactResponse
+</span><a href="#local-6989586621679202983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202982"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactResponse
+</span><a href="#local-6989586621679202983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:CreateContactResponse' :: Text
+</span><a href="Network.AWS.SSMContacts.CreateContact.html#%24sel%3AcontactArn%3ACreateContactResponse%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span></span><span>
+</span><span id="line-246"></span></pre></body></html>

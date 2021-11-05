@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies an Amazon DynamoDB table to crawl.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDynamoDBTarget' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679685437"><span id="local-6989586621679685438"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamoDBTarget"><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-var">DynamoDBTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamoDBTarget%27"><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-var">DynamoDBTarget'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679685446"><span id="local-6989586621679685447"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamoDBTarget"><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-var">DynamoDBTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamoDBTarget%27"><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-var">DynamoDBTarget'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the DynamoDB table to crawl.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Apath%3ADynamoDBTarget%27"><span class="annot"><span class="annottext">DynamoDBTarget -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#%24sel%3Apath%3ADynamoDBTarget%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AscanAll%3ADynamoDBTarget%27"><span class="annot"><span class="annottext">DynamoDBTarget -&gt; Maybe Bool
 </span><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#%24sel%3AscanAll%3ADynamoDBTarget%27"><span class="hs-identifier hs-var hs-var">scanAll</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679685429"><span id="local-6989586621679685431"><span class="annot"><span class="annottext">DynamoDBTarget -&gt; DynamoDBTarget -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679685438"><span id="local-6989586621679685440"><span class="annot"><span class="annottext">DynamoDBTarget -&gt; DynamoDBTarget -&gt; Bool
 (DynamoDBTarget -&gt; DynamoDBTarget -&gt; Bool)
 -&gt; (DynamoDBTarget -&gt; DynamoDBTarget -&gt; Bool) -&gt; Eq DynamoDBTarget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DynamoDBTarget -&gt; DynamoDBTarget -&gt; Bool
 == :: DynamoDBTarget -&gt; DynamoDBTarget -&gt; Bool
 $c== :: DynamoDBTarget -&gt; DynamoDBTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685420"><span id="local-6989586621679685422"><span id="local-6989586621679685424"><span id="local-6989586621679685426"><span class="annot"><span class="annottext">ReadPrec [DynamoDBTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685429"><span id="local-6989586621679685431"><span id="local-6989586621679685433"><span id="local-6989586621679685435"><span class="annot"><span class="annottext">ReadPrec [DynamoDBTarget]
 ReadPrec DynamoDBTarget
 Int -&gt; ReadS DynamoDBTarget
 ReadS [DynamoDBTarget]
@@ -79,7 +79,7 @@ readList :: ReadS [DynamoDBTarget]
 $creadList :: ReadS [DynamoDBTarget]
 readsPrec :: Int -&gt; ReadS DynamoDBTarget
 $creadsPrec :: Int -&gt; ReadS DynamoDBTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685413"><span id="local-6989586621679685415"><span id="local-6989586621679685417"><span class="annot"><span class="annottext">Int -&gt; DynamoDBTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685422"><span id="local-6989586621679685424"><span id="local-6989586621679685426"><span class="annot"><span class="annottext">Int -&gt; DynamoDBTarget -&gt; ShowS
 [DynamoDBTarget] -&gt; ShowS
 DynamoDBTarget -&gt; String
 (Int -&gt; DynamoDBTarget -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
 -&gt; (DynamoDBTarget -&gt; Maybe Text -&gt; DynamoDBTarget)
 -&gt; Lens DynamoDBTarget DynamoDBTarget (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685404"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685413"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679685404"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685404"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685403"><span class="annot"><span class="annottext">s :: DynamoDBTarget
-</span><a href="#local-6989586621679685403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685402"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBTarget
-</span><a href="#local-6989586621679685403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:DynamoDBTarget' :: Maybe Text
+</span><a href="#local-6989586621679685413"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679685413"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685412"><span class="annot"><span class="annottext">s :: DynamoDBTarget
+</span><a href="#local-6989586621679685412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685411"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679685411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBTarget
+</span><a href="#local-6989586621679685412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:DynamoDBTarget' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#%24sel%3Apath%3ADynamoDBTarget%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679685411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The percentage of the configured read capacity units to use by the Glue</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- crawler. Read capacity units is a term defined by DynamoDB, and is a</span><span>
@@ -187,16 +187,16 @@ $sel:path:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Text
 -&gt; (DynamoDBTarget -&gt; Maybe Double -&gt; DynamoDBTarget)
 -&gt; Lens DynamoDBTarget DynamoDBTarget (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685400"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685409"><span class="annot"><span class="annottext">Maybe Double
 scanRate :: Maybe Double
 $sel:scanRate:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Double
-</span><a href="#local-6989586621679685400"><span class="hs-identifier hs-var hs-var">scanRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679685400"><span class="hs-identifier hs-var">scanRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685399"><span class="annot"><span class="annottext">s :: DynamoDBTarget
-</span><a href="#local-6989586621679685399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685398"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679685398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBTarget
-</span><a href="#local-6989586621679685399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanRate:DynamoDBTarget' :: Maybe Double
+</span><a href="#local-6989586621679685409"><span class="hs-identifier hs-var hs-var">scanRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679685409"><span class="hs-identifier hs-var">scanRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685408"><span class="annot"><span class="annottext">s :: DynamoDBTarget
+</span><a href="#local-6989586621679685408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685407"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679685407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBTarget
+</span><a href="#local-6989586621679685408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanRate:DynamoDBTarget' :: Maybe Double
 </span><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#%24sel%3AscanRate%3ADynamoDBTarget%27"><span class="hs-identifier hs-var">scanRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679685398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679685407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | Indicates whether to scan all the records, or to sample rows from the</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- table. Scanning all the records can take a long time when the table is</span><span>
@@ -212,19 +212,19 @@ $sel:scanRate:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Double
 -&gt; (DynamoDBTarget -&gt; Maybe Bool -&gt; DynamoDBTarget)
 -&gt; Lens DynamoDBTarget DynamoDBTarget (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685396"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685405"><span class="annot"><span class="annottext">Maybe Bool
 scanAll :: Maybe Bool
 $sel:scanAll:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Bool
-</span><a href="#local-6989586621679685396"><span class="hs-identifier hs-var hs-var">scanAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679685396"><span class="hs-identifier hs-var">scanAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685395"><span class="annot"><span class="annottext">s :: DynamoDBTarget
-</span><a href="#local-6989586621679685395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685394"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679685394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBTarget
-</span><a href="#local-6989586621679685395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanAll:DynamoDBTarget' :: Maybe Bool
+</span><a href="#local-6989586621679685405"><span class="hs-identifier hs-var hs-var">scanAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679685405"><span class="hs-identifier hs-var">scanAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685404"><span class="annot"><span class="annottext">s :: DynamoDBTarget
+</span><a href="#local-6989586621679685404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685403"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679685403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBTarget
+</span><a href="#local-6989586621679685404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanAll:DynamoDBTarget' :: Maybe Bool
 </span><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#%24sel%3AscanAll%3ADynamoDBTarget%27"><span class="hs-identifier hs-var">scanAll</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679685394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679685403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685391"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679685389"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamoDBTarget
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685400"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679685398"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamoDBTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DynamoDBTarget)
@@ -234,8 +234,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DynamoDBTarget&quot;</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679685386"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679685395"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679685395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Double -&gt; Maybe Bool -&gt; DynamoDBTarget
 </span><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-var">DynamoDBTarget'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Double -&gt; Maybe Bool -&gt; DynamoDBTarget)
@@ -243,7 +243,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Double -&gt; Maybe Bool -&gt; DynamoDBTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679685395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,7 +251,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Bool -&gt; DynamoDBTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679685395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,19 +259,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser DynamoDBTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679685395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanAll&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685380"><span id="local-6989586621679685382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685389"><span id="local-6989586621679685391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685369"><span id="local-6989586621679685371"><span id="local-6989586621679685373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679685367"><span class="annot"><span class="annottext">toJSON :: DynamoDBTarget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685363"><span id="local-6989586621679685364"><span id="local-6989586621679685365"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685378"><span id="local-6989586621679685380"><span id="local-6989586621679685382"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679685376"><span class="annot"><span class="annottext">toJSON :: DynamoDBTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget%27"><span class="hs-identifier hs-type">DynamoDBTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685372"><span id="local-6989586621679685373"><span id="local-6989586621679685374"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Double
 Maybe Text
 scanAll :: Maybe Bool
@@ -280,7 +280,7 @@ path :: Maybe Text
 $sel:scanAll:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Bool
 $sel:scanRate:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Double
 $sel:path:DynamoDBTarget' :: DynamoDBTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679685363"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679685372"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -292,21 +292,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685365"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679685374"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679685364"><span class="hs-identifier hs-var">scanRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679685373"><span class="hs-identifier hs-var">scanRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanAll&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679685363"><span class="hs-identifier hs-var">scanAll</span></a></span><span>
+</span><a href="#local-6989586621679685372"><span class="hs-identifier hs-var">scanAll</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span></pre></body></html>

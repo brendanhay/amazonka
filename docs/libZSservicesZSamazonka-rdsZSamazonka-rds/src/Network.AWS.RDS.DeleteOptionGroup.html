@@ -45,14 +45,14 @@
 </span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newDeleteOptionGroup' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679797167"><span id="local-6989586621679797168"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOptionGroup"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-var">DeleteOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOptionGroup%27"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-var">DeleteOptionGroup'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679797176"><span id="local-6989586621679797177"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOptionGroup"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-var">DeleteOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOptionGroup%27"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-var">DeleteOptionGroup'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the option group to be deleted.</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- You can\'t delete default option groups.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="annot"><span class="annottext">DeleteOptionGroup -&gt; Text
 </span><a href="Network.AWS.RDS.DeleteOptionGroup.html#%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797161"><span id="local-6989586621679797163"><span class="annot"><span class="annottext">DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797170"><span id="local-6989586621679797172"><span class="annot"><span class="annottext">DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
 (DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool)
 -&gt; (DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool)
 -&gt; Eq DeleteOptionGroup
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
 == :: DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
 $c== :: DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797152"><span id="local-6989586621679797154"><span id="local-6989586621679797156"><span id="local-6989586621679797158"><span class="annot"><span class="annottext">ReadPrec [DeleteOptionGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797161"><span id="local-6989586621679797163"><span id="local-6989586621679797165"><span id="local-6989586621679797167"><span class="annot"><span class="annottext">ReadPrec [DeleteOptionGroup]
 ReadPrec DeleteOptionGroup
 Int -&gt; ReadS DeleteOptionGroup
 ReadS [DeleteOptionGroup]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteOptionGroup]
 $creadList :: ReadS [DeleteOptionGroup]
 readsPrec :: Int -&gt; ReadS DeleteOptionGroup
 $creadsPrec :: Int -&gt; ReadS DeleteOptionGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797145"><span id="local-6989586621679797147"><span id="local-6989586621679797149"><span class="annot"><span class="annottext">Int -&gt; DeleteOptionGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797154"><span id="local-6989586621679797156"><span id="local-6989586621679797158"><span class="annot"><span class="annottext">Int -&gt; DeleteOptionGroup -&gt; ShowS
 [DeleteOptionGroup] -&gt; ShowS
 DeleteOptionGroup -&gt; String
 (Int -&gt; DeleteOptionGroup -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. DeleteOptionGroup -&gt; Rep DeleteOptionGroup x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteOptionGroup"><span class="annot"><span class="annottext">newDeleteOptionGroup :: Text -&gt; DeleteOptionGroup
-</span><a href="Network.AWS.RDS.DeleteOptionGroup.html#newDeleteOptionGroup"><span class="hs-identifier hs-var hs-var">newDeleteOptionGroup</span></a></span></span><span> </span><span id="local-6989586621679797140"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797140"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteOptionGroup.html#newDeleteOptionGroup"><span class="hs-identifier hs-var hs-var">newDeleteOptionGroup</span></a></span></span><span> </span><span id="local-6989586621679797149"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797149"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteOptionGroup' :: Text -&gt; DeleteOptionGroup
 </span><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionGroupName:DeleteOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.DeleteOptionGroup.html#%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797140"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679797149"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the option group to be deleted.</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. DeleteOptionGroup -&gt; Rep DeleteOptionGroup x
 -&gt; (DeleteOptionGroup -&gt; Text -&gt; DeleteOptionGroup)
 -&gt; Lens DeleteOptionGroup DeleteOptionGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797137"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797146"><span class="annot"><span class="annottext">Text
 optionGroupName :: Text
 $sel:optionGroupName:DeleteOptionGroup' :: DeleteOptionGroup -&gt; Text
-</span><a href="#local-6989586621679797137"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797137"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797136"><span class="annot"><span class="annottext">s :: DeleteOptionGroup
-</span><a href="#local-6989586621679797136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797135"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOptionGroup
-</span><a href="#local-6989586621679797136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:DeleteOptionGroup' :: Text
+</span><a href="#local-6989586621679797146"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797146"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797145"><span class="annot"><span class="annottext">s :: DeleteOptionGroup
+</span><a href="#local-6989586621679797145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOptionGroup
+</span><a href="#local-6989586621679797145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:DeleteOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.DeleteOptionGroup.html#%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-type">DeleteOptionGroupResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679797131"><span class="annot"><span class="annottext">request :: DeleteOptionGroup -&gt; Request DeleteOptionGroup
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679797140"><span class="annot"><span class="annottext">request :: DeleteOptionGroup -&gt; Request DeleteOptionGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteOptionGroup -&gt; Request DeleteOptionGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679797127"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679797136"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteOptionGroup
 -&gt; ClientResponse ClientBody
@@ -188,12 +188,12 @@ AWSResponse a
 DeleteOptionGroupResponse
 </span><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse%27"><span class="hs-identifier hs-var">DeleteOptionGroupResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797120"><span id="local-6989586621679797122"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797129"><span id="local-6989586621679797131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679797113"><span class="annot"><span class="annottext">toHeaders :: DeleteOptionGroup -&gt; [Header]
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679797122"><span class="annot"><span class="annottext">toHeaders :: DeleteOptionGroup -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteOptionGroup -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -201,18 +201,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679797108"><span class="annot"><span class="annottext">toPath :: DeleteOptionGroup -&gt; ByteString
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679797117"><span class="annot"><span class="annottext">toPath :: DeleteOptionGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteOptionGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679797104"><span class="annot"><span class="annottext">toQuery :: DeleteOptionGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797102"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679797113"><span class="annot"><span class="annottext">toQuery :: DeleteOptionGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797111"><span class="annot"><span class="annottext">Text
 optionGroupName :: Text
 $sel:optionGroupName:DeleteOptionGroup' :: DeleteOptionGroup -&gt; Text
-</span><a href="#local-6989586621679797102"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679797111"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -232,14 +232,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;OptionGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797102"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span>
+</span><a href="#local-6989586621679797111"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDeleteOptionGroupResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679797099"><span id="local-6989586621679797100"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOptionGroupResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-var">DeleteOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOptionGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse%27"><span class="hs-identifier hs-var">DeleteOptionGroupResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679797108"><span id="local-6989586621679797109"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOptionGroupResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-var">DeleteOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOptionGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse%27"><span class="hs-identifier hs-var">DeleteOptionGroupResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797095"><span id="local-6989586621679797097"><span class="annot"><span class="annottext">DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797104"><span id="local-6989586621679797106"><span class="annot"><span class="annottext">DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
 (DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool)
 -&gt; (DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool)
 -&gt; Eq DeleteOptionGroupResponse
@@ -248,7 +248,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
 == :: DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
 $c== :: DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797087"><span id="local-6989586621679797089"><span id="local-6989586621679797091"><span id="local-6989586621679797093"><span class="annot"><span class="annottext">ReadPrec [DeleteOptionGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797096"><span id="local-6989586621679797098"><span id="local-6989586621679797100"><span id="local-6989586621679797102"><span class="annot"><span class="annottext">ReadPrec [DeleteOptionGroupResponse]
 ReadPrec DeleteOptionGroupResponse
 Int -&gt; ReadS DeleteOptionGroupResponse
 ReadS [DeleteOptionGroupResponse]
@@ -268,7 +268,7 @@ readList :: ReadS [DeleteOptionGroupResponse]
 $creadList :: ReadS [DeleteOptionGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteOptionGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteOptionGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797081"><span id="local-6989586621679797083"><span id="local-6989586621679797085"><span class="annot"><span class="annottext">Int -&gt; DeleteOptionGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797090"><span id="local-6989586621679797092"><span id="local-6989586621679797094"><span class="annot"><span class="annottext">Int -&gt; DeleteOptionGroupResponse -&gt; ShowS
 [DeleteOptionGroupResponse] -&gt; ShowS
 DeleteOptionGroupResponse -&gt; String
 (Int -&gt; DeleteOptionGroupResponse -&gt; ShowS)
@@ -311,5 +311,5 @@ DeleteOptionGroupResponse -&gt; Rep DeleteOptionGroupResponse x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">DeleteOptionGroupResponse
 </span><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse%27"><span class="hs-identifier hs-var">DeleteOptionGroupResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-type">DeleteOptionGroupResponse</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-type">DeleteOptionGroupResponse</span></a></span></span><span>
 </span><span id="line-127"></span></pre></body></html>

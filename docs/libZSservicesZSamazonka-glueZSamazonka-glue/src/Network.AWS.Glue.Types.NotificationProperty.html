@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies configuration properties of a notification.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNotificationProperty' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679691714"><span id="local-6989586621679691715"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationProperty"><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-var">NotificationProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationProperty%27"><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-var">NotificationProperty'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679691723"><span id="local-6989586621679691724"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationProperty"><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-var">NotificationProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationProperty%27"><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-var">NotificationProperty'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | After a job run starts, the number of minutes to wait before sending a</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- job run delay notification.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AnotifyDelayAfter%3ANotificationProperty%27"><span class="annot"><span class="annottext">NotificationProperty -&gt; Maybe Natural
 </span><a href="Network.AWS.Glue.Types.NotificationProperty.html#%24sel%3AnotifyDelayAfter%3ANotificationProperty%27"><span class="hs-identifier hs-var hs-var">notifyDelayAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691708"><span id="local-6989586621679691710"><span class="annot"><span class="annottext">NotificationProperty -&gt; NotificationProperty -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691717"><span id="local-6989586621679691719"><span class="annot"><span class="annottext">NotificationProperty -&gt; NotificationProperty -&gt; Bool
 (NotificationProperty -&gt; NotificationProperty -&gt; Bool)
 -&gt; (NotificationProperty -&gt; NotificationProperty -&gt; Bool)
 -&gt; Eq NotificationProperty
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NotificationProperty -&gt; NotificationProperty -&gt; Bool
 == :: NotificationProperty -&gt; NotificationProperty -&gt; Bool
 $c== :: NotificationProperty -&gt; NotificationProperty -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691699"><span id="local-6989586621679691701"><span id="local-6989586621679691703"><span id="local-6989586621679691705"><span class="annot"><span class="annottext">ReadPrec [NotificationProperty]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691708"><span id="local-6989586621679691710"><span id="local-6989586621679691712"><span id="local-6989586621679691714"><span class="annot"><span class="annottext">ReadPrec [NotificationProperty]
 ReadPrec NotificationProperty
 Int -&gt; ReadS NotificationProperty
 ReadS [NotificationProperty]
@@ -61,7 +61,7 @@ readList :: ReadS [NotificationProperty]
 $creadList :: ReadS [NotificationProperty]
 readsPrec :: Int -&gt; ReadS NotificationProperty
 $creadsPrec :: Int -&gt; ReadS NotificationProperty
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691692"><span id="local-6989586621679691694"><span id="local-6989586621679691696"><span class="annot"><span class="annottext">Int -&gt; NotificationProperty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691701"><span id="local-6989586621679691703"><span id="local-6989586621679691705"><span class="annot"><span class="annottext">Int -&gt; NotificationProperty -&gt; ShowS
 [NotificationProperty] -&gt; ShowS
 NotificationProperty -&gt; String
 (Int -&gt; NotificationProperty -&gt; ShowS)
@@ -123,19 +123,19 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-type">NotificationProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691683"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-type">NotificationProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691692"><span class="annot"><span class="annottext">Maybe Natural
 notifyDelayAfter :: Maybe Natural
 $sel:notifyDelayAfter:NotificationProperty' :: NotificationProperty -&gt; Maybe Natural
-</span><a href="#local-6989586621679691683"><span class="hs-identifier hs-var hs-var">notifyDelayAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691683"><span class="hs-identifier hs-var">notifyDelayAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691682"><span class="annot"><span class="annottext">s :: NotificationProperty
-</span><a href="#local-6989586621679691682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-type">NotificationProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691681"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationProperty
-</span><a href="#local-6989586621679691682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyDelayAfter:NotificationProperty' :: Maybe Natural
+</span><a href="#local-6989586621679691692"><span class="hs-identifier hs-var hs-var">notifyDelayAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679691692"><span class="hs-identifier hs-var">notifyDelayAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691691"><span class="annot"><span class="annottext">s :: NotificationProperty
+</span><a href="#local-6989586621679691691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-type">NotificationProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691690"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679691690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationProperty
+</span><a href="#local-6989586621679691691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyDelayAfter:NotificationProperty' :: Maybe Natural
 </span><a href="Network.AWS.Glue.Types.NotificationProperty.html#%24sel%3AnotifyDelayAfter%3ANotificationProperty%27"><span class="hs-identifier hs-var">notifyDelayAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679691690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691678"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679691676"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotificationProperty
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691687"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679691685"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotificationProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NotificationProperty)
@@ -145,30 +145,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NotificationProperty&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679691673"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691673"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679691682"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679691682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; NotificationProperty
 </span><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-var">NotificationProperty'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; NotificationProperty)
 -&gt; Parser (Maybe Natural) -&gt; Parser NotificationProperty
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679691682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotifyDelayAfter&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691667"><span id="local-6989586621679691669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691676"><span id="local-6989586621679691678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691656"><span id="local-6989586621679691658"><span id="local-6989586621679691660"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679691654"><span class="annot"><span class="annottext">toJSON :: NotificationProperty -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-type">NotificationProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691652"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691665"><span id="local-6989586621679691667"><span id="local-6989586621679691669"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679691663"><span class="annot"><span class="annottext">toJSON :: NotificationProperty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty%27"><span class="hs-identifier hs-type">NotificationProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691661"><span class="annot"><span class="annottext">Maybe Natural
 notifyDelayAfter :: Maybe Natural
 $sel:notifyDelayAfter:NotificationProperty' :: NotificationProperty -&gt; Maybe Natural
-</span><a href="#local-6989586621679691652"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679691661"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -181,7 +181,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691652"><span class="hs-identifier hs-var">notifyDelayAfter</span></a></span><span>
+</span><a href="#local-6989586621679691661"><span class="hs-identifier hs-var">notifyDelayAfter</span></a></span><span>
 </span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span></pre></body></html>

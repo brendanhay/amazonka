@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newListJournalKinesisStreamsForLedger' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679185582"><span id="local-6989586621679185583"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalKinesisStreamsForLedger"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalKinesisStreamsForLedger%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedger'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679185591"><span id="local-6989586621679185592"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalKinesisStreamsForLedger"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalKinesisStreamsForLedger%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedger'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token, indicating that you want to retrieve the next page</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- of results. If you received a value for @NextToken@ in the response from</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- a previous @ListJournalKinesisStreamsForLedger@ call, you should use</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AledgerName%3AListJournalKinesisStreamsForLedger%27"><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger -&gt; Text
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AledgerName%3AListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185574"><span id="local-6989586621679185576"><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185583"><span id="local-6989586621679185585"><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
 -&gt; ListJournalKinesisStreamsForLedger -&gt; Bool
 (ListJournalKinesisStreamsForLedger
  -&gt; ListJournalKinesisStreamsForLedger -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: ListJournalKinesisStreamsForLedger
 -&gt; ListJournalKinesisStreamsForLedger -&gt; Bool
 $c== :: ListJournalKinesisStreamsForLedger
 -&gt; ListJournalKinesisStreamsForLedger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185565"><span id="local-6989586621679185567"><span id="local-6989586621679185569"><span id="local-6989586621679185571"><span class="annot"><span class="annottext">ReadPrec [ListJournalKinesisStreamsForLedger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185574"><span id="local-6989586621679185576"><span id="local-6989586621679185578"><span id="local-6989586621679185580"><span class="annot"><span class="annottext">ReadPrec [ListJournalKinesisStreamsForLedger]
 ReadPrec ListJournalKinesisStreamsForLedger
 Int -&gt; ReadS ListJournalKinesisStreamsForLedger
 ReadS [ListJournalKinesisStreamsForLedger]
@@ -113,7 +113,7 @@ readList :: ReadS [ListJournalKinesisStreamsForLedger]
 $creadList :: ReadS [ListJournalKinesisStreamsForLedger]
 readsPrec :: Int -&gt; ReadS ListJournalKinesisStreamsForLedger
 $creadsPrec :: Int -&gt; ReadS ListJournalKinesisStreamsForLedger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185558"><span id="local-6989586621679185560"><span id="local-6989586621679185562"><span class="annot"><span class="annottext">Int -&gt; ListJournalKinesisStreamsForLedger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185567"><span id="local-6989586621679185569"><span id="local-6989586621679185571"><span class="annot"><span class="annottext">Int -&gt; ListJournalKinesisStreamsForLedger -&gt; ShowS
 [ListJournalKinesisStreamsForLedger] -&gt; ShowS
 ListJournalKinesisStreamsForLedger -&gt; String
 (Int -&gt; ListJournalKinesisStreamsForLedger -&gt; ShowS)
@@ -174,8 +174,8 @@ ListJournalKinesisStreamsForLedger
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span>
 </span><span id="line-101"></span><span id="newListJournalKinesisStreamsForLedger"><span class="annot"><span class="annottext">newListJournalKinesisStreamsForLedger :: Text -&gt; ListJournalKinesisStreamsForLedger
-</span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#newListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-var hs-var">newListJournalKinesisStreamsForLedger</span></a></span></span><span> </span><span id="local-6989586621679185553"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var">pLedgerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#newListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-var hs-var">newListJournalKinesisStreamsForLedger</span></a></span></span><span> </span><span id="local-6989586621679185562"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185562"><span class="hs-identifier hs-var">pLedgerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger' :: Maybe Text
 -&gt; Maybe Natural -&gt; Text -&gt; ListJournalKinesisStreamsForLedger
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span>
@@ -190,7 +190,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:ledgerName:ListJournalKinesisStreamsForLedger' :: Text
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AledgerName%3AListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-var">ledgerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var">pLedgerName_</span></a></span><span>
+</span><a href="#local-6989586621679185562"><span class="hs-identifier hs-var">pLedgerName_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A pagination token, indicating that you want to retrieve the next page</span><span>
@@ -210,16 +210,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185550"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185559"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Maybe Text
-</span><a href="#local-6989586621679185550"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185550"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185549"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedger
-</span><a href="#local-6989586621679185549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185548"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
-</span><a href="#local-6989586621679185549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalKinesisStreamsForLedger' :: Maybe Text
+</span><a href="#local-6989586621679185559"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185559"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185558"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedger
+</span><a href="#local-6989586621679185558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185557"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
+</span><a href="#local-6989586621679185558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalKinesisStreamsForLedger' :: Maybe Text
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AnextToken%3AListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of results to return in a single</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- @ListJournalKinesisStreamsForLedger@ request. (The actual number of</span><span>
@@ -237,16 +237,16 @@ $sel:nextToken:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsF
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185547"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185556"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Maybe Natural
-</span><a href="#local-6989586621679185547"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185547"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185546"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedger
-</span><a href="#local-6989586621679185546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185545"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
-</span><a href="#local-6989586621679185546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJournalKinesisStreamsForLedger' :: Maybe Natural
+</span><a href="#local-6989586621679185556"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185556"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185555"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedger
+</span><a href="#local-6989586621679185555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185554"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
+</span><a href="#local-6989586621679185555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJournalKinesisStreamsForLedger' :: Maybe Natural
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AmaxResults%3AListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The name of the ledger.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#listJournalKinesisStreamsForLedger_ledgerName"><span class="hs-identifier hs-type">listJournalKinesisStreamsForLedger_ledgerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -262,16 +262,16 @@ $sel:maxResults:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreams
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185544"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185553"><span class="annot"><span class="annottext">Text
 ledgerName :: Text
 $sel:ledgerName:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Text
-</span><a href="#local-6989586621679185544"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185544"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185543"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedger
-</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185542"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
-</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgerName:ListJournalKinesisStreamsForLedger' :: Text
+</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185552"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedger
+</span><a href="#local-6989586621679185552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedger
+</span><a href="#local-6989586621679185552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgerName:ListJournalKinesisStreamsForLedger' :: Text
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AledgerName%3AListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-var">ledgerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -280,7 +280,7 @@ $sel:ledgerName:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreams
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679185538"><span class="annot"><span class="annottext">request :: ListJournalKinesisStreamsForLedger
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679185547"><span class="annot"><span class="annottext">request :: ListJournalKinesisStreamsForLedger
 -&gt; Request ListJournalKinesisStreamsForLedger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListJournalKinesisStreamsForLedger
@@ -288,7 +288,7 @@ $sel:ledgerName:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreams
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679185534"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679185543"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJournalKinesisStreamsForLedger
 -&gt; ClientResponse ClientBody
@@ -316,10 +316,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185531"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185531"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185530"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679185530"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185529"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185540"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185539"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185539"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185538"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185538"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [JournalKinesisStreamDescription]
 -&gt; Int
@@ -336,7 +336,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListJournalKinesisStreamsForLedgerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679185538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,7 +349,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; ListJournalKinesisStreamsForLedgerResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [JournalKinesisStreamDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -370,22 +370,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185531"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185540"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679185520"><span id="local-6989586621679185522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679185529"><span id="local-6989586621679185531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679185517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679185526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679185513"><span class="annot"><span class="annottext">toHeaders :: ListJournalKinesisStreamsForLedger -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679185522"><span class="annot"><span class="annottext">toHeaders :: ListJournalKinesisStreamsForLedger -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ListJournalKinesisStreamsForLedger -&gt; ResponseHeaders
@@ -409,8 +409,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679185507"><span class="annot"><span class="annottext">toPath :: ListJournalKinesisStreamsForLedger -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185503"><span id="local-6989586621679185504"><span id="local-6989586621679185505"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679185516"><span class="annot"><span class="annottext">toPath :: ListJournalKinesisStreamsForLedger -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185512"><span id="local-6989586621679185513"><span id="local-6989586621679185514"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 ledgerName :: Text
@@ -419,7 +419,7 @@ nextToken :: Maybe Text
 $sel:ledgerName:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Text
 $sel:maxResults:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Maybe Natural
 $sel:nextToken:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Maybe Text
-</span><a href="#local-6989586621679185503"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -428,7 +428,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185503"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185512"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/journal-kinesis-streams&quot;</span></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
@@ -437,8 +437,8 @@ forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger</span></a></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679185499"><span class="annot"><span class="annottext">toQuery :: ListJournalKinesisStreamsForLedger -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185495"><span id="local-6989586621679185496"><span id="local-6989586621679185497"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679185508"><span class="annot"><span class="annottext">toQuery :: ListJournalKinesisStreamsForLedger -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedger%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185504"><span id="local-6989586621679185505"><span id="local-6989586621679185506"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 ledgerName :: Text
@@ -447,7 +447,7 @@ nextToken :: Maybe Text
 $sel:ledgerName:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Text
 $sel:maxResults:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Maybe Natural
 $sel:nextToken:ListJournalKinesisStreamsForLedger' :: ListJournalKinesisStreamsForLedger -&gt; Maybe Text
-</span><a href="#local-6989586621679185495"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -455,16 +455,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;next_token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185497"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185506"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;max_results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185496"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679185505"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newListJournalKinesisStreamsForLedgerResponse' smart constructor.</span><span>
-</span><span id="line-187"></span><span id="local-6989586621679185492"><span id="local-6989586621679185493"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalKinesisStreamsForLedgerResponse"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedgerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalKinesisStreamsForLedgerResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedgerResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span id="local-6989586621679185501"><span id="local-6989586621679185502"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalKinesisStreamsForLedgerResponse"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedgerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalKinesisStreamsForLedgerResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-var">ListJournalKinesisStreamsForLedgerResponse'</span></a></span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | -   If @NextToken@ is empty, the last page of results has been processed</span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-comment">--     and there are no more results to be retrieved.</span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -482,7 +482,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJournalKinesisStreamsForLedgerResponse%27"><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse -&gt; Int
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AhttpStatus%3AListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185485"><span id="local-6989586621679185487"><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185494"><span id="local-6989586621679185496"><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
 -&gt; ListJournalKinesisStreamsForLedgerResponse -&gt; Bool
 (ListJournalKinesisStreamsForLedgerResponse
  -&gt; ListJournalKinesisStreamsForLedgerResponse -&gt; Bool)
@@ -498,7 +498,7 @@ $c/= :: ListJournalKinesisStreamsForLedgerResponse
 -&gt; ListJournalKinesisStreamsForLedgerResponse -&gt; Bool
 $c== :: ListJournalKinesisStreamsForLedgerResponse
 -&gt; ListJournalKinesisStreamsForLedgerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185477"><span id="local-6989586621679185479"><span id="local-6989586621679185481"><span id="local-6989586621679185483"><span class="annot"><span class="annottext">ReadPrec [ListJournalKinesisStreamsForLedgerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185486"><span id="local-6989586621679185488"><span id="local-6989586621679185490"><span id="local-6989586621679185492"><span class="annot"><span class="annottext">ReadPrec [ListJournalKinesisStreamsForLedgerResponse]
 ReadPrec ListJournalKinesisStreamsForLedgerResponse
 Int -&gt; ReadS ListJournalKinesisStreamsForLedgerResponse
 ReadS [ListJournalKinesisStreamsForLedgerResponse]
@@ -518,7 +518,7 @@ readList :: ReadS [ListJournalKinesisStreamsForLedgerResponse]
 $creadList :: ReadS [ListJournalKinesisStreamsForLedgerResponse]
 readsPrec :: Int -&gt; ReadS ListJournalKinesisStreamsForLedgerResponse
 $creadsPrec :: Int -&gt; ReadS ListJournalKinesisStreamsForLedgerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185471"><span id="local-6989586621679185473"><span id="local-6989586621679185475"><span class="annot"><span class="annottext">Int -&gt; ListJournalKinesisStreamsForLedgerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185480"><span id="local-6989586621679185482"><span id="local-6989586621679185484"><span class="annot"><span class="annottext">Int -&gt; ListJournalKinesisStreamsForLedgerResponse -&gt; ShowS
 [ListJournalKinesisStreamsForLedgerResponse] -&gt; ShowS
 ListJournalKinesisStreamsForLedgerResponse -&gt; String
 (Int -&gt; ListJournalKinesisStreamsForLedgerResponse -&gt; ShowS)
@@ -581,8 +581,8 @@ ListJournalKinesisStreamsForLedgerResponse
 </span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span>
 </span><span id="line-226"></span><span id="newListJournalKinesisStreamsForLedgerResponse"><span class="annot"><span class="annottext">newListJournalKinesisStreamsForLedgerResponse :: Int -&gt; ListJournalKinesisStreamsForLedgerResponse
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#newListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-var hs-var">newListJournalKinesisStreamsForLedgerResponse</span></a></span></span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679185468"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679185477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse' :: Maybe Text
 -&gt; Maybe [JournalKinesisStreamDescription]
 -&gt; Int
@@ -599,7 +599,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AhttpStatus%3AListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679185477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | -   If @NextToken@ is empty, the last page of results has been processed</span><span>
@@ -621,16 +621,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185467"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185476"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJournalKinesisStreamsForLedgerResponse' :: ListJournalKinesisStreamsForLedgerResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679185467"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185467"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185466"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedgerResponse
-</span><a href="#local-6989586621679185466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185465"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
-</span><a href="#local-6989586621679185466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalKinesisStreamsForLedgerResponse' :: Maybe Text
+</span><a href="#local-6989586621679185476"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185476"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185475"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedgerResponse
+</span><a href="#local-6989586621679185475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185474"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
+</span><a href="#local-6989586621679185475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalKinesisStreamsForLedgerResponse' :: Maybe Text
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AnextToken%3AListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The array of QLDB journal stream descriptors that are associated with</span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- the given ledger.</span><span>
@@ -650,17 +650,17 @@ $sel:nextToken:ListJournalKinesisStreamsForLedgerResponse' :: ListJournalKinesis
      (Maybe [JournalKinesisStreamDescription])
      (Maybe [JournalKinesisStreamDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185464"><span class="annot"><span class="annottext">Maybe [JournalKinesisStreamDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185473"><span class="annot"><span class="annottext">Maybe [JournalKinesisStreamDescription]
 streams :: Maybe [JournalKinesisStreamDescription]
 $sel:streams:ListJournalKinesisStreamsForLedgerResponse' :: ListJournalKinesisStreamsForLedgerResponse
 -&gt; Maybe [JournalKinesisStreamDescription]
-</span><a href="#local-6989586621679185464"><span class="hs-identifier hs-var hs-var">streams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JournalKinesisStreamDescription]
-</span><a href="#local-6989586621679185464"><span class="hs-identifier hs-var">streams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185463"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedgerResponse
-</span><a href="#local-6989586621679185463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185462"><span class="annot"><span class="annottext">Maybe [JournalKinesisStreamDescription]
-</span><a href="#local-6989586621679185462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
-</span><a href="#local-6989586621679185463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streams:ListJournalKinesisStreamsForLedgerResponse' :: Maybe [JournalKinesisStreamDescription]
+</span><a href="#local-6989586621679185473"><span class="hs-identifier hs-var hs-var">streams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JournalKinesisStreamDescription]
+</span><a href="#local-6989586621679185473"><span class="hs-identifier hs-var">streams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185472"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedgerResponse
+</span><a href="#local-6989586621679185472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185471"><span class="annot"><span class="annottext">Maybe [JournalKinesisStreamDescription]
+</span><a href="#local-6989586621679185471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
+</span><a href="#local-6989586621679185472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streams:ListJournalKinesisStreamsForLedgerResponse' :: Maybe [JournalKinesisStreamDescription]
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3Astreams%3AListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-var">streams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JournalKinesisStreamDescription]
-</span><a href="#local-6989586621679185462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JournalKinesisStreamDescription]
+</span><a href="#local-6989586621679185471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JournalKinesisStreamDescription]
   -&gt; f (Maybe [JournalKinesisStreamDescription]))
  -&gt; ListJournalKinesisStreamsForLedgerResponse
  -&gt; f ListJournalKinesisStreamsForLedgerResponse)
@@ -708,18 +708,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185458"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185467"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse' :: ListJournalKinesisStreamsForLedgerResponse -&gt; Int
-</span><a href="#local-6989586621679185458"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185458"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185457"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedgerResponse
-</span><a href="#local-6989586621679185457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
-</span><a href="#local-6989586621679185457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse' :: Int
+</span><a href="#local-6989586621679185467"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185467"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185466"><span class="annot"><span class="annottext">s :: ListJournalKinesisStreamsForLedgerResponse
+</span><a href="#local-6989586621679185466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185465"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalKinesisStreamsForLedgerResponse
+</span><a href="#local-6989586621679185466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#%24sel%3AhttpStatus%3AListJournalKinesisStreamsForLedgerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679185454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679185463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalKinesisStreamsForLedger.html#ListJournalKinesisStreamsForLedgerResponse"><span class="hs-identifier hs-type">ListJournalKinesisStreamsForLedgerResponse</span></a></span></span><span>
 </span><span id="line-256"></span></pre></body></html>

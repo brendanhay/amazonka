@@ -31,11 +31,11 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newNotificationConfigurationFilter' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679551780"><span id="local-6989586621679551781"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationConfigurationFilter"><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-var">NotificationConfigurationFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationConfigurationFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-var">NotificationConfigurationFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679551789"><span id="local-6989586621679551790"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationConfigurationFilter"><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-var">NotificationConfigurationFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationConfigurationFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-var">NotificationConfigurationFilter'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Akey%3ANotificationConfigurationFilter%27"><span class="annot"><span class="annottext">NotificationConfigurationFilter -&gt; Maybe S3KeyFilter
 </span><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#%24sel%3Akey%3ANotificationConfigurationFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551774"><span id="local-6989586621679551776"><span class="annot"><span class="annottext">NotificationConfigurationFilter
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551783"><span id="local-6989586621679551785"><span class="annot"><span class="annottext">NotificationConfigurationFilter
 -&gt; NotificationConfigurationFilter -&gt; Bool
 (NotificationConfigurationFilter
  -&gt; NotificationConfigurationFilter -&gt; Bool)
@@ -51,7 +51,7 @@ $c/= :: NotificationConfigurationFilter
 -&gt; NotificationConfigurationFilter -&gt; Bool
 $c== :: NotificationConfigurationFilter
 -&gt; NotificationConfigurationFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551765"><span id="local-6989586621679551767"><span id="local-6989586621679551769"><span id="local-6989586621679551771"><span class="annot"><span class="annottext">ReadPrec [NotificationConfigurationFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551774"><span id="local-6989586621679551776"><span id="local-6989586621679551778"><span id="local-6989586621679551780"><span class="annot"><span class="annottext">ReadPrec [NotificationConfigurationFilter]
 ReadPrec NotificationConfigurationFilter
 Int -&gt; ReadS NotificationConfigurationFilter
 ReadS [NotificationConfigurationFilter]
@@ -71,7 +71,7 @@ readList :: ReadS [NotificationConfigurationFilter]
 $creadList :: ReadS [NotificationConfigurationFilter]
 readsPrec :: Int -&gt; ReadS NotificationConfigurationFilter
 $creadsPrec :: Int -&gt; ReadS NotificationConfigurationFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551758"><span id="local-6989586621679551760"><span id="local-6989586621679551762"><span class="annot"><span class="annottext">Int -&gt; NotificationConfigurationFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551767"><span id="local-6989586621679551769"><span id="local-6989586621679551771"><span class="annot"><span class="annottext">Int -&gt; NotificationConfigurationFilter -&gt; ShowS
 [NotificationConfigurationFilter] -&gt; ShowS
 NotificationConfigurationFilter -&gt; String
 (Int -&gt; NotificationConfigurationFilter -&gt; ShowS)
@@ -145,21 +145,21 @@ forall a. Maybe a
      (Maybe S3KeyFilter)
      (Maybe S3KeyFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-type">NotificationConfigurationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551749"><span class="annot"><span class="annottext">Maybe S3KeyFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-type">NotificationConfigurationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551758"><span class="annot"><span class="annottext">Maybe S3KeyFilter
 key :: Maybe S3KeyFilter
 $sel:key:NotificationConfigurationFilter' :: NotificationConfigurationFilter -&gt; Maybe S3KeyFilter
-</span><a href="#local-6989586621679551749"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3KeyFilter
-</span><a href="#local-6989586621679551749"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551748"><span class="annot"><span class="annottext">s :: NotificationConfigurationFilter
-</span><a href="#local-6989586621679551748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-type">NotificationConfigurationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551747"><span class="annot"><span class="annottext">Maybe S3KeyFilter
-</span><a href="#local-6989586621679551747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationConfigurationFilter
-</span><a href="#local-6989586621679551748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:NotificationConfigurationFilter' :: Maybe S3KeyFilter
+</span><a href="#local-6989586621679551758"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3KeyFilter
+</span><a href="#local-6989586621679551758"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551757"><span class="annot"><span class="annottext">s :: NotificationConfigurationFilter
+</span><a href="#local-6989586621679551757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-type">NotificationConfigurationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551756"><span class="annot"><span class="annottext">Maybe S3KeyFilter
+</span><a href="#local-6989586621679551756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationConfigurationFilter
+</span><a href="#local-6989586621679551757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:NotificationConfigurationFilter' :: Maybe S3KeyFilter
 </span><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#%24sel%3Akey%3ANotificationConfigurationFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3KeyFilter
-</span><a href="#local-6989586621679551747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679551744"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NotificationConfigurationFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551742"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551742"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679551753"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NotificationConfigurationFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551751"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679551751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Maybe S3KeyFilter -&gt; NotificationConfigurationFilter
 </span><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-var">NotificationConfigurationFilter'</span></a></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(Maybe S3KeyFilter -&gt; NotificationConfigurationFilter)
@@ -167,30 +167,30 @@ $sel:key:NotificationConfigurationFilter' :: NotificationConfigurationFilter -&g
 -&gt; Either String NotificationConfigurationFilter
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3KeyFilter)
+</span><a href="#local-6989586621679551751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3KeyFilter)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679551736"><span id="local-6989586621679551738"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679551745"><span id="local-6989586621679551747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679551733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679551742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679551729"><span class="annot"><span class="annottext">toXML :: NotificationConfigurationFilter -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-type">NotificationConfigurationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551727"><span class="annot"><span class="annottext">Maybe S3KeyFilter
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679551738"><span class="annot"><span class="annottext">toXML :: NotificationConfigurationFilter -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter%27"><span class="hs-identifier hs-type">NotificationConfigurationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551736"><span class="annot"><span class="annottext">Maybe S3KeyFilter
 key :: Maybe S3KeyFilter
 $sel:key:NotificationConfigurationFilter' :: NotificationConfigurationFilter -&gt; Maybe S3KeyFilter
-</span><a href="#local-6989586621679551727"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679551736"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;S3Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe S3KeyFilter -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3KeyFilter
-</span><a href="#local-6989586621679551727"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679551736"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span></pre></body></html>

@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span class="hs-comment">-- @NotifyAll@ set to true.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newNotification' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679224273"><span id="local-6989586621679224274"></span></span><span class="hs-keyword">data</span><span> </span><span id="Notification"><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-var">Notification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Notification%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-var">Notification'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679224282"><span id="local-6989586621679224283"></span></span><span class="hs-keyword">data</span><span> </span><span id="Notification"><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-var">Notification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Notification%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-var">Notification'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any change in job state will trigger a notification for this job.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AnotifyAll%3ANotification%27"><span class="annot"><span class="annottext">Notification -&gt; Maybe Bool
 </span><a href="Network.AWS.Snowball.Types.Notification.html#%24sel%3AnotifyAll%3ANotification%27"><span class="hs-identifier hs-var hs-var">notifyAll</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AjobStatesToNotify%3ANotification%27"><span class="annot"><span class="annottext">Notification -&gt; Maybe [JobState]
 </span><a href="Network.AWS.Snowball.Types.Notification.html#%24sel%3AjobStatesToNotify%3ANotification%27"><span class="hs-identifier hs-var hs-var">jobStatesToNotify</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224265"><span id="local-6989586621679224267"><span class="annot"><span class="annottext">Notification -&gt; Notification -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224274"><span id="local-6989586621679224276"><span class="annot"><span class="annottext">Notification -&gt; Notification -&gt; Bool
 (Notification -&gt; Notification -&gt; Bool)
 -&gt; (Notification -&gt; Notification -&gt; Bool) -&gt; Eq Notification
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Notification -&gt; Notification -&gt; Bool
 == :: Notification -&gt; Notification -&gt; Bool
 $c== :: Notification -&gt; Notification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224256"><span id="local-6989586621679224258"><span id="local-6989586621679224260"><span id="local-6989586621679224262"><span class="annot"><span class="annottext">ReadPrec [Notification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224265"><span id="local-6989586621679224267"><span id="local-6989586621679224269"><span id="local-6989586621679224271"><span class="annot"><span class="annottext">ReadPrec [Notification]
 ReadPrec Notification
 Int -&gt; ReadS Notification
 ReadS [Notification]
@@ -83,7 +83,7 @@ readList :: ReadS [Notification]
 $creadList :: ReadS [Notification]
 readsPrec :: Int -&gt; ReadS Notification
 $creadsPrec :: Int -&gt; ReadS Notification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224249"><span id="local-6989586621679224251"><span id="local-6989586621679224253"><span class="annot"><span class="annottext">Int -&gt; Notification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224258"><span id="local-6989586621679224260"><span id="local-6989586621679224262"><span class="annot"><span class="annottext">Int -&gt; Notification -&gt; ShowS
 [Notification] -&gt; ShowS
 Notification -&gt; String
 (Int -&gt; Notification -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; (Notification -&gt; Maybe Bool -&gt; Notification)
 -&gt; Lens Notification Notification (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224240"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224249"><span class="annot"><span class="annottext">Maybe Bool
 notifyAll :: Maybe Bool
 $sel:notifyAll:Notification' :: Notification -&gt; Maybe Bool
-</span><a href="#local-6989586621679224240"><span class="hs-identifier hs-var hs-var">notifyAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224240"><span class="hs-identifier hs-var">notifyAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224239"><span class="annot"><span class="annottext">s :: Notification
-</span><a href="#local-6989586621679224239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224238"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679224239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyAll:Notification' :: Maybe Bool
+</span><a href="#local-6989586621679224249"><span class="hs-identifier hs-var hs-var">notifyAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224249"><span class="hs-identifier hs-var">notifyAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224248"><span class="annot"><span class="annottext">s :: Notification
+</span><a href="#local-6989586621679224248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224247"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679224248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyAll:Notification' :: Maybe Bool
 </span><a href="Network.AWS.Snowball.Types.Notification.html#%24sel%3AnotifyAll%3ANotification%27"><span class="hs-identifier hs-var">notifyAll</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The new SNS @TopicArn@ that you want to associate with this job. You can</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- create Amazon Resource Names (ARNs) for topics by using the</span><span>
@@ -183,16 +183,16 @@ $sel:notifyAll:Notification' :: Notification -&gt; Maybe Bool
 -&gt; (Notification -&gt; Maybe Text -&gt; Notification)
 -&gt; Lens Notification Notification (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224236"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224245"><span class="annot"><span class="annottext">Maybe Text
 snsTopicARN :: Maybe Text
 $sel:snsTopicARN:Notification' :: Notification -&gt; Maybe Text
-</span><a href="#local-6989586621679224236"><span class="hs-identifier hs-var hs-var">snsTopicARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224236"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224235"><span class="annot"><span class="annottext">s :: Notification
-</span><a href="#local-6989586621679224235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224234"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679224235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicARN:Notification' :: Maybe Text
+</span><a href="#local-6989586621679224245"><span class="hs-identifier hs-var hs-var">snsTopicARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224245"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224244"><span class="annot"><span class="annottext">s :: Notification
+</span><a href="#local-6989586621679224244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224243"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679224244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicARN:Notification' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Notification.html#%24sel%3AsnsTopicARN%3ANotification%27"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The list of job states that will trigger a notification for this job.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#notification_jobStatesToNotify"><span class="hs-identifier hs-type">notification_jobStatesToNotify</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -203,16 +203,16 @@ $sel:snsTopicARN:Notification' :: Notification -&gt; Maybe Text
 -&gt; Lens
      Notification Notification (Maybe [JobState]) (Maybe [JobState])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224232"><span class="annot"><span class="annottext">Maybe [JobState]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224241"><span class="annot"><span class="annottext">Maybe [JobState]
 jobStatesToNotify :: Maybe [JobState]
 $sel:jobStatesToNotify:Notification' :: Notification -&gt; Maybe [JobState]
-</span><a href="#local-6989586621679224232"><span class="hs-identifier hs-var hs-var">jobStatesToNotify</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobState]
-</span><a href="#local-6989586621679224232"><span class="hs-identifier hs-var">jobStatesToNotify</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224231"><span class="annot"><span class="annottext">s :: Notification
-</span><a href="#local-6989586621679224231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224230"><span class="annot"><span class="annottext">Maybe [JobState]
-</span><a href="#local-6989586621679224230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679224231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatesToNotify:Notification' :: Maybe [JobState]
+</span><a href="#local-6989586621679224241"><span class="hs-identifier hs-var hs-var">jobStatesToNotify</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobState]
+</span><a href="#local-6989586621679224241"><span class="hs-identifier hs-var">jobStatesToNotify</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224240"><span class="annot"><span class="annottext">s :: Notification
+</span><a href="#local-6989586621679224240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224239"><span class="annot"><span class="annottext">Maybe [JobState]
+</span><a href="#local-6989586621679224239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679224240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatesToNotify:Notification' :: Maybe [JobState]
 </span><a href="Network.AWS.Snowball.Types.Notification.html#%24sel%3AjobStatesToNotify%3ANotification%27"><span class="hs-identifier hs-var">jobStatesToNotify</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobState]
-</span><a href="#local-6989586621679224230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobState] -&gt; f (Maybe [JobState]))
+</span><a href="#local-6989586621679224239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobState] -&gt; f (Maybe [JobState]))
  -&gt; Notification -&gt; f Notification)
 -&gt; ((Maybe [JobState] -&gt; f (Maybe [JobState]))
     -&gt; Maybe [JobState] -&gt; f (Maybe [JobState]))
@@ -233,8 +233,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224224"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679224222"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Notification
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224233"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679224231"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Notification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Notification) -&gt; Value -&gt; Parser Notification
@@ -242,8 +242,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Notification&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224219"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224228"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224228"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; Maybe [JobState] -&gt; Notification
 </span><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-var">Notification'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Text -&gt; Maybe [JobState] -&gt; Notification)
@@ -251,7 +251,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe [JobState] -&gt; Notification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679224228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotifyAll&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,7 +259,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [JobState] -&gt; Notification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679224228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnsTopicARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,7 +267,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [JobState]) -&gt; Parser Notification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobState]))
+</span><a href="#local-6989586621679224228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobState]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobStatesToNotify&quot;</span></span><span>
@@ -280,13 +280,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-117"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224212"><span id="local-6989586621679224214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224221"><span id="local-6989586621679224223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224201"><span id="local-6989586621679224203"><span id="local-6989586621679224205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679224199"><span class="annot"><span class="annottext">toJSON :: Notification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224195"><span id="local-6989586621679224196"><span id="local-6989586621679224197"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224210"><span id="local-6989586621679224212"><span id="local-6989586621679224214"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679224208"><span class="annot"><span class="annottext">toJSON :: Notification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification%27"><span class="hs-identifier hs-type">Notification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224204"><span id="local-6989586621679224205"><span id="local-6989586621679224206"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [JobState]
 Maybe Text
 jobStatesToNotify :: Maybe [JobState]
@@ -295,7 +295,7 @@ notifyAll :: Maybe Bool
 $sel:jobStatesToNotify:Notification' :: Notification -&gt; Maybe [JobState]
 $sel:snsTopicARN:Notification' :: Notification -&gt; Maybe Text
 $sel:notifyAll:Notification' :: Notification -&gt; Maybe Bool
-</span><a href="#local-6989586621679224195"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224204"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -307,14 +307,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224197"><span class="hs-identifier hs-var">notifyAll</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224206"><span class="hs-identifier hs-var">notifyAll</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnsTopicARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224196"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224205"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobStatesToNotify&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [JobState] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -322,7 +322,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">([JobState] -&gt; Pair) -&gt; Maybe [JobState] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobState]
-</span><a href="#local-6989586621679224195"><span class="hs-identifier hs-var">jobStatesToNotify</span></a></span><span>
+</span><a href="#local-6989586621679224204"><span class="hs-identifier hs-var">jobStatesToNotify</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span></pre></body></html>

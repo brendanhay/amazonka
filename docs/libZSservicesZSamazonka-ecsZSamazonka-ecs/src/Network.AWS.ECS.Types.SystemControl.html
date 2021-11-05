@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">--     container instance.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newSystemControl' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679461799"><span id="local-6989586621679461800"></span></span><span class="hs-keyword">data</span><span> </span><span id="SystemControl"><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-var">SystemControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SystemControl%27"><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-var">SystemControl'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679461808"><span id="local-6989586621679461809"></span></span><span class="hs-keyword">data</span><span> </span><span id="SystemControl"><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-var">SystemControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SystemControl%27"><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-var">SystemControl'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for the namespaced kernel parameter specified in @namespace@.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Avalue%3ASystemControl%27"><span class="annot"><span class="annottext">SystemControl -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.Types.SystemControl.html#%24sel%3Avalue%3ASystemControl%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Anamespace%3ASystemControl%27"><span class="annot"><span class="annottext">SystemControl -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.Types.SystemControl.html#%24sel%3Anamespace%3ASystemControl%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461792"><span id="local-6989586621679461794"><span class="annot"><span class="annottext">SystemControl -&gt; SystemControl -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461801"><span id="local-6989586621679461803"><span class="annot"><span class="annottext">SystemControl -&gt; SystemControl -&gt; Bool
 (SystemControl -&gt; SystemControl -&gt; Bool)
 -&gt; (SystemControl -&gt; SystemControl -&gt; Bool) -&gt; Eq SystemControl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SystemControl -&gt; SystemControl -&gt; Bool
 == :: SystemControl -&gt; SystemControl -&gt; Bool
 $c== :: SystemControl -&gt; SystemControl -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461783"><span id="local-6989586621679461785"><span id="local-6989586621679461787"><span id="local-6989586621679461789"><span class="annot"><span class="annottext">ReadPrec [SystemControl]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461792"><span id="local-6989586621679461794"><span id="local-6989586621679461796"><span id="local-6989586621679461798"><span class="annot"><span class="annottext">ReadPrec [SystemControl]
 ReadPrec SystemControl
 Int -&gt; ReadS SystemControl
 ReadS [SystemControl]
@@ -83,7 +83,7 @@ readList :: ReadS [SystemControl]
 $creadList :: ReadS [SystemControl]
 readsPrec :: Int -&gt; ReadS SystemControl
 $creadsPrec :: Int -&gt; ReadS SystemControl
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461776"><span id="local-6989586621679461778"><span id="local-6989586621679461780"><span class="annot"><span class="annottext">Int -&gt; SystemControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461785"><span id="local-6989586621679461787"><span id="local-6989586621679461789"><span class="annot"><span class="annottext">Int -&gt; SystemControl -&gt; ShowS
 [SystemControl] -&gt; ShowS
 SystemControl -&gt; String
 (Int -&gt; SystemControl -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; (SystemControl -&gt; Maybe Text -&gt; SystemControl)
 -&gt; Lens SystemControl SystemControl (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461767"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461776"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:SystemControl' :: SystemControl -&gt; Maybe Text
-</span><a href="#local-6989586621679461767"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461767"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461766"><span class="annot"><span class="annottext">s :: SystemControl
-</span><a href="#local-6989586621679461766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461765"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemControl
-</span><a href="#local-6989586621679461766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:SystemControl' :: Maybe Text
+</span><a href="#local-6989586621679461776"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461776"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461775"><span class="annot"><span class="annottext">s :: SystemControl
+</span><a href="#local-6989586621679461775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461774"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemControl
+</span><a href="#local-6989586621679461775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:SystemControl' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.SystemControl.html#%24sel%3Avalue%3ASystemControl%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The namespaced kernel parameter for which to set a @value@.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#systemControl_namespace"><span class="hs-identifier hs-type">systemControl_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -161,19 +161,19 @@ $sel:value:SystemControl' :: SystemControl -&gt; Maybe Text
 -&gt; (SystemControl -&gt; Maybe Text -&gt; SystemControl)
 -&gt; Lens SystemControl SystemControl (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461763"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461772"><span class="annot"><span class="annottext">Maybe Text
 namespace :: Maybe Text
 $sel:namespace:SystemControl' :: SystemControl -&gt; Maybe Text
-</span><a href="#local-6989586621679461763"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461763"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461762"><span class="annot"><span class="annottext">s :: SystemControl
-</span><a href="#local-6989586621679461762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461761"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemControl
-</span><a href="#local-6989586621679461762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:SystemControl' :: Maybe Text
+</span><a href="#local-6989586621679461772"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461772"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461771"><span class="annot"><span class="annottext">s :: SystemControl
+</span><a href="#local-6989586621679461771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemControl
+</span><a href="#local-6989586621679461771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:SystemControl' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.SystemControl.html#%24sel%3Anamespace%3ASystemControl%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461758"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679461756"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SystemControl
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461767"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679461765"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SystemControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SystemControl)
@@ -183,15 +183,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SystemControl&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679461753"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679461753"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679461762"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SystemControl
 </span><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-var">SystemControl'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SystemControl)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SystemControl)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679461753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679461762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,24 +199,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SystemControl
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679461753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679461762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;namespace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461747"><span id="local-6989586621679461749"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461756"><span id="local-6989586621679461758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461736"><span id="local-6989586621679461738"><span id="local-6989586621679461740"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679461734"><span class="annot"><span class="annottext">toJSON :: SystemControl -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461731"><span id="local-6989586621679461732"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461745"><span id="local-6989586621679461747"><span id="local-6989586621679461749"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl"><span class="hs-identifier hs-type">SystemControl</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679461743"><span class="annot"><span class="annottext">toJSON :: SystemControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SystemControl.html#SystemControl%27"><span class="hs-identifier hs-type">SystemControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461740"><span id="local-6989586621679461741"><span class="annot"><span class="annottext">Maybe Text
 namespace :: Maybe Text
 value :: Maybe Text
 $sel:namespace:SystemControl' :: SystemControl -&gt; Maybe Text
 $sel:value:SystemControl' :: SystemControl -&gt; Maybe Text
-</span><a href="#local-6989586621679461731"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679461740"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -228,14 +228,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461732"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461741"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679461731"><span class="hs-identifier hs-var">namespace</span></a></span><span>
+</span><a href="#local-6989586621679461740"><span class="hs-identifier hs-var">namespace</span></a></span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span id="local-6989586621679242536"><span id="local-6989586621679242537"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Comparator"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Comparator.html#Comparator"><span class="hs-identifier hs-var">Comparator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Comparator%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Comparator.html#Comparator%27"><span class="hs-identifier hs-var">Comparator'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679242545"><span id="local-6989586621679242546"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Comparator"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Comparator.html#Comparator"><span class="hs-identifier hs-var">Comparator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Comparator%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Comparator.html#Comparator%27"><span class="hs-identifier hs-var">Comparator'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComparator"><span class="annot"><span class="annottext">Comparator -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.Comparator.html#fromComparator"><span class="hs-identifier hs-var hs-var">fromComparator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242528"><span id="local-6989586621679242530"><span id="local-6989586621679242532"><span class="annot"><span class="annottext">Int -&gt; Comparator -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242537"><span id="local-6989586621679242539"><span id="local-6989586621679242541"><span class="annot"><span class="annottext">Int -&gt; Comparator -&gt; ShowS
 [Comparator] -&gt; ShowS
 Comparator -&gt; String
 (Int -&gt; Comparator -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: Comparator -&gt; String
 showsPrec :: Int -&gt; Comparator -&gt; ShowS
 $cshowsPrec :: Int -&gt; Comparator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679242519"><span id="local-6989586621679242521"><span id="local-6989586621679242523"><span id="local-6989586621679242525"><span class="annot"><span class="annottext">ReadPrec [Comparator]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679242528"><span id="local-6989586621679242530"><span id="local-6989586621679242532"><span id="local-6989586621679242534"><span class="annot"><span class="annottext">ReadPrec [Comparator]
 ReadPrec Comparator
 Int -&gt; ReadS Comparator
 ReadS [Comparator]
@@ -80,7 +80,7 @@ $creadList :: ReadS [Comparator]
 readsPrec :: Int -&gt; ReadS Comparator
 $creadsPrec :: Int -&gt; ReadS Comparator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679242514"><span id="local-6989586621679242516"><span class="annot"><span class="annottext">Comparator -&gt; Comparator -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679242523"><span id="local-6989586621679242525"><span class="annot"><span class="annottext">Comparator -&gt; Comparator -&gt; Bool
 (Comparator -&gt; Comparator -&gt; Bool)
 -&gt; (Comparator -&gt; Comparator -&gt; Bool) -&gt; Eq Comparator
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: Comparator -&gt; Comparator -&gt; Bool
 == :: Comparator -&gt; Comparator -&gt; Bool
 $c== :: Comparator -&gt; Comparator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679242498"><span id="local-6989586621679242500"><span id="local-6989586621679242502"><span id="local-6989586621679242504"><span id="local-6989586621679242506"><span id="local-6989586621679242508"><span id="local-6989586621679242510"><span class="annot"><span class="annottext">Eq Comparator
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679242507"><span id="local-6989586621679242509"><span id="local-6989586621679242511"><span id="local-6989586621679242513"><span id="local-6989586621679242515"><span id="local-6989586621679242517"><span id="local-6989586621679242519"><span class="annot"><span class="annottext">Eq Comparator
 Eq Comparator
 -&gt; (Comparator -&gt; Comparator -&gt; Ordering)
 -&gt; (Comparator -&gt; Comparator -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. Comparator -&gt; Rep Comparator x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242490"><span id="local-6989586621679242492"><span class="annot"><span class="annottext">Int -&gt; Comparator -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242499"><span id="local-6989586621679242501"><span class="annot"><span class="annottext">Int -&gt; Comparator -&gt; Int
 Comparator -&gt; Int
 (Int -&gt; Comparator -&gt; Int)
 -&gt; (Comparator -&gt; Int) -&gt; Hashable Comparator
@@ -149,49 +149,49 @@ $chash :: Comparator -&gt; Int
 hashWithSalt :: Int -&gt; Comparator -&gt; Int
 $chashWithSalt :: Int -&gt; Comparator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679242487"><span class="annot"><span class="annottext">Comparator -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679242496"><span class="annot"><span class="annottext">Comparator -&gt; ()
 (Comparator -&gt; ()) -&gt; NFData Comparator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Comparator -&gt; ()
 $crnf :: Comparator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679242484"><span class="annot"><span class="annottext">Text -&gt; Either String Comparator
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679242493"><span class="annot"><span class="annottext">Text -&gt; Either String Comparator
 (Text -&gt; Either String Comparator) -&gt; FromText Comparator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Comparator
 $cfromText :: Text -&gt; Either String Comparator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679242481"><span class="annot"><span class="annottext">Comparator -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679242490"><span class="annot"><span class="annottext">Comparator -&gt; Text
 (Comparator -&gt; Text) -&gt; ToText Comparator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Comparator -&gt; Text
 $ctoText :: Comparator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679242478"><span class="annot"><span class="annottext">Comparator -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679242487"><span class="annot"><span class="annottext">Comparator -&gt; ByteString
 (Comparator -&gt; ByteString) -&gt; ToByteString Comparator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Comparator -&gt; ByteString
 $ctoBS :: Comparator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679242475"><span class="annot"><span class="annottext">Comparator -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679242484"><span class="annot"><span class="annottext">Comparator -&gt; ByteStringBuilder
 (Comparator -&gt; ByteStringBuilder) -&gt; ToLog Comparator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Comparator -&gt; ByteStringBuilder
 $cbuild :: Comparator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679242472"><span class="annot"><span class="annottext">HeaderName -&gt; Comparator -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679242481"><span class="annot"><span class="annottext">HeaderName -&gt; Comparator -&gt; [Header]
 (HeaderName -&gt; Comparator -&gt; [Header]) -&gt; ToHeader Comparator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Comparator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Comparator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679242469"><span class="annot"><span class="annottext">Comparator -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679242478"><span class="annot"><span class="annottext">Comparator -&gt; QueryString
 (Comparator -&gt; QueryString) -&gt; ToQuery Comparator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Comparator -&gt; QueryString
 $ctoQuery :: Comparator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679242464"><span id="local-6989586621679242466"><span class="annot"><span class="annottext">Value -&gt; Parser [Comparator]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679242473"><span id="local-6989586621679242475"><span class="annot"><span class="annottext">Value -&gt; Parser [Comparator]
 Value -&gt; Parser Comparator
 (Value -&gt; Parser Comparator)
 -&gt; (Value -&gt; Parser [Comparator]) -&gt; FromJSON Comparator
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [Comparator]
 parseJSON :: Value -&gt; Parser Comparator
 $cparseJSON :: Value -&gt; Parser Comparator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679242459"><span id="local-6989586621679242461"><span class="annot"><span class="annottext">FromJSONKeyFunction [Comparator]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679242468"><span id="local-6989586621679242470"><span class="annot"><span class="annottext">FromJSONKeyFunction [Comparator]
 FromJSONKeyFunction Comparator
 FromJSONKeyFunction Comparator
 -&gt; FromJSONKeyFunction [Comparator] -&gt; FromJSONKey Comparator
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Comparator]
 fromJSONKey :: FromJSONKeyFunction Comparator
 $cfromJSONKey :: FromJSONKeyFunction Comparator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679242450"><span id="local-6989586621679242452"><span id="local-6989586621679242454"><span id="local-6989586621679242456"><span class="annot"><span class="annottext">[Comparator] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679242459"><span id="local-6989586621679242461"><span id="local-6989586621679242463"><span id="local-6989586621679242465"><span class="annot"><span class="annottext">[Comparator] -&gt; Encoding
 [Comparator] -&gt; Value
 Comparator -&gt; Encoding
 Comparator -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: Comparator -&gt; Encoding
 toJSON :: Comparator -&gt; Value
 $ctoJSON :: Comparator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679242445"><span id="local-6989586621679242447"><span class="annot"><span class="annottext">ToJSONKeyFunction [Comparator]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679242454"><span id="local-6989586621679242456"><span class="annot"><span class="annottext">ToJSONKeyFunction [Comparator]
 ToJSONKeyFunction Comparator
 ToJSONKeyFunction Comparator
 -&gt; ToJSONKeyFunction [Comparator] -&gt; ToJSONKey Comparator
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Comparator]
 toJSONKey :: ToJSONKeyFunction Comparator
 $ctoJSONKey :: ToJSONKeyFunction Comparator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679242442"><span class="annot"><span class="annottext">[Node] -&gt; Either String Comparator
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679242451"><span class="annot"><span class="annottext">[Node] -&gt; Either String Comparator
 ([Node] -&gt; Either String Comparator) -&gt; FromXML Comparator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Comparator
 $cparseXML :: [Node] -&gt; Either String Comparator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679242439"><span class="annot"><span class="annottext">Comparator -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679242448"><span class="annot"><span class="annottext">Comparator -&gt; XML
 (Comparator -&gt; XML) -&gt; ToXML Comparator
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Comparator -&gt; XML

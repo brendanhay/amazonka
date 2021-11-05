@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- be negative, and a \'cslg\' (composition shift least greatest) box will</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- be included per 14496-1 amendment 1. This improves compatibility with</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- Apple players and tools.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679989464"><span id="local-6989586621679989465"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MovCslgAtom"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovCslgAtom.html#MovCslgAtom"><span class="hs-identifier hs-var">MovCslgAtom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MovCslgAtom%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovCslgAtom.html#MovCslgAtom%27"><span class="hs-identifier hs-var">MovCslgAtom'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679989473"><span id="local-6989586621679989474"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MovCslgAtom"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovCslgAtom.html#MovCslgAtom"><span class="hs-identifier hs-var">MovCslgAtom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MovCslgAtom%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovCslgAtom.html#MovCslgAtom%27"><span class="hs-identifier hs-var">MovCslgAtom'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMovCslgAtom"><span class="annot"><span class="annottext">MovCslgAtom -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MovCslgAtom.html#fromMovCslgAtom"><span class="hs-identifier hs-var hs-var">fromMovCslgAtom</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679989456"><span id="local-6989586621679989458"><span id="local-6989586621679989460"><span class="annot"><span class="annottext">Int -&gt; MovCslgAtom -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679989465"><span id="local-6989586621679989467"><span id="local-6989586621679989469"><span class="annot"><span class="annottext">Int -&gt; MovCslgAtom -&gt; ShowS
 [MovCslgAtom] -&gt; ShowS
 MovCslgAtom -&gt; String
 (Int -&gt; MovCslgAtom -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: MovCslgAtom -&gt; String
 showsPrec :: Int -&gt; MovCslgAtom -&gt; ShowS
 $cshowsPrec :: Int -&gt; MovCslgAtom -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679989447"><span id="local-6989586621679989449"><span id="local-6989586621679989451"><span id="local-6989586621679989453"><span class="annot"><span class="annottext">ReadPrec [MovCslgAtom]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679989456"><span id="local-6989586621679989458"><span id="local-6989586621679989460"><span id="local-6989586621679989462"><span class="annot"><span class="annottext">ReadPrec [MovCslgAtom]
 ReadPrec MovCslgAtom
 Int -&gt; ReadS MovCslgAtom
 ReadS [MovCslgAtom]
@@ -77,7 +77,7 @@ $creadList :: ReadS [MovCslgAtom]
 readsPrec :: Int -&gt; ReadS MovCslgAtom
 $creadsPrec :: Int -&gt; ReadS MovCslgAtom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679989442"><span id="local-6989586621679989444"><span class="annot"><span class="annottext">MovCslgAtom -&gt; MovCslgAtom -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679989451"><span id="local-6989586621679989453"><span class="annot"><span class="annottext">MovCslgAtom -&gt; MovCslgAtom -&gt; Bool
 (MovCslgAtom -&gt; MovCslgAtom -&gt; Bool)
 -&gt; (MovCslgAtom -&gt; MovCslgAtom -&gt; Bool) -&gt; Eq MovCslgAtom
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: MovCslgAtom -&gt; MovCslgAtom -&gt; Bool
 == :: MovCslgAtom -&gt; MovCslgAtom -&gt; Bool
 $c== :: MovCslgAtom -&gt; MovCslgAtom -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679989426"><span id="local-6989586621679989428"><span id="local-6989586621679989430"><span id="local-6989586621679989432"><span id="local-6989586621679989434"><span id="local-6989586621679989436"><span id="local-6989586621679989438"><span class="annot"><span class="annottext">Eq MovCslgAtom
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679989435"><span id="local-6989586621679989437"><span id="local-6989586621679989439"><span id="local-6989586621679989441"><span id="local-6989586621679989443"><span id="local-6989586621679989445"><span id="local-6989586621679989447"><span class="annot"><span class="annottext">Eq MovCslgAtom
 Eq MovCslgAtom
 -&gt; (MovCslgAtom -&gt; MovCslgAtom -&gt; Ordering)
 -&gt; (MovCslgAtom -&gt; MovCslgAtom -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. MovCslgAtom -&gt; Rep MovCslgAtom x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679989418"><span id="local-6989586621679989420"><span class="annot"><span class="annottext">Int -&gt; MovCslgAtom -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679989427"><span id="local-6989586621679989429"><span class="annot"><span class="annottext">Int -&gt; MovCslgAtom -&gt; Int
 MovCslgAtom -&gt; Int
 (Int -&gt; MovCslgAtom -&gt; Int)
 -&gt; (MovCslgAtom -&gt; Int) -&gt; Hashable MovCslgAtom
@@ -147,49 +147,49 @@ $chash :: MovCslgAtom -&gt; Int
 hashWithSalt :: Int -&gt; MovCslgAtom -&gt; Int
 $chashWithSalt :: Int -&gt; MovCslgAtom -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679989415"><span class="annot"><span class="annottext">MovCslgAtom -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679989424"><span class="annot"><span class="annottext">MovCslgAtom -&gt; ()
 (MovCslgAtom -&gt; ()) -&gt; NFData MovCslgAtom
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MovCslgAtom -&gt; ()
 $crnf :: MovCslgAtom -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679989412"><span class="annot"><span class="annottext">Text -&gt; Either String MovCslgAtom
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679989421"><span class="annot"><span class="annottext">Text -&gt; Either String MovCslgAtom
 (Text -&gt; Either String MovCslgAtom) -&gt; FromText MovCslgAtom
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MovCslgAtom
 $cfromText :: Text -&gt; Either String MovCslgAtom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679989409"><span class="annot"><span class="annottext">MovCslgAtom -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679989418"><span class="annot"><span class="annottext">MovCslgAtom -&gt; Text
 (MovCslgAtom -&gt; Text) -&gt; ToText MovCslgAtom
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MovCslgAtom -&gt; Text
 $ctoText :: MovCslgAtom -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679989406"><span class="annot"><span class="annottext">MovCslgAtom -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679989415"><span class="annot"><span class="annottext">MovCslgAtom -&gt; ByteString
 (MovCslgAtom -&gt; ByteString) -&gt; ToByteString MovCslgAtom
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MovCslgAtom -&gt; ByteString
 $ctoBS :: MovCslgAtom -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679989403"><span class="annot"><span class="annottext">MovCslgAtom -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679989412"><span class="annot"><span class="annottext">MovCslgAtom -&gt; ByteStringBuilder
 (MovCslgAtom -&gt; ByteStringBuilder) -&gt; ToLog MovCslgAtom
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MovCslgAtom -&gt; ByteStringBuilder
 $cbuild :: MovCslgAtom -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679989400"><span class="annot"><span class="annottext">HeaderName -&gt; MovCslgAtom -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679989409"><span class="annot"><span class="annottext">HeaderName -&gt; MovCslgAtom -&gt; [Header]
 (HeaderName -&gt; MovCslgAtom -&gt; [Header]) -&gt; ToHeader MovCslgAtom
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MovCslgAtom -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MovCslgAtom -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679989397"><span class="annot"><span class="annottext">MovCslgAtom -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679989406"><span class="annot"><span class="annottext">MovCslgAtom -&gt; QueryString
 (MovCslgAtom -&gt; QueryString) -&gt; ToQuery MovCslgAtom
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MovCslgAtom -&gt; QueryString
 $ctoQuery :: MovCslgAtom -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679989392"><span id="local-6989586621679989394"><span class="annot"><span class="annottext">Value -&gt; Parser [MovCslgAtom]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679989401"><span id="local-6989586621679989403"><span class="annot"><span class="annottext">Value -&gt; Parser [MovCslgAtom]
 Value -&gt; Parser MovCslgAtom
 (Value -&gt; Parser MovCslgAtom)
 -&gt; (Value -&gt; Parser [MovCslgAtom]) -&gt; FromJSON MovCslgAtom
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [MovCslgAtom]
 parseJSON :: Value -&gt; Parser MovCslgAtom
 $cparseJSON :: Value -&gt; Parser MovCslgAtom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679989387"><span id="local-6989586621679989389"><span class="annot"><span class="annottext">FromJSONKeyFunction [MovCslgAtom]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679989396"><span id="local-6989586621679989398"><span class="annot"><span class="annottext">FromJSONKeyFunction [MovCslgAtom]
 FromJSONKeyFunction MovCslgAtom
 FromJSONKeyFunction MovCslgAtom
 -&gt; FromJSONKeyFunction [MovCslgAtom] -&gt; FromJSONKey MovCslgAtom
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MovCslgAtom]
 fromJSONKey :: FromJSONKeyFunction MovCslgAtom
 $cfromJSONKey :: FromJSONKeyFunction MovCslgAtom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679989378"><span id="local-6989586621679989380"><span id="local-6989586621679989382"><span id="local-6989586621679989384"><span class="annot"><span class="annottext">[MovCslgAtom] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679989387"><span id="local-6989586621679989389"><span id="local-6989586621679989391"><span id="local-6989586621679989393"><span class="annot"><span class="annottext">[MovCslgAtom] -&gt; Encoding
 [MovCslgAtom] -&gt; Value
 MovCslgAtom -&gt; Encoding
 MovCslgAtom -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: MovCslgAtom -&gt; Encoding
 toJSON :: MovCslgAtom -&gt; Value
 $ctoJSON :: MovCslgAtom -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679989373"><span id="local-6989586621679989375"><span class="annot"><span class="annottext">ToJSONKeyFunction [MovCslgAtom]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679989382"><span id="local-6989586621679989384"><span class="annot"><span class="annottext">ToJSONKeyFunction [MovCslgAtom]
 ToJSONKeyFunction MovCslgAtom
 ToJSONKeyFunction MovCslgAtom
 -&gt; ToJSONKeyFunction [MovCslgAtom] -&gt; ToJSONKey MovCslgAtom
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MovCslgAtom]
 toJSONKey :: ToJSONKeyFunction MovCslgAtom
 $ctoJSONKey :: ToJSONKeyFunction MovCslgAtom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679989370"><span class="annot"><span class="annottext">[Node] -&gt; Either String MovCslgAtom
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679989379"><span class="annot"><span class="annottext">[Node] -&gt; Either String MovCslgAtom
 ([Node] -&gt; Either String MovCslgAtom) -&gt; FromXML MovCslgAtom
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MovCslgAtom
 $cparseXML :: [Node] -&gt; Either String MovCslgAtom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679989367"><span class="annot"><span class="annottext">MovCslgAtom -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679989376"><span class="annot"><span class="annottext">MovCslgAtom -&gt; XML
 (MovCslgAtom -&gt; XML) -&gt; ToXML MovCslgAtom
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MovCslgAtom -&gt; XML

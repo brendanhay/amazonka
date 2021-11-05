@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeFunction' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679417614"><span id="local-6989586621679417615"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFunction"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-var">DescribeFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFunction%27"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-var">DescribeFunction'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679417623"><span id="local-6989586621679417624"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFunction"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-var">DescribeFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFunction%27"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-var">DescribeFunction'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The function&#8217;s stage, either @DEVELOPMENT@ or @LIVE@.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Astage%3ADescribeFunction%27"><span class="annot"><span class="annottext">DescribeFunction -&gt; Maybe FunctionStage
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3Astage%3ADescribeFunction%27"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionStage.html#FunctionStage"><span class="hs-identifier hs-type">FunctionStage</span></a></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aname%3ADescribeFunction%27"><span class="annot"><span class="annottext">DescribeFunction -&gt; Text
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3Aname%3ADescribeFunction%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417607"><span id="local-6989586621679417609"><span class="annot"><span class="annottext">DescribeFunction -&gt; DescribeFunction -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417616"><span id="local-6989586621679417618"><span class="annot"><span class="annottext">DescribeFunction -&gt; DescribeFunction -&gt; Bool
 (DescribeFunction -&gt; DescribeFunction -&gt; Bool)
 -&gt; (DescribeFunction -&gt; DescribeFunction -&gt; Bool)
 -&gt; Eq DescribeFunction
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFunction -&gt; DescribeFunction -&gt; Bool
 == :: DescribeFunction -&gt; DescribeFunction -&gt; Bool
 $c== :: DescribeFunction -&gt; DescribeFunction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417598"><span id="local-6989586621679417600"><span id="local-6989586621679417602"><span id="local-6989586621679417604"><span class="annot"><span class="annottext">ReadPrec [DescribeFunction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417607"><span id="local-6989586621679417609"><span id="local-6989586621679417611"><span id="local-6989586621679417613"><span class="annot"><span class="annottext">ReadPrec [DescribeFunction]
 ReadPrec DescribeFunction
 Int -&gt; ReadS DescribeFunction
 ReadS [DescribeFunction]
@@ -92,7 +92,7 @@ readList :: ReadS [DescribeFunction]
 $creadList :: ReadS [DescribeFunction]
 readsPrec :: Int -&gt; ReadS DescribeFunction
 $creadsPrec :: Int -&gt; ReadS DescribeFunction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417591"><span id="local-6989586621679417593"><span id="local-6989586621679417595"><span class="annot"><span class="annottext">Int -&gt; DescribeFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417600"><span id="local-6989586621679417602"><span id="local-6989586621679417604"><span class="annot"><span class="annottext">Int -&gt; DescribeFunction -&gt; ShowS
 [DescribeFunction] -&gt; ShowS
 DescribeFunction -&gt; String
 (Int -&gt; DescribeFunction -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. DescribeFunction -&gt; Rep DescribeFunction x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span>
 </span><span id="line-81"></span><span id="newDescribeFunction"><span class="annot"><span class="annottext">newDescribeFunction :: Text -&gt; DescribeFunction
-</span><a href="Network.AWS.CloudFront.DescribeFunction.html#newDescribeFunction"><span class="hs-identifier hs-var hs-var">newDescribeFunction</span></a></span></span><span> </span><span id="local-6989586621679417586"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417586"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.DescribeFunction.html#newDescribeFunction"><span class="hs-identifier hs-var hs-var">newDescribeFunction</span></a></span></span><span> </span><span id="local-6989586621679417595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417595"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DescribeFunction' :: Maybe FunctionStage -&gt; Text -&gt; DescribeFunction
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stage:DescribeFunction' :: Maybe FunctionStage
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeFunction' :: Text
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3Aname%3ADescribeFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417586"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679417595"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The function&#8217;s stage, either @DEVELOPMENT@ or @LIVE@.</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
      (Maybe FunctionStage)
      (Maybe FunctionStage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417583"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417592"><span class="annot"><span class="annottext">Maybe FunctionStage
 stage :: Maybe FunctionStage
 $sel:stage:DescribeFunction' :: DescribeFunction -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679417583"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679417583"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417582"><span class="annot"><span class="annottext">s :: DescribeFunction
-</span><a href="#local-6989586621679417582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417581"><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679417581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunction
-</span><a href="#local-6989586621679417582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:DescribeFunction' :: Maybe FunctionStage
+</span><a href="#local-6989586621679417592"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679417592"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417591"><span class="annot"><span class="annottext">s :: DescribeFunction
+</span><a href="#local-6989586621679417591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417590"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679417590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunction
+</span><a href="#local-6989586621679417591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:DescribeFunction' :: Maybe FunctionStage
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3Astage%3ADescribeFunction%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679417581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The name of the function that you are getting information about.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#describeFunction_name"><span class="hs-identifier hs-type">describeFunction_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,27 +177,27 @@ $sel:stage:DescribeFunction' :: DescribeFunction -&gt; Maybe FunctionStage
 -&gt; (DescribeFunction -&gt; Text -&gt; DescribeFunction)
 -&gt; Lens DescribeFunction DescribeFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417580"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417589"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DescribeFunction' :: DescribeFunction -&gt; Text
-</span><a href="#local-6989586621679417580"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417580"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417579"><span class="annot"><span class="annottext">s :: DescribeFunction
-</span><a href="#local-6989586621679417579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417578"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunction
-</span><a href="#local-6989586621679417579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeFunction' :: Text
+</span><a href="#local-6989586621679417589"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417589"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417588"><span class="annot"><span class="annottext">s :: DescribeFunction
+</span><a href="#local-6989586621679417588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunction
+</span><a href="#local-6989586621679417588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeFunction' :: Text
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3Aname%3ADescribeFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679417574"><span class="annot"><span class="annottext">request :: DescribeFunction -&gt; Request DescribeFunction
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679417583"><span class="annot"><span class="annottext">request :: DescribeFunction -&gt; Request DescribeFunction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeFunction -&gt; Request DescribeFunction
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679417570"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679417579"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeFunction
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679417567"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417567"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679417566"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679417566"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679417565"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679417565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679417576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417576"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679417575"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679417575"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679417574"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679417574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe FunctionSummary -&gt; Int -&gt; DescribeFunctionResponse
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-var">DescribeFunctionResponse'</span></a></span><span>
@@ -235,7 +235,7 @@ MonadResource m =&gt;
      String (Maybe FunctionSummary -&gt; Int -&gt; DescribeFunctionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679417566"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679417575"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -249,7 +249,7 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe FunctionSummary)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679417565"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417574"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeFunctionResponse)
 -&gt; Either String Int -&gt; Either String DescribeFunctionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -258,15 +258,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417567"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417576"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417556"><span id="local-6989586621679417558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417565"><span id="local-6989586621679417567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679417549"><span class="annot"><span class="annottext">toHeaders :: DescribeFunction -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679417558"><span class="annot"><span class="annottext">toHeaders :: DescribeFunction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFunction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -274,14 +274,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679417544"><span class="annot"><span class="annottext">toPath :: DescribeFunction -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417541"><span id="local-6989586621679417542"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679417553"><span class="annot"><span class="annottext">toPath :: DescribeFunction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417550"><span id="local-6989586621679417551"><span class="annot"><span class="annottext">Maybe FunctionStage
 Text
 name :: Text
 stage :: Maybe FunctionStage
 $sel:name:DescribeFunction' :: DescribeFunction -&gt; Text
 $sel:stage:DescribeFunction' :: DescribeFunction -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679417541"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679417550"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -290,30 +290,30 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417541"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679417550"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/describe&quot;</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction"><span class="hs-identifier hs-type">DescribeFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679417537"><span class="annot"><span class="annottext">toQuery :: DescribeFunction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417534"><span id="local-6989586621679417535"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679417546"><span class="annot"><span class="annottext">toQuery :: DescribeFunction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunction%27"><span class="hs-identifier hs-type">DescribeFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417543"><span id="local-6989586621679417544"><span class="annot"><span class="annottext">Maybe FunctionStage
 Text
 name :: Text
 stage :: Maybe FunctionStage
 $sel:name:DescribeFunction' :: DescribeFunction -&gt; Text
 $sel:stage:DescribeFunction' :: DescribeFunction -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679417534"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679417543"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Stage&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe FunctionStage -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679417535"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679417544"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDescribeFunctionResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679417531"><span id="local-6989586621679417532"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFunctionResponse"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-var">DescribeFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFunctionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-var">DescribeFunctionResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679417540"><span id="local-6989586621679417541"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFunctionResponse"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-var">DescribeFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFunctionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-var">DescribeFunctionResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version identifier for the current version of the CloudFront</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- function.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AeTag%3ADescribeFunctionResponse%27"><span class="annot"><span class="annottext">DescribeFunctionResponse -&gt; Maybe Text
@@ -326,7 +326,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFunctionResponse%27"><span class="annot"><span class="annottext">DescribeFunctionResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3AhttpStatus%3ADescribeFunctionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417524"><span id="local-6989586621679417526"><span class="annot"><span class="annottext">DescribeFunctionResponse -&gt; DescribeFunctionResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417533"><span id="local-6989586621679417535"><span class="annot"><span class="annottext">DescribeFunctionResponse -&gt; DescribeFunctionResponse -&gt; Bool
 (DescribeFunctionResponse -&gt; DescribeFunctionResponse -&gt; Bool)
 -&gt; (DescribeFunctionResponse -&gt; DescribeFunctionResponse -&gt; Bool)
 -&gt; Eq DescribeFunctionResponse
@@ -335,7 +335,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFunctionResponse -&gt; DescribeFunctionResponse -&gt; Bool
 == :: DescribeFunctionResponse -&gt; DescribeFunctionResponse -&gt; Bool
 $c== :: DescribeFunctionResponse -&gt; DescribeFunctionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417516"><span id="local-6989586621679417518"><span id="local-6989586621679417520"><span id="local-6989586621679417522"><span class="annot"><span class="annottext">ReadPrec [DescribeFunctionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417525"><span id="local-6989586621679417527"><span id="local-6989586621679417529"><span id="local-6989586621679417531"><span class="annot"><span class="annottext">ReadPrec [DescribeFunctionResponse]
 ReadPrec DescribeFunctionResponse
 Int -&gt; ReadS DescribeFunctionResponse
 ReadS [DescribeFunctionResponse]
@@ -355,7 +355,7 @@ readList :: ReadS [DescribeFunctionResponse]
 $creadList :: ReadS [DescribeFunctionResponse]
 readsPrec :: Int -&gt; ReadS DescribeFunctionResponse
 $creadsPrec :: Int -&gt; ReadS DescribeFunctionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417510"><span id="local-6989586621679417512"><span id="local-6989586621679417514"><span class="annot"><span class="annottext">Int -&gt; DescribeFunctionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417519"><span id="local-6989586621679417521"><span id="local-6989586621679417523"><span class="annot"><span class="annottext">Int -&gt; DescribeFunctionResponse -&gt; ShowS
 [DescribeFunctionResponse] -&gt; ShowS
 DescribeFunctionResponse -&gt; String
 (Int -&gt; DescribeFunctionResponse -&gt; ShowS)
@@ -407,8 +407,8 @@ DescribeFunctionResponse -&gt; Rep DescribeFunctionResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newDescribeFunctionResponse"><span class="annot"><span class="annottext">newDescribeFunctionResponse :: Int -&gt; DescribeFunctionResponse
-</span><a href="Network.AWS.CloudFront.DescribeFunction.html#newDescribeFunctionResponse"><span class="hs-identifier hs-var hs-var">newDescribeFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679417507"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.DescribeFunction.html#newDescribeFunctionResponse"><span class="hs-identifier hs-var hs-var">newDescribeFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679417516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417516"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">DescribeFunctionResponse' :: Maybe Text
 -&gt; Maybe FunctionSummary -&gt; Int -&gt; DescribeFunctionResponse
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span>
@@ -422,7 +422,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFunctionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3AhttpStatus%3ADescribeFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679417516"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The version identifier for the current version of the CloudFront</span><span>
@@ -439,16 +439,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417506"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417515"><span class="annot"><span class="annottext">Maybe Text
 eTag :: Maybe Text
 $sel:eTag:DescribeFunctionResponse' :: DescribeFunctionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679417506"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417506"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417505"><span class="annot"><span class="annottext">s :: DescribeFunctionResponse
-</span><a href="#local-6989586621679417505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417504"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunctionResponse
-</span><a href="#local-6989586621679417505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:DescribeFunctionResponse' :: Maybe Text
+</span><a href="#local-6989586621679417515"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417515"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417514"><span class="annot"><span class="annottext">s :: DescribeFunctionResponse
+</span><a href="#local-6989586621679417514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417513"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunctionResponse
+</span><a href="#local-6989586621679417514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:DescribeFunctionResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3AeTag%3ADescribeFunctionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | Contains configuration information and metadata about a CloudFront</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- function.</span><span>
@@ -464,16 +464,16 @@ $sel:eTag:DescribeFunctionResponse' :: DescribeFunctionResponse -&gt; Maybe Text
      (Maybe FunctionSummary)
      (Maybe FunctionSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417503"><span class="annot"><span class="annottext">Maybe FunctionSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417512"><span class="annot"><span class="annottext">Maybe FunctionSummary
 functionSummary :: Maybe FunctionSummary
 $sel:functionSummary:DescribeFunctionResponse' :: DescribeFunctionResponse -&gt; Maybe FunctionSummary
-</span><a href="#local-6989586621679417503"><span class="hs-identifier hs-var hs-var">functionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionSummary
-</span><a href="#local-6989586621679417503"><span class="hs-identifier hs-var">functionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417502"><span class="annot"><span class="annottext">s :: DescribeFunctionResponse
-</span><a href="#local-6989586621679417502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417501"><span class="annot"><span class="annottext">Maybe FunctionSummary
-</span><a href="#local-6989586621679417501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunctionResponse
-</span><a href="#local-6989586621679417502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionSummary:DescribeFunctionResponse' :: Maybe FunctionSummary
+</span><a href="#local-6989586621679417512"><span class="hs-identifier hs-var hs-var">functionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionSummary
+</span><a href="#local-6989586621679417512"><span class="hs-identifier hs-var">functionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417511"><span class="annot"><span class="annottext">s :: DescribeFunctionResponse
+</span><a href="#local-6989586621679417511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417510"><span class="annot"><span class="annottext">Maybe FunctionSummary
+</span><a href="#local-6989586621679417510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunctionResponse
+</span><a href="#local-6989586621679417511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionSummary:DescribeFunctionResponse' :: Maybe FunctionSummary
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3AfunctionSummary%3ADescribeFunctionResponse%27"><span class="hs-identifier hs-var">functionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionSummary
-</span><a href="#local-6989586621679417501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#describeFunctionResponse_httpStatus"><span class="hs-identifier hs-type">describeFunctionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -483,16 +483,16 @@ $sel:functionSummary:DescribeFunctionResponse' :: DescribeFunctionResponse -&gt;
 -&gt; (DescribeFunctionResponse -&gt; Int -&gt; DescribeFunctionResponse)
 -&gt; Lens DescribeFunctionResponse DescribeFunctionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417500"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417509"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeFunctionResponse' :: DescribeFunctionResponse -&gt; Int
-</span><a href="#local-6989586621679417500"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417500"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417499"><span class="annot"><span class="annottext">s :: DescribeFunctionResponse
-</span><a href="#local-6989586621679417499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417498"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunctionResponse
-</span><a href="#local-6989586621679417499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFunctionResponse' :: Int
+</span><a href="#local-6989586621679417509"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417509"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417508"><span class="annot"><span class="annottext">s :: DescribeFunctionResponse
+</span><a href="#local-6989586621679417508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse%27"><span class="hs-identifier hs-type">DescribeFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417507"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFunctionResponse
+</span><a href="#local-6989586621679417508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFunctionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.DescribeFunction.html#%24sel%3AhttpStatus%3ADescribeFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DescribeFunction.html#DescribeFunctionResponse"><span class="hs-identifier hs-type">DescribeFunctionResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

@@ -79,7 +79,7 @@
 </span><span id="line-79"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- /See:/ 'newGetInstanceAccess' smart constructor.</span><span>
-</span><span id="line-82"></span><span id="local-6989586621679449366"><span id="local-6989586621679449367"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceAccess"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-var">GetInstanceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceAccess%27"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-var">GetInstanceAccess'</span></a></span></span><span>
+</span><span id="line-82"></span><span id="local-6989586621679449375"><span id="local-6989586621679449376"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceAccess"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-var">GetInstanceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceAccess%27"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-var">GetInstanceAccess'</span></a></span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the fleet that contains the instance you want</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- access to. You can use either the fleet ID or ARN value. The fleet can</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- be in any of the following statuses: @ACTIVATING@, @ACTIVE@, or @ERROR@.</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AinstanceId%3AGetInstanceAccess%27"><span class="annot"><span class="annottext">GetInstanceAccess -&gt; Text
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AinstanceId%3AGetInstanceAccess%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449359"><span id="local-6989586621679449361"><span class="annot"><span class="annottext">GetInstanceAccess -&gt; GetInstanceAccess -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449368"><span id="local-6989586621679449370"><span class="annot"><span class="annottext">GetInstanceAccess -&gt; GetInstanceAccess -&gt; Bool
 (GetInstanceAccess -&gt; GetInstanceAccess -&gt; Bool)
 -&gt; (GetInstanceAccess -&gt; GetInstanceAccess -&gt; Bool)
 -&gt; Eq GetInstanceAccess
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstanceAccess -&gt; GetInstanceAccess -&gt; Bool
 == :: GetInstanceAccess -&gt; GetInstanceAccess -&gt; Bool
 $c== :: GetInstanceAccess -&gt; GetInstanceAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449350"><span id="local-6989586621679449352"><span id="local-6989586621679449354"><span id="local-6989586621679449356"><span class="annot"><span class="annottext">ReadPrec [GetInstanceAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449359"><span id="local-6989586621679449361"><span id="local-6989586621679449363"><span id="local-6989586621679449365"><span class="annot"><span class="annottext">ReadPrec [GetInstanceAccess]
 ReadPrec GetInstanceAccess
 Int -&gt; ReadS GetInstanceAccess
 ReadS [GetInstanceAccess]
@@ -121,7 +121,7 @@ readList :: ReadS [GetInstanceAccess]
 $creadList :: ReadS [GetInstanceAccess]
 readsPrec :: Int -&gt; ReadS GetInstanceAccess
 $creadsPrec :: Int -&gt; ReadS GetInstanceAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449343"><span id="local-6989586621679449345"><span id="local-6989586621679449347"><span class="annot"><span class="annottext">Int -&gt; GetInstanceAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449352"><span id="local-6989586621679449354"><span id="local-6989586621679449356"><span class="annot"><span class="annottext">Int -&gt; GetInstanceAccess -&gt; ShowS
 [GetInstanceAccess] -&gt; ShowS
 GetInstanceAccess -&gt; String
 (Int -&gt; GetInstanceAccess -&gt; ShowS)
@@ -170,17 +170,17 @@ $cfrom :: forall x. GetInstanceAccess -&gt; Rep GetInstanceAccess x
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span>
 </span><span id="line-117"></span><span id="newGetInstanceAccess"><span class="annot"><span class="annottext">newGetInstanceAccess :: Text -&gt; Text -&gt; GetInstanceAccess
-</span><a href="Network.AWS.GameLift.GetInstanceAccess.html#newGetInstanceAccess"><span class="hs-identifier hs-var hs-var">newGetInstanceAccess</span></a></span></span><span> </span><span id="local-6989586621679449338"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449338"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span id="local-6989586621679449337"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449337"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.GetInstanceAccess.html#newGetInstanceAccess"><span class="hs-identifier hs-var hs-var">newGetInstanceAccess</span></a></span></span><span> </span><span id="local-6989586621679449347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449347"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span id="local-6989586621679449346"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449346"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">GetInstanceAccess' :: Text -&gt; Text -&gt; GetInstanceAccess
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetId:GetInstanceAccess' :: Text
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AfleetId%3AGetInstanceAccess%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449338"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449347"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:GetInstanceAccess' :: Text
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AinstanceId%3AGetInstanceAccess%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449337"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679449346"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | A unique identifier for the fleet that contains the instance you want</span><span>
@@ -194,16 +194,16 @@ $cfrom :: forall x. GetInstanceAccess -&gt; Rep GetInstanceAccess x
 -&gt; (GetInstanceAccess -&gt; Text -&gt; GetInstanceAccess)
 -&gt; Lens GetInstanceAccess GetInstanceAccess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449334"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449343"><span class="annot"><span class="annottext">Text
 fleetId :: Text
 $sel:fleetId:GetInstanceAccess' :: GetInstanceAccess -&gt; Text
-</span><a href="#local-6989586621679449334"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449334"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449333"><span class="annot"><span class="annottext">s :: GetInstanceAccess
-</span><a href="#local-6989586621679449333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449332"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccess
-</span><a href="#local-6989586621679449333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:GetInstanceAccess' :: Text
+</span><a href="#local-6989586621679449343"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449343"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449342"><span class="annot"><span class="annottext">s :: GetInstanceAccess
+</span><a href="#local-6989586621679449342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccess
+</span><a href="#local-6989586621679449342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:GetInstanceAccess' :: Text
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AfleetId%3AGetInstanceAccess%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | A unique identifier for the instance you want to get access to. You can</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- access an instance in any status.</span><span>
@@ -213,27 +213,27 @@ $sel:fleetId:GetInstanceAccess' :: GetInstanceAccess -&gt; Text
 -&gt; (GetInstanceAccess -&gt; Text -&gt; GetInstanceAccess)
 -&gt; Lens GetInstanceAccess GetInstanceAccess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449331"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449340"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:GetInstanceAccess' :: GetInstanceAccess -&gt; Text
-</span><a href="#local-6989586621679449331"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449331"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449330"><span class="annot"><span class="annottext">s :: GetInstanceAccess
-</span><a href="#local-6989586621679449330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449329"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccess
-</span><a href="#local-6989586621679449330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:GetInstanceAccess' :: Text
+</span><a href="#local-6989586621679449340"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449340"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449339"><span class="annot"><span class="annottext">s :: GetInstanceAccess
+</span><a href="#local-6989586621679449339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccess
+</span><a href="#local-6989586621679449339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:GetInstanceAccess' :: Text
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AinstanceId%3AGetInstanceAccess%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679449325"><span class="annot"><span class="annottext">request :: GetInstanceAccess -&gt; Request GetInstanceAccess
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679449334"><span class="annot"><span class="annottext">request :: GetInstanceAccess -&gt; Request GetInstanceAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInstanceAccess -&gt; Request GetInstanceAccess
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679449321"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679449330"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInstanceAccess
 -&gt; ClientResponse ClientBody
@@ -259,10 +259,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449318"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449318"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679449317"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679449317"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679449316"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449327"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679449326"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679449326"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679449325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679449325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceAccess -&gt; Int -&gt; GetInstanceAccessResponse
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-var">GetInstanceAccessResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceAccess -&gt; Int -&gt; GetInstanceAccessResponse)
@@ -270,7 +270,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetInstanceAccessResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceAccess)
+</span><a href="#local-6989586621679449325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceAccess)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceAccess&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,15 +282,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449318"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449327"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449308"><span id="local-6989586621679449310"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449317"><span id="local-6989586621679449319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679449301"><span class="annot"><span class="annottext">toHeaders :: GetInstanceAccess -&gt; ResponseHeaders
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679449310"><span class="annot"><span class="annottext">toHeaders :: GetInstanceAccess -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInstanceAccess -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -315,14 +315,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449291"><span id="local-6989586621679449293"><span id="local-6989586621679449295"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679449289"><span class="annot"><span class="annottext">toJSON :: GetInstanceAccess -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449286"><span id="local-6989586621679449287"><span class="annot"><span class="annottext">Text
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449300"><span id="local-6989586621679449302"><span id="local-6989586621679449304"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679449298"><span class="annot"><span class="annottext">toJSON :: GetInstanceAccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess%27"><span class="hs-identifier hs-type">GetInstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449295"><span id="local-6989586621679449296"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 fleetId :: Text
 $sel:instanceId:GetInstanceAccess' :: GetInstanceAccess -&gt; Text
 $sel:fleetId:GetInstanceAccess' :: GetInstanceAccess -&gt; Text
-</span><a href="#local-6989586621679449286"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679449295"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -334,26 +334,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449287"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449296"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449286"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449295"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679449280"><span class="annot"><span class="annottext">toPath :: GetInstanceAccess -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679449289"><span class="annot"><span class="annottext">toPath :: GetInstanceAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInstanceAccess -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccess"><span class="hs-identifier hs-type">GetInstanceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679449276"><span class="annot"><span class="annottext">toQuery :: GetInstanceAccess -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679449285"><span class="annot"><span class="annottext">toQuery :: GetInstanceAccess -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInstanceAccess -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -363,7 +363,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- /See:/ 'newGetInstanceAccessResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679449273"><span id="local-6989586621679449274"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceAccessResponse"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-var">GetInstanceAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceAccessResponse%27"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-var">GetInstanceAccessResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679449282"><span id="local-6989586621679449283"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceAccessResponse"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-var">GetInstanceAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceAccessResponse%27"><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-var">GetInstanceAccessResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The connection information for a fleet instance, including IP address</span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-comment">-- and access credentials.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AinstanceAccess%3AGetInstanceAccessResponse%27"><span class="annot"><span class="annottext">GetInstanceAccessResponse -&gt; Maybe InstanceAccess
@@ -372,7 +372,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInstanceAccessResponse%27"><span class="annot"><span class="annottext">GetInstanceAccessResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AhttpStatus%3AGetInstanceAccessResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449267"><span id="local-6989586621679449269"><span class="annot"><span class="annottext">GetInstanceAccessResponse -&gt; GetInstanceAccessResponse -&gt; Bool
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449276"><span id="local-6989586621679449278"><span class="annot"><span class="annottext">GetInstanceAccessResponse -&gt; GetInstanceAccessResponse -&gt; Bool
 (GetInstanceAccessResponse -&gt; GetInstanceAccessResponse -&gt; Bool)
 -&gt; (GetInstanceAccessResponse -&gt; GetInstanceAccessResponse -&gt; Bool)
 -&gt; Eq GetInstanceAccessResponse
@@ -381,7 +381,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstanceAccessResponse -&gt; GetInstanceAccessResponse -&gt; Bool
 == :: GetInstanceAccessResponse -&gt; GetInstanceAccessResponse -&gt; Bool
 $c== :: GetInstanceAccessResponse -&gt; GetInstanceAccessResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449261"><span id="local-6989586621679449263"><span id="local-6989586621679449265"><span class="annot"><span class="annottext">Int -&gt; GetInstanceAccessResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449270"><span id="local-6989586621679449272"><span id="local-6989586621679449274"><span class="annot"><span class="annottext">Int -&gt; GetInstanceAccessResponse -&gt; ShowS
 [GetInstanceAccessResponse] -&gt; ShowS
 GetInstanceAccessResponse -&gt; String
 (Int -&gt; GetInstanceAccessResponse -&gt; ShowS)
@@ -430,8 +430,8 @@ GetInstanceAccessResponse -&gt; Rep GetInstanceAccessResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newGetInstanceAccessResponse"><span class="annot"><span class="annottext">newGetInstanceAccessResponse :: Int -&gt; GetInstanceAccessResponse
-</span><a href="Network.AWS.GameLift.GetInstanceAccess.html#newGetInstanceAccessResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceAccessResponse</span></a></span></span><span> </span><span id="local-6989586621679449258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.GetInstanceAccess.html#newGetInstanceAccessResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceAccessResponse</span></a></span></span><span> </span><span id="local-6989586621679449267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">GetInstanceAccessResponse' :: Maybe InstanceAccess -&gt; Int -&gt; GetInstanceAccessResponse
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceAccess:GetInstanceAccessResponse' :: Maybe InstanceAccess
@@ -441,7 +441,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceAccessResponse' :: Int
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AhttpStatus%3AGetInstanceAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679449267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The connection information for a fleet instance, including IP address</span><span>
@@ -458,16 +458,16 @@ forall a. Maybe a
      (Maybe InstanceAccess)
      (Maybe InstanceAccess)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449257"><span class="annot"><span class="annottext">Maybe InstanceAccess
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449266"><span class="annot"><span class="annottext">Maybe InstanceAccess
 instanceAccess :: Maybe InstanceAccess
 $sel:instanceAccess:GetInstanceAccessResponse' :: GetInstanceAccessResponse -&gt; Maybe InstanceAccess
-</span><a href="#local-6989586621679449257"><span class="hs-identifier hs-var hs-var">instanceAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAccess
-</span><a href="#local-6989586621679449257"><span class="hs-identifier hs-var">instanceAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449256"><span class="annot"><span class="annottext">s :: GetInstanceAccessResponse
-</span><a href="#local-6989586621679449256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449255"><span class="annot"><span class="annottext">Maybe InstanceAccess
-</span><a href="#local-6989586621679449255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccessResponse
-</span><a href="#local-6989586621679449256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceAccess:GetInstanceAccessResponse' :: Maybe InstanceAccess
+</span><a href="#local-6989586621679449266"><span class="hs-identifier hs-var hs-var">instanceAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAccess
+</span><a href="#local-6989586621679449266"><span class="hs-identifier hs-var">instanceAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449265"><span class="annot"><span class="annottext">s :: GetInstanceAccessResponse
+</span><a href="#local-6989586621679449265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449264"><span class="annot"><span class="annottext">Maybe InstanceAccess
+</span><a href="#local-6989586621679449264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccessResponse
+</span><a href="#local-6989586621679449265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceAccess:GetInstanceAccessResponse' :: Maybe InstanceAccess
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AinstanceAccess%3AGetInstanceAccessResponse%27"><span class="hs-identifier hs-var">instanceAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAccess
-</span><a href="#local-6989586621679449255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#getInstanceAccessResponse_httpStatus"><span class="hs-identifier hs-type">getInstanceAccessResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -477,16 +477,16 @@ $sel:instanceAccess:GetInstanceAccessResponse' :: GetInstanceAccessResponse -&gt
 -&gt; (GetInstanceAccessResponse -&gt; Int -&gt; GetInstanceAccessResponse)
 -&gt; Lens GetInstanceAccessResponse GetInstanceAccessResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449254"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449263"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInstanceAccessResponse' :: GetInstanceAccessResponse -&gt; Int
-</span><a href="#local-6989586621679449254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449253"><span class="annot"><span class="annottext">s :: GetInstanceAccessResponse
-</span><a href="#local-6989586621679449253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449252"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccessResponse
-</span><a href="#local-6989586621679449253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceAccessResponse' :: Int
+</span><a href="#local-6989586621679449263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449262"><span class="annot"><span class="annottext">s :: GetInstanceAccessResponse
+</span><a href="#local-6989586621679449262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse%27"><span class="hs-identifier hs-type">GetInstanceAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceAccessResponse
+</span><a href="#local-6989586621679449262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceAccessResponse' :: Int
 </span><a href="Network.AWS.GameLift.GetInstanceAccess.html#%24sel%3AhttpStatus%3AGetInstanceAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.GetInstanceAccess.html#GetInstanceAccessResponse"><span class="hs-identifier hs-type">GetInstanceAccessResponse</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

@@ -50,13 +50,13 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | The request to get a distribution configuration.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetDistributionConfig' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679416444"><span id="local-6989586621679416445"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionConfig"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-var">GetDistributionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-var">GetDistributionConfig'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679416453"><span id="local-6989586621679416454"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionConfig"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-var">GetDistributionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-var">GetDistributionConfig'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The distribution\'s ID. If the ID is empty, an empty distribution</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- configuration is returned.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Aid%3AGetDistributionConfig%27"><span class="annot"><span class="annottext">GetDistributionConfig -&gt; Text
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3Aid%3AGetDistributionConfig%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416438"><span id="local-6989586621679416440"><span class="annot"><span class="annottext">GetDistributionConfig -&gt; GetDistributionConfig -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416447"><span id="local-6989586621679416449"><span class="annot"><span class="annottext">GetDistributionConfig -&gt; GetDistributionConfig -&gt; Bool
 (GetDistributionConfig -&gt; GetDistributionConfig -&gt; Bool)
 -&gt; (GetDistributionConfig -&gt; GetDistributionConfig -&gt; Bool)
 -&gt; Eq GetDistributionConfig
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDistributionConfig -&gt; GetDistributionConfig -&gt; Bool
 == :: GetDistributionConfig -&gt; GetDistributionConfig -&gt; Bool
 $c== :: GetDistributionConfig -&gt; GetDistributionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416429"><span id="local-6989586621679416431"><span id="local-6989586621679416433"><span id="local-6989586621679416435"><span class="annot"><span class="annottext">ReadPrec [GetDistributionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416438"><span id="local-6989586621679416440"><span id="local-6989586621679416442"><span id="local-6989586621679416444"><span class="annot"><span class="annottext">ReadPrec [GetDistributionConfig]
 ReadPrec GetDistributionConfig
 Int -&gt; ReadS GetDistributionConfig
 ReadS [GetDistributionConfig]
@@ -85,7 +85,7 @@ readList :: ReadS [GetDistributionConfig]
 $creadList :: ReadS [GetDistributionConfig]
 readsPrec :: Int -&gt; ReadS GetDistributionConfig
 $creadsPrec :: Int -&gt; ReadS GetDistributionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416422"><span id="local-6989586621679416424"><span id="local-6989586621679416426"><span class="annot"><span class="annottext">Int -&gt; GetDistributionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416431"><span id="local-6989586621679416433"><span id="local-6989586621679416435"><span class="annot"><span class="annottext">Int -&gt; GetDistributionConfig -&gt; ShowS
 [GetDistributionConfig] -&gt; ShowS
 GetDistributionConfig -&gt; String
 (Int -&gt; GetDistributionConfig -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. GetDistributionConfig -&gt; Rep GetDistributionConfig x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span>
 </span><span id="line-74"></span><span id="newGetDistributionConfig"><span class="annot"><span class="annottext">newGetDistributionConfig :: Text -&gt; GetDistributionConfig
-</span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#newGetDistributionConfig"><span class="hs-identifier hs-var hs-var">newGetDistributionConfig</span></a></span></span><span> </span><span id="local-6989586621679416417"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416417"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#newGetDistributionConfig"><span class="hs-identifier hs-var hs-var">newGetDistributionConfig</span></a></span></span><span> </span><span id="local-6989586621679416426"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416426"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetDistributionConfig' :: Text -&gt; GetDistributionConfig
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-type">GetDistributionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetDistributionConfig' :: Text
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3Aid%3AGetDistributionConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416417"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679416426"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The distribution\'s ID. If the ID is empty, an empty distribution</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- configuration is returned.</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. GetDistributionConfig -&gt; Rep GetDistributionConfig x
 -&gt; (GetDistributionConfig -&gt; Text -&gt; GetDistributionConfig)
 -&gt; Lens GetDistributionConfig GetDistributionConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-type">GetDistributionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416414"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-type">GetDistributionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416423"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetDistributionConfig' :: GetDistributionConfig -&gt; Text
-</span><a href="#local-6989586621679416414"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416414"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416413"><span class="annot"><span class="annottext">s :: GetDistributionConfig
-</span><a href="#local-6989586621679416413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-type">GetDistributionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416412"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfig
-</span><a href="#local-6989586621679416413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetDistributionConfig' :: Text
+</span><a href="#local-6989586621679416423"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416423"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416422"><span class="annot"><span class="annottext">s :: GetDistributionConfig
+</span><a href="#local-6989586621679416422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-type">GetDistributionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfig
+</span><a href="#local-6989586621679416422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetDistributionConfig' :: Text
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3Aid%3AGetDistributionConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679416408"><span class="annot"><span class="annottext">request :: GetDistributionConfig -&gt; Request GetDistributionConfig
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679416417"><span class="annot"><span class="annottext">request :: GetDistributionConfig -&gt; Request GetDistributionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDistributionConfig -&gt; Request GetDistributionConfig
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679416404"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679416413"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDistributionConfig
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416401"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416401"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416400"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416400"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416399"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416410"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416409"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416409"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416408"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe DistributionConfig -&gt; Int -&gt; GetDistributionConfigResponse
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-var">GetDistributionConfigResponse'</span></a></span><span>
@@ -205,7 +205,7 @@ MonadResource m =&gt;
      (Maybe DistributionConfig -&gt; Int -&gt; GetDistributionConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416400"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416409"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -220,7 +220,7 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe DistributionConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416399"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416408"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDistributionConfigResponse)
 -&gt; Either String Int -&gt; Either String GetDistributionConfigResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -229,15 +229,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416401"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416410"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416390"><span id="local-6989586621679416392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416399"><span id="local-6989586621679416401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679416383"><span class="annot"><span class="annottext">toHeaders :: GetDistributionConfig -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679416392"><span class="annot"><span class="annottext">toHeaders :: GetDistributionConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDistributionConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -245,11 +245,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679416378"><span class="annot"><span class="annottext">toPath :: GetDistributionConfig -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-type">GetDistributionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416376"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679416387"><span class="annot"><span class="annottext">toPath :: GetDistributionConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig%27"><span class="hs-identifier hs-type">GetDistributionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416385"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetDistributionConfig' :: GetDistributionConfig -&gt; Text
-</span><a href="#local-6989586621679416376"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679416385"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -258,13 +258,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416376"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679416385"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/config&quot;</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfig"><span class="hs-identifier hs-type">GetDistributionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679416372"><span class="annot"><span class="annottext">toQuery :: GetDistributionConfig -&gt; QueryString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679416381"><span class="annot"><span class="annottext">toQuery :: GetDistributionConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDistributionConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -274,7 +274,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-114"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- /See:/ 'newGetDistributionConfigResponse' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621679416369"><span id="local-6989586621679416370"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionConfigResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-var">GetDistributionConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionConfigResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-var">GetDistributionConfigResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621679416378"><span id="local-6989586621679416379"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionConfigResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-var">GetDistributionConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionConfigResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-var">GetDistributionConfigResponse'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AeTag%3AGetDistributionConfigResponse%27"><span class="annot"><span class="annottext">GetDistributionConfigResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3AeTag%3AGetDistributionConfigResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -285,7 +285,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDistributionConfigResponse%27"><span class="annot"><span class="annottext">GetDistributionConfigResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3AhttpStatus%3AGetDistributionConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416362"><span id="local-6989586621679416364"><span class="annot"><span class="annottext">GetDistributionConfigResponse
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416371"><span id="local-6989586621679416373"><span class="annot"><span class="annottext">GetDistributionConfigResponse
 -&gt; GetDistributionConfigResponse -&gt; Bool
 (GetDistributionConfigResponse
  -&gt; GetDistributionConfigResponse -&gt; Bool)
@@ -301,7 +301,7 @@ $c/= :: GetDistributionConfigResponse
 -&gt; GetDistributionConfigResponse -&gt; Bool
 $c== :: GetDistributionConfigResponse
 -&gt; GetDistributionConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416356"><span id="local-6989586621679416358"><span id="local-6989586621679416360"><span class="annot"><span class="annottext">Int -&gt; GetDistributionConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416365"><span id="local-6989586621679416367"><span id="local-6989586621679416369"><span class="annot"><span class="annottext">Int -&gt; GetDistributionConfigResponse -&gt; ShowS
 [GetDistributionConfigResponse] -&gt; ShowS
 GetDistributionConfigResponse -&gt; String
 (Int -&gt; GetDistributionConfigResponse -&gt; ShowS)
@@ -357,8 +357,8 @@ GetDistributionConfigResponse
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newGetDistributionConfigResponse"><span class="annot"><span class="annottext">newGetDistributionConfigResponse :: Int -&gt; GetDistributionConfigResponse
-</span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#newGetDistributionConfigResponse"><span class="hs-identifier hs-var hs-var">newGetDistributionConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679416353"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#newGetDistributionConfigResponse"><span class="hs-identifier hs-var hs-var">newGetDistributionConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679416362"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416362"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetDistributionConfigResponse' :: Maybe Text
 -&gt; Maybe DistributionConfig -&gt; Int -&gt; GetDistributionConfigResponse
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span>
@@ -373,7 +373,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionConfigResponse' :: Int
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3AhttpStatus%3AGetDistributionConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679416362"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.</span><span>
@@ -389,16 +389,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416352"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416361"><span class="annot"><span class="annottext">Maybe Text
 eTag :: Maybe Text
 $sel:eTag:GetDistributionConfigResponse' :: GetDistributionConfigResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679416352"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416352"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416351"><span class="annot"><span class="annottext">s :: GetDistributionConfigResponse
-</span><a href="#local-6989586621679416351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416350"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigResponse
-</span><a href="#local-6989586621679416351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetDistributionConfigResponse' :: Maybe Text
+</span><a href="#local-6989586621679416361"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416361"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416360"><span class="annot"><span class="annottext">s :: GetDistributionConfigResponse
+</span><a href="#local-6989586621679416360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416359"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigResponse
+</span><a href="#local-6989586621679416360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetDistributionConfigResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3AeTag%3AGetDistributionConfigResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The distribution\'s configuration information.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#getDistributionConfigResponse_distributionConfig"><span class="hs-identifier hs-type">getDistributionConfigResponse_distributionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionConfig.html#DistributionConfig"><span class="hs-identifier hs-type">DistributionConfig</span></a></span><span class="hs-special">)</span><span>
@@ -413,16 +413,16 @@ $sel:eTag:GetDistributionConfigResponse' :: GetDistributionConfigResponse -&gt; 
      (Maybe DistributionConfig)
      (Maybe DistributionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416349"><span class="annot"><span class="annottext">Maybe DistributionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416358"><span class="annot"><span class="annottext">Maybe DistributionConfig
 distributionConfig :: Maybe DistributionConfig
 $sel:distributionConfig:GetDistributionConfigResponse' :: GetDistributionConfigResponse -&gt; Maybe DistributionConfig
-</span><a href="#local-6989586621679416349"><span class="hs-identifier hs-var hs-var">distributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DistributionConfig
-</span><a href="#local-6989586621679416349"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416348"><span class="annot"><span class="annottext">s :: GetDistributionConfigResponse
-</span><a href="#local-6989586621679416348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416347"><span class="annot"><span class="annottext">Maybe DistributionConfig
-</span><a href="#local-6989586621679416347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigResponse
-</span><a href="#local-6989586621679416348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionConfig:GetDistributionConfigResponse' :: Maybe DistributionConfig
+</span><a href="#local-6989586621679416358"><span class="hs-identifier hs-var hs-var">distributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DistributionConfig
+</span><a href="#local-6989586621679416358"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416357"><span class="annot"><span class="annottext">s :: GetDistributionConfigResponse
+</span><a href="#local-6989586621679416357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416356"><span class="annot"><span class="annottext">Maybe DistributionConfig
+</span><a href="#local-6989586621679416356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigResponse
+</span><a href="#local-6989586621679416357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionConfig:GetDistributionConfigResponse' :: Maybe DistributionConfig
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3AdistributionConfig%3AGetDistributionConfigResponse%27"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DistributionConfig
-</span><a href="#local-6989586621679416347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#getDistributionConfigResponse_httpStatus"><span class="hs-identifier hs-type">getDistributionConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -434,16 +434,16 @@ $sel:distributionConfig:GetDistributionConfigResponse' :: GetDistributionConfigR
 -&gt; Lens
      GetDistributionConfigResponse GetDistributionConfigResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416346"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416355"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDistributionConfigResponse' :: GetDistributionConfigResponse -&gt; Int
-</span><a href="#local-6989586621679416346"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416346"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416345"><span class="annot"><span class="annottext">s :: GetDistributionConfigResponse
-</span><a href="#local-6989586621679416345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416344"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigResponse
-</span><a href="#local-6989586621679416345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionConfigResponse' :: Int
+</span><a href="#local-6989586621679416355"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416355"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416354"><span class="annot"><span class="annottext">s :: GetDistributionConfigResponse
+</span><a href="#local-6989586621679416354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse%27"><span class="hs-identifier hs-type">GetDistributionConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416353"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionConfigResponse
+</span><a href="#local-6989586621679416354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionConfigResponse' :: Int
 </span><a href="Network.AWS.CloudFront.GetDistributionConfig.html#%24sel%3AhttpStatus%3AGetDistributionConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistributionConfig.html#GetDistributionConfigResponse"><span class="hs-identifier hs-type">GetDistributionConfigResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

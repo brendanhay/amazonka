@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.MediaStreamAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.MediaStreamAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Fmtp.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Fmtp</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Attributes that are related to the media stream.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMediaStreamAttributes' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679271737"><span id="local-6989586621679271738"></span></span><span class="hs-keyword">data</span><span> </span><span id="MediaStreamAttributes"><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-var">MediaStreamAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaStreamAttributes%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes%27"><span class="hs-identifier hs-var">MediaStreamAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The audio language, in a format that is recognized by the receiver.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Alang%3AMediaStreamAttributes%27"><span class="annot"><span class="annottext">MediaStreamAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#%24sel%3Alang%3AMediaStreamAttributes%27"><span class="hs-identifier hs-var hs-var">lang</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A set of parameters that define the media stream.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Afmtp%3AMediaStreamAttributes%27"><span class="annot"><span class="annottext">MediaStreamAttributes -&gt; Fmtp
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#%24sel%3Afmtp%3AMediaStreamAttributes%27"><span class="hs-identifier hs-var hs-var">fmtp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Fmtp.html#Fmtp"><span class="hs-identifier hs-type">Fmtp</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271730"><span id="local-6989586621679271732"><span class="annot"><span class="annottext">MediaStreamAttributes -&gt; MediaStreamAttributes -&gt; Bool
+(MediaStreamAttributes -&gt; MediaStreamAttributes -&gt; Bool)
+-&gt; (MediaStreamAttributes -&gt; MediaStreamAttributes -&gt; Bool)
+-&gt; Eq MediaStreamAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MediaStreamAttributes -&gt; MediaStreamAttributes -&gt; Bool
+$c/= :: MediaStreamAttributes -&gt; MediaStreamAttributes -&gt; Bool
+== :: MediaStreamAttributes -&gt; MediaStreamAttributes -&gt; Bool
+$c== :: MediaStreamAttributes -&gt; MediaStreamAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271721"><span id="local-6989586621679271723"><span id="local-6989586621679271725"><span id="local-6989586621679271727"><span class="annot"><span class="annottext">ReadPrec [MediaStreamAttributes]
+ReadPrec MediaStreamAttributes
+Int -&gt; ReadS MediaStreamAttributes
+ReadS [MediaStreamAttributes]
+(Int -&gt; ReadS MediaStreamAttributes)
+-&gt; ReadS [MediaStreamAttributes]
+-&gt; ReadPrec MediaStreamAttributes
+-&gt; ReadPrec [MediaStreamAttributes]
+-&gt; Read MediaStreamAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MediaStreamAttributes]
+$creadListPrec :: ReadPrec [MediaStreamAttributes]
+readPrec :: ReadPrec MediaStreamAttributes
+$creadPrec :: ReadPrec MediaStreamAttributes
+readList :: ReadS [MediaStreamAttributes]
+$creadList :: ReadS [MediaStreamAttributes]
+readsPrec :: Int -&gt; ReadS MediaStreamAttributes
+$creadsPrec :: Int -&gt; ReadS MediaStreamAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271714"><span id="local-6989586621679271716"><span id="local-6989586621679271718"><span class="annot"><span class="annottext">Int -&gt; MediaStreamAttributes -&gt; ShowS
+[MediaStreamAttributes] -&gt; ShowS
+MediaStreamAttributes -&gt; String
+(Int -&gt; MediaStreamAttributes -&gt; ShowS)
+-&gt; (MediaStreamAttributes -&gt; String)
+-&gt; ([MediaStreamAttributes] -&gt; ShowS)
+-&gt; Show MediaStreamAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MediaStreamAttributes] -&gt; ShowS
+$cshowList :: [MediaStreamAttributes] -&gt; ShowS
+show :: MediaStreamAttributes -&gt; String
+$cshow :: MediaStreamAttributes -&gt; String
+showsPrec :: Int -&gt; MediaStreamAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; MediaStreamAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MediaStreamAttributes -&gt; Rep MediaStreamAttributes x)
+-&gt; (forall x. Rep MediaStreamAttributes x -&gt; MediaStreamAttributes)
+-&gt; Generic MediaStreamAttributes
+forall x. Rep MediaStreamAttributes x -&gt; MediaStreamAttributes
+forall x. MediaStreamAttributes -&gt; Rep MediaStreamAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MediaStreamAttributes x -&gt; MediaStreamAttributes
+$cfrom :: forall x. MediaStreamAttributes -&gt; Rep MediaStreamAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'MediaStreamAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'lang', 'mediaStreamAttributes_lang' - The audio language, in a format that is recognized by the receiver.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'fmtp', 'mediaStreamAttributes_fmtp' - A set of parameters that define the media stream.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#newMediaStreamAttributes"><span class="hs-identifier hs-type">newMediaStreamAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'fmtp'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Fmtp.html#Fmtp"><span class="hs-identifier hs-type">Fmtp</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span><span>
+</span><span id="line-53"></span><span id="newMediaStreamAttributes"><span class="annot"><span class="annottext">newMediaStreamAttributes :: Fmtp -&gt; MediaStreamAttributes
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#newMediaStreamAttributes"><span class="hs-identifier hs-var hs-var">newMediaStreamAttributes</span></a></span></span><span> </span><span id="local-6989586621679271708"><span class="annot"><span class="annottext">Fmtp
+</span><a href="#local-6989586621679271708"><span class="hs-identifier hs-var">pFmtp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">MediaStreamAttributes' :: Maybe Text -&gt; Fmtp -&gt; MediaStreamAttributes
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes%27"><span class="hs-identifier hs-type">MediaStreamAttributes'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lang:MediaStreamAttributes' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#%24sel%3Alang%3AMediaStreamAttributes%27"><span class="hs-identifier hs-var">lang</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:fmtp:MediaStreamAttributes' :: Fmtp
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#%24sel%3Afmtp%3AMediaStreamAttributes%27"><span class="hs-identifier hs-var">fmtp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Fmtp
+</span><a href="#local-6989586621679271708"><span class="hs-identifier hs-var">pFmtp_</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The audio language, in a format that is recognized by the receiver.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#mediaStreamAttributes_lang"><span class="hs-identifier hs-type">mediaStreamAttributes_lang</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="mediaStreamAttributes_lang"><span class="annot"><span class="annottext">mediaStreamAttributes_lang :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MediaStreamAttributes -&gt; f MediaStreamAttributes
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#mediaStreamAttributes_lang"><span class="hs-identifier hs-var hs-var">mediaStreamAttributes_lang</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MediaStreamAttributes -&gt; Maybe Text)
+-&gt; (MediaStreamAttributes -&gt; Maybe Text -&gt; MediaStreamAttributes)
+-&gt; Lens
+     MediaStreamAttributes
+     MediaStreamAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes%27"><span class="hs-identifier hs-type">MediaStreamAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271704"><span class="annot"><span class="annottext">Maybe Text
+lang :: Maybe Text
+$sel:lang:MediaStreamAttributes' :: MediaStreamAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679271704"><span class="hs-identifier hs-var hs-var">lang</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271704"><span class="hs-identifier hs-var">lang</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271703"><span class="annot"><span class="annottext">s :: MediaStreamAttributes
+</span><a href="#local-6989586621679271703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes%27"><span class="hs-identifier hs-type">MediaStreamAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271702"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaStreamAttributes
+</span><a href="#local-6989586621679271703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lang:MediaStreamAttributes' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#%24sel%3Alang%3AMediaStreamAttributes%27"><span class="hs-identifier hs-var">lang</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | A set of parameters that define the media stream.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#mediaStreamAttributes_fmtp"><span class="hs-identifier hs-type">mediaStreamAttributes_fmtp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Fmtp.html#Fmtp"><span class="hs-identifier hs-type">Fmtp</span></a></span><span>
+</span><span id="line-65"></span><span id="mediaStreamAttributes_fmtp"><span class="annot"><span class="annottext">mediaStreamAttributes_fmtp :: (Fmtp -&gt; f Fmtp)
+-&gt; MediaStreamAttributes -&gt; f MediaStreamAttributes
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#mediaStreamAttributes_fmtp"><span class="hs-identifier hs-var hs-var">mediaStreamAttributes_fmtp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MediaStreamAttributes -&gt; Fmtp)
+-&gt; (MediaStreamAttributes -&gt; Fmtp -&gt; MediaStreamAttributes)
+-&gt; Lens MediaStreamAttributes MediaStreamAttributes Fmtp Fmtp
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes%27"><span class="hs-identifier hs-type">MediaStreamAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271700"><span class="annot"><span class="annottext">Fmtp
+fmtp :: Fmtp
+$sel:fmtp:MediaStreamAttributes' :: MediaStreamAttributes -&gt; Fmtp
+</span><a href="#local-6989586621679271700"><span class="hs-identifier hs-var hs-var">fmtp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmtp
+</span><a href="#local-6989586621679271700"><span class="hs-identifier hs-var">fmtp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271699"><span class="annot"><span class="annottext">s :: MediaStreamAttributes
+</span><a href="#local-6989586621679271699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes%27"><span class="hs-identifier hs-type">MediaStreamAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271698"><span class="annot"><span class="annottext">Fmtp
+</span><a href="#local-6989586621679271698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaStreamAttributes
+</span><a href="#local-6989586621679271699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fmtp:MediaStreamAttributes' :: Fmtp
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#%24sel%3Afmtp%3AMediaStreamAttributes%27"><span class="hs-identifier hs-var">fmtp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Fmtp
+</span><a href="#local-6989586621679271698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271695"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679271693"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MediaStreamAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MediaStreamAttributes)
+-&gt; Value
+-&gt; Parser MediaStreamAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MediaStreamAttributes&quot;</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271690"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Fmtp -&gt; MediaStreamAttributes
+</span><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes%27"><span class="hs-identifier hs-var">MediaStreamAttributes'</span></a></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Fmtp -&gt; MediaStreamAttributes)
+-&gt; Parser (Maybe Text) -&gt; Parser (Fmtp -&gt; MediaStreamAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lang&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Fmtp -&gt; MediaStreamAttributes)
+-&gt; Parser Fmtp -&gt; Parser MediaStreamAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Fmtp
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fmtp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271683"><span id="local-6989586621679271685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamAttributes.html#MediaStreamAttributes"><span class="hs-identifier hs-type">MediaStreamAttributes</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

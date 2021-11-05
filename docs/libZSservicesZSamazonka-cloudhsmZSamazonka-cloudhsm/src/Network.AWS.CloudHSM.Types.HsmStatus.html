@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679174258"><span id="local-6989586621679174259"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HsmStatus"><span class="annot"><a href="Network.AWS.CloudHSM.Types.HsmStatus.html#HsmStatus"><span class="hs-identifier hs-var">HsmStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HsmStatus%27"><span class="annot"><a href="Network.AWS.CloudHSM.Types.HsmStatus.html#HsmStatus%27"><span class="hs-identifier hs-var">HsmStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679174267"><span id="local-6989586621679174268"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HsmStatus"><span class="annot"><a href="Network.AWS.CloudHSM.Types.HsmStatus.html#HsmStatus"><span class="hs-identifier hs-var">HsmStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HsmStatus%27"><span class="annot"><a href="Network.AWS.CloudHSM.Types.HsmStatus.html#HsmStatus%27"><span class="hs-identifier hs-var">HsmStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHsmStatus"><span class="annot"><span class="annottext">HsmStatus -&gt; Text
 </span><a href="Network.AWS.CloudHSM.Types.HsmStatus.html#fromHsmStatus"><span class="hs-identifier hs-var hs-var">fromHsmStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174250"><span id="local-6989586621679174252"><span id="local-6989586621679174254"><span class="annot"><span class="annottext">Int -&gt; HsmStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174259"><span id="local-6989586621679174261"><span id="local-6989586621679174263"><span class="annot"><span class="annottext">Int -&gt; HsmStatus -&gt; ShowS
 [HsmStatus] -&gt; ShowS
 HsmStatus -&gt; String
 (Int -&gt; HsmStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: HsmStatus -&gt; String
 showsPrec :: Int -&gt; HsmStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; HsmStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679174241"><span id="local-6989586621679174243"><span id="local-6989586621679174245"><span id="local-6989586621679174247"><span class="annot"><span class="annottext">ReadPrec [HsmStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679174250"><span id="local-6989586621679174252"><span id="local-6989586621679174254"><span id="local-6989586621679174256"><span class="annot"><span class="annottext">ReadPrec [HsmStatus]
 ReadPrec HsmStatus
 Int -&gt; ReadS HsmStatus
 ReadS [HsmStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [HsmStatus]
 readsPrec :: Int -&gt; ReadS HsmStatus
 $creadsPrec :: Int -&gt; ReadS HsmStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679174236"><span id="local-6989586621679174238"><span class="annot"><span class="annottext">HsmStatus -&gt; HsmStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679174245"><span id="local-6989586621679174247"><span class="annot"><span class="annottext">HsmStatus -&gt; HsmStatus -&gt; Bool
 (HsmStatus -&gt; HsmStatus -&gt; Bool)
 -&gt; (HsmStatus -&gt; HsmStatus -&gt; Bool) -&gt; Eq HsmStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: HsmStatus -&gt; HsmStatus -&gt; Bool
 == :: HsmStatus -&gt; HsmStatus -&gt; Bool
 $c== :: HsmStatus -&gt; HsmStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679174220"><span id="local-6989586621679174222"><span id="local-6989586621679174224"><span id="local-6989586621679174226"><span id="local-6989586621679174228"><span id="local-6989586621679174230"><span id="local-6989586621679174232"><span class="annot"><span class="annottext">Eq HsmStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679174229"><span id="local-6989586621679174231"><span id="local-6989586621679174233"><span id="local-6989586621679174235"><span id="local-6989586621679174237"><span id="local-6989586621679174239"><span id="local-6989586621679174241"><span class="annot"><span class="annottext">Eq HsmStatus
 Eq HsmStatus
 -&gt; (HsmStatus -&gt; HsmStatus -&gt; Ordering)
 -&gt; (HsmStatus -&gt; HsmStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. HsmStatus -&gt; Rep HsmStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174212"><span id="local-6989586621679174214"><span class="annot"><span class="annottext">Int -&gt; HsmStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174221"><span id="local-6989586621679174223"><span class="annot"><span class="annottext">Int -&gt; HsmStatus -&gt; Int
 HsmStatus -&gt; Int
 (Int -&gt; HsmStatus -&gt; Int)
 -&gt; (HsmStatus -&gt; Int) -&gt; Hashable HsmStatus
@@ -146,49 +146,49 @@ $chash :: HsmStatus -&gt; Int
 hashWithSalt :: Int -&gt; HsmStatus -&gt; Int
 $chashWithSalt :: Int -&gt; HsmStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679174209"><span class="annot"><span class="annottext">HsmStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679174218"><span class="annot"><span class="annottext">HsmStatus -&gt; ()
 (HsmStatus -&gt; ()) -&gt; NFData HsmStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HsmStatus -&gt; ()
 $crnf :: HsmStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679174206"><span class="annot"><span class="annottext">Text -&gt; Either String HsmStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679174215"><span class="annot"><span class="annottext">Text -&gt; Either String HsmStatus
 (Text -&gt; Either String HsmStatus) -&gt; FromText HsmStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HsmStatus
 $cfromText :: Text -&gt; Either String HsmStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679174203"><span class="annot"><span class="annottext">HsmStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679174212"><span class="annot"><span class="annottext">HsmStatus -&gt; Text
 (HsmStatus -&gt; Text) -&gt; ToText HsmStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HsmStatus -&gt; Text
 $ctoText :: HsmStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679174200"><span class="annot"><span class="annottext">HsmStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679174209"><span class="annot"><span class="annottext">HsmStatus -&gt; ByteString
 (HsmStatus -&gt; ByteString) -&gt; ToByteString HsmStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HsmStatus -&gt; ByteString
 $ctoBS :: HsmStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679174197"><span class="annot"><span class="annottext">HsmStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679174206"><span class="annot"><span class="annottext">HsmStatus -&gt; ByteStringBuilder
 (HsmStatus -&gt; ByteStringBuilder) -&gt; ToLog HsmStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HsmStatus -&gt; ByteStringBuilder
 $cbuild :: HsmStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679174194"><span class="annot"><span class="annottext">HeaderName -&gt; HsmStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679174203"><span class="annot"><span class="annottext">HeaderName -&gt; HsmStatus -&gt; [Header]
 (HeaderName -&gt; HsmStatus -&gt; [Header]) -&gt; ToHeader HsmStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HsmStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HsmStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679174191"><span class="annot"><span class="annottext">HsmStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679174200"><span class="annot"><span class="annottext">HsmStatus -&gt; QueryString
 (HsmStatus -&gt; QueryString) -&gt; ToQuery HsmStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HsmStatus -&gt; QueryString
 $ctoQuery :: HsmStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679174186"><span id="local-6989586621679174188"><span class="annot"><span class="annottext">Value -&gt; Parser [HsmStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679174195"><span id="local-6989586621679174197"><span class="annot"><span class="annottext">Value -&gt; Parser [HsmStatus]
 Value -&gt; Parser HsmStatus
 (Value -&gt; Parser HsmStatus)
 -&gt; (Value -&gt; Parser [HsmStatus]) -&gt; FromJSON HsmStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [HsmStatus]
 parseJSON :: Value -&gt; Parser HsmStatus
 $cparseJSON :: Value -&gt; Parser HsmStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679174181"><span id="local-6989586621679174183"><span class="annot"><span class="annottext">FromJSONKeyFunction [HsmStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679174190"><span id="local-6989586621679174192"><span class="annot"><span class="annottext">FromJSONKeyFunction [HsmStatus]
 FromJSONKeyFunction HsmStatus
 FromJSONKeyFunction HsmStatus
 -&gt; FromJSONKeyFunction [HsmStatus] -&gt; FromJSONKey HsmStatus
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HsmStatus]
 fromJSONKey :: FromJSONKeyFunction HsmStatus
 $cfromJSONKey :: FromJSONKeyFunction HsmStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679174172"><span id="local-6989586621679174174"><span id="local-6989586621679174176"><span id="local-6989586621679174178"><span class="annot"><span class="annottext">[HsmStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679174181"><span id="local-6989586621679174183"><span id="local-6989586621679174185"><span id="local-6989586621679174187"><span class="annot"><span class="annottext">[HsmStatus] -&gt; Encoding
 [HsmStatus] -&gt; Value
 HsmStatus -&gt; Encoding
 HsmStatus -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: HsmStatus -&gt; Encoding
 toJSON :: HsmStatus -&gt; Value
 $ctoJSON :: HsmStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679174167"><span id="local-6989586621679174169"><span class="annot"><span class="annottext">ToJSONKeyFunction [HsmStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679174176"><span id="local-6989586621679174178"><span class="annot"><span class="annottext">ToJSONKeyFunction [HsmStatus]
 ToJSONKeyFunction HsmStatus
 ToJSONKeyFunction HsmStatus
 -&gt; ToJSONKeyFunction [HsmStatus] -&gt; ToJSONKey HsmStatus
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HsmStatus]
 toJSONKey :: ToJSONKeyFunction HsmStatus
 $ctoJSONKey :: ToJSONKeyFunction HsmStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679174164"><span class="annot"><span class="annottext">[Node] -&gt; Either String HsmStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679174173"><span class="annot"><span class="annottext">[Node] -&gt; Either String HsmStatus
 ([Node] -&gt; Either String HsmStatus) -&gt; FromXML HsmStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HsmStatus
 $cparseXML :: [Node] -&gt; Either String HsmStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679174161"><span class="annot"><span class="annottext">HsmStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679174170"><span class="annot"><span class="annottext">HsmStatus -&gt; XML
 (HsmStatus -&gt; XML) -&gt; ToXML HsmStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HsmStatus -&gt; XML

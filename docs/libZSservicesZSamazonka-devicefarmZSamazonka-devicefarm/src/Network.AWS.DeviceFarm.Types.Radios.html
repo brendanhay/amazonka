@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- radios include Wi-Fi, GPS, Bluetooth, and NFC.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRadios' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679365482"><span id="local-6989586621679365483"></span></span><span class="hs-keyword">data</span><span> </span><span id="Radios"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-var">Radios</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Radios%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-var">Radios'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679365491"><span id="local-6989586621679365492"></span></span><span class="hs-keyword">data</span><span> </span><span id="Radios"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-var">Radios</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Radios%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-var">Radios'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | True if NFC is enabled at the beginning of the test. Otherwise, false.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Anfc%3ARadios%27"><span class="annot"><span class="annottext">Radios -&gt; Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.Radios.html#%24sel%3Anfc%3ARadios%27"><span class="hs-identifier hs-var hs-var">nfc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Awifi%3ARadios%27"><span class="annot"><span class="annottext">Radios -&gt; Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.Radios.html#%24sel%3Awifi%3ARadios%27"><span class="hs-identifier hs-var hs-var">wifi</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365473"><span id="local-6989586621679365475"><span class="annot"><span class="annottext">Radios -&gt; Radios -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365482"><span id="local-6989586621679365484"><span class="annot"><span class="annottext">Radios -&gt; Radios -&gt; Bool
 (Radios -&gt; Radios -&gt; Bool)
 -&gt; (Radios -&gt; Radios -&gt; Bool) -&gt; Eq Radios
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Radios -&gt; Radios -&gt; Bool
 == :: Radios -&gt; Radios -&gt; Bool
 $c== :: Radios -&gt; Radios -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365464"><span id="local-6989586621679365466"><span id="local-6989586621679365468"><span id="local-6989586621679365470"><span class="annot"><span class="annottext">ReadPrec [Radios]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365473"><span id="local-6989586621679365475"><span id="local-6989586621679365477"><span id="local-6989586621679365479"><span class="annot"><span class="annottext">ReadPrec [Radios]
 ReadPrec Radios
 Int -&gt; ReadS Radios
 ReadS [Radios]
@@ -70,7 +70,7 @@ readList :: ReadS [Radios]
 $creadList :: ReadS [Radios]
 readsPrec :: Int -&gt; ReadS Radios
 $creadsPrec :: Int -&gt; ReadS Radios
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365457"><span id="local-6989586621679365459"><span id="local-6989586621679365461"><span class="annot"><span class="annottext">Int -&gt; Radios -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365466"><span id="local-6989586621679365468"><span id="local-6989586621679365470"><span class="annot"><span class="annottext">Int -&gt; Radios -&gt; ShowS
 [Radios] -&gt; ShowS
 Radios -&gt; String
 (Int -&gt; Radios -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (Radios -&gt; Maybe Bool -&gt; Radios)
 -&gt; Lens Radios Radios (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365448"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365457"><span class="annot"><span class="annottext">Maybe Bool
 nfc :: Maybe Bool
 $sel:nfc:Radios' :: Radios -&gt; Maybe Bool
-</span><a href="#local-6989586621679365448"><span class="hs-identifier hs-var hs-var">nfc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365448"><span class="hs-identifier hs-var">nfc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365447"><span class="annot"><span class="annottext">s :: Radios
-</span><a href="#local-6989586621679365447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365446"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
-</span><a href="#local-6989586621679365447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nfc:Radios' :: Maybe Bool
+</span><a href="#local-6989586621679365457"><span class="hs-identifier hs-var hs-var">nfc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365457"><span class="hs-identifier hs-var">nfc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365456"><span class="annot"><span class="annottext">s :: Radios
+</span><a href="#local-6989586621679365456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365455"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
+</span><a href="#local-6989586621679365456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nfc:Radios' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.Radios.html#%24sel%3Anfc%3ARadios%27"><span class="hs-identifier hs-var">nfc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | True if GPS is enabled at the beginning of the test. Otherwise, false.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#radios_gps"><span class="hs-identifier hs-type">radios_gps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -158,16 +158,16 @@ $sel:nfc:Radios' :: Radios -&gt; Maybe Bool
 -&gt; (Radios -&gt; Maybe Bool -&gt; Radios)
 -&gt; Lens Radios Radios (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365444"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365453"><span class="annot"><span class="annottext">Maybe Bool
 gps :: Maybe Bool
 $sel:gps:Radios' :: Radios -&gt; Maybe Bool
-</span><a href="#local-6989586621679365444"><span class="hs-identifier hs-var hs-var">gps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365444"><span class="hs-identifier hs-var">gps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365443"><span class="annot"><span class="annottext">s :: Radios
-</span><a href="#local-6989586621679365443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365442"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
-</span><a href="#local-6989586621679365443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gps:Radios' :: Maybe Bool
+</span><a href="#local-6989586621679365453"><span class="hs-identifier hs-var hs-var">gps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365453"><span class="hs-identifier hs-var">gps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365452"><span class="annot"><span class="annottext">s :: Radios
+</span><a href="#local-6989586621679365452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365451"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
+</span><a href="#local-6989586621679365452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gps:Radios' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.Radios.html#%24sel%3Agps%3ARadios%27"><span class="hs-identifier hs-var">gps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | True if Bluetooth is enabled at the beginning of the test. Otherwise,</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- false.</span><span>
@@ -177,16 +177,16 @@ $sel:gps:Radios' :: Radios -&gt; Maybe Bool
 -&gt; (Radios -&gt; Maybe Bool -&gt; Radios)
 -&gt; Lens Radios Radios (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365440"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365449"><span class="annot"><span class="annottext">Maybe Bool
 bluetooth :: Maybe Bool
 $sel:bluetooth:Radios' :: Radios -&gt; Maybe Bool
-</span><a href="#local-6989586621679365440"><span class="hs-identifier hs-var hs-var">bluetooth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365440"><span class="hs-identifier hs-var">bluetooth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365439"><span class="annot"><span class="annottext">s :: Radios
-</span><a href="#local-6989586621679365439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365438"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
-</span><a href="#local-6989586621679365439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bluetooth:Radios' :: Maybe Bool
+</span><a href="#local-6989586621679365449"><span class="hs-identifier hs-var hs-var">bluetooth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365449"><span class="hs-identifier hs-var">bluetooth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365448"><span class="annot"><span class="annottext">s :: Radios
+</span><a href="#local-6989586621679365448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365447"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
+</span><a href="#local-6989586621679365448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bluetooth:Radios' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.Radios.html#%24sel%3Abluetooth%3ARadios%27"><span class="hs-identifier hs-var">bluetooth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#radios_wifi"><span class="hs-identifier hs-type">radios_wifi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -195,27 +195,27 @@ $sel:bluetooth:Radios' :: Radios -&gt; Maybe Bool
 -&gt; (Radios -&gt; Maybe Bool -&gt; Radios)
 -&gt; Lens Radios Radios (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365436"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365445"><span class="annot"><span class="annottext">Maybe Bool
 wifi :: Maybe Bool
 $sel:wifi:Radios' :: Radios -&gt; Maybe Bool
-</span><a href="#local-6989586621679365436"><span class="hs-identifier hs-var hs-var">wifi</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365436"><span class="hs-identifier hs-var">wifi</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365435"><span class="annot"><span class="annottext">s :: Radios
-</span><a href="#local-6989586621679365435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365434"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
-</span><a href="#local-6989586621679365435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wifi:Radios' :: Maybe Bool
+</span><a href="#local-6989586621679365445"><span class="hs-identifier hs-var hs-var">wifi</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365445"><span class="hs-identifier hs-var">wifi</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365444"><span class="annot"><span class="annottext">s :: Radios
+</span><a href="#local-6989586621679365444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365443"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Radios
+</span><a href="#local-6989586621679365444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wifi:Radios' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.Radios.html#%24sel%3Awifi%3ARadios%27"><span class="hs-identifier hs-var">wifi</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679365429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Radios
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365440"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679365438"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Radios
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Radios) -&gt; Value -&gt; Parser Radios
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Radios&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365426"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365435"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Radios
 </span><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-var">Radios'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Radios)
@@ -223,7 +223,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Radios)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679365435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nfc&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,7 +232,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; Radios)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679365435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gps&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,7 +240,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; Radios)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679365435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bluetooth&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,19 +248,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser Radios
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679365435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;wifi&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365420"><span id="local-6989586621679365422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365429"><span id="local-6989586621679365431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365409"><span id="local-6989586621679365411"><span id="local-6989586621679365413"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679365407"><span class="annot"><span class="annottext">toJSON :: Radios -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365402"><span id="local-6989586621679365403"><span id="local-6989586621679365404"><span id="local-6989586621679365405"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365418"><span id="local-6989586621679365420"><span id="local-6989586621679365422"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679365416"><span class="annot"><span class="annottext">toJSON :: Radios -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios%27"><span class="hs-identifier hs-type">Radios'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365411"><span id="local-6989586621679365412"><span id="local-6989586621679365413"><span id="local-6989586621679365414"><span class="annot"><span class="annottext">Maybe Bool
 wifi :: Maybe Bool
 bluetooth :: Maybe Bool
 gps :: Maybe Bool
@@ -269,7 +269,7 @@ $sel:wifi:Radios' :: Radios -&gt; Maybe Bool
 $sel:bluetooth:Radios' :: Radios -&gt; Maybe Bool
 $sel:gps:Radios' :: Radios -&gt; Maybe Bool
 $sel:nfc:Radios' :: Radios -&gt; Maybe Bool
-</span><a href="#local-6989586621679365402"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679365411"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -281,28 +281,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365405"><span class="hs-identifier hs-var">nfc</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365414"><span class="hs-identifier hs-var">nfc</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365404"><span class="hs-identifier hs-var">gps</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365413"><span class="hs-identifier hs-var">gps</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bluetooth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365403"><span class="hs-identifier hs-var">bluetooth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365412"><span class="hs-identifier hs-var">bluetooth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;wifi&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365402"><span class="hs-identifier hs-var">wifi</span></a></span><span>
+</span><a href="#local-6989586621679365411"><span class="hs-identifier hs-var">wifi</span></a></span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

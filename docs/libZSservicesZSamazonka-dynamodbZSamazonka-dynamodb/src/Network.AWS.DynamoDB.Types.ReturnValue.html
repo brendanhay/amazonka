@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679379637"><span id="local-6989586621679379638"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReturnValue"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValue.html#ReturnValue"><span class="hs-identifier hs-var">ReturnValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReturnValue%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValue.html#ReturnValue%27"><span class="hs-identifier hs-var">ReturnValue'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679379646"><span id="local-6989586621679379647"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReturnValue"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValue.html#ReturnValue"><span class="hs-identifier hs-var">ReturnValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReturnValue%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValue.html#ReturnValue%27"><span class="hs-identifier hs-var">ReturnValue'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReturnValue"><span class="annot"><span class="annottext">ReturnValue -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.ReturnValue.html#fromReturnValue"><span class="hs-identifier hs-var hs-var">fromReturnValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379629"><span id="local-6989586621679379631"><span id="local-6989586621679379633"><span class="annot"><span class="annottext">Int -&gt; ReturnValue -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379638"><span id="local-6989586621679379640"><span id="local-6989586621679379642"><span class="annot"><span class="annottext">Int -&gt; ReturnValue -&gt; ShowS
 [ReturnValue] -&gt; ShowS
 ReturnValue -&gt; String
 (Int -&gt; ReturnValue -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ReturnValue -&gt; String
 showsPrec :: Int -&gt; ReturnValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReturnValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679379620"><span id="local-6989586621679379622"><span id="local-6989586621679379624"><span id="local-6989586621679379626"><span class="annot"><span class="annottext">ReadPrec [ReturnValue]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679379629"><span id="local-6989586621679379631"><span id="local-6989586621679379633"><span id="local-6989586621679379635"><span class="annot"><span class="annottext">ReadPrec [ReturnValue]
 ReadPrec ReturnValue
 Int -&gt; ReadS ReturnValue
 ReadS [ReturnValue]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ReturnValue]
 readsPrec :: Int -&gt; ReadS ReturnValue
 $creadsPrec :: Int -&gt; ReadS ReturnValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679379615"><span id="local-6989586621679379617"><span class="annot"><span class="annottext">ReturnValue -&gt; ReturnValue -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679379624"><span id="local-6989586621679379626"><span class="annot"><span class="annottext">ReturnValue -&gt; ReturnValue -&gt; Bool
 (ReturnValue -&gt; ReturnValue -&gt; Bool)
 -&gt; (ReturnValue -&gt; ReturnValue -&gt; Bool) -&gt; Eq ReturnValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: ReturnValue -&gt; ReturnValue -&gt; Bool
 == :: ReturnValue -&gt; ReturnValue -&gt; Bool
 $c== :: ReturnValue -&gt; ReturnValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679379599"><span id="local-6989586621679379601"><span id="local-6989586621679379603"><span id="local-6989586621679379605"><span id="local-6989586621679379607"><span id="local-6989586621679379609"><span id="local-6989586621679379611"><span class="annot"><span class="annottext">Eq ReturnValue
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679379608"><span id="local-6989586621679379610"><span id="local-6989586621679379612"><span id="local-6989586621679379614"><span id="local-6989586621679379616"><span id="local-6989586621679379618"><span id="local-6989586621679379620"><span class="annot"><span class="annottext">Eq ReturnValue
 Eq ReturnValue
 -&gt; (ReturnValue -&gt; ReturnValue -&gt; Ordering)
 -&gt; (ReturnValue -&gt; ReturnValue -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ReturnValue -&gt; Rep ReturnValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379591"><span id="local-6989586621679379593"><span class="annot"><span class="annottext">Int -&gt; ReturnValue -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379600"><span id="local-6989586621679379602"><span class="annot"><span class="annottext">Int -&gt; ReturnValue -&gt; Int
 ReturnValue -&gt; Int
 (Int -&gt; ReturnValue -&gt; Int)
 -&gt; (ReturnValue -&gt; Int) -&gt; Hashable ReturnValue
@@ -145,49 +145,49 @@ $chash :: ReturnValue -&gt; Int
 hashWithSalt :: Int -&gt; ReturnValue -&gt; Int
 $chashWithSalt :: Int -&gt; ReturnValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679379588"><span class="annot"><span class="annottext">ReturnValue -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679379597"><span class="annot"><span class="annottext">ReturnValue -&gt; ()
 (ReturnValue -&gt; ()) -&gt; NFData ReturnValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReturnValue -&gt; ()
 $crnf :: ReturnValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679379585"><span class="annot"><span class="annottext">Text -&gt; Either String ReturnValue
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679379594"><span class="annot"><span class="annottext">Text -&gt; Either String ReturnValue
 (Text -&gt; Either String ReturnValue) -&gt; FromText ReturnValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReturnValue
 $cfromText :: Text -&gt; Either String ReturnValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679379582"><span class="annot"><span class="annottext">ReturnValue -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679379591"><span class="annot"><span class="annottext">ReturnValue -&gt; Text
 (ReturnValue -&gt; Text) -&gt; ToText ReturnValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReturnValue -&gt; Text
 $ctoText :: ReturnValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679379579"><span class="annot"><span class="annottext">ReturnValue -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679379588"><span class="annot"><span class="annottext">ReturnValue -&gt; ByteString
 (ReturnValue -&gt; ByteString) -&gt; ToByteString ReturnValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReturnValue -&gt; ByteString
 $ctoBS :: ReturnValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679379576"><span class="annot"><span class="annottext">ReturnValue -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679379585"><span class="annot"><span class="annottext">ReturnValue -&gt; ByteStringBuilder
 (ReturnValue -&gt; ByteStringBuilder) -&gt; ToLog ReturnValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReturnValue -&gt; ByteStringBuilder
 $cbuild :: ReturnValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679379573"><span class="annot"><span class="annottext">HeaderName -&gt; ReturnValue -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679379582"><span class="annot"><span class="annottext">HeaderName -&gt; ReturnValue -&gt; [Header]
 (HeaderName -&gt; ReturnValue -&gt; [Header]) -&gt; ToHeader ReturnValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReturnValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReturnValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379570"><span class="annot"><span class="annottext">ReturnValue -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379579"><span class="annot"><span class="annottext">ReturnValue -&gt; QueryString
 (ReturnValue -&gt; QueryString) -&gt; ToQuery ReturnValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReturnValue -&gt; QueryString
 $ctoQuery :: ReturnValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379565"><span id="local-6989586621679379567"><span class="annot"><span class="annottext">Value -&gt; Parser [ReturnValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379574"><span id="local-6989586621679379576"><span class="annot"><span class="annottext">Value -&gt; Parser [ReturnValue]
 Value -&gt; Parser ReturnValue
 (Value -&gt; Parser ReturnValue)
 -&gt; (Value -&gt; Parser [ReturnValue]) -&gt; FromJSON ReturnValue
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ReturnValue]
 parseJSON :: Value -&gt; Parser ReturnValue
 $cparseJSON :: Value -&gt; Parser ReturnValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379560"><span id="local-6989586621679379562"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReturnValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379569"><span id="local-6989586621679379571"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReturnValue]
 FromJSONKeyFunction ReturnValue
 FromJSONKeyFunction ReturnValue
 -&gt; FromJSONKeyFunction [ReturnValue] -&gt; FromJSONKey ReturnValue
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReturnValue]
 fromJSONKey :: FromJSONKeyFunction ReturnValue
 $cfromJSONKey :: FromJSONKeyFunction ReturnValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679379551"><span id="local-6989586621679379553"><span id="local-6989586621679379555"><span id="local-6989586621679379557"><span class="annot"><span class="annottext">[ReturnValue] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679379560"><span id="local-6989586621679379562"><span id="local-6989586621679379564"><span id="local-6989586621679379566"><span class="annot"><span class="annottext">[ReturnValue] -&gt; Encoding
 [ReturnValue] -&gt; Value
 ReturnValue -&gt; Encoding
 ReturnValue -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ReturnValue -&gt; Encoding
 toJSON :: ReturnValue -&gt; Value
 $ctoJSON :: ReturnValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679379546"><span id="local-6989586621679379548"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReturnValue]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679379555"><span id="local-6989586621679379557"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReturnValue]
 ToJSONKeyFunction ReturnValue
 ToJSONKeyFunction ReturnValue
 -&gt; ToJSONKeyFunction [ReturnValue] -&gt; ToJSONKey ReturnValue
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReturnValue]
 toJSONKey :: ToJSONKeyFunction ReturnValue
 $ctoJSONKey :: ToJSONKeyFunction ReturnValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679379543"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReturnValue
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679379552"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReturnValue
 ([Node] -&gt; Either String ReturnValue) -&gt; FromXML ReturnValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReturnValue
 $cparseXML :: [Node] -&gt; Either String ReturnValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679379540"><span class="annot"><span class="annottext">ReturnValue -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679379549"><span class="annot"><span class="annottext">ReturnValue -&gt; XML
 (ReturnValue -&gt; XML) -&gt; ToXML ReturnValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReturnValue -&gt; XML

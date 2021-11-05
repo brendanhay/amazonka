@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679330506"><span id="local-6989586621679330507"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredefinedScalingMetricType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedScalingMetricType.html#PredefinedScalingMetricType"><span class="hs-identifier hs-var">PredefinedScalingMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedScalingMetricType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedScalingMetricType.html#PredefinedScalingMetricType%27"><span class="hs-identifier hs-var">PredefinedScalingMetricType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679330515"><span id="local-6989586621679330516"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredefinedScalingMetricType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedScalingMetricType.html#PredefinedScalingMetricType"><span class="hs-identifier hs-var">PredefinedScalingMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedScalingMetricType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedScalingMetricType.html#PredefinedScalingMetricType%27"><span class="hs-identifier hs-var">PredefinedScalingMetricType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPredefinedScalingMetricType"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedScalingMetricType.html#fromPredefinedScalingMetricType"><span class="hs-identifier hs-var hs-var">fromPredefinedScalingMetricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330498"><span id="local-6989586621679330500"><span id="local-6989586621679330502"><span class="annot"><span class="annottext">Int -&gt; PredefinedScalingMetricType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330507"><span id="local-6989586621679330509"><span id="local-6989586621679330511"><span class="annot"><span class="annottext">Int -&gt; PredefinedScalingMetricType -&gt; ShowS
 [PredefinedScalingMetricType] -&gt; ShowS
 PredefinedScalingMetricType -&gt; String
 (Int -&gt; PredefinedScalingMetricType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: PredefinedScalingMetricType -&gt; String
 showsPrec :: Int -&gt; PredefinedScalingMetricType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PredefinedScalingMetricType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330489"><span id="local-6989586621679330491"><span id="local-6989586621679330493"><span id="local-6989586621679330495"><span class="annot"><span class="annottext">ReadPrec [PredefinedScalingMetricType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330498"><span id="local-6989586621679330500"><span id="local-6989586621679330502"><span id="local-6989586621679330504"><span class="annot"><span class="annottext">ReadPrec [PredefinedScalingMetricType]
 ReadPrec PredefinedScalingMetricType
 Int -&gt; ReadS PredefinedScalingMetricType
 ReadS [PredefinedScalingMetricType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [PredefinedScalingMetricType]
 readsPrec :: Int -&gt; ReadS PredefinedScalingMetricType
 $creadsPrec :: Int -&gt; ReadS PredefinedScalingMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679330484"><span id="local-6989586621679330486"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; PredefinedScalingMetricType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679330493"><span id="local-6989586621679330495"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; PredefinedScalingMetricType -&gt; Bool
 (PredefinedScalingMetricType
  -&gt; PredefinedScalingMetricType -&gt; Bool)
 -&gt; (PredefinedScalingMetricType
@@ -86,7 +86,7 @@ $c/= :: PredefinedScalingMetricType -&gt; PredefinedScalingMetricType -&gt; Bool
 == :: PredefinedScalingMetricType -&gt; PredefinedScalingMetricType -&gt; Bool
 $c== :: PredefinedScalingMetricType -&gt; PredefinedScalingMetricType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679330468"><span id="local-6989586621679330470"><span id="local-6989586621679330472"><span id="local-6989586621679330474"><span id="local-6989586621679330476"><span id="local-6989586621679330478"><span id="local-6989586621679330480"><span class="annot"><span class="annottext">Eq PredefinedScalingMetricType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679330477"><span id="local-6989586621679330479"><span id="local-6989586621679330481"><span id="local-6989586621679330483"><span id="local-6989586621679330485"><span id="local-6989586621679330487"><span id="local-6989586621679330489"><span class="annot"><span class="annottext">Eq PredefinedScalingMetricType
 Eq PredefinedScalingMetricType
 -&gt; (PredefinedScalingMetricType
     -&gt; PredefinedScalingMetricType -&gt; Ordering)
@@ -158,7 +158,7 @@ PredefinedScalingMetricType -&gt; Rep PredefinedScalingMetricType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330460"><span id="local-6989586621679330462"><span class="annot"><span class="annottext">Int -&gt; PredefinedScalingMetricType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330469"><span id="local-6989586621679330471"><span class="annot"><span class="annottext">Int -&gt; PredefinedScalingMetricType -&gt; Int
 PredefinedScalingMetricType -&gt; Int
 (Int -&gt; PredefinedScalingMetricType -&gt; Int)
 -&gt; (PredefinedScalingMetricType -&gt; Int)
@@ -169,56 +169,56 @@ $chash :: PredefinedScalingMetricType -&gt; Int
 hashWithSalt :: Int -&gt; PredefinedScalingMetricType -&gt; Int
 $chashWithSalt :: Int -&gt; PredefinedScalingMetricType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679330457"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679330466"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; ()
 (PredefinedScalingMetricType -&gt; ())
 -&gt; NFData PredefinedScalingMetricType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PredefinedScalingMetricType -&gt; ()
 $crnf :: PredefinedScalingMetricType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330454"><span class="annot"><span class="annottext">Text -&gt; Either String PredefinedScalingMetricType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330463"><span class="annot"><span class="annottext">Text -&gt; Either String PredefinedScalingMetricType
 (Text -&gt; Either String PredefinedScalingMetricType)
 -&gt; FromText PredefinedScalingMetricType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PredefinedScalingMetricType
 $cfromText :: Text -&gt; Either String PredefinedScalingMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330451"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330460"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; Text
 (PredefinedScalingMetricType -&gt; Text)
 -&gt; ToText PredefinedScalingMetricType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PredefinedScalingMetricType -&gt; Text
 $ctoText :: PredefinedScalingMetricType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330448"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330457"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; ByteString
 (PredefinedScalingMetricType -&gt; ByteString)
 -&gt; ToByteString PredefinedScalingMetricType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PredefinedScalingMetricType -&gt; ByteString
 $ctoBS :: PredefinedScalingMetricType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330445"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330454"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; ByteStringBuilder
 (PredefinedScalingMetricType -&gt; ByteStringBuilder)
 -&gt; ToLog PredefinedScalingMetricType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PredefinedScalingMetricType -&gt; ByteStringBuilder
 $cbuild :: PredefinedScalingMetricType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330442"><span class="annot"><span class="annottext">HeaderName -&gt; PredefinedScalingMetricType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330451"><span class="annot"><span class="annottext">HeaderName -&gt; PredefinedScalingMetricType -&gt; [Header]
 (HeaderName -&gt; PredefinedScalingMetricType -&gt; [Header])
 -&gt; ToHeader PredefinedScalingMetricType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PredefinedScalingMetricType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PredefinedScalingMetricType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330439"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330448"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; QueryString
 (PredefinedScalingMetricType -&gt; QueryString)
 -&gt; ToQuery PredefinedScalingMetricType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PredefinedScalingMetricType -&gt; QueryString
 $ctoQuery :: PredefinedScalingMetricType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330434"><span id="local-6989586621679330436"><span class="annot"><span class="annottext">Value -&gt; Parser [PredefinedScalingMetricType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330443"><span id="local-6989586621679330445"><span class="annot"><span class="annottext">Value -&gt; Parser [PredefinedScalingMetricType]
 Value -&gt; Parser PredefinedScalingMetricType
 (Value -&gt; Parser PredefinedScalingMetricType)
 -&gt; (Value -&gt; Parser [PredefinedScalingMetricType])
@@ -230,7 +230,7 @@ $cparseJSONList :: Value -&gt; Parser [PredefinedScalingMetricType]
 parseJSON :: Value -&gt; Parser PredefinedScalingMetricType
 $cparseJSON :: Value -&gt; Parser PredefinedScalingMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330429"><span id="local-6989586621679330431"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredefinedScalingMetricType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330438"><span id="local-6989586621679330440"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredefinedScalingMetricType]
 FromJSONKeyFunction PredefinedScalingMetricType
 FromJSONKeyFunction PredefinedScalingMetricType
 -&gt; FromJSONKeyFunction [PredefinedScalingMetricType]
@@ -242,7 +242,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PredefinedScalingMetricType]
 fromJSONKey :: FromJSONKeyFunction PredefinedScalingMetricType
 $cfromJSONKey :: FromJSONKeyFunction PredefinedScalingMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330420"><span id="local-6989586621679330422"><span id="local-6989586621679330424"><span id="local-6989586621679330426"><span class="annot"><span class="annottext">[PredefinedScalingMetricType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330429"><span id="local-6989586621679330431"><span id="local-6989586621679330433"><span id="local-6989586621679330435"><span class="annot"><span class="annottext">[PredefinedScalingMetricType] -&gt; Encoding
 [PredefinedScalingMetricType] -&gt; Value
 PredefinedScalingMetricType -&gt; Encoding
 PredefinedScalingMetricType -&gt; Value
@@ -266,7 +266,7 @@ $ctoEncoding :: PredefinedScalingMetricType -&gt; Encoding
 toJSON :: PredefinedScalingMetricType -&gt; Value
 $ctoJSON :: PredefinedScalingMetricType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330415"><span id="local-6989586621679330417"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredefinedScalingMetricType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330424"><span id="local-6989586621679330426"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredefinedScalingMetricType]
 ToJSONKeyFunction PredefinedScalingMetricType
 ToJSONKeyFunction PredefinedScalingMetricType
 -&gt; ToJSONKeyFunction [PredefinedScalingMetricType]
@@ -278,14 +278,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PredefinedScalingMetricType]
 toJSONKey :: ToJSONKeyFunction PredefinedScalingMetricType
 $ctoJSONKey :: ToJSONKeyFunction PredefinedScalingMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330412"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredefinedScalingMetricType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330421"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredefinedScalingMetricType
 ([Node] -&gt; Either String PredefinedScalingMetricType)
 -&gt; FromXML PredefinedScalingMetricType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PredefinedScalingMetricType
 $cparseXML :: [Node] -&gt; Either String PredefinedScalingMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679330409"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679330418"><span class="annot"><span class="annottext">PredefinedScalingMetricType -&gt; XML
 (PredefinedScalingMetricType -&gt; XML)
 -&gt; ToXML PredefinedScalingMetricType
 forall a. (a -&gt; XML) -&gt; ToXML a

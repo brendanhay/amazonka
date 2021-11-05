@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeArtifact.Types.PackageVersionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeArtifact.Types.PackageVersionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier">PackageVersionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Archived"><span class="hs-identifier">PackageVersionStatus_Archived</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Deleted"><span class="hs-identifier">PackageVersionStatus_Deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Disposed"><span class="hs-identifier">PackageVersionStatus_Disposed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Published"><span class="hs-identifier">PackageVersionStatus_Published</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Unfinished"><span class="hs-identifier">PackageVersionStatus_Unfinished</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Unlisted"><span class="hs-identifier">PackageVersionStatus_Unlisted</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679231387"><span id="local-6989586621679231388"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PackageVersionStatus"><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-var">PackageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageVersionStatus%27"><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-identifier hs-var">PackageVersionStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPackageVersionStatus"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#fromPackageVersionStatus"><span class="hs-identifier hs-var hs-var">fromPackageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231379"><span id="local-6989586621679231381"><span id="local-6989586621679231383"><span class="annot"><span class="annottext">Int -&gt; PackageVersionStatus -&gt; ShowS
+[PackageVersionStatus] -&gt; ShowS
+PackageVersionStatus -&gt; String
+(Int -&gt; PackageVersionStatus -&gt; ShowS)
+-&gt; (PackageVersionStatus -&gt; String)
+-&gt; ([PackageVersionStatus] -&gt; ShowS)
+-&gt; Show PackageVersionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PackageVersionStatus] -&gt; ShowS
+$cshowList :: [PackageVersionStatus] -&gt; ShowS
+show :: PackageVersionStatus -&gt; String
+$cshow :: PackageVersionStatus -&gt; String
+showsPrec :: Int -&gt; PackageVersionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PackageVersionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679231370"><span id="local-6989586621679231372"><span id="local-6989586621679231374"><span id="local-6989586621679231376"><span class="annot"><span class="annottext">ReadPrec [PackageVersionStatus]
+ReadPrec PackageVersionStatus
+Int -&gt; ReadS PackageVersionStatus
+ReadS [PackageVersionStatus]
+(Int -&gt; ReadS PackageVersionStatus)
+-&gt; ReadS [PackageVersionStatus]
+-&gt; ReadPrec PackageVersionStatus
+-&gt; ReadPrec [PackageVersionStatus]
+-&gt; Read PackageVersionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PackageVersionStatus]
+$creadListPrec :: ReadPrec [PackageVersionStatus]
+readPrec :: ReadPrec PackageVersionStatus
+$creadPrec :: ReadPrec PackageVersionStatus
+readList :: ReadS [PackageVersionStatus]
+$creadList :: ReadS [PackageVersionStatus]
+readsPrec :: Int -&gt; ReadS PackageVersionStatus
+$creadsPrec :: Int -&gt; ReadS PackageVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679231365"><span id="local-6989586621679231367"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+(PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool)
+-&gt; (PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool)
+-&gt; Eq PackageVersionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+$c/= :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+== :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+$c== :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679231349"><span id="local-6989586621679231351"><span id="local-6989586621679231353"><span id="local-6989586621679231355"><span id="local-6989586621679231357"><span id="local-6989586621679231359"><span id="local-6989586621679231361"><span class="annot"><span class="annottext">Eq PackageVersionStatus
+Eq PackageVersionStatus
+-&gt; (PackageVersionStatus -&gt; PackageVersionStatus -&gt; Ordering)
+-&gt; (PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool)
+-&gt; (PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool)
+-&gt; (PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool)
+-&gt; (PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool)
+-&gt; (PackageVersionStatus
+    -&gt; PackageVersionStatus -&gt; PackageVersionStatus)
+-&gt; (PackageVersionStatus
+    -&gt; PackageVersionStatus -&gt; PackageVersionStatus)
+-&gt; Ord PackageVersionStatus
+PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+PackageVersionStatus -&gt; PackageVersionStatus -&gt; Ordering
+PackageVersionStatus
+-&gt; PackageVersionStatus -&gt; PackageVersionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PackageVersionStatus
+-&gt; PackageVersionStatus -&gt; PackageVersionStatus
+$cmin :: PackageVersionStatus
+-&gt; PackageVersionStatus -&gt; PackageVersionStatus
+max :: PackageVersionStatus
+-&gt; PackageVersionStatus -&gt; PackageVersionStatus
+$cmax :: PackageVersionStatus
+-&gt; PackageVersionStatus -&gt; PackageVersionStatus
+&gt;= :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+$c&gt;= :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+&gt; :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+$c&gt; :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+&lt;= :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+$c&lt;= :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+&lt; :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+$c&lt; :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Bool
+compare :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Ordering
+$ccompare :: PackageVersionStatus -&gt; PackageVersionStatus -&gt; Ordering
+$cp1Ord :: Eq PackageVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PackageVersionStatus -&gt; Rep PackageVersionStatus x)
+-&gt; (forall x. Rep PackageVersionStatus x -&gt; PackageVersionStatus)
+-&gt; Generic PackageVersionStatus
+forall x. Rep PackageVersionStatus x -&gt; PackageVersionStatus
+forall x. PackageVersionStatus -&gt; Rep PackageVersionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PackageVersionStatus x -&gt; PackageVersionStatus
+$cfrom :: forall x. PackageVersionStatus -&gt; Rep PackageVersionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231341"><span id="local-6989586621679231343"><span class="annot"><span class="annottext">Int -&gt; PackageVersionStatus -&gt; Int
+PackageVersionStatus -&gt; Int
+(Int -&gt; PackageVersionStatus -&gt; Int)
+-&gt; (PackageVersionStatus -&gt; Int) -&gt; Hashable PackageVersionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PackageVersionStatus -&gt; Int
+$chash :: PackageVersionStatus -&gt; Int
+hashWithSalt :: Int -&gt; PackageVersionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PackageVersionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679231338"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; ()
+(PackageVersionStatus -&gt; ()) -&gt; NFData PackageVersionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PackageVersionStatus -&gt; ()
+$crnf :: PackageVersionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679231335"><span class="annot"><span class="annottext">Text -&gt; Either String PackageVersionStatus
+(Text -&gt; Either String PackageVersionStatus)
+-&gt; FromText PackageVersionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PackageVersionStatus
+$cfromText :: Text -&gt; Either String PackageVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679231332"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; Text
+(PackageVersionStatus -&gt; Text) -&gt; ToText PackageVersionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PackageVersionStatus -&gt; Text
+$ctoText :: PackageVersionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679231329"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; ByteString
+(PackageVersionStatus -&gt; ByteString)
+-&gt; ToByteString PackageVersionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PackageVersionStatus -&gt; ByteString
+$ctoBS :: PackageVersionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679231326"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; ByteStringBuilder
+(PackageVersionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog PackageVersionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PackageVersionStatus -&gt; ByteStringBuilder
+$cbuild :: PackageVersionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679231323"><span class="annot"><span class="annottext">HeaderName -&gt; PackageVersionStatus -&gt; [Header]
+(HeaderName -&gt; PackageVersionStatus -&gt; [Header])
+-&gt; ToHeader PackageVersionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PackageVersionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PackageVersionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679231320"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; QueryString
+(PackageVersionStatus -&gt; QueryString)
+-&gt; ToQuery PackageVersionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PackageVersionStatus -&gt; QueryString
+$ctoQuery :: PackageVersionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679231315"><span id="local-6989586621679231317"><span class="annot"><span class="annottext">Value -&gt; Parser [PackageVersionStatus]
+Value -&gt; Parser PackageVersionStatus
+(Value -&gt; Parser PackageVersionStatus)
+-&gt; (Value -&gt; Parser [PackageVersionStatus])
+-&gt; FromJSON PackageVersionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PackageVersionStatus]
+$cparseJSONList :: Value -&gt; Parser [PackageVersionStatus]
+parseJSON :: Value -&gt; Parser PackageVersionStatus
+$cparseJSON :: Value -&gt; Parser PackageVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679231310"><span id="local-6989586621679231312"><span class="annot"><span class="annottext">FromJSONKeyFunction [PackageVersionStatus]
+FromJSONKeyFunction PackageVersionStatus
+FromJSONKeyFunction PackageVersionStatus
+-&gt; FromJSONKeyFunction [PackageVersionStatus]
+-&gt; FromJSONKey PackageVersionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PackageVersionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PackageVersionStatus]
+fromJSONKey :: FromJSONKeyFunction PackageVersionStatus
+$cfromJSONKey :: FromJSONKeyFunction PackageVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679231301"><span id="local-6989586621679231303"><span id="local-6989586621679231305"><span id="local-6989586621679231307"><span class="annot"><span class="annottext">[PackageVersionStatus] -&gt; Encoding
+[PackageVersionStatus] -&gt; Value
+PackageVersionStatus -&gt; Encoding
+PackageVersionStatus -&gt; Value
+(PackageVersionStatus -&gt; Value)
+-&gt; (PackageVersionStatus -&gt; Encoding)
+-&gt; ([PackageVersionStatus] -&gt; Value)
+-&gt; ([PackageVersionStatus] -&gt; Encoding)
+-&gt; ToJSON PackageVersionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PackageVersionStatus] -&gt; Encoding
+$ctoEncodingList :: [PackageVersionStatus] -&gt; Encoding
+toJSONList :: [PackageVersionStatus] -&gt; Value
+$ctoJSONList :: [PackageVersionStatus] -&gt; Value
+toEncoding :: PackageVersionStatus -&gt; Encoding
+$ctoEncoding :: PackageVersionStatus -&gt; Encoding
+toJSON :: PackageVersionStatus -&gt; Value
+$ctoJSON :: PackageVersionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679231296"><span id="local-6989586621679231298"><span class="annot"><span class="annottext">ToJSONKeyFunction [PackageVersionStatus]
+ToJSONKeyFunction PackageVersionStatus
+ToJSONKeyFunction PackageVersionStatus
+-&gt; ToJSONKeyFunction [PackageVersionStatus]
+-&gt; ToJSONKey PackageVersionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PackageVersionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PackageVersionStatus]
+toJSONKey :: ToJSONKeyFunction PackageVersionStatus
+$ctoJSONKey :: ToJSONKeyFunction PackageVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679231293"><span class="annot"><span class="annottext">[Node] -&gt; Either String PackageVersionStatus
+([Node] -&gt; Either String PackageVersionStatus)
+-&gt; FromXML PackageVersionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PackageVersionStatus
+$cparseXML :: [Node] -&gt; Either String PackageVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679231290"><span class="annot"><span class="annottext">PackageVersionStatus -&gt; XML
+(PackageVersionStatus -&gt; XML) -&gt; ToXML PackageVersionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PackageVersionStatus -&gt; XML
+$ctoXML :: PackageVersionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Archived"><span class="hs-identifier hs-type">PackageVersionStatus_Archived</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageVersionStatus_Archived"><span id="%24mPackageVersionStatus_Archived"><span id="PackageVersionStatus_Archived"><span class="annot"><span class="annottext">$bPackageVersionStatus_Archived :: PackageVersionStatus
+$mPackageVersionStatus_Archived :: forall r. PackageVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#%24bPackageVersionStatus_Archived"><span class="hs-identifier hs-var hs-var hs-var">PackageVersionStatus_Archived</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-identifier hs-type">PackageVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Archived&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Deleted"><span class="hs-identifier hs-type">PackageVersionStatus_Deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageVersionStatus_Deleted"><span id="%24mPackageVersionStatus_Deleted"><span id="PackageVersionStatus_Deleted"><span class="annot"><span class="annottext">$bPackageVersionStatus_Deleted :: PackageVersionStatus
+$mPackageVersionStatus_Deleted :: forall r. PackageVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#%24bPackageVersionStatus_Deleted"><span class="hs-identifier hs-var hs-var hs-var">PackageVersionStatus_Deleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-identifier hs-type">PackageVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleted&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Disposed"><span class="hs-identifier hs-type">PackageVersionStatus_Disposed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageVersionStatus_Disposed"><span id="%24mPackageVersionStatus_Disposed"><span id="PackageVersionStatus_Disposed"><span class="annot"><span class="annottext">$bPackageVersionStatus_Disposed :: PackageVersionStatus
+$mPackageVersionStatus_Disposed :: forall r. PackageVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#%24bPackageVersionStatus_Disposed"><span class="hs-identifier hs-var hs-var hs-var">PackageVersionStatus_Disposed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-identifier hs-type">PackageVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disposed&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Published"><span class="hs-identifier hs-type">PackageVersionStatus_Published</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageVersionStatus_Published"><span id="%24mPackageVersionStatus_Published"><span id="PackageVersionStatus_Published"><span class="annot"><span class="annottext">$bPackageVersionStatus_Published :: PackageVersionStatus
+$mPackageVersionStatus_Published :: forall r. PackageVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#%24bPackageVersionStatus_Published"><span class="hs-identifier hs-var hs-var hs-var">PackageVersionStatus_Published</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-identifier hs-type">PackageVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Published&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Unfinished"><span class="hs-identifier hs-type">PackageVersionStatus_Unfinished</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageVersionStatus_Unfinished"><span id="%24mPackageVersionStatus_Unfinished"><span id="PackageVersionStatus_Unfinished"><span class="annot"><span class="annottext">$bPackageVersionStatus_Unfinished :: PackageVersionStatus
+$mPackageVersionStatus_Unfinished :: forall r. PackageVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#%24bPackageVersionStatus_Unfinished"><span class="hs-identifier hs-var hs-var hs-var">PackageVersionStatus_Unfinished</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-identifier hs-type">PackageVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Unfinished&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Unlisted"><span class="hs-identifier hs-type">PackageVersionStatus_Unlisted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageVersionStatus_Unlisted"><span id="%24mPackageVersionStatus_Unlisted"><span id="PackageVersionStatus_Unlisted"><span class="annot"><span class="annottext">$bPackageVersionStatus_Unlisted :: PackageVersionStatus
+$mPackageVersionStatus_Unlisted :: forall r. PackageVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#%24bPackageVersionStatus_Unlisted"><span class="hs-identifier hs-var hs-var hs-var">PackageVersionStatus_Unlisted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-identifier hs-type">PackageVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Unlisted&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Archived"><span class="hs-pragma hs-type">PackageVersionStatus_Archived</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Deleted"><span class="hs-pragma hs-type">PackageVersionStatus_Deleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Disposed"><span class="hs-pragma hs-type">PackageVersionStatus_Disposed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Published"><span class="hs-pragma hs-type">PackageVersionStatus_Published</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Unfinished"><span class="hs-pragma hs-type">PackageVersionStatus_Unfinished</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus_Unlisted"><span class="hs-pragma hs-type">PackageVersionStatus_Unlisted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus%27"><span class="hs-pragma hs-type">PackageVersionStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

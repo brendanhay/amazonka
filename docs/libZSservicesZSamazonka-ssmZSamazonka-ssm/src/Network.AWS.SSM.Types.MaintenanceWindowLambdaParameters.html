@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-comment">-- TaskParameters and LoggingInfo.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newMaintenanceWindowLambdaParameters' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679799535"><span id="local-6989586621679799536"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowLambdaParameters"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-var">MaintenanceWindowLambdaParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowLambdaParameters%27"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var">MaintenanceWindowLambdaParameters'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679799544"><span id="local-6989586621679799545"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowLambdaParameters"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-var">MaintenanceWindowLambdaParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowLambdaParameters%27"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var">MaintenanceWindowLambdaParameters'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | JSON to provide to your Lambda function as input.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Apayload%3AMaintenanceWindowLambdaParameters%27"><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters -&gt; Maybe (Sensitive Base64)
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#%24sel%3Apayload%3AMaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AclientContext%3AMaintenanceWindowLambdaParameters%27"><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#%24sel%3AclientContext%3AMaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var hs-var">clientContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799527"><span id="local-6989586621679799529"><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799536"><span id="local-6989586621679799538"><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
 -&gt; MaintenanceWindowLambdaParameters -&gt; Bool
 (MaintenanceWindowLambdaParameters
  -&gt; MaintenanceWindowLambdaParameters -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: MaintenanceWindowLambdaParameters
 -&gt; MaintenanceWindowLambdaParameters -&gt; Bool
 $c== :: MaintenanceWindowLambdaParameters
 -&gt; MaintenanceWindowLambdaParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799520"><span id="local-6989586621679799522"><span id="local-6989586621679799524"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowLambdaParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799529"><span id="local-6989586621679799531"><span id="local-6989586621679799533"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowLambdaParameters -&gt; ShowS
 [MaintenanceWindowLambdaParameters] -&gt; ShowS
 MaintenanceWindowLambdaParameters -&gt; String
 (Int -&gt; MaintenanceWindowLambdaParameters -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
      (Maybe (Sensitive Base64))
      (Maybe (Sensitive Base64))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799511"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799520"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 payload :: Maybe (Sensitive Base64)
 $sel:payload:MaintenanceWindowLambdaParameters' :: MaintenanceWindowLambdaParameters -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679799511"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679799511"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799510"><span class="annot"><span class="annottext">s :: MaintenanceWindowLambdaParameters
-</span><a href="#local-6989586621679799510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799509"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679799509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
-</span><a href="#local-6989586621679799510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:MaintenanceWindowLambdaParameters' :: Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679799520"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679799520"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799519"><span class="annot"><span class="annottext">s :: MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679799519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799518"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679799518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679799519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:MaintenanceWindowLambdaParameters' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#%24sel%3Apayload%3AMaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679799509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+</span><a href="#local-6989586621679799518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
  -&gt; MaintenanceWindowLambdaParameters
  -&gt; f MaintenanceWindowLambdaParameters)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
@@ -248,16 +248,16 @@ Iso' Base64 ByteString
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799503"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799512"><span class="annot"><span class="annottext">Maybe Text
 qualifier :: Maybe Text
 $sel:qualifier:MaintenanceWindowLambdaParameters' :: MaintenanceWindowLambdaParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679799503"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799503"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799502"><span class="annot"><span class="annottext">s :: MaintenanceWindowLambdaParameters
-</span><a href="#local-6989586621679799502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799501"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
-</span><a href="#local-6989586621679799502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualifier:MaintenanceWindowLambdaParameters' :: Maybe Text
+</span><a href="#local-6989586621679799512"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799512"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799511"><span class="annot"><span class="annottext">s :: MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679799511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679799511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualifier:MaintenanceWindowLambdaParameters' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#%24sel%3Aqualifier%3AMaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | Pass client-specific information to the Lambda function that you are</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- invoking. You can then process the client information in your Lambda</span><span>
@@ -275,22 +275,22 @@ $sel:qualifier:MaintenanceWindowLambdaParameters' :: MaintenanceWindowLambdaPara
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799499"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799508"><span class="annot"><span class="annottext">Maybe Text
 clientContext :: Maybe Text
 $sel:clientContext:MaintenanceWindowLambdaParameters' :: MaintenanceWindowLambdaParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679799499"><span class="hs-identifier hs-var hs-var">clientContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799499"><span class="hs-identifier hs-var">clientContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799498"><span class="annot"><span class="annottext">s :: MaintenanceWindowLambdaParameters
-</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799497"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
-</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientContext:MaintenanceWindowLambdaParameters' :: Maybe Text
+</span><a href="#local-6989586621679799508"><span class="hs-identifier hs-var hs-var">clientContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799508"><span class="hs-identifier hs-var">clientContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799507"><span class="annot"><span class="annottext">s :: MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679799507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowLambdaParameters
+</span><a href="#local-6989586621679799507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientContext:MaintenanceWindowLambdaParameters' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#%24sel%3AclientContext%3AMaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var">clientContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679799494"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679799503"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679799492"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowLambdaParameters
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679799501"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowLambdaParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MaintenanceWindowLambdaParameters)
@@ -300,8 +300,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MaintenanceWindowLambdaParameters&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799489"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799489"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799498"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 -&gt; Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowLambdaParameters
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-var">MaintenanceWindowLambdaParameters'</span></a></span><span>
@@ -312,7 +312,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowLambdaParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Base64))
+</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Base64))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Payload&quot;</span></span><span class="hs-special">)</span><span>
@@ -322,7 +322,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; MaintenanceWindowLambdaParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Qualifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -330,26 +330,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser MaintenanceWindowLambdaParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientContext&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679799483"><span id="local-6989586621679799485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679799492"><span id="local-6989586621679799494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679799480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679799489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679799472"><span id="local-6989586621679799474"><span id="local-6989586621679799476"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679799481"><span id="local-6989586621679799483"><span id="local-6989586621679799485"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters</span></a></span></span></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679799470"><span class="annot"><span class="annottext">toJSON :: MaintenanceWindowLambdaParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799466"><span id="local-6989586621679799467"><span id="local-6989586621679799468"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679799479"><span class="annot"><span class="annottext">toJSON :: MaintenanceWindowLambdaParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters.html#MaintenanceWindowLambdaParameters%27"><span class="hs-identifier hs-type">MaintenanceWindowLambdaParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799475"><span id="local-6989586621679799476"><span id="local-6989586621679799477"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Base64)
 clientContext :: Maybe Text
 qualifier :: Maybe Text
@@ -357,7 +357,7 @@ payload :: Maybe (Sensitive Base64)
 $sel:clientContext:MaintenanceWindowLambdaParameters' :: MaintenanceWindowLambdaParameters -&gt; Maybe Text
 $sel:qualifier:MaintenanceWindowLambdaParameters' :: MaintenanceWindowLambdaParameters -&gt; Maybe Text
 $sel:payload:MaintenanceWindowLambdaParameters' :: MaintenanceWindowLambdaParameters -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679799466"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679799475"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -370,21 +370,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (Sensitive Base64) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679799468"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799477"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Qualifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799467"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799476"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799466"><span class="hs-identifier hs-var">clientContext</span></a></span><span>
+</span><a href="#local-6989586621679799475"><span class="hs-identifier hs-var">clientContext</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span></pre></body></html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.GetSessionEmbedUrl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates a session URL and authorization code that you can use to embed</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the Amazon Amazon QuickSight console in your web server code. Use</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @GetSessionEmbedUrl@ where you want to provide an authoring portal that</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- allows users to create data sources, datasets, analyses, and dashboards.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- The users who access an embedded Amazon QuickSight console need belong</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to the author or admin security cohort. If you want to restrict</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- permissions to some of these features, add a custom permissions profile</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- to the user with the @ UpdateUser @ API operation. Use @ RegisterUser @</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- API operation to add a new user with a custom permission profile</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- attached. For more information, see the following sections in the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /Amazon QuickSight User Guide/:</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html Embedding Analytics&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html Customizing Access to the Amazon QuickSight Console&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.GetSessionEmbedUrl</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#newGetSessionEmbedUrl"><span class="hs-identifier">newGetSessionEmbedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_sessionLifetimeInMinutes"><span class="hs-identifier">getSessionEmbedUrl_sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_entryPoint"><span class="hs-identifier">getSessionEmbedUrl_entryPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_userArn"><span class="hs-identifier">getSessionEmbedUrl_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_awsAccountId"><span class="hs-identifier">getSessionEmbedUrl_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier">GetSessionEmbedUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#newGetSessionEmbedUrlResponse"><span class="hs-identifier">newGetSessionEmbedUrlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_requestId"><span class="hs-identifier">getSessionEmbedUrlResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_embedUrl"><span class="hs-identifier">getSessionEmbedUrlResponse_embedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_status"><span class="hs-identifier">getSessionEmbedUrlResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newGetSessionEmbedUrl' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679582516"><span id="local-6989586621679582517"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSessionEmbedUrl"><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-var">GetSessionEmbedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSessionEmbedUrl%27"><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-var">GetSessionEmbedUrl'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- 15-600 minutes.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsessionLifetimeInMinutes%3AGetSessionEmbedUrl%27"><span class="annot"><span class="annottext">GetSessionEmbedUrl -&gt; Maybe Natural
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AsessionLifetimeInMinutes%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The URL you use to access the embedded session. The entry point URL is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- constrained to the following paths:</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @\/start@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @\/start\/analyses@</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @\/start\/dashboards@</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @\/start\/favorites@</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     key from the Amazon QuickSight console URL of the dashboard</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     from the Amazon QuickSight console URL of the analysis</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AentryPoint%3AGetSessionEmbedUrl%27"><span class="annot"><span class="annottext">GetSessionEmbedUrl -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AentryPoint%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @QUICKSIGHT@ identity type. You can use this for any type of Amazon</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- QuickSight users in your account (readers, authors, or admins). They</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- need to be authenticated as one of the following:</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- 1.  Active Directory (AD) users or group members</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- 2.  Invited nonfederated users</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- 3.  Identity and Access Management (IAM) users and IAM role-based</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     sessions authenticated through Federated Single Sign-On using SAML,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     OpenID Connect, or IAM federation</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Omit this parameter for users in the third group, IAM users and IAM</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- role-based sessions.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AuserArn%3AGetSessionEmbedUrl%27"><span class="annot"><span class="annottext">GetSessionEmbedUrl -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AuserArn%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account associated with your Amazon</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- QuickSight subscription.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AawsAccountId%3AGetSessionEmbedUrl%27"><span class="annot"><span class="annottext">GetSessionEmbedUrl -&gt; Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AawsAccountId%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582507"><span id="local-6989586621679582509"><span class="annot"><span class="annottext">GetSessionEmbedUrl -&gt; GetSessionEmbedUrl -&gt; Bool
+(GetSessionEmbedUrl -&gt; GetSessionEmbedUrl -&gt; Bool)
+-&gt; (GetSessionEmbedUrl -&gt; GetSessionEmbedUrl -&gt; Bool)
+-&gt; Eq GetSessionEmbedUrl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSessionEmbedUrl -&gt; GetSessionEmbedUrl -&gt; Bool
+$c/= :: GetSessionEmbedUrl -&gt; GetSessionEmbedUrl -&gt; Bool
+== :: GetSessionEmbedUrl -&gt; GetSessionEmbedUrl -&gt; Bool
+$c== :: GetSessionEmbedUrl -&gt; GetSessionEmbedUrl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582498"><span id="local-6989586621679582500"><span id="local-6989586621679582502"><span id="local-6989586621679582504"><span class="annot"><span class="annottext">ReadPrec [GetSessionEmbedUrl]
+ReadPrec GetSessionEmbedUrl
+Int -&gt; ReadS GetSessionEmbedUrl
+ReadS [GetSessionEmbedUrl]
+(Int -&gt; ReadS GetSessionEmbedUrl)
+-&gt; ReadS [GetSessionEmbedUrl]
+-&gt; ReadPrec GetSessionEmbedUrl
+-&gt; ReadPrec [GetSessionEmbedUrl]
+-&gt; Read GetSessionEmbedUrl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSessionEmbedUrl]
+$creadListPrec :: ReadPrec [GetSessionEmbedUrl]
+readPrec :: ReadPrec GetSessionEmbedUrl
+$creadPrec :: ReadPrec GetSessionEmbedUrl
+readList :: ReadS [GetSessionEmbedUrl]
+$creadList :: ReadS [GetSessionEmbedUrl]
+readsPrec :: Int -&gt; ReadS GetSessionEmbedUrl
+$creadsPrec :: Int -&gt; ReadS GetSessionEmbedUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582491"><span id="local-6989586621679582493"><span id="local-6989586621679582495"><span class="annot"><span class="annottext">Int -&gt; GetSessionEmbedUrl -&gt; ShowS
+[GetSessionEmbedUrl] -&gt; ShowS
+GetSessionEmbedUrl -&gt; String
+(Int -&gt; GetSessionEmbedUrl -&gt; ShowS)
+-&gt; (GetSessionEmbedUrl -&gt; String)
+-&gt; ([GetSessionEmbedUrl] -&gt; ShowS)
+-&gt; Show GetSessionEmbedUrl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSessionEmbedUrl] -&gt; ShowS
+$cshowList :: [GetSessionEmbedUrl] -&gt; ShowS
+show :: GetSessionEmbedUrl -&gt; String
+$cshow :: GetSessionEmbedUrl -&gt; String
+showsPrec :: Int -&gt; GetSessionEmbedUrl -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSessionEmbedUrl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetSessionEmbedUrl -&gt; Rep GetSessionEmbedUrl x)
+-&gt; (forall x. Rep GetSessionEmbedUrl x -&gt; GetSessionEmbedUrl)
+-&gt; Generic GetSessionEmbedUrl
+forall x. Rep GetSessionEmbedUrl x -&gt; GetSessionEmbedUrl
+forall x. GetSessionEmbedUrl -&gt; Rep GetSessionEmbedUrl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSessionEmbedUrl x -&gt; GetSessionEmbedUrl
+$cfrom :: forall x. GetSessionEmbedUrl -&gt; Rep GetSessionEmbedUrl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'GetSessionEmbedUrl' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'sessionLifetimeInMinutes', 'getSessionEmbedUrl_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 15-600 minutes.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'entryPoint', 'getSessionEmbedUrl_entryPoint' - The URL you use to access the embedded session. The entry point URL is</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- constrained to the following paths:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @\/start@</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @\/start\/analyses@</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @\/start\/dashboards@</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @\/start\/favorites@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     key from the Amazon QuickSight console URL of the dashboard</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     from the Amazon QuickSight console URL of the analysis</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'userArn', 'getSessionEmbedUrl_userArn' - The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @QUICKSIGHT@ identity type. You can use this for any type of Amazon</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- QuickSight users in your account (readers, authors, or admins). They</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- need to be authenticated as one of the following:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 1.  Active Directory (AD) users or group members</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 2.  Invited nonfederated users</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 3.  Identity and Access Management (IAM) users and IAM role-based</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     sessions authenticated through Federated Single Sign-On using SAML,</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     OpenID Connect, or IAM federation</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Omit this parameter for users in the third group, IAM users and IAM</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- role-based sessions.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'awsAccountId', 'getSessionEmbedUrl_awsAccountId' - The ID for the Amazon Web Services account associated with your Amazon</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- QuickSight subscription.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#newGetSessionEmbedUrl"><span class="hs-identifier hs-type">newGetSessionEmbedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span>
+</span><span id="line-161"></span><span id="newGetSessionEmbedUrl"><span class="annot"><span class="annottext">newGetSessionEmbedUrl :: Text -&gt; GetSessionEmbedUrl
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#newGetSessionEmbedUrl"><span class="hs-identifier hs-var hs-var">newGetSessionEmbedUrl</span></a></span></span><span> </span><span id="local-6989586621679582486"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582486"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">GetSessionEmbedUrl' :: Maybe Natural
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; GetSessionEmbedUrl
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GetSessionEmbedUrl' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AsessionLifetimeInMinutes%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:entryPoint:GetSessionEmbedUrl' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AentryPoint%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:userArn:GetSessionEmbedUrl' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AuserArn%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:GetSessionEmbedUrl' :: Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AawsAccountId%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582486"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 15-600 minutes.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_sessionLifetimeInMinutes"><span class="hs-identifier hs-type">getSessionEmbedUrl_sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="getSessionEmbedUrl_sessionLifetimeInMinutes"><span class="annot"><span class="annottext">getSessionEmbedUrl_sessionLifetimeInMinutes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetSessionEmbedUrl -&gt; f GetSessionEmbedUrl
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_sessionLifetimeInMinutes"><span class="hs-identifier hs-var hs-var">getSessionEmbedUrl_sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionEmbedUrl -&gt; Maybe Natural)
+-&gt; (GetSessionEmbedUrl -&gt; Maybe Natural -&gt; GetSessionEmbedUrl)
+-&gt; Lens
+     GetSessionEmbedUrl
+     GetSessionEmbedUrl
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582483"><span class="annot"><span class="annottext">Maybe Natural
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:sessionLifetimeInMinutes:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Natural
+</span><a href="#local-6989586621679582483"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582483"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582482"><span class="annot"><span class="annottext">s :: GetSessionEmbedUrl
+</span><a href="#local-6989586621679582482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582481"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionEmbedUrl
+</span><a href="#local-6989586621679582482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GetSessionEmbedUrl' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AsessionLifetimeInMinutes%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The URL you use to access the embedded session. The entry point URL is</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- constrained to the following paths:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   @\/start@</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   @\/start\/analyses@</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   @\/start\/dashboards@</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   @\/start\/favorites@</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     key from the Amazon QuickSight console URL of the dashboard</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     from the Amazon QuickSight console URL of the analysis</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_entryPoint"><span class="hs-identifier hs-type">getSessionEmbedUrl_entryPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="getSessionEmbedUrl_entryPoint"><span class="annot"><span class="annottext">getSessionEmbedUrl_entryPoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSessionEmbedUrl -&gt; f GetSessionEmbedUrl
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_entryPoint"><span class="hs-identifier hs-var hs-var">getSessionEmbedUrl_entryPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionEmbedUrl -&gt; Maybe Text)
+-&gt; (GetSessionEmbedUrl -&gt; Maybe Text -&gt; GetSessionEmbedUrl)
+-&gt; Lens
+     GetSessionEmbedUrl GetSessionEmbedUrl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582480"><span class="annot"><span class="annottext">Maybe Text
+entryPoint :: Maybe Text
+$sel:entryPoint:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Text
+</span><a href="#local-6989586621679582480"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582480"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582479"><span class="annot"><span class="annottext">s :: GetSessionEmbedUrl
+</span><a href="#local-6989586621679582479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionEmbedUrl
+</span><a href="#local-6989586621679582479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryPoint:GetSessionEmbedUrl' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AentryPoint%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- @QUICKSIGHT@ identity type. You can use this for any type of Amazon</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- QuickSight users in your account (readers, authors, or admins). They</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- need to be authenticated as one of the following:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 1.  Active Directory (AD) users or group members</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 2.  Invited nonfederated users</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 3.  Identity and Access Management (IAM) users and IAM role-based</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     sessions authenticated through Federated Single Sign-On using SAML,</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     OpenID Connect, or IAM federation</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Omit this parameter for users in the third group, IAM users and IAM</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- role-based sessions.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_userArn"><span class="hs-identifier hs-type">getSessionEmbedUrl_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="getSessionEmbedUrl_userArn"><span class="annot"><span class="annottext">getSessionEmbedUrl_userArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSessionEmbedUrl -&gt; f GetSessionEmbedUrl
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_userArn"><span class="hs-identifier hs-var hs-var">getSessionEmbedUrl_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionEmbedUrl -&gt; Maybe Text)
+-&gt; (GetSessionEmbedUrl -&gt; Maybe Text -&gt; GetSessionEmbedUrl)
+-&gt; Lens
+     GetSessionEmbedUrl GetSessionEmbedUrl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582477"><span class="annot"><span class="annottext">Maybe Text
+userArn :: Maybe Text
+$sel:userArn:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Text
+</span><a href="#local-6989586621679582477"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582477"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582476"><span class="annot"><span class="annottext">s :: GetSessionEmbedUrl
+</span><a href="#local-6989586621679582476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionEmbedUrl
+</span><a href="#local-6989586621679582476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:GetSessionEmbedUrl' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AuserArn%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account associated with your Amazon</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- QuickSight subscription.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_awsAccountId"><span class="hs-identifier hs-type">getSessionEmbedUrl_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-215"></span><span id="getSessionEmbedUrl_awsAccountId"><span class="annot"><span class="annottext">getSessionEmbedUrl_awsAccountId :: (Text -&gt; f Text) -&gt; GetSessionEmbedUrl -&gt; f GetSessionEmbedUrl
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrl_awsAccountId"><span class="hs-identifier hs-var hs-var">getSessionEmbedUrl_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionEmbedUrl -&gt; Text)
+-&gt; (GetSessionEmbedUrl -&gt; Text -&gt; GetSessionEmbedUrl)
+-&gt; Lens GetSessionEmbedUrl GetSessionEmbedUrl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582474"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Text
+</span><a href="#local-6989586621679582474"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582474"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582473"><span class="annot"><span class="annottext">s :: GetSessionEmbedUrl
+</span><a href="#local-6989586621679582473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionEmbedUrl
+</span><a href="#local-6989586621679582473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:GetSessionEmbedUrl' :: Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AawsAccountId%3AGetSessionEmbedUrl%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-219"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679582468"><span class="annot"><span class="annottext">request :: GetSessionEmbedUrl -&gt; Request GetSessionEmbedUrl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSessionEmbedUrl -&gt; Request GetSessionEmbedUrl
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679582464"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSessionEmbedUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSessionEmbedUrl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetSessionEmbedUrl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSessionEmbedUrl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSessionEmbedUrl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679582461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679582460"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679582460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679582459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetSessionEmbedUrlResponse
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">GetSessionEmbedUrlResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetSessionEmbedUrlResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (Sensitive Text) -&gt; Int -&gt; GetSessionEmbedUrlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive Text) -&gt; Int -&gt; GetSessionEmbedUrlResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either String (Int -&gt; GetSessionEmbedUrlResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmbedUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetSessionEmbedUrlResponse)
+-&gt; Either String Int -&gt; Either String GetSessionEmbedUrlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582451"><span id="local-6989586621679582453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span></span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679582444"><span class="annot"><span class="annottext">toHeaders :: GetSessionEmbedUrl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSessionEmbedUrl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-242"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679582438"><span class="annot"><span class="annottext">toPath :: GetSessionEmbedUrl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582433"><span id="local-6989586621679582434"><span id="local-6989586621679582435"><span id="local-6989586621679582436"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+awsAccountId :: Text
+userArn :: Maybe Text
+entryPoint :: Maybe Text
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:awsAccountId:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Text
+$sel:userArn:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Text
+$sel:entryPoint:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Text
+$sel:sessionLifetimeInMinutes:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Natural
+</span><a href="#local-6989586621679582433"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582433"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/session-embed-url&quot;</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl"><span class="hs-identifier hs-type">GetSessionEmbedUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679582429"><span class="annot"><span class="annottext">toQuery :: GetSessionEmbedUrl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrl%27"><span class="hs-identifier hs-type">GetSessionEmbedUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582424"><span id="local-6989586621679582425"><span id="local-6989586621679582426"><span id="local-6989586621679582427"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+awsAccountId :: Text
+userArn :: Maybe Text
+entryPoint :: Maybe Text
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:awsAccountId:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Text
+$sel:userArn:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Text
+$sel:entryPoint:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Text
+$sel:sessionLifetimeInMinutes:GetSessionEmbedUrl' :: GetSessionEmbedUrl -&gt; Maybe Natural
+</span><a href="#local-6989586621679582424"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;session-lifetime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582427"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;entry-point&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582426"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;user-arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582425"><span class="hs-identifier hs-var">userArn</span></a></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | /See:/ 'newGetSessionEmbedUrlResponse' smart constructor.</span><span>
+</span><span id="line-263"></span><span id="local-6989586621679582421"><span id="local-6989586621679582422"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSessionEmbedUrlResponse"><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-var">GetSessionEmbedUrlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSessionEmbedUrlResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">GetSessionEmbedUrlResponse'</span></a></span></span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-265"></span><span>    </span><span id="%24sel%3ArequestId%3AGetSessionEmbedUrlResponse%27"><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3ArequestId%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- | A single-use URL that you can put into your server-side web page to</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- embed your Amazon QuickSight session. This URL is valid for 5 minutes.</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- The API operation provides the URL with an @auth_code@ value that</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- enables one (and only one) sign-on to a user session that is valid for</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- 10 hours.</span><span>
+</span><span id="line-271"></span><span>    </span><span id="%24sel%3AembedUrl%3AGetSessionEmbedUrlResponse%27"><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AembedUrl%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-273"></span><span>    </span><span id="%24sel%3Astatus%3AGetSessionEmbedUrlResponse%27"><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3Astatus%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582414"><span id="local-6989586621679582416"><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse -&gt; GetSessionEmbedUrlResponse -&gt; Bool
+(GetSessionEmbedUrlResponse -&gt; GetSessionEmbedUrlResponse -&gt; Bool)
+-&gt; (GetSessionEmbedUrlResponse
+    -&gt; GetSessionEmbedUrlResponse -&gt; Bool)
+-&gt; Eq GetSessionEmbedUrlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSessionEmbedUrlResponse -&gt; GetSessionEmbedUrlResponse -&gt; Bool
+$c/= :: GetSessionEmbedUrlResponse -&gt; GetSessionEmbedUrlResponse -&gt; Bool
+== :: GetSessionEmbedUrlResponse -&gt; GetSessionEmbedUrlResponse -&gt; Bool
+$c== :: GetSessionEmbedUrlResponse -&gt; GetSessionEmbedUrlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582408"><span id="local-6989586621679582410"><span id="local-6989586621679582412"><span class="annot"><span class="annottext">Int -&gt; GetSessionEmbedUrlResponse -&gt; ShowS
+[GetSessionEmbedUrlResponse] -&gt; ShowS
+GetSessionEmbedUrlResponse -&gt; String
+(Int -&gt; GetSessionEmbedUrlResponse -&gt; ShowS)
+-&gt; (GetSessionEmbedUrlResponse -&gt; String)
+-&gt; ([GetSessionEmbedUrlResponse] -&gt; ShowS)
+-&gt; Show GetSessionEmbedUrlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSessionEmbedUrlResponse] -&gt; ShowS
+$cshowList :: [GetSessionEmbedUrlResponse] -&gt; ShowS
+show :: GetSessionEmbedUrlResponse -&gt; String
+$cshow :: GetSessionEmbedUrlResponse -&gt; String
+showsPrec :: Int -&gt; GetSessionEmbedUrlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSessionEmbedUrlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSessionEmbedUrlResponse -&gt; Rep GetSessionEmbedUrlResponse x)
+-&gt; (forall x.
+    Rep GetSessionEmbedUrlResponse x -&gt; GetSessionEmbedUrlResponse)
+-&gt; Generic GetSessionEmbedUrlResponse
+forall x.
+Rep GetSessionEmbedUrlResponse x -&gt; GetSessionEmbedUrlResponse
+forall x.
+GetSessionEmbedUrlResponse -&gt; Rep GetSessionEmbedUrlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSessionEmbedUrlResponse x -&gt; GetSessionEmbedUrlResponse
+$cfrom :: forall x.
+GetSessionEmbedUrlResponse -&gt; Rep GetSessionEmbedUrlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- Create a value of 'GetSessionEmbedUrlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'requestId', 'getSessionEmbedUrlResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'embedUrl', 'getSessionEmbedUrlResponse_embedUrl' - A single-use URL that you can put into your server-side web page to</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- embed your Amazon QuickSight session. This URL is valid for 5 minutes.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- The API operation provides the URL with an @auth_code@ value that</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- enables one (and only one) sign-on to a user session that is valid for</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 10 hours.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- 'status', 'getSessionEmbedUrlResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#newGetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">newGetSessionEmbedUrlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-295"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-296"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span>
+</span><span id="line-298"></span><span id="newGetSessionEmbedUrlResponse"><span class="annot"><span class="annottext">newGetSessionEmbedUrlResponse :: Int -&gt; GetSessionEmbedUrlResponse
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#newGetSessionEmbedUrlResponse"><span class="hs-identifier hs-var hs-var">newGetSessionEmbedUrlResponse</span></a></span></span><span> </span><span id="local-6989586621679582405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582405"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>  </span><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse' :: Maybe Text
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetSessionEmbedUrlResponse
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse'</span></a></span><span>
+</span><span id="line-300"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:GetSessionEmbedUrlResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3ArequestId%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:embedUrl:GetSessionEmbedUrlResponse' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AembedUrl%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:GetSessionEmbedUrlResponse' :: Int
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3Astatus%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582405"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_requestId"><span class="hs-identifier hs-type">getSessionEmbedUrlResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="getSessionEmbedUrlResponse_requestId"><span class="annot"><span class="annottext">getSessionEmbedUrlResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSessionEmbedUrlResponse -&gt; f GetSessionEmbedUrlResponse
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_requestId"><span class="hs-identifier hs-var hs-var">getSessionEmbedUrlResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionEmbedUrlResponse -&gt; Maybe Text)
+-&gt; (GetSessionEmbedUrlResponse
+    -&gt; Maybe Text -&gt; GetSessionEmbedUrlResponse)
+-&gt; Lens
+     GetSessionEmbedUrlResponse
+     GetSessionEmbedUrlResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582404"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:GetSessionEmbedUrlResponse' :: GetSessionEmbedUrlResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679582404"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582404"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582403"><span class="annot"><span class="annottext">s :: GetSessionEmbedUrlResponse
+</span><a href="#local-6989586621679582403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582402"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse
+</span><a href="#local-6989586621679582403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:GetSessionEmbedUrlResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3ArequestId%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | A single-use URL that you can put into your server-side web page to</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- embed your Amazon QuickSight session. This URL is valid for 5 minutes.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- The API operation provides the URL with an @auth_code@ value that</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- enables one (and only one) sign-on to a user session that is valid for</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- 10 hours.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_embedUrl"><span class="hs-identifier hs-type">getSessionEmbedUrlResponse_embedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="getSessionEmbedUrlResponse_embedUrl"><span class="annot"><span class="annottext">getSessionEmbedUrlResponse_embedUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSessionEmbedUrlResponse -&gt; f GetSessionEmbedUrlResponse
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_embedUrl"><span class="hs-identifier hs-var hs-var">getSessionEmbedUrlResponse_embedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionEmbedUrlResponse -&gt; Maybe (Sensitive Text))
+-&gt; (GetSessionEmbedUrlResponse
+    -&gt; Maybe (Sensitive Text) -&gt; GetSessionEmbedUrlResponse)
+-&gt; Lens
+     GetSessionEmbedUrlResponse
+     GetSessionEmbedUrlResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582401"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+embedUrl :: Maybe (Sensitive Text)
+$sel:embedUrl:GetSessionEmbedUrlResponse' :: GetSessionEmbedUrlResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582401"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582401"><span class="hs-identifier hs-var">embedUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582400"><span class="annot"><span class="annottext">s :: GetSessionEmbedUrlResponse
+</span><a href="#local-6989586621679582400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582399"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse
+</span><a href="#local-6989586621679582400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embedUrl:GetSessionEmbedUrlResponse' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3AembedUrl%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679582399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; GetSessionEmbedUrlResponse -&gt; f GetSessionEmbedUrlResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSessionEmbedUrlResponse
+-&gt; f GetSessionEmbedUrlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_status"><span class="hs-identifier hs-type">getSessionEmbedUrlResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-320"></span><span id="getSessionEmbedUrlResponse_status"><span class="annot"><span class="annottext">getSessionEmbedUrlResponse_status :: (Int -&gt; f Int)
+-&gt; GetSessionEmbedUrlResponse -&gt; f GetSessionEmbedUrlResponse
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#getSessionEmbedUrlResponse_status"><span class="hs-identifier hs-var hs-var">getSessionEmbedUrlResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionEmbedUrlResponse -&gt; Int)
+-&gt; (GetSessionEmbedUrlResponse
+    -&gt; Int -&gt; GetSessionEmbedUrlResponse)
+-&gt; Lens
+     GetSessionEmbedUrlResponse GetSessionEmbedUrlResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582395"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:GetSessionEmbedUrlResponse' :: GetSessionEmbedUrlResponse -&gt; Int
+</span><a href="#local-6989586621679582395"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582395"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582394"><span class="annot"><span class="annottext">s :: GetSessionEmbedUrlResponse
+</span><a href="#local-6989586621679582394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionEmbedUrlResponse
+</span><a href="#local-6989586621679582394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetSessionEmbedUrlResponse' :: Int
+</span><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#%24sel%3Astatus%3AGetSessionEmbedUrlResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.GetSessionEmbedUrl.html#GetSessionEmbedUrlResponse"><span class="hs-identifier hs-type">GetSessionEmbedUrlResponse</span></a></span></span><span>
+</span><span id="line-323"></span></pre></body></html>

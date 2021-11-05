@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteFaces' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679347427"><span id="local-6989586621679347428"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFaces"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-var">DeleteFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-var">DeleteFaces'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679347436"><span id="local-6989586621679347437"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFaces"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-var">DeleteFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-var">DeleteFaces'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Collection from which to remove the specific faces.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AcollectionId%3ADeleteFaces%27"><span class="annot"><span class="annottext">DeleteFaces -&gt; Text
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AcollectionId%3ADeleteFaces%27"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AfaceIds%3ADeleteFaces%27"><span class="annot"><span class="annottext">DeleteFaces -&gt; NonEmpty Text
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AfaceIds%3ADeleteFaces%27"><span class="hs-identifier hs-var hs-var">faceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347420"><span id="local-6989586621679347422"><span class="annot"><span class="annottext">DeleteFaces -&gt; DeleteFaces -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347429"><span id="local-6989586621679347431"><span class="annot"><span class="annottext">DeleteFaces -&gt; DeleteFaces -&gt; Bool
 (DeleteFaces -&gt; DeleteFaces -&gt; Bool)
 -&gt; (DeleteFaces -&gt; DeleteFaces -&gt; Bool) -&gt; Eq DeleteFaces
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteFaces -&gt; DeleteFaces -&gt; Bool
 == :: DeleteFaces -&gt; DeleteFaces -&gt; Bool
 $c== :: DeleteFaces -&gt; DeleteFaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347411"><span id="local-6989586621679347413"><span id="local-6989586621679347415"><span id="local-6989586621679347417"><span class="annot"><span class="annottext">ReadPrec [DeleteFaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347420"><span id="local-6989586621679347422"><span id="local-6989586621679347424"><span id="local-6989586621679347426"><span class="annot"><span class="annottext">ReadPrec [DeleteFaces]
 ReadPrec DeleteFaces
 Int -&gt; ReadS DeleteFaces
 ReadS [DeleteFaces]
@@ -88,7 +88,7 @@ readList :: ReadS [DeleteFaces]
 $creadList :: ReadS [DeleteFaces]
 readsPrec :: Int -&gt; ReadS DeleteFaces
 $creadsPrec :: Int -&gt; ReadS DeleteFaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347404"><span id="local-6989586621679347406"><span id="local-6989586621679347408"><span class="annot"><span class="annottext">Int -&gt; DeleteFaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347413"><span id="local-6989586621679347415"><span id="local-6989586621679347417"><span class="annot"><span class="annottext">Int -&gt; DeleteFaces -&gt; ShowS
 [DeleteFaces] -&gt; ShowS
 DeleteFaces -&gt; String
 (Int -&gt; DeleteFaces -&gt; ShowS)
@@ -132,14 +132,14 @@ $cfrom :: forall x. DeleteFaces -&gt; Rep DeleteFaces x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span>
 </span><span id="line-80"></span><span id="newDeleteFaces"><span class="annot"><span class="annottext">newDeleteFaces :: Text -&gt; NonEmpty Text -&gt; DeleteFaces
-</span><a href="Network.AWS.Rekognition.DeleteFaces.html#newDeleteFaces"><span class="hs-identifier hs-var hs-var">newDeleteFaces</span></a></span></span><span> </span><span id="local-6989586621679347399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347399"><span class="hs-identifier hs-var">pCollectionId_</span></a></span></span><span> </span><span id="local-6989586621679347398"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">pFaceIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.DeleteFaces.html#newDeleteFaces"><span class="hs-identifier hs-var hs-var">newDeleteFaces</span></a></span></span><span> </span><span id="local-6989586621679347408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347408"><span class="hs-identifier hs-var">pCollectionId_</span></a></span></span><span> </span><span id="local-6989586621679347407"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679347407"><span class="hs-identifier hs-var">pFaceIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DeleteFaces' :: Text -&gt; NonEmpty Text -&gt; DeleteFaces
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:collectionId:DeleteFaces' :: Text
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AcollectionId%3ADeleteFaces%27"><span class="hs-identifier hs-var">collectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347399"><span class="hs-identifier hs-var">pCollectionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347408"><span class="hs-identifier hs-var">pCollectionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:faceIds:DeleteFaces' :: NonEmpty Text
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AfaceIds%3ADeleteFaces%27"><span class="hs-identifier hs-var">faceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -149,7 +149,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">pFaceIds_</span></a></span><span>
+</span><a href="#local-6989586621679347407"><span class="hs-identifier hs-var">pFaceIds_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Collection from which to remove the specific faces.</span><span>
@@ -159,16 +159,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (DeleteFaces -&gt; Text -&gt; DeleteFaces)
 -&gt; Lens DeleteFaces DeleteFaces Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347393"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347402"><span class="annot"><span class="annottext">Text
 collectionId :: Text
 $sel:collectionId:DeleteFaces' :: DeleteFaces -&gt; Text
-</span><a href="#local-6989586621679347393"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347393"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347392"><span class="annot"><span class="annottext">s :: DeleteFaces
-</span><a href="#local-6989586621679347392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347391"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFaces
-</span><a href="#local-6989586621679347392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionId:DeleteFaces' :: Text
+</span><a href="#local-6989586621679347402"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347402"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347401"><span class="annot"><span class="annottext">s :: DeleteFaces
+</span><a href="#local-6989586621679347401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFaces
+</span><a href="#local-6989586621679347401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionId:DeleteFaces' :: Text
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AcollectionId%3ADeleteFaces%27"><span class="hs-identifier hs-var">collectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | An array of face IDs to delete.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#deleteFaces_faceIds"><span class="hs-identifier hs-type">deleteFaces_faceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -178,16 +178,16 @@ $sel:collectionId:DeleteFaces' :: DeleteFaces -&gt; Text
 -&gt; (DeleteFaces -&gt; NonEmpty Text -&gt; DeleteFaces)
 -&gt; Lens DeleteFaces DeleteFaces (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347390"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347399"><span class="annot"><span class="annottext">NonEmpty Text
 faceIds :: NonEmpty Text
 $sel:faceIds:DeleteFaces' :: DeleteFaces -&gt; NonEmpty Text
-</span><a href="#local-6989586621679347390"><span class="hs-identifier hs-var hs-var">faceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679347390"><span class="hs-identifier hs-var">faceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347389"><span class="annot"><span class="annottext">s :: DeleteFaces
-</span><a href="#local-6989586621679347389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347388"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679347388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFaces
-</span><a href="#local-6989586621679347389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceIds:DeleteFaces' :: NonEmpty Text
+</span><a href="#local-6989586621679347399"><span class="hs-identifier hs-var hs-var">faceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679347399"><span class="hs-identifier hs-var">faceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347398"><span class="annot"><span class="annottext">s :: DeleteFaces
+</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347397"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679347397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFaces
+</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceIds:DeleteFaces' :: NonEmpty Text
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AfaceIds%3ADeleteFaces%27"><span class="hs-identifier hs-var">faceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679347388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679347397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DeleteFaces -&gt; f DeleteFaces)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -202,12 +202,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679347383"><span class="annot"><span class="annottext">request :: DeleteFaces -&gt; Request DeleteFaces
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679347392"><span class="annot"><span class="annottext">request :: DeleteFaces -&gt; Request DeleteFaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteFaces -&gt; Request DeleteFaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679347379"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679347388"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteFaces
 -&gt; ClientResponse ClientBody
@@ -231,10 +231,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347376"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347376"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347375"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679347375"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347374"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347374"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347385"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347384"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679347384"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text) -&gt; Int -&gt; DeleteFacesResponse
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-var">DeleteFacesResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text) -&gt; Int -&gt; DeleteFacesResponse)
@@ -242,7 +242,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteFacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679347383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeletedFaces&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,15 +254,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347376"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347385"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347366"><span id="local-6989586621679347368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347375"><span id="local-6989586621679347377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679347359"><span class="annot"><span class="annottext">toHeaders :: DeleteFaces -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679347368"><span class="annot"><span class="annottext">toHeaders :: DeleteFaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteFaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -289,15 +289,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347349"><span id="local-6989586621679347351"><span id="local-6989586621679347353"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679347347"><span class="annot"><span class="annottext">toJSON :: DeleteFaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347344"><span id="local-6989586621679347345"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347358"><span id="local-6989586621679347360"><span id="local-6989586621679347362"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679347356"><span class="annot"><span class="annottext">toJSON :: DeleteFaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces%27"><span class="hs-identifier hs-type">DeleteFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347353"><span id="local-6989586621679347354"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 faceIds :: NonEmpty Text
 collectionId :: Text
 $sel:faceIds:DeleteFaces' :: DeleteFaces -&gt; NonEmpty Text
 $sel:collectionId:DeleteFaces' :: DeleteFaces -&gt; Text
-</span><a href="#local-6989586621679347344"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679347353"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -309,26 +309,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CollectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347345"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347354"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679347344"><span class="hs-identifier hs-var">faceIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347353"><span class="hs-identifier hs-var">faceIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679347338"><span class="annot"><span class="annottext">toPath :: DeleteFaces -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679347347"><span class="annot"><span class="annottext">toPath :: DeleteFaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteFaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFaces"><span class="hs-identifier hs-type">DeleteFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679347334"><span class="annot"><span class="annottext">toQuery :: DeleteFaces -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679347343"><span class="annot"><span class="annottext">toQuery :: DeleteFaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newDeleteFacesResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679347331"><span id="local-6989586621679347332"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-var">DeleteFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-var">DeleteFacesResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679347340"><span id="local-6989586621679347341"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-var">DeleteFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-var">DeleteFacesResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of strings (face IDs) of the faces that were deleted.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AdeletedFaces%3ADeleteFacesResponse%27"><span class="annot"><span class="annottext">DeleteFacesResponse -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AdeletedFaces%3ADeleteFacesResponse%27"><span class="hs-identifier hs-var hs-var">deletedFaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -344,7 +344,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteFacesResponse%27"><span class="annot"><span class="annottext">DeleteFacesResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AhttpStatus%3ADeleteFacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347325"><span id="local-6989586621679347327"><span class="annot"><span class="annottext">DeleteFacesResponse -&gt; DeleteFacesResponse -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347334"><span id="local-6989586621679347336"><span class="annot"><span class="annottext">DeleteFacesResponse -&gt; DeleteFacesResponse -&gt; Bool
 (DeleteFacesResponse -&gt; DeleteFacesResponse -&gt; Bool)
 -&gt; (DeleteFacesResponse -&gt; DeleteFacesResponse -&gt; Bool)
 -&gt; Eq DeleteFacesResponse
@@ -353,7 +353,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteFacesResponse -&gt; DeleteFacesResponse -&gt; Bool
 == :: DeleteFacesResponse -&gt; DeleteFacesResponse -&gt; Bool
 $c== :: DeleteFacesResponse -&gt; DeleteFacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347317"><span id="local-6989586621679347319"><span id="local-6989586621679347321"><span id="local-6989586621679347323"><span class="annot"><span class="annottext">ReadPrec [DeleteFacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347326"><span id="local-6989586621679347328"><span id="local-6989586621679347330"><span id="local-6989586621679347332"><span class="annot"><span class="annottext">ReadPrec [DeleteFacesResponse]
 ReadPrec DeleteFacesResponse
 Int -&gt; ReadS DeleteFacesResponse
 ReadS [DeleteFacesResponse]
@@ -373,7 +373,7 @@ readList :: ReadS [DeleteFacesResponse]
 $creadList :: ReadS [DeleteFacesResponse]
 readsPrec :: Int -&gt; ReadS DeleteFacesResponse
 $creadsPrec :: Int -&gt; ReadS DeleteFacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347311"><span id="local-6989586621679347313"><span id="local-6989586621679347315"><span class="annot"><span class="annottext">Int -&gt; DeleteFacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347320"><span id="local-6989586621679347322"><span id="local-6989586621679347324"><span class="annot"><span class="annottext">Int -&gt; DeleteFacesResponse -&gt; ShowS
 [DeleteFacesResponse] -&gt; ShowS
 DeleteFacesResponse -&gt; String
 (Int -&gt; DeleteFacesResponse -&gt; ShowS)
@@ -415,8 +415,8 @@ $cfrom :: forall x. DeleteFacesResponse -&gt; Rep DeleteFacesResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newDeleteFacesResponse"><span class="annot"><span class="annottext">newDeleteFacesResponse :: Int -&gt; DeleteFacesResponse
-</span><a href="Network.AWS.Rekognition.DeleteFaces.html#newDeleteFacesResponse"><span class="hs-identifier hs-var hs-var">newDeleteFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679347308"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347308"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.DeleteFaces.html#newDeleteFacesResponse"><span class="hs-identifier hs-var hs-var">newDeleteFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679347317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">DeleteFacesResponse' :: Maybe (NonEmpty Text) -&gt; Int -&gt; DeleteFacesResponse
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deletedFaces:DeleteFacesResponse' :: Maybe (NonEmpty Text)
@@ -426,7 +426,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AhttpStatus%3ADeleteFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347308"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679347317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | An array of strings (face IDs) of the faces that were deleted.</span><span>
@@ -442,16 +442,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347307"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347316"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 deletedFaces :: Maybe (NonEmpty Text)
 $sel:deletedFaces:DeleteFacesResponse' :: DeleteFacesResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679347307"><span class="hs-identifier hs-var hs-var">deletedFaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679347307"><span class="hs-identifier hs-var">deletedFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347306"><span class="annot"><span class="annottext">s :: DeleteFacesResponse
-</span><a href="#local-6989586621679347306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347305"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679347305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFacesResponse
-</span><a href="#local-6989586621679347306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletedFaces:DeleteFacesResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679347316"><span class="hs-identifier hs-var hs-var">deletedFaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679347316"><span class="hs-identifier hs-var">deletedFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347315"><span class="annot"><span class="annottext">s :: DeleteFacesResponse
+</span><a href="#local-6989586621679347315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347314"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679347314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFacesResponse
+</span><a href="#local-6989586621679347315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletedFaces:DeleteFacesResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AdeletedFaces%3ADeleteFacesResponse%27"><span class="hs-identifier hs-var">deletedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679347305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679347314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; DeleteFacesResponse -&gt; f DeleteFacesResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -481,16 +481,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteFacesResponse -&gt; Int -&gt; DeleteFacesResponse)
 -&gt; Lens DeleteFacesResponse DeleteFacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347303"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347312"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteFacesResponse' :: DeleteFacesResponse -&gt; Int
-</span><a href="#local-6989586621679347303"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347303"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347302"><span class="annot"><span class="annottext">s :: DeleteFacesResponse
-</span><a href="#local-6989586621679347302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347301"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFacesResponse
-</span><a href="#local-6989586621679347302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFacesResponse' :: Int
+</span><a href="#local-6989586621679347312"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347312"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347311"><span class="annot"><span class="annottext">s :: DeleteFacesResponse
+</span><a href="#local-6989586621679347311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse%27"><span class="hs-identifier hs-type">DeleteFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFacesResponse
+</span><a href="#local-6989586621679347311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.DeleteFaces.html#%24sel%3AhttpStatus%3ADeleteFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteFaces.html#DeleteFacesResponse"><span class="hs-identifier hs-type">DeleteFacesResponse</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

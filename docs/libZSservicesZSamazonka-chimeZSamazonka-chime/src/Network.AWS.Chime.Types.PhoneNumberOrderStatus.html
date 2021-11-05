@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.PhoneNumberOrderStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.PhoneNumberOrderStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus"><span class="hs-identifier">PhoneNumberOrderStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Failed"><span class="hs-identifier">PhoneNumberOrderStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Partial"><span class="hs-identifier">PhoneNumberOrderStatus_Partial</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Processing"><span class="hs-identifier">PhoneNumberOrderStatus_Processing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Successful"><span class="hs-identifier">PhoneNumberOrderStatus_Successful</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679515011"><span id="local-6989586621679515012"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PhoneNumberOrderStatus"><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus"><span class="hs-identifier hs-var">PhoneNumberOrderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberOrderStatus%27"><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus%27"><span class="hs-identifier hs-var">PhoneNumberOrderStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPhoneNumberOrderStatus"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; Text
+</span><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#fromPhoneNumberOrderStatus"><span class="hs-identifier hs-var hs-var">fromPhoneNumberOrderStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679515003"><span id="local-6989586621679515005"><span id="local-6989586621679515007"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberOrderStatus -&gt; ShowS
+[PhoneNumberOrderStatus] -&gt; ShowS
+PhoneNumberOrderStatus -&gt; String
+(Int -&gt; PhoneNumberOrderStatus -&gt; ShowS)
+-&gt; (PhoneNumberOrderStatus -&gt; String)
+-&gt; ([PhoneNumberOrderStatus] -&gt; ShowS)
+-&gt; Show PhoneNumberOrderStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PhoneNumberOrderStatus] -&gt; ShowS
+$cshowList :: [PhoneNumberOrderStatus] -&gt; ShowS
+show :: PhoneNumberOrderStatus -&gt; String
+$cshow :: PhoneNumberOrderStatus -&gt; String
+showsPrec :: Int -&gt; PhoneNumberOrderStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PhoneNumberOrderStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679514994"><span id="local-6989586621679514996"><span id="local-6989586621679514998"><span id="local-6989586621679515000"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberOrderStatus]
+ReadPrec PhoneNumberOrderStatus
+Int -&gt; ReadS PhoneNumberOrderStatus
+ReadS [PhoneNumberOrderStatus]
+(Int -&gt; ReadS PhoneNumberOrderStatus)
+-&gt; ReadS [PhoneNumberOrderStatus]
+-&gt; ReadPrec PhoneNumberOrderStatus
+-&gt; ReadPrec [PhoneNumberOrderStatus]
+-&gt; Read PhoneNumberOrderStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PhoneNumberOrderStatus]
+$creadListPrec :: ReadPrec [PhoneNumberOrderStatus]
+readPrec :: ReadPrec PhoneNumberOrderStatus
+$creadPrec :: ReadPrec PhoneNumberOrderStatus
+readList :: ReadS [PhoneNumberOrderStatus]
+$creadList :: ReadS [PhoneNumberOrderStatus]
+readsPrec :: Int -&gt; ReadS PhoneNumberOrderStatus
+$creadsPrec :: Int -&gt; ReadS PhoneNumberOrderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679514989"><span id="local-6989586621679514991"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+(PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool)
+-&gt; (PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool)
+-&gt; Eq PhoneNumberOrderStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+$c/= :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+== :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+$c== :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679514973"><span id="local-6989586621679514975"><span id="local-6989586621679514977"><span id="local-6989586621679514979"><span id="local-6989586621679514981"><span id="local-6989586621679514983"><span id="local-6989586621679514985"><span class="annot"><span class="annottext">Eq PhoneNumberOrderStatus
+Eq PhoneNumberOrderStatus
+-&gt; (PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Ordering)
+-&gt; (PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool)
+-&gt; (PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool)
+-&gt; (PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool)
+-&gt; (PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool)
+-&gt; (PhoneNumberOrderStatus
+    -&gt; PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus)
+-&gt; (PhoneNumberOrderStatus
+    -&gt; PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus)
+-&gt; Ord PhoneNumberOrderStatus
+PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Ordering
+PhoneNumberOrderStatus
+-&gt; PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PhoneNumberOrderStatus
+-&gt; PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus
+$cmin :: PhoneNumberOrderStatus
+-&gt; PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus
+max :: PhoneNumberOrderStatus
+-&gt; PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus
+$cmax :: PhoneNumberOrderStatus
+-&gt; PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus
+&gt;= :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+$c&gt;= :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+&gt; :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+$c&gt; :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+&lt;= :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+$c&lt;= :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+&lt; :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+$c&lt; :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Bool
+compare :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Ordering
+$ccompare :: PhoneNumberOrderStatus -&gt; PhoneNumberOrderStatus -&gt; Ordering
+$cp1Ord :: Eq PhoneNumberOrderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PhoneNumberOrderStatus -&gt; Rep PhoneNumberOrderStatus x)
+-&gt; (forall x.
+    Rep PhoneNumberOrderStatus x -&gt; PhoneNumberOrderStatus)
+-&gt; Generic PhoneNumberOrderStatus
+forall x. Rep PhoneNumberOrderStatus x -&gt; PhoneNumberOrderStatus
+forall x. PhoneNumberOrderStatus -&gt; Rep PhoneNumberOrderStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PhoneNumberOrderStatus x -&gt; PhoneNumberOrderStatus
+$cfrom :: forall x. PhoneNumberOrderStatus -&gt; Rep PhoneNumberOrderStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679514965"><span id="local-6989586621679514967"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberOrderStatus -&gt; Int
+PhoneNumberOrderStatus -&gt; Int
+(Int -&gt; PhoneNumberOrderStatus -&gt; Int)
+-&gt; (PhoneNumberOrderStatus -&gt; Int)
+-&gt; Hashable PhoneNumberOrderStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PhoneNumberOrderStatus -&gt; Int
+$chash :: PhoneNumberOrderStatus -&gt; Int
+hashWithSalt :: Int -&gt; PhoneNumberOrderStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PhoneNumberOrderStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679514962"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; ()
+(PhoneNumberOrderStatus -&gt; ()) -&gt; NFData PhoneNumberOrderStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PhoneNumberOrderStatus -&gt; ()
+$crnf :: PhoneNumberOrderStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679514959"><span class="annot"><span class="annottext">Text -&gt; Either String PhoneNumberOrderStatus
+(Text -&gt; Either String PhoneNumberOrderStatus)
+-&gt; FromText PhoneNumberOrderStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PhoneNumberOrderStatus
+$cfromText :: Text -&gt; Either String PhoneNumberOrderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679514956"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; Text
+(PhoneNumberOrderStatus -&gt; Text) -&gt; ToText PhoneNumberOrderStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PhoneNumberOrderStatus -&gt; Text
+$ctoText :: PhoneNumberOrderStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679514953"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; ByteString
+(PhoneNumberOrderStatus -&gt; ByteString)
+-&gt; ToByteString PhoneNumberOrderStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PhoneNumberOrderStatus -&gt; ByteString
+$ctoBS :: PhoneNumberOrderStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679514950"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; ByteStringBuilder
+(PhoneNumberOrderStatus -&gt; ByteStringBuilder)
+-&gt; ToLog PhoneNumberOrderStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PhoneNumberOrderStatus -&gt; ByteStringBuilder
+$cbuild :: PhoneNumberOrderStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679514947"><span class="annot"><span class="annottext">HeaderName -&gt; PhoneNumberOrderStatus -&gt; [Header]
+(HeaderName -&gt; PhoneNumberOrderStatus -&gt; [Header])
+-&gt; ToHeader PhoneNumberOrderStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PhoneNumberOrderStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PhoneNumberOrderStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679514944"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; QueryString
+(PhoneNumberOrderStatus -&gt; QueryString)
+-&gt; ToQuery PhoneNumberOrderStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PhoneNumberOrderStatus -&gt; QueryString
+$ctoQuery :: PhoneNumberOrderStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679514939"><span id="local-6989586621679514941"><span class="annot"><span class="annottext">Value -&gt; Parser [PhoneNumberOrderStatus]
+Value -&gt; Parser PhoneNumberOrderStatus
+(Value -&gt; Parser PhoneNumberOrderStatus)
+-&gt; (Value -&gt; Parser [PhoneNumberOrderStatus])
+-&gt; FromJSON PhoneNumberOrderStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PhoneNumberOrderStatus]
+$cparseJSONList :: Value -&gt; Parser [PhoneNumberOrderStatus]
+parseJSON :: Value -&gt; Parser PhoneNumberOrderStatus
+$cparseJSON :: Value -&gt; Parser PhoneNumberOrderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679514934"><span id="local-6989586621679514936"><span class="annot"><span class="annottext">FromJSONKeyFunction [PhoneNumberOrderStatus]
+FromJSONKeyFunction PhoneNumberOrderStatus
+FromJSONKeyFunction PhoneNumberOrderStatus
+-&gt; FromJSONKeyFunction [PhoneNumberOrderStatus]
+-&gt; FromJSONKey PhoneNumberOrderStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PhoneNumberOrderStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PhoneNumberOrderStatus]
+fromJSONKey :: FromJSONKeyFunction PhoneNumberOrderStatus
+$cfromJSONKey :: FromJSONKeyFunction PhoneNumberOrderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679514925"><span id="local-6989586621679514927"><span id="local-6989586621679514929"><span id="local-6989586621679514931"><span class="annot"><span class="annottext">[PhoneNumberOrderStatus] -&gt; Encoding
+[PhoneNumberOrderStatus] -&gt; Value
+PhoneNumberOrderStatus -&gt; Encoding
+PhoneNumberOrderStatus -&gt; Value
+(PhoneNumberOrderStatus -&gt; Value)
+-&gt; (PhoneNumberOrderStatus -&gt; Encoding)
+-&gt; ([PhoneNumberOrderStatus] -&gt; Value)
+-&gt; ([PhoneNumberOrderStatus] -&gt; Encoding)
+-&gt; ToJSON PhoneNumberOrderStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PhoneNumberOrderStatus] -&gt; Encoding
+$ctoEncodingList :: [PhoneNumberOrderStatus] -&gt; Encoding
+toJSONList :: [PhoneNumberOrderStatus] -&gt; Value
+$ctoJSONList :: [PhoneNumberOrderStatus] -&gt; Value
+toEncoding :: PhoneNumberOrderStatus -&gt; Encoding
+$ctoEncoding :: PhoneNumberOrderStatus -&gt; Encoding
+toJSON :: PhoneNumberOrderStatus -&gt; Value
+$ctoJSON :: PhoneNumberOrderStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679514920"><span id="local-6989586621679514922"><span class="annot"><span class="annottext">ToJSONKeyFunction [PhoneNumberOrderStatus]
+ToJSONKeyFunction PhoneNumberOrderStatus
+ToJSONKeyFunction PhoneNumberOrderStatus
+-&gt; ToJSONKeyFunction [PhoneNumberOrderStatus]
+-&gt; ToJSONKey PhoneNumberOrderStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PhoneNumberOrderStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PhoneNumberOrderStatus]
+toJSONKey :: ToJSONKeyFunction PhoneNumberOrderStatus
+$ctoJSONKey :: ToJSONKeyFunction PhoneNumberOrderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679514917"><span class="annot"><span class="annottext">[Node] -&gt; Either String PhoneNumberOrderStatus
+([Node] -&gt; Either String PhoneNumberOrderStatus)
+-&gt; FromXML PhoneNumberOrderStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PhoneNumberOrderStatus
+$cparseXML :: [Node] -&gt; Either String PhoneNumberOrderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679514914"><span class="annot"><span class="annottext">PhoneNumberOrderStatus -&gt; XML
+(PhoneNumberOrderStatus -&gt; XML) -&gt; ToXML PhoneNumberOrderStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PhoneNumberOrderStatus -&gt; XML
+$ctoXML :: PhoneNumberOrderStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Failed"><span class="hs-identifier hs-type">PhoneNumberOrderStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus"><span class="hs-identifier hs-type">PhoneNumberOrderStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhoneNumberOrderStatus_Failed"><span id="%24mPhoneNumberOrderStatus_Failed"><span id="PhoneNumberOrderStatus_Failed"><span class="annot"><span class="annottext">$bPhoneNumberOrderStatus_Failed :: PhoneNumberOrderStatus
+$mPhoneNumberOrderStatus_Failed :: forall r.
+PhoneNumberOrderStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#%24bPhoneNumberOrderStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">PhoneNumberOrderStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus%27"><span class="hs-identifier hs-type">PhoneNumberOrderStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Partial"><span class="hs-identifier hs-type">PhoneNumberOrderStatus_Partial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus"><span class="hs-identifier hs-type">PhoneNumberOrderStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhoneNumberOrderStatus_Partial"><span id="%24mPhoneNumberOrderStatus_Partial"><span id="PhoneNumberOrderStatus_Partial"><span class="annot"><span class="annottext">$bPhoneNumberOrderStatus_Partial :: PhoneNumberOrderStatus
+$mPhoneNumberOrderStatus_Partial :: forall r.
+PhoneNumberOrderStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#%24bPhoneNumberOrderStatus_Partial"><span class="hs-identifier hs-var hs-var hs-var">PhoneNumberOrderStatus_Partial</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus%27"><span class="hs-identifier hs-type">PhoneNumberOrderStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Partial&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Processing"><span class="hs-identifier hs-type">PhoneNumberOrderStatus_Processing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus"><span class="hs-identifier hs-type">PhoneNumberOrderStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhoneNumberOrderStatus_Processing"><span id="%24mPhoneNumberOrderStatus_Processing"><span id="PhoneNumberOrderStatus_Processing"><span class="annot"><span class="annottext">$bPhoneNumberOrderStatus_Processing :: PhoneNumberOrderStatus
+$mPhoneNumberOrderStatus_Processing :: forall r.
+PhoneNumberOrderStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#%24bPhoneNumberOrderStatus_Processing"><span class="hs-identifier hs-var hs-var hs-var">PhoneNumberOrderStatus_Processing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus%27"><span class="hs-identifier hs-type">PhoneNumberOrderStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Processing&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Successful"><span class="hs-identifier hs-type">PhoneNumberOrderStatus_Successful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus"><span class="hs-identifier hs-type">PhoneNumberOrderStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPhoneNumberOrderStatus_Successful"><span id="%24mPhoneNumberOrderStatus_Successful"><span id="PhoneNumberOrderStatus_Successful"><span class="annot"><span class="annottext">$bPhoneNumberOrderStatus_Successful :: PhoneNumberOrderStatus
+$mPhoneNumberOrderStatus_Successful :: forall r.
+PhoneNumberOrderStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#%24bPhoneNumberOrderStatus_Successful"><span class="hs-identifier hs-var hs-var hs-var">PhoneNumberOrderStatus_Successful</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus%27"><span class="hs-identifier hs-type">PhoneNumberOrderStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Successful&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Failed"><span class="hs-pragma hs-type">PhoneNumberOrderStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Partial"><span class="hs-pragma hs-type">PhoneNumberOrderStatus_Partial</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Processing"><span class="hs-pragma hs-type">PhoneNumberOrderStatus_Processing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus_Successful"><span class="hs-pragma hs-type">PhoneNumberOrderStatus_Successful</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberOrderStatus.html#PhoneNumberOrderStatus%27"><span class="hs-pragma hs-type">PhoneNumberOrderStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

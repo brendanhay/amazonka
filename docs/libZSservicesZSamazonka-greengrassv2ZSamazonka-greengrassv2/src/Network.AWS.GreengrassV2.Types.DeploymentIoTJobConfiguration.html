@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobAbortConfig.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.IoTJobAbortConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobTimeoutConfig.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.IoTJobTimeoutConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains information about an IoT job configuration.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDeploymentIoTJobConfiguration' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679231145"><span id="local-6989586621679231146"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentIoTJobConfiguration"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-var">DeploymentIoTJobConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentIoTJobConfiguration%27"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">DeploymentIoTJobConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rollout configuration for the job. This configuration defines the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- rate at which the job rolls out to the fleet of target devices.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AjobExecutionsRolloutConfig%3ADeploymentIoTJobConfiguration%27"><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration
+-&gt; Maybe IoTJobExecutionsRolloutConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AjobExecutionsRolloutConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var hs-var">jobExecutionsRolloutConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig.html#IoTJobExecutionsRolloutConfig"><span class="hs-identifier hs-type">IoTJobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The stop configuration for the job. This configuration defines when and</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- how to stop a job rollout.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AabortConfig%3ADeploymentIoTJobConfiguration%27"><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration -&gt; Maybe IoTJobAbortConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AabortConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var hs-var">abortConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobAbortConfig.html#IoTJobAbortConfig"><span class="hs-identifier hs-type">IoTJobAbortConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The timeout configuration for the job. This configuration defines the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- amount of time each device has to complete the job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtimeoutConfig%3ADeploymentIoTJobConfiguration%27"><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration -&gt; Maybe IoTJobTimeoutConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AtimeoutConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var hs-var">timeoutConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobTimeoutConfig.html#IoTJobTimeoutConfig"><span class="hs-identifier hs-type">IoTJobTimeoutConfig</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231137"><span id="local-6989586621679231139"><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration
+-&gt; DeploymentIoTJobConfiguration -&gt; Bool
+(DeploymentIoTJobConfiguration
+ -&gt; DeploymentIoTJobConfiguration -&gt; Bool)
+-&gt; (DeploymentIoTJobConfiguration
+    -&gt; DeploymentIoTJobConfiguration -&gt; Bool)
+-&gt; Eq DeploymentIoTJobConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentIoTJobConfiguration
+-&gt; DeploymentIoTJobConfiguration -&gt; Bool
+$c/= :: DeploymentIoTJobConfiguration
+-&gt; DeploymentIoTJobConfiguration -&gt; Bool
+== :: DeploymentIoTJobConfiguration
+-&gt; DeploymentIoTJobConfiguration -&gt; Bool
+$c== :: DeploymentIoTJobConfiguration
+-&gt; DeploymentIoTJobConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231128"><span id="local-6989586621679231130"><span id="local-6989586621679231132"><span id="local-6989586621679231134"><span class="annot"><span class="annottext">ReadPrec [DeploymentIoTJobConfiguration]
+ReadPrec DeploymentIoTJobConfiguration
+Int -&gt; ReadS DeploymentIoTJobConfiguration
+ReadS [DeploymentIoTJobConfiguration]
+(Int -&gt; ReadS DeploymentIoTJobConfiguration)
+-&gt; ReadS [DeploymentIoTJobConfiguration]
+-&gt; ReadPrec DeploymentIoTJobConfiguration
+-&gt; ReadPrec [DeploymentIoTJobConfiguration]
+-&gt; Read DeploymentIoTJobConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentIoTJobConfiguration]
+$creadListPrec :: ReadPrec [DeploymentIoTJobConfiguration]
+readPrec :: ReadPrec DeploymentIoTJobConfiguration
+$creadPrec :: ReadPrec DeploymentIoTJobConfiguration
+readList :: ReadS [DeploymentIoTJobConfiguration]
+$creadList :: ReadS [DeploymentIoTJobConfiguration]
+readsPrec :: Int -&gt; ReadS DeploymentIoTJobConfiguration
+$creadsPrec :: Int -&gt; ReadS DeploymentIoTJobConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231121"><span id="local-6989586621679231123"><span id="local-6989586621679231125"><span class="annot"><span class="annottext">Int -&gt; DeploymentIoTJobConfiguration -&gt; ShowS
+[DeploymentIoTJobConfiguration] -&gt; ShowS
+DeploymentIoTJobConfiguration -&gt; String
+(Int -&gt; DeploymentIoTJobConfiguration -&gt; ShowS)
+-&gt; (DeploymentIoTJobConfiguration -&gt; String)
+-&gt; ([DeploymentIoTJobConfiguration] -&gt; ShowS)
+-&gt; Show DeploymentIoTJobConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentIoTJobConfiguration] -&gt; ShowS
+$cshowList :: [DeploymentIoTJobConfiguration] -&gt; ShowS
+show :: DeploymentIoTJobConfiguration -&gt; String
+$cshow :: DeploymentIoTJobConfiguration -&gt; String
+showsPrec :: Int -&gt; DeploymentIoTJobConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentIoTJobConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeploymentIoTJobConfiguration
+ -&gt; Rep DeploymentIoTJobConfiguration x)
+-&gt; (forall x.
+    Rep DeploymentIoTJobConfiguration x
+    -&gt; DeploymentIoTJobConfiguration)
+-&gt; Generic DeploymentIoTJobConfiguration
+forall x.
+Rep DeploymentIoTJobConfiguration x
+-&gt; DeploymentIoTJobConfiguration
+forall x.
+DeploymentIoTJobConfiguration
+-&gt; Rep DeploymentIoTJobConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeploymentIoTJobConfiguration x
+-&gt; DeploymentIoTJobConfiguration
+$cfrom :: forall x.
+DeploymentIoTJobConfiguration
+-&gt; Rep DeploymentIoTJobConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'DeploymentIoTJobConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'jobExecutionsRolloutConfig', 'deploymentIoTJobConfiguration_jobExecutionsRolloutConfig' - The rollout configuration for the job. This configuration defines the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- rate at which the job rolls out to the fleet of target devices.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'abortConfig', 'deploymentIoTJobConfiguration_abortConfig' - The stop configuration for the job. This configuration defines when and</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- how to stop a job rollout.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'timeoutConfig', 'deploymentIoTJobConfiguration_timeoutConfig' - The timeout configuration for the job. This configuration defines the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- amount of time each device has to complete the job.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#newDeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">newDeploymentIoTJobConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span><span>
+</span><span id="line-63"></span><span id="newDeploymentIoTJobConfiguration"><span class="annot"><span class="annottext">newDeploymentIoTJobConfiguration :: DeploymentIoTJobConfiguration
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#newDeploymentIoTJobConfiguration"><span class="hs-identifier hs-var hs-var">newDeploymentIoTJobConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration' :: Maybe IoTJobExecutionsRolloutConfig
+-&gt; Maybe IoTJobAbortConfig
+-&gt; Maybe IoTJobTimeoutConfig
+-&gt; DeploymentIoTJobConfiguration
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobExecutionsRolloutConfig:DeploymentIoTJobConfiguration' :: Maybe IoTJobExecutionsRolloutConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AjobExecutionsRolloutConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe IoTJobExecutionsRolloutConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:abortConfig:DeploymentIoTJobConfiguration' :: Maybe IoTJobAbortConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AabortConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">abortConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobAbortConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutConfig:DeploymentIoTJobConfiguration' :: Maybe IoTJobTimeoutConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AtimeoutConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobTimeoutConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The rollout configuration for the job. This configuration defines the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- rate at which the job rolls out to the fleet of target devices.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#deploymentIoTJobConfiguration_jobExecutionsRolloutConfig"><span class="hs-identifier hs-type">deploymentIoTJobConfiguration_jobExecutionsRolloutConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig.html#IoTJobExecutionsRolloutConfig"><span class="hs-identifier hs-type">IoTJobExecutionsRolloutConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="deploymentIoTJobConfiguration_jobExecutionsRolloutConfig"><span class="annot"><span class="annottext">deploymentIoTJobConfiguration_jobExecutionsRolloutConfig :: (Maybe IoTJobExecutionsRolloutConfig
+ -&gt; f (Maybe IoTJobExecutionsRolloutConfig))
+-&gt; DeploymentIoTJobConfiguration -&gt; f DeploymentIoTJobConfiguration
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#deploymentIoTJobConfiguration_jobExecutionsRolloutConfig"><span class="hs-identifier hs-var hs-var">deploymentIoTJobConfiguration_jobExecutionsRolloutConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentIoTJobConfiguration
+ -&gt; Maybe IoTJobExecutionsRolloutConfig)
+-&gt; (DeploymentIoTJobConfiguration
+    -&gt; Maybe IoTJobExecutionsRolloutConfig
+    -&gt; DeploymentIoTJobConfiguration)
+-&gt; Lens
+     DeploymentIoTJobConfiguration
+     DeploymentIoTJobConfiguration
+     (Maybe IoTJobExecutionsRolloutConfig)
+     (Maybe IoTJobExecutionsRolloutConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231112"><span class="annot"><span class="annottext">Maybe IoTJobExecutionsRolloutConfig
+jobExecutionsRolloutConfig :: Maybe IoTJobExecutionsRolloutConfig
+$sel:jobExecutionsRolloutConfig:DeploymentIoTJobConfiguration' :: DeploymentIoTJobConfiguration
+-&gt; Maybe IoTJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679231112"><span class="hs-identifier hs-var hs-var">jobExecutionsRolloutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679231112"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231111"><span class="annot"><span class="annottext">s :: DeploymentIoTJobConfiguration
+</span><a href="#local-6989586621679231111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231110"><span class="annot"><span class="annottext">Maybe IoTJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679231110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration
+</span><a href="#local-6989586621679231111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobExecutionsRolloutConfig:DeploymentIoTJobConfiguration' :: Maybe IoTJobExecutionsRolloutConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AjobExecutionsRolloutConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679231110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The stop configuration for the job. This configuration defines when and</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- how to stop a job rollout.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#deploymentIoTJobConfiguration_abortConfig"><span class="hs-identifier hs-type">deploymentIoTJobConfiguration_abortConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobAbortConfig.html#IoTJobAbortConfig"><span class="hs-identifier hs-type">IoTJobAbortConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="deploymentIoTJobConfiguration_abortConfig"><span class="annot"><span class="annottext">deploymentIoTJobConfiguration_abortConfig :: (Maybe IoTJobAbortConfig -&gt; f (Maybe IoTJobAbortConfig))
+-&gt; DeploymentIoTJobConfiguration -&gt; f DeploymentIoTJobConfiguration
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#deploymentIoTJobConfiguration_abortConfig"><span class="hs-identifier hs-var hs-var">deploymentIoTJobConfiguration_abortConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentIoTJobConfiguration -&gt; Maybe IoTJobAbortConfig)
+-&gt; (DeploymentIoTJobConfiguration
+    -&gt; Maybe IoTJobAbortConfig -&gt; DeploymentIoTJobConfiguration)
+-&gt; Lens
+     DeploymentIoTJobConfiguration
+     DeploymentIoTJobConfiguration
+     (Maybe IoTJobAbortConfig)
+     (Maybe IoTJobAbortConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231108"><span class="annot"><span class="annottext">Maybe IoTJobAbortConfig
+abortConfig :: Maybe IoTJobAbortConfig
+$sel:abortConfig:DeploymentIoTJobConfiguration' :: DeploymentIoTJobConfiguration -&gt; Maybe IoTJobAbortConfig
+</span><a href="#local-6989586621679231108"><span class="hs-identifier hs-var hs-var">abortConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobAbortConfig
+</span><a href="#local-6989586621679231108"><span class="hs-identifier hs-var">abortConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231107"><span class="annot"><span class="annottext">s :: DeploymentIoTJobConfiguration
+</span><a href="#local-6989586621679231107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231106"><span class="annot"><span class="annottext">Maybe IoTJobAbortConfig
+</span><a href="#local-6989586621679231106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration
+</span><a href="#local-6989586621679231107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortConfig:DeploymentIoTJobConfiguration' :: Maybe IoTJobAbortConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AabortConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">abortConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobAbortConfig
+</span><a href="#local-6989586621679231106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The timeout configuration for the job. This configuration defines the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- amount of time each device has to complete the job.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#deploymentIoTJobConfiguration_timeoutConfig"><span class="hs-identifier hs-type">deploymentIoTJobConfiguration_timeoutConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.IoTJobTimeoutConfig.html#IoTJobTimeoutConfig"><span class="hs-identifier hs-type">IoTJobTimeoutConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="deploymentIoTJobConfiguration_timeoutConfig"><span class="annot"><span class="annottext">deploymentIoTJobConfiguration_timeoutConfig :: (Maybe IoTJobTimeoutConfig -&gt; f (Maybe IoTJobTimeoutConfig))
+-&gt; DeploymentIoTJobConfiguration -&gt; f DeploymentIoTJobConfiguration
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#deploymentIoTJobConfiguration_timeoutConfig"><span class="hs-identifier hs-var hs-var">deploymentIoTJobConfiguration_timeoutConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentIoTJobConfiguration -&gt; Maybe IoTJobTimeoutConfig)
+-&gt; (DeploymentIoTJobConfiguration
+    -&gt; Maybe IoTJobTimeoutConfig -&gt; DeploymentIoTJobConfiguration)
+-&gt; Lens
+     DeploymentIoTJobConfiguration
+     DeploymentIoTJobConfiguration
+     (Maybe IoTJobTimeoutConfig)
+     (Maybe IoTJobTimeoutConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231104"><span class="annot"><span class="annottext">Maybe IoTJobTimeoutConfig
+timeoutConfig :: Maybe IoTJobTimeoutConfig
+$sel:timeoutConfig:DeploymentIoTJobConfiguration' :: DeploymentIoTJobConfiguration -&gt; Maybe IoTJobTimeoutConfig
+</span><a href="#local-6989586621679231104"><span class="hs-identifier hs-var hs-var">timeoutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobTimeoutConfig
+</span><a href="#local-6989586621679231104"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231103"><span class="annot"><span class="annottext">s :: DeploymentIoTJobConfiguration
+</span><a href="#local-6989586621679231103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231102"><span class="annot"><span class="annottext">Maybe IoTJobTimeoutConfig
+</span><a href="#local-6989586621679231102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentIoTJobConfiguration
+</span><a href="#local-6989586621679231103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutConfig:DeploymentIoTJobConfiguration' :: Maybe IoTJobTimeoutConfig
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#%24sel%3AtimeoutConfig%3ADeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobTimeoutConfig
+</span><a href="#local-6989586621679231102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231099"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679231097"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentIoTJobConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DeploymentIoTJobConfiguration)
+-&gt; Value
+-&gt; Parser DeploymentIoTJobConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DeploymentIoTJobConfiguration&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231094"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe IoTJobExecutionsRolloutConfig
+-&gt; Maybe IoTJobAbortConfig
+-&gt; Maybe IoTJobTimeoutConfig
+-&gt; DeploymentIoTJobConfiguration
+</span><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-var">DeploymentIoTJobConfiguration'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IoTJobExecutionsRolloutConfig
+ -&gt; Maybe IoTJobAbortConfig
+ -&gt; Maybe IoTJobTimeoutConfig
+ -&gt; DeploymentIoTJobConfiguration)
+-&gt; Parser (Maybe IoTJobExecutionsRolloutConfig)
+-&gt; Parser
+     (Maybe IoTJobAbortConfig
+      -&gt; Maybe IoTJobTimeoutConfig -&gt; DeploymentIoTJobConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IoTJobExecutionsRolloutConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobExecutionsRolloutConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IoTJobAbortConfig
+   -&gt; Maybe IoTJobTimeoutConfig -&gt; DeploymentIoTJobConfiguration)
+-&gt; Parser (Maybe IoTJobAbortConfig)
+-&gt; Parser
+     (Maybe IoTJobTimeoutConfig -&gt; DeploymentIoTJobConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IoTJobAbortConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;abortConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IoTJobTimeoutConfig -&gt; DeploymentIoTJobConfiguration)
+-&gt; Parser (Maybe IoTJobTimeoutConfig)
+-&gt; Parser DeploymentIoTJobConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IoTJobTimeoutConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeoutConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679231088"><span id="local-6989586621679231090"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231085"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231077"><span id="local-6989586621679231079"><span id="local-6989586621679231081"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679231075"><span class="annot"><span class="annottext">toJSON :: DeploymentIoTJobConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration.html#DeploymentIoTJobConfiguration%27"><span class="hs-identifier hs-type">DeploymentIoTJobConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231071"><span id="local-6989586621679231072"><span id="local-6989586621679231073"><span class="annot"><span class="annottext">Maybe IoTJobAbortConfig
+Maybe IoTJobExecutionsRolloutConfig
+Maybe IoTJobTimeoutConfig
+timeoutConfig :: Maybe IoTJobTimeoutConfig
+abortConfig :: Maybe IoTJobAbortConfig
+jobExecutionsRolloutConfig :: Maybe IoTJobExecutionsRolloutConfig
+$sel:timeoutConfig:DeploymentIoTJobConfiguration' :: DeploymentIoTJobConfiguration -&gt; Maybe IoTJobTimeoutConfig
+$sel:abortConfig:DeploymentIoTJobConfiguration' :: DeploymentIoTJobConfiguration -&gt; Maybe IoTJobAbortConfig
+$sel:jobExecutionsRolloutConfig:DeploymentIoTJobConfiguration' :: DeploymentIoTJobConfiguration
+-&gt; Maybe IoTJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679231071"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobExecutionsRolloutConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IoTJobExecutionsRolloutConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(IoTJobExecutionsRolloutConfig -&gt; Pair)
+-&gt; Maybe IoTJobExecutionsRolloutConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobExecutionsRolloutConfig
+</span><a href="#local-6989586621679231073"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;abortConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IoTJobAbortConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IoTJobAbortConfig -&gt; Pair)
+-&gt; Maybe IoTJobAbortConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobAbortConfig
+</span><a href="#local-6989586621679231072"><span class="hs-identifier hs-var">abortConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeoutConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IoTJobTimeoutConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IoTJobTimeoutConfig -&gt; Pair)
+-&gt; Maybe IoTJobTimeoutConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IoTJobTimeoutConfig
+</span><a href="#local-6989586621679231071"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span></pre></body></html>

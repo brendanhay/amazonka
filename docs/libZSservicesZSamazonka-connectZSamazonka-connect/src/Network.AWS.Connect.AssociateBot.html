@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newAssociateBot' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679428221"><span id="local-6989586621679428222"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateBot"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-var">AssociateBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateBot%27"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-var">AssociateBot'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679428230"><span id="local-6989586621679428231"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateBot"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-var">AssociateBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateBot%27"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-var">AssociateBot'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AlexBot%3AAssociateBot%27"><span class="annot"><span class="annottext">AssociateBot -&gt; Maybe LexBot
 </span><a href="Network.AWS.Connect.AssociateBot.html#%24sel%3AlexBot%3AAssociateBot%27"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Lex V2 bot to associate with the instance.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AinstanceId%3AAssociateBot%27"><span class="annot"><span class="annottext">AssociateBot -&gt; Text
 </span><a href="Network.AWS.Connect.AssociateBot.html#%24sel%3AinstanceId%3AAssociateBot%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428213"><span id="local-6989586621679428215"><span class="annot"><span class="annottext">AssociateBot -&gt; AssociateBot -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428222"><span id="local-6989586621679428224"><span class="annot"><span class="annottext">AssociateBot -&gt; AssociateBot -&gt; Bool
 (AssociateBot -&gt; AssociateBot -&gt; Bool)
 -&gt; (AssociateBot -&gt; AssociateBot -&gt; Bool) -&gt; Eq AssociateBot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateBot -&gt; AssociateBot -&gt; Bool
 == :: AssociateBot -&gt; AssociateBot -&gt; Bool
 $c== :: AssociateBot -&gt; AssociateBot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428204"><span id="local-6989586621679428206"><span id="local-6989586621679428208"><span id="local-6989586621679428210"><span class="annot"><span class="annottext">ReadPrec [AssociateBot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428213"><span id="local-6989586621679428215"><span id="local-6989586621679428217"><span id="local-6989586621679428219"><span class="annot"><span class="annottext">ReadPrec [AssociateBot]
 ReadPrec AssociateBot
 Int -&gt; ReadS AssociateBot
 ReadS [AssociateBot]
@@ -88,7 +88,7 @@ readList :: ReadS [AssociateBot]
 $creadList :: ReadS [AssociateBot]
 readsPrec :: Int -&gt; ReadS AssociateBot
 $creadsPrec :: Int -&gt; ReadS AssociateBot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428197"><span id="local-6989586621679428199"><span id="local-6989586621679428201"><span class="annot"><span class="annottext">Int -&gt; AssociateBot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428206"><span id="local-6989586621679428208"><span id="local-6989586621679428210"><span class="annot"><span class="annottext">Int -&gt; AssociateBot -&gt; ShowS
 [AssociateBot] -&gt; ShowS
 AssociateBot -&gt; String
 (Int -&gt; AssociateBot -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. AssociateBot -&gt; Rep AssociateBot x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span>
 </span><span id="line-80"></span><span id="newAssociateBot"><span class="annot"><span class="annottext">newAssociateBot :: Text -&gt; AssociateBot
-</span><a href="Network.AWS.Connect.AssociateBot.html#newAssociateBot"><span class="hs-identifier hs-var hs-var">newAssociateBot</span></a></span></span><span> </span><span id="local-6989586621679428192"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679428192"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.AssociateBot.html#newAssociateBot"><span class="hs-identifier hs-var hs-var">newAssociateBot</span></a></span></span><span> </span><span id="local-6989586621679428201"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428201"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">AssociateBot' :: Maybe LexBot -&gt; Maybe LexV2Bot -&gt; Text -&gt; AssociateBot
 </span><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lexBot:AssociateBot' :: Maybe LexBot
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:AssociateBot' :: Text
 </span><a href="Network.AWS.Connect.AssociateBot.html#%24sel%3AinstanceId%3AAssociateBot%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679428192"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679428201"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -158,16 +158,16 @@ forall a. Maybe a
 -&gt; (AssociateBot -&gt; Maybe LexBot -&gt; AssociateBot)
 -&gt; Lens AssociateBot AssociateBot (Maybe LexBot) (Maybe LexBot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428189"><span class="annot"><span class="annottext">Maybe LexBot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428198"><span class="annot"><span class="annottext">Maybe LexBot
 lexBot :: Maybe LexBot
 $sel:lexBot:AssociateBot' :: AssociateBot -&gt; Maybe LexBot
-</span><a href="#local-6989586621679428189"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679428189"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428188"><span class="annot"><span class="annottext">s :: AssociateBot
-</span><a href="#local-6989586621679428188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428187"><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679428187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateBot
-</span><a href="#local-6989586621679428188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexBot:AssociateBot' :: Maybe LexBot
+</span><a href="#local-6989586621679428198"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
+</span><a href="#local-6989586621679428198"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428197"><span class="annot"><span class="annottext">s :: AssociateBot
+</span><a href="#local-6989586621679428197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428196"><span class="annot"><span class="annottext">Maybe LexBot
+</span><a href="#local-6989586621679428196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateBot
+</span><a href="#local-6989586621679428197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexBot:AssociateBot' :: Maybe LexBot
 </span><a href="Network.AWS.Connect.AssociateBot.html#%24sel%3AlexBot%3AAssociateBot%27"><span class="hs-identifier hs-var">lexBot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679428187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679428196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Lex V2 bot to associate with the instance.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#associateBot_lexV2Bot"><span class="hs-identifier hs-type">associateBot_lexV2Bot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexV2Bot.html#LexV2Bot"><span class="hs-identifier hs-type">LexV2Bot</span></a></span><span class="hs-special">)</span><span>
@@ -177,16 +177,16 @@ $sel:lexBot:AssociateBot' :: AssociateBot -&gt; Maybe LexBot
 -&gt; (AssociateBot -&gt; Maybe LexV2Bot -&gt; AssociateBot)
 -&gt; Lens AssociateBot AssociateBot (Maybe LexV2Bot) (Maybe LexV2Bot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428186"><span class="annot"><span class="annottext">Maybe LexV2Bot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428195"><span class="annot"><span class="annottext">Maybe LexV2Bot
 lexV2Bot :: Maybe LexV2Bot
 $sel:lexV2Bot:AssociateBot' :: AssociateBot -&gt; Maybe LexV2Bot
-</span><a href="#local-6989586621679428186"><span class="hs-identifier hs-var hs-var">lexV2Bot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679428186"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428185"><span class="annot"><span class="annottext">s :: AssociateBot
-</span><a href="#local-6989586621679428185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428184"><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679428184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateBot
-</span><a href="#local-6989586621679428185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexV2Bot:AssociateBot' :: Maybe LexV2Bot
+</span><a href="#local-6989586621679428195"><span class="hs-identifier hs-var hs-var">lexV2Bot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
+</span><a href="#local-6989586621679428195"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428194"><span class="annot"><span class="annottext">s :: AssociateBot
+</span><a href="#local-6989586621679428194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428193"><span class="annot"><span class="annottext">Maybe LexV2Bot
+</span><a href="#local-6989586621679428193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateBot
+</span><a href="#local-6989586621679428194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexV2Bot:AssociateBot' :: Maybe LexV2Bot
 </span><a href="Network.AWS.Connect.AssociateBot.html#%24sel%3AlexV2Bot%3AAssociateBot%27"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679428184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679428193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -196,25 +196,25 @@ $sel:lexV2Bot:AssociateBot' :: AssociateBot -&gt; Maybe LexV2Bot
 -&gt; (AssociateBot -&gt; Text -&gt; AssociateBot)
 -&gt; Lens AssociateBot AssociateBot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428183"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428192"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:AssociateBot' :: AssociateBot -&gt; Text
-</span><a href="#local-6989586621679428183"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679428183"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428182"><span class="annot"><span class="annottext">s :: AssociateBot
-</span><a href="#local-6989586621679428182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679428181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateBot
-</span><a href="#local-6989586621679428182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssociateBot' :: Text
+</span><a href="#local-6989586621679428192"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428192"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428191"><span class="annot"><span class="annottext">s :: AssociateBot
+</span><a href="#local-6989586621679428191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateBot
+</span><a href="#local-6989586621679428191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssociateBot' :: Text
 </span><a href="Network.AWS.Connect.AssociateBot.html#%24sel%3AinstanceId%3AAssociateBot%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679428181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679428190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse"><span class="hs-identifier hs-type">AssociateBotResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679428177"><span class="annot"><span class="annottext">request :: AssociateBot -&gt; Request AssociateBot
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679428186"><span class="annot"><span class="annottext">request :: AssociateBot -&gt; Request AssociateBot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateBot -&gt; Request AssociateBot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679428173"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679428182"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateBot
 -&gt; ClientResponse ClientBody
@@ -237,12 +237,12 @@ AWSResponse a
 AssociateBotResponse
 </span><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse%27"><span class="hs-identifier hs-var">AssociateBotResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428166"><span id="local-6989586621679428168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428175"><span id="local-6989586621679428177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679428159"><span class="annot"><span class="annottext">toHeaders :: AssociateBot -&gt; [Header]
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679428168"><span class="annot"><span class="annottext">toHeaders :: AssociateBot -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateBot -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -261,9 +261,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428149"><span id="local-6989586621679428151"><span id="local-6989586621679428153"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679428147"><span class="annot"><span class="annottext">toJSON :: AssociateBot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428143"><span id="local-6989586621679428144"><span id="local-6989586621679428145"><span class="annot"><span class="annottext">Maybe LexBot
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428158"><span id="local-6989586621679428160"><span id="local-6989586621679428162"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679428156"><span class="annot"><span class="annottext">toJSON :: AssociateBot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428152"><span id="local-6989586621679428153"><span id="local-6989586621679428154"><span class="annot"><span class="annottext">Maybe LexBot
 Maybe LexV2Bot
 Text
 instanceId :: Text
@@ -272,7 +272,7 @@ lexBot :: Maybe LexBot
 $sel:instanceId:AssociateBot' :: AssociateBot -&gt; Text
 $sel:lexV2Bot:AssociateBot' :: AssociateBot -&gt; Maybe LexV2Bot
 $sel:lexBot:AssociateBot' :: AssociateBot -&gt; Maybe LexBot
-</span><a href="#local-6989586621679428143"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679428152"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -284,20 +284,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LexBot -&gt; Pair) -&gt; Maybe LexBot -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679428145"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679428154"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LexV2Bot&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LexV2Bot -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LexV2Bot -&gt; Pair) -&gt; Maybe LexV2Bot -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679428144"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span>
+</span><a href="#local-6989586621679428153"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679428136"><span class="annot"><span class="annottext">toPath :: AssociateBot -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428132"><span id="local-6989586621679428133"><span id="local-6989586621679428134"><span class="annot"><span class="annottext">Maybe LexBot
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679428145"><span class="annot"><span class="annottext">toPath :: AssociateBot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot%27"><span class="hs-identifier hs-type">AssociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428141"><span id="local-6989586621679428142"><span id="local-6989586621679428143"><span class="annot"><span class="annottext">Maybe LexBot
 Maybe LexV2Bot
 Text
 instanceId :: Text
@@ -306,7 +306,7 @@ lexBot :: Maybe LexBot
 $sel:instanceId:AssociateBot' :: AssociateBot -&gt; Text
 $sel:lexV2Bot:AssociateBot' :: AssociateBot -&gt; Maybe LexV2Bot
 $sel:lexBot:AssociateBot' :: AssociateBot -&gt; Maybe LexBot
-</span><a href="#local-6989586621679428132"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679428141"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -314,11 +314,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/instance/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679428132"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679428141"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/bot&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBot"><span class="hs-identifier hs-type">AssociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679428128"><span class="annot"><span class="annottext">toQuery :: AssociateBot -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679428137"><span class="annot"><span class="annottext">toQuery :: AssociateBot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateBot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -326,10 +326,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newAssociateBotResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679428125"><span id="local-6989586621679428126"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateBotResponse"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse"><span class="hs-identifier hs-var">AssociateBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateBotResponse%27"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse%27"><span class="hs-identifier hs-var">AssociateBotResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679428134"><span id="local-6989586621679428135"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateBotResponse"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse"><span class="hs-identifier hs-var">AssociateBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateBotResponse%27"><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse%27"><span class="hs-identifier hs-var">AssociateBotResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428121"><span id="local-6989586621679428123"><span class="annot"><span class="annottext">AssociateBotResponse -&gt; AssociateBotResponse -&gt; Bool
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428130"><span id="local-6989586621679428132"><span class="annot"><span class="annottext">AssociateBotResponse -&gt; AssociateBotResponse -&gt; Bool
 (AssociateBotResponse -&gt; AssociateBotResponse -&gt; Bool)
 -&gt; (AssociateBotResponse -&gt; AssociateBotResponse -&gt; Bool)
 -&gt; Eq AssociateBotResponse
@@ -338,7 +338,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateBotResponse -&gt; AssociateBotResponse -&gt; Bool
 == :: AssociateBotResponse -&gt; AssociateBotResponse -&gt; Bool
 $c== :: AssociateBotResponse -&gt; AssociateBotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428113"><span id="local-6989586621679428115"><span id="local-6989586621679428117"><span id="local-6989586621679428119"><span class="annot"><span class="annottext">ReadPrec [AssociateBotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428122"><span id="local-6989586621679428124"><span id="local-6989586621679428126"><span id="local-6989586621679428128"><span class="annot"><span class="annottext">ReadPrec [AssociateBotResponse]
 ReadPrec AssociateBotResponse
 Int -&gt; ReadS AssociateBotResponse
 ReadS [AssociateBotResponse]
@@ -358,7 +358,7 @@ readList :: ReadS [AssociateBotResponse]
 $creadList :: ReadS [AssociateBotResponse]
 readsPrec :: Int -&gt; ReadS AssociateBotResponse
 $creadsPrec :: Int -&gt; ReadS AssociateBotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428107"><span id="local-6989586621679428109"><span id="local-6989586621679428111"><span class="annot"><span class="annottext">Int -&gt; AssociateBotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428116"><span id="local-6989586621679428118"><span id="local-6989586621679428120"><span class="annot"><span class="annottext">Int -&gt; AssociateBotResponse -&gt; ShowS
 [AssociateBotResponse] -&gt; ShowS
 AssociateBotResponse -&gt; String
 (Int -&gt; AssociateBotResponse -&gt; ShowS)
@@ -394,5 +394,5 @@ $cfrom :: forall x. AssociateBotResponse -&gt; Rep AssociateBotResponse x
 </span><a href="Network.AWS.Connect.AssociateBot.html#newAssociateBotResponse"><span class="hs-identifier hs-var hs-var">newAssociateBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociateBotResponse
 </span><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse%27"><span class="hs-identifier hs-var">AssociateBotResponse'</span></a></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse"><span class="hs-identifier hs-type">AssociateBotResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428112"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateBot.html#AssociateBotResponse"><span class="hs-identifier hs-type">AssociateBotResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

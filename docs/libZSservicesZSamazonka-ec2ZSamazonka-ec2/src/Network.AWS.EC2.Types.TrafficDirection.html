@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681167433"><span id="local-6989586621681167434"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficDirection"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficDirection.html#TrafficDirection"><span class="hs-identifier hs-var">TrafficDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficDirection%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficDirection.html#TrafficDirection%27"><span class="hs-identifier hs-var">TrafficDirection'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681167442"><span id="local-6989586621681167443"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficDirection"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficDirection.html#TrafficDirection"><span class="hs-identifier hs-var">TrafficDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficDirection%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficDirection.html#TrafficDirection%27"><span class="hs-identifier hs-var">TrafficDirection'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrafficDirection"><span class="annot"><span class="annottext">TrafficDirection -&gt; Text
 </span><a href="Network.AWS.EC2.Types.TrafficDirection.html#fromTrafficDirection"><span class="hs-identifier hs-var hs-var">fromTrafficDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167425"><span id="local-6989586621681167427"><span id="local-6989586621681167429"><span class="annot"><span class="annottext">Int -&gt; TrafficDirection -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167434"><span id="local-6989586621681167436"><span id="local-6989586621681167438"><span class="annot"><span class="annottext">Int -&gt; TrafficDirection -&gt; ShowS
 [TrafficDirection] -&gt; ShowS
 TrafficDirection -&gt; String
 (Int -&gt; TrafficDirection -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TrafficDirection -&gt; String
 showsPrec :: Int -&gt; TrafficDirection -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrafficDirection -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681167416"><span id="local-6989586621681167418"><span id="local-6989586621681167420"><span id="local-6989586621681167422"><span class="annot"><span class="annottext">ReadPrec [TrafficDirection]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681167425"><span id="local-6989586621681167427"><span id="local-6989586621681167429"><span id="local-6989586621681167431"><span class="annot"><span class="annottext">ReadPrec [TrafficDirection]
 ReadPrec TrafficDirection
 Int -&gt; ReadS TrafficDirection
 ReadS [TrafficDirection]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TrafficDirection]
 readsPrec :: Int -&gt; ReadS TrafficDirection
 $creadsPrec :: Int -&gt; ReadS TrafficDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681167411"><span id="local-6989586621681167413"><span class="annot"><span class="annottext">TrafficDirection -&gt; TrafficDirection -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681167420"><span id="local-6989586621681167422"><span class="annot"><span class="annottext">TrafficDirection -&gt; TrafficDirection -&gt; Bool
 (TrafficDirection -&gt; TrafficDirection -&gt; Bool)
 -&gt; (TrafficDirection -&gt; TrafficDirection -&gt; Bool)
 -&gt; Eq TrafficDirection
@@ -83,7 +83,7 @@ $c/= :: TrafficDirection -&gt; TrafficDirection -&gt; Bool
 == :: TrafficDirection -&gt; TrafficDirection -&gt; Bool
 $c== :: TrafficDirection -&gt; TrafficDirection -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681167395"><span id="local-6989586621681167397"><span id="local-6989586621681167399"><span id="local-6989586621681167401"><span id="local-6989586621681167403"><span id="local-6989586621681167405"><span id="local-6989586621681167407"><span class="annot"><span class="annottext">Eq TrafficDirection
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681167404"><span id="local-6989586621681167406"><span id="local-6989586621681167408"><span id="local-6989586621681167410"><span id="local-6989586621681167412"><span id="local-6989586621681167414"><span id="local-6989586621681167416"><span class="annot"><span class="annottext">Eq TrafficDirection
 Eq TrafficDirection
 -&gt; (TrafficDirection -&gt; TrafficDirection -&gt; Ordering)
 -&gt; (TrafficDirection -&gt; TrafficDirection -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. TrafficDirection -&gt; Rep TrafficDirection x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167387"><span id="local-6989586621681167389"><span class="annot"><span class="annottext">Int -&gt; TrafficDirection -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167396"><span id="local-6989586621681167398"><span class="annot"><span class="annottext">Int -&gt; TrafficDirection -&gt; Int
 TrafficDirection -&gt; Int
 (Int -&gt; TrafficDirection -&gt; Int)
 -&gt; (TrafficDirection -&gt; Int) -&gt; Hashable TrafficDirection
@@ -144,51 +144,51 @@ $chash :: TrafficDirection -&gt; Int
 hashWithSalt :: Int -&gt; TrafficDirection -&gt; Int
 $chashWithSalt :: Int -&gt; TrafficDirection -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681167384"><span class="annot"><span class="annottext">TrafficDirection -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681167393"><span class="annot"><span class="annottext">TrafficDirection -&gt; ()
 (TrafficDirection -&gt; ()) -&gt; NFData TrafficDirection
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrafficDirection -&gt; ()
 $crnf :: TrafficDirection -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681167381"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficDirection
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681167390"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficDirection
 (Text -&gt; Either String TrafficDirection)
 -&gt; FromText TrafficDirection
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrafficDirection
 $cfromText :: Text -&gt; Either String TrafficDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681167378"><span class="annot"><span class="annottext">TrafficDirection -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681167387"><span class="annot"><span class="annottext">TrafficDirection -&gt; Text
 (TrafficDirection -&gt; Text) -&gt; ToText TrafficDirection
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrafficDirection -&gt; Text
 $ctoText :: TrafficDirection -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681167375"><span class="annot"><span class="annottext">TrafficDirection -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681167384"><span class="annot"><span class="annottext">TrafficDirection -&gt; ByteString
 (TrafficDirection -&gt; ByteString) -&gt; ToByteString TrafficDirection
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrafficDirection -&gt; ByteString
 $ctoBS :: TrafficDirection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681167372"><span class="annot"><span class="annottext">TrafficDirection -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681167381"><span class="annot"><span class="annottext">TrafficDirection -&gt; ByteStringBuilder
 (TrafficDirection -&gt; ByteStringBuilder) -&gt; ToLog TrafficDirection
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrafficDirection -&gt; ByteStringBuilder
 $cbuild :: TrafficDirection -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681167369"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficDirection -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681167378"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficDirection -&gt; [Header]
 (HeaderName -&gt; TrafficDirection -&gt; [Header])
 -&gt; ToHeader TrafficDirection
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrafficDirection -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrafficDirection -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681167366"><span class="annot"><span class="annottext">TrafficDirection -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681167375"><span class="annot"><span class="annottext">TrafficDirection -&gt; QueryString
 (TrafficDirection -&gt; QueryString) -&gt; ToQuery TrafficDirection
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrafficDirection -&gt; QueryString
 $ctoQuery :: TrafficDirection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681167361"><span id="local-6989586621681167363"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficDirection]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681167370"><span id="local-6989586621681167372"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficDirection]
 Value -&gt; Parser TrafficDirection
 (Value -&gt; Parser TrafficDirection)
 -&gt; (Value -&gt; Parser [TrafficDirection])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [TrafficDirection]
 parseJSON :: Value -&gt; Parser TrafficDirection
 $cparseJSON :: Value -&gt; Parser TrafficDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681167356"><span id="local-6989586621681167358"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficDirection]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681167365"><span id="local-6989586621681167367"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficDirection]
 FromJSONKeyFunction TrafficDirection
 FromJSONKeyFunction TrafficDirection
 -&gt; FromJSONKeyFunction [TrafficDirection]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrafficDirection]
 fromJSONKey :: FromJSONKeyFunction TrafficDirection
 $cfromJSONKey :: FromJSONKeyFunction TrafficDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681167347"><span id="local-6989586621681167349"><span id="local-6989586621681167351"><span id="local-6989586621681167353"><span class="annot"><span class="annottext">[TrafficDirection] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681167356"><span id="local-6989586621681167358"><span id="local-6989586621681167360"><span id="local-6989586621681167362"><span class="annot"><span class="annottext">[TrafficDirection] -&gt; Encoding
 [TrafficDirection] -&gt; Value
 TrafficDirection -&gt; Encoding
 TrafficDirection -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: TrafficDirection -&gt; Encoding
 toJSON :: TrafficDirection -&gt; Value
 $ctoJSON :: TrafficDirection -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681167342"><span id="local-6989586621681167344"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficDirection]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681167351"><span id="local-6989586621681167353"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficDirection]
 ToJSONKeyFunction TrafficDirection
 ToJSONKeyFunction TrafficDirection
 -&gt; ToJSONKeyFunction [TrafficDirection]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrafficDirection]
 toJSONKey :: ToJSONKeyFunction TrafficDirection
 $ctoJSONKey :: ToJSONKeyFunction TrafficDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681167339"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficDirection
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681167348"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficDirection
 ([Node] -&gt; Either String TrafficDirection)
 -&gt; FromXML TrafficDirection
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrafficDirection
 $cparseXML :: [Node] -&gt; Either String TrafficDirection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681167336"><span class="annot"><span class="annottext">TrafficDirection -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681167345"><span class="annot"><span class="annottext">TrafficDirection -&gt; XML
 (TrafficDirection -&gt; XML) -&gt; ToXML TrafficDirection
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TrafficDirection -&gt; XML

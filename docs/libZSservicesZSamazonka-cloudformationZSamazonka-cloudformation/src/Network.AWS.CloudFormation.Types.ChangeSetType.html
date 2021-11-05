@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679415381"><span id="local-6989586621679415382"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeSetType"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetType.html#ChangeSetType"><span class="hs-identifier hs-var">ChangeSetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeSetType%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetType.html#ChangeSetType%27"><span class="hs-identifier hs-var">ChangeSetType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679415390"><span id="local-6989586621679415391"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeSetType"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetType.html#ChangeSetType"><span class="hs-identifier hs-var">ChangeSetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeSetType%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetType.html#ChangeSetType%27"><span class="hs-identifier hs-var">ChangeSetType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChangeSetType"><span class="annot"><span class="annottext">ChangeSetType -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetType.html#fromChangeSetType"><span class="hs-identifier hs-var hs-var">fromChangeSetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679415373"><span id="local-6989586621679415375"><span id="local-6989586621679415377"><span class="annot"><span class="annottext">Int -&gt; ChangeSetType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679415382"><span id="local-6989586621679415384"><span id="local-6989586621679415386"><span class="annot"><span class="annottext">Int -&gt; ChangeSetType -&gt; ShowS
 [ChangeSetType] -&gt; ShowS
 ChangeSetType -&gt; String
 (Int -&gt; ChangeSetType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ChangeSetType -&gt; String
 showsPrec :: Int -&gt; ChangeSetType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ChangeSetType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679415364"><span id="local-6989586621679415366"><span id="local-6989586621679415368"><span id="local-6989586621679415370"><span class="annot"><span class="annottext">ReadPrec [ChangeSetType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679415373"><span id="local-6989586621679415375"><span id="local-6989586621679415377"><span id="local-6989586621679415379"><span class="annot"><span class="annottext">ReadPrec [ChangeSetType]
 ReadPrec ChangeSetType
 Int -&gt; ReadS ChangeSetType
 ReadS [ChangeSetType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ChangeSetType]
 readsPrec :: Int -&gt; ReadS ChangeSetType
 $creadsPrec :: Int -&gt; ReadS ChangeSetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679415359"><span id="local-6989586621679415361"><span class="annot"><span class="annottext">ChangeSetType -&gt; ChangeSetType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679415368"><span id="local-6989586621679415370"><span class="annot"><span class="annottext">ChangeSetType -&gt; ChangeSetType -&gt; Bool
 (ChangeSetType -&gt; ChangeSetType -&gt; Bool)
 -&gt; (ChangeSetType -&gt; ChangeSetType -&gt; Bool) -&gt; Eq ChangeSetType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ChangeSetType -&gt; ChangeSetType -&gt; Bool
 == :: ChangeSetType -&gt; ChangeSetType -&gt; Bool
 $c== :: ChangeSetType -&gt; ChangeSetType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679415343"><span id="local-6989586621679415345"><span id="local-6989586621679415347"><span id="local-6989586621679415349"><span id="local-6989586621679415351"><span id="local-6989586621679415353"><span id="local-6989586621679415355"><span class="annot"><span class="annottext">Eq ChangeSetType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679415352"><span id="local-6989586621679415354"><span id="local-6989586621679415356"><span id="local-6989586621679415358"><span id="local-6989586621679415360"><span id="local-6989586621679415362"><span id="local-6989586621679415364"><span class="annot"><span class="annottext">Eq ChangeSetType
 Eq ChangeSetType
 -&gt; (ChangeSetType -&gt; ChangeSetType -&gt; Ordering)
 -&gt; (ChangeSetType -&gt; ChangeSetType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ChangeSetType -&gt; Rep ChangeSetType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679415335"><span id="local-6989586621679415337"><span class="annot"><span class="annottext">Int -&gt; ChangeSetType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679415344"><span id="local-6989586621679415346"><span class="annot"><span class="annottext">Int -&gt; ChangeSetType -&gt; Int
 ChangeSetType -&gt; Int
 (Int -&gt; ChangeSetType -&gt; Int)
 -&gt; (ChangeSetType -&gt; Int) -&gt; Hashable ChangeSetType
@@ -143,49 +143,49 @@ $chash :: ChangeSetType -&gt; Int
 hashWithSalt :: Int -&gt; ChangeSetType -&gt; Int
 $chashWithSalt :: Int -&gt; ChangeSetType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679415332"><span class="annot"><span class="annottext">ChangeSetType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679415341"><span class="annot"><span class="annottext">ChangeSetType -&gt; ()
 (ChangeSetType -&gt; ()) -&gt; NFData ChangeSetType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ChangeSetType -&gt; ()
 $crnf :: ChangeSetType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679415329"><span class="annot"><span class="annottext">Text -&gt; Either String ChangeSetType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679415338"><span class="annot"><span class="annottext">Text -&gt; Either String ChangeSetType
 (Text -&gt; Either String ChangeSetType) -&gt; FromText ChangeSetType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ChangeSetType
 $cfromText :: Text -&gt; Either String ChangeSetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679415326"><span class="annot"><span class="annottext">ChangeSetType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679415335"><span class="annot"><span class="annottext">ChangeSetType -&gt; Text
 (ChangeSetType -&gt; Text) -&gt; ToText ChangeSetType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ChangeSetType -&gt; Text
 $ctoText :: ChangeSetType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679415323"><span class="annot"><span class="annottext">ChangeSetType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679415332"><span class="annot"><span class="annottext">ChangeSetType -&gt; ByteString
 (ChangeSetType -&gt; ByteString) -&gt; ToByteString ChangeSetType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ChangeSetType -&gt; ByteString
 $ctoBS :: ChangeSetType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679415320"><span class="annot"><span class="annottext">ChangeSetType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679415329"><span class="annot"><span class="annottext">ChangeSetType -&gt; ByteStringBuilder
 (ChangeSetType -&gt; ByteStringBuilder) -&gt; ToLog ChangeSetType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ChangeSetType -&gt; ByteStringBuilder
 $cbuild :: ChangeSetType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679415317"><span class="annot"><span class="annottext">HeaderName -&gt; ChangeSetType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679415326"><span class="annot"><span class="annottext">HeaderName -&gt; ChangeSetType -&gt; [Header]
 (HeaderName -&gt; ChangeSetType -&gt; [Header]) -&gt; ToHeader ChangeSetType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ChangeSetType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ChangeSetType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679415314"><span class="annot"><span class="annottext">ChangeSetType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679415323"><span class="annot"><span class="annottext">ChangeSetType -&gt; QueryString
 (ChangeSetType -&gt; QueryString) -&gt; ToQuery ChangeSetType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ChangeSetType -&gt; QueryString
 $ctoQuery :: ChangeSetType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679415309"><span id="local-6989586621679415311"><span class="annot"><span class="annottext">Value -&gt; Parser [ChangeSetType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679415318"><span id="local-6989586621679415320"><span class="annot"><span class="annottext">Value -&gt; Parser [ChangeSetType]
 Value -&gt; Parser ChangeSetType
 (Value -&gt; Parser ChangeSetType)
 -&gt; (Value -&gt; Parser [ChangeSetType]) -&gt; FromJSON ChangeSetType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ChangeSetType]
 parseJSON :: Value -&gt; Parser ChangeSetType
 $cparseJSON :: Value -&gt; Parser ChangeSetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679415304"><span id="local-6989586621679415306"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChangeSetType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679415313"><span id="local-6989586621679415315"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChangeSetType]
 FromJSONKeyFunction ChangeSetType
 FromJSONKeyFunction ChangeSetType
 -&gt; FromJSONKeyFunction [ChangeSetType] -&gt; FromJSONKey ChangeSetType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ChangeSetType]
 fromJSONKey :: FromJSONKeyFunction ChangeSetType
 $cfromJSONKey :: FromJSONKeyFunction ChangeSetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679415295"><span id="local-6989586621679415297"><span id="local-6989586621679415299"><span id="local-6989586621679415301"><span class="annot"><span class="annottext">[ChangeSetType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679415304"><span id="local-6989586621679415306"><span id="local-6989586621679415308"><span id="local-6989586621679415310"><span class="annot"><span class="annottext">[ChangeSetType] -&gt; Encoding
 [ChangeSetType] -&gt; Value
 ChangeSetType -&gt; Encoding
 ChangeSetType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ChangeSetType -&gt; Encoding
 toJSON :: ChangeSetType -&gt; Value
 $ctoJSON :: ChangeSetType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679415290"><span id="local-6989586621679415292"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChangeSetType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679415299"><span id="local-6989586621679415301"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChangeSetType]
 ToJSONKeyFunction ChangeSetType
 ToJSONKeyFunction ChangeSetType
 -&gt; ToJSONKeyFunction [ChangeSetType] -&gt; ToJSONKey ChangeSetType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ChangeSetType]
 toJSONKey :: ToJSONKeyFunction ChangeSetType
 $ctoJSONKey :: ToJSONKeyFunction ChangeSetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679415287"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChangeSetType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679415296"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChangeSetType
 ([Node] -&gt; Either String ChangeSetType) -&gt; FromXML ChangeSetType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ChangeSetType
 $cparseXML :: [Node] -&gt; Either String ChangeSetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679415284"><span class="annot"><span class="annottext">ChangeSetType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679415293"><span class="annot"><span class="annottext">ChangeSetType -&gt; XML
 (ChangeSetType -&gt; XML) -&gt; ToXML ChangeSetType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ChangeSetType -&gt; XML

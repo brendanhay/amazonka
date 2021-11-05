@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newDeleteObjectTagging' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679578928"><span id="local-6989586621679578929"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjectTagging"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-var">DeleteObjectTagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjectTagging%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-var">DeleteObjectTagging'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679578937"><span id="local-6989586621679578938"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjectTagging"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-var">DeleteObjectTagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjectTagging%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-var">DeleteObjectTagging'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The versionId of the object that the tag-set will be removed from.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AversionId%3ADeleteObjectTagging%27"><span class="annot"><span class="annottext">DeleteObjectTagging -&gt; Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AversionId%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
@@ -102,7 +102,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3Akey%3ADeleteObjectTagging%27"><span class="annot"><span class="annottext">DeleteObjectTagging -&gt; ObjectKey
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3Akey%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578919"><span id="local-6989586621679578921"><span class="annot"><span class="annottext">DeleteObjectTagging -&gt; DeleteObjectTagging -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578928"><span id="local-6989586621679578930"><span class="annot"><span class="annottext">DeleteObjectTagging -&gt; DeleteObjectTagging -&gt; Bool
 (DeleteObjectTagging -&gt; DeleteObjectTagging -&gt; Bool)
 -&gt; (DeleteObjectTagging -&gt; DeleteObjectTagging -&gt; Bool)
 -&gt; Eq DeleteObjectTagging
@@ -111,7 +111,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteObjectTagging -&gt; DeleteObjectTagging -&gt; Bool
 == :: DeleteObjectTagging -&gt; DeleteObjectTagging -&gt; Bool
 $c== :: DeleteObjectTagging -&gt; DeleteObjectTagging -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578910"><span id="local-6989586621679578912"><span id="local-6989586621679578914"><span id="local-6989586621679578916"><span class="annot"><span class="annottext">ReadPrec [DeleteObjectTagging]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578919"><span id="local-6989586621679578921"><span id="local-6989586621679578923"><span id="local-6989586621679578925"><span class="annot"><span class="annottext">ReadPrec [DeleteObjectTagging]
 ReadPrec DeleteObjectTagging
 Int -&gt; ReadS DeleteObjectTagging
 ReadS [DeleteObjectTagging]
@@ -131,7 +131,7 @@ readList :: ReadS [DeleteObjectTagging]
 $creadList :: ReadS [DeleteObjectTagging]
 readsPrec :: Int -&gt; ReadS DeleteObjectTagging
 $creadsPrec :: Int -&gt; ReadS DeleteObjectTagging
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578903"><span id="local-6989586621679578905"><span id="local-6989586621679578907"><span class="annot"><span class="annottext">Int -&gt; DeleteObjectTagging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578912"><span id="local-6989586621679578914"><span id="local-6989586621679578916"><span class="annot"><span class="annottext">Int -&gt; DeleteObjectTagging -&gt; ShowS
 [DeleteObjectTagging] -&gt; ShowS
 DeleteObjectTagging -&gt; String
 (Int -&gt; DeleteObjectTagging -&gt; ShowS)
@@ -201,9 +201,9 @@ $cfrom :: forall x. DeleteObjectTagging -&gt; Rep DeleteObjectTagging x
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span>
 </span><span id="line-146"></span><span id="newDeleteObjectTagging"><span class="annot"><span class="annottext">newDeleteObjectTagging :: BucketName -&gt; ObjectKey -&gt; DeleteObjectTagging
-</span><a href="Network.AWS.S3.DeleteObjectTagging.html#newDeleteObjectTagging"><span class="hs-identifier hs-var hs-var">newDeleteObjectTagging</span></a></span></span><span> </span><span id="local-6989586621679578898"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679578898"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679578897"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679578897"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.DeleteObjectTagging.html#newDeleteObjectTagging"><span class="hs-identifier hs-var hs-var">newDeleteObjectTagging</span></a></span></span><span> </span><span id="local-6989586621679578907"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578907"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679578906"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578906"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DeleteObjectTagging' :: Maybe ObjectVersionId
 -&gt; Maybe Text -&gt; BucketName -&gt; ObjectKey -&gt; DeleteObjectTagging
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span>
@@ -217,10 +217,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteObjectTagging' :: BucketName
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3Abucket%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679578898"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679578907"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:DeleteObjectTagging' :: ObjectKey
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3Akey%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679578897"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><a href="#local-6989586621679578906"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The versionId of the object that the tag-set will be removed from.</span><span>
@@ -236,16 +236,16 @@ forall a. Maybe a
      (Maybe ObjectVersionId)
      (Maybe ObjectVersionId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578894"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578903"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 versionId :: Maybe ObjectVersionId
 $sel:versionId:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679578894"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679578894"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578893"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
-</span><a href="#local-6989586621679578893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578892"><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679578892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
-</span><a href="#local-6989586621679578893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteObjectTagging' :: Maybe ObjectVersionId
+</span><a href="#local-6989586621679578903"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578903"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578902"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
+</span><a href="#local-6989586621679578902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578901"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
+</span><a href="#local-6989586621679578902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteObjectTagging' :: Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AversionId%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679578892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -258,16 +258,16 @@ $sel:versionId:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe ObjectVer
 -&gt; Lens
      DeleteObjectTagging DeleteObjectTagging (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578891"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578900"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe Text
-</span><a href="#local-6989586621679578891"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679578891"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578890"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
-</span><a href="#local-6989586621679578890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578889"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679578889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
-</span><a href="#local-6989586621679578890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObjectTagging' :: Maybe Text
+</span><a href="#local-6989586621679578900"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578900"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578899"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
+</span><a href="#local-6989586621679578899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
+</span><a href="#local-6989586621679578899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObjectTagging' :: Maybe Text
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AexpectedBucketOwner%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679578889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The bucket name containing the objects from which to remove the tags.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
@@ -297,16 +297,16 @@ $sel:expectedBucketOwner:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe
 -&gt; Lens
      DeleteObjectTagging DeleteObjectTagging BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578888"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578897"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:DeleteObjectTagging' :: DeleteObjectTagging -&gt; BucketName
-</span><a href="#local-6989586621679578888"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679578888"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578887"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
-</span><a href="#local-6989586621679578887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578886"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679578886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
-</span><a href="#local-6989586621679578887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteObjectTagging' :: BucketName
+</span><a href="#local-6989586621679578897"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578897"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578896"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
+</span><a href="#local-6989586621679578896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578895"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
+</span><a href="#local-6989586621679578896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteObjectTagging' :: BucketName
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3Abucket%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679578886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The key that identifies the object in the bucket from which to remove</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- all tags.</span><span>
@@ -317,22 +317,22 @@ $sel:bucket:DeleteObjectTagging' :: DeleteObjectTagging -&gt; BucketName
 -&gt; (DeleteObjectTagging -&gt; ObjectKey -&gt; DeleteObjectTagging)
 -&gt; Lens DeleteObjectTagging DeleteObjectTagging ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578885"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578894"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:DeleteObjectTagging' :: DeleteObjectTagging -&gt; ObjectKey
-</span><a href="#local-6989586621679578885"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679578885"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578884"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
-</span><a href="#local-6989586621679578884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578883"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679578883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
-</span><a href="#local-6989586621679578884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:DeleteObjectTagging' :: ObjectKey
+</span><a href="#local-6989586621679578894"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578894"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578893"><span class="annot"><span class="annottext">s :: DeleteObjectTagging
+</span><a href="#local-6989586621679578893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578892"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTagging
+</span><a href="#local-6989586621679578893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:DeleteObjectTagging' :: ObjectKey
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3Akey%3ADeleteObjectTagging%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679578883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-194"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679578879"><span class="annot"><span class="annottext">request :: DeleteObjectTagging -&gt; Request DeleteObjectTagging
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679578888"><span class="annot"><span class="annottext">request :: DeleteObjectTagging -&gt; Request DeleteObjectTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteObjectTagging -&gt; Request DeleteObjectTagging
 forall a. Request a -&gt; Request a
@@ -346,7 +346,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679578873"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679578882"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteObjectTagging
 -&gt; ClientResponse ClientBody
@@ -372,10 +372,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679578870"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679578870"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679578869"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679578869"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679578868"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679578868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679578879"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578879"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679578878"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578878"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679578877"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679578877"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Maybe ObjectVersionId -&gt; Int -&gt; DeleteObjectTaggingResponse
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var">DeleteObjectTaggingResponse'</span></a></span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ObjectVersionId -&gt; Int -&gt; DeleteObjectTaggingResponse)
@@ -383,7 +383,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteObjectTaggingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679578869"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578878"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; HeaderName -&gt; Either String (Maybe ObjectVersionId)
 forall a.
 FromText a =&gt;
@@ -398,16 +398,42 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679578870"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578879"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578860"><span id="local-6989586621679578862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578869"><span id="local-6989586621679578871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span></span></span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span></span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679578853"><span class="annot"><span class="annottext">toHeaders :: DeleteObjectTagging -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578848"><span id="local-6989586621679578849"><span id="local-6989586621679578850"><span id="local-6989586621679578851"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679578862"><span class="annot"><span class="annottext">toHeaders :: DeleteObjectTagging -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578857"><span id="local-6989586621679578858"><span id="local-6989586621679578859"><span id="local-6989586621679578860"><span class="annot"><span class="annottext">Maybe Text
+Maybe ObjectVersionId
+ObjectKey
+BucketName
+key :: ObjectKey
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+versionId :: Maybe ObjectVersionId
+$sel:key:DeleteObjectTagging' :: DeleteObjectTagging -&gt; ObjectKey
+$sel:bucket:DeleteObjectTagging' :: DeleteObjectTagging -&gt; BucketName
+$sel:expectedBucketOwner:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe Text
+$sel:versionId:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe ObjectVersionId
+</span><a href="#local-6989586621679578857"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578859"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679578853"><span class="annot"><span class="annottext">toPath :: DeleteObjectTagging -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578848"><span id="local-6989586621679578849"><span id="local-6989586621679578850"><span id="local-6989586621679578851"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 ObjectKey
 BucketName
@@ -420,20 +446,22 @@ $sel:bucket:DeleteObjectTagging' :: DeleteObjectTagging -&gt; BucketName
 $sel:expectedBucketOwner:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe Text
 $sel:versionId:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe ObjectVersionId
 </span><a href="#local-6989586621679578848"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-214"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
-</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679578850"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
-</span><span id="line-216"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679578844"><span class="annot"><span class="annottext">toPath :: DeleteObjectTagging -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578839"><span id="local-6989586621679578840"><span id="local-6989586621679578841"><span id="local-6989586621679578842"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-221"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578849"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679578848"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679578844"><span class="annot"><span class="annottext">toQuery :: DeleteObjectTagging -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578839"><span id="local-6989586621679578840"><span id="local-6989586621679578841"><span id="local-6989586621679578842"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 ObjectKey
 BucketName
@@ -446,34 +474,6 @@ $sel:bucket:DeleteObjectTagging' :: DeleteObjectTagging -&gt; BucketName
 $sel:expectedBucketOwner:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe Text
 $sel:versionId:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe ObjectVersionId
 </span><a href="#local-6989586621679578839"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-221"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679578840"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679578839"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging"><span class="hs-identifier hs-type">DeleteObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679578835"><span class="annot"><span class="annottext">toQuery :: DeleteObjectTagging -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTagging%27"><span class="hs-identifier hs-type">DeleteObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578830"><span id="local-6989586621679578831"><span id="local-6989586621679578832"><span id="local-6989586621679578833"><span class="annot"><span class="annottext">Maybe Text
-Maybe ObjectVersionId
-ObjectKey
-BucketName
-key :: ObjectKey
-bucket :: BucketName
-expectedBucketOwner :: Maybe Text
-versionId :: Maybe ObjectVersionId
-$sel:key:DeleteObjectTagging' :: DeleteObjectTagging -&gt; ObjectKey
-$sel:bucket:DeleteObjectTagging' :: DeleteObjectTagging -&gt; BucketName
-$sel:expectedBucketOwner:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe Text
-$sel:versionId:DeleteObjectTagging' :: DeleteObjectTagging -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679578830"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -481,11 +481,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ObjectVersionId -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679578833"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679578842"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;tagging&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | /See:/ 'newDeleteObjectTaggingResponse' smart constructor.</span><span>
-</span><span id="line-229"></span><span id="local-6989586621679578827"><span id="local-6989586621679578828"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjectTaggingResponse"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-var">DeleteObjectTaggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjectTaggingResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var">DeleteObjectTaggingResponse'</span></a></span></span><span>
+</span><span id="line-229"></span><span id="local-6989586621679578836"><span id="local-6989586621679578837"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjectTaggingResponse"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-var">DeleteObjectTaggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjectTaggingResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var">DeleteObjectTaggingResponse'</span></a></span></span><span>
 </span><span id="line-230"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The versionId of the object the tag-set was removed from.</span><span>
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AversionId%3ADeleteObjectTaggingResponse%27"><span class="annot"><span class="annottext">DeleteObjectTaggingResponse -&gt; Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AversionId%3ADeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
@@ -493,7 +493,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-233"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteObjectTaggingResponse%27"><span class="annot"><span class="annottext">DeleteObjectTaggingResponse -&gt; Int
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AhttpStatus%3ADeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-235"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578821"><span id="local-6989586621679578823"><span class="annot"><span class="annottext">DeleteObjectTaggingResponse -&gt; DeleteObjectTaggingResponse -&gt; Bool
+</span><span id="line-235"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578830"><span id="local-6989586621679578832"><span class="annot"><span class="annottext">DeleteObjectTaggingResponse -&gt; DeleteObjectTaggingResponse -&gt; Bool
 (DeleteObjectTaggingResponse
  -&gt; DeleteObjectTaggingResponse -&gt; Bool)
 -&gt; (DeleteObjectTaggingResponse
@@ -504,7 +504,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteObjectTaggingResponse -&gt; DeleteObjectTaggingResponse -&gt; Bool
 == :: DeleteObjectTaggingResponse -&gt; DeleteObjectTaggingResponse -&gt; Bool
 $c== :: DeleteObjectTaggingResponse -&gt; DeleteObjectTaggingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578813"><span id="local-6989586621679578815"><span id="local-6989586621679578817"><span id="local-6989586621679578819"><span class="annot"><span class="annottext">ReadPrec [DeleteObjectTaggingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578822"><span id="local-6989586621679578824"><span id="local-6989586621679578826"><span id="local-6989586621679578828"><span class="annot"><span class="annottext">ReadPrec [DeleteObjectTaggingResponse]
 ReadPrec DeleteObjectTaggingResponse
 Int -&gt; ReadS DeleteObjectTaggingResponse
 ReadS [DeleteObjectTaggingResponse]
@@ -524,7 +524,7 @@ readList :: ReadS [DeleteObjectTaggingResponse]
 $creadList :: ReadS [DeleteObjectTaggingResponse]
 readsPrec :: Int -&gt; ReadS DeleteObjectTaggingResponse
 $creadsPrec :: Int -&gt; ReadS DeleteObjectTaggingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578807"><span id="local-6989586621679578809"><span id="local-6989586621679578811"><span class="annot"><span class="annottext">Int -&gt; DeleteObjectTaggingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578816"><span id="local-6989586621679578818"><span id="local-6989586621679578820"><span class="annot"><span class="annottext">Int -&gt; DeleteObjectTaggingResponse -&gt; ShowS
 [DeleteObjectTaggingResponse] -&gt; ShowS
 DeleteObjectTaggingResponse -&gt; String
 (Int -&gt; DeleteObjectTaggingResponse -&gt; ShowS)
@@ -572,8 +572,8 @@ DeleteObjectTaggingResponse -&gt; Rep DeleteObjectTaggingResponse x
 </span><span id="line-250"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-251"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span><span>
 </span><span id="line-252"></span><span id="newDeleteObjectTaggingResponse"><span class="annot"><span class="annottext">newDeleteObjectTaggingResponse :: Int -&gt; DeleteObjectTaggingResponse
-</span><a href="Network.AWS.S3.DeleteObjectTagging.html#newDeleteObjectTaggingResponse"><span class="hs-identifier hs-var hs-var">newDeleteObjectTaggingResponse</span></a></span></span><span> </span><span id="local-6989586621679578804"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679578804"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.DeleteObjectTagging.html#newDeleteObjectTaggingResponse"><span class="hs-identifier hs-var hs-var">newDeleteObjectTaggingResponse</span></a></span></span><span> </span><span id="local-6989586621679578813"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">DeleteObjectTaggingResponse' :: Maybe ObjectVersionId -&gt; Int -&gt; DeleteObjectTaggingResponse
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:DeleteObjectTaggingResponse' :: Maybe ObjectVersionId
@@ -583,7 +583,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectTaggingResponse' :: Int
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AhttpStatus%3ADeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679578804"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679578813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The versionId of the object the tag-set was removed from.</span><span>
@@ -599,16 +599,16 @@ forall a. Maybe a
      (Maybe ObjectVersionId)
      (Maybe ObjectVersionId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578803"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578812"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 versionId :: Maybe ObjectVersionId
 $sel:versionId:DeleteObjectTaggingResponse' :: DeleteObjectTaggingResponse -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679578803"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679578803"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578802"><span class="annot"><span class="annottext">s :: DeleteObjectTaggingResponse
-</span><a href="#local-6989586621679578802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578801"><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679578801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTaggingResponse
-</span><a href="#local-6989586621679578802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteObjectTaggingResponse' :: Maybe ObjectVersionId
+</span><a href="#local-6989586621679578812"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578812"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578811"><span class="annot"><span class="annottext">s :: DeleteObjectTaggingResponse
+</span><a href="#local-6989586621679578811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578810"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679578810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTaggingResponse
+</span><a href="#local-6989586621679578811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeleteObjectTaggingResponse' :: Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AversionId%3ADeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679578801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-264"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#deleteObjectTaggingResponse_httpStatus"><span class="hs-identifier hs-type">deleteObjectTaggingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -620,16 +620,16 @@ $sel:versionId:DeleteObjectTaggingResponse' :: DeleteObjectTaggingResponse -&gt;
 -&gt; Lens
      DeleteObjectTaggingResponse DeleteObjectTaggingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578800"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578809"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteObjectTaggingResponse' :: DeleteObjectTaggingResponse -&gt; Int
-</span><a href="#local-6989586621679578800"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679578800"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578799"><span class="annot"><span class="annottext">s :: DeleteObjectTaggingResponse
-</span><a href="#local-6989586621679578799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578798"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679578798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTaggingResponse
-</span><a href="#local-6989586621679578799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectTaggingResponse' :: Int
+</span><a href="#local-6989586621679578809"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578809"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578808"><span class="annot"><span class="annottext">s :: DeleteObjectTaggingResponse
+</span><a href="#local-6989586621679578808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse%27"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578807"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectTaggingResponse
+</span><a href="#local-6989586621679578808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectTaggingResponse' :: Int
 </span><a href="Network.AWS.S3.DeleteObjectTagging.html#%24sel%3AhttpStatus%3ADeleteObjectTaggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679578798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjectTagging.html#DeleteObjectTaggingResponse"><span class="hs-identifier hs-type">DeleteObjectTaggingResponse</span></a></span></span><span>
 </span><span id="line-268"></span></pre></body></html>

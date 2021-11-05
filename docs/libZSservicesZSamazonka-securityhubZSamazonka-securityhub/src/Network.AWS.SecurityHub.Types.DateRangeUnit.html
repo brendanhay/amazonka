@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.DateRangeUnit</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.DateRangeUnit</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit"><span class="hs-identifier">DateRangeUnit</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit_DAYS"><span class="hs-identifier">DateRangeUnit_DAYS</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679977179"><span id="local-6989586621679977180"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DateRangeUnit"><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit"><span class="hs-identifier hs-var">DateRangeUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DateRangeUnit%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit%27"><span class="hs-identifier hs-var">DateRangeUnit'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDateRangeUnit"><span class="annot"><span class="annottext">DateRangeUnit -&gt; Text
+</span><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#fromDateRangeUnit"><span class="hs-identifier hs-var hs-var">fromDateRangeUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977171"><span id="local-6989586621679977173"><span id="local-6989586621679977175"><span class="annot"><span class="annottext">Int -&gt; DateRangeUnit -&gt; ShowS
+[DateRangeUnit] -&gt; ShowS
+DateRangeUnit -&gt; String
+(Int -&gt; DateRangeUnit -&gt; ShowS)
+-&gt; (DateRangeUnit -&gt; String)
+-&gt; ([DateRangeUnit] -&gt; ShowS)
+-&gt; Show DateRangeUnit
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DateRangeUnit] -&gt; ShowS
+$cshowList :: [DateRangeUnit] -&gt; ShowS
+show :: DateRangeUnit -&gt; String
+$cshow :: DateRangeUnit -&gt; String
+showsPrec :: Int -&gt; DateRangeUnit -&gt; ShowS
+$cshowsPrec :: Int -&gt; DateRangeUnit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679977162"><span id="local-6989586621679977164"><span id="local-6989586621679977166"><span id="local-6989586621679977168"><span class="annot"><span class="annottext">ReadPrec [DateRangeUnit]
+ReadPrec DateRangeUnit
+Int -&gt; ReadS DateRangeUnit
+ReadS [DateRangeUnit]
+(Int -&gt; ReadS DateRangeUnit)
+-&gt; ReadS [DateRangeUnit]
+-&gt; ReadPrec DateRangeUnit
+-&gt; ReadPrec [DateRangeUnit]
+-&gt; Read DateRangeUnit
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DateRangeUnit]
+$creadListPrec :: ReadPrec [DateRangeUnit]
+readPrec :: ReadPrec DateRangeUnit
+$creadPrec :: ReadPrec DateRangeUnit
+readList :: ReadS [DateRangeUnit]
+$creadList :: ReadS [DateRangeUnit]
+readsPrec :: Int -&gt; ReadS DateRangeUnit
+$creadsPrec :: Int -&gt; ReadS DateRangeUnit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679977157"><span id="local-6989586621679977159"><span class="annot"><span class="annottext">DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+(DateRangeUnit -&gt; DateRangeUnit -&gt; Bool)
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; Bool) -&gt; Eq DateRangeUnit
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+$c/= :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+== :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+$c== :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679977141"><span id="local-6989586621679977143"><span id="local-6989586621679977145"><span id="local-6989586621679977147"><span id="local-6989586621679977149"><span id="local-6989586621679977151"><span id="local-6989586621679977153"><span class="annot"><span class="annottext">Eq DateRangeUnit
+Eq DateRangeUnit
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; Ordering)
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; Bool)
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; Bool)
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; Bool)
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; Bool)
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; DateRangeUnit)
+-&gt; (DateRangeUnit -&gt; DateRangeUnit -&gt; DateRangeUnit)
+-&gt; Ord DateRangeUnit
+DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+DateRangeUnit -&gt; DateRangeUnit -&gt; Ordering
+DateRangeUnit -&gt; DateRangeUnit -&gt; DateRangeUnit
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DateRangeUnit -&gt; DateRangeUnit -&gt; DateRangeUnit
+$cmin :: DateRangeUnit -&gt; DateRangeUnit -&gt; DateRangeUnit
+max :: DateRangeUnit -&gt; DateRangeUnit -&gt; DateRangeUnit
+$cmax :: DateRangeUnit -&gt; DateRangeUnit -&gt; DateRangeUnit
+&gt;= :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+$c&gt;= :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+&gt; :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+$c&gt; :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+&lt;= :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+$c&lt;= :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+&lt; :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+$c&lt; :: DateRangeUnit -&gt; DateRangeUnit -&gt; Bool
+compare :: DateRangeUnit -&gt; DateRangeUnit -&gt; Ordering
+$ccompare :: DateRangeUnit -&gt; DateRangeUnit -&gt; Ordering
+$cp1Ord :: Eq DateRangeUnit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DateRangeUnit -&gt; Rep DateRangeUnit x)
+-&gt; (forall x. Rep DateRangeUnit x -&gt; DateRangeUnit)
+-&gt; Generic DateRangeUnit
+forall x. Rep DateRangeUnit x -&gt; DateRangeUnit
+forall x. DateRangeUnit -&gt; Rep DateRangeUnit x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DateRangeUnit x -&gt; DateRangeUnit
+$cfrom :: forall x. DateRangeUnit -&gt; Rep DateRangeUnit x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977133"><span id="local-6989586621679977135"><span class="annot"><span class="annottext">Int -&gt; DateRangeUnit -&gt; Int
+DateRangeUnit -&gt; Int
+(Int -&gt; DateRangeUnit -&gt; Int)
+-&gt; (DateRangeUnit -&gt; Int) -&gt; Hashable DateRangeUnit
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DateRangeUnit -&gt; Int
+$chash :: DateRangeUnit -&gt; Int
+hashWithSalt :: Int -&gt; DateRangeUnit -&gt; Int
+$chashWithSalt :: Int -&gt; DateRangeUnit -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679977130"><span class="annot"><span class="annottext">DateRangeUnit -&gt; ()
+(DateRangeUnit -&gt; ()) -&gt; NFData DateRangeUnit
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DateRangeUnit -&gt; ()
+$crnf :: DateRangeUnit -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679977127"><span class="annot"><span class="annottext">Text -&gt; Either String DateRangeUnit
+(Text -&gt; Either String DateRangeUnit) -&gt; FromText DateRangeUnit
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DateRangeUnit
+$cfromText :: Text -&gt; Either String DateRangeUnit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679977124"><span class="annot"><span class="annottext">DateRangeUnit -&gt; Text
+(DateRangeUnit -&gt; Text) -&gt; ToText DateRangeUnit
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DateRangeUnit -&gt; Text
+$ctoText :: DateRangeUnit -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679977121"><span class="annot"><span class="annottext">DateRangeUnit -&gt; ByteString
+(DateRangeUnit -&gt; ByteString) -&gt; ToByteString DateRangeUnit
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DateRangeUnit -&gt; ByteString
+$ctoBS :: DateRangeUnit -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679977118"><span class="annot"><span class="annottext">DateRangeUnit -&gt; ByteStringBuilder
+(DateRangeUnit -&gt; ByteStringBuilder) -&gt; ToLog DateRangeUnit
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DateRangeUnit -&gt; ByteStringBuilder
+$cbuild :: DateRangeUnit -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679977115"><span class="annot"><span class="annottext">HeaderName -&gt; DateRangeUnit -&gt; [Header]
+(HeaderName -&gt; DateRangeUnit -&gt; [Header]) -&gt; ToHeader DateRangeUnit
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DateRangeUnit -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DateRangeUnit -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679977112"><span class="annot"><span class="annottext">DateRangeUnit -&gt; QueryString
+(DateRangeUnit -&gt; QueryString) -&gt; ToQuery DateRangeUnit
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DateRangeUnit -&gt; QueryString
+$ctoQuery :: DateRangeUnit -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679977107"><span id="local-6989586621679977109"><span class="annot"><span class="annottext">Value -&gt; Parser [DateRangeUnit]
+Value -&gt; Parser DateRangeUnit
+(Value -&gt; Parser DateRangeUnit)
+-&gt; (Value -&gt; Parser [DateRangeUnit]) -&gt; FromJSON DateRangeUnit
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DateRangeUnit]
+$cparseJSONList :: Value -&gt; Parser [DateRangeUnit]
+parseJSON :: Value -&gt; Parser DateRangeUnit
+$cparseJSON :: Value -&gt; Parser DateRangeUnit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679977102"><span id="local-6989586621679977104"><span class="annot"><span class="annottext">FromJSONKeyFunction [DateRangeUnit]
+FromJSONKeyFunction DateRangeUnit
+FromJSONKeyFunction DateRangeUnit
+-&gt; FromJSONKeyFunction [DateRangeUnit] -&gt; FromJSONKey DateRangeUnit
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DateRangeUnit]
+$cfromJSONKeyList :: FromJSONKeyFunction [DateRangeUnit]
+fromJSONKey :: FromJSONKeyFunction DateRangeUnit
+$cfromJSONKey :: FromJSONKeyFunction DateRangeUnit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679977093"><span id="local-6989586621679977095"><span id="local-6989586621679977097"><span id="local-6989586621679977099"><span class="annot"><span class="annottext">[DateRangeUnit] -&gt; Encoding
+[DateRangeUnit] -&gt; Value
+DateRangeUnit -&gt; Encoding
+DateRangeUnit -&gt; Value
+(DateRangeUnit -&gt; Value)
+-&gt; (DateRangeUnit -&gt; Encoding)
+-&gt; ([DateRangeUnit] -&gt; Value)
+-&gt; ([DateRangeUnit] -&gt; Encoding)
+-&gt; ToJSON DateRangeUnit
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DateRangeUnit] -&gt; Encoding
+$ctoEncodingList :: [DateRangeUnit] -&gt; Encoding
+toJSONList :: [DateRangeUnit] -&gt; Value
+$ctoJSONList :: [DateRangeUnit] -&gt; Value
+toEncoding :: DateRangeUnit -&gt; Encoding
+$ctoEncoding :: DateRangeUnit -&gt; Encoding
+toJSON :: DateRangeUnit -&gt; Value
+$ctoJSON :: DateRangeUnit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679977088"><span id="local-6989586621679977090"><span class="annot"><span class="annottext">ToJSONKeyFunction [DateRangeUnit]
+ToJSONKeyFunction DateRangeUnit
+ToJSONKeyFunction DateRangeUnit
+-&gt; ToJSONKeyFunction [DateRangeUnit] -&gt; ToJSONKey DateRangeUnit
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DateRangeUnit]
+$ctoJSONKeyList :: ToJSONKeyFunction [DateRangeUnit]
+toJSONKey :: ToJSONKeyFunction DateRangeUnit
+$ctoJSONKey :: ToJSONKeyFunction DateRangeUnit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679977085"><span class="annot"><span class="annottext">[Node] -&gt; Either String DateRangeUnit
+([Node] -&gt; Either String DateRangeUnit) -&gt; FromXML DateRangeUnit
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DateRangeUnit
+$cparseXML :: [Node] -&gt; Either String DateRangeUnit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679977082"><span class="annot"><span class="annottext">DateRangeUnit -&gt; XML
+(DateRangeUnit -&gt; XML) -&gt; ToXML DateRangeUnit
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DateRangeUnit -&gt; XML
+$ctoXML :: DateRangeUnit -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit_DAYS"><span class="hs-identifier hs-type">DateRangeUnit_DAYS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit"><span class="hs-identifier hs-type">DateRangeUnit</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDateRangeUnit_DAYS"><span id="%24mDateRangeUnit_DAYS"><span id="DateRangeUnit_DAYS"><span class="annot"><span class="annottext">$bDateRangeUnit_DAYS :: DateRangeUnit
+$mDateRangeUnit_DAYS :: forall r. DateRangeUnit -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#%24bDateRangeUnit_DAYS"><span class="hs-identifier hs-var hs-var hs-var">DateRangeUnit_DAYS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit%27"><span class="hs-identifier hs-type">DateRangeUnit'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAYS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit_DAYS"><span class="hs-pragma hs-type">DateRangeUnit_DAYS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.DateRangeUnit.html#DateRangeUnit%27"><span class="hs-pragma hs-type">DateRangeUnit'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

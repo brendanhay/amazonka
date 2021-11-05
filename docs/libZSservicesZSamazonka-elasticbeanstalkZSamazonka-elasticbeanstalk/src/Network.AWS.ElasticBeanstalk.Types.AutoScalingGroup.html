@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an Auto Scaling launch configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAutoScalingGroup' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679299309"><span id="local-6989586621679299310"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingGroup"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-var">AutoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingGroup%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-var">AutoScalingGroup'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679299318"><span id="local-6989586621679299319"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingGroup"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-var">AutoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingGroup%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-var">AutoScalingGroup'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the @AutoScalingGroup@ .</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AAutoScalingGroup%27"><span class="annot"><span class="annottext">AutoScalingGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#%24sel%3Aname%3AAutoScalingGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299303"><span id="local-6989586621679299305"><span class="annot"><span class="annottext">AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299312"><span id="local-6989586621679299314"><span class="annot"><span class="annottext">AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
 (AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool)
 -&gt; (AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool)
 -&gt; Eq AutoScalingGroup
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
 == :: AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
 $c== :: AutoScalingGroup -&gt; AutoScalingGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299294"><span id="local-6989586621679299296"><span id="local-6989586621679299298"><span id="local-6989586621679299300"><span class="annot"><span class="annottext">ReadPrec [AutoScalingGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299303"><span id="local-6989586621679299305"><span id="local-6989586621679299307"><span id="local-6989586621679299309"><span class="annot"><span class="annottext">ReadPrec [AutoScalingGroup]
 ReadPrec AutoScalingGroup
 Int -&gt; ReadS AutoScalingGroup
 ReadS [AutoScalingGroup]
@@ -60,7 +60,7 @@ readList :: ReadS [AutoScalingGroup]
 $creadList :: ReadS [AutoScalingGroup]
 readsPrec :: Int -&gt; ReadS AutoScalingGroup
 $creadsPrec :: Int -&gt; ReadS AutoScalingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299287"><span id="local-6989586621679299289"><span id="local-6989586621679299291"><span class="annot"><span class="annottext">Int -&gt; AutoScalingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299296"><span id="local-6989586621679299298"><span id="local-6989586621679299300"><span class="annot"><span class="annottext">Int -&gt; AutoScalingGroup -&gt; ShowS
 [AutoScalingGroup] -&gt; ShowS
 AutoScalingGroup -&gt; String
 (Int -&gt; AutoScalingGroup -&gt; ShowS)
@@ -113,32 +113,32 @@ forall a. Maybe a
 -&gt; (AutoScalingGroup -&gt; Maybe Text -&gt; AutoScalingGroup)
 -&gt; Lens AutoScalingGroup AutoScalingGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-type">AutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299278"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-type">AutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299287"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:AutoScalingGroup' :: AutoScalingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679299278"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299278"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299277"><span class="annot"><span class="annottext">s :: AutoScalingGroup
-</span><a href="#local-6989586621679299277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-type">AutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299276"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroup
-</span><a href="#local-6989586621679299277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AutoScalingGroup' :: Maybe Text
+</span><a href="#local-6989586621679299287"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299287"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299286"><span class="annot"><span class="annottext">s :: AutoScalingGroup
+</span><a href="#local-6989586621679299286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-type">AutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroup
+</span><a href="#local-6989586621679299286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AutoScalingGroup' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#%24sel%3Aname%3AAutoScalingGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679299273"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AutoScalingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679299271"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679299282"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AutoScalingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679299280"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; AutoScalingGroup
 </span><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup%27"><span class="hs-identifier hs-var">AutoScalingGroup'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AutoScalingGroup)
 -&gt; Either String (Maybe Text) -&gt; Either String AutoScalingGroup
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679299280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299265"><span id="local-6989586621679299267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299274"><span id="local-6989586621679299276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span></span><span>
 </span><span id="line-60"></span></pre></body></html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.PinpointEmail.GetDedicatedIp</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Get information about a dedicated IP address, including the name of the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- dedicated IP pool that it\'s associated with, as well information about</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the automatic warm-up process for the address.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.PinpointEmail.GetDedicatedIp</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier">GetDedicatedIp</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#newGetDedicatedIp"><span class="hs-identifier">newGetDedicatedIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIp_ip"><span class="hs-identifier">getDedicatedIp_ip</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier">GetDedicatedIpResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#newGetDedicatedIpResponse"><span class="hs-identifier">newGetDedicatedIpResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIpResponse_dedicatedIp"><span class="hs-identifier">getDedicatedIpResponse_dedicatedIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIpResponse_httpStatus"><span class="hs-identifier">getDedicatedIpResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.html"><span class="hs-identifier">Network.AWS.PinpointEmail.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | A request to obtain more information about a dedicated IP address.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetDedicatedIp' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679242881"><span id="local-6989586621679242882"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDedicatedIp"><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-var">GetDedicatedIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDedicatedIp%27"><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp%27"><span class="hs-identifier hs-var">GetDedicatedIp'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address that you want to obtain more information about. The value</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- you specify has to be a dedicated IP address that\'s assocaited with</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- your Amazon Pinpoint account.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aip%3AGetDedicatedIp%27"><span class="annot"><span class="annottext">GetDedicatedIp -&gt; Text
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3Aip%3AGetDedicatedIp%27"><span class="hs-identifier hs-var hs-var">ip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242875"><span id="local-6989586621679242877"><span class="annot"><span class="annottext">GetDedicatedIp -&gt; GetDedicatedIp -&gt; Bool
+(GetDedicatedIp -&gt; GetDedicatedIp -&gt; Bool)
+-&gt; (GetDedicatedIp -&gt; GetDedicatedIp -&gt; Bool) -&gt; Eq GetDedicatedIp
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDedicatedIp -&gt; GetDedicatedIp -&gt; Bool
+$c/= :: GetDedicatedIp -&gt; GetDedicatedIp -&gt; Bool
+== :: GetDedicatedIp -&gt; GetDedicatedIp -&gt; Bool
+$c== :: GetDedicatedIp -&gt; GetDedicatedIp -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242866"><span id="local-6989586621679242868"><span id="local-6989586621679242870"><span id="local-6989586621679242872"><span class="annot"><span class="annottext">ReadPrec [GetDedicatedIp]
+ReadPrec GetDedicatedIp
+Int -&gt; ReadS GetDedicatedIp
+ReadS [GetDedicatedIp]
+(Int -&gt; ReadS GetDedicatedIp)
+-&gt; ReadS [GetDedicatedIp]
+-&gt; ReadPrec GetDedicatedIp
+-&gt; ReadPrec [GetDedicatedIp]
+-&gt; Read GetDedicatedIp
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDedicatedIp]
+$creadListPrec :: ReadPrec [GetDedicatedIp]
+readPrec :: ReadPrec GetDedicatedIp
+$creadPrec :: ReadPrec GetDedicatedIp
+readList :: ReadS [GetDedicatedIp]
+$creadList :: ReadS [GetDedicatedIp]
+readsPrec :: Int -&gt; ReadS GetDedicatedIp
+$creadsPrec :: Int -&gt; ReadS GetDedicatedIp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242859"><span id="local-6989586621679242861"><span id="local-6989586621679242863"><span class="annot"><span class="annottext">Int -&gt; GetDedicatedIp -&gt; ShowS
+[GetDedicatedIp] -&gt; ShowS
+GetDedicatedIp -&gt; String
+(Int -&gt; GetDedicatedIp -&gt; ShowS)
+-&gt; (GetDedicatedIp -&gt; String)
+-&gt; ([GetDedicatedIp] -&gt; ShowS)
+-&gt; Show GetDedicatedIp
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDedicatedIp] -&gt; ShowS
+$cshowList :: [GetDedicatedIp] -&gt; ShowS
+show :: GetDedicatedIp -&gt; String
+$cshow :: GetDedicatedIp -&gt; String
+showsPrec :: Int -&gt; GetDedicatedIp -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDedicatedIp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDedicatedIp -&gt; Rep GetDedicatedIp x)
+-&gt; (forall x. Rep GetDedicatedIp x -&gt; GetDedicatedIp)
+-&gt; Generic GetDedicatedIp
+forall x. Rep GetDedicatedIp x -&gt; GetDedicatedIp
+forall x. GetDedicatedIp -&gt; Rep GetDedicatedIp x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDedicatedIp x -&gt; GetDedicatedIp
+$cfrom :: forall x. GetDedicatedIp -&gt; Rep GetDedicatedIp x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'GetDedicatedIp' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'ip', 'getDedicatedIp_ip' - The IP address that you want to obtain more information about. The value</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- you specify has to be a dedicated IP address that\'s assocaited with</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- your Amazon Pinpoint account.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#newGetDedicatedIp"><span class="hs-identifier hs-type">newGetDedicatedIp</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'ip'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span>
+</span><span id="line-77"></span><span id="newGetDedicatedIp"><span class="annot"><span class="annottext">newGetDedicatedIp :: Text -&gt; GetDedicatedIp
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#newGetDedicatedIp"><span class="hs-identifier hs-var hs-var">newGetDedicatedIp</span></a></span></span><span> </span><span id="local-6989586621679242854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242854"><span class="hs-identifier hs-var">pIp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetDedicatedIp' :: Text -&gt; GetDedicatedIp
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp%27"><span class="hs-identifier hs-type">GetDedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ip:GetDedicatedIp' :: Text
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3Aip%3AGetDedicatedIp%27"><span class="hs-identifier hs-var">ip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242854"><span class="hs-identifier hs-var">pIp_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The IP address that you want to obtain more information about. The value</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- you specify has to be a dedicated IP address that\'s assocaited with</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- your Amazon Pinpoint account.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIp_ip"><span class="hs-identifier hs-type">getDedicatedIp_ip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="getDedicatedIp_ip"><span class="annot"><span class="annottext">getDedicatedIp_ip :: (Text -&gt; f Text) -&gt; GetDedicatedIp -&gt; f GetDedicatedIp
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIp_ip"><span class="hs-identifier hs-var hs-var">getDedicatedIp_ip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDedicatedIp -&gt; Text)
+-&gt; (GetDedicatedIp -&gt; Text -&gt; GetDedicatedIp)
+-&gt; Lens GetDedicatedIp GetDedicatedIp Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp%27"><span class="hs-identifier hs-type">GetDedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242851"><span class="annot"><span class="annottext">Text
+ip :: Text
+$sel:ip:GetDedicatedIp' :: GetDedicatedIp -&gt; Text
+</span><a href="#local-6989586621679242851"><span class="hs-identifier hs-var hs-var">ip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242851"><span class="hs-identifier hs-var">ip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242850"><span class="annot"><span class="annottext">s :: GetDedicatedIp
+</span><a href="#local-6989586621679242850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp%27"><span class="hs-identifier hs-type">GetDedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242849"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDedicatedIp
+</span><a href="#local-6989586621679242850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ip:GetDedicatedIp' :: Text
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3Aip%3AGetDedicatedIp%27"><span class="hs-identifier hs-var">ip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-type">GetDedicatedIpResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679242845"><span class="annot"><span class="annottext">request :: GetDedicatedIp -&gt; Request GetDedicatedIp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDedicatedIp -&gt; Request GetDedicatedIp
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.PinpointEmail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679242841"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDedicatedIp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDedicatedIp)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDedicatedIp))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDedicatedIp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDedicatedIp)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242838"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242838"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679242837"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679242837"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679242836"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe DedicatedIp -&gt; Int -&gt; GetDedicatedIpResponse
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse%27"><span class="hs-identifier hs-var">GetDedicatedIpResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DedicatedIp -&gt; Int -&gt; GetDedicatedIpResponse)
+-&gt; Either String (Maybe DedicatedIp)
+-&gt; Either String (Int -&gt; GetDedicatedIpResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DedicatedIp)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedIp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDedicatedIpResponse)
+-&gt; Either String Int -&gt; Either String GetDedicatedIpResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242838"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242828"><span id="local-6989586621679242830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679242821"><span class="annot"><span class="annottext">toHeaders :: GetDedicatedIp -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDedicatedIp -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679242815"><span class="annot"><span class="annottext">toPath :: GetDedicatedIp -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp%27"><span class="hs-identifier hs-type">GetDedicatedIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242813"><span class="annot"><span class="annottext">Text
+ip :: Text
+$sel:ip:GetDedicatedIp' :: GetDedicatedIp -&gt; Text
+</span><a href="#local-6989586621679242813"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/email/dedicated-ips/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242813"><span class="hs-identifier hs-var">ip</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIp"><span class="hs-identifier hs-type">GetDedicatedIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679242809"><span class="annot"><span class="annottext">toQuery :: GetDedicatedIp -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDedicatedIp -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Information about a dedicated IP address.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- /See:/ 'newGetDedicatedIpResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679242806"><span id="local-6989586621679242807"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDedicatedIpResponse"><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-var">GetDedicatedIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDedicatedIpResponse%27"><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse%27"><span class="hs-identifier hs-var">GetDedicatedIpResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains information about a dedicated IP address.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AdedicatedIp%3AGetDedicatedIpResponse%27"><span class="annot"><span class="annottext">GetDedicatedIpResponse -&gt; Maybe DedicatedIp
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3AdedicatedIp%3AGetDedicatedIpResponse%27"><span class="hs-identifier hs-var hs-var">dedicatedIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDedicatedIpResponse%27"><span class="annot"><span class="annottext">GetDedicatedIpResponse -&gt; Int
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3AhttpStatus%3AGetDedicatedIpResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242800"><span id="local-6989586621679242802"><span class="annot"><span class="annottext">GetDedicatedIpResponse -&gt; GetDedicatedIpResponse -&gt; Bool
+(GetDedicatedIpResponse -&gt; GetDedicatedIpResponse -&gt; Bool)
+-&gt; (GetDedicatedIpResponse -&gt; GetDedicatedIpResponse -&gt; Bool)
+-&gt; Eq GetDedicatedIpResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDedicatedIpResponse -&gt; GetDedicatedIpResponse -&gt; Bool
+$c/= :: GetDedicatedIpResponse -&gt; GetDedicatedIpResponse -&gt; Bool
+== :: GetDedicatedIpResponse -&gt; GetDedicatedIpResponse -&gt; Bool
+$c== :: GetDedicatedIpResponse -&gt; GetDedicatedIpResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242792"><span id="local-6989586621679242794"><span id="local-6989586621679242796"><span id="local-6989586621679242798"><span class="annot"><span class="annottext">ReadPrec [GetDedicatedIpResponse]
+ReadPrec GetDedicatedIpResponse
+Int -&gt; ReadS GetDedicatedIpResponse
+ReadS [GetDedicatedIpResponse]
+(Int -&gt; ReadS GetDedicatedIpResponse)
+-&gt; ReadS [GetDedicatedIpResponse]
+-&gt; ReadPrec GetDedicatedIpResponse
+-&gt; ReadPrec [GetDedicatedIpResponse]
+-&gt; Read GetDedicatedIpResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDedicatedIpResponse]
+$creadListPrec :: ReadPrec [GetDedicatedIpResponse]
+readPrec :: ReadPrec GetDedicatedIpResponse
+$creadPrec :: ReadPrec GetDedicatedIpResponse
+readList :: ReadS [GetDedicatedIpResponse]
+$creadList :: ReadS [GetDedicatedIpResponse]
+readsPrec :: Int -&gt; ReadS GetDedicatedIpResponse
+$creadsPrec :: Int -&gt; ReadS GetDedicatedIpResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242786"><span id="local-6989586621679242788"><span id="local-6989586621679242790"><span class="annot"><span class="annottext">Int -&gt; GetDedicatedIpResponse -&gt; ShowS
+[GetDedicatedIpResponse] -&gt; ShowS
+GetDedicatedIpResponse -&gt; String
+(Int -&gt; GetDedicatedIpResponse -&gt; ShowS)
+-&gt; (GetDedicatedIpResponse -&gt; String)
+-&gt; ([GetDedicatedIpResponse] -&gt; ShowS)
+-&gt; Show GetDedicatedIpResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDedicatedIpResponse] -&gt; ShowS
+$cshowList :: [GetDedicatedIpResponse] -&gt; ShowS
+show :: GetDedicatedIpResponse -&gt; String
+$cshow :: GetDedicatedIpResponse -&gt; String
+showsPrec :: Int -&gt; GetDedicatedIpResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDedicatedIpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDedicatedIpResponse -&gt; Rep GetDedicatedIpResponse x)
+-&gt; (forall x.
+    Rep GetDedicatedIpResponse x -&gt; GetDedicatedIpResponse)
+-&gt; Generic GetDedicatedIpResponse
+forall x. Rep GetDedicatedIpResponse x -&gt; GetDedicatedIpResponse
+forall x. GetDedicatedIpResponse -&gt; Rep GetDedicatedIpResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDedicatedIpResponse x -&gt; GetDedicatedIpResponse
+$cfrom :: forall x. GetDedicatedIpResponse -&gt; Rep GetDedicatedIpResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'GetDedicatedIpResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'dedicatedIp', 'getDedicatedIpResponse_dedicatedIp' - An object that contains information about a dedicated IP address.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'getDedicatedIpResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#newGetDedicatedIpResponse"><span class="hs-identifier hs-type">newGetDedicatedIpResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-type">GetDedicatedIpResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newGetDedicatedIpResponse"><span class="annot"><span class="annottext">newGetDedicatedIpResponse :: Int -&gt; GetDedicatedIpResponse
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#newGetDedicatedIpResponse"><span class="hs-identifier hs-var hs-var">newGetDedicatedIpResponse</span></a></span></span><span> </span><span id="local-6989586621679242783"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242783"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">GetDedicatedIpResponse' :: Maybe DedicatedIp -&gt; Int -&gt; GetDedicatedIpResponse
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse%27"><span class="hs-identifier hs-type">GetDedicatedIpResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dedicatedIp:GetDedicatedIpResponse' :: Maybe DedicatedIp
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3AdedicatedIp%3AGetDedicatedIpResponse%27"><span class="hs-identifier hs-var">dedicatedIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Maybe DedicatedIp
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDedicatedIpResponse' :: Int
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3AhttpStatus%3AGetDedicatedIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242783"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | An object that contains information about a dedicated IP address.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIpResponse_dedicatedIp"><span class="hs-identifier hs-type">getDedicatedIpResponse_dedicatedIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-type">GetDedicatedIpResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.DedicatedIp.html#DedicatedIp"><span class="hs-identifier hs-type">DedicatedIp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="getDedicatedIpResponse_dedicatedIp"><span class="annot"><span class="annottext">getDedicatedIpResponse_dedicatedIp :: (Maybe DedicatedIp -&gt; f (Maybe DedicatedIp))
+-&gt; GetDedicatedIpResponse -&gt; f GetDedicatedIpResponse
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIpResponse_dedicatedIp"><span class="hs-identifier hs-var hs-var">getDedicatedIpResponse_dedicatedIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDedicatedIpResponse -&gt; Maybe DedicatedIp)
+-&gt; (GetDedicatedIpResponse
+    -&gt; Maybe DedicatedIp -&gt; GetDedicatedIpResponse)
+-&gt; Lens
+     GetDedicatedIpResponse
+     GetDedicatedIpResponse
+     (Maybe DedicatedIp)
+     (Maybe DedicatedIp)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse%27"><span class="hs-identifier hs-type">GetDedicatedIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242782"><span class="annot"><span class="annottext">Maybe DedicatedIp
+dedicatedIp :: Maybe DedicatedIp
+$sel:dedicatedIp:GetDedicatedIpResponse' :: GetDedicatedIpResponse -&gt; Maybe DedicatedIp
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var hs-var">dedicatedIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedIp
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">dedicatedIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242781"><span class="annot"><span class="annottext">s :: GetDedicatedIpResponse
+</span><a href="#local-6989586621679242781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse%27"><span class="hs-identifier hs-type">GetDedicatedIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242780"><span class="annot"><span class="annottext">Maybe DedicatedIp
+</span><a href="#local-6989586621679242780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDedicatedIpResponse
+</span><a href="#local-6989586621679242781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedIp:GetDedicatedIpResponse' :: Maybe DedicatedIp
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3AdedicatedIp%3AGetDedicatedIpResponse%27"><span class="hs-identifier hs-var">dedicatedIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedIp
+</span><a href="#local-6989586621679242780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-type">GetDedicatedIpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIpResponse_httpStatus"><span class="hs-identifier hs-type">getDedicatedIpResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-type">GetDedicatedIpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span id="getDedicatedIpResponse_httpStatus"><span class="annot"><span class="annottext">getDedicatedIpResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDedicatedIpResponse -&gt; f GetDedicatedIpResponse
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#getDedicatedIpResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDedicatedIpResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDedicatedIpResponse -&gt; Int)
+-&gt; (GetDedicatedIpResponse -&gt; Int -&gt; GetDedicatedIpResponse)
+-&gt; Lens GetDedicatedIpResponse GetDedicatedIpResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse%27"><span class="hs-identifier hs-type">GetDedicatedIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242779"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDedicatedIpResponse' :: GetDedicatedIpResponse -&gt; Int
+</span><a href="#local-6989586621679242779"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242779"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242778"><span class="annot"><span class="annottext">s :: GetDedicatedIpResponse
+</span><a href="#local-6989586621679242778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse%27"><span class="hs-identifier hs-type">GetDedicatedIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDedicatedIpResponse
+</span><a href="#local-6989586621679242778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDedicatedIpResponse' :: Int
+</span><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#%24sel%3AhttpStatus%3AGetDedicatedIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-type">GetDedicatedIpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242775"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.GetDedicatedIp.html#GetDedicatedIpResponse"><span class="hs-identifier hs-type">GetDedicatedIpResponse</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

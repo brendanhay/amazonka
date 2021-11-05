@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- finding.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDnsRequestAction' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679295613"><span id="local-6989586621679295614"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRequestAction"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-var">DnsRequestAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRequestAction%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction%27"><span class="hs-identifier hs-var">DnsRequestAction'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679295622"><span id="local-6989586621679295623"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRequestAction"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-var">DnsRequestAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRequestAction%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction%27"><span class="hs-identifier hs-var">DnsRequestAction'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain information for the API request.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adomain%3ADnsRequestAction%27"><span class="annot"><span class="annottext">DnsRequestAction -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#%24sel%3Adomain%3ADnsRequestAction%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295607"><span id="local-6989586621679295609"><span class="annot"><span class="annottext">DnsRequestAction -&gt; DnsRequestAction -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295616"><span id="local-6989586621679295618"><span class="annot"><span class="annottext">DnsRequestAction -&gt; DnsRequestAction -&gt; Bool
 (DnsRequestAction -&gt; DnsRequestAction -&gt; Bool)
 -&gt; (DnsRequestAction -&gt; DnsRequestAction -&gt; Bool)
 -&gt; Eq DnsRequestAction
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DnsRequestAction -&gt; DnsRequestAction -&gt; Bool
 == :: DnsRequestAction -&gt; DnsRequestAction -&gt; Bool
 $c== :: DnsRequestAction -&gt; DnsRequestAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295598"><span id="local-6989586621679295600"><span id="local-6989586621679295602"><span id="local-6989586621679295604"><span class="annot"><span class="annottext">ReadPrec [DnsRequestAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295607"><span id="local-6989586621679295609"><span id="local-6989586621679295611"><span id="local-6989586621679295613"><span class="annot"><span class="annottext">ReadPrec [DnsRequestAction]
 ReadPrec DnsRequestAction
 Int -&gt; ReadS DnsRequestAction
 ReadS [DnsRequestAction]
@@ -61,7 +61,7 @@ readList :: ReadS [DnsRequestAction]
 $creadList :: ReadS [DnsRequestAction]
 readsPrec :: Int -&gt; ReadS DnsRequestAction
 $creadsPrec :: Int -&gt; ReadS DnsRequestAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295591"><span id="local-6989586621679295593"><span id="local-6989586621679295595"><span class="annot"><span class="annottext">Int -&gt; DnsRequestAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295600"><span id="local-6989586621679295602"><span id="local-6989586621679295604"><span class="annot"><span class="annottext">Int -&gt; DnsRequestAction -&gt; ShowS
 [DnsRequestAction] -&gt; ShowS
 DnsRequestAction -&gt; String
 (Int -&gt; DnsRequestAction -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; (DnsRequestAction -&gt; Maybe Text -&gt; DnsRequestAction)
 -&gt; Lens DnsRequestAction DnsRequestAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction%27"><span class="hs-identifier hs-type">DnsRequestAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295582"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction%27"><span class="hs-identifier hs-type">DnsRequestAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295591"><span class="annot"><span class="annottext">Maybe Text
 domain :: Maybe Text
 $sel:domain:DnsRequestAction' :: DnsRequestAction -&gt; Maybe Text
-</span><a href="#local-6989586621679295582"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295582"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295581"><span class="annot"><span class="annottext">s :: DnsRequestAction
-</span><a href="#local-6989586621679295581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction%27"><span class="hs-identifier hs-type">DnsRequestAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295580"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRequestAction
-</span><a href="#local-6989586621679295581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DnsRequestAction' :: Maybe Text
+</span><a href="#local-6989586621679295591"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295591"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295590"><span class="annot"><span class="annottext">s :: DnsRequestAction
+</span><a href="#local-6989586621679295590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction%27"><span class="hs-identifier hs-type">DnsRequestAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRequestAction
+</span><a href="#local-6989586621679295590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DnsRequestAction' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#%24sel%3Adomain%3ADnsRequestAction%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295577"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679295575"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRequestAction
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295586"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679295584"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRequestAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DnsRequestAction)
@@ -136,20 +136,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DnsRequestAction&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295572"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295581"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295581"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; DnsRequestAction
 </span><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction%27"><span class="hs-identifier hs-var">DnsRequestAction'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; DnsRequestAction)
 -&gt; Parser (Maybe Text) -&gt; Parser DnsRequestAction
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679295581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domain&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295566"><span id="local-6989586621679295568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295575"><span id="local-6989586621679295577"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DnsRequestAction.html#DnsRequestAction"><span class="hs-identifier hs-type">DnsRequestAction</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

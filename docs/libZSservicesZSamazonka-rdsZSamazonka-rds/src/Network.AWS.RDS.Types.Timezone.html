@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- @DescribeDBSnapshots@, and the @DescribeDBEngineVersions@ actions.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTimezone' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679768468"><span id="local-6989586621679768469"></span></span><span class="hs-keyword">data</span><span> </span><span id="Timezone"><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-var">Timezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Timezone%27"><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone%27"><span class="hs-identifier hs-var">Timezone'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679768477"><span id="local-6989586621679768478"></span></span><span class="hs-keyword">data</span><span> </span><span id="Timezone"><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-var">Timezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Timezone%27"><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone%27"><span class="hs-identifier hs-var">Timezone'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the time zone.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtimezoneName%3ATimezone%27"><span class="annot"><span class="annottext">Timezone -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.Timezone.html#%24sel%3AtimezoneName%3ATimezone%27"><span class="hs-identifier hs-var hs-var">timezoneName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679768462"><span id="local-6989586621679768464"><span class="annot"><span class="annottext">Timezone -&gt; Timezone -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679768471"><span id="local-6989586621679768473"><span class="annot"><span class="annottext">Timezone -&gt; Timezone -&gt; Bool
 (Timezone -&gt; Timezone -&gt; Bool)
 -&gt; (Timezone -&gt; Timezone -&gt; Bool) -&gt; Eq Timezone
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Timezone -&gt; Timezone -&gt; Bool
 == :: Timezone -&gt; Timezone -&gt; Bool
 $c== :: Timezone -&gt; Timezone -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768453"><span id="local-6989586621679768455"><span id="local-6989586621679768457"><span id="local-6989586621679768459"><span class="annot"><span class="annottext">ReadPrec [Timezone]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768462"><span id="local-6989586621679768464"><span id="local-6989586621679768466"><span id="local-6989586621679768468"><span class="annot"><span class="annottext">ReadPrec [Timezone]
 ReadPrec Timezone
 Int -&gt; ReadS Timezone
 ReadS [Timezone]
@@ -61,7 +61,7 @@ readList :: ReadS [Timezone]
 $creadList :: ReadS [Timezone]
 readsPrec :: Int -&gt; ReadS Timezone
 $creadsPrec :: Int -&gt; ReadS Timezone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768446"><span id="local-6989586621679768448"><span id="local-6989586621679768450"><span class="annot"><span class="annottext">Int -&gt; Timezone -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768455"><span id="local-6989586621679768457"><span id="local-6989586621679768459"><span class="annot"><span class="annottext">Int -&gt; Timezone -&gt; ShowS
 [Timezone] -&gt; ShowS
 Timezone -&gt; String
 (Int -&gt; Timezone -&gt; ShowS)
@@ -110,32 +110,32 @@ forall a. Maybe a
 -&gt; (Timezone -&gt; Maybe Text -&gt; Timezone)
 -&gt; Lens Timezone Timezone (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone%27"><span class="hs-identifier hs-type">Timezone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768437"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone%27"><span class="hs-identifier hs-type">Timezone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768446"><span class="annot"><span class="annottext">Maybe Text
 timezoneName :: Maybe Text
 $sel:timezoneName:Timezone' :: Timezone -&gt; Maybe Text
-</span><a href="#local-6989586621679768437"><span class="hs-identifier hs-var hs-var">timezoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768437"><span class="hs-identifier hs-var">timezoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768436"><span class="annot"><span class="annottext">s :: Timezone
-</span><a href="#local-6989586621679768436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone%27"><span class="hs-identifier hs-type">Timezone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768435"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timezone
-</span><a href="#local-6989586621679768436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezoneName:Timezone' :: Maybe Text
+</span><a href="#local-6989586621679768446"><span class="hs-identifier hs-var hs-var">timezoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768446"><span class="hs-identifier hs-var">timezoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768445"><span class="annot"><span class="annottext">s :: Timezone
+</span><a href="#local-6989586621679768445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone%27"><span class="hs-identifier hs-type">Timezone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768444"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Timezone
+</span><a href="#local-6989586621679768445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezoneName:Timezone' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.Timezone.html#%24sel%3AtimezoneName%3ATimezone%27"><span class="hs-identifier hs-var">timezoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679768444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679768432"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Timezone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679768430"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768430"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679768441"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Timezone
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679768439"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768439"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Timezone
 </span><a href="Network.AWS.RDS.Types.Timezone.html#Timezone%27"><span class="hs-identifier hs-var">Timezone'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Timezone)
 -&gt; Either String (Maybe Text) -&gt; Either String Timezone
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679768439"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimezoneName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768424"><span id="local-6989586621679768426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768433"><span id="local-6989586621679768435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Timezone.html#Timezone"><span class="hs-identifier hs-type">Timezone</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

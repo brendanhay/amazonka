@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a core definition version.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCoreDefinitionVersion' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679341838"><span id="local-6989586621679341839"></span></span><span class="hs-keyword">data</span><span> </span><span id="CoreDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-var">CoreDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CoreDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-var">CoreDefinitionVersion'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679341847"><span id="local-6989586621679341848"></span></span><span class="hs-keyword">data</span><span> </span><span id="CoreDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-var">CoreDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CoreDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-var">CoreDefinitionVersion'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of cores in the core definition version.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Acores%3ACoreDefinitionVersion%27"><span class="annot"><span class="annottext">CoreDefinitionVersion -&gt; Maybe [Core]
 </span><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#%24sel%3Acores%3ACoreDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">cores</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Core.html#Core"><span class="hs-identifier hs-type">Core</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341832"><span id="local-6989586621679341834"><span class="annot"><span class="annottext">CoreDefinitionVersion -&gt; CoreDefinitionVersion -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341841"><span id="local-6989586621679341843"><span class="annot"><span class="annottext">CoreDefinitionVersion -&gt; CoreDefinitionVersion -&gt; Bool
 (CoreDefinitionVersion -&gt; CoreDefinitionVersion -&gt; Bool)
 -&gt; (CoreDefinitionVersion -&gt; CoreDefinitionVersion -&gt; Bool)
 -&gt; Eq CoreDefinitionVersion
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CoreDefinitionVersion -&gt; CoreDefinitionVersion -&gt; Bool
 == :: CoreDefinitionVersion -&gt; CoreDefinitionVersion -&gt; Bool
 $c== :: CoreDefinitionVersion -&gt; CoreDefinitionVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341823"><span id="local-6989586621679341825"><span id="local-6989586621679341827"><span id="local-6989586621679341829"><span class="annot"><span class="annottext">ReadPrec [CoreDefinitionVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341832"><span id="local-6989586621679341834"><span id="local-6989586621679341836"><span id="local-6989586621679341838"><span class="annot"><span class="annottext">ReadPrec [CoreDefinitionVersion]
 ReadPrec CoreDefinitionVersion
 Int -&gt; ReadS CoreDefinitionVersion
 ReadS [CoreDefinitionVersion]
@@ -61,7 +61,7 @@ readList :: ReadS [CoreDefinitionVersion]
 $creadList :: ReadS [CoreDefinitionVersion]
 readsPrec :: Int -&gt; ReadS CoreDefinitionVersion
 $creadsPrec :: Int -&gt; ReadS CoreDefinitionVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341816"><span id="local-6989586621679341818"><span id="local-6989586621679341820"><span class="annot"><span class="annottext">Int -&gt; CoreDefinitionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341825"><span id="local-6989586621679341827"><span id="local-6989586621679341829"><span class="annot"><span class="annottext">Int -&gt; CoreDefinitionVersion -&gt; ShowS
 [CoreDefinitionVersion] -&gt; ShowS
 CoreDefinitionVersion -&gt; String
 (Int -&gt; CoreDefinitionVersion -&gt; ShowS)
@@ -118,16 +118,16 @@ forall a. Maybe a
      (Maybe [Core])
      (Maybe [Core])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-type">CoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341807"><span class="annot"><span class="annottext">Maybe [Core]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-type">CoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341816"><span class="annot"><span class="annottext">Maybe [Core]
 cores :: Maybe [Core]
 $sel:cores:CoreDefinitionVersion' :: CoreDefinitionVersion -&gt; Maybe [Core]
-</span><a href="#local-6989586621679341807"><span class="hs-identifier hs-var hs-var">cores</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Core]
-</span><a href="#local-6989586621679341807"><span class="hs-identifier hs-var">cores</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341806"><span class="annot"><span class="annottext">s :: CoreDefinitionVersion
-</span><a href="#local-6989586621679341806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-type">CoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341805"><span class="annot"><span class="annottext">Maybe [Core]
-</span><a href="#local-6989586621679341805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CoreDefinitionVersion
-</span><a href="#local-6989586621679341806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cores:CoreDefinitionVersion' :: Maybe [Core]
+</span><a href="#local-6989586621679341816"><span class="hs-identifier hs-var hs-var">cores</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Core]
+</span><a href="#local-6989586621679341816"><span class="hs-identifier hs-var">cores</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341815"><span class="annot"><span class="annottext">s :: CoreDefinitionVersion
+</span><a href="#local-6989586621679341815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-type">CoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341814"><span class="annot"><span class="annottext">Maybe [Core]
+</span><a href="#local-6989586621679341814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CoreDefinitionVersion
+</span><a href="#local-6989586621679341815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cores:CoreDefinitionVersion' :: Maybe [Core]
 </span><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#%24sel%3Acores%3ACoreDefinitionVersion%27"><span class="hs-identifier hs-var">cores</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Core]
-</span><a href="#local-6989586621679341805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Core] -&gt; f (Maybe [Core]))
+</span><a href="#local-6989586621679341814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Core] -&gt; f (Maybe [Core]))
  -&gt; CoreDefinitionVersion -&gt; f CoreDefinitionVersion)
 -&gt; ((Maybe [Core] -&gt; f (Maybe [Core]))
     -&gt; Maybe [Core] -&gt; f (Maybe [Core]))
@@ -144,8 +144,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341799"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679341797"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CoreDefinitionVersion
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341808"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679341806"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CoreDefinitionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CoreDefinitionVersion)
@@ -155,15 +155,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CoreDefinitionVersion&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341794"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341803"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Core] -&gt; CoreDefinitionVersion
 </span><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-var">CoreDefinitionVersion'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Core] -&gt; CoreDefinitionVersion)
 -&gt; Parser (Maybe [Core]) -&gt; Parser CoreDefinitionVersion
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Core]))
+</span><a href="#local-6989586621679341803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Core]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cores&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Core]))
@@ -174,16 +174,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341787"><span id="local-6989586621679341789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341796"><span id="local-6989586621679341798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341776"><span id="local-6989586621679341778"><span id="local-6989586621679341780"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679341774"><span class="annot"><span class="annottext">toJSON :: CoreDefinitionVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-type">CoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341772"><span class="annot"><span class="annottext">Maybe [Core]
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341785"><span id="local-6989586621679341787"><span id="local-6989586621679341789"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679341783"><span class="annot"><span class="annottext">toJSON :: CoreDefinitionVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion%27"><span class="hs-identifier hs-type">CoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341781"><span class="annot"><span class="annottext">Maybe [Core]
 cores :: Maybe [Core]
 $sel:cores:CoreDefinitionVersion' :: CoreDefinitionVersion -&gt; Maybe [Core]
-</span><a href="#local-6989586621679341772"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341781"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -195,6 +195,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Core] -&gt; Pair) -&gt; Maybe [Core] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Core]
-</span><a href="#local-6989586621679341772"><span class="hs-identifier hs-var">cores</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679341781"><span class="hs-identifier hs-var">cores</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

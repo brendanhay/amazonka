@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.InputColumn</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.InputColumn</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumnDataType.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.InputColumnDataType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Metadata for a column that is used as the input of a transform</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInputColumn' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679559163"><span id="local-6989586621679559164"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputColumn"><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-var">InputColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputColumn%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-var">InputColumn'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of this column in the underlying data source.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AInputColumn%27"><span class="annot"><span class="annottext">InputColumn -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#%24sel%3Aname%3AInputColumn%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The data type of the column.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3AInputColumn%27"><span class="annot"><span class="annottext">InputColumn -&gt; InputColumnDataType
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#%24sel%3Atype%27%3AInputColumn%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559156"><span id="local-6989586621679559158"><span class="annot"><span class="annottext">InputColumn -&gt; InputColumn -&gt; Bool
+(InputColumn -&gt; InputColumn -&gt; Bool)
+-&gt; (InputColumn -&gt; InputColumn -&gt; Bool) -&gt; Eq InputColumn
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputColumn -&gt; InputColumn -&gt; Bool
+$c/= :: InputColumn -&gt; InputColumn -&gt; Bool
+== :: InputColumn -&gt; InputColumn -&gt; Bool
+$c== :: InputColumn -&gt; InputColumn -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559147"><span id="local-6989586621679559149"><span id="local-6989586621679559151"><span id="local-6989586621679559153"><span class="annot"><span class="annottext">ReadPrec [InputColumn]
+ReadPrec InputColumn
+Int -&gt; ReadS InputColumn
+ReadS [InputColumn]
+(Int -&gt; ReadS InputColumn)
+-&gt; ReadS [InputColumn]
+-&gt; ReadPrec InputColumn
+-&gt; ReadPrec [InputColumn]
+-&gt; Read InputColumn
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputColumn]
+$creadListPrec :: ReadPrec [InputColumn]
+readPrec :: ReadPrec InputColumn
+$creadPrec :: ReadPrec InputColumn
+readList :: ReadS [InputColumn]
+$creadList :: ReadS [InputColumn]
+readsPrec :: Int -&gt; ReadS InputColumn
+$creadsPrec :: Int -&gt; ReadS InputColumn
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559140"><span id="local-6989586621679559142"><span id="local-6989586621679559144"><span class="annot"><span class="annottext">Int -&gt; InputColumn -&gt; ShowS
+[InputColumn] -&gt; ShowS
+InputColumn -&gt; String
+(Int -&gt; InputColumn -&gt; ShowS)
+-&gt; (InputColumn -&gt; String)
+-&gt; ([InputColumn] -&gt; ShowS)
+-&gt; Show InputColumn
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputColumn] -&gt; ShowS
+$cshowList :: [InputColumn] -&gt; ShowS
+show :: InputColumn -&gt; String
+$cshow :: InputColumn -&gt; String
+showsPrec :: Int -&gt; InputColumn -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputColumn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputColumn -&gt; Rep InputColumn x)
+-&gt; (forall x. Rep InputColumn x -&gt; InputColumn)
+-&gt; Generic InputColumn
+forall x. Rep InputColumn x -&gt; InputColumn
+forall x. InputColumn -&gt; Rep InputColumn x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputColumn x -&gt; InputColumn
+$cfrom :: forall x. InputColumn -&gt; Rep InputColumn x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'InputColumn' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'name', 'inputColumn_name' - The name of this column in the underlying data source.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'type'', 'inputColumn_type' - The data type of the column.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#newInputColumn"><span class="hs-identifier hs-type">newInputColumn</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span><span>
+</span><span id="line-56"></span><span id="newInputColumn"><span class="annot"><span class="annottext">newInputColumn :: Text -&gt; InputColumnDataType -&gt; InputColumn
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#newInputColumn"><span class="hs-identifier hs-var hs-var">newInputColumn</span></a></span></span><span> </span><span id="local-6989586621679559134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559134"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679559133"><span class="annot"><span class="annottext">InputColumnDataType
+</span><a href="#local-6989586621679559133"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">InputColumn' :: Text -&gt; InputColumnDataType -&gt; InputColumn
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-type">InputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputColumn' :: Text
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#%24sel%3Aname%3AInputColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559134"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':InputColumn' :: InputColumnDataType
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#%24sel%3Atype%27%3AInputColumn%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputColumnDataType
+</span><a href="#local-6989586621679559133"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The name of this column in the underlying data source.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#inputColumn_name"><span class="hs-identifier hs-type">inputColumn_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span id="inputColumn_name"><span class="annot"><span class="annottext">inputColumn_name :: (Text -&gt; f Text) -&gt; InputColumn -&gt; f InputColumn
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#inputColumn_name"><span class="hs-identifier hs-var hs-var">inputColumn_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputColumn -&gt; Text)
+-&gt; (InputColumn -&gt; Text -&gt; InputColumn)
+-&gt; Lens InputColumn InputColumn Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-type">InputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559129"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:InputColumn' :: InputColumn -&gt; Text
+</span><a href="#local-6989586621679559129"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559129"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559128"><span class="annot"><span class="annottext">s :: InputColumn
+</span><a href="#local-6989586621679559128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-type">InputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputColumn
+</span><a href="#local-6989586621679559128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputColumn' :: Text
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#%24sel%3Aname%3AInputColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The data type of the column.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#inputColumn_type"><span class="hs-identifier hs-type">inputColumn_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-65"></span><span id="inputColumn_type"><span class="annot"><span class="annottext">inputColumn_type :: (InputColumnDataType -&gt; f InputColumnDataType)
+-&gt; InputColumn -&gt; f InputColumn
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#inputColumn_type"><span class="hs-identifier hs-var hs-var">inputColumn_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputColumn -&gt; InputColumnDataType)
+-&gt; (InputColumn -&gt; InputColumnDataType -&gt; InputColumn)
+-&gt; Lens
+     InputColumn InputColumn InputColumnDataType InputColumnDataType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-type">InputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559125"><span class="annot"><span class="annottext">InputColumnDataType
+type' :: InputColumnDataType
+$sel:type':InputColumn' :: InputColumn -&gt; InputColumnDataType
+</span><a href="#local-6989586621679559125"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputColumnDataType
+</span><a href="#local-6989586621679559125"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559124"><span class="annot"><span class="annottext">s :: InputColumn
+</span><a href="#local-6989586621679559124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-type">InputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559123"><span class="annot"><span class="annottext">InputColumnDataType
+</span><a href="#local-6989586621679559123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputColumn
+</span><a href="#local-6989586621679559124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':InputColumn' :: InputColumnDataType
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#%24sel%3Atype%27%3AInputColumn%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputColumnDataType
+</span><a href="#local-6989586621679559123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679559118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputColumn
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputColumn) -&gt; Value -&gt; Parser InputColumn
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputColumn&quot;</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679559115"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; InputColumnDataType -&gt; InputColumn
+</span><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-var">InputColumn'</span></a></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; InputColumnDataType -&gt; InputColumn)
+-&gt; Parser Text -&gt; Parser (InputColumnDataType -&gt; InputColumn)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (InputColumnDataType -&gt; InputColumn)
+-&gt; Parser InputColumnDataType -&gt; Parser InputColumn
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InputColumnDataType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559109"><span id="local-6989586621679559111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559098"><span id="local-6989586621679559100"><span id="local-6989586621679559102"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn"><span class="hs-identifier hs-type">InputColumn</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679559096"><span class="annot"><span class="annottext">toJSON :: InputColumn -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.InputColumn.html#InputColumn%27"><span class="hs-identifier hs-type">InputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559093"><span id="local-6989586621679559094"><span class="annot"><span class="annottext">Text
+InputColumnDataType
+type' :: InputColumnDataType
+name :: Text
+$sel:type':InputColumn' :: InputColumn -&gt; InputColumnDataType
+$sel:name:InputColumn' :: InputColumn -&gt; Text
+</span><a href="#local-6989586621679559093"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559094"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputColumnDataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputColumnDataType
+</span><a href="#local-6989586621679559093"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span></pre></body></html>

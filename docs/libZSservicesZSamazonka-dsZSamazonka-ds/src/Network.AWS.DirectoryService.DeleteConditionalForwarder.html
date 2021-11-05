@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Deletes a conditional forwarder.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDeleteConditionalForwarder' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679312908"><span id="local-6989586621679312909"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConditionalForwarder"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-var">DeleteConditionalForwarder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConditionalForwarder%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-var">DeleteConditionalForwarder'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679312917"><span id="local-6989586621679312918"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConditionalForwarder"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-var">DeleteConditionalForwarder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConditionalForwarder%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-var">DeleteConditionalForwarder'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The directory ID for which you are deleting the conditional forwarder.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdirectoryId%3ADeleteConditionalForwarder%27"><span class="annot"><span class="annottext">DeleteConditionalForwarder -&gt; Text
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AdirectoryId%3ADeleteConditionalForwarder%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AremoteDomainName%3ADeleteConditionalForwarder%27"><span class="annot"><span class="annottext">DeleteConditionalForwarder -&gt; Text
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AremoteDomainName%3ADeleteConditionalForwarder%27"><span class="hs-identifier hs-var hs-var">remoteDomainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312901"><span id="local-6989586621679312903"><span class="annot"><span class="annottext">DeleteConditionalForwarder -&gt; DeleteConditionalForwarder -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312910"><span id="local-6989586621679312912"><span class="annot"><span class="annottext">DeleteConditionalForwarder -&gt; DeleteConditionalForwarder -&gt; Bool
 (DeleteConditionalForwarder -&gt; DeleteConditionalForwarder -&gt; Bool)
 -&gt; (DeleteConditionalForwarder
     -&gt; DeleteConditionalForwarder -&gt; Bool)
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteConditionalForwarder -&gt; DeleteConditionalForwarder -&gt; Bool
 == :: DeleteConditionalForwarder -&gt; DeleteConditionalForwarder -&gt; Bool
 $c== :: DeleteConditionalForwarder -&gt; DeleteConditionalForwarder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312892"><span id="local-6989586621679312894"><span id="local-6989586621679312896"><span id="local-6989586621679312898"><span class="annot"><span class="annottext">ReadPrec [DeleteConditionalForwarder]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312901"><span id="local-6989586621679312903"><span id="local-6989586621679312905"><span id="local-6989586621679312907"><span class="annot"><span class="annottext">ReadPrec [DeleteConditionalForwarder]
 ReadPrec DeleteConditionalForwarder
 Int -&gt; ReadS DeleteConditionalForwarder
 ReadS [DeleteConditionalForwarder]
@@ -89,7 +89,7 @@ readList :: ReadS [DeleteConditionalForwarder]
 $creadList :: ReadS [DeleteConditionalForwarder]
 readsPrec :: Int -&gt; ReadS DeleteConditionalForwarder
 $creadsPrec :: Int -&gt; ReadS DeleteConditionalForwarder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312885"><span id="local-6989586621679312887"><span id="local-6989586621679312889"><span class="annot"><span class="annottext">Int -&gt; DeleteConditionalForwarder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312894"><span id="local-6989586621679312896"><span id="local-6989586621679312898"><span class="annot"><span class="annottext">Int -&gt; DeleteConditionalForwarder -&gt; ShowS
 [DeleteConditionalForwarder] -&gt; ShowS
 DeleteConditionalForwarder -&gt; String
 (Int -&gt; DeleteConditionalForwarder -&gt; ShowS)
@@ -141,19 +141,19 @@ DeleteConditionalForwarder -&gt; Rep DeleteConditionalForwarder x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span>
 </span><span id="line-80"></span><span id="newDeleteConditionalForwarder"><span class="annot"><span class="annottext">newDeleteConditionalForwarder :: Text -&gt; Text -&gt; DeleteConditionalForwarder
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#newDeleteConditionalForwarder"><span class="hs-identifier hs-var hs-var">newDeleteConditionalForwarder</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679312880"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312880"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679312879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312879"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679312889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312889"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679312888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312888"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">DeleteConditionalForwarder' :: Text -&gt; Text -&gt; DeleteConditionalForwarder
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:DeleteConditionalForwarder' :: Text
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AdirectoryId%3ADeleteConditionalForwarder%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312880"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312889"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:remoteDomainName:DeleteConditionalForwarder' :: Text
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AremoteDomainName%3ADeleteConditionalForwarder%27"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312879"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span><span>
+</span><a href="#local-6989586621679312888"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The directory ID for which you are deleting the conditional forwarder.</span><span>
@@ -166,16 +166,16 @@ DeleteConditionalForwarder -&gt; Rep DeleteConditionalForwarder x
 -&gt; Lens
      DeleteConditionalForwarder DeleteConditionalForwarder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312876"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312885"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:DeleteConditionalForwarder' :: DeleteConditionalForwarder -&gt; Text
-</span><a href="#local-6989586621679312876"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312876"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312875"><span class="annot"><span class="annottext">s :: DeleteConditionalForwarder
-</span><a href="#local-6989586621679312875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312874"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConditionalForwarder
-</span><a href="#local-6989586621679312875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeleteConditionalForwarder' :: Text
+</span><a href="#local-6989586621679312885"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312885"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312884"><span class="annot"><span class="annottext">s :: DeleteConditionalForwarder
+</span><a href="#local-6989586621679312884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConditionalForwarder
+</span><a href="#local-6989586621679312884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeleteConditionalForwarder' :: Text
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AdirectoryId%3ADeleteConditionalForwarder%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The fully qualified domain name (FQDN) of the remote domain with which</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- you are deleting the conditional forwarder.</span><span>
@@ -188,28 +188,28 @@ $sel:directoryId:DeleteConditionalForwarder' :: DeleteConditionalForwarder -&gt;
 -&gt; Lens
      DeleteConditionalForwarder DeleteConditionalForwarder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312873"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312882"><span class="annot"><span class="annottext">Text
 remoteDomainName :: Text
 $sel:remoteDomainName:DeleteConditionalForwarder' :: DeleteConditionalForwarder -&gt; Text
-</span><a href="#local-6989586621679312873"><span class="hs-identifier hs-var hs-var">remoteDomainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312873"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312872"><span class="annot"><span class="annottext">s :: DeleteConditionalForwarder
-</span><a href="#local-6989586621679312872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312871"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConditionalForwarder
-</span><a href="#local-6989586621679312872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteDomainName:DeleteConditionalForwarder' :: Text
+</span><a href="#local-6989586621679312882"><span class="hs-identifier hs-var hs-var">remoteDomainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312882"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312881"><span class="annot"><span class="annottext">s :: DeleteConditionalForwarder
+</span><a href="#local-6989586621679312881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConditionalForwarder
+</span><a href="#local-6989586621679312881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteDomainName:DeleteConditionalForwarder' :: Text
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AremoteDomainName%3ADeleteConditionalForwarder%27"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679312867"><span class="annot"><span class="annottext">request :: DeleteConditionalForwarder -&gt; Request DeleteConditionalForwarder
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679312876"><span class="annot"><span class="annottext">request :: DeleteConditionalForwarder -&gt; Request DeleteConditionalForwarder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteConditionalForwarder -&gt; Request DeleteConditionalForwarder
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679312863"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679312872"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteConditionalForwarder
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312860"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312860"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312859"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679312859"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312858"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679312858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312869"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312868"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312868"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312867"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679312867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteConditionalForwarderResponse
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-var">DeleteConditionalForwarderResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteConditionalForwarderResponse)
@@ -250,15 +250,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312860"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312869"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312851"><span id="local-6989586621679312853"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312860"><span id="local-6989586621679312862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679312844"><span class="annot"><span class="annottext">toHeaders :: DeleteConditionalForwarder -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679312853"><span class="annot"><span class="annottext">toHeaders :: DeleteConditionalForwarder -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteConditionalForwarder -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,14 +285,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312834"><span id="local-6989586621679312836"><span id="local-6989586621679312838"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679312832"><span class="annot"><span class="annottext">toJSON :: DeleteConditionalForwarder -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312829"><span id="local-6989586621679312830"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312843"><span id="local-6989586621679312845"><span id="local-6989586621679312847"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679312841"><span class="annot"><span class="annottext">toJSON :: DeleteConditionalForwarder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder%27"><span class="hs-identifier hs-type">DeleteConditionalForwarder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312838"><span id="local-6989586621679312839"><span class="annot"><span class="annottext">Text
 remoteDomainName :: Text
 directoryId :: Text
 $sel:remoteDomainName:DeleteConditionalForwarder' :: DeleteConditionalForwarder -&gt; Text
 $sel:directoryId:DeleteConditionalForwarder' :: DeleteConditionalForwarder -&gt; Text
-</span><a href="#local-6989586621679312829"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312838"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,7 +304,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312830"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312839"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -312,19 +312,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RemoteDomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312829"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312838"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679312823"><span class="annot"><span class="annottext">toPath :: DeleteConditionalForwarder -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679312832"><span class="annot"><span class="annottext">toPath :: DeleteConditionalForwarder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteConditionalForwarder -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarder"><span class="hs-identifier hs-type">DeleteConditionalForwarder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679312819"><span class="annot"><span class="annottext">toQuery :: DeleteConditionalForwarder -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679312828"><span class="annot"><span class="annottext">toQuery :: DeleteConditionalForwarder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteConditionalForwarder -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -334,12 +334,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span class="hs-comment">-- | The result of a DeleteConditionalForwarder request.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- /See:/ 'newDeleteConditionalForwarderResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679312816"><span id="local-6989586621679312817"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConditionalForwarderResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse"><span class="hs-identifier hs-var">DeleteConditionalForwarderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConditionalForwarderResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-var">DeleteConditionalForwarderResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679312825"><span id="local-6989586621679312826"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConditionalForwarderResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse"><span class="hs-identifier hs-var">DeleteConditionalForwarderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConditionalForwarderResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-var">DeleteConditionalForwarderResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteConditionalForwarderResponse%27"><span class="annot"><span class="annottext">DeleteConditionalForwarderResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AhttpStatus%3ADeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312811"><span id="local-6989586621679312813"><span class="annot"><span class="annottext">DeleteConditionalForwarderResponse
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312820"><span id="local-6989586621679312822"><span class="annot"><span class="annottext">DeleteConditionalForwarderResponse
 -&gt; DeleteConditionalForwarderResponse -&gt; Bool
 (DeleteConditionalForwarderResponse
  -&gt; DeleteConditionalForwarderResponse -&gt; Bool)
@@ -355,7 +355,7 @@ $c/= :: DeleteConditionalForwarderResponse
 -&gt; DeleteConditionalForwarderResponse -&gt; Bool
 $c== :: DeleteConditionalForwarderResponse
 -&gt; DeleteConditionalForwarderResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312803"><span id="local-6989586621679312805"><span id="local-6989586621679312807"><span id="local-6989586621679312809"><span class="annot"><span class="annottext">ReadPrec [DeleteConditionalForwarderResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312812"><span id="local-6989586621679312814"><span id="local-6989586621679312816"><span id="local-6989586621679312818"><span class="annot"><span class="annottext">ReadPrec [DeleteConditionalForwarderResponse]
 ReadPrec DeleteConditionalForwarderResponse
 Int -&gt; ReadS DeleteConditionalForwarderResponse
 ReadS [DeleteConditionalForwarderResponse]
@@ -375,7 +375,7 @@ readList :: ReadS [DeleteConditionalForwarderResponse]
 $creadList :: ReadS [DeleteConditionalForwarderResponse]
 readsPrec :: Int -&gt; ReadS DeleteConditionalForwarderResponse
 $creadsPrec :: Int -&gt; ReadS DeleteConditionalForwarderResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312797"><span id="local-6989586621679312799"><span id="local-6989586621679312801"><span class="annot"><span class="annottext">Int -&gt; DeleteConditionalForwarderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312806"><span id="local-6989586621679312808"><span id="local-6989586621679312810"><span class="annot"><span class="annottext">Int -&gt; DeleteConditionalForwarderResponse -&gt; ShowS
 [DeleteConditionalForwarderResponse] -&gt; ShowS
 DeleteConditionalForwarderResponse -&gt; String
 (Int -&gt; DeleteConditionalForwarderResponse -&gt; ShowS)
@@ -427,14 +427,14 @@ DeleteConditionalForwarderResponse
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newDeleteConditionalForwarderResponse"><span class="annot"><span class="annottext">newDeleteConditionalForwarderResponse :: Int -&gt; DeleteConditionalForwarderResponse
-</span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#newDeleteConditionalForwarderResponse"><span class="hs-identifier hs-var hs-var">newDeleteConditionalForwarderResponse</span></a></span></span><span> </span><span id="local-6989586621679312794"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312794"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#newDeleteConditionalForwarderResponse"><span class="hs-identifier hs-var hs-var">newDeleteConditionalForwarderResponse</span></a></span></span><span> </span><span id="local-6989586621679312803"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312803"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">DeleteConditionalForwarderResponse' :: Int -&gt; DeleteConditionalForwarderResponse
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConditionalForwarderResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AhttpStatus%3ADeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312794"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679312803"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -451,18 +451,18 @@ DeleteConditionalForwarderResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312793"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312802"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteConditionalForwarderResponse' :: DeleteConditionalForwarderResponse -&gt; Int
-</span><a href="#local-6989586621679312793"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312793"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312792"><span class="annot"><span class="annottext">s :: DeleteConditionalForwarderResponse
-</span><a href="#local-6989586621679312792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312791"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConditionalForwarderResponse
-</span><a href="#local-6989586621679312792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConditionalForwarderResponse' :: Int
+</span><a href="#local-6989586621679312802"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312802"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312801"><span class="annot"><span class="annottext">s :: DeleteConditionalForwarderResponse
+</span><a href="#local-6989586621679312801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312800"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConditionalForwarderResponse
+</span><a href="#local-6989586621679312801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConditionalForwarderResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#%24sel%3AhttpStatus%3ADeleteConditionalForwarderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679312789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679312798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteConditionalForwarder.html#DeleteConditionalForwarderResponse"><span class="hs-identifier hs-type">DeleteConditionalForwarderResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

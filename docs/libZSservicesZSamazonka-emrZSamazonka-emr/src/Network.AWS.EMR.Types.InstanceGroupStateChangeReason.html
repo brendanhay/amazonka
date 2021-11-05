@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The status change reason details for the instance group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceGroupStateChangeReason' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679370228"><span id="local-6989586621679370229"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceGroupStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-var">InstanceGroupStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceGroupStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-var">InstanceGroupStateChangeReason'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679370237"><span id="local-6989586621679370238"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceGroupStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-var">InstanceGroupStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceGroupStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-var">InstanceGroupStateChangeReason'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The programmable code for the state change reason.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Acode%3AInstanceGroupStateChangeReason%27"><span class="annot"><span class="annottext">InstanceGroupStateChangeReason
 -&gt; Maybe InstanceGroupStateChangeReasonCode
@@ -36,7 +36,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3AInstanceGroupStateChangeReason%27"><span class="annot"><span class="annottext">InstanceGroupStateChangeReason -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#%24sel%3Amessage%3AInstanceGroupStateChangeReason%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370221"><span id="local-6989586621679370223"><span class="annot"><span class="annottext">InstanceGroupStateChangeReason
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370230"><span id="local-6989586621679370232"><span class="annot"><span class="annottext">InstanceGroupStateChangeReason
 -&gt; InstanceGroupStateChangeReason -&gt; Bool
 (InstanceGroupStateChangeReason
  -&gt; InstanceGroupStateChangeReason -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: InstanceGroupStateChangeReason
 -&gt; InstanceGroupStateChangeReason -&gt; Bool
 $c== :: InstanceGroupStateChangeReason
 -&gt; InstanceGroupStateChangeReason -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370212"><span id="local-6989586621679370214"><span id="local-6989586621679370216"><span id="local-6989586621679370218"><span class="annot"><span class="annottext">ReadPrec [InstanceGroupStateChangeReason]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370221"><span id="local-6989586621679370223"><span id="local-6989586621679370225"><span id="local-6989586621679370227"><span class="annot"><span class="annottext">ReadPrec [InstanceGroupStateChangeReason]
 ReadPrec InstanceGroupStateChangeReason
 Int -&gt; ReadS InstanceGroupStateChangeReason
 ReadS [InstanceGroupStateChangeReason]
@@ -72,7 +72,7 @@ readList :: ReadS [InstanceGroupStateChangeReason]
 $creadList :: ReadS [InstanceGroupStateChangeReason]
 readsPrec :: Int -&gt; ReadS InstanceGroupStateChangeReason
 $creadsPrec :: Int -&gt; ReadS InstanceGroupStateChangeReason
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370205"><span id="local-6989586621679370207"><span id="local-6989586621679370209"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupStateChangeReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370214"><span id="local-6989586621679370216"><span id="local-6989586621679370218"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupStateChangeReason -&gt; ShowS
 [InstanceGroupStateChangeReason] -&gt; ShowS
 InstanceGroupStateChangeReason -&gt; String
 (Int -&gt; InstanceGroupStateChangeReason -&gt; ShowS)
@@ -156,17 +156,17 @@ forall a. Maybe a
      (Maybe InstanceGroupStateChangeReasonCode)
      (Maybe InstanceGroupStateChangeReasonCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370196"><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370205"><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
 code :: Maybe InstanceGroupStateChangeReasonCode
 $sel:code:InstanceGroupStateChangeReason' :: InstanceGroupStateChangeReason
 -&gt; Maybe InstanceGroupStateChangeReasonCode
-</span><a href="#local-6989586621679370196"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
-</span><a href="#local-6989586621679370196"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370195"><span class="annot"><span class="annottext">s :: InstanceGroupStateChangeReason
-</span><a href="#local-6989586621679370195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370194"><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
-</span><a href="#local-6989586621679370194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceGroupStateChangeReason
-</span><a href="#local-6989586621679370195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceGroupStateChangeReason' :: Maybe InstanceGroupStateChangeReasonCode
+</span><a href="#local-6989586621679370205"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
+</span><a href="#local-6989586621679370205"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370204"><span class="annot"><span class="annottext">s :: InstanceGroupStateChangeReason
+</span><a href="#local-6989586621679370204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370203"><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
+</span><a href="#local-6989586621679370203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceGroupStateChangeReason
+</span><a href="#local-6989586621679370204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceGroupStateChangeReason' :: Maybe InstanceGroupStateChangeReasonCode
 </span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#%24sel%3Acode%3AInstanceGroupStateChangeReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
-</span><a href="#local-6989586621679370194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The status change reason description.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#instanceGroupStateChangeReason_message"><span class="hs-identifier hs-type">instanceGroupStateChangeReason_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -182,19 +182,19 @@ $sel:code:InstanceGroupStateChangeReason' :: InstanceGroupStateChangeReason
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370192"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370201"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:InstanceGroupStateChangeReason' :: InstanceGroupStateChangeReason -&gt; Maybe Text
-</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370192"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370191"><span class="annot"><span class="annottext">s :: InstanceGroupStateChangeReason
-</span><a href="#local-6989586621679370191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370190"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceGroupStateChangeReason
-</span><a href="#local-6989586621679370191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InstanceGroupStateChangeReason' :: Maybe Text
+</span><a href="#local-6989586621679370201"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370201"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370200"><span class="annot"><span class="annottext">s :: InstanceGroupStateChangeReason
+</span><a href="#local-6989586621679370200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceGroupStateChangeReason
+</span><a href="#local-6989586621679370200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InstanceGroupStateChangeReason' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#%24sel%3Amessage%3AInstanceGroupStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370187"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679370185"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceGroupStateChangeReason
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370196"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679370194"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceGroupStateChangeReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceGroupStateChangeReason)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceGroupStateChangeReason&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370182"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370182"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370191"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceGroupStateChangeReasonCode
 -&gt; Maybe Text -&gt; InstanceGroupStateChangeReason
 </span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason%27"><span class="hs-identifier hs-var">InstanceGroupStateChangeReason'</span></a></span><span>
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; InstanceGroupStateChangeReason)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceGroupStateChangeReasonCode)
+</span><a href="#local-6989586621679370191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceGroupStateChangeReasonCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,17 +223,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser InstanceGroupStateChangeReason
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679370176"><span id="local-6989586621679370178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679370185"><span id="local-6989586621679370187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679370173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679370182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReason.html#InstanceGroupStateChangeReason"><span class="hs-identifier hs-type">InstanceGroupStateChangeReason</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

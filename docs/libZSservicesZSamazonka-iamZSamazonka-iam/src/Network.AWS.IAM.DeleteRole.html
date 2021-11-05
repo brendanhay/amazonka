@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteRole' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679455962"><span id="local-6989586621679455963"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRole"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-var">DeleteRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRole%27"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-var">DeleteRole'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679455971"><span id="local-6989586621679455972"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRole"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-var">DeleteRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRole%27"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-var">DeleteRole'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the role to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AroleName%3ADeleteRole%27"><span class="annot"><span class="annottext">DeleteRole -&gt; Text
 </span><a href="Network.AWS.IAM.DeleteRole.html#%24sel%3AroleName%3ADeleteRole%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455956"><span id="local-6989586621679455958"><span class="annot"><span class="annottext">DeleteRole -&gt; DeleteRole -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455965"><span id="local-6989586621679455967"><span class="annot"><span class="annottext">DeleteRole -&gt; DeleteRole -&gt; Bool
 (DeleteRole -&gt; DeleteRole -&gt; Bool)
 -&gt; (DeleteRole -&gt; DeleteRole -&gt; Bool) -&gt; Eq DeleteRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRole -&gt; DeleteRole -&gt; Bool
 == :: DeleteRole -&gt; DeleteRole -&gt; Bool
 $c== :: DeleteRole -&gt; DeleteRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455947"><span id="local-6989586621679455949"><span id="local-6989586621679455951"><span id="local-6989586621679455953"><span class="annot"><span class="annottext">ReadPrec [DeleteRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455956"><span id="local-6989586621679455958"><span id="local-6989586621679455960"><span id="local-6989586621679455962"><span class="annot"><span class="annottext">ReadPrec [DeleteRole]
 ReadPrec DeleteRole
 Int -&gt; ReadS DeleteRole
 ReadS [DeleteRole]
@@ -88,7 +88,7 @@ readList :: ReadS [DeleteRole]
 $creadList :: ReadS [DeleteRole]
 readsPrec :: Int -&gt; ReadS DeleteRole
 $creadsPrec :: Int -&gt; ReadS DeleteRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455940"><span id="local-6989586621679455942"><span id="local-6989586621679455944"><span class="annot"><span class="annottext">Int -&gt; DeleteRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455949"><span id="local-6989586621679455951"><span id="local-6989586621679455953"><span class="annot"><span class="annottext">Int -&gt; DeleteRole -&gt; ShowS
 [DeleteRole] -&gt; ShowS
 DeleteRole -&gt; String
 (Int -&gt; DeleteRole -&gt; ShowS)
@@ -132,12 +132,12 @@ $cfrom :: forall x. DeleteRole -&gt; Rep DeleteRole x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span>
 </span><span id="line-82"></span><span id="newDeleteRole"><span class="annot"><span class="annottext">newDeleteRole :: Text -&gt; DeleteRole
-</span><a href="Network.AWS.IAM.DeleteRole.html#newDeleteRole"><span class="hs-identifier hs-var hs-var">newDeleteRole</span></a></span></span><span> </span><span id="local-6989586621679455935"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455935"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.DeleteRole.html#newDeleteRole"><span class="hs-identifier hs-var hs-var">newDeleteRole</span></a></span></span><span> </span><span id="local-6989586621679455944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455944"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DeleteRole' :: Text -&gt; DeleteRole
 </span><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-type">DeleteRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:DeleteRole' :: Text
 </span><a href="Network.AWS.IAM.DeleteRole.html#%24sel%3AroleName%3ADeleteRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455935"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679455944"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the role to delete.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
@@ -151,25 +151,25 @@ $cfrom :: forall x. DeleteRole -&gt; Rep DeleteRole x
 -&gt; (DeleteRole -&gt; Text -&gt; DeleteRole)
 -&gt; Lens DeleteRole DeleteRole Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-type">DeleteRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455932"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-type">DeleteRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455941"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:DeleteRole' :: DeleteRole -&gt; Text
-</span><a href="#local-6989586621679455932"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455932"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455931"><span class="annot"><span class="annottext">s :: DeleteRole
-</span><a href="#local-6989586621679455931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-type">DeleteRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455930"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRole
-</span><a href="#local-6989586621679455931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:DeleteRole' :: Text
+</span><a href="#local-6989586621679455941"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455941"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455940"><span class="annot"><span class="annottext">s :: DeleteRole
+</span><a href="#local-6989586621679455940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-type">DeleteRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRole
+</span><a href="#local-6989586621679455940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:DeleteRole' :: Text
 </span><a href="Network.AWS.IAM.DeleteRole.html#%24sel%3AroleName%3ADeleteRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse"><span class="hs-identifier hs-type">DeleteRoleResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679455926"><span class="annot"><span class="annottext">request :: DeleteRole -&gt; Request DeleteRole
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679455935"><span class="annot"><span class="annottext">request :: DeleteRole -&gt; Request DeleteRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRole -&gt; Request DeleteRole
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679455922"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679455931"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteRole
 -&gt; ClientResponse ClientBody
@@ -192,12 +192,12 @@ AWSResponse a
 DeleteRoleResponse
 </span><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse%27"><span class="hs-identifier hs-var">DeleteRoleResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455915"><span id="local-6989586621679455917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455924"><span id="local-6989586621679455926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679455908"><span class="annot"><span class="annottext">toHeaders :: DeleteRole -&gt; [Header]
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679455917"><span class="annot"><span class="annottext">toHeaders :: DeleteRole -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteRole -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -205,18 +205,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679455903"><span class="annot"><span class="annottext">toPath :: DeleteRole -&gt; ByteString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679455912"><span class="annot"><span class="annottext">toPath :: DeleteRole -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRole -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole"><span class="hs-identifier hs-type">DeleteRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679455899"><span class="annot"><span class="annottext">toQuery :: DeleteRole -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-type">DeleteRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455897"><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679455908"><span class="annot"><span class="annottext">toQuery :: DeleteRole -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRole%27"><span class="hs-identifier hs-type">DeleteRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455906"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:DeleteRole' :: DeleteRole -&gt; Text
-</span><a href="#local-6989586621679455897"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679455906"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -236,14 +236,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455897"><span class="hs-identifier hs-var">roleName</span></a></span><span>
+</span><a href="#local-6989586621679455906"><span class="hs-identifier hs-var">roleName</span></a></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteRoleResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679455894"><span id="local-6989586621679455895"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRoleResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse"><span class="hs-identifier hs-var">DeleteRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse%27"><span class="hs-identifier hs-var">DeleteRoleResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679455903"><span id="local-6989586621679455904"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRoleResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse"><span class="hs-identifier hs-var">DeleteRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse%27"><span class="hs-identifier hs-var">DeleteRoleResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455890"><span id="local-6989586621679455892"><span class="annot"><span class="annottext">DeleteRoleResponse -&gt; DeleteRoleResponse -&gt; Bool
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455899"><span id="local-6989586621679455901"><span class="annot"><span class="annottext">DeleteRoleResponse -&gt; DeleteRoleResponse -&gt; Bool
 (DeleteRoleResponse -&gt; DeleteRoleResponse -&gt; Bool)
 -&gt; (DeleteRoleResponse -&gt; DeleteRoleResponse -&gt; Bool)
 -&gt; Eq DeleteRoleResponse
@@ -252,7 +252,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRoleResponse -&gt; DeleteRoleResponse -&gt; Bool
 == :: DeleteRoleResponse -&gt; DeleteRoleResponse -&gt; Bool
 $c== :: DeleteRoleResponse -&gt; DeleteRoleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455882"><span id="local-6989586621679455884"><span id="local-6989586621679455886"><span id="local-6989586621679455888"><span class="annot"><span class="annottext">ReadPrec [DeleteRoleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455891"><span id="local-6989586621679455893"><span id="local-6989586621679455895"><span id="local-6989586621679455897"><span class="annot"><span class="annottext">ReadPrec [DeleteRoleResponse]
 ReadPrec DeleteRoleResponse
 Int -&gt; ReadS DeleteRoleResponse
 ReadS [DeleteRoleResponse]
@@ -272,7 +272,7 @@ readList :: ReadS [DeleteRoleResponse]
 $creadList :: ReadS [DeleteRoleResponse]
 readsPrec :: Int -&gt; ReadS DeleteRoleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteRoleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455876"><span id="local-6989586621679455878"><span id="local-6989586621679455880"><span class="annot"><span class="annottext">Int -&gt; DeleteRoleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455885"><span id="local-6989586621679455887"><span id="local-6989586621679455889"><span class="annot"><span class="annottext">Int -&gt; DeleteRoleResponse -&gt; ShowS
 [DeleteRoleResponse] -&gt; ShowS
 DeleteRoleResponse -&gt; String
 (Int -&gt; DeleteRoleResponse -&gt; ShowS)
@@ -308,5 +308,5 @@ $cfrom :: forall x. DeleteRoleResponse -&gt; Rep DeleteRoleResponse x
 </span><a href="Network.AWS.IAM.DeleteRole.html#newDeleteRoleResponse"><span class="hs-identifier hs-var hs-var">newDeleteRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteRoleResponse
 </span><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse%27"><span class="hs-identifier hs-var">DeleteRoleResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse"><span class="hs-identifier hs-type">DeleteRoleResponse</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteRole.html#DeleteRoleResponse"><span class="hs-identifier hs-type">DeleteRoleResponse</span></a></span></span><span>
 </span><span id="line-134"></span></pre></body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GreengrassV2.Types.CoreDevice</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GreengrassV2.Types.CoreDevice</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.CoreDeviceStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a Greengrass core device, which is an IoT</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- thing that runs the IoT Greengrass Core software.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCoreDevice' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679227917"><span id="local-6989586621679227918"></span></span><span class="hs-keyword">data</span><span> </span><span id="CoreDevice"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-var">CoreDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CoreDevice%27"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-var">CoreDevice'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the core device. Core devices can have the following</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- statuses:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @HEALTHY@ &#8211; The IoT Greengrass Core software and all components run</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--     on the core device without issue.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @UNHEALTHY@ &#8211; The IoT Greengrass Core software or a component is in</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     a failed state on the core device.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3ACoreDevice%27"><span class="annot"><span class="annottext">CoreDevice -&gt; Maybe CoreDeviceStatus
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3Astatus%3ACoreDevice%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus"><span class="hs-identifier hs-type">CoreDeviceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the core device. This is also the name of the IoT thing.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcoreDeviceThingName%3ACoreDevice%27"><span class="annot"><span class="annottext">CoreDevice -&gt; Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3AcoreDeviceThingName%3ACoreDevice%27"><span class="hs-identifier hs-var hs-var">coreDeviceThingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The time at which the core device\'s status last updated, expressed in</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- ISO 8601 format.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastStatusUpdateTimestamp%3ACoreDevice%27"><span class="annot"><span class="annottext">CoreDevice -&gt; Maybe POSIX
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3AlastStatusUpdateTimestamp%3ACoreDevice%27"><span class="hs-identifier hs-var hs-var">lastStatusUpdateTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227909"><span id="local-6989586621679227911"><span class="annot"><span class="annottext">CoreDevice -&gt; CoreDevice -&gt; Bool
+(CoreDevice -&gt; CoreDevice -&gt; Bool)
+-&gt; (CoreDevice -&gt; CoreDevice -&gt; Bool) -&gt; Eq CoreDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CoreDevice -&gt; CoreDevice -&gt; Bool
+$c/= :: CoreDevice -&gt; CoreDevice -&gt; Bool
+== :: CoreDevice -&gt; CoreDevice -&gt; Bool
+$c== :: CoreDevice -&gt; CoreDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227900"><span id="local-6989586621679227902"><span id="local-6989586621679227904"><span id="local-6989586621679227906"><span class="annot"><span class="annottext">ReadPrec [CoreDevice]
+ReadPrec CoreDevice
+Int -&gt; ReadS CoreDevice
+ReadS [CoreDevice]
+(Int -&gt; ReadS CoreDevice)
+-&gt; ReadS [CoreDevice]
+-&gt; ReadPrec CoreDevice
+-&gt; ReadPrec [CoreDevice]
+-&gt; Read CoreDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CoreDevice]
+$creadListPrec :: ReadPrec [CoreDevice]
+readPrec :: ReadPrec CoreDevice
+$creadPrec :: ReadPrec CoreDevice
+readList :: ReadS [CoreDevice]
+$creadList :: ReadS [CoreDevice]
+readsPrec :: Int -&gt; ReadS CoreDevice
+$creadsPrec :: Int -&gt; ReadS CoreDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227893"><span id="local-6989586621679227895"><span id="local-6989586621679227897"><span class="annot"><span class="annottext">Int -&gt; CoreDevice -&gt; ShowS
+[CoreDevice] -&gt; ShowS
+CoreDevice -&gt; String
+(Int -&gt; CoreDevice -&gt; ShowS)
+-&gt; (CoreDevice -&gt; String)
+-&gt; ([CoreDevice] -&gt; ShowS)
+-&gt; Show CoreDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CoreDevice] -&gt; ShowS
+$cshowList :: [CoreDevice] -&gt; ShowS
+show :: CoreDevice -&gt; String
+$cshow :: CoreDevice -&gt; String
+showsPrec :: Int -&gt; CoreDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; CoreDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CoreDevice -&gt; Rep CoreDevice x)
+-&gt; (forall x. Rep CoreDevice x -&gt; CoreDevice) -&gt; Generic CoreDevice
+forall x. Rep CoreDevice x -&gt; CoreDevice
+forall x. CoreDevice -&gt; Rep CoreDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CoreDevice x -&gt; CoreDevice
+$cfrom :: forall x. CoreDevice -&gt; Rep CoreDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'CoreDevice' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'status', 'coreDevice_status' - The status of the core device. Core devices can have the following</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- statuses:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- -   @HEALTHY@ &#8211; The IoT Greengrass Core software and all components run</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--     on the core device without issue.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- -   @UNHEALTHY@ &#8211; The IoT Greengrass Core software or a component is in</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--     a failed state on the core device.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'coreDeviceThingName', 'coreDevice_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastStatusUpdateTimestamp', 'coreDevice_lastStatusUpdateTimestamp' - The time at which the core device\'s status last updated, expressed in</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- ISO 8601 format.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#newCoreDevice"><span class="hs-identifier hs-type">newCoreDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span><span>
+</span><span id="line-72"></span><span id="newCoreDevice"><span class="annot"><span class="annottext">newCoreDevice :: CoreDevice
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#newCoreDevice"><span class="hs-identifier hs-var hs-var">newCoreDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">CoreDevice' :: Maybe CoreDeviceStatus -&gt; Maybe Text -&gt; Maybe POSIX -&gt; CoreDevice
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-type">CoreDevice'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CoreDevice' :: Maybe CoreDeviceStatus
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3Astatus%3ACoreDevice%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDeviceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:coreDeviceThingName:CoreDevice' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3AcoreDeviceThingName%3ACoreDevice%27"><span class="hs-identifier hs-var">coreDeviceThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatusUpdateTimestamp:CoreDevice' :: Maybe POSIX
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3AlastStatusUpdateTimestamp%3ACoreDevice%27"><span class="hs-identifier hs-var">lastStatusUpdateTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The status of the core device. Core devices can have the following</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- statuses:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   @HEALTHY@ &#8211; The IoT Greengrass Core software and all components run</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     on the core device without issue.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @UNHEALTHY@ &#8211; The IoT Greengrass Core software or a component is in</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     a failed state on the core device.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#coreDevice_status"><span class="hs-identifier hs-type">coreDevice_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus"><span class="hs-identifier hs-type">CoreDeviceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="coreDevice_status"><span class="annot"><span class="annottext">coreDevice_status :: (Maybe CoreDeviceStatus -&gt; f (Maybe CoreDeviceStatus))
+-&gt; CoreDevice -&gt; f CoreDevice
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#coreDevice_status"><span class="hs-identifier hs-var hs-var">coreDevice_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CoreDevice -&gt; Maybe CoreDeviceStatus)
+-&gt; (CoreDevice -&gt; Maybe CoreDeviceStatus -&gt; CoreDevice)
+-&gt; Lens
+     CoreDevice
+     CoreDevice
+     (Maybe CoreDeviceStatus)
+     (Maybe CoreDeviceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-type">CoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227884"><span class="annot"><span class="annottext">Maybe CoreDeviceStatus
+status :: Maybe CoreDeviceStatus
+$sel:status:CoreDevice' :: CoreDevice -&gt; Maybe CoreDeviceStatus
+</span><a href="#local-6989586621679227884"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDeviceStatus
+</span><a href="#local-6989586621679227884"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227883"><span class="annot"><span class="annottext">s :: CoreDevice
+</span><a href="#local-6989586621679227883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-type">CoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227882"><span class="annot"><span class="annottext">Maybe CoreDeviceStatus
+</span><a href="#local-6989586621679227882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CoreDevice
+</span><a href="#local-6989586621679227883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CoreDevice' :: Maybe CoreDeviceStatus
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3Astatus%3ACoreDevice%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDeviceStatus
+</span><a href="#local-6989586621679227882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the core device. This is also the name of the IoT thing.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#coreDevice_coreDeviceThingName"><span class="hs-identifier hs-type">coreDevice_coreDeviceThingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="coreDevice_coreDeviceThingName"><span class="annot"><span class="annottext">coreDevice_coreDeviceThingName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CoreDevice -&gt; f CoreDevice
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#coreDevice_coreDeviceThingName"><span class="hs-identifier hs-var hs-var">coreDevice_coreDeviceThingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CoreDevice -&gt; Maybe Text)
+-&gt; (CoreDevice -&gt; Maybe Text -&gt; CoreDevice)
+-&gt; Lens CoreDevice CoreDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-type">CoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227880"><span class="annot"><span class="annottext">Maybe Text
+coreDeviceThingName :: Maybe Text
+$sel:coreDeviceThingName:CoreDevice' :: CoreDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679227880"><span class="hs-identifier hs-var hs-var">coreDeviceThingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227880"><span class="hs-identifier hs-var">coreDeviceThingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227879"><span class="annot"><span class="annottext">s :: CoreDevice
+</span><a href="#local-6989586621679227879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-type">CoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227878"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CoreDevice
+</span><a href="#local-6989586621679227879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDeviceThingName:CoreDevice' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3AcoreDeviceThingName%3ACoreDevice%27"><span class="hs-identifier hs-var">coreDeviceThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The time at which the core device\'s status last updated, expressed in</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- ISO 8601 format.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#coreDevice_lastStatusUpdateTimestamp"><span class="hs-identifier hs-type">coreDevice_lastStatusUpdateTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="coreDevice_lastStatusUpdateTimestamp"><span class="annot"><span class="annottext">coreDevice_lastStatusUpdateTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; CoreDevice -&gt; f CoreDevice
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#coreDevice_lastStatusUpdateTimestamp"><span class="hs-identifier hs-var hs-var">coreDevice_lastStatusUpdateTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CoreDevice -&gt; Maybe POSIX)
+-&gt; (CoreDevice -&gt; Maybe POSIX -&gt; CoreDevice)
+-&gt; Lens CoreDevice CoreDevice (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-type">CoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227876"><span class="annot"><span class="annottext">Maybe POSIX
+lastStatusUpdateTimestamp :: Maybe POSIX
+$sel:lastStatusUpdateTimestamp:CoreDevice' :: CoreDevice -&gt; Maybe POSIX
+</span><a href="#local-6989586621679227876"><span class="hs-identifier hs-var hs-var">lastStatusUpdateTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679227876"><span class="hs-identifier hs-var">lastStatusUpdateTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227875"><span class="annot"><span class="annottext">s :: CoreDevice
+</span><a href="#local-6989586621679227875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-type">CoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227874"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679227874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CoreDevice
+</span><a href="#local-6989586621679227875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatusUpdateTimestamp:CoreDevice' :: Maybe POSIX
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#%24sel%3AlastStatusUpdateTimestamp%3ACoreDevice%27"><span class="hs-identifier hs-var">lastStatusUpdateTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679227874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; CoreDevice -&gt; f CoreDevice)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CoreDevice
+-&gt; f CoreDevice
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227868"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679227866"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CoreDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CoreDevice) -&gt; Value -&gt; Parser CoreDevice
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CoreDevice&quot;</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227863"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe CoreDeviceStatus -&gt; Maybe Text -&gt; Maybe POSIX -&gt; CoreDevice
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice%27"><span class="hs-identifier hs-var">CoreDevice'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CoreDeviceStatus -&gt; Maybe Text -&gt; Maybe POSIX -&gt; CoreDevice)
+-&gt; Parser (Maybe CoreDeviceStatus)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; CoreDevice)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CoreDeviceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; CoreDevice)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; CoreDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;coreDeviceThingName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; CoreDevice)
+-&gt; Parser (Maybe POSIX) -&gt; Parser CoreDevice
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastStatusUpdateTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227857"><span id="local-6989586621679227859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDevice.html#CoreDevice"><span class="hs-identifier hs-type">CoreDevice</span></a></span></span><span>
+</span><span id="line-113"></span></pre></body></html>

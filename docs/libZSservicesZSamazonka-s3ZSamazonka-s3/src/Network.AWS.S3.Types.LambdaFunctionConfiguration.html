@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | A container for specifying the configuration for Lambda notifications.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLambdaFunctionConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679552037"><span id="local-6989586621679552038"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-var">LambdaFunctionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">LambdaFunctionConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679552046"><span id="local-6989586621679552047"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-var">LambdaFunctionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">LambdaFunctionConfiguration'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aid%3ALambdaFunctionConfiguration%27"><span class="annot"><span class="annottext">LambdaFunctionConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3Aid%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Afilter%27%3ALambdaFunctionConfiguration%27"><span class="annot"><span class="annottext">LambdaFunctionConfiguration
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aevents%3ALambdaFunctionConfiguration%27"><span class="annot"><span class="annottext">LambdaFunctionConfiguration -&gt; [Event]
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3Aevents%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552028"><span id="local-6989586621679552030"><span class="annot"><span class="annottext">LambdaFunctionConfiguration -&gt; LambdaFunctionConfiguration -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552037"><span id="local-6989586621679552039"><span class="annot"><span class="annottext">LambdaFunctionConfiguration -&gt; LambdaFunctionConfiguration -&gt; Bool
 (LambdaFunctionConfiguration
  -&gt; LambdaFunctionConfiguration -&gt; Bool)
 -&gt; (LambdaFunctionConfiguration
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaFunctionConfiguration -&gt; LambdaFunctionConfiguration -&gt; Bool
 == :: LambdaFunctionConfiguration -&gt; LambdaFunctionConfiguration -&gt; Bool
 $c== :: LambdaFunctionConfiguration -&gt; LambdaFunctionConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552019"><span id="local-6989586621679552021"><span id="local-6989586621679552023"><span id="local-6989586621679552025"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552028"><span id="local-6989586621679552030"><span id="local-6989586621679552032"><span id="local-6989586621679552034"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionConfiguration]
 ReadPrec LambdaFunctionConfiguration
 Int -&gt; ReadS LambdaFunctionConfiguration
 ReadS [LambdaFunctionConfiguration]
@@ -77,7 +77,7 @@ readList :: ReadS [LambdaFunctionConfiguration]
 $creadList :: ReadS [LambdaFunctionConfiguration]
 readsPrec :: Int -&gt; ReadS LambdaFunctionConfiguration
 $creadsPrec :: Int -&gt; ReadS LambdaFunctionConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552012"><span id="local-6989586621679552014"><span id="local-6989586621679552016"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552021"><span id="local-6989586621679552023"><span id="local-6989586621679552025"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionConfiguration -&gt; ShowS
 [LambdaFunctionConfiguration] -&gt; ShowS
 LambdaFunctionConfiguration -&gt; String
 (Int -&gt; LambdaFunctionConfiguration -&gt; ShowS)
@@ -133,8 +133,8 @@ LambdaFunctionConfiguration -&gt; Rep LambdaFunctionConfiguration x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span>
 </span><span id="line-69"></span><span id="newLambdaFunctionConfiguration"><span class="annot"><span class="annottext">newLambdaFunctionConfiguration :: Text -&gt; LambdaFunctionConfiguration
-</span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#newLambdaFunctionConfiguration"><span class="hs-identifier hs-var hs-var">newLambdaFunctionConfiguration</span></a></span></span><span> </span><span id="local-6989586621679552006"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552006"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#newLambdaFunctionConfiguration"><span class="hs-identifier hs-var hs-var">newLambdaFunctionConfiguration</span></a></span></span><span> </span><span id="local-6989586621679552015"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552015"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration' :: Maybe Text
 -&gt; Maybe NotificationConfigurationFilter
 -&gt; Text
@@ -151,7 +151,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaFunctionArn:LambdaFunctionConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3AlambdaFunctionArn%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552006"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552015"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:LambdaFunctionConfiguration' :: [Event]
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3Aevents%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Event]
 forall a. Monoid a =&gt; a
@@ -171,16 +171,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552002"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552011"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:LambdaFunctionConfiguration' :: LambdaFunctionConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679552002"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552002"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552001"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
-</span><a href="#local-6989586621679552001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552000"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
-</span><a href="#local-6989586621679552001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LambdaFunctionConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679552011"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679552011"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552010"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
+</span><a href="#local-6989586621679552010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679552009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
+</span><a href="#local-6989586621679552010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LambdaFunctionConfiguration' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3Aid%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#lambdaFunctionConfiguration_filter"><span class="hs-identifier hs-type">lambdaFunctionConfiguration_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span><span class="hs-special">)</span><span>
@@ -198,17 +198,17 @@ $sel:id:LambdaFunctionConfiguration' :: LambdaFunctionConfiguration -&gt; Maybe 
      (Maybe NotificationConfigurationFilter)
      (Maybe NotificationConfigurationFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551998"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552007"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
 filter' :: Maybe NotificationConfigurationFilter
 $sel:filter':LambdaFunctionConfiguration' :: LambdaFunctionConfiguration
 -&gt; Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551998"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551998"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551997"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
-</span><a href="#local-6989586621679551997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551996"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
-</span><a href="#local-6989586621679551997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':LambdaFunctionConfiguration' :: Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679552007"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679552007"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552006"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
+</span><a href="#local-6989586621679552006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552005"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679552005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
+</span><a href="#local-6989586621679552006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':LambdaFunctionConfiguration' :: Maybe NotificationConfigurationFilter
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3Afilter%27%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function that Amazon S3</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- invokes when the specified event type occurs.</span><span>
@@ -221,16 +221,16 @@ $sel:filter':LambdaFunctionConfiguration' :: LambdaFunctionConfiguration
 -&gt; Lens
      LambdaFunctionConfiguration LambdaFunctionConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551994"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552003"><span class="annot"><span class="annottext">Text
 lambdaFunctionArn :: Text
 $sel:lambdaFunctionArn:LambdaFunctionConfiguration' :: LambdaFunctionConfiguration -&gt; Text
-</span><a href="#local-6989586621679551994"><span class="hs-identifier hs-var hs-var">lambdaFunctionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551994"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551993"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
-</span><a href="#local-6989586621679551993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551992"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
-</span><a href="#local-6989586621679551993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionArn:LambdaFunctionConfiguration' :: Text
+</span><a href="#local-6989586621679552003"><span class="hs-identifier hs-var hs-var">lambdaFunctionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552003"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552002"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
+</span><a href="#local-6989586621679552002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552001"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
+</span><a href="#local-6989586621679552002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionArn:LambdaFunctionConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3AlambdaFunctionArn%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The Amazon S3 bucket event for which to invoke the Lambda function. For</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- more information, see</span><span>
@@ -248,16 +248,16 @@ $sel:lambdaFunctionArn:LambdaFunctionConfiguration' :: LambdaFunctionConfigurati
      [Event]
      [Event]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551990"><span class="annot"><span class="annottext">[Event]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551999"><span class="annot"><span class="annottext">[Event]
 events :: [Event]
 $sel:events:LambdaFunctionConfiguration' :: LambdaFunctionConfiguration -&gt; [Event]
-</span><a href="#local-6989586621679551990"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551990"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551989"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
-</span><a href="#local-6989586621679551989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551988"><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
-</span><a href="#local-6989586621679551989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:LambdaFunctionConfiguration' :: [Event]
+</span><a href="#local-6989586621679551999"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Event]
+</span><a href="#local-6989586621679551999"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551998"><span class="annot"><span class="annottext">s :: LambdaFunctionConfiguration
+</span><a href="#local-6989586621679551998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551997"><span class="annot"><span class="annottext">[Event]
+</span><a href="#local-6989586621679551997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionConfiguration
+</span><a href="#local-6989586621679551998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:LambdaFunctionConfiguration' :: [Event]
 </span><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#%24sel%3Aevents%3ALambdaFunctionConfiguration%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Event] -&gt; f [Event])
+</span><a href="#local-6989586621679551997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Event] -&gt; f [Event])
  -&gt; LambdaFunctionConfiguration -&gt; f LambdaFunctionConfiguration)
 -&gt; (([Event] -&gt; f [Event]) -&gt; [Event] -&gt; f [Event])
 -&gt; ([Event] -&gt; f [Event])
@@ -269,9 +269,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679551983"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LambdaFunctionConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551981"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679551992"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LambdaFunctionConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551990"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679551990"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe NotificationConfigurationFilter
 -&gt; Text
@@ -290,7 +290,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
       -&gt; Text -&gt; [Event] -&gt; LambdaFunctionConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679551990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,7 +302,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; [Event] -&gt; LambdaFunctionConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679551990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe NotificationConfigurationFilter)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -312,7 +312,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String ([Event] -&gt; LambdaFunctionConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679551990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudFunction&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,15 +324,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Event&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551981"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551990"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551973"><span id="local-6989586621679551975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551982"><span id="local-6989586621679551984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration"><span class="hs-identifier hs-type">LambdaFunctionConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679551966"><span class="annot"><span class="annottext">toXML :: LambdaFunctionConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551961"><span id="local-6989586621679551962"><span id="local-6989586621679551963"><span id="local-6989586621679551964"><span class="annot"><span class="annottext">[Event]
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679551975"><span class="annot"><span class="annottext">toXML :: LambdaFunctionConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LambdaFunctionConfiguration.html#LambdaFunctionConfiguration%27"><span class="hs-identifier hs-type">LambdaFunctionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551970"><span id="local-6989586621679551971"><span id="local-6989586621679551972"><span id="local-6989586621679551973"><span class="annot"><span class="annottext">[Event]
 Maybe Text
 Maybe NotificationConfigurationFilter
 Text
@@ -345,7 +345,7 @@ $sel:lambdaFunctionArn:LambdaFunctionConfiguration' :: LambdaFunctionConfigurati
 $sel:filter':LambdaFunctionConfiguration' :: LambdaFunctionConfiguration
 -&gt; Maybe NotificationConfigurationFilter
 $sel:id:LambdaFunctionConfiguration' :: LambdaFunctionConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679551961"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679551970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -353,21 +353,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679551964"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551973"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe NotificationConfigurationFilter -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551963"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551972"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CloudFunction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551962"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551971"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Name -&gt; [Event] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Event&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551961"><span class="hs-identifier hs-var">events</span></a></span><span>
+</span><a href="#local-6989586621679551970"><span class="hs-identifier hs-var">events</span></a></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span></pre></body></html>

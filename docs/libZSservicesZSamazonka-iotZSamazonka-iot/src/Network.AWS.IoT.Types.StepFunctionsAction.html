@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Starts execution of a Step Functions state machine.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStepFunctionsAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679799537"><span id="local-6989586621679799538"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepFunctionsAction"><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-var">StepFunctionsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepFunctionsAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-var">StepFunctionsAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679799546"><span id="local-6989586621679799547"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepFunctionsAction"><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-var">StepFunctionsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepFunctionsAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-var">StepFunctionsAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) A name will be given to the state machine execution</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- consisting of this prefix followed by a UUID. Step Functions</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- automatically creates a unique name for each state machine execution if</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AroleArn%3AStepFunctionsAction%27"><span class="annot"><span class="annottext">StepFunctionsAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#%24sel%3AroleArn%3AStepFunctionsAction%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799529"><span id="local-6989586621679799531"><span class="annot"><span class="annottext">StepFunctionsAction -&gt; StepFunctionsAction -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799538"><span id="local-6989586621679799540"><span class="annot"><span class="annottext">StepFunctionsAction -&gt; StepFunctionsAction -&gt; Bool
 (StepFunctionsAction -&gt; StepFunctionsAction -&gt; Bool)
 -&gt; (StepFunctionsAction -&gt; StepFunctionsAction -&gt; Bool)
 -&gt; Eq StepFunctionsAction
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StepFunctionsAction -&gt; StepFunctionsAction -&gt; Bool
 == :: StepFunctionsAction -&gt; StepFunctionsAction -&gt; Bool
 $c== :: StepFunctionsAction -&gt; StepFunctionsAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799520"><span id="local-6989586621679799522"><span id="local-6989586621679799524"><span id="local-6989586621679799526"><span class="annot"><span class="annottext">ReadPrec [StepFunctionsAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799529"><span id="local-6989586621679799531"><span id="local-6989586621679799533"><span id="local-6989586621679799535"><span class="annot"><span class="annottext">ReadPrec [StepFunctionsAction]
 ReadPrec StepFunctionsAction
 Int -&gt; ReadS StepFunctionsAction
 ReadS [StepFunctionsAction]
@@ -71,7 +71,7 @@ readList :: ReadS [StepFunctionsAction]
 $creadList :: ReadS [StepFunctionsAction]
 readsPrec :: Int -&gt; ReadS StepFunctionsAction
 $creadsPrec :: Int -&gt; ReadS StepFunctionsAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799513"><span id="local-6989586621679799515"><span id="local-6989586621679799517"><span class="annot"><span class="annottext">Int -&gt; StepFunctionsAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799522"><span id="local-6989586621679799524"><span id="local-6989586621679799526"><span class="annot"><span class="annottext">Int -&gt; StepFunctionsAction -&gt; ShowS
 [StepFunctionsAction] -&gt; ShowS
 StepFunctionsAction -&gt; String
 (Int -&gt; StepFunctionsAction -&gt; ShowS)
@@ -122,9 +122,9 @@ $cfrom :: forall x. StepFunctionsAction -&gt; Rep StepFunctionsAction x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span>
 </span><span id="line-68"></span><span id="newStepFunctionsAction"><span class="annot"><span class="annottext">newStepFunctionsAction :: Text -&gt; Text -&gt; StepFunctionsAction
-</span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#newStepFunctionsAction"><span class="hs-identifier hs-var hs-var">newStepFunctionsAction</span></a></span></span><span> </span><span id="local-6989586621679799507"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799507"><span class="hs-identifier hs-var">pStateMachineName_</span></a></span></span><span> </span><span id="local-6989586621679799506"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799506"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#newStepFunctionsAction"><span class="hs-identifier hs-var hs-var">newStepFunctionsAction</span></a></span></span><span> </span><span id="local-6989586621679799516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799516"><span class="hs-identifier hs-var">pStateMachineName_</span></a></span></span><span> </span><span id="local-6989586621679799515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799515"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">StepFunctionsAction' :: Maybe Text -&gt; Text -&gt; Text -&gt; StepFunctionsAction
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:executionNamePrefix:StepFunctionsAction' :: Maybe Text
@@ -134,10 +134,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateMachineName:StepFunctionsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#%24sel%3AstateMachineName%3AStepFunctionsAction%27"><span class="hs-identifier hs-var">stateMachineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799507"><span class="hs-identifier hs-var">pStateMachineName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799516"><span class="hs-identifier hs-var">pStateMachineName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:StepFunctionsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#%24sel%3AroleArn%3AStepFunctionsAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799506"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679799515"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | (Optional) A name will be given to the state machine execution</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; Lens
      StepFunctionsAction StepFunctionsAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799502"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799511"><span class="annot"><span class="annottext">Maybe Text
 executionNamePrefix :: Maybe Text
 $sel:executionNamePrefix:StepFunctionsAction' :: StepFunctionsAction -&gt; Maybe Text
-</span><a href="#local-6989586621679799502"><span class="hs-identifier hs-var hs-var">executionNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799502"><span class="hs-identifier hs-var">executionNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799501"><span class="annot"><span class="annottext">s :: StepFunctionsAction
-</span><a href="#local-6989586621679799501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799500"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepFunctionsAction
-</span><a href="#local-6989586621679799501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionNamePrefix:StepFunctionsAction' :: Maybe Text
+</span><a href="#local-6989586621679799511"><span class="hs-identifier hs-var hs-var">executionNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799511"><span class="hs-identifier hs-var">executionNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799510"><span class="annot"><span class="annottext">s :: StepFunctionsAction
+</span><a href="#local-6989586621679799510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepFunctionsAction
+</span><a href="#local-6989586621679799510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionNamePrefix:StepFunctionsAction' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#%24sel%3AexecutionNamePrefix%3AStepFunctionsAction%27"><span class="hs-identifier hs-var">executionNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name of the Step Functions state machine whose execution will be</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- started.</span><span>
@@ -171,16 +171,16 @@ $sel:executionNamePrefix:StepFunctionsAction' :: StepFunctionsAction -&gt; Maybe
 -&gt; (StepFunctionsAction -&gt; Text -&gt; StepFunctionsAction)
 -&gt; Lens StepFunctionsAction StepFunctionsAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799498"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799507"><span class="annot"><span class="annottext">Text
 stateMachineName :: Text
 $sel:stateMachineName:StepFunctionsAction' :: StepFunctionsAction -&gt; Text
-</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var hs-var">stateMachineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799498"><span class="hs-identifier hs-var">stateMachineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799497"><span class="annot"><span class="annottext">s :: StepFunctionsAction
-</span><a href="#local-6989586621679799497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepFunctionsAction
-</span><a href="#local-6989586621679799497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineName:StepFunctionsAction' :: Text
+</span><a href="#local-6989586621679799507"><span class="hs-identifier hs-var hs-var">stateMachineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799507"><span class="hs-identifier hs-var">stateMachineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799506"><span class="annot"><span class="annottext">s :: StepFunctionsAction
+</span><a href="#local-6989586621679799506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepFunctionsAction
+</span><a href="#local-6989586621679799506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineName:StepFunctionsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#%24sel%3AstateMachineName%3AStepFunctionsAction%27"><span class="hs-identifier hs-var">stateMachineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ARN of the role that grants IoT permission to start execution of a</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- state machine (\&quot;Action\&quot;:\&quot;states:StartExecution\&quot;).</span><span>
@@ -190,19 +190,19 @@ $sel:stateMachineName:StepFunctionsAction' :: StepFunctionsAction -&gt; Text
 -&gt; (StepFunctionsAction -&gt; Text -&gt; StepFunctionsAction)
 -&gt; Lens StepFunctionsAction StepFunctionsAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799494"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799503"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:StepFunctionsAction' :: StepFunctionsAction -&gt; Text
-</span><a href="#local-6989586621679799494"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799494"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799493"><span class="annot"><span class="annottext">s :: StepFunctionsAction
-</span><a href="#local-6989586621679799493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799492"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepFunctionsAction
-</span><a href="#local-6989586621679799493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:StepFunctionsAction' :: Text
+</span><a href="#local-6989586621679799503"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799503"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799502"><span class="annot"><span class="annottext">s :: StepFunctionsAction
+</span><a href="#local-6989586621679799502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepFunctionsAction
+</span><a href="#local-6989586621679799502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:StepFunctionsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#%24sel%3AroleArn%3AStepFunctionsAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799489"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679799487"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepFunctionsAction
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799498"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679799496"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepFunctionsAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StepFunctionsAction)
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StepFunctionsAction&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799484"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799493"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; StepFunctionsAction
 </span><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-var">StepFunctionsAction'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; StepFunctionsAction)
@@ -221,7 +221,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; StepFunctionsAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679799493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionNamePrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -229,7 +229,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; StepFunctionsAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679799493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateMachineName&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,19 +237,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser StepFunctionsAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679799493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799477"><span id="local-6989586621679799479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799486"><span id="local-6989586621679799488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799466"><span id="local-6989586621679799468"><span id="local-6989586621679799470"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679799464"><span class="annot"><span class="annottext">toJSON :: StepFunctionsAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799460"><span id="local-6989586621679799461"><span id="local-6989586621679799462"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799475"><span id="local-6989586621679799477"><span id="local-6989586621679799479"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679799473"><span class="annot"><span class="annottext">toJSON :: StepFunctionsAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction%27"><span class="hs-identifier hs-type">StepFunctionsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799469"><span id="local-6989586621679799470"><span id="local-6989586621679799471"><span class="annot"><span class="annottext">Maybe Text
 Text
 roleArn :: Text
 stateMachineName :: Text
@@ -257,7 +257,7 @@ executionNamePrefix :: Maybe Text
 $sel:roleArn:StepFunctionsAction' :: StepFunctionsAction -&gt; Text
 $sel:stateMachineName:StepFunctionsAction' :: StepFunctionsAction -&gt; Text
 $sel:executionNamePrefix:StepFunctionsAction' :: StepFunctionsAction -&gt; Maybe Text
-</span><a href="#local-6989586621679799460"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679799469"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -270,7 +270,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799462"><span class="hs-identifier hs-var">executionNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799471"><span class="hs-identifier hs-var">executionNamePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -278,14 +278,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;stateMachineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799461"><span class="hs-identifier hs-var">stateMachineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799470"><span class="hs-identifier hs-var">stateMachineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799460"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799469"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

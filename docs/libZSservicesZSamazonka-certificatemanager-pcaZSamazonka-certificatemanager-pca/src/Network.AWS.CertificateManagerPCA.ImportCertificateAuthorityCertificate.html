@@ -138,7 +138,7 @@
 </span><span id="line-138"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newImportCertificateAuthorityCertificate' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679215677"><span id="local-6989586621679215678"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificateAuthorityCertificate"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificateAuthorityCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificate'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679215686"><span id="local-6989586621679215687"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificateAuthorityCertificate"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificateAuthorityCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificate'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A PEM-encoded file that contains all of your certificates, other than</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- the certificate you\'re importing, chaining up to your root CA. Your ACM</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">-- Private CA-hosted or on-premises root certificate is the last in the</span><span>
@@ -161,7 +161,7 @@
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3Acertificate%3AImportCertificateAuthorityCertificate%27"><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate -&gt; Base64
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#%24sel%3Acertificate%3AImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215669"><span id="local-6989586621679215671"><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215678"><span id="local-6989586621679215680"><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
 -&gt; ImportCertificateAuthorityCertificate -&gt; Bool
 (ImportCertificateAuthorityCertificate
  -&gt; ImportCertificateAuthorityCertificate -&gt; Bool)
@@ -177,7 +177,7 @@ $c/= :: ImportCertificateAuthorityCertificate
 -&gt; ImportCertificateAuthorityCertificate -&gt; Bool
 $c== :: ImportCertificateAuthorityCertificate
 -&gt; ImportCertificateAuthorityCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215660"><span id="local-6989586621679215662"><span id="local-6989586621679215664"><span id="local-6989586621679215666"><span class="annot"><span class="annottext">ReadPrec [ImportCertificateAuthorityCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215669"><span id="local-6989586621679215671"><span id="local-6989586621679215673"><span id="local-6989586621679215675"><span class="annot"><span class="annottext">ReadPrec [ImportCertificateAuthorityCertificate]
 ReadPrec ImportCertificateAuthorityCertificate
 Int -&gt; ReadS ImportCertificateAuthorityCertificate
 ReadS [ImportCertificateAuthorityCertificate]
@@ -197,7 +197,7 @@ readList :: ReadS [ImportCertificateAuthorityCertificate]
 $creadList :: ReadS [ImportCertificateAuthorityCertificate]
 readsPrec :: Int -&gt; ReadS ImportCertificateAuthorityCertificate
 $creadsPrec :: Int -&gt; ReadS ImportCertificateAuthorityCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215653"><span id="local-6989586621679215655"><span id="local-6989586621679215657"><span class="annot"><span class="annottext">Int -&gt; ImportCertificateAuthorityCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215662"><span id="local-6989586621679215664"><span id="local-6989586621679215666"><span class="annot"><span class="annottext">Int -&gt; ImportCertificateAuthorityCertificate -&gt; ShowS
 [ImportCertificateAuthorityCertificate] -&gt; ShowS
 ImportCertificateAuthorityCertificate -&gt; String
 (Int -&gt; ImportCertificateAuthorityCertificate -&gt; ShowS)
@@ -276,10 +276,10 @@ ImportCertificateAuthorityCertificate
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span>
 </span><span id="line-202"></span><span id="newImportCertificateAuthorityCertificate"><span class="annot"><span class="annottext">newImportCertificateAuthorityCertificate :: Text -&gt; ByteString -&gt; ImportCertificateAuthorityCertificate
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#newImportCertificateAuthorityCertificate"><span class="hs-identifier hs-var hs-var">newImportCertificateAuthorityCertificate</span></a></span></span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679215648"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215648"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679215647"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679215647"><span class="hs-identifier hs-var">pCertificate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679215657"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215657"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679215656"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679215656"><span class="hs-identifier hs-var">pCertificate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate' :: Maybe Base64
 -&gt; Text -&gt; Base64 -&gt; ImportCertificateAuthorityCertificate
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span>
@@ -291,7 +291,7 @@ forall a. Maybe a
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:ImportCertificateAuthorityCertificate' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#%24sel%3AcertificateAuthorityArn%3AImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215648"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215657"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificate:ImportCertificateAuthorityCertificate' :: Base64
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#%24sel%3Acertificate%3AImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
@@ -302,7 +302,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679215647"><span class="hs-identifier hs-var">pCertificate_</span></a></span><span>
+</span><a href="#local-6989586621679215656"><span class="hs-identifier hs-var">pCertificate_</span></a></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | A PEM-encoded file that contains all of your certificates, other than</span><span>
@@ -329,16 +329,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Base64)
      (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215642"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215651"><span class="annot"><span class="annottext">Maybe Base64
 certificateChain :: Maybe Base64
 $sel:certificateChain:ImportCertificateAuthorityCertificate' :: ImportCertificateAuthorityCertificate -&gt; Maybe Base64
-</span><a href="#local-6989586621679215642"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679215642"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215641"><span class="annot"><span class="annottext">s :: ImportCertificateAuthorityCertificate
-</span><a href="#local-6989586621679215641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215640"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679215640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
-</span><a href="#local-6989586621679215641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateChain:ImportCertificateAuthorityCertificate' :: Maybe Base64
+</span><a href="#local-6989586621679215651"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679215651"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215650"><span class="annot"><span class="annottext">s :: ImportCertificateAuthorityCertificate
+</span><a href="#local-6989586621679215650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215649"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679215649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
+</span><a href="#local-6989586621679215650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateChain:ImportCertificateAuthorityCertificate' :: Maybe Base64
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#%24sel%3AcertificateChain%3AImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var">certificateChain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679215640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679215649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; ImportCertificateAuthorityCertificate
  -&gt; f ImportCertificateAuthorityCertificate)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
@@ -375,16 +375,16 @@ Iso' Base64 ByteString
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215637"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215646"><span class="annot"><span class="annottext">Text
 certificateAuthorityArn :: Text
 $sel:certificateAuthorityArn:ImportCertificateAuthorityCertificate' :: ImportCertificateAuthorityCertificate -&gt; Text
-</span><a href="#local-6989586621679215637"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215637"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215636"><span class="annot"><span class="annottext">s :: ImportCertificateAuthorityCertificate
-</span><a href="#local-6989586621679215636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215635"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
-</span><a href="#local-6989586621679215636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:ImportCertificateAuthorityCertificate' :: Text
+</span><a href="#local-6989586621679215646"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215646"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215645"><span class="annot"><span class="annottext">s :: ImportCertificateAuthorityCertificate
+</span><a href="#local-6989586621679215645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
+</span><a href="#local-6989586621679215645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:ImportCertificateAuthorityCertificate' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#%24sel%3AcertificateAuthorityArn%3AImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The PEM-encoded certificate for a private CA. This may be a self-signed</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- certificate in the case of a root CA, or it may be signed by another CA</span><span>
@@ -406,16 +406,16 @@ $sel:certificateAuthorityArn:ImportCertificateAuthorityCertificate' :: ImportCer
      Base64
      Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215634"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215643"><span class="annot"><span class="annottext">Base64
 certificate :: Base64
 $sel:certificate:ImportCertificateAuthorityCertificate' :: ImportCertificateAuthorityCertificate -&gt; Base64
-</span><a href="#local-6989586621679215634"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215634"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215633"><span class="annot"><span class="annottext">s :: ImportCertificateAuthorityCertificate
-</span><a href="#local-6989586621679215633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215632"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
-</span><a href="#local-6989586621679215633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ImportCertificateAuthorityCertificate' :: Base64
+</span><a href="#local-6989586621679215643"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679215643"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215642"><span class="annot"><span class="annottext">s :: ImportCertificateAuthorityCertificate
+</span><a href="#local-6989586621679215642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215641"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679215641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificate
+</span><a href="#local-6989586621679215642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ImportCertificateAuthorityCertificate' :: Base64
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#%24sel%3Acertificate%3AImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64)
+</span><a href="#local-6989586621679215641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64)
  -&gt; ImportCertificateAuthorityCertificate
  -&gt; f ImportCertificateAuthorityCertificate)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
@@ -435,7 +435,7 @@ Iso' Base64 ByteString
 </span><span id="line-251"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-252"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificateResponse</span></a></span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679215628"><span class="annot"><span class="annottext">request :: ImportCertificateAuthorityCertificate
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679215637"><span class="annot"><span class="annottext">request :: ImportCertificateAuthorityCertificate
 -&gt; Request ImportCertificateAuthorityCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ImportCertificateAuthorityCertificate
@@ -443,7 +443,7 @@ Iso' Base64 ByteString
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679215624"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679215633"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ImportCertificateAuthorityCertificate
 -&gt; ClientResponse ClientBody
@@ -475,18 +475,18 @@ ImportCertificateAuthorityCertificateResponse
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse%27"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificateResponse'</span></a></span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679215617"><span id="local-6989586621679215619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679215626"><span id="local-6989586621679215628"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span></span></span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679215614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679215623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span></span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-268"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span>
 </span><span id="line-270"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679215610"><span class="annot"><span class="annottext">toHeaders :: ImportCertificateAuthorityCertificate -&gt; [Header]
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679215619"><span class="annot"><span class="annottext">toHeaders :: ImportCertificateAuthorityCertificate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; ImportCertificateAuthorityCertificate -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -514,11 +514,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-286"></span><span>  </span><span id="local-6989586621679215600"><span id="local-6989586621679215602"><span id="local-6989586621679215604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679215609"><span id="local-6989586621679215611"><span id="local-6989586621679215613"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-287"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span></span></span></span><span>
 </span><span id="line-288"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621679215598"><span class="annot"><span class="annottext">toJSON :: ImportCertificateAuthorityCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215594"><span id="local-6989586621679215595"><span id="local-6989586621679215596"><span class="annot"><span class="annottext">Maybe Base64
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679215607"><span class="annot"><span class="annottext">toJSON :: ImportCertificateAuthorityCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate%27"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215603"><span id="local-6989586621679215604"><span id="local-6989586621679215605"><span class="annot"><span class="annottext">Maybe Base64
 Text
 Base64
 certificate :: Base64
@@ -527,7 +527,7 @@ certificateChain :: Maybe Base64
 $sel:certificate:ImportCertificateAuthorityCertificate' :: ImportCertificateAuthorityCertificate -&gt; Base64
 $sel:certificateAuthorityArn:ImportCertificateAuthorityCertificate' :: ImportCertificateAuthorityCertificate -&gt; Text
 $sel:certificateChain:ImportCertificateAuthorityCertificate' :: ImportCertificateAuthorityCertificate -&gt; Maybe Base64
-</span><a href="#local-6989586621679215594"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215603"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-290"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-291"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -540,7 +540,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-293"></span><span>              </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679215596"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215605"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -549,7 +549,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-296"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215595"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
+</span><a href="#local-6989586621679215604"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
 </span><span id="line-297"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -557,7 +557,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215594"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215603"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-300"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
@@ -565,7 +565,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-303"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span>
 </span><span id="line-305"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621679215587"><span class="annot"><span class="annottext">toPath :: ImportCertificateAuthorityCertificate -&gt; ByteString
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679215596"><span class="annot"><span class="annottext">toPath :: ImportCertificateAuthorityCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportCertificateAuthorityCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -575,7 +575,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-309"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificate"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificate</span></a></span><span>
 </span><span id="line-311"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-312"></span><span>  </span><span id="local-6989586621679215583"><span class="annot"><span class="annottext">toQuery :: ImportCertificateAuthorityCertificate -&gt; QueryString
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621679215592"><span class="annot"><span class="annottext">toQuery :: ImportCertificateAuthorityCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ImportCertificateAuthorityCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -583,10 +583,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | /See:/ 'newImportCertificateAuthorityCertificateResponse' smart constructor.</span><span>
-</span><span id="line-315"></span><span id="local-6989586621679215580"><span id="local-6989586621679215581"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificateAuthorityCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificateAuthorityCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse%27"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificateResponse'</span></a></span></span><span>
+</span><span id="line-315"></span><span id="local-6989586621679215589"><span id="local-6989586621679215590"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificateAuthorityCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificateAuthorityCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse%27"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificateResponse'</span></a></span></span><span>
 </span><span id="line-316"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-317"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-318"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215576"><span id="local-6989586621679215578"><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificateResponse
+</span><span id="line-318"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215585"><span id="local-6989586621679215587"><span class="annot"><span class="annottext">ImportCertificateAuthorityCertificateResponse
 -&gt; ImportCertificateAuthorityCertificateResponse -&gt; Bool
 (ImportCertificateAuthorityCertificateResponse
  -&gt; ImportCertificateAuthorityCertificateResponse -&gt; Bool)
@@ -602,7 +602,7 @@ $c/= :: ImportCertificateAuthorityCertificateResponse
 -&gt; ImportCertificateAuthorityCertificateResponse -&gt; Bool
 $c== :: ImportCertificateAuthorityCertificateResponse
 -&gt; ImportCertificateAuthorityCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215568"><span id="local-6989586621679215570"><span id="local-6989586621679215572"><span id="local-6989586621679215574"><span class="annot"><span class="annottext">ReadPrec [ImportCertificateAuthorityCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215577"><span id="local-6989586621679215579"><span id="local-6989586621679215581"><span id="local-6989586621679215583"><span class="annot"><span class="annottext">ReadPrec [ImportCertificateAuthorityCertificateResponse]
 ReadPrec ImportCertificateAuthorityCertificateResponse
 Int -&gt; ReadS ImportCertificateAuthorityCertificateResponse
 ReadS [ImportCertificateAuthorityCertificateResponse]
@@ -622,7 +622,7 @@ readList :: ReadS [ImportCertificateAuthorityCertificateResponse]
 $creadList :: ReadS [ImportCertificateAuthorityCertificateResponse]
 readsPrec :: Int -&gt; ReadS ImportCertificateAuthorityCertificateResponse
 $creadsPrec :: Int -&gt; ReadS ImportCertificateAuthorityCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215562"><span id="local-6989586621679215564"><span id="local-6989586621679215566"><span class="annot"><span class="annottext">Int -&gt; ImportCertificateAuthorityCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215571"><span id="local-6989586621679215573"><span id="local-6989586621679215575"><span class="annot"><span class="annottext">Int -&gt; ImportCertificateAuthorityCertificateResponse -&gt; ShowS
 [ImportCertificateAuthorityCertificateResponse] -&gt; ShowS
 ImportCertificateAuthorityCertificateResponse -&gt; String
 (Int -&gt; ImportCertificateAuthorityCertificateResponse -&gt; ShowS)
@@ -672,6 +672,6 @@ ImportCertificateAuthorityCertificateResponse
 </span><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse%27"><span class="hs-identifier hs-var">ImportCertificateAuthorityCertificateResponse'</span></a></span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-330"></span><span>  </span><span id="local-6989586621679215558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621679215567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-331"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate.html#ImportCertificateAuthorityCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateAuthorityCertificateResponse</span></a></span></span><span>
 </span><span id="line-332"></span></pre></body></html>

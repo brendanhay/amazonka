@@ -105,7 +105,7 @@
 </span><span id="line-105"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- /See:/ 'newReceiveMessage' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679178092"><span id="local-6989586621679178093"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiveMessage"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-var">ReceiveMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiveMessage%27"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-var">ReceiveMessage'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679178101"><span id="local-6989586621679178102"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiveMessage"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-var">ReceiveMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiveMessage%27"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-var">ReceiveMessage'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) queues.</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">-- The token used for deduplication of @ReceiveMessage@ calls. If a</span><span>
@@ -257,7 +257,7 @@
 </span><span id="line-251"></span><span>    </span><span id="%24sel%3AqueueUrl%3AReceiveMessage%27"><span class="annot"><span class="annottext">ReceiveMessage -&gt; Text
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AqueueUrl%3AReceiveMessage%27"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-252"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-253"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178080"><span id="local-6989586621679178082"><span class="annot"><span class="annottext">ReceiveMessage -&gt; ReceiveMessage -&gt; Bool
+</span><span id="line-253"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178089"><span id="local-6989586621679178091"><span class="annot"><span class="annottext">ReceiveMessage -&gt; ReceiveMessage -&gt; Bool
 (ReceiveMessage -&gt; ReceiveMessage -&gt; Bool)
 -&gt; (ReceiveMessage -&gt; ReceiveMessage -&gt; Bool) -&gt; Eq ReceiveMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -265,7 +265,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReceiveMessage -&gt; ReceiveMessage -&gt; Bool
 == :: ReceiveMessage -&gt; ReceiveMessage -&gt; Bool
 $c== :: ReceiveMessage -&gt; ReceiveMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178071"><span id="local-6989586621679178073"><span id="local-6989586621679178075"><span id="local-6989586621679178077"><span class="annot"><span class="annottext">ReadPrec [ReceiveMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178080"><span id="local-6989586621679178082"><span id="local-6989586621679178084"><span id="local-6989586621679178086"><span class="annot"><span class="annottext">ReadPrec [ReceiveMessage]
 ReadPrec ReceiveMessage
 Int -&gt; ReadS ReceiveMessage
 ReadS [ReceiveMessage]
@@ -285,7 +285,7 @@ readList :: ReadS [ReceiveMessage]
 $creadList :: ReadS [ReceiveMessage]
 readsPrec :: Int -&gt; ReadS ReceiveMessage
 $creadsPrec :: Int -&gt; ReadS ReceiveMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178064"><span id="local-6989586621679178066"><span id="local-6989586621679178068"><span class="annot"><span class="annottext">Int -&gt; ReceiveMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178073"><span id="local-6989586621679178075"><span id="local-6989586621679178077"><span class="annot"><span class="annottext">Int -&gt; ReceiveMessage -&gt; ShowS
 [ReceiveMessage] -&gt; ShowS
 ReceiveMessage -&gt; String
 (Int -&gt; ReceiveMessage -&gt; ShowS)
@@ -466,8 +466,8 @@ $cfrom :: forall x. ReceiveMessage -&gt; Rep ReceiveMessage x
 </span><span id="line-407"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-408"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span>
 </span><span id="line-409"></span><span id="newReceiveMessage"><span class="annot"><span class="annottext">newReceiveMessage :: Text -&gt; ReceiveMessage
-</span><a href="Network.AWS.SQS.ReceiveMessage.html#newReceiveMessage"><span class="hs-identifier hs-var hs-var">newReceiveMessage</span></a></span></span><span> </span><span id="local-6989586621679178059"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178059"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SQS.ReceiveMessage.html#newReceiveMessage"><span class="hs-identifier hs-var hs-var">newReceiveMessage</span></a></span></span><span> </span><span id="local-6989586621679178068"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178068"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-410"></span><span>  </span><span class="annot"><span class="annottext">ReceiveMessage' :: Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe [Text]
@@ -504,7 +504,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-418"></span><span>      </span><span class="annot"><span class="annottext">$sel:queueUrl:ReceiveMessage' :: Text
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AqueueUrl%3AReceiveMessage%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178059"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span>
+</span><a href="#local-6989586621679178068"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span>
 </span><span id="line-419"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-420"></span><span>
 </span><span id="line-421"></span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) queues.</span><span>
@@ -572,16 +572,16 @@ forall a. Maybe a
 -&gt; (ReceiveMessage -&gt; Maybe Text -&gt; ReceiveMessage)
 -&gt; Lens ReceiveMessage ReceiveMessage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178056"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178065"><span class="annot"><span class="annottext">Maybe Text
 receiveRequestAttemptId :: Maybe Text
 $sel:receiveRequestAttemptId:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679178056"><span class="hs-identifier hs-var hs-var">receiveRequestAttemptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178056"><span class="hs-identifier hs-var">receiveRequestAttemptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178055"><span class="annot"><span class="annottext">s :: ReceiveMessage
-</span><a href="#local-6989586621679178055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178054"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
-</span><a href="#local-6989586621679178055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiveRequestAttemptId:ReceiveMessage' :: Maybe Text
+</span><a href="#local-6989586621679178065"><span class="hs-identifier hs-var hs-var">receiveRequestAttemptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178065"><span class="hs-identifier hs-var">receiveRequestAttemptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178064"><span class="annot"><span class="annottext">s :: ReceiveMessage
+</span><a href="#local-6989586621679178064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178063"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
+</span><a href="#local-6989586621679178064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiveRequestAttemptId:ReceiveMessage' :: Maybe Text
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AreceiveRequestAttemptId%3AReceiveMessage%27"><span class="hs-identifier hs-var">receiveRequestAttemptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-481"></span><span>
 </span><span id="line-482"></span><span class="hs-comment">-- | The duration (in seconds) that the received messages are hidden from</span><span>
 </span><span id="line-483"></span><span class="hs-comment">-- subsequent retrieve requests after being retrieved by a @ReceiveMessage@</span><span>
@@ -592,16 +592,16 @@ $sel:receiveRequestAttemptId:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Text
 -&gt; (ReceiveMessage -&gt; Maybe Int -&gt; ReceiveMessage)
 -&gt; Lens ReceiveMessage ReceiveMessage (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178053"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178062"><span class="annot"><span class="annottext">Maybe Int
 visibilityTimeout :: Maybe Int
 $sel:visibilityTimeout:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
-</span><a href="#local-6989586621679178053"><span class="hs-identifier hs-var hs-var">visibilityTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178053"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178052"><span class="annot"><span class="annottext">s :: ReceiveMessage
-</span><a href="#local-6989586621679178052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178051"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
-</span><a href="#local-6989586621679178052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:visibilityTimeout:ReceiveMessage' :: Maybe Int
+</span><a href="#local-6989586621679178062"><span class="hs-identifier hs-var hs-var">visibilityTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679178062"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178061"><span class="annot"><span class="annottext">s :: ReceiveMessage
+</span><a href="#local-6989586621679178061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178060"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679178060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
+</span><a href="#local-6989586621679178061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:visibilityTimeout:ReceiveMessage' :: Maybe Int
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AvisibilityTimeout%3AReceiveMessage%27"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-487"></span><span>
 </span><span id="line-488"></span><span class="hs-comment">-- | The name of the message attribute, where /N/ is the index.</span><span>
 </span><span id="line-489"></span><span class="hs-comment">--</span><span>
@@ -630,16 +630,16 @@ $sel:visibilityTimeout:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
 -&gt; (ReceiveMessage -&gt; Maybe [Text] -&gt; ReceiveMessage)
 -&gt; Lens ReceiveMessage ReceiveMessage (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178050"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178059"><span class="annot"><span class="annottext">Maybe [Text]
 messageAttributeNames :: Maybe [Text]
 $sel:messageAttributeNames:ReceiveMessage' :: ReceiveMessage -&gt; Maybe [Text]
-</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var hs-var">messageAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var">messageAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178049"><span class="annot"><span class="annottext">s :: ReceiveMessage
-</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178048"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679178048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
-</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAttributeNames:ReceiveMessage' :: Maybe [Text]
+</span><a href="#local-6989586621679178059"><span class="hs-identifier hs-var hs-var">messageAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679178059"><span class="hs-identifier hs-var">messageAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178058"><span class="annot"><span class="annottext">s :: ReceiveMessage
+</span><a href="#local-6989586621679178058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178057"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679178057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
+</span><a href="#local-6989586621679178058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAttributeNames:ReceiveMessage' :: Maybe [Text]
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AmessageAttributeNames%3AReceiveMessage%27"><span class="hs-identifier hs-var">messageAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679178048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679178057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ReceiveMessage -&gt; f ReceiveMessage)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -676,16 +676,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReceiveMessage -&gt; Maybe Int -&gt; ReceiveMessage)
 -&gt; Lens ReceiveMessage ReceiveMessage (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178044"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178053"><span class="annot"><span class="annottext">Maybe Int
 waitTimeSeconds :: Maybe Int
 $sel:waitTimeSeconds:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
-</span><a href="#local-6989586621679178044"><span class="hs-identifier hs-var hs-var">waitTimeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178044"><span class="hs-identifier hs-var">waitTimeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178043"><span class="annot"><span class="annottext">s :: ReceiveMessage
-</span><a href="#local-6989586621679178043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178042"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
-</span><a href="#local-6989586621679178043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:waitTimeSeconds:ReceiveMessage' :: Maybe Int
+</span><a href="#local-6989586621679178053"><span class="hs-identifier hs-var hs-var">waitTimeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679178053"><span class="hs-identifier hs-var">waitTimeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178052"><span class="annot"><span class="annottext">s :: ReceiveMessage
+</span><a href="#local-6989586621679178052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178051"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
+</span><a href="#local-6989586621679178052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:waitTimeSeconds:ReceiveMessage' :: Maybe Int
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AwaitTimeSeconds%3AReceiveMessage%27"><span class="hs-identifier hs-var">waitTimeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-527"></span><span>
 </span><span id="line-528"></span><span class="hs-comment">-- | A list of attributes that need to be returned along with each message.</span><span>
 </span><span id="line-529"></span><span class="hs-comment">-- These attributes include:</span><span>
@@ -733,16 +733,16 @@ $sel:waitTimeSeconds:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
      (Maybe [MessageAttribute])
      (Maybe [MessageAttribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178041"><span class="annot"><span class="annottext">Maybe [MessageAttribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178050"><span class="annot"><span class="annottext">Maybe [MessageAttribute]
 attributeNames :: Maybe [MessageAttribute]
 $sel:attributeNames:ReceiveMessage' :: ReceiveMessage -&gt; Maybe [MessageAttribute]
-</span><a href="#local-6989586621679178041"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageAttribute]
-</span><a href="#local-6989586621679178041"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178040"><span class="annot"><span class="annottext">s :: ReceiveMessage
-</span><a href="#local-6989586621679178040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178039"><span class="annot"><span class="annottext">Maybe [MessageAttribute]
-</span><a href="#local-6989586621679178039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
-</span><a href="#local-6989586621679178040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:ReceiveMessage' :: Maybe [MessageAttribute]
+</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageAttribute]
+</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178049"><span class="annot"><span class="annottext">s :: ReceiveMessage
+</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178048"><span class="annot"><span class="annottext">Maybe [MessageAttribute]
+</span><a href="#local-6989586621679178048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
+</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:ReceiveMessage' :: Maybe [MessageAttribute]
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AattributeNames%3AReceiveMessage%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageAttribute]
-</span><a href="#local-6989586621679178039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageAttribute] -&gt; f (Maybe [MessageAttribute]))
+</span><a href="#local-6989586621679178048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageAttribute] -&gt; f (Maybe [MessageAttribute]))
  -&gt; ReceiveMessage -&gt; f ReceiveMessage)
 -&gt; ((Maybe [MessageAttribute] -&gt; f (Maybe [MessageAttribute]))
     -&gt; Maybe [MessageAttribute] -&gt; f (Maybe [MessageAttribute]))
@@ -780,16 +780,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReceiveMessage -&gt; Maybe Int -&gt; ReceiveMessage)
 -&gt; Lens ReceiveMessage ReceiveMessage (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178038"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178047"><span class="annot"><span class="annottext">Maybe Int
 maxNumberOfMessages :: Maybe Int
 $sel:maxNumberOfMessages:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
-</span><a href="#local-6989586621679178038"><span class="hs-identifier hs-var hs-var">maxNumberOfMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178038"><span class="hs-identifier hs-var">maxNumberOfMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178037"><span class="annot"><span class="annottext">s :: ReceiveMessage
-</span><a href="#local-6989586621679178037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178036"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
-</span><a href="#local-6989586621679178037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxNumberOfMessages:ReceiveMessage' :: Maybe Int
+</span><a href="#local-6989586621679178047"><span class="hs-identifier hs-var hs-var">maxNumberOfMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679178047"><span class="hs-identifier hs-var">maxNumberOfMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178046"><span class="annot"><span class="annottext">s :: ReceiveMessage
+</span><a href="#local-6989586621679178046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178045"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679178045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
+</span><a href="#local-6989586621679178046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxNumberOfMessages:ReceiveMessage' :: Maybe Int
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AmaxNumberOfMessages%3AReceiveMessage%27"><span class="hs-identifier hs-var">maxNumberOfMessages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679178036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-571"></span><span>
 </span><span id="line-572"></span><span class="hs-comment">-- | The URL of the Amazon SQS queue from which messages are received.</span><span>
 </span><span id="line-573"></span><span class="hs-comment">--</span><span>
@@ -800,27 +800,27 @@ $sel:maxNumberOfMessages:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
 -&gt; (ReceiveMessage -&gt; Text -&gt; ReceiveMessage)
 -&gt; Lens ReceiveMessage ReceiveMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178035"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178044"><span class="annot"><span class="annottext">Text
 queueUrl :: Text
 $sel:queueUrl:ReceiveMessage' :: ReceiveMessage -&gt; Text
-</span><a href="#local-6989586621679178035"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178035"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178034"><span class="annot"><span class="annottext">s :: ReceiveMessage
-</span><a href="#local-6989586621679178034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178033"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
-</span><a href="#local-6989586621679178034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:ReceiveMessage' :: Text
+</span><a href="#local-6989586621679178044"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178044"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178043"><span class="annot"><span class="annottext">s :: ReceiveMessage
+</span><a href="#local-6989586621679178043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178042"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessage
+</span><a href="#local-6989586621679178043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:ReceiveMessage' :: Text
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AqueueUrl%3AReceiveMessage%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-577"></span><span>
 </span><span id="line-578"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-579"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-580"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-581"></span><span>      </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span><span>
-</span><span id="line-582"></span><span>  </span><span id="local-6989586621679178029"><span class="annot"><span class="annottext">request :: ReceiveMessage -&gt; Request ReceiveMessage
+</span><span id="line-582"></span><span>  </span><span id="local-6989586621679178038"><span class="annot"><span class="annottext">request :: ReceiveMessage -&gt; Request ReceiveMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReceiveMessage -&gt; Request ReceiveMessage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SQS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-583"></span><span>  </span><span id="local-6989586621679178025"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-583"></span><span>  </span><span id="local-6989586621679178034"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReceiveMessage
 -&gt; ClientResponse ClientBody
@@ -849,10 +849,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-585"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReceiveMessageResult&quot;</span></span><span>
-</span><span id="line-586"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178022"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178022"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178021"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178021"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178020"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679178020"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-586"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178031"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178031"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178030"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178030"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178029"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679178029"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-587"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Message] -&gt; Int -&gt; ReceiveMessageResponse
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-var">ReceiveMessageResponse'</span></a></span><span>
 </span><span id="line-588"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Message] -&gt; Int -&gt; ReceiveMessageResponse)
@@ -868,7 +868,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679178020"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178029"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-589"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ReceiveMessageResponse)
 -&gt; Either String Int -&gt; Either String ReceiveMessageResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -877,15 +877,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178022"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178031"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-590"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-591"></span><span>
-</span><span id="line-592"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178011"><span id="local-6989586621679178013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span></span></span><span>
+</span><span id="line-592"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178020"><span id="local-6989586621679178022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span></span></span><span>
 </span><span id="line-593"></span><span>
-</span><span id="line-594"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span></span><span>
+</span><span id="line-594"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span></span><span>
 </span><span id="line-595"></span><span>
 </span><span id="line-596"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-597"></span><span>  </span><span id="local-6989586621679178004"><span class="annot"><span class="annottext">toHeaders :: ReceiveMessage -&gt; ResponseHeaders
+</span><span id="line-597"></span><span>  </span><span id="local-6989586621679178013"><span class="annot"><span class="annottext">toHeaders :: ReceiveMessage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReceiveMessage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -893,15 +893,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-598"></span><span>
 </span><span id="line-599"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-600"></span><span>  </span><span id="local-6989586621679177999"><span class="annot"><span class="annottext">toPath :: ReceiveMessage -&gt; ByteString
+</span><span id="line-600"></span><span>  </span><span id="local-6989586621679178008"><span class="annot"><span class="annottext">toPath :: ReceiveMessage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReceiveMessage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-601"></span><span>
 </span><span id="line-602"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage"><span class="hs-identifier hs-type">ReceiveMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-603"></span><span>  </span><span id="local-6989586621679177995"><span class="annot"><span class="annottext">toQuery :: ReceiveMessage -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177987"><span id="local-6989586621679177988"><span id="local-6989586621679177989"><span id="local-6989586621679177990"><span id="local-6989586621679177991"><span id="local-6989586621679177992"><span id="local-6989586621679177993"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-603"></span><span>  </span><span id="local-6989586621679178004"><span class="annot"><span class="annottext">toQuery :: ReceiveMessage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessage%27"><span class="hs-identifier hs-type">ReceiveMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177996"><span id="local-6989586621679177997"><span id="local-6989586621679177998"><span id="local-6989586621679177999"><span id="local-6989586621679178000"><span id="local-6989586621679178001"><span id="local-6989586621679178002"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe [MessageAttribute]
 Maybe Text
@@ -920,7 +920,7 @@ $sel:waitTimeSeconds:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
 $sel:messageAttributeNames:ReceiveMessage' :: ReceiveMessage -&gt; Maybe [Text]
 $sel:visibilityTimeout:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Int
 $sel:receiveRequestAttemptId:ReceiveMessage' :: ReceiveMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679177987"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177996"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-604"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -941,12 +941,12 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-610"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177993"><span class="hs-identifier hs-var">receiveRequestAttemptId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178002"><span class="hs-identifier hs-var">receiveRequestAttemptId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-611"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VisibilityTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679177992"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178001"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-612"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -959,13 +959,13 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-614"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679177991"><span class="hs-identifier hs-var">messageAttributeNames</span></a></span><span>
+</span><a href="#local-6989586621679178000"><span class="hs-identifier hs-var">messageAttributeNames</span></a></span><span>
 </span><span id="line-615"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-616"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;WaitTimeSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679177990"><span class="hs-identifier hs-var">waitTimeSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177999"><span class="hs-identifier hs-var">waitTimeSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-617"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -979,24 +979,24 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [MessageAttribute] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MessageAttribute]
-</span><a href="#local-6989586621679177989"><span class="hs-identifier hs-var">attributeNames</span></a></span><span>
+</span><a href="#local-6989586621679177998"><span class="hs-identifier hs-var">attributeNames</span></a></span><span>
 </span><span id="line-620"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-621"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxNumberOfMessages&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679177988"><span class="hs-identifier hs-var">maxNumberOfMessages</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177997"><span class="hs-identifier hs-var">maxNumberOfMessages</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-622"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;QueueUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177987"><span class="hs-identifier hs-var">queueUrl</span></a></span><span>
+</span><a href="#local-6989586621679177996"><span class="hs-identifier hs-var">queueUrl</span></a></span><span>
 </span><span id="line-623"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-624"></span><span>
 </span><span id="line-625"></span><span class="hs-comment">-- | A list of received messages.</span><span>
 </span><span id="line-626"></span><span class="hs-comment">--</span><span>
 </span><span id="line-627"></span><span class="hs-comment">-- /See:/ 'newReceiveMessageResponse' smart constructor.</span><span>
-</span><span id="line-628"></span><span id="local-6989586621679177983"><span id="local-6989586621679177984"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiveMessageResponse"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-var">ReceiveMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiveMessageResponse%27"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-var">ReceiveMessageResponse'</span></a></span></span><span>
+</span><span id="line-628"></span><span id="local-6989586621679177992"><span id="local-6989586621679177993"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiveMessageResponse"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-var">ReceiveMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiveMessageResponse%27"><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-var">ReceiveMessageResponse'</span></a></span></span><span>
 </span><span id="line-629"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of messages.</span><span>
 </span><span id="line-630"></span><span>    </span><span id="%24sel%3Amessages%3AReceiveMessageResponse%27"><span class="annot"><span class="annottext">ReceiveMessageResponse -&gt; Maybe [Message]
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3Amessages%3AReceiveMessageResponse%27"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -1004,7 +1004,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-632"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReceiveMessageResponse%27"><span class="annot"><span class="annottext">ReceiveMessageResponse -&gt; Int
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AhttpStatus%3AReceiveMessageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-633"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-634"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177977"><span id="local-6989586621679177979"><span class="annot"><span class="annottext">ReceiveMessageResponse -&gt; ReceiveMessageResponse -&gt; Bool
+</span><span id="line-634"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177986"><span id="local-6989586621679177988"><span class="annot"><span class="annottext">ReceiveMessageResponse -&gt; ReceiveMessageResponse -&gt; Bool
 (ReceiveMessageResponse -&gt; ReceiveMessageResponse -&gt; Bool)
 -&gt; (ReceiveMessageResponse -&gt; ReceiveMessageResponse -&gt; Bool)
 -&gt; Eq ReceiveMessageResponse
@@ -1013,7 +1013,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReceiveMessageResponse -&gt; ReceiveMessageResponse -&gt; Bool
 == :: ReceiveMessageResponse -&gt; ReceiveMessageResponse -&gt; Bool
 $c== :: ReceiveMessageResponse -&gt; ReceiveMessageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177969"><span id="local-6989586621679177971"><span id="local-6989586621679177973"><span id="local-6989586621679177975"><span class="annot"><span class="annottext">ReadPrec [ReceiveMessageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177978"><span id="local-6989586621679177980"><span id="local-6989586621679177982"><span id="local-6989586621679177984"><span class="annot"><span class="annottext">ReadPrec [ReceiveMessageResponse]
 ReadPrec ReceiveMessageResponse
 Int -&gt; ReadS ReceiveMessageResponse
 ReadS [ReceiveMessageResponse]
@@ -1033,7 +1033,7 @@ readList :: ReadS [ReceiveMessageResponse]
 $creadList :: ReadS [ReceiveMessageResponse]
 readsPrec :: Int -&gt; ReadS ReceiveMessageResponse
 $creadsPrec :: Int -&gt; ReadS ReceiveMessageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177963"><span id="local-6989586621679177965"><span id="local-6989586621679177967"><span class="annot"><span class="annottext">Int -&gt; ReceiveMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177972"><span id="local-6989586621679177974"><span id="local-6989586621679177976"><span class="annot"><span class="annottext">Int -&gt; ReceiveMessageResponse -&gt; ShowS
 [ReceiveMessageResponse] -&gt; ShowS
 ReceiveMessageResponse -&gt; String
 (Int -&gt; ReceiveMessageResponse -&gt; ShowS)
@@ -1076,8 +1076,8 @@ $cfrom :: forall x. ReceiveMessageResponse -&gt; Rep ReceiveMessageResponse x
 </span><span id="line-649"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-650"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span><span>
 </span><span id="line-651"></span><span id="newReceiveMessageResponse"><span class="annot"><span class="annottext">newReceiveMessageResponse :: Int -&gt; ReceiveMessageResponse
-</span><a href="Network.AWS.SQS.ReceiveMessage.html#newReceiveMessageResponse"><span class="hs-identifier hs-var hs-var">newReceiveMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679177960"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SQS.ReceiveMessage.html#newReceiveMessageResponse"><span class="hs-identifier hs-var hs-var">newReceiveMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679177969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177969"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-652"></span><span>  </span><span class="annot"><span class="annottext">ReceiveMessageResponse' :: Maybe [Message] -&gt; Int -&gt; ReceiveMessageResponse
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span>
 </span><span id="line-653"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messages:ReceiveMessageResponse' :: Maybe [Message]
@@ -1086,7 +1086,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-654"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ReceiveMessageResponse' :: Int
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AhttpStatus%3AReceiveMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679177969"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-655"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-656"></span><span>
 </span><span id="line-657"></span><span class="hs-comment">-- | A list of messages.</span><span>
@@ -1102,16 +1102,16 @@ forall a. Maybe a
      (Maybe [Message])
      (Maybe [Message])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177959"><span class="annot"><span class="annottext">Maybe [Message]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177968"><span class="annot"><span class="annottext">Maybe [Message]
 messages :: Maybe [Message]
 $sel:messages:ReceiveMessageResponse' :: ReceiveMessageResponse -&gt; Maybe [Message]
-</span><a href="#local-6989586621679177959"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Message]
-</span><a href="#local-6989586621679177959"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177958"><span class="annot"><span class="annottext">s :: ReceiveMessageResponse
-</span><a href="#local-6989586621679177958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177957"><span class="annot"><span class="annottext">Maybe [Message]
-</span><a href="#local-6989586621679177957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessageResponse
-</span><a href="#local-6989586621679177958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:ReceiveMessageResponse' :: Maybe [Message]
+</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Message]
+</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177967"><span class="annot"><span class="annottext">s :: ReceiveMessageResponse
+</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177966"><span class="annot"><span class="annottext">Maybe [Message]
+</span><a href="#local-6989586621679177966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessageResponse
+</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:ReceiveMessageResponse' :: Maybe [Message]
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3Amessages%3AReceiveMessageResponse%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Message]
-</span><a href="#local-6989586621679177957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Message] -&gt; f (Maybe [Message]))
+</span><a href="#local-6989586621679177966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Message] -&gt; f (Maybe [Message]))
  -&gt; ReceiveMessageResponse -&gt; f ReceiveMessageResponse)
 -&gt; ((Maybe [Message] -&gt; f (Maybe [Message]))
     -&gt; Maybe [Message] -&gt; f (Maybe [Message]))
@@ -1140,16 +1140,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReceiveMessageResponse -&gt; Int -&gt; ReceiveMessageResponse)
 -&gt; Lens ReceiveMessageResponse ReceiveMessageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177956"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177965"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReceiveMessageResponse' :: ReceiveMessageResponse -&gt; Int
-</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177955"><span class="annot"><span class="annottext">s :: ReceiveMessageResponse
-</span><a href="#local-6989586621679177955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177954"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessageResponse
-</span><a href="#local-6989586621679177955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReceiveMessageResponse' :: Int
+</span><a href="#local-6989586621679177965"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177965"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177964"><span class="annot"><span class="annottext">s :: ReceiveMessageResponse
+</span><a href="#local-6989586621679177964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse%27"><span class="hs-identifier hs-type">ReceiveMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177963"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiveMessageResponse
+</span><a href="#local-6989586621679177964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReceiveMessageResponse' :: Int
 </span><a href="Network.AWS.SQS.ReceiveMessage.html#%24sel%3AhttpStatus%3AReceiveMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-664"></span><span>
-</span><span id="line-665"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span></span><span>
+</span><span id="line-665"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.ReceiveMessage.html#ReceiveMessageResponse"><span class="hs-identifier hs-type">ReceiveMessageResponse</span></a></span></span><span>
 </span><span id="line-666"></span></pre></body></html>

@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetStatistics' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679830724"><span id="local-6989586621679830725"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStatistics"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-var">GetStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStatistics%27"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-var">GetStatistics'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679830733"><span id="local-6989586621679830734"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStatistics"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-var">GetStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStatistics%27"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-var">GetStatistics'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the query used to search.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AqueryVersion%3AGetStatistics%27"><span class="annot"><span class="annottext">GetStatistics -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AqueryVersion%3AGetStatistics%27"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AqueryString%3AGetStatistics%27"><span class="annot"><span class="annottext">GetStatistics -&gt; Text
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AqueryString%3AGetStatistics%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830715"><span id="local-6989586621679830717"><span class="annot"><span class="annottext">GetStatistics -&gt; GetStatistics -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830724"><span id="local-6989586621679830726"><span class="annot"><span class="annottext">GetStatistics -&gt; GetStatistics -&gt; Bool
 (GetStatistics -&gt; GetStatistics -&gt; Bool)
 -&gt; (GetStatistics -&gt; GetStatistics -&gt; Bool) -&gt; Eq GetStatistics
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetStatistics -&gt; GetStatistics -&gt; Bool
 == :: GetStatistics -&gt; GetStatistics -&gt; Bool
 $c== :: GetStatistics -&gt; GetStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830706"><span id="local-6989586621679830708"><span id="local-6989586621679830710"><span id="local-6989586621679830712"><span class="annot"><span class="annottext">ReadPrec [GetStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830715"><span id="local-6989586621679830717"><span id="local-6989586621679830719"><span id="local-6989586621679830721"><span class="annot"><span class="annottext">ReadPrec [GetStatistics]
 ReadPrec GetStatistics
 Int -&gt; ReadS GetStatistics
 ReadS [GetStatistics]
@@ -100,7 +100,7 @@ readList :: ReadS [GetStatistics]
 $creadList :: ReadS [GetStatistics]
 readsPrec :: Int -&gt; ReadS GetStatistics
 $creadsPrec :: Int -&gt; ReadS GetStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830699"><span id="local-6989586621679830701"><span id="local-6989586621679830703"><span class="annot"><span class="annottext">Int -&gt; GetStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830708"><span id="local-6989586621679830710"><span id="local-6989586621679830712"><span class="annot"><span class="annottext">Int -&gt; GetStatistics -&gt; ShowS
 [GetStatistics] -&gt; ShowS
 GetStatistics -&gt; String
 (Int -&gt; GetStatistics -&gt; ShowS)
@@ -147,8 +147,8 @@ $cfrom :: forall x. GetStatistics -&gt; Rep GetStatistics x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span>
 </span><span id="line-93"></span><span id="newGetStatistics"><span class="annot"><span class="annottext">newGetStatistics :: Text -&gt; GetStatistics
-</span><a href="Network.AWS.IoT.GetStatistics.html#newGetStatistics"><span class="hs-identifier hs-var hs-var">newGetStatistics</span></a></span></span><span> </span><span id="local-6989586621679830694"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830694"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetStatistics.html#newGetStatistics"><span class="hs-identifier hs-var hs-var">newGetStatistics</span></a></span></span><span> </span><span id="local-6989586621679830703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679830703"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">GetStatistics' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; GetStatistics
 </span><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryVersion:GetStatistics' :: Maybe Text
@@ -165,7 +165,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:GetStatistics' :: Text
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AqueryString%3AGetStatistics%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830694"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
+</span><a href="#local-6989586621679830703"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The version of the query used to search.</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (GetStatistics -&gt; Maybe Text -&gt; GetStatistics)
 -&gt; Lens GetStatistics GetStatistics (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830691"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830700"><span class="annot"><span class="annottext">Maybe Text
 queryVersion :: Maybe Text
 $sel:queryVersion:GetStatistics' :: GetStatistics -&gt; Maybe Text
-</span><a href="#local-6989586621679830691"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830691"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830690"><span class="annot"><span class="annottext">s :: GetStatistics
-</span><a href="#local-6989586621679830690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
-</span><a href="#local-6989586621679830690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryVersion:GetStatistics' :: Maybe Text
+</span><a href="#local-6989586621679830700"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830700"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830699"><span class="annot"><span class="annottext">s :: GetStatistics
+</span><a href="#local-6989586621679830699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
+</span><a href="#local-6989586621679830699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryVersion:GetStatistics' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AqueryVersion%3AGetStatistics%27"><span class="hs-identifier hs-var">queryVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The aggregation field name.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#getStatistics_aggregationField"><span class="hs-identifier hs-type">getStatistics_aggregationField</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:queryVersion:GetStatistics' :: GetStatistics -&gt; Maybe Text
 -&gt; (GetStatistics -&gt; Maybe Text -&gt; GetStatistics)
 -&gt; Lens GetStatistics GetStatistics (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830688"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830697"><span class="annot"><span class="annottext">Maybe Text
 aggregationField :: Maybe Text
 $sel:aggregationField:GetStatistics' :: GetStatistics -&gt; Maybe Text
-</span><a href="#local-6989586621679830688"><span class="hs-identifier hs-var hs-var">aggregationField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830688"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830687"><span class="annot"><span class="annottext">s :: GetStatistics
-</span><a href="#local-6989586621679830687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830686"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
-</span><a href="#local-6989586621679830687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregationField:GetStatistics' :: Maybe Text
+</span><a href="#local-6989586621679830697"><span class="hs-identifier hs-var hs-var">aggregationField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830697"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830696"><span class="annot"><span class="annottext">s :: GetStatistics
+</span><a href="#local-6989586621679830696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
+</span><a href="#local-6989586621679830696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregationField:GetStatistics' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AaggregationField%3AGetStatistics%27"><span class="hs-identifier hs-var">aggregationField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The name of the index to search. The default value is @AWS_Things@.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#getStatistics_indexName"><span class="hs-identifier hs-type">getStatistics_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -211,16 +211,16 @@ $sel:aggregationField:GetStatistics' :: GetStatistics -&gt; Maybe Text
 -&gt; (GetStatistics -&gt; Maybe Text -&gt; GetStatistics)
 -&gt; Lens GetStatistics GetStatistics (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830685"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830694"><span class="annot"><span class="annottext">Maybe Text
 indexName :: Maybe Text
 $sel:indexName:GetStatistics' :: GetStatistics -&gt; Maybe Text
-</span><a href="#local-6989586621679830685"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830685"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830684"><span class="annot"><span class="annottext">s :: GetStatistics
-</span><a href="#local-6989586621679830684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830683"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
-</span><a href="#local-6989586621679830684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:GetStatistics' :: Maybe Text
+</span><a href="#local-6989586621679830694"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830694"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830693"><span class="annot"><span class="annottext">s :: GetStatistics
+</span><a href="#local-6989586621679830693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
+</span><a href="#local-6989586621679830693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:GetStatistics' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AindexName%3AGetStatistics%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The query used to search. You can specify \&quot;*\&quot; for the query string to</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- get the count of all indexed things in your Amazon Web Services account.</span><span>
@@ -230,27 +230,27 @@ $sel:indexName:GetStatistics' :: GetStatistics -&gt; Maybe Text
 -&gt; (GetStatistics -&gt; Text -&gt; GetStatistics)
 -&gt; Lens GetStatistics GetStatistics Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830691"><span class="annot"><span class="annottext">Text
 queryString :: Text
 $sel:queryString:GetStatistics' :: GetStatistics -&gt; Text
-</span><a href="#local-6989586621679830682"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830682"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830681"><span class="annot"><span class="annottext">s :: GetStatistics
-</span><a href="#local-6989586621679830681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
-</span><a href="#local-6989586621679830681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:GetStatistics' :: Text
+</span><a href="#local-6989586621679830691"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679830691"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830690"><span class="annot"><span class="annottext">s :: GetStatistics
+</span><a href="#local-6989586621679830690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679830689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatistics
+</span><a href="#local-6989586621679830690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:GetStatistics' :: Text
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AqueryString%3AGetStatistics%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679830676"><span class="annot"><span class="annottext">request :: GetStatistics -&gt; Request GetStatistics
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679830685"><span class="annot"><span class="annottext">request :: GetStatistics -&gt; Request GetStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetStatistics -&gt; Request GetStatistics
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679830672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679830681"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetStatistics
 -&gt; ClientResponse ClientBody
@@ -274,10 +274,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679830669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679830668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679830668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679830667"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679830678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679830677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679830677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679830676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679830676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Statistics -&gt; Int -&gt; GetStatisticsResponse
 </span><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-var">GetStatisticsResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Statistics -&gt; Int -&gt; GetStatisticsResponse)
@@ -285,7 +285,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetStatisticsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Statistics)
+</span><a href="#local-6989586621679830676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Statistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statistics&quot;</span></span><span class="hs-special">)</span><span>
@@ -297,24 +297,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830659"><span id="local-6989586621679830661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830668"><span id="local-6989586621679830670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679830652"><span class="annot"><span class="annottext">toHeaders :: GetStatistics -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679830661"><span class="annot"><span class="annottext">toHeaders :: GetStatistics -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetStatistics -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830643"><span id="local-6989586621679830645"><span id="local-6989586621679830647"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679830641"><span class="annot"><span class="annottext">toJSON :: GetStatistics -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830636"><span id="local-6989586621679830637"><span id="local-6989586621679830638"><span id="local-6989586621679830639"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830652"><span id="local-6989586621679830654"><span id="local-6989586621679830656"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679830650"><span class="annot"><span class="annottext">toJSON :: GetStatistics -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics%27"><span class="hs-identifier hs-type">GetStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830645"><span id="local-6989586621679830646"><span id="local-6989586621679830647"><span id="local-6989586621679830648"><span class="annot"><span class="annottext">Maybe Text
 Text
 queryString :: Text
 indexName :: Maybe Text
@@ -324,7 +324,7 @@ $sel:queryString:GetStatistics' :: GetStatistics -&gt; Text
 $sel:indexName:GetStatistics' :: GetStatistics -&gt; Maybe Text
 $sel:aggregationField:GetStatistics' :: GetStatistics -&gt; Maybe Text
 $sel:queryVersion:GetStatistics' :: GetStatistics -&gt; Maybe Text
-</span><a href="#local-6989586621679830636"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679830645"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,7 +336,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830639"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679830648"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;aggregationField&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -344,33 +344,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830638"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679830647"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;indexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830637"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679830646"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679830636"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830645"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679830630"><span class="annot"><span class="annottext">toPath :: GetStatistics -&gt; ByteString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679830639"><span class="annot"><span class="annottext">toPath :: GetStatistics -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetStatistics -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/indices/statistics&quot;</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatistics"><span class="hs-identifier hs-type">GetStatistics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679830626"><span class="annot"><span class="annottext">toQuery :: GetStatistics -&gt; QueryString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679830635"><span class="annot"><span class="annottext">toQuery :: GetStatistics -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetStatistics -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -378,7 +378,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newGetStatisticsResponse' smart constructor.</span><span>
-</span><span id="line-157"></span><span id="local-6989586621679830623"><span id="local-6989586621679830624"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStatisticsResponse"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-var">GetStatisticsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStatisticsResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-var">GetStatisticsResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span id="local-6989586621679830632"><span id="local-6989586621679830633"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStatisticsResponse"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-var">GetStatisticsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStatisticsResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-var">GetStatisticsResponse'</span></a></span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The statistics returned by the Fleet Indexing service based on the query</span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-comment">-- and aggregation field.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3Astatistics%3AGetStatisticsResponse%27"><span class="annot"><span class="annottext">GetStatisticsResponse -&gt; Maybe Statistics
@@ -387,7 +387,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetStatisticsResponse%27"><span class="annot"><span class="annottext">GetStatisticsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AhttpStatus%3AGetStatisticsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830617"><span id="local-6989586621679830619"><span class="annot"><span class="annottext">GetStatisticsResponse -&gt; GetStatisticsResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830626"><span id="local-6989586621679830628"><span class="annot"><span class="annottext">GetStatisticsResponse -&gt; GetStatisticsResponse -&gt; Bool
 (GetStatisticsResponse -&gt; GetStatisticsResponse -&gt; Bool)
 -&gt; (GetStatisticsResponse -&gt; GetStatisticsResponse -&gt; Bool)
 -&gt; Eq GetStatisticsResponse
@@ -396,7 +396,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetStatisticsResponse -&gt; GetStatisticsResponse -&gt; Bool
 == :: GetStatisticsResponse -&gt; GetStatisticsResponse -&gt; Bool
 $c== :: GetStatisticsResponse -&gt; GetStatisticsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830609"><span id="local-6989586621679830611"><span id="local-6989586621679830613"><span id="local-6989586621679830615"><span class="annot"><span class="annottext">ReadPrec [GetStatisticsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830618"><span id="local-6989586621679830620"><span id="local-6989586621679830622"><span id="local-6989586621679830624"><span class="annot"><span class="annottext">ReadPrec [GetStatisticsResponse]
 ReadPrec GetStatisticsResponse
 Int -&gt; ReadS GetStatisticsResponse
 ReadS [GetStatisticsResponse]
@@ -416,7 +416,7 @@ readList :: ReadS [GetStatisticsResponse]
 $creadList :: ReadS [GetStatisticsResponse]
 readsPrec :: Int -&gt; ReadS GetStatisticsResponse
 $creadsPrec :: Int -&gt; ReadS GetStatisticsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830603"><span id="local-6989586621679830605"><span id="local-6989586621679830607"><span class="annot"><span class="annottext">Int -&gt; GetStatisticsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830612"><span id="local-6989586621679830614"><span id="local-6989586621679830616"><span class="annot"><span class="annottext">Int -&gt; GetStatisticsResponse -&gt; ShowS
 [GetStatisticsResponse] -&gt; ShowS
 GetStatisticsResponse -&gt; String
 (Int -&gt; GetStatisticsResponse -&gt; ShowS)
@@ -459,8 +459,8 @@ $cfrom :: forall x. GetStatisticsResponse -&gt; Rep GetStatisticsResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newGetStatisticsResponse"><span class="annot"><span class="annottext">newGetStatisticsResponse :: Int -&gt; GetStatisticsResponse
-</span><a href="Network.AWS.IoT.GetStatistics.html#newGetStatisticsResponse"><span class="hs-identifier hs-var hs-var">newGetStatisticsResponse</span></a></span></span><span> </span><span id="local-6989586621679830600"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830600"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetStatistics.html#newGetStatisticsResponse"><span class="hs-identifier hs-var hs-var">newGetStatisticsResponse</span></a></span></span><span> </span><span id="local-6989586621679830609"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830609"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">GetStatisticsResponse' :: Maybe Statistics -&gt; Int -&gt; GetStatisticsResponse
 </span><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statistics:GetStatisticsResponse' :: Maybe Statistics
@@ -470,7 +470,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetStatisticsResponse' :: Int
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AhttpStatus%3AGetStatisticsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830600"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679830609"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The statistics returned by the Fleet Indexing service based on the query</span><span>
@@ -487,16 +487,16 @@ forall a. Maybe a
      (Maybe Statistics)
      (Maybe Statistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830599"><span class="annot"><span class="annottext">Maybe Statistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830608"><span class="annot"><span class="annottext">Maybe Statistics
 statistics :: Maybe Statistics
 $sel:statistics:GetStatisticsResponse' :: GetStatisticsResponse -&gt; Maybe Statistics
-</span><a href="#local-6989586621679830599"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Statistics
-</span><a href="#local-6989586621679830599"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830598"><span class="annot"><span class="annottext">s :: GetStatisticsResponse
-</span><a href="#local-6989586621679830598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830597"><span class="annot"><span class="annottext">Maybe Statistics
-</span><a href="#local-6989586621679830597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatisticsResponse
-</span><a href="#local-6989586621679830598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:GetStatisticsResponse' :: Maybe Statistics
+</span><a href="#local-6989586621679830608"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Statistics
+</span><a href="#local-6989586621679830608"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830607"><span class="annot"><span class="annottext">s :: GetStatisticsResponse
+</span><a href="#local-6989586621679830607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830606"><span class="annot"><span class="annottext">Maybe Statistics
+</span><a href="#local-6989586621679830606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatisticsResponse
+</span><a href="#local-6989586621679830607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:GetStatisticsResponse' :: Maybe Statistics
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3Astatistics%3AGetStatisticsResponse%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Statistics
-</span><a href="#local-6989586621679830597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#getStatisticsResponse_httpStatus"><span class="hs-identifier hs-type">getStatisticsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -505,16 +505,16 @@ $sel:statistics:GetStatisticsResponse' :: GetStatisticsResponse -&gt; Maybe Stat
 -&gt; (GetStatisticsResponse -&gt; Int -&gt; GetStatisticsResponse)
 -&gt; Lens GetStatisticsResponse GetStatisticsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830596"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830605"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetStatisticsResponse' :: GetStatisticsResponse -&gt; Int
-</span><a href="#local-6989586621679830596"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830596"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830595"><span class="annot"><span class="annottext">s :: GetStatisticsResponse
-</span><a href="#local-6989586621679830595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830594"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatisticsResponse
-</span><a href="#local-6989586621679830595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetStatisticsResponse' :: Int
+</span><a href="#local-6989586621679830605"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830605"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830604"><span class="annot"><span class="annottext">s :: GetStatisticsResponse
+</span><a href="#local-6989586621679830604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse%27"><span class="hs-identifier hs-type">GetStatisticsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830603"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatisticsResponse
+</span><a href="#local-6989586621679830604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetStatisticsResponse' :: Int
 </span><a href="Network.AWS.IoT.GetStatistics.html#%24sel%3AhttpStatus%3AGetStatisticsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetStatistics.html#GetStatisticsResponse"><span class="hs-identifier hs-type">GetStatisticsResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

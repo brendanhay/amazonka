@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newSelectResourceConfig' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679413306"><span id="local-6989586621679413307"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectResourceConfig"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-var">SelectResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectResourceConfig%27"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-var">SelectResourceConfig'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679413315"><span id="local-6989586621679413316"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectResourceConfig"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-var">SelectResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectResourceConfig%27"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-var">SelectResourceConfig'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3ASelectResourceConfig%27"><span class="annot"><span class="annottext">SelectResourceConfig -&gt; Maybe Text
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Aexpression%3ASelectResourceConfig%27"><span class="annot"><span class="annottext">SelectResourceConfig -&gt; Text
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3Aexpression%3ASelectResourceConfig%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413298"><span id="local-6989586621679413300"><span class="annot"><span class="annottext">SelectResourceConfig -&gt; SelectResourceConfig -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413307"><span id="local-6989586621679413309"><span class="annot"><span class="annottext">SelectResourceConfig -&gt; SelectResourceConfig -&gt; Bool
 (SelectResourceConfig -&gt; SelectResourceConfig -&gt; Bool)
 -&gt; (SelectResourceConfig -&gt; SelectResourceConfig -&gt; Bool)
 -&gt; Eq SelectResourceConfig
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SelectResourceConfig -&gt; SelectResourceConfig -&gt; Bool
 == :: SelectResourceConfig -&gt; SelectResourceConfig -&gt; Bool
 $c== :: SelectResourceConfig -&gt; SelectResourceConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413289"><span id="local-6989586621679413291"><span id="local-6989586621679413293"><span id="local-6989586621679413295"><span class="annot"><span class="annottext">ReadPrec [SelectResourceConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413298"><span id="local-6989586621679413300"><span id="local-6989586621679413302"><span id="local-6989586621679413304"><span class="annot"><span class="annottext">ReadPrec [SelectResourceConfig]
 ReadPrec SelectResourceConfig
 Int -&gt; ReadS SelectResourceConfig
 ReadS [SelectResourceConfig]
@@ -100,7 +100,7 @@ readList :: ReadS [SelectResourceConfig]
 $creadList :: ReadS [SelectResourceConfig]
 readsPrec :: Int -&gt; ReadS SelectResourceConfig
 $creadsPrec :: Int -&gt; ReadS SelectResourceConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413282"><span id="local-6989586621679413284"><span id="local-6989586621679413286"><span class="annot"><span class="annottext">Int -&gt; SelectResourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413291"><span id="local-6989586621679413293"><span id="local-6989586621679413295"><span class="annot"><span class="annottext">Int -&gt; SelectResourceConfig -&gt; ShowS
 [SelectResourceConfig] -&gt; ShowS
 SelectResourceConfig -&gt; String
 (Int -&gt; SelectResourceConfig -&gt; ShowS)
@@ -145,8 +145,8 @@ $cfrom :: forall x. SelectResourceConfig -&gt; Rep SelectResourceConfig x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span>
 </span><span id="line-91"></span><span id="newSelectResourceConfig"><span class="annot"><span class="annottext">newSelectResourceConfig :: Text -&gt; SelectResourceConfig
-</span><a href="Network.AWS.Config.SelectResourceConfig.html#newSelectResourceConfig"><span class="hs-identifier hs-var hs-var">newSelectResourceConfig</span></a></span></span><span> </span><span id="local-6989586621679413277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413277"><span class="hs-identifier hs-var">pExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.SelectResourceConfig.html#newSelectResourceConfig"><span class="hs-identifier hs-var hs-var">newSelectResourceConfig</span></a></span></span><span> </span><span id="local-6989586621679413286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413286"><span class="hs-identifier hs-var">pExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">SelectResourceConfig' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; SelectResourceConfig
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SelectResourceConfig' :: Maybe Text
@@ -159,7 +159,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:expression:SelectResourceConfig' :: Text
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3Aexpression%3ASelectResourceConfig%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413277"><span class="hs-identifier hs-var">pExpression_</span></a></span><span>
+</span><a href="#local-6989586621679413286"><span class="hs-identifier hs-var">pExpression_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
 -&gt; Lens
      SelectResourceConfig SelectResourceConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413275"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413284"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SelectResourceConfig' :: SelectResourceConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679413275"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413275"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413274"><span class="annot"><span class="annottext">s :: SelectResourceConfig
-</span><a href="#local-6989586621679413274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413273"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfig
-</span><a href="#local-6989586621679413274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SelectResourceConfig' :: Maybe Text
+</span><a href="#local-6989586621679413284"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413284"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413283"><span class="annot"><span class="annottext">s :: SelectResourceConfig
+</span><a href="#local-6989586621679413283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfig
+</span><a href="#local-6989586621679413283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SelectResourceConfig' :: Maybe Text
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3AnextToken%3ASelectResourceConfig%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The maximum number of query results returned on each page.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#selectResourceConfig_limit"><span class="hs-identifier hs-type">selectResourceConfig_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -195,16 +195,16 @@ $sel:nextToken:SelectResourceConfig' :: SelectResourceConfig -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413272"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413281"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:SelectResourceConfig' :: SelectResourceConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679413272"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413272"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413271"><span class="annot"><span class="annottext">s :: SelectResourceConfig
-</span><a href="#local-6989586621679413271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413270"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfig
-</span><a href="#local-6989586621679413271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:SelectResourceConfig' :: Maybe Natural
+</span><a href="#local-6989586621679413281"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413281"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413280"><span class="annot"><span class="annottext">s :: SelectResourceConfig
+</span><a href="#local-6989586621679413280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413279"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfig
+</span><a href="#local-6989586621679413280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:SelectResourceConfig' :: Maybe Natural
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3Alimit%3ASelectResourceConfig%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The SQL query @SELECT@ command.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#selectResourceConfig_expression"><span class="hs-identifier hs-type">selectResourceConfig_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -213,29 +213,29 @@ $sel:limit:SelectResourceConfig' :: SelectResourceConfig -&gt; Maybe Natural
 -&gt; (SelectResourceConfig -&gt; Text -&gt; SelectResourceConfig)
 -&gt; Lens SelectResourceConfig SelectResourceConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413269"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413278"><span class="annot"><span class="annottext">Text
 expression :: Text
 $sel:expression:SelectResourceConfig' :: SelectResourceConfig -&gt; Text
-</span><a href="#local-6989586621679413269"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413269"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413268"><span class="annot"><span class="annottext">s :: SelectResourceConfig
-</span><a href="#local-6989586621679413268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413267"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfig
-</span><a href="#local-6989586621679413268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:SelectResourceConfig' :: Text
+</span><a href="#local-6989586621679413278"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413278"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413277"><span class="annot"><span class="annottext">s :: SelectResourceConfig
+</span><a href="#local-6989586621679413277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413276"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfig
+</span><a href="#local-6989586621679413277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:SelectResourceConfig' :: Text
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3Aexpression%3ASelectResourceConfig%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679413263"><span class="annot"><span class="annottext">page :: SelectResourceConfig
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679413272"><span class="annot"><span class="annottext">page :: SelectResourceConfig
 -&gt; AWSResponse SelectResourceConfig -&gt; Maybe SelectResourceConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679413261"><span class="annot"><span class="annottext">SelectResourceConfig
-</span><a href="#local-6989586621679413261"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679413260"><span class="annot"><span class="annottext">AWSResponse SelectResourceConfig
-</span><a href="#local-6989586621679413260"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679413270"><span class="annot"><span class="annottext">SelectResourceConfig
+</span><a href="#local-6989586621679413270"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679413269"><span class="annot"><span class="annottext">AWSResponse SelectResourceConfig
+</span><a href="#local-6989586621679413269"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SelectResourceConfig
 SelectResourceConfigResponse
-</span><a href="#local-6989586621679413260"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679413269"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
 -&gt; Getting (First Text) SelectResourceConfigResponse Text
 -&gt; Maybe Text
@@ -265,7 +265,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SelectResourceConfig
 SelectResourceConfigResponse
-</span><a href="#local-6989586621679413260"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679413269"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
 -&gt; Getting (First [Text]) SelectResourceConfigResponse [Text]
 -&gt; Maybe [Text]
@@ -299,7 +299,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">SelectResourceConfig
-</span><a href="#local-6989586621679413261"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679413270"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">SelectResourceConfig
 -&gt; (SelectResourceConfig -&gt; SelectResourceConfig)
 -&gt; SelectResourceConfig
@@ -315,7 +315,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SelectResourceConfig
 SelectResourceConfigResponse
-</span><a href="#local-6989586621679413260"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679413269"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
 -&gt; Getting (First Text) SelectResourceConfigResponse Text
 -&gt; Maybe Text
@@ -341,12 +341,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679413250"><span class="annot"><span class="annottext">request :: SelectResourceConfig -&gt; Request SelectResourceConfig
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679413259"><span class="annot"><span class="annottext">request :: SelectResourceConfig -&gt; Request SelectResourceConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SelectResourceConfig -&gt; Request SelectResourceConfig
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679413246"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679413255"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SelectResourceConfig
 -&gt; ClientResponse ClientBody
@@ -372,10 +372,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413243"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413243"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413242"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679413242"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413241"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413252"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413251"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679413251"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413250"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413250"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe QueryInfo
 -&gt; Maybe Text
@@ -394,7 +394,7 @@ MonadResource m =&gt;
       -&gt; Maybe Text -&gt; Int -&gt; SelectResourceConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679413250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Results&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -412,7 +412,7 @@ forall a. Monoid a =&gt; a
      String (Maybe Text -&gt; Int -&gt; SelectResourceConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryInfo)
+</span><a href="#local-6989586621679413250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryInfo&quot;</span></span><span class="hs-special">)</span><span>
@@ -421,7 +421,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; SelectResourceConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679413250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -433,15 +433,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413243"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413252"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413232"><span id="local-6989586621679413234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413241"><span id="local-6989586621679413243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679413225"><span class="annot"><span class="annottext">toHeaders :: SelectResourceConfig -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679413234"><span class="annot"><span class="annottext">toHeaders :: SelectResourceConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SelectResourceConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -468,9 +468,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413215"><span id="local-6989586621679413217"><span id="local-6989586621679413219"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679413213"><span class="annot"><span class="annottext">toJSON :: SelectResourceConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413209"><span id="local-6989586621679413210"><span id="local-6989586621679413211"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413224"><span id="local-6989586621679413226"><span id="local-6989586621679413228"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679413222"><span class="annot"><span class="annottext">toJSON :: SelectResourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig%27"><span class="hs-identifier hs-type">SelectResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413218"><span id="local-6989586621679413219"><span id="local-6989586621679413220"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 expression :: Text
@@ -479,7 +479,7 @@ nextToken :: Maybe Text
 $sel:expression:SelectResourceConfig' :: SelectResourceConfig -&gt; Text
 $sel:limit:SelectResourceConfig' :: SelectResourceConfig -&gt; Maybe Natural
 $sel:nextToken:SelectResourceConfig' :: SelectResourceConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679413209"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679413218"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -491,33 +491,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413211"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679413220"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413210"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679413219"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413209"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413218"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679413203"><span class="annot"><span class="annottext">toPath :: SelectResourceConfig -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679413212"><span class="annot"><span class="annottext">toPath :: SelectResourceConfig -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SelectResourceConfig -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfig"><span class="hs-identifier hs-type">SelectResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679413199"><span class="annot"><span class="annottext">toQuery :: SelectResourceConfig -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679413208"><span class="annot"><span class="annottext">toQuery :: SelectResourceConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SelectResourceConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -525,7 +525,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newSelectResourceConfigResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679413196"><span id="local-6989586621679413197"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectResourceConfigResponse"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-var">SelectResourceConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectResourceConfigResponse%27"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-var">SelectResourceConfigResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679413205"><span id="local-6989586621679413206"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectResourceConfigResponse"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-var">SelectResourceConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectResourceConfigResponse%27"><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-var">SelectResourceConfigResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns the results for the SQL query.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3Aresults%3ASelectResourceConfigResponse%27"><span class="annot"><span class="annottext">SelectResourceConfigResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3Aresults%3ASelectResourceConfigResponse%27"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -540,7 +540,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASelectResourceConfigResponse%27"><span class="annot"><span class="annottext">SelectResourceConfigResponse -&gt; Int
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3AhttpStatus%3ASelectResourceConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413188"><span id="local-6989586621679413190"><span class="annot"><span class="annottext">SelectResourceConfigResponse
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413197"><span id="local-6989586621679413199"><span class="annot"><span class="annottext">SelectResourceConfigResponse
 -&gt; SelectResourceConfigResponse -&gt; Bool
 (SelectResourceConfigResponse
  -&gt; SelectResourceConfigResponse -&gt; Bool)
@@ -556,7 +556,7 @@ $c/= :: SelectResourceConfigResponse
 -&gt; SelectResourceConfigResponse -&gt; Bool
 $c== :: SelectResourceConfigResponse
 -&gt; SelectResourceConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413180"><span id="local-6989586621679413182"><span id="local-6989586621679413184"><span id="local-6989586621679413186"><span class="annot"><span class="annottext">ReadPrec [SelectResourceConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413189"><span id="local-6989586621679413191"><span id="local-6989586621679413193"><span id="local-6989586621679413195"><span class="annot"><span class="annottext">ReadPrec [SelectResourceConfigResponse]
 ReadPrec SelectResourceConfigResponse
 Int -&gt; ReadS SelectResourceConfigResponse
 ReadS [SelectResourceConfigResponse]
@@ -576,7 +576,7 @@ readList :: ReadS [SelectResourceConfigResponse]
 $creadList :: ReadS [SelectResourceConfigResponse]
 readsPrec :: Int -&gt; ReadS SelectResourceConfigResponse
 $creadsPrec :: Int -&gt; ReadS SelectResourceConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413174"><span id="local-6989586621679413176"><span id="local-6989586621679413178"><span class="annot"><span class="annottext">Int -&gt; SelectResourceConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413183"><span id="local-6989586621679413185"><span id="local-6989586621679413187"><span class="annot"><span class="annottext">Int -&gt; SelectResourceConfigResponse -&gt; ShowS
 [SelectResourceConfigResponse] -&gt; ShowS
 SelectResourceConfigResponse -&gt; String
 (Int -&gt; SelectResourceConfigResponse -&gt; ShowS)
@@ -629,8 +629,8 @@ SelectResourceConfigResponse -&gt; Rep SelectResourceConfigResponse x
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newSelectResourceConfigResponse"><span class="annot"><span class="annottext">newSelectResourceConfigResponse :: Int -&gt; SelectResourceConfigResponse
-</span><a href="Network.AWS.Config.SelectResourceConfig.html#newSelectResourceConfigResponse"><span class="hs-identifier hs-var hs-var">newSelectResourceConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679413171"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413171"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.SelectResourceConfig.html#newSelectResourceConfigResponse"><span class="hs-identifier hs-var hs-var">newSelectResourceConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679413180"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413180"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">SelectResourceConfigResponse' :: Maybe [Text]
 -&gt; Maybe QueryInfo
 -&gt; Maybe Text
@@ -652,7 +652,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SelectResourceConfigResponse' :: Int
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3AhttpStatus%3ASelectResourceConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413171"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679413180"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Returns the results for the SQL query.</span><span>
@@ -664,16 +664,16 @@ forall a. Maybe a
     -&gt; Maybe [Text] -&gt; SelectResourceConfigResponse)
 -&gt; Lens' SelectResourceConfigResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413170"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413179"><span class="annot"><span class="annottext">Maybe [Text]
 results :: Maybe [Text]
 $sel:results:SelectResourceConfigResponse' :: SelectResourceConfigResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679413170"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679413170"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413169"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
-</span><a href="#local-6989586621679413169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413168"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679413168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
-</span><a href="#local-6989586621679413169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:SelectResourceConfigResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679413179"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679413179"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413178"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
+</span><a href="#local-6989586621679413178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413177"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679413177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
+</span><a href="#local-6989586621679413178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:SelectResourceConfigResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3Aresults%3ASelectResourceConfigResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679413168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679413177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; SelectResourceConfigResponse -&gt; f SelectResourceConfigResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -703,16 +703,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe QueryInfo)
      (Maybe QueryInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413165"><span class="annot"><span class="annottext">Maybe QueryInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413174"><span class="annot"><span class="annottext">Maybe QueryInfo
 queryInfo :: Maybe QueryInfo
 $sel:queryInfo:SelectResourceConfigResponse' :: SelectResourceConfigResponse -&gt; Maybe QueryInfo
-</span><a href="#local-6989586621679413165"><span class="hs-identifier hs-var hs-var">queryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryInfo
-</span><a href="#local-6989586621679413165"><span class="hs-identifier hs-var">queryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413164"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
-</span><a href="#local-6989586621679413164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413163"><span class="annot"><span class="annottext">Maybe QueryInfo
-</span><a href="#local-6989586621679413163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
-</span><a href="#local-6989586621679413164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryInfo:SelectResourceConfigResponse' :: Maybe QueryInfo
+</span><a href="#local-6989586621679413174"><span class="hs-identifier hs-var hs-var">queryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryInfo
+</span><a href="#local-6989586621679413174"><span class="hs-identifier hs-var">queryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413173"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
+</span><a href="#local-6989586621679413173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413172"><span class="annot"><span class="annottext">Maybe QueryInfo
+</span><a href="#local-6989586621679413172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
+</span><a href="#local-6989586621679413173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryInfo:SelectResourceConfigResponse' :: Maybe QueryInfo
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3AqueryInfo%3ASelectResourceConfigResponse%27"><span class="hs-identifier hs-var">queryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryInfo
-</span><a href="#local-6989586621679413163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
@@ -724,16 +724,16 @@ $sel:queryInfo:SelectResourceConfigResponse' :: SelectResourceConfigResponse -&g
     -&gt; Maybe Text -&gt; SelectResourceConfigResponse)
 -&gt; Lens' SelectResourceConfigResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413162"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413171"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SelectResourceConfigResponse' :: SelectResourceConfigResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679413162"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413162"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413161"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
-</span><a href="#local-6989586621679413161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413160"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
-</span><a href="#local-6989586621679413161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SelectResourceConfigResponse' :: Maybe Text
+</span><a href="#local-6989586621679413171"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413171"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413170"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
+</span><a href="#local-6989586621679413170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
+</span><a href="#local-6989586621679413170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SelectResourceConfigResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3AnextToken%3ASelectResourceConfigResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-240"></span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#selectResourceConfigResponse_httpStatus"><span class="hs-identifier hs-type">selectResourceConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -745,16 +745,16 @@ $sel:nextToken:SelectResourceConfigResponse' :: SelectResourceConfigResponse -&g
 -&gt; Lens
      SelectResourceConfigResponse SelectResourceConfigResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413159"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413168"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SelectResourceConfigResponse' :: SelectResourceConfigResponse -&gt; Int
-</span><a href="#local-6989586621679413159"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413159"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413158"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
-</span><a href="#local-6989586621679413158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413157"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
-</span><a href="#local-6989586621679413158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SelectResourceConfigResponse' :: Int
+</span><a href="#local-6989586621679413168"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413168"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413167"><span class="annot"><span class="annottext">s :: SelectResourceConfigResponse
+</span><a href="#local-6989586621679413167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse%27"><span class="hs-identifier hs-type">SelectResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413166"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResourceConfigResponse
+</span><a href="#local-6989586621679413167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SelectResourceConfigResponse' :: Int
 </span><a href="Network.AWS.Config.SelectResourceConfig.html#%24sel%3AhttpStatus%3ASelectResourceConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.SelectResourceConfig.html#SelectResourceConfigResponse"><span class="hs-identifier hs-type">SelectResourceConfigResponse</span></a></span></span><span>
 </span><span id="line-244"></span></pre></body></html>

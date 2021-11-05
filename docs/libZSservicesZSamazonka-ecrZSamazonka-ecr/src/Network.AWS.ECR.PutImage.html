@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newPutImage' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679238935"><span id="local-6989586621679238936"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutImage"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-var">PutImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutImage%27"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-var">PutImage'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679238944"><span id="local-6989586621679238945"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutImage"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-var">PutImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutImage%27"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-var">PutImage'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- contains the repository in which to put the image. If you do not specify</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- a registry, the default registry is assumed.</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AimageManifest%3APutImage%27"><span class="annot"><span class="annottext">PutImage -&gt; Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AimageManifest%3APutImage%27"><span class="hs-identifier hs-var hs-var">imageManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238924"><span id="local-6989586621679238926"><span class="annot"><span class="annottext">PutImage -&gt; PutImage -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238933"><span id="local-6989586621679238935"><span class="annot"><span class="annottext">PutImage -&gt; PutImage -&gt; Bool
 (PutImage -&gt; PutImage -&gt; Bool)
 -&gt; (PutImage -&gt; PutImage -&gt; Bool) -&gt; Eq PutImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutImage -&gt; PutImage -&gt; Bool
 == :: PutImage -&gt; PutImage -&gt; Bool
 $c== :: PutImage -&gt; PutImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238915"><span id="local-6989586621679238917"><span id="local-6989586621679238919"><span id="local-6989586621679238921"><span class="annot"><span class="annottext">ReadPrec [PutImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238924"><span id="local-6989586621679238926"><span id="local-6989586621679238928"><span id="local-6989586621679238930"><span class="annot"><span class="annottext">ReadPrec [PutImage]
 ReadPrec PutImage
 Int -&gt; ReadS PutImage
 ReadS [PutImage]
@@ -114,7 +114,7 @@ readList :: ReadS [PutImage]
 $creadList :: ReadS [PutImage]
 readsPrec :: Int -&gt; ReadS PutImage
 $creadsPrec :: Int -&gt; ReadS PutImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238908"><span id="local-6989586621679238910"><span id="local-6989586621679238912"><span class="annot"><span class="annottext">Int -&gt; PutImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238917"><span id="local-6989586621679238919"><span id="local-6989586621679238921"><span class="annot"><span class="annottext">Int -&gt; PutImage -&gt; ShowS
 [PutImage] -&gt; ShowS
 PutImage -&gt; String
 (Int -&gt; PutImage -&gt; ShowS)
@@ -169,9 +169,9 @@ $cfrom :: forall x. PutImage -&gt; Rep PutImage x
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span>
 </span><span id="line-116"></span><span id="newPutImage"><span class="annot"><span class="annottext">newPutImage :: Text -&gt; Text -&gt; PutImage
-</span><a href="Network.AWS.ECR.PutImage.html#newPutImage"><span class="hs-identifier hs-var hs-var">newPutImage</span></a></span></span><span> </span><span id="local-6989586621679238903"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238903"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679238902"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238902"><span class="hs-identifier hs-var">pImageManifest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.PutImage.html#newPutImage"><span class="hs-identifier hs-var hs-var">newPutImage</span></a></span></span><span> </span><span id="local-6989586621679238912"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238912"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679238911"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238911"><span class="hs-identifier hs-var">pImageManifest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">PutImage' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -198,10 +198,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:PutImage' :: Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3ArepositoryName%3APutImage%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238903"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238912"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageManifest:PutImage' :: Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AimageManifest%3APutImage%27"><span class="hs-identifier hs-var">imageManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238902"><span class="hs-identifier hs-var">pImageManifest_</span></a></span><span>
+</span><a href="#local-6989586621679238911"><span class="hs-identifier hs-var">pImageManifest_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
@@ -213,16 +213,16 @@ forall a. Maybe a
 -&gt; (PutImage -&gt; Maybe Text -&gt; PutImage)
 -&gt; Lens PutImage PutImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238899"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238908"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:PutImage' :: PutImage -&gt; Maybe Text
-</span><a href="#local-6989586621679238899"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238899"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238898"><span class="annot"><span class="annottext">s :: PutImage
-</span><a href="#local-6989586621679238898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238897"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
-</span><a href="#local-6989586621679238898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:PutImage' :: Maybe Text
+</span><a href="#local-6989586621679238908"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238908"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238907"><span class="annot"><span class="annottext">s :: PutImage
+</span><a href="#local-6989586621679238907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238906"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
+</span><a href="#local-6989586621679238907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:PutImage' :: Maybe Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AregistryId%3APutImage%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The media type of the image manifest. If you push an image manifest that</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- does not contain the @mediaType@ field, you must specify the</span><span>
@@ -233,16 +233,16 @@ $sel:registryId:PutImage' :: PutImage -&gt; Maybe Text
 -&gt; (PutImage -&gt; Maybe Text -&gt; PutImage)
 -&gt; Lens PutImage PutImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238896"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238905"><span class="annot"><span class="annottext">Maybe Text
 imageManifestMediaType :: Maybe Text
 $sel:imageManifestMediaType:PutImage' :: PutImage -&gt; Maybe Text
-</span><a href="#local-6989586621679238896"><span class="hs-identifier hs-var hs-var">imageManifestMediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238896"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238895"><span class="annot"><span class="annottext">s :: PutImage
-</span><a href="#local-6989586621679238895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238894"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
-</span><a href="#local-6989586621679238895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifestMediaType:PutImage' :: Maybe Text
+</span><a href="#local-6989586621679238905"><span class="hs-identifier hs-var hs-var">imageManifestMediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238905"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238904"><span class="annot"><span class="annottext">s :: PutImage
+</span><a href="#local-6989586621679238904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238903"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
+</span><a href="#local-6989586621679238904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifestMediaType:PutImage' :: Maybe Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AimageManifestMediaType%3APutImage%27"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The image digest of the image manifest corresponding to the image.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#putImage_imageDigest"><span class="hs-identifier hs-type">putImage_imageDigest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -251,16 +251,16 @@ $sel:imageManifestMediaType:PutImage' :: PutImage -&gt; Maybe Text
 -&gt; (PutImage -&gt; Maybe Text -&gt; PutImage)
 -&gt; Lens PutImage PutImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238893"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238902"><span class="annot"><span class="annottext">Maybe Text
 imageDigest :: Maybe Text
 $sel:imageDigest:PutImage' :: PutImage -&gt; Maybe Text
-</span><a href="#local-6989586621679238893"><span class="hs-identifier hs-var hs-var">imageDigest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238893"><span class="hs-identifier hs-var">imageDigest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238892"><span class="annot"><span class="annottext">s :: PutImage
-</span><a href="#local-6989586621679238892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238891"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
-</span><a href="#local-6989586621679238892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageDigest:PutImage' :: Maybe Text
+</span><a href="#local-6989586621679238902"><span class="hs-identifier hs-var hs-var">imageDigest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238902"><span class="hs-identifier hs-var">imageDigest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238901"><span class="annot"><span class="annottext">s :: PutImage
+</span><a href="#local-6989586621679238901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238900"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
+</span><a href="#local-6989586621679238901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageDigest:PutImage' :: Maybe Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AimageDigest%3APutImage%27"><span class="hs-identifier hs-var">imageDigest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The tag to associate with the image. This parameter is required for</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- images that use the Docker Image Manifest V2 Schema 2 or Open Container</span><span>
@@ -271,16 +271,16 @@ $sel:imageDigest:PutImage' :: PutImage -&gt; Maybe Text
 -&gt; (PutImage -&gt; Maybe Text -&gt; PutImage)
 -&gt; Lens PutImage PutImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238890"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238899"><span class="annot"><span class="annottext">Maybe Text
 imageTag :: Maybe Text
 $sel:imageTag:PutImage' :: PutImage -&gt; Maybe Text
-</span><a href="#local-6989586621679238890"><span class="hs-identifier hs-var hs-var">imageTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238890"><span class="hs-identifier hs-var">imageTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238889"><span class="annot"><span class="annottext">s :: PutImage
-</span><a href="#local-6989586621679238889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238888"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
-</span><a href="#local-6989586621679238889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageTag:PutImage' :: Maybe Text
+</span><a href="#local-6989586621679238899"><span class="hs-identifier hs-var hs-var">imageTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238899"><span class="hs-identifier hs-var">imageTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238898"><span class="annot"><span class="annottext">s :: PutImage
+</span><a href="#local-6989586621679238898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238897"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
+</span><a href="#local-6989586621679238898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageTag:PutImage' :: Maybe Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AimageTag%3APutImage%27"><span class="hs-identifier hs-var">imageTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The name of the repository in which to put the image.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#putImage_repositoryName"><span class="hs-identifier hs-type">putImage_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -289,16 +289,16 @@ $sel:imageTag:PutImage' :: PutImage -&gt; Maybe Text
 -&gt; (PutImage -&gt; Text -&gt; PutImage)
 -&gt; Lens PutImage PutImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238887"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238896"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:PutImage' :: PutImage -&gt; Text
-</span><a href="#local-6989586621679238887"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238887"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238886"><span class="annot"><span class="annottext">s :: PutImage
-</span><a href="#local-6989586621679238886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238885"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
-</span><a href="#local-6989586621679238886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:PutImage' :: Text
+</span><a href="#local-6989586621679238896"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238896"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238895"><span class="annot"><span class="annottext">s :: PutImage
+</span><a href="#local-6989586621679238895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
+</span><a href="#local-6989586621679238895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:PutImage' :: Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3ArepositoryName%3APutImage%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The image manifest corresponding to the image to be uploaded.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#putImage_imageManifest"><span class="hs-identifier hs-type">putImage_imageManifest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -307,25 +307,25 @@ $sel:repositoryName:PutImage' :: PutImage -&gt; Text
 -&gt; (PutImage -&gt; Text -&gt; PutImage)
 -&gt; Lens PutImage PutImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238884"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238893"><span class="annot"><span class="annottext">Text
 imageManifest :: Text
 $sel:imageManifest:PutImage' :: PutImage -&gt; Text
-</span><a href="#local-6989586621679238884"><span class="hs-identifier hs-var hs-var">imageManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238884"><span class="hs-identifier hs-var">imageManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238883"><span class="annot"><span class="annottext">s :: PutImage
-</span><a href="#local-6989586621679238883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238882"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
-</span><a href="#local-6989586621679238883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifest:PutImage' :: Text
+</span><a href="#local-6989586621679238893"><span class="hs-identifier hs-var hs-var">imageManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238893"><span class="hs-identifier hs-var">imageManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238892"><span class="annot"><span class="annottext">s :: PutImage
+</span><a href="#local-6989586621679238892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImage
+</span><a href="#local-6989586621679238892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifest:PutImage' :: Text
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AimageManifest%3APutImage%27"><span class="hs-identifier hs-var">imageManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679238878"><span class="annot"><span class="annottext">request :: PutImage -&gt; Request PutImage
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679238887"><span class="annot"><span class="annottext">request :: PutImage -&gt; Request PutImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutImage -&gt; Request PutImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679238874"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679238883"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutImage
 -&gt; ClientResponse ClientBody
@@ -349,10 +349,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238871"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679238871"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679238870"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679238870"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679238869"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238880"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679238879"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679238879"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679238878"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238878"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Image -&gt; Int -&gt; PutImageResponse
 </span><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-var">PutImageResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Image -&gt; Int -&gt; PutImageResponse)
@@ -360,7 +360,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Image)
+</span><a href="#local-6989586621679238878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Image)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;image&quot;</span></span><span class="hs-special">)</span><span>
@@ -372,15 +372,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679238871"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238880"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238861"><span id="local-6989586621679238863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238870"><span id="local-6989586621679238872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679238854"><span class="annot"><span class="annottext">toHeaders :: PutImage -&gt; ResponseHeaders
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679238863"><span class="annot"><span class="annottext">toHeaders :: PutImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -407,9 +407,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238844"><span id="local-6989586621679238846"><span id="local-6989586621679238848"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679238842"><span class="annot"><span class="annottext">toJSON :: PutImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238835"><span id="local-6989586621679238836"><span id="local-6989586621679238837"><span id="local-6989586621679238838"><span id="local-6989586621679238839"><span id="local-6989586621679238840"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238853"><span id="local-6989586621679238855"><span id="local-6989586621679238857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679238851"><span class="annot"><span class="annottext">toJSON :: PutImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage%27"><span class="hs-identifier hs-type">PutImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238844"><span id="local-6989586621679238845"><span id="local-6989586621679238846"><span id="local-6989586621679238847"><span id="local-6989586621679238848"><span id="local-6989586621679238849"><span class="annot"><span class="annottext">Maybe Text
 Text
 imageManifest :: Text
 repositoryName :: Text
@@ -423,7 +423,7 @@ $sel:imageTag:PutImage' :: PutImage -&gt; Maybe Text
 $sel:imageDigest:PutImage' :: PutImage -&gt; Maybe Text
 $sel:imageManifestMediaType:PutImage' :: PutImage -&gt; Maybe Text
 $sel:registryId:PutImage' :: PutImage -&gt; Maybe Text
-</span><a href="#local-6989586621679238835"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679238844"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -435,7 +435,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238840"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238849"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageManifestMediaType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -443,21 +443,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238839"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238848"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageDigest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238838"><span class="hs-identifier hs-var">imageDigest</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238847"><span class="hs-identifier hs-var">imageDigest</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageTag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238837"><span class="hs-identifier hs-var">imageTag</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238846"><span class="hs-identifier hs-var">imageTag</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -465,7 +465,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238836"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238845"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -473,19 +473,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;imageManifest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679238835"><span class="hs-identifier hs-var">imageManifest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238844"><span class="hs-identifier hs-var">imageManifest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679238829"><span class="annot"><span class="annottext">toPath :: PutImage -&gt; ByteString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679238838"><span class="annot"><span class="annottext">toPath :: PutImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImage"><span class="hs-identifier hs-type">PutImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679238825"><span class="annot"><span class="annottext">toQuery :: PutImage -&gt; QueryString
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679238834"><span class="annot"><span class="annottext">toQuery :: PutImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -493,7 +493,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | /See:/ 'newPutImageResponse' smart constructor.</span><span>
-</span><span id="line-209"></span><span id="local-6989586621679238822"><span id="local-6989586621679238823"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutImageResponse"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-var">PutImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutImageResponse%27"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-var">PutImageResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span id="local-6989586621679238831"><span id="local-6989586621679238832"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutImageResponse"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-var">PutImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutImageResponse%27"><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-var">PutImageResponse'</span></a></span></span><span>
 </span><span id="line-210"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details of the image uploaded.</span><span>
 </span><span id="line-211"></span><span>    </span><span id="%24sel%3Aimage%3APutImageResponse%27"><span class="annot"><span class="annottext">PutImageResponse -&gt; Maybe Image
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3Aimage%3APutImageResponse%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">,</span><span>
@@ -501,7 +501,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutImageResponse%27"><span class="annot"><span class="annottext">PutImageResponse -&gt; Int
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AhttpStatus%3APutImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238816"><span id="local-6989586621679238818"><span class="annot"><span class="annottext">PutImageResponse -&gt; PutImageResponse -&gt; Bool
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238825"><span id="local-6989586621679238827"><span class="annot"><span class="annottext">PutImageResponse -&gt; PutImageResponse -&gt; Bool
 (PutImageResponse -&gt; PutImageResponse -&gt; Bool)
 -&gt; (PutImageResponse -&gt; PutImageResponse -&gt; Bool)
 -&gt; Eq PutImageResponse
@@ -510,7 +510,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutImageResponse -&gt; PutImageResponse -&gt; Bool
 == :: PutImageResponse -&gt; PutImageResponse -&gt; Bool
 $c== :: PutImageResponse -&gt; PutImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238808"><span id="local-6989586621679238810"><span id="local-6989586621679238812"><span id="local-6989586621679238814"><span class="annot"><span class="annottext">ReadPrec [PutImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238817"><span id="local-6989586621679238819"><span id="local-6989586621679238821"><span id="local-6989586621679238823"><span class="annot"><span class="annottext">ReadPrec [PutImageResponse]
 ReadPrec PutImageResponse
 Int -&gt; ReadS PutImageResponse
 ReadS [PutImageResponse]
@@ -530,7 +530,7 @@ readList :: ReadS [PutImageResponse]
 $creadList :: ReadS [PutImageResponse]
 readsPrec :: Int -&gt; ReadS PutImageResponse
 $creadsPrec :: Int -&gt; ReadS PutImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238802"><span id="local-6989586621679238804"><span id="local-6989586621679238806"><span class="annot"><span class="annottext">Int -&gt; PutImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238811"><span id="local-6989586621679238813"><span id="local-6989586621679238815"><span class="annot"><span class="annottext">Int -&gt; PutImageResponse -&gt; ShowS
 [PutImageResponse] -&gt; ShowS
 PutImageResponse -&gt; String
 (Int -&gt; PutImageResponse -&gt; ShowS)
@@ -572,8 +572,8 @@ $cfrom :: forall x. PutImageResponse -&gt; Rep PutImageResponse x
 </span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-231"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span><span>
 </span><span id="line-232"></span><span id="newPutImageResponse"><span class="annot"><span class="annottext">newPutImageResponse :: Int -&gt; PutImageResponse
-</span><a href="Network.AWS.ECR.PutImage.html#newPutImageResponse"><span class="hs-identifier hs-var hs-var">newPutImageResponse</span></a></span></span><span> </span><span id="local-6989586621679238799"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679238799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.PutImage.html#newPutImageResponse"><span class="hs-identifier hs-var hs-var">newPutImageResponse</span></a></span></span><span> </span><span id="local-6989586621679238808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">PutImageResponse' :: Maybe Image -&gt; Int -&gt; PutImageResponse
 </span><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:image:PutImageResponse' :: Maybe Image
@@ -582,7 +582,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutImageResponse' :: Int
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AhttpStatus%3APutImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679238799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679238808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-236"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | Details of the image uploaded.</span><span>
@@ -594,16 +594,16 @@ forall a. Maybe a
 -&gt; Lens
      PutImageResponse PutImageResponse (Maybe Image) (Maybe Image)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238798"><span class="annot"><span class="annottext">Maybe Image
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238807"><span class="annot"><span class="annottext">Maybe Image
 image :: Maybe Image
 $sel:image:PutImageResponse' :: PutImageResponse -&gt; Maybe Image
-</span><a href="#local-6989586621679238798"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Image
-</span><a href="#local-6989586621679238798"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238797"><span class="annot"><span class="annottext">s :: PutImageResponse
-</span><a href="#local-6989586621679238797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238796"><span class="annot"><span class="annottext">Maybe Image
-</span><a href="#local-6989586621679238796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImageResponse
-</span><a href="#local-6989586621679238797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:PutImageResponse' :: Maybe Image
+</span><a href="#local-6989586621679238807"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Image
+</span><a href="#local-6989586621679238807"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238806"><span class="annot"><span class="annottext">s :: PutImageResponse
+</span><a href="#local-6989586621679238806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238805"><span class="annot"><span class="annottext">Maybe Image
+</span><a href="#local-6989586621679238805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImageResponse
+</span><a href="#local-6989586621679238806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:PutImageResponse' :: Maybe Image
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3Aimage%3APutImageResponse%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Image
-</span><a href="#local-6989586621679238796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-243"></span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#putImageResponse_httpStatus"><span class="hs-identifier hs-type">putImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -612,16 +612,16 @@ $sel:image:PutImageResponse' :: PutImageResponse -&gt; Maybe Image
 -&gt; (PutImageResponse -&gt; Int -&gt; PutImageResponse)
 -&gt; Lens PutImageResponse PutImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238795"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238804"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutImageResponse' :: PutImageResponse -&gt; Int
-</span><a href="#local-6989586621679238795"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679238795"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238794"><span class="annot"><span class="annottext">s :: PutImageResponse
-</span><a href="#local-6989586621679238794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679238793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImageResponse
-</span><a href="#local-6989586621679238794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutImageResponse' :: Int
+</span><a href="#local-6989586621679238804"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238804"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238803"><span class="annot"><span class="annottext">s :: PutImageResponse
+</span><a href="#local-6989586621679238803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse%27"><span class="hs-identifier hs-type">PutImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutImageResponse
+</span><a href="#local-6989586621679238803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutImageResponse' :: Int
 </span><a href="Network.AWS.ECR.PutImage.html#%24sel%3AhttpStatus%3APutImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679238793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutImage.html#PutImageResponse"><span class="hs-identifier hs-type">PutImageResponse</span></a></span></span><span>
 </span><span id="line-247"></span></pre></body></html>

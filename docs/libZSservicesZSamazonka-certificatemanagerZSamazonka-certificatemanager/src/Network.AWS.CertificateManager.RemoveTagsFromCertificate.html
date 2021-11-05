@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newRemoveTagsFromCertificate' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679191745"><span id="local-6989586621679191746"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromCertificate"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-var">RemoveTagsFromCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-var">RemoveTagsFromCertificate'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679191754"><span id="local-6989586621679191755"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromCertificate"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-var">RemoveTagsFromCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-var">RemoveTagsFromCertificate'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | String that contains the ARN of the ACM Certificate with one or more</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- tags that you want to remove. This must be of the form:</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ARemoveTagsFromCertificate%27"><span class="annot"><span class="annottext">RemoveTagsFromCertificate -&gt; NonEmpty Tag
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#%24sel%3Atags%3ARemoveTagsFromCertificate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191738"><span id="local-6989586621679191740"><span class="annot"><span class="annottext">RemoveTagsFromCertificate -&gt; RemoveTagsFromCertificate -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191747"><span id="local-6989586621679191749"><span class="annot"><span class="annottext">RemoveTagsFromCertificate -&gt; RemoveTagsFromCertificate -&gt; Bool
 (RemoveTagsFromCertificate -&gt; RemoveTagsFromCertificate -&gt; Bool)
 -&gt; (RemoveTagsFromCertificate -&gt; RemoveTagsFromCertificate -&gt; Bool)
 -&gt; Eq RemoveTagsFromCertificate
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTagsFromCertificate -&gt; RemoveTagsFromCertificate -&gt; Bool
 == :: RemoveTagsFromCertificate -&gt; RemoveTagsFromCertificate -&gt; Bool
 $c== :: RemoveTagsFromCertificate -&gt; RemoveTagsFromCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191729"><span id="local-6989586621679191731"><span id="local-6989586621679191733"><span id="local-6989586621679191735"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191738"><span id="local-6989586621679191740"><span id="local-6989586621679191742"><span id="local-6989586621679191744"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromCertificate]
 ReadPrec RemoveTagsFromCertificate
 Int -&gt; ReadS RemoveTagsFromCertificate
 ReadS [RemoveTagsFromCertificate]
@@ -95,7 +95,7 @@ readList :: ReadS [RemoveTagsFromCertificate]
 $creadList :: ReadS [RemoveTagsFromCertificate]
 readsPrec :: Int -&gt; ReadS RemoveTagsFromCertificate
 $creadsPrec :: Int -&gt; ReadS RemoveTagsFromCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191722"><span id="local-6989586621679191724"><span id="local-6989586621679191726"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191731"><span id="local-6989586621679191733"><span id="local-6989586621679191735"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromCertificate -&gt; ShowS
 [RemoveTagsFromCertificate] -&gt; ShowS
 RemoveTagsFromCertificate -&gt; String
 (Int -&gt; RemoveTagsFromCertificate -&gt; ShowS)
@@ -151,15 +151,15 @@ RemoveTagsFromCertificate -&gt; Rep RemoveTagsFromCertificate x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span>
 </span><span id="line-92"></span><span id="newRemoveTagsFromCertificate"><span class="annot"><span class="annottext">newRemoveTagsFromCertificate :: Text -&gt; NonEmpty Tag -&gt; RemoveTagsFromCertificate
-</span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#newRemoveTagsFromCertificate"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromCertificate</span></a></span></span><span> </span><span id="local-6989586621679191717"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191717"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span id="local-6989586621679191716"><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679191716"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#newRemoveTagsFromCertificate"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromCertificate</span></a></span></span><span> </span><span id="local-6989586621679191726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191726"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span id="local-6989586621679191725"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679191725"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">RemoveTagsFromCertificate' :: Text -&gt; NonEmpty Tag -&gt; RemoveTagsFromCertificate
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateArn:RemoveTagsFromCertificate' :: Text
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#%24sel%3AcertificateArn%3ARemoveTagsFromCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191717"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191726"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:RemoveTagsFromCertificate' :: NonEmpty Tag
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#%24sel%3Atags%3ARemoveTagsFromCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
 -&gt; Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
@@ -169,7 +169,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Tag -&gt; NonEmpty Tag
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679191716"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
+</span><a href="#local-6989586621679191725"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | String that contains the ARN of the ACM Certificate with one or more</span><span>
@@ -187,16 +187,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      RemoveTagsFromCertificate RemoveTagsFromCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191711"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191720"><span class="annot"><span class="annottext">Text
 certificateArn :: Text
 $sel:certificateArn:RemoveTagsFromCertificate' :: RemoveTagsFromCertificate -&gt; Text
-</span><a href="#local-6989586621679191711"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191711"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191710"><span class="annot"><span class="annottext">s :: RemoveTagsFromCertificate
-</span><a href="#local-6989586621679191710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191709"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromCertificate
-</span><a href="#local-6989586621679191710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RemoveTagsFromCertificate' :: Text
+</span><a href="#local-6989586621679191720"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191720"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191719"><span class="annot"><span class="annottext">s :: RemoveTagsFromCertificate
+</span><a href="#local-6989586621679191719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191718"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromCertificate
+</span><a href="#local-6989586621679191719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RemoveTagsFromCertificate' :: Text
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#%24sel%3AcertificateArn%3ARemoveTagsFromCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The key-value pair that defines the tag to remove.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#removeTagsFromCertificate_tags"><span class="hs-identifier hs-type">removeTagsFromCertificate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
@@ -211,16 +211,16 @@ $sel:certificateArn:RemoveTagsFromCertificate' :: RemoveTagsFromCertificate -&gt
      (NonEmpty Tag)
      (NonEmpty Tag)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191708"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191717"><span class="annot"><span class="annottext">NonEmpty Tag
 tags :: NonEmpty Tag
 $sel:tags:RemoveTagsFromCertificate' :: RemoveTagsFromCertificate -&gt; NonEmpty Tag
-</span><a href="#local-6989586621679191708"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679191708"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191707"><span class="annot"><span class="annottext">s :: RemoveTagsFromCertificate
-</span><a href="#local-6989586621679191707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191706"><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679191706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromCertificate
-</span><a href="#local-6989586621679191707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RemoveTagsFromCertificate' :: NonEmpty Tag
+</span><a href="#local-6989586621679191717"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679191717"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191716"><span class="annot"><span class="annottext">s :: RemoveTagsFromCertificate
+</span><a href="#local-6989586621679191716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191715"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679191715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromCertificate
+</span><a href="#local-6989586621679191716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RemoveTagsFromCertificate' :: NonEmpty Tag
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#%24sel%3Atags%3ARemoveTagsFromCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679191706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Tag -&gt; f (NonEmpty Tag))
+</span><a href="#local-6989586621679191715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Tag -&gt; f (NonEmpty Tag))
  -&gt; RemoveTagsFromCertificate -&gt; f RemoveTagsFromCertificate)
 -&gt; ((NonEmpty Tag -&gt; f (NonEmpty Tag))
     -&gt; NonEmpty Tag -&gt; f (NonEmpty Tag))
@@ -237,13 +237,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse"><span class="hs-identifier hs-type">RemoveTagsFromCertificateResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679191701"><span class="annot"><span class="annottext">request :: RemoveTagsFromCertificate -&gt; Request RemoveTagsFromCertificate
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679191710"><span class="annot"><span class="annottext">request :: RemoveTagsFromCertificate -&gt; Request RemoveTagsFromCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RemoveTagsFromCertificate -&gt; Request RemoveTagsFromCertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679191697"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679191706"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveTagsFromCertificate
 -&gt; ClientResponse ClientBody
@@ -270,12 +270,12 @@ AWSResponse a
 RemoveTagsFromCertificateResponse
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromCertificateResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191690"><span id="local-6989586621679191692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191699"><span id="local-6989586621679191701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679191683"><span class="annot"><span class="annottext">toHeaders :: RemoveTagsFromCertificate -&gt; [Header]
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679191692"><span class="annot"><span class="annottext">toHeaders :: RemoveTagsFromCertificate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RemoveTagsFromCertificate -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -302,15 +302,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191673"><span id="local-6989586621679191675"><span id="local-6989586621679191677"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679191671"><span class="annot"><span class="annottext">toJSON :: RemoveTagsFromCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191668"><span id="local-6989586621679191669"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191682"><span id="local-6989586621679191684"><span id="local-6989586621679191686"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679191680"><span class="annot"><span class="annottext">toJSON :: RemoveTagsFromCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate%27"><span class="hs-identifier hs-type">RemoveTagsFromCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191677"><span id="local-6989586621679191678"><span class="annot"><span class="annottext">NonEmpty Tag
 Text
 tags :: NonEmpty Tag
 certificateArn :: Text
 $sel:tags:RemoveTagsFromCertificate' :: RemoveTagsFromCertificate -&gt; NonEmpty Tag
 $sel:certificateArn:RemoveTagsFromCertificate' :: RemoveTagsFromCertificate -&gt; Text
-</span><a href="#local-6989586621679191668"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679191677"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -323,26 +323,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191669"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191678"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679191668"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191677"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679191662"><span class="annot"><span class="annottext">toPath :: RemoveTagsFromCertificate -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679191671"><span class="annot"><span class="annottext">toPath :: RemoveTagsFromCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveTagsFromCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificate"><span class="hs-identifier hs-type">RemoveTagsFromCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679191658"><span class="annot"><span class="annottext">toQuery :: RemoveTagsFromCertificate -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679191667"><span class="annot"><span class="annottext">toQuery :: RemoveTagsFromCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveTagsFromCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -350,10 +350,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newRemoveTagsFromCertificateResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679191655"><span id="local-6989586621679191656"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse"><span class="hs-identifier hs-var">RemoveTagsFromCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromCertificateResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679191664"><span id="local-6989586621679191665"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse"><span class="hs-identifier hs-var">RemoveTagsFromCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromCertificateResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191651"><span id="local-6989586621679191653"><span class="annot"><span class="annottext">RemoveTagsFromCertificateResponse
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191660"><span id="local-6989586621679191662"><span class="annot"><span class="annottext">RemoveTagsFromCertificateResponse
 -&gt; RemoveTagsFromCertificateResponse -&gt; Bool
 (RemoveTagsFromCertificateResponse
  -&gt; RemoveTagsFromCertificateResponse -&gt; Bool)
@@ -369,7 +369,7 @@ $c/= :: RemoveTagsFromCertificateResponse
 -&gt; RemoveTagsFromCertificateResponse -&gt; Bool
 $c== :: RemoveTagsFromCertificateResponse
 -&gt; RemoveTagsFromCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191643"><span id="local-6989586621679191645"><span id="local-6989586621679191647"><span id="local-6989586621679191649"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191652"><span id="local-6989586621679191654"><span id="local-6989586621679191656"><span id="local-6989586621679191658"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromCertificateResponse]
 ReadPrec RemoveTagsFromCertificateResponse
 Int -&gt; ReadS RemoveTagsFromCertificateResponse
 ReadS [RemoveTagsFromCertificateResponse]
@@ -389,7 +389,7 @@ readList :: ReadS [RemoveTagsFromCertificateResponse]
 $creadList :: ReadS [RemoveTagsFromCertificateResponse]
 readsPrec :: Int -&gt; ReadS RemoveTagsFromCertificateResponse
 $creadsPrec :: Int -&gt; ReadS RemoveTagsFromCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191637"><span id="local-6989586621679191639"><span id="local-6989586621679191641"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191646"><span id="local-6989586621679191648"><span id="local-6989586621679191650"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromCertificateResponse -&gt; ShowS
 [RemoveTagsFromCertificateResponse] -&gt; ShowS
 RemoveTagsFromCertificateResponse -&gt; String
 (Int -&gt; RemoveTagsFromCertificateResponse -&gt; ShowS)
@@ -439,6 +439,6 @@ RemoveTagsFromCertificateResponse
 </span><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromCertificateResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679191633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679191642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManager.RemoveTagsFromCertificate.html#RemoveTagsFromCertificateResponse"><span class="hs-identifier hs-type">RemoveTagsFromCertificateResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

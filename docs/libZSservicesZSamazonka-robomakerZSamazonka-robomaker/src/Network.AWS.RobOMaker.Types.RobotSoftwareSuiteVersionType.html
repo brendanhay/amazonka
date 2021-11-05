@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType"><span class="hs-identifier">RobotSoftwareSuiteVersionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Dashing"><span class="hs-identifier">RobotSoftwareSuiteVersionType_Dashing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Foxy"><span class="hs-identifier">RobotSoftwareSuiteVersionType_Foxy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Kinetic"><span class="hs-identifier">RobotSoftwareSuiteVersionType_Kinetic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Melodic"><span class="hs-identifier">RobotSoftwareSuiteVersionType_Melodic</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679368925"><span id="local-6989586621679368926"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RobotSoftwareSuiteVersionType"><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType"><span class="hs-identifier hs-var">RobotSoftwareSuiteVersionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RobotSoftwareSuiteVersionType%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType%27"><span class="hs-identifier hs-var">RobotSoftwareSuiteVersionType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRobotSoftwareSuiteVersionType"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#fromRobotSoftwareSuiteVersionType"><span class="hs-identifier hs-var hs-var">fromRobotSoftwareSuiteVersionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368917"><span id="local-6989586621679368919"><span id="local-6989586621679368921"><span class="annot"><span class="annottext">Int -&gt; RobotSoftwareSuiteVersionType -&gt; ShowS
+[RobotSoftwareSuiteVersionType] -&gt; ShowS
+RobotSoftwareSuiteVersionType -&gt; String
+(Int -&gt; RobotSoftwareSuiteVersionType -&gt; ShowS)
+-&gt; (RobotSoftwareSuiteVersionType -&gt; String)
+-&gt; ([RobotSoftwareSuiteVersionType] -&gt; ShowS)
+-&gt; Show RobotSoftwareSuiteVersionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RobotSoftwareSuiteVersionType] -&gt; ShowS
+$cshowList :: [RobotSoftwareSuiteVersionType] -&gt; ShowS
+show :: RobotSoftwareSuiteVersionType -&gt; String
+$cshow :: RobotSoftwareSuiteVersionType -&gt; String
+showsPrec :: Int -&gt; RobotSoftwareSuiteVersionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RobotSoftwareSuiteVersionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368908"><span id="local-6989586621679368910"><span id="local-6989586621679368912"><span id="local-6989586621679368914"><span class="annot"><span class="annottext">ReadPrec [RobotSoftwareSuiteVersionType]
+ReadPrec RobotSoftwareSuiteVersionType
+Int -&gt; ReadS RobotSoftwareSuiteVersionType
+ReadS [RobotSoftwareSuiteVersionType]
+(Int -&gt; ReadS RobotSoftwareSuiteVersionType)
+-&gt; ReadS [RobotSoftwareSuiteVersionType]
+-&gt; ReadPrec RobotSoftwareSuiteVersionType
+-&gt; ReadPrec [RobotSoftwareSuiteVersionType]
+-&gt; Read RobotSoftwareSuiteVersionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RobotSoftwareSuiteVersionType]
+$creadListPrec :: ReadPrec [RobotSoftwareSuiteVersionType]
+readPrec :: ReadPrec RobotSoftwareSuiteVersionType
+$creadPrec :: ReadPrec RobotSoftwareSuiteVersionType
+readList :: ReadS [RobotSoftwareSuiteVersionType]
+$creadList :: ReadS [RobotSoftwareSuiteVersionType]
+readsPrec :: Int -&gt; ReadS RobotSoftwareSuiteVersionType
+$creadsPrec :: Int -&gt; ReadS RobotSoftwareSuiteVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679368903"><span id="local-6989586621679368905"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+(RobotSoftwareSuiteVersionType
+ -&gt; RobotSoftwareSuiteVersionType -&gt; Bool)
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; Bool)
+-&gt; Eq RobotSoftwareSuiteVersionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+$c/= :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+== :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+$c== :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679368887"><span id="local-6989586621679368889"><span id="local-6989586621679368891"><span id="local-6989586621679368893"><span id="local-6989586621679368895"><span id="local-6989586621679368897"><span id="local-6989586621679368899"><span class="annot"><span class="annottext">Eq RobotSoftwareSuiteVersionType
+Eq RobotSoftwareSuiteVersionType
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; Ordering)
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; Bool)
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; Bool)
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; Bool)
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; Bool)
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; RobotSoftwareSuiteVersionType)
+-&gt; (RobotSoftwareSuiteVersionType
+    -&gt; RobotSoftwareSuiteVersionType -&gt; RobotSoftwareSuiteVersionType)
+-&gt; Ord RobotSoftwareSuiteVersionType
+RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Ordering
+RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; RobotSoftwareSuiteVersionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; RobotSoftwareSuiteVersionType
+$cmin :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; RobotSoftwareSuiteVersionType
+max :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; RobotSoftwareSuiteVersionType
+$cmax :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; RobotSoftwareSuiteVersionType
+&gt;= :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+$c&gt;= :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+&gt; :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+$c&gt; :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+&lt;= :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+$c&lt;= :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+&lt; :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+$c&lt; :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Bool
+compare :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Ordering
+$ccompare :: RobotSoftwareSuiteVersionType
+-&gt; RobotSoftwareSuiteVersionType -&gt; Ordering
+$cp1Ord :: Eq RobotSoftwareSuiteVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RobotSoftwareSuiteVersionType
+ -&gt; Rep RobotSoftwareSuiteVersionType x)
+-&gt; (forall x.
+    Rep RobotSoftwareSuiteVersionType x
+    -&gt; RobotSoftwareSuiteVersionType)
+-&gt; Generic RobotSoftwareSuiteVersionType
+forall x.
+Rep RobotSoftwareSuiteVersionType x
+-&gt; RobotSoftwareSuiteVersionType
+forall x.
+RobotSoftwareSuiteVersionType
+-&gt; Rep RobotSoftwareSuiteVersionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RobotSoftwareSuiteVersionType x
+-&gt; RobotSoftwareSuiteVersionType
+$cfrom :: forall x.
+RobotSoftwareSuiteVersionType
+-&gt; Rep RobotSoftwareSuiteVersionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368879"><span id="local-6989586621679368881"><span class="annot"><span class="annottext">Int -&gt; RobotSoftwareSuiteVersionType -&gt; Int
+RobotSoftwareSuiteVersionType -&gt; Int
+(Int -&gt; RobotSoftwareSuiteVersionType -&gt; Int)
+-&gt; (RobotSoftwareSuiteVersionType -&gt; Int)
+-&gt; Hashable RobotSoftwareSuiteVersionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RobotSoftwareSuiteVersionType -&gt; Int
+$chash :: RobotSoftwareSuiteVersionType -&gt; Int
+hashWithSalt :: Int -&gt; RobotSoftwareSuiteVersionType -&gt; Int
+$chashWithSalt :: Int -&gt; RobotSoftwareSuiteVersionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368876"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType -&gt; ()
+(RobotSoftwareSuiteVersionType -&gt; ())
+-&gt; NFData RobotSoftwareSuiteVersionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RobotSoftwareSuiteVersionType -&gt; ()
+$crnf :: RobotSoftwareSuiteVersionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368873"><span class="annot"><span class="annottext">Text -&gt; Either String RobotSoftwareSuiteVersionType
+(Text -&gt; Either String RobotSoftwareSuiteVersionType)
+-&gt; FromText RobotSoftwareSuiteVersionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RobotSoftwareSuiteVersionType
+$cfromText :: Text -&gt; Either String RobotSoftwareSuiteVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368870"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType -&gt; Text
+(RobotSoftwareSuiteVersionType -&gt; Text)
+-&gt; ToText RobotSoftwareSuiteVersionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RobotSoftwareSuiteVersionType -&gt; Text
+$ctoText :: RobotSoftwareSuiteVersionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368867"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType -&gt; ByteString
+(RobotSoftwareSuiteVersionType -&gt; ByteString)
+-&gt; ToByteString RobotSoftwareSuiteVersionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RobotSoftwareSuiteVersionType -&gt; ByteString
+$ctoBS :: RobotSoftwareSuiteVersionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368864"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType -&gt; ByteStringBuilder
+(RobotSoftwareSuiteVersionType -&gt; ByteStringBuilder)
+-&gt; ToLog RobotSoftwareSuiteVersionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RobotSoftwareSuiteVersionType -&gt; ByteStringBuilder
+$cbuild :: RobotSoftwareSuiteVersionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368861"><span class="annot"><span class="annottext">HeaderName -&gt; RobotSoftwareSuiteVersionType -&gt; [Header]
+(HeaderName -&gt; RobotSoftwareSuiteVersionType -&gt; [Header])
+-&gt; ToHeader RobotSoftwareSuiteVersionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RobotSoftwareSuiteVersionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RobotSoftwareSuiteVersionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368858"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType -&gt; QueryString
+(RobotSoftwareSuiteVersionType -&gt; QueryString)
+-&gt; ToQuery RobotSoftwareSuiteVersionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RobotSoftwareSuiteVersionType -&gt; QueryString
+$ctoQuery :: RobotSoftwareSuiteVersionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368853"><span id="local-6989586621679368855"><span class="annot"><span class="annottext">Value -&gt; Parser [RobotSoftwareSuiteVersionType]
+Value -&gt; Parser RobotSoftwareSuiteVersionType
+(Value -&gt; Parser RobotSoftwareSuiteVersionType)
+-&gt; (Value -&gt; Parser [RobotSoftwareSuiteVersionType])
+-&gt; FromJSON RobotSoftwareSuiteVersionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RobotSoftwareSuiteVersionType]
+$cparseJSONList :: Value -&gt; Parser [RobotSoftwareSuiteVersionType]
+parseJSON :: Value -&gt; Parser RobotSoftwareSuiteVersionType
+$cparseJSON :: Value -&gt; Parser RobotSoftwareSuiteVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368848"><span id="local-6989586621679368850"><span class="annot"><span class="annottext">FromJSONKeyFunction [RobotSoftwareSuiteVersionType]
+FromJSONKeyFunction RobotSoftwareSuiteVersionType
+FromJSONKeyFunction RobotSoftwareSuiteVersionType
+-&gt; FromJSONKeyFunction [RobotSoftwareSuiteVersionType]
+-&gt; FromJSONKey RobotSoftwareSuiteVersionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RobotSoftwareSuiteVersionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RobotSoftwareSuiteVersionType]
+fromJSONKey :: FromJSONKeyFunction RobotSoftwareSuiteVersionType
+$cfromJSONKey :: FromJSONKeyFunction RobotSoftwareSuiteVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368839"><span id="local-6989586621679368841"><span id="local-6989586621679368843"><span id="local-6989586621679368845"><span class="annot"><span class="annottext">[RobotSoftwareSuiteVersionType] -&gt; Encoding
+[RobotSoftwareSuiteVersionType] -&gt; Value
+RobotSoftwareSuiteVersionType -&gt; Encoding
+RobotSoftwareSuiteVersionType -&gt; Value
+(RobotSoftwareSuiteVersionType -&gt; Value)
+-&gt; (RobotSoftwareSuiteVersionType -&gt; Encoding)
+-&gt; ([RobotSoftwareSuiteVersionType] -&gt; Value)
+-&gt; ([RobotSoftwareSuiteVersionType] -&gt; Encoding)
+-&gt; ToJSON RobotSoftwareSuiteVersionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RobotSoftwareSuiteVersionType] -&gt; Encoding
+$ctoEncodingList :: [RobotSoftwareSuiteVersionType] -&gt; Encoding
+toJSONList :: [RobotSoftwareSuiteVersionType] -&gt; Value
+$ctoJSONList :: [RobotSoftwareSuiteVersionType] -&gt; Value
+toEncoding :: RobotSoftwareSuiteVersionType -&gt; Encoding
+$ctoEncoding :: RobotSoftwareSuiteVersionType -&gt; Encoding
+toJSON :: RobotSoftwareSuiteVersionType -&gt; Value
+$ctoJSON :: RobotSoftwareSuiteVersionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368834"><span id="local-6989586621679368836"><span class="annot"><span class="annottext">ToJSONKeyFunction [RobotSoftwareSuiteVersionType]
+ToJSONKeyFunction RobotSoftwareSuiteVersionType
+ToJSONKeyFunction RobotSoftwareSuiteVersionType
+-&gt; ToJSONKeyFunction [RobotSoftwareSuiteVersionType]
+-&gt; ToJSONKey RobotSoftwareSuiteVersionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RobotSoftwareSuiteVersionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RobotSoftwareSuiteVersionType]
+toJSONKey :: ToJSONKeyFunction RobotSoftwareSuiteVersionType
+$ctoJSONKey :: ToJSONKeyFunction RobotSoftwareSuiteVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679368831"><span class="annot"><span class="annottext">[Node] -&gt; Either String RobotSoftwareSuiteVersionType
+([Node] -&gt; Either String RobotSoftwareSuiteVersionType)
+-&gt; FromXML RobotSoftwareSuiteVersionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RobotSoftwareSuiteVersionType
+$cparseXML :: [Node] -&gt; Either String RobotSoftwareSuiteVersionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679368828"><span class="annot"><span class="annottext">RobotSoftwareSuiteVersionType -&gt; XML
+(RobotSoftwareSuiteVersionType -&gt; XML)
+-&gt; ToXML RobotSoftwareSuiteVersionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RobotSoftwareSuiteVersionType -&gt; XML
+$ctoXML :: RobotSoftwareSuiteVersionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Dashing"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType_Dashing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotSoftwareSuiteVersionType_Dashing"><span id="%24mRobotSoftwareSuiteVersionType_Dashing"><span id="RobotSoftwareSuiteVersionType_Dashing"><span class="annot"><span class="annottext">$bRobotSoftwareSuiteVersionType_Dashing :: RobotSoftwareSuiteVersionType
+$mRobotSoftwareSuiteVersionType_Dashing :: forall r.
+RobotSoftwareSuiteVersionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#%24bRobotSoftwareSuiteVersionType_Dashing"><span class="hs-identifier hs-var hs-var hs-var">RobotSoftwareSuiteVersionType_Dashing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType%27"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Dashing&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Foxy"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType_Foxy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotSoftwareSuiteVersionType_Foxy"><span id="%24mRobotSoftwareSuiteVersionType_Foxy"><span id="RobotSoftwareSuiteVersionType_Foxy"><span class="annot"><span class="annottext">$bRobotSoftwareSuiteVersionType_Foxy :: RobotSoftwareSuiteVersionType
+$mRobotSoftwareSuiteVersionType_Foxy :: forall r.
+RobotSoftwareSuiteVersionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#%24bRobotSoftwareSuiteVersionType_Foxy"><span class="hs-identifier hs-var hs-var hs-var">RobotSoftwareSuiteVersionType_Foxy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType%27"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Foxy&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Kinetic"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType_Kinetic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotSoftwareSuiteVersionType_Kinetic"><span id="%24mRobotSoftwareSuiteVersionType_Kinetic"><span id="RobotSoftwareSuiteVersionType_Kinetic"><span class="annot"><span class="annottext">$bRobotSoftwareSuiteVersionType_Kinetic :: RobotSoftwareSuiteVersionType
+$mRobotSoftwareSuiteVersionType_Kinetic :: forall r.
+RobotSoftwareSuiteVersionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#%24bRobotSoftwareSuiteVersionType_Kinetic"><span class="hs-identifier hs-var hs-var hs-var">RobotSoftwareSuiteVersionType_Kinetic</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType%27"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Kinetic&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Melodic"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType_Melodic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRobotSoftwareSuiteVersionType_Melodic"><span id="%24mRobotSoftwareSuiteVersionType_Melodic"><span id="RobotSoftwareSuiteVersionType_Melodic"><span class="annot"><span class="annottext">$bRobotSoftwareSuiteVersionType_Melodic :: RobotSoftwareSuiteVersionType
+$mRobotSoftwareSuiteVersionType_Melodic :: forall r.
+RobotSoftwareSuiteVersionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#%24bRobotSoftwareSuiteVersionType_Melodic"><span class="hs-identifier hs-var hs-var hs-var">RobotSoftwareSuiteVersionType_Melodic</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType%27"><span class="hs-identifier hs-type">RobotSoftwareSuiteVersionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Melodic&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Dashing"><span class="hs-pragma hs-type">RobotSoftwareSuiteVersionType_Dashing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Foxy"><span class="hs-pragma hs-type">RobotSoftwareSuiteVersionType_Foxy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Kinetic"><span class="hs-pragma hs-type">RobotSoftwareSuiteVersionType_Kinetic</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType_Melodic"><span class="hs-pragma hs-type">RobotSoftwareSuiteVersionType_Melodic</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType.html#RobotSoftwareSuiteVersionType%27"><span class="hs-pragma hs-type">RobotSoftwareSuiteVersionType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetDigest' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679186058"><span id="local-6989586621679186059"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDigest"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-var">GetDigest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDigest%27"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-var">GetDigest'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679186067"><span id="local-6989586621679186068"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDigest"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-var">GetDigest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDigest%27"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-var">GetDigest'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the ledger.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3AGetDigest%27"><span class="annot"><span class="annottext">GetDigest -&gt; Text
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3Aname%3AGetDigest%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186052"><span id="local-6989586621679186054"><span class="annot"><span class="annottext">GetDigest -&gt; GetDigest -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186061"><span id="local-6989586621679186063"><span class="annot"><span class="annottext">GetDigest -&gt; GetDigest -&gt; Bool
 (GetDigest -&gt; GetDigest -&gt; Bool)
 -&gt; (GetDigest -&gt; GetDigest -&gt; Bool) -&gt; Eq GetDigest
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDigest -&gt; GetDigest -&gt; Bool
 == :: GetDigest -&gt; GetDigest -&gt; Bool
 $c== :: GetDigest -&gt; GetDigest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186043"><span id="local-6989586621679186045"><span id="local-6989586621679186047"><span id="local-6989586621679186049"><span class="annot"><span class="annottext">ReadPrec [GetDigest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186052"><span id="local-6989586621679186054"><span id="local-6989586621679186056"><span id="local-6989586621679186058"><span class="annot"><span class="annottext">ReadPrec [GetDigest]
 ReadPrec GetDigest
 Int -&gt; ReadS GetDigest
 ReadS [GetDigest]
@@ -82,7 +82,7 @@ readList :: ReadS [GetDigest]
 $creadList :: ReadS [GetDigest]
 readsPrec :: Int -&gt; ReadS GetDigest
 $creadsPrec :: Int -&gt; ReadS GetDigest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186036"><span id="local-6989586621679186038"><span id="local-6989586621679186040"><span class="annot"><span class="annottext">Int -&gt; GetDigest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186045"><span id="local-6989586621679186047"><span id="local-6989586621679186049"><span class="annot"><span class="annottext">Int -&gt; GetDigest -&gt; ShowS
 [GetDigest] -&gt; ShowS
 GetDigest -&gt; String
 (Int -&gt; GetDigest -&gt; ShowS)
@@ -121,11 +121,11 @@ $cfrom :: forall x. GetDigest -&gt; Rep GetDigest x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetDigest"><span class="annot"><span class="annottext">newGetDigest :: Text -&gt; GetDigest
-</span><a href="Network.AWS.QLDB.GetDigest.html#newGetDigest"><span class="hs-identifier hs-var hs-var">newGetDigest</span></a></span></span><span> </span><span id="local-6989586621679186031"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186031"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetDigest' :: Text -&gt; GetDigest
+</span><a href="Network.AWS.QLDB.GetDigest.html#newGetDigest"><span class="hs-identifier hs-var hs-var">newGetDigest</span></a></span></span><span> </span><span id="local-6989586621679186040"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186040"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetDigest' :: Text -&gt; GetDigest
 </span><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-type">GetDigest'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDigest' :: Text
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3Aname%3AGetDigest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186031"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679186040"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the ledger.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#getDigest_name"><span class="hs-identifier hs-type">getDigest_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. GetDigest -&gt; Rep GetDigest x
 -&gt; (GetDigest -&gt; Text -&gt; GetDigest)
 -&gt; Lens GetDigest GetDigest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-type">GetDigest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186028"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-type">GetDigest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186037"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetDigest' :: GetDigest -&gt; Text
-</span><a href="#local-6989586621679186028"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186028"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186027"><span class="annot"><span class="annottext">s :: GetDigest
-</span><a href="#local-6989586621679186027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-type">GetDigest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186026"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigest
-</span><a href="#local-6989586621679186027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDigest' :: Text
+</span><a href="#local-6989586621679186037"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186037"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186036"><span class="annot"><span class="annottext">s :: GetDigest
+</span><a href="#local-6989586621679186036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-type">GetDigest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigest
+</span><a href="#local-6989586621679186036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDigest' :: Text
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3Aname%3AGetDigest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679186022"><span class="annot"><span class="annottext">request :: GetDigest -&gt; Request GetDigest
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679186031"><span class="annot"><span class="annottext">request :: GetDigest -&gt; Request GetDigest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDigest -&gt; Request GetDigest
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679186018"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679186027"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDigest
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186015"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186015"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186014"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679186014"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186013"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186024"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186023"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679186023"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186022"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Base64 -&gt; Sensitive ValueHolder -&gt; GetDigestResponse
 </span><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-var">GetDigestResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Base64 -&gt; Sensitive ValueHolder -&gt; GetDigestResponse)
@@ -192,14 +192,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186015"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186024"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Base64 -&gt; Sensitive ValueHolder -&gt; GetDigestResponse)
 -&gt; Either String Base64
 -&gt; Either String (Sensitive ValueHolder -&gt; GetDigestResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Base64
+</span><a href="#local-6989586621679186022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Base64
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Digest&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,18 +208,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String GetDigestResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive ValueHolder)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DigestTipAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186005"><span id="local-6989586621679186007"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186014"><span id="local-6989586621679186016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679185998"><span class="annot"><span class="annottext">toHeaders :: GetDigest -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679186007"><span class="annot"><span class="annottext">toHeaders :: GetDigest -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDigest -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -238,8 +238,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185988"><span id="local-6989586621679185990"><span id="local-6989586621679185992"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679185986"><span class="annot"><span class="annottext">toJSON :: GetDigest -&gt; Value
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185997"><span id="local-6989586621679185999"><span id="local-6989586621679186001"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679185995"><span class="annot"><span class="annottext">toJSON :: GetDigest -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetDigest -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -248,11 +248,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679185981"><span class="annot"><span class="annottext">toPath :: GetDigest -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-type">GetDigest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185979"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679185990"><span class="annot"><span class="annottext">toPath :: GetDigest -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest%27"><span class="hs-identifier hs-type">GetDigest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185988"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetDigest' :: GetDigest -&gt; Text
-</span><a href="#local-6989586621679185979"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185988"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -260,11 +260,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/ledgers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185979"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679185988"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/digest&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigest"><span class="hs-identifier hs-type">GetDigest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679185975"><span class="annot"><span class="annottext">toQuery :: GetDigest -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679185984"><span class="annot"><span class="annottext">toQuery :: GetDigest -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDigest -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,7 +272,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newGetDigestResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679185972"><span id="local-6989586621679185973"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDigestResponse"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-var">GetDigestResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDigestResponse%27"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-var">GetDigestResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679185981"><span id="local-6989586621679185982"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDigestResponse"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-var">GetDigestResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDigestResponse%27"><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-var">GetDigestResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDigestResponse%27"><span class="annot"><span class="annottext">GetDigestResponse -&gt; Int
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3AhttpStatus%3AGetDigestResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AdigestTipAddress%3AGetDigestResponse%27"><span class="annot"><span class="annottext">GetDigestResponse -&gt; Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3AdigestTipAddress%3AGetDigestResponse%27"><span class="hs-identifier hs-var hs-var">digestTipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185965"><span id="local-6989586621679185967"><span class="annot"><span class="annottext">GetDigestResponse -&gt; GetDigestResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185974"><span id="local-6989586621679185976"><span class="annot"><span class="annottext">GetDigestResponse -&gt; GetDigestResponse -&gt; Bool
 (GetDigestResponse -&gt; GetDigestResponse -&gt; Bool)
 -&gt; (GetDigestResponse -&gt; GetDigestResponse -&gt; Bool)
 -&gt; Eq GetDigestResponse
@@ -295,7 +295,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDigestResponse -&gt; GetDigestResponse -&gt; Bool
 == :: GetDigestResponse -&gt; GetDigestResponse -&gt; Bool
 $c== :: GetDigestResponse -&gt; GetDigestResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185959"><span id="local-6989586621679185961"><span id="local-6989586621679185963"><span class="annot"><span class="annottext">Int -&gt; GetDigestResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185968"><span id="local-6989586621679185970"><span id="local-6989586621679185972"><span class="annot"><span class="annottext">Int -&gt; GetDigestResponse -&gt; ShowS
 [GetDigestResponse] -&gt; ShowS
 GetDigestResponse -&gt; String
 (Int -&gt; GetDigestResponse -&gt; ShowS)
@@ -351,17 +351,17 @@ $cfrom :: forall x. GetDigestResponse -&gt; Rep GetDigestResponse x
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newGetDigestResponse"><span class="annot"><span class="annottext">newGetDigestResponse :: Int -&gt; ByteString -&gt; ValueHolder -&gt; GetDigestResponse
 </span><a href="Network.AWS.QLDB.GetDigest.html#newGetDigestResponse"><span class="hs-identifier hs-var hs-var">newGetDigestResponse</span></a></span></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679185956"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679185955"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679185955"><span class="hs-identifier hs-var">pDigest_</span></a></span></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679185954"><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679185954"><span class="hs-identifier hs-var">pDigestTipAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679185965"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679185964"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679185964"><span class="hs-identifier hs-var">pDigest_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679185963"><span class="annot"><span class="annottext">ValueHolder
+</span><a href="#local-6989586621679185963"><span class="hs-identifier hs-var">pDigestTipAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">GetDigestResponse' :: Int -&gt; Base64 -&gt; Sensitive ValueHolder -&gt; GetDigestResponse
 </span><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDigestResponse' :: Int
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3AhttpStatus%3AGetDigestResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:digest:GetDigestResponse' :: Base64
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3Adigest%3AGetDigestResponse%27"><span class="hs-identifier hs-var">digest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -371,7 +371,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679185955"><span class="hs-identifier hs-var">pDigest_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185964"><span class="hs-identifier hs-var">pDigest_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:digestTipAddress:GetDigestResponse' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3AdigestTipAddress%3AGetDigestResponse%27"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Tagged ValueHolder (Identity ValueHolder)
@@ -384,7 +384,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; ValueHolder -&gt; Sensitive ValueHolder
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679185954"><span class="hs-identifier hs-var">pDigestTipAddress_</span></a></span><span>
+</span><a href="#local-6989586621679185963"><span class="hs-identifier hs-var">pDigestTipAddress_</span></a></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -394,16 +394,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (GetDigestResponse -&gt; Int -&gt; GetDigestResponse)
 -&gt; Lens GetDigestResponse GetDigestResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185950"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185959"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDigestResponse' :: GetDigestResponse -&gt; Int
-</span><a href="#local-6989586621679185950"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185950"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185949"><span class="annot"><span class="annottext">s :: GetDigestResponse
-</span><a href="#local-6989586621679185949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185948"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigestResponse
-</span><a href="#local-6989586621679185949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDigestResponse' :: Int
+</span><a href="#local-6989586621679185959"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185959"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185958"><span class="annot"><span class="annottext">s :: GetDigestResponse
+</span><a href="#local-6989586621679185958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185957"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigestResponse
+</span><a href="#local-6989586621679185958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDigestResponse' :: Int
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3AhttpStatus%3AGetDigestResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The 256-bit hash value representing the digest returned by a @GetDigest@</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- request.--</span><span>
@@ -418,16 +418,16 @@ $sel:httpStatus:GetDigestResponse' :: GetDigestResponse -&gt; Int
 -&gt; (GetDigestResponse -&gt; Base64 -&gt; GetDigestResponse)
 -&gt; Lens GetDigestResponse GetDigestResponse Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185947"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185956"><span class="annot"><span class="annottext">Base64
 digest :: Base64
 $sel:digest:GetDigestResponse' :: GetDigestResponse -&gt; Base64
-</span><a href="#local-6989586621679185947"><span class="hs-identifier hs-var hs-var">digest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679185947"><span class="hs-identifier hs-var">digest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185946"><span class="annot"><span class="annottext">s :: GetDigestResponse
-</span><a href="#local-6989586621679185946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185945"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679185945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigestResponse
-</span><a href="#local-6989586621679185946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digest:GetDigestResponse' :: Base64
+</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var hs-var">digest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var">digest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185955"><span class="annot"><span class="annottext">s :: GetDigestResponse
+</span><a href="#local-6989586621679185955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185954"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679185954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigestResponse
+</span><a href="#local-6989586621679185955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digest:GetDigestResponse' :: Base64
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3Adigest%3AGetDigestResponse%27"><span class="hs-identifier hs-var">digest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679185945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; GetDigestResponse -&gt; f GetDigestResponse)
+</span><a href="#local-6989586621679185954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; GetDigestResponse -&gt; f GetDigestResponse)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; GetDigestResponse
@@ -452,16 +452,16 @@ Iso' Base64 ByteString
      (Sensitive ValueHolder)
      (Sensitive ValueHolder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185943"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185952"><span class="annot"><span class="annottext">Sensitive ValueHolder
 digestTipAddress :: Sensitive ValueHolder
 $sel:digestTipAddress:GetDigestResponse' :: GetDigestResponse -&gt; Sensitive ValueHolder
-</span><a href="#local-6989586621679185943"><span class="hs-identifier hs-var hs-var">digestTipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185943"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185942"><span class="annot"><span class="annottext">s :: GetDigestResponse
-</span><a href="#local-6989586621679185942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185941"><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigestResponse
-</span><a href="#local-6989586621679185942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digestTipAddress:GetDigestResponse' :: Sensitive ValueHolder
+</span><a href="#local-6989586621679185952"><span class="hs-identifier hs-var hs-var">digestTipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679185952"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185951"><span class="annot"><span class="annottext">s :: GetDigestResponse
+</span><a href="#local-6989586621679185951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse%27"><span class="hs-identifier hs-type">GetDigestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185950"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679185950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDigestResponse
+</span><a href="#local-6989586621679185951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digestTipAddress:GetDigestResponse' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetDigest.html#%24sel%3AdigestTipAddress%3AGetDigestResponse%27"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
+</span><a href="#local-6989586621679185950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
  -&gt; GetDigestResponse -&gt; f GetDigestResponse)
 -&gt; ((ValueHolder -&gt; f ValueHolder)
     -&gt; Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
@@ -474,5 +474,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetDigest.html#GetDigestResponse"><span class="hs-identifier hs-type">GetDigestResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

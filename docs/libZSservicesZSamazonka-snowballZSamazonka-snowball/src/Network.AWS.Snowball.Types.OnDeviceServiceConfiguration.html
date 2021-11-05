@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- services on an AWS Snow Family device.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newOnDeviceServiceConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679226237"><span id="local-6989586621679226238"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnDeviceServiceConfiguration"><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-var">OnDeviceServiceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDeviceServiceConfiguration%27"><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-var">OnDeviceServiceConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679226246"><span id="local-6989586621679226247"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnDeviceServiceConfiguration"><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-var">OnDeviceServiceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDeviceServiceConfiguration%27"><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-var">OnDeviceServiceConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the NFS service on a Snow Family device.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AnFSOnDeviceService%3AOnDeviceServiceConfiguration%27"><span class="annot"><span class="annottext">OnDeviceServiceConfiguration
 -&gt; Maybe NFSOnDeviceServiceConfiguration
 </span><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#%24sel%3AnFSOnDeviceService%3AOnDeviceServiceConfiguration%27"><span class="hs-identifier hs-var hs-var">nFSOnDeviceService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.html#NFSOnDeviceServiceConfiguration"><span class="hs-identifier hs-type">NFSOnDeviceServiceConfiguration</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226231"><span id="local-6989586621679226233"><span class="annot"><span class="annottext">OnDeviceServiceConfiguration
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226240"><span id="local-6989586621679226242"><span class="annot"><span class="annottext">OnDeviceServiceConfiguration
 -&gt; OnDeviceServiceConfiguration -&gt; Bool
 (OnDeviceServiceConfiguration
  -&gt; OnDeviceServiceConfiguration -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: OnDeviceServiceConfiguration
 -&gt; OnDeviceServiceConfiguration -&gt; Bool
 $c== :: OnDeviceServiceConfiguration
 -&gt; OnDeviceServiceConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226222"><span id="local-6989586621679226224"><span id="local-6989586621679226226"><span id="local-6989586621679226228"><span class="annot"><span class="annottext">ReadPrec [OnDeviceServiceConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226231"><span id="local-6989586621679226233"><span id="local-6989586621679226235"><span id="local-6989586621679226237"><span class="annot"><span class="annottext">ReadPrec [OnDeviceServiceConfiguration]
 ReadPrec OnDeviceServiceConfiguration
 Int -&gt; ReadS OnDeviceServiceConfiguration
 ReadS [OnDeviceServiceConfiguration]
@@ -70,7 +70,7 @@ readList :: ReadS [OnDeviceServiceConfiguration]
 $creadList :: ReadS [OnDeviceServiceConfiguration]
 readsPrec :: Int -&gt; ReadS OnDeviceServiceConfiguration
 $creadsPrec :: Int -&gt; ReadS OnDeviceServiceConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226215"><span id="local-6989586621679226217"><span id="local-6989586621679226219"><span class="annot"><span class="annottext">Int -&gt; OnDeviceServiceConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226224"><span id="local-6989586621679226226"><span id="local-6989586621679226228"><span class="annot"><span class="annottext">Int -&gt; OnDeviceServiceConfiguration -&gt; ShowS
 [OnDeviceServiceConfiguration] -&gt; ShowS
 OnDeviceServiceConfiguration -&gt; String
 (Int -&gt; OnDeviceServiceConfiguration -&gt; ShowS)
@@ -141,20 +141,20 @@ forall a. Maybe a
      (Maybe NFSOnDeviceServiceConfiguration)
      (Maybe NFSOnDeviceServiceConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226206"><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226215"><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
 nFSOnDeviceService :: Maybe NFSOnDeviceServiceConfiguration
 $sel:nFSOnDeviceService:OnDeviceServiceConfiguration' :: OnDeviceServiceConfiguration
 -&gt; Maybe NFSOnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226206"><span class="hs-identifier hs-var hs-var">nFSOnDeviceService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226206"><span class="hs-identifier hs-var">nFSOnDeviceService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226205"><span class="annot"><span class="annottext">s :: OnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226204"><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nFSOnDeviceService:OnDeviceServiceConfiguration' :: Maybe NFSOnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226215"><span class="hs-identifier hs-var hs-var">nFSOnDeviceService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226215"><span class="hs-identifier hs-var">nFSOnDeviceService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226214"><span class="annot"><span class="annottext">s :: OnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226213"><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nFSOnDeviceService:OnDeviceServiceConfiguration' :: Maybe NFSOnDeviceServiceConfiguration
 </span><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#%24sel%3AnFSOnDeviceService%3AOnDeviceServiceConfiguration%27"><span class="hs-identifier hs-var">nFSOnDeviceService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226201"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679226199"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnDeviceServiceConfiguration
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226210"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679226208"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnDeviceServiceConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OnDeviceServiceConfiguration)
@@ -164,8 +164,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OnDeviceServiceConfiguration&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226196"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226205"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
 -&gt; OnDeviceServiceConfiguration
 </span><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-var">OnDeviceServiceConfiguration'</span></a></span><span>
@@ -175,25 +175,25 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser OnDeviceServiceConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NFSOnDeviceServiceConfiguration)
+</span><a href="#local-6989586621679226205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NFSOnDeviceServiceConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NFSOnDeviceService&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679226190"><span id="local-6989586621679226192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679226199"><span id="local-6989586621679226201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226179"><span id="local-6989586621679226181"><span id="local-6989586621679226183"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679226177"><span class="annot"><span class="annottext">toJSON :: OnDeviceServiceConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226175"><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226188"><span id="local-6989586621679226190"><span id="local-6989586621679226192"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679226186"><span class="annot"><span class="annottext">toJSON :: OnDeviceServiceConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration%27"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226184"><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
 nFSOnDeviceService :: Maybe NFSOnDeviceServiceConfiguration
 $sel:nFSOnDeviceService:OnDeviceServiceConfiguration' :: OnDeviceServiceConfiguration
 -&gt; Maybe NFSOnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226175"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226184"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -207,7 +207,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NFSOnDeviceServiceConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NFSOnDeviceServiceConfiguration
-</span><a href="#local-6989586621679226175"><span class="hs-identifier hs-var">nFSOnDeviceService</span></a></span><span>
+</span><a href="#local-6989586621679226184"><span class="hs-identifier hs-var">nFSOnDeviceService</span></a></span><span>
 </span><span id="line-79"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTThingsGraph.CreateSystemInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a system instance.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This action validates the system instance, prepares the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- deployment-related resources. For Greengrass deployments, it updates the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Greengrass group that is specified by the @greengrassGroupName@</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- parameter. It also adds a file to the S3 bucket specified by the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @s3BucketName@ parameter. You need to call @DeploySystemInstance@ after</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- running this action.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For Greengrass deployments, since this action modifies and adds</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- resources to a Greengrass group and an S3 bucket on the caller\'s</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- behalf, the calling identity must have write permissions to both the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- specified Greengrass group and S3 bucket. Otherwise, the call will fail</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- with an authorization error.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- For cloud deployments, this action requires a @flowActionsRoleArn@</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- value. This is an IAM role that has permissions to access AWS services,</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- such as AWS Lambda and AWS IoT, that the flow uses when it executes.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- If the definition document doesn\'t specify a version of the user\'s</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- namespace, the latest version will be used by default.</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTThingsGraph.CreateSystemInstance</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier">CreateSystemInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#newCreateSystemInstance"><span class="hs-identifier">newCreateSystemInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_metricsConfiguration"><span class="hs-identifier">createSystemInstance_metricsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_greengrassGroupName"><span class="hs-identifier">createSystemInstance_greengrassGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_flowActionsRoleArn"><span class="hs-identifier">createSystemInstance_flowActionsRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_s3BucketName"><span class="hs-identifier">createSystemInstance_s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_tags"><span class="hs-identifier">createSystemInstance_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_definition"><span class="hs-identifier">createSystemInstance_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_target"><span class="hs-identifier">createSystemInstance_target</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier">CreateSystemInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#newCreateSystemInstanceResponse"><span class="hs-identifier">newCreateSystemInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstanceResponse_summary"><span class="hs-identifier">createSystemInstanceResponse_summary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstanceResponse_httpStatus"><span class="hs-identifier">createSystemInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.html"><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newCreateSystemInstance' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621679227263"><span id="local-6989586621679227264"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSystemInstance"><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-var">CreateSystemInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSystemInstance%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-var">CreateSystemInstance'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AmetricsConfiguration%3ACreateSystemInstance%27"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; Maybe MetricsConfiguration
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AmetricsConfiguration%3ACreateSystemInstance%27"><span class="hs-identifier hs-var hs-var">metricsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.MetricsConfiguration.html#MetricsConfiguration"><span class="hs-identifier hs-type">MetricsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name of the Greengrass group where the system instance will be</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- deployed. This value is required if the value of the @target@ parameter</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- is @GREENGRASS@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AgreengrassGroupName%3ACreateSystemInstance%27"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AgreengrassGroupName%3ACreateSystemInstance%27"><span class="hs-identifier hs-var hs-var">greengrassGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role that AWS IoT Things Graph will assume when it</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- executes the flow. This role must have read and write access to AWS</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Lambda and AWS IoT and any other AWS services that the flow uses when it</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- executes. This value is required if the value of the @target@ parameter</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- is @CLOUD@.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AflowActionsRoleArn%3ACreateSystemInstance%27"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AflowActionsRoleArn%3ACreateSystemInstance%27"><span class="hs-identifier hs-var hs-var">flowActionsRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Simple Storage Service bucket that will be used</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- to store and deploy the system instance\'s resource file. This value is</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- required if the value of the @target@ parameter is @GREENGRASS@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3As3BucketName%3ACreateSystemInstance%27"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3As3BucketName%3ACreateSystemInstance%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Metadata, consisting of key-value pairs, that can be used to categorize</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- your system instances.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Atags%3ACreateSystemInstance%27"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Atags%3ACreateSystemInstance%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Adefinition%3ACreateSystemInstance%27"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; DefinitionDocument
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Adefinition%3ACreateSystemInstance%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DefinitionDocument.html#DefinitionDocument"><span class="hs-identifier hs-type">DefinitionDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The target type of the deployment. Valid values are @GREENGRASS@ and</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @CLOUD@.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Atarget%3ACreateSystemInstance%27"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; DeploymentTarget
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Atarget%3ACreateSystemInstance%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227251"><span id="local-6989586621679227253"><span class="annot"><span class="annottext">CreateSystemInstance -&gt; CreateSystemInstance -&gt; Bool
+(CreateSystemInstance -&gt; CreateSystemInstance -&gt; Bool)
+-&gt; (CreateSystemInstance -&gt; CreateSystemInstance -&gt; Bool)
+-&gt; Eq CreateSystemInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSystemInstance -&gt; CreateSystemInstance -&gt; Bool
+$c/= :: CreateSystemInstance -&gt; CreateSystemInstance -&gt; Bool
+== :: CreateSystemInstance -&gt; CreateSystemInstance -&gt; Bool
+$c== :: CreateSystemInstance -&gt; CreateSystemInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227242"><span id="local-6989586621679227244"><span id="local-6989586621679227246"><span id="local-6989586621679227248"><span class="annot"><span class="annottext">ReadPrec [CreateSystemInstance]
+ReadPrec CreateSystemInstance
+Int -&gt; ReadS CreateSystemInstance
+ReadS [CreateSystemInstance]
+(Int -&gt; ReadS CreateSystemInstance)
+-&gt; ReadS [CreateSystemInstance]
+-&gt; ReadPrec CreateSystemInstance
+-&gt; ReadPrec [CreateSystemInstance]
+-&gt; Read CreateSystemInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSystemInstance]
+$creadListPrec :: ReadPrec [CreateSystemInstance]
+readPrec :: ReadPrec CreateSystemInstance
+$creadPrec :: ReadPrec CreateSystemInstance
+readList :: ReadS [CreateSystemInstance]
+$creadList :: ReadS [CreateSystemInstance]
+readsPrec :: Int -&gt; ReadS CreateSystemInstance
+$creadsPrec :: Int -&gt; ReadS CreateSystemInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227235"><span id="local-6989586621679227237"><span id="local-6989586621679227239"><span class="annot"><span class="annottext">Int -&gt; CreateSystemInstance -&gt; ShowS
+[CreateSystemInstance] -&gt; ShowS
+CreateSystemInstance -&gt; String
+(Int -&gt; CreateSystemInstance -&gt; ShowS)
+-&gt; (CreateSystemInstance -&gt; String)
+-&gt; ([CreateSystemInstance] -&gt; ShowS)
+-&gt; Show CreateSystemInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSystemInstance] -&gt; ShowS
+$cshowList :: [CreateSystemInstance] -&gt; ShowS
+show :: CreateSystemInstance -&gt; String
+$cshow :: CreateSystemInstance -&gt; String
+showsPrec :: Int -&gt; CreateSystemInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSystemInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSystemInstance -&gt; Rep CreateSystemInstance x)
+-&gt; (forall x. Rep CreateSystemInstance x -&gt; CreateSystemInstance)
+-&gt; Generic CreateSystemInstance
+forall x. Rep CreateSystemInstance x -&gt; CreateSystemInstance
+forall x. CreateSystemInstance -&gt; Rep CreateSystemInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSystemInstance x -&gt; CreateSystemInstance
+$cfrom :: forall x. CreateSystemInstance -&gt; Rep CreateSystemInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'CreateSystemInstance' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'metricsConfiguration', 'createSystemInstance_metricsConfiguration' - Undocumented member.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'greengrassGroupName', 'createSystemInstance_greengrassGroupName' - The name of the Greengrass group where the system instance will be</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- deployed. This value is required if the value of the @target@ parameter</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- is @GREENGRASS@.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'flowActionsRoleArn', 'createSystemInstance_flowActionsRoleArn' - The ARN of the IAM role that AWS IoT Things Graph will assume when it</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- executes the flow. This role must have read and write access to AWS</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Lambda and AWS IoT and any other AWS services that the flow uses when it</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- executes. This value is required if the value of the @target@ parameter</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- is @CLOUD@.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 's3BucketName', 'createSystemInstance_s3BucketName' - The name of the Amazon Simple Storage Service bucket that will be used</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- to store and deploy the system instance\'s resource file. This value is</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- required if the value of the @target@ parameter is @GREENGRASS@.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'tags', 'createSystemInstance_tags' - Metadata, consisting of key-value pairs, that can be used to categorize</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- your system instances.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'definition', 'createSystemInstance_definition' - Undocumented member.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'target', 'createSystemInstance_target' - The target type of the deployment. Valid values are @GREENGRASS@ and</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @CLOUD@.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#newCreateSystemInstance"><span class="hs-identifier hs-type">newCreateSystemInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'definition'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DefinitionDocument.html#DefinitionDocument"><span class="hs-identifier hs-type">DefinitionDocument</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'target'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span>
+</span><span id="line-139"></span><span id="newCreateSystemInstance"><span class="annot"><span class="annottext">newCreateSystemInstance :: DefinitionDocument -&gt; DeploymentTarget -&gt; CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#newCreateSystemInstance"><span class="hs-identifier hs-var hs-var">newCreateSystemInstance</span></a></span></span><span> </span><span id="local-6989586621679227230"><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679227230"><span class="hs-identifier hs-var">pDefinition_</span></a></span></span><span> </span><span id="local-6989586621679227229"><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679227229"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">CreateSystemInstance' :: Maybe MetricsConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; DefinitionDocument
+-&gt; DeploymentTarget
+-&gt; CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricsConfiguration:CreateSystemInstance' :: Maybe MetricsConfiguration
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AmetricsConfiguration%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">metricsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Maybe MetricsConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:greengrassGroupName:CreateSystemInstance' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AgreengrassGroupName%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">greengrassGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowActionsRoleArn:CreateSystemInstance' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AflowActionsRoleArn%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">flowActionsRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:CreateSystemInstance' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3As3BucketName%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateSystemInstance' :: Maybe [Tag]
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Atags%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:definition:CreateSystemInstance' :: DefinitionDocument
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Adefinition%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679227230"><span class="hs-identifier hs-var">pDefinition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:CreateSystemInstance' :: DeploymentTarget
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Atarget%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679227229"><span class="hs-identifier hs-var">pTarget_</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_metricsConfiguration"><span class="hs-identifier hs-type">createSystemInstance_metricsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.MetricsConfiguration.html#MetricsConfiguration"><span class="hs-identifier hs-type">MetricsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="createSystemInstance_metricsConfiguration"><span class="annot"><span class="annottext">createSystemInstance_metricsConfiguration :: (Maybe MetricsConfiguration -&gt; f (Maybe MetricsConfiguration))
+-&gt; CreateSystemInstance -&gt; f CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_metricsConfiguration"><span class="hs-identifier hs-var hs-var">createSystemInstance_metricsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstance -&gt; Maybe MetricsConfiguration)
+-&gt; (CreateSystemInstance
+    -&gt; Maybe MetricsConfiguration -&gt; CreateSystemInstance)
+-&gt; Lens
+     CreateSystemInstance
+     CreateSystemInstance
+     (Maybe MetricsConfiguration)
+     (Maybe MetricsConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227226"><span class="annot"><span class="annottext">Maybe MetricsConfiguration
+metricsConfiguration :: Maybe MetricsConfiguration
+$sel:metricsConfiguration:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe MetricsConfiguration
+</span><a href="#local-6989586621679227226"><span class="hs-identifier hs-var hs-var">metricsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsConfiguration
+</span><a href="#local-6989586621679227226"><span class="hs-identifier hs-var">metricsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227225"><span class="annot"><span class="annottext">s :: CreateSystemInstance
+</span><a href="#local-6989586621679227225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227224"><span class="annot"><span class="annottext">Maybe MetricsConfiguration
+</span><a href="#local-6989586621679227224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstance
+</span><a href="#local-6989586621679227225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricsConfiguration:CreateSystemInstance' :: Maybe MetricsConfiguration
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AmetricsConfiguration%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">metricsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsConfiguration
+</span><a href="#local-6989586621679227224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The name of the Greengrass group where the system instance will be</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- deployed. This value is required if the value of the @target@ parameter</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- is @GREENGRASS@.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_greengrassGroupName"><span class="hs-identifier hs-type">createSystemInstance_greengrassGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="createSystemInstance_greengrassGroupName"><span class="annot"><span class="annottext">createSystemInstance_greengrassGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSystemInstance -&gt; f CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_greengrassGroupName"><span class="hs-identifier hs-var hs-var">createSystemInstance_greengrassGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstance -&gt; Maybe Text)
+-&gt; (CreateSystemInstance -&gt; Maybe Text -&gt; CreateSystemInstance)
+-&gt; Lens
+     CreateSystemInstance CreateSystemInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227223"><span class="annot"><span class="annottext">Maybe Text
+greengrassGroupName :: Maybe Text
+$sel:greengrassGroupName:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679227223"><span class="hs-identifier hs-var hs-var">greengrassGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227223"><span class="hs-identifier hs-var">greengrassGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227222"><span class="annot"><span class="annottext">s :: CreateSystemInstance
+</span><a href="#local-6989586621679227222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227221"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstance
+</span><a href="#local-6989586621679227222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greengrassGroupName:CreateSystemInstance' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AgreengrassGroupName%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">greengrassGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The ARN of the IAM role that AWS IoT Things Graph will assume when it</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- executes the flow. This role must have read and write access to AWS</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Lambda and AWS IoT and any other AWS services that the flow uses when it</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- executes. This value is required if the value of the @target@ parameter</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- is @CLOUD@.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_flowActionsRoleArn"><span class="hs-identifier hs-type">createSystemInstance_flowActionsRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="createSystemInstance_flowActionsRoleArn"><span class="annot"><span class="annottext">createSystemInstance_flowActionsRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSystemInstance -&gt; f CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_flowActionsRoleArn"><span class="hs-identifier hs-var hs-var">createSystemInstance_flowActionsRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstance -&gt; Maybe Text)
+-&gt; (CreateSystemInstance -&gt; Maybe Text -&gt; CreateSystemInstance)
+-&gt; Lens
+     CreateSystemInstance CreateSystemInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227220"><span class="annot"><span class="annottext">Maybe Text
+flowActionsRoleArn :: Maybe Text
+$sel:flowActionsRoleArn:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679227220"><span class="hs-identifier hs-var hs-var">flowActionsRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227220"><span class="hs-identifier hs-var">flowActionsRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227219"><span class="annot"><span class="annottext">s :: CreateSystemInstance
+</span><a href="#local-6989586621679227219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227218"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstance
+</span><a href="#local-6989586621679227219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowActionsRoleArn:CreateSystemInstance' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AflowActionsRoleArn%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">flowActionsRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The name of the Amazon Simple Storage Service bucket that will be used</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- to store and deploy the system instance\'s resource file. This value is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- required if the value of the @target@ parameter is @GREENGRASS@.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_s3BucketName"><span class="hs-identifier hs-type">createSystemInstance_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="createSystemInstance_s3BucketName"><span class="annot"><span class="annottext">createSystemInstance_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSystemInstance -&gt; f CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_s3BucketName"><span class="hs-identifier hs-var hs-var">createSystemInstance_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstance -&gt; Maybe Text)
+-&gt; (CreateSystemInstance -&gt; Maybe Text -&gt; CreateSystemInstance)
+-&gt; Lens
+     CreateSystemInstance CreateSystemInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227217"><span class="annot"><span class="annottext">Maybe Text
+s3BucketName :: Maybe Text
+$sel:s3BucketName:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679227217"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227217"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227216"><span class="annot"><span class="annottext">s :: CreateSystemInstance
+</span><a href="#local-6989586621679227216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstance
+</span><a href="#local-6989586621679227216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:CreateSystemInstance' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3As3BucketName%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Metadata, consisting of key-value pairs, that can be used to categorize</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- your system instances.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_tags"><span class="hs-identifier hs-type">createSystemInstance_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="createSystemInstance_tags"><span class="annot"><span class="annottext">createSystemInstance_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSystemInstance -&gt; f CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_tags"><span class="hs-identifier hs-var hs-var">createSystemInstance_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstance -&gt; Maybe [Tag])
+-&gt; (CreateSystemInstance -&gt; Maybe [Tag] -&gt; CreateSystemInstance)
+-&gt; Lens
+     CreateSystemInstance
+     CreateSystemInstance
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227214"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679227214"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679227214"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227213"><span class="annot"><span class="annottext">s :: CreateSystemInstance
+</span><a href="#local-6989586621679227213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227212"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679227212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstance
+</span><a href="#local-6989586621679227213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateSystemInstance' :: Maybe [Tag]
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Atags%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679227212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateSystemInstance -&gt; f CreateSystemInstance)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateSystemInstance
+-&gt; f CreateSystemInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_definition"><span class="hs-identifier hs-type">createSystemInstance_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DefinitionDocument.html#DefinitionDocument"><span class="hs-identifier hs-type">DefinitionDocument</span></a></span><span>
+</span><span id="line-182"></span><span id="createSystemInstance_definition"><span class="annot"><span class="annottext">createSystemInstance_definition :: (DefinitionDocument -&gt; f DefinitionDocument)
+-&gt; CreateSystemInstance -&gt; f CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_definition"><span class="hs-identifier hs-var hs-var">createSystemInstance_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstance -&gt; DefinitionDocument)
+-&gt; (CreateSystemInstance
+    -&gt; DefinitionDocument -&gt; CreateSystemInstance)
+-&gt; Lens
+     CreateSystemInstance
+     CreateSystemInstance
+     DefinitionDocument
+     DefinitionDocument
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227208"><span class="annot"><span class="annottext">DefinitionDocument
+definition :: DefinitionDocument
+$sel:definition:CreateSystemInstance' :: CreateSystemInstance -&gt; DefinitionDocument
+</span><a href="#local-6989586621679227208"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679227208"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227207"><span class="annot"><span class="annottext">s :: CreateSystemInstance
+</span><a href="#local-6989586621679227207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227206"><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679227206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstance
+</span><a href="#local-6989586621679227207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:CreateSystemInstance' :: DefinitionDocument
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Adefinition%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679227206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The target type of the deployment. Valid values are @GREENGRASS@ and</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- @CLOUD@.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_target"><span class="hs-identifier hs-type">createSystemInstance_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span>
+</span><span id="line-187"></span><span id="createSystemInstance_target"><span class="annot"><span class="annottext">createSystemInstance_target :: (DeploymentTarget -&gt; f DeploymentTarget)
+-&gt; CreateSystemInstance -&gt; f CreateSystemInstance
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstance_target"><span class="hs-identifier hs-var hs-var">createSystemInstance_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstance -&gt; DeploymentTarget)
+-&gt; (CreateSystemInstance
+    -&gt; DeploymentTarget -&gt; CreateSystemInstance)
+-&gt; Lens
+     CreateSystemInstance
+     CreateSystemInstance
+     DeploymentTarget
+     DeploymentTarget
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227205"><span class="annot"><span class="annottext">DeploymentTarget
+target :: DeploymentTarget
+$sel:target:CreateSystemInstance' :: CreateSystemInstance -&gt; DeploymentTarget
+</span><a href="#local-6989586621679227205"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679227205"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227204"><span class="annot"><span class="annottext">s :: CreateSystemInstance
+</span><a href="#local-6989586621679227204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227203"><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679227203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstance
+</span><a href="#local-6989586621679227204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:CreateSystemInstance' :: DeploymentTarget
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Atarget%3ACreateSystemInstance%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679227203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-191"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-type">CreateSystemInstanceResponse</span></a></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679227199"><span class="annot"><span class="annottext">request :: CreateSystemInstance -&gt; Request CreateSystemInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSystemInstance -&gt; Request CreateSystemInstance
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTThingsGraph.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679227195"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSystemInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSystemInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateSystemInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSystemInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSystemInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227192"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227191"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227191"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227190"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe SystemInstanceSummary -&gt; Int -&gt; CreateSystemInstanceResponse
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse%27"><span class="hs-identifier hs-var">CreateSystemInstanceResponse'</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SystemInstanceSummary
+ -&gt; Int -&gt; CreateSystemInstanceResponse)
+-&gt; Either String (Maybe SystemInstanceSummary)
+-&gt; Either String (Int -&gt; CreateSystemInstanceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SystemInstanceSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;summary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateSystemInstanceResponse)
+-&gt; Either String Int -&gt; Either String CreateSystemInstanceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227192"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227182"><span id="local-6989586621679227184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679227175"><span class="annot"><span class="annottext">toHeaders :: CreateSystemInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSystemInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IotThingsGraphFrontEndService.CreateSystemInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-212"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-213"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-217"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227165"><span id="local-6989586621679227167"><span id="local-6989586621679227169"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679227163"><span class="annot"><span class="annottext">toJSON :: CreateSystemInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance%27"><span class="hs-identifier hs-type">CreateSystemInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227155"><span id="local-6989586621679227156"><span id="local-6989586621679227157"><span id="local-6989586621679227158"><span id="local-6989586621679227159"><span id="local-6989586621679227160"><span id="local-6989586621679227161"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Maybe MetricsConfiguration
+DefinitionDocument
+DeploymentTarget
+target :: DeploymentTarget
+definition :: DefinitionDocument
+tags :: Maybe [Tag]
+s3BucketName :: Maybe Text
+flowActionsRoleArn :: Maybe Text
+greengrassGroupName :: Maybe Text
+metricsConfiguration :: Maybe MetricsConfiguration
+$sel:target:CreateSystemInstance' :: CreateSystemInstance -&gt; DeploymentTarget
+$sel:definition:CreateSystemInstance' :: CreateSystemInstance -&gt; DefinitionDocument
+$sel:tags:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe [Tag]
+$sel:s3BucketName:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe Text
+$sel:flowActionsRoleArn:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe Text
+$sel:greengrassGroupName:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe Text
+$sel:metricsConfiguration:CreateSystemInstance' :: CreateSystemInstance -&gt; Maybe MetricsConfiguration
+</span><a href="#local-6989586621679227155"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricsConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricsConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">(MetricsConfiguration -&gt; Pair)
+-&gt; Maybe MetricsConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricsConfiguration
+</span><a href="#local-6989586621679227161"><span class="hs-identifier hs-var">metricsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greengrassGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227160"><span class="hs-identifier hs-var">greengrassGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowActionsRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227159"><span class="hs-identifier hs-var">flowActionsRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227158"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679227157"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;definition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DefinitionDocument -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679227156"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentTarget -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679227155"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679227149"><span class="annot"><span class="annottext">toPath :: CreateSystemInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSystemInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstance"><span class="hs-identifier hs-type">CreateSystemInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679227145"><span class="annot"><span class="annottext">toQuery :: CreateSystemInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSystemInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | /See:/ 'newCreateSystemInstanceResponse' smart constructor.</span><span>
+</span><span id="line-245"></span><span id="local-6989586621679227142"><span id="local-6989586621679227143"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSystemInstanceResponse"><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-var">CreateSystemInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSystemInstanceResponse%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse%27"><span class="hs-identifier hs-var">CreateSystemInstanceResponse'</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The summary object that describes the new system instance.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3Asummary%3ACreateSystemInstanceResponse%27"><span class="annot"><span class="annottext">CreateSystemInstanceResponse -&gt; Maybe SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Asummary%3ACreateSystemInstanceResponse%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSystemInstanceResponse%27"><span class="annot"><span class="annottext">CreateSystemInstanceResponse -&gt; Int
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AhttpStatus%3ACreateSystemInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227136"><span id="local-6989586621679227138"><span class="annot"><span class="annottext">CreateSystemInstanceResponse
+-&gt; CreateSystemInstanceResponse -&gt; Bool
+(CreateSystemInstanceResponse
+ -&gt; CreateSystemInstanceResponse -&gt; Bool)
+-&gt; (CreateSystemInstanceResponse
+    -&gt; CreateSystemInstanceResponse -&gt; Bool)
+-&gt; Eq CreateSystemInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSystemInstanceResponse
+-&gt; CreateSystemInstanceResponse -&gt; Bool
+$c/= :: CreateSystemInstanceResponse
+-&gt; CreateSystemInstanceResponse -&gt; Bool
+== :: CreateSystemInstanceResponse
+-&gt; CreateSystemInstanceResponse -&gt; Bool
+$c== :: CreateSystemInstanceResponse
+-&gt; CreateSystemInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227128"><span id="local-6989586621679227130"><span id="local-6989586621679227132"><span id="local-6989586621679227134"><span class="annot"><span class="annottext">ReadPrec [CreateSystemInstanceResponse]
+ReadPrec CreateSystemInstanceResponse
+Int -&gt; ReadS CreateSystemInstanceResponse
+ReadS [CreateSystemInstanceResponse]
+(Int -&gt; ReadS CreateSystemInstanceResponse)
+-&gt; ReadS [CreateSystemInstanceResponse]
+-&gt; ReadPrec CreateSystemInstanceResponse
+-&gt; ReadPrec [CreateSystemInstanceResponse]
+-&gt; Read CreateSystemInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSystemInstanceResponse]
+$creadListPrec :: ReadPrec [CreateSystemInstanceResponse]
+readPrec :: ReadPrec CreateSystemInstanceResponse
+$creadPrec :: ReadPrec CreateSystemInstanceResponse
+readList :: ReadS [CreateSystemInstanceResponse]
+$creadList :: ReadS [CreateSystemInstanceResponse]
+readsPrec :: Int -&gt; ReadS CreateSystemInstanceResponse
+$creadsPrec :: Int -&gt; ReadS CreateSystemInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227122"><span id="local-6989586621679227124"><span id="local-6989586621679227126"><span class="annot"><span class="annottext">Int -&gt; CreateSystemInstanceResponse -&gt; ShowS
+[CreateSystemInstanceResponse] -&gt; ShowS
+CreateSystemInstanceResponse -&gt; String
+(Int -&gt; CreateSystemInstanceResponse -&gt; ShowS)
+-&gt; (CreateSystemInstanceResponse -&gt; String)
+-&gt; ([CreateSystemInstanceResponse] -&gt; ShowS)
+-&gt; Show CreateSystemInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSystemInstanceResponse] -&gt; ShowS
+$cshowList :: [CreateSystemInstanceResponse] -&gt; ShowS
+show :: CreateSystemInstanceResponse -&gt; String
+$cshow :: CreateSystemInstanceResponse -&gt; String
+showsPrec :: Int -&gt; CreateSystemInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSystemInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSystemInstanceResponse -&gt; Rep CreateSystemInstanceResponse x)
+-&gt; (forall x.
+    Rep CreateSystemInstanceResponse x -&gt; CreateSystemInstanceResponse)
+-&gt; Generic CreateSystemInstanceResponse
+forall x.
+Rep CreateSystemInstanceResponse x -&gt; CreateSystemInstanceResponse
+forall x.
+CreateSystemInstanceResponse -&gt; Rep CreateSystemInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSystemInstanceResponse x -&gt; CreateSystemInstanceResponse
+$cfrom :: forall x.
+CreateSystemInstanceResponse -&gt; Rep CreateSystemInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- Create a value of 'CreateSystemInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'summary', 'createSystemInstanceResponse_summary' - The summary object that describes the new system instance.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'httpStatus', 'createSystemInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#newCreateSystemInstanceResponse"><span class="hs-identifier hs-type">newCreateSystemInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-265"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-type">CreateSystemInstanceResponse</span></a></span><span>
+</span><span id="line-268"></span><span id="newCreateSystemInstanceResponse"><span class="annot"><span class="annottext">newCreateSystemInstanceResponse :: Int -&gt; CreateSystemInstanceResponse
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#newCreateSystemInstanceResponse"><span class="hs-identifier hs-var hs-var">newCreateSystemInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679227119"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227119"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>  </span><span class="annot"><span class="annottext">CreateSystemInstanceResponse' :: Maybe SystemInstanceSummary -&gt; Int -&gt; CreateSystemInstanceResponse
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse%27"><span class="hs-identifier hs-type">CreateSystemInstanceResponse'</span></a></span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:summary:CreateSystemInstanceResponse' :: Maybe SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Asummary%3ACreateSystemInstanceResponse%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">Maybe SystemInstanceSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSystemInstanceResponse' :: Int
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AhttpStatus%3ACreateSystemInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227119"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The summary object that describes the new system instance.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstanceResponse_summary"><span class="hs-identifier hs-type">createSystemInstanceResponse_summary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-type">CreateSystemInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="createSystemInstanceResponse_summary"><span class="annot"><span class="annottext">createSystemInstanceResponse_summary :: (Maybe SystemInstanceSummary -&gt; f (Maybe SystemInstanceSummary))
+-&gt; CreateSystemInstanceResponse -&gt; f CreateSystemInstanceResponse
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstanceResponse_summary"><span class="hs-identifier hs-var hs-var">createSystemInstanceResponse_summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstanceResponse -&gt; Maybe SystemInstanceSummary)
+-&gt; (CreateSystemInstanceResponse
+    -&gt; Maybe SystemInstanceSummary -&gt; CreateSystemInstanceResponse)
+-&gt; Lens
+     CreateSystemInstanceResponse
+     CreateSystemInstanceResponse
+     (Maybe SystemInstanceSummary)
+     (Maybe SystemInstanceSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse%27"><span class="hs-identifier hs-type">CreateSystemInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227118"><span class="annot"><span class="annottext">Maybe SystemInstanceSummary
+summary :: Maybe SystemInstanceSummary
+$sel:summary:CreateSystemInstanceResponse' :: CreateSystemInstanceResponse -&gt; Maybe SystemInstanceSummary
+</span><a href="#local-6989586621679227118"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SystemInstanceSummary
+</span><a href="#local-6989586621679227118"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227117"><span class="annot"><span class="annottext">s :: CreateSystemInstanceResponse
+</span><a href="#local-6989586621679227117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse%27"><span class="hs-identifier hs-type">CreateSystemInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227116"><span class="annot"><span class="annottext">Maybe SystemInstanceSummary
+</span><a href="#local-6989586621679227116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstanceResponse
+</span><a href="#local-6989586621679227117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:CreateSystemInstanceResponse' :: Maybe SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3Asummary%3ACreateSystemInstanceResponse%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemInstanceSummary
+</span><a href="#local-6989586621679227116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-type">CreateSystemInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstanceResponse_httpStatus"><span class="hs-identifier hs-type">createSystemInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-type">CreateSystemInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-281"></span><span id="createSystemInstanceResponse_httpStatus"><span class="annot"><span class="annottext">createSystemInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSystemInstanceResponse -&gt; f CreateSystemInstanceResponse
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#createSystemInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSystemInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemInstanceResponse -&gt; Int)
+-&gt; (CreateSystemInstanceResponse
+    -&gt; Int -&gt; CreateSystemInstanceResponse)
+-&gt; Lens
+     CreateSystemInstanceResponse CreateSystemInstanceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse%27"><span class="hs-identifier hs-type">CreateSystemInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227115"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSystemInstanceResponse' :: CreateSystemInstanceResponse -&gt; Int
+</span><a href="#local-6989586621679227115"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227115"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227114"><span class="annot"><span class="annottext">s :: CreateSystemInstanceResponse
+</span><a href="#local-6989586621679227114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse%27"><span class="hs-identifier hs-type">CreateSystemInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemInstanceResponse
+</span><a href="#local-6989586621679227114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSystemInstanceResponse' :: Int
+</span><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#%24sel%3AhttpStatus%3ACreateSystemInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-type">CreateSystemInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.CreateSystemInstance.html#CreateSystemInstanceResponse"><span class="hs-identifier hs-type">CreateSystemInstanceResponse</span></a></span></span><span>
+</span><span id="line-284"></span></pre></body></html>

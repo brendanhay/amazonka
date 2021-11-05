@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.HttpGatewayRouteMatch</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.HttpGatewayRouteMatch</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteHostnameMatch.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.GatewayRouteHostnameMatch</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteHeader.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.HttpGatewayRouteHeader</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.HttpMethod</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpPathMatch.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.HttpPathMatch</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpQueryParameter.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.HttpQueryParameter</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | An object that represents the criteria for determining a request match.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newHttpGatewayRouteMatch' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679330870"><span id="local-6989586621679330871"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpGatewayRouteMatch"><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-var">HttpGatewayRouteMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpGatewayRouteMatch%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">HttpGatewayRouteMatch'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The host name to match on.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Ahostname%3AHttpGatewayRouteMatch%27"><span class="annot"><span class="annottext">HttpGatewayRouteMatch -&gt; Maybe GatewayRouteHostnameMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Ahostname%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteHostnameMatch.html#GatewayRouteHostnameMatch"><span class="hs-identifier hs-type">GatewayRouteHostnameMatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The path to match on.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Apath%3AHttpGatewayRouteMatch%27"><span class="annot"><span class="annottext">HttpGatewayRouteMatch -&gt; Maybe HttpPathMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Apath%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpPathMatch.html#HttpPathMatch"><span class="hs-identifier hs-type">HttpPathMatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies the path to match requests with. This parameter must always</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- start with @\/@, which by itself matches all requests to the virtual</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- service name. You can also match for path-based routing of requests. For</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- example, if your virtual service name is @my-service.local@ and you want</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the route to match requests to @my-service.local\/metrics@, your prefix</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- should be @\/metrics@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aprefix%3AHttpGatewayRouteMatch%27"><span class="annot"><span class="annottext">HttpGatewayRouteMatch -&gt; Maybe Text
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Aprefix%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The query parameter to match on.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AqueryParameters%3AHttpGatewayRouteMatch%27"><span class="annot"><span class="annottext">HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter)
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3AqueryParameters%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var hs-var">queryParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpQueryParameter.html#HttpQueryParameter"><span class="hs-identifier hs-type">HttpQueryParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The client request headers to match on.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aheaders%3AHttpGatewayRouteMatch%27"><span class="annot"><span class="annottext">HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Aheaders%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteHeader.html#HttpGatewayRouteHeader"><span class="hs-identifier hs-type">HttpGatewayRouteHeader</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The method to match on.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Amethod%3AHttpGatewayRouteMatch%27"><span class="annot"><span class="annottext">HttpGatewayRouteMatch -&gt; Maybe HttpMethod
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Amethod%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var hs-var">method</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330859"><span id="local-6989586621679330861"><span class="annot"><span class="annottext">HttpGatewayRouteMatch -&gt; HttpGatewayRouteMatch -&gt; Bool
+(HttpGatewayRouteMatch -&gt; HttpGatewayRouteMatch -&gt; Bool)
+-&gt; (HttpGatewayRouteMatch -&gt; HttpGatewayRouteMatch -&gt; Bool)
+-&gt; Eq HttpGatewayRouteMatch
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HttpGatewayRouteMatch -&gt; HttpGatewayRouteMatch -&gt; Bool
+$c/= :: HttpGatewayRouteMatch -&gt; HttpGatewayRouteMatch -&gt; Bool
+== :: HttpGatewayRouteMatch -&gt; HttpGatewayRouteMatch -&gt; Bool
+$c== :: HttpGatewayRouteMatch -&gt; HttpGatewayRouteMatch -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330850"><span id="local-6989586621679330852"><span id="local-6989586621679330854"><span id="local-6989586621679330856"><span class="annot"><span class="annottext">ReadPrec [HttpGatewayRouteMatch]
+ReadPrec HttpGatewayRouteMatch
+Int -&gt; ReadS HttpGatewayRouteMatch
+ReadS [HttpGatewayRouteMatch]
+(Int -&gt; ReadS HttpGatewayRouteMatch)
+-&gt; ReadS [HttpGatewayRouteMatch]
+-&gt; ReadPrec HttpGatewayRouteMatch
+-&gt; ReadPrec [HttpGatewayRouteMatch]
+-&gt; Read HttpGatewayRouteMatch
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HttpGatewayRouteMatch]
+$creadListPrec :: ReadPrec [HttpGatewayRouteMatch]
+readPrec :: ReadPrec HttpGatewayRouteMatch
+$creadPrec :: ReadPrec HttpGatewayRouteMatch
+readList :: ReadS [HttpGatewayRouteMatch]
+$creadList :: ReadS [HttpGatewayRouteMatch]
+readsPrec :: Int -&gt; ReadS HttpGatewayRouteMatch
+$creadsPrec :: Int -&gt; ReadS HttpGatewayRouteMatch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330843"><span id="local-6989586621679330845"><span id="local-6989586621679330847"><span class="annot"><span class="annottext">Int -&gt; HttpGatewayRouteMatch -&gt; ShowS
+[HttpGatewayRouteMatch] -&gt; ShowS
+HttpGatewayRouteMatch -&gt; String
+(Int -&gt; HttpGatewayRouteMatch -&gt; ShowS)
+-&gt; (HttpGatewayRouteMatch -&gt; String)
+-&gt; ([HttpGatewayRouteMatch] -&gt; ShowS)
+-&gt; Show HttpGatewayRouteMatch
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HttpGatewayRouteMatch] -&gt; ShowS
+$cshowList :: [HttpGatewayRouteMatch] -&gt; ShowS
+show :: HttpGatewayRouteMatch -&gt; String
+$cshow :: HttpGatewayRouteMatch -&gt; String
+showsPrec :: Int -&gt; HttpGatewayRouteMatch -&gt; ShowS
+$cshowsPrec :: Int -&gt; HttpGatewayRouteMatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HttpGatewayRouteMatch -&gt; Rep HttpGatewayRouteMatch x)
+-&gt; (forall x. Rep HttpGatewayRouteMatch x -&gt; HttpGatewayRouteMatch)
+-&gt; Generic HttpGatewayRouteMatch
+forall x. Rep HttpGatewayRouteMatch x -&gt; HttpGatewayRouteMatch
+forall x. HttpGatewayRouteMatch -&gt; Rep HttpGatewayRouteMatch x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HttpGatewayRouteMatch x -&gt; HttpGatewayRouteMatch
+$cfrom :: forall x. HttpGatewayRouteMatch -&gt; Rep HttpGatewayRouteMatch x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'HttpGatewayRouteMatch' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'hostname', 'httpGatewayRouteMatch_hostname' - The host name to match on.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'path', 'httpGatewayRouteMatch_path' - The path to match on.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'prefix', 'httpGatewayRouteMatch_prefix' - Specifies the path to match requests with. This parameter must always</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- start with @\/@, which by itself matches all requests to the virtual</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- service name. You can also match for path-based routing of requests. For</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- example, if your virtual service name is @my-service.local@ and you want</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- the route to match requests to @my-service.local\/metrics@, your prefix</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- should be @\/metrics@.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'queryParameters', 'httpGatewayRouteMatch_queryParameters' - The query parameter to match on.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'headers', 'httpGatewayRouteMatch_headers' - The client request headers to match on.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'method', 'httpGatewayRouteMatch_method' - The method to match on.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#newHttpGatewayRouteMatch"><span class="hs-identifier hs-type">newHttpGatewayRouteMatch</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span>
+</span><span id="line-81"></span><span id="newHttpGatewayRouteMatch"><span class="annot"><span class="annottext">newHttpGatewayRouteMatch :: HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#newHttpGatewayRouteMatch"><span class="hs-identifier hs-var hs-var">newHttpGatewayRouteMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">HttpGatewayRouteMatch' :: Maybe GatewayRouteHostnameMatch
+-&gt; Maybe HttpPathMatch
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty HttpQueryParameter)
+-&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+-&gt; Maybe HttpMethod
+-&gt; HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostname:HttpGatewayRouteMatch' :: Maybe GatewayRouteHostnameMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Ahostname%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GatewayRouteHostnameMatch
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:HttpGatewayRouteMatch' :: Maybe HttpPathMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Apath%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:HttpGatewayRouteMatch' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Aprefix%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryParameters:HttpGatewayRouteMatch' :: Maybe (NonEmpty HttpQueryParameter)
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3AqueryParameters%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">queryParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:headers:HttpGatewayRouteMatch' :: Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Aheaders%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpGatewayRouteHeader)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:method:HttpGatewayRouteMatch' :: Maybe HttpMethod
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Amethod%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The host name to match on.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_hostname"><span class="hs-identifier hs-type">httpGatewayRouteMatch_hostname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteHostnameMatch.html#GatewayRouteHostnameMatch"><span class="hs-identifier hs-type">GatewayRouteHostnameMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="httpGatewayRouteMatch_hostname"><span class="annot"><span class="annottext">httpGatewayRouteMatch_hostname :: (Maybe GatewayRouteHostnameMatch
+ -&gt; f (Maybe GatewayRouteHostnameMatch))
+-&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_hostname"><span class="hs-identifier hs-var hs-var">httpGatewayRouteMatch_hostname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpGatewayRouteMatch -&gt; Maybe GatewayRouteHostnameMatch)
+-&gt; (HttpGatewayRouteMatch
+    -&gt; Maybe GatewayRouteHostnameMatch -&gt; HttpGatewayRouteMatch)
+-&gt; Lens
+     HttpGatewayRouteMatch
+     HttpGatewayRouteMatch
+     (Maybe GatewayRouteHostnameMatch)
+     (Maybe GatewayRouteHostnameMatch)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330834"><span class="annot"><span class="annottext">Maybe GatewayRouteHostnameMatch
+hostname :: Maybe GatewayRouteHostnameMatch
+$sel:hostname:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe GatewayRouteHostnameMatch
+</span><a href="#local-6989586621679330834"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GatewayRouteHostnameMatch
+</span><a href="#local-6989586621679330834"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330833"><span class="annot"><span class="annottext">s :: HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330832"><span class="annot"><span class="annottext">Maybe GatewayRouteHostnameMatch
+</span><a href="#local-6989586621679330832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostname:HttpGatewayRouteMatch' :: Maybe GatewayRouteHostnameMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Ahostname%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GatewayRouteHostnameMatch
+</span><a href="#local-6989586621679330832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The path to match on.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_path"><span class="hs-identifier hs-type">httpGatewayRouteMatch_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpPathMatch.html#HttpPathMatch"><span class="hs-identifier hs-type">HttpPathMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="httpGatewayRouteMatch_path"><span class="annot"><span class="annottext">httpGatewayRouteMatch_path :: (Maybe HttpPathMatch -&gt; f (Maybe HttpPathMatch))
+-&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_path"><span class="hs-identifier hs-var hs-var">httpGatewayRouteMatch_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpGatewayRouteMatch -&gt; Maybe HttpPathMatch)
+-&gt; (HttpGatewayRouteMatch
+    -&gt; Maybe HttpPathMatch -&gt; HttpGatewayRouteMatch)
+-&gt; Lens
+     HttpGatewayRouteMatch
+     HttpGatewayRouteMatch
+     (Maybe HttpPathMatch)
+     (Maybe HttpPathMatch)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330830"><span class="annot"><span class="annottext">Maybe HttpPathMatch
+path :: Maybe HttpPathMatch
+$sel:path:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe HttpPathMatch
+</span><a href="#local-6989586621679330830"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330830"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330829"><span class="annot"><span class="annottext">s :: HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330828"><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:HttpGatewayRouteMatch' :: Maybe HttpPathMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Apath%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Specifies the path to match requests with. This parameter must always</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- start with @\/@, which by itself matches all requests to the virtual</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- service name. You can also match for path-based routing of requests. For</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- example, if your virtual service name is @my-service.local@ and you want</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the route to match requests to @my-service.local\/metrics@, your prefix</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- should be @\/metrics@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_prefix"><span class="hs-identifier hs-type">httpGatewayRouteMatch_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="httpGatewayRouteMatch_prefix"><span class="annot"><span class="annottext">httpGatewayRouteMatch_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_prefix"><span class="hs-identifier hs-var hs-var">httpGatewayRouteMatch_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpGatewayRouteMatch -&gt; Maybe Text)
+-&gt; (HttpGatewayRouteMatch -&gt; Maybe Text -&gt; HttpGatewayRouteMatch)
+-&gt; Lens
+     HttpGatewayRouteMatch
+     HttpGatewayRouteMatch
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330826"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe Text
+</span><a href="#local-6989586621679330826"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330826"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330825"><span class="annot"><span class="annottext">s :: HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330824"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:HttpGatewayRouteMatch' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Aprefix%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The query parameter to match on.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_queryParameters"><span class="hs-identifier hs-type">httpGatewayRouteMatch_queryParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpQueryParameter.html#HttpQueryParameter"><span class="hs-identifier hs-type">HttpQueryParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="httpGatewayRouteMatch_queryParameters"><span class="annot"><span class="annottext">httpGatewayRouteMatch_queryParameters :: (Maybe (NonEmpty HttpQueryParameter)
+ -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+-&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_queryParameters"><span class="hs-identifier hs-var hs-var">httpGatewayRouteMatch_queryParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter))
+-&gt; (HttpGatewayRouteMatch
+    -&gt; Maybe (NonEmpty HttpQueryParameter) -&gt; HttpGatewayRouteMatch)
+-&gt; Lens
+     HttpGatewayRouteMatch
+     HttpGatewayRouteMatch
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330822"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+queryParameters :: Maybe (NonEmpty HttpQueryParameter)
+$sel:queryParameters:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330822"><span class="hs-identifier hs-var hs-var">queryParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330822"><span class="hs-identifier hs-var">queryParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330821"><span class="annot"><span class="annottext">s :: HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330820"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryParameters:HttpGatewayRouteMatch' :: Maybe (NonEmpty HttpQueryParameter)
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3AqueryParameters%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">queryParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty HttpQueryParameter)
+  -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+ -&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch)
+-&gt; ((Maybe (NonEmpty HttpQueryParameter)
+     -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+    -&gt; Maybe (NonEmpty HttpQueryParameter)
+    -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+-&gt; (Maybe (NonEmpty HttpQueryParameter)
+    -&gt; f (Maybe (NonEmpty HttpQueryParameter)))
+-&gt; HttpGatewayRouteMatch
+-&gt; f HttpGatewayRouteMatch
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+-&gt; Iso
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+     (Maybe (NonEmpty HttpQueryParameter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+  (NonEmpty HttpQueryParameter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The client request headers to match on.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_headers"><span class="hs-identifier hs-type">httpGatewayRouteMatch_headers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteHeader.html#HttpGatewayRouteHeader"><span class="hs-identifier hs-type">HttpGatewayRouteHeader</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="httpGatewayRouteMatch_headers"><span class="annot"><span class="annottext">httpGatewayRouteMatch_headers :: (Maybe (NonEmpty HttpGatewayRouteHeader)
+ -&gt; f (Maybe (NonEmpty HttpGatewayRouteHeader)))
+-&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_headers"><span class="hs-identifier hs-var hs-var">httpGatewayRouteMatch_headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpGatewayRouteHeader))
+-&gt; (HttpGatewayRouteMatch
+    -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+    -&gt; HttpGatewayRouteMatch)
+-&gt; Lens
+     HttpGatewayRouteMatch
+     HttpGatewayRouteMatch
+     (Maybe (NonEmpty HttpGatewayRouteHeader))
+     (Maybe (NonEmpty HttpGatewayRouteHeader))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330815"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpGatewayRouteHeader)
+headers :: Maybe (NonEmpty HttpGatewayRouteHeader)
+$sel:headers:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="#local-6989586621679330815"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="#local-6989586621679330815"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330814"><span class="annot"><span class="annottext">s :: HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330813"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="#local-6989586621679330813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HttpGatewayRouteMatch' :: Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Aheaders%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="#local-6989586621679330813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty HttpGatewayRouteHeader)
+  -&gt; f (Maybe (NonEmpty HttpGatewayRouteHeader)))
+ -&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch)
+-&gt; ((Maybe (NonEmpty HttpGatewayRouteHeader)
+     -&gt; f (Maybe (NonEmpty HttpGatewayRouteHeader)))
+    -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+    -&gt; f (Maybe (NonEmpty HttpGatewayRouteHeader)))
+-&gt; (Maybe (NonEmpty HttpGatewayRouteHeader)
+    -&gt; f (Maybe (NonEmpty HttpGatewayRouteHeader)))
+-&gt; HttpGatewayRouteMatch
+-&gt; f HttpGatewayRouteMatch
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpGatewayRouteHeader)
+  (NonEmpty HttpGatewayRouteHeader)
+  (NonEmpty HttpGatewayRouteHeader)
+  (NonEmpty HttpGatewayRouteHeader)
+-&gt; Iso
+     (Maybe (NonEmpty HttpGatewayRouteHeader))
+     (Maybe (NonEmpty HttpGatewayRouteHeader))
+     (Maybe (NonEmpty HttpGatewayRouteHeader))
+     (Maybe (NonEmpty HttpGatewayRouteHeader))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HttpGatewayRouteHeader)
+  (NonEmpty HttpGatewayRouteHeader)
+  (NonEmpty HttpGatewayRouteHeader)
+  (NonEmpty HttpGatewayRouteHeader)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The method to match on.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_method"><span class="hs-identifier hs-type">httpGatewayRouteMatch_method</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpMethod.html#HttpMethod"><span class="hs-identifier hs-type">HttpMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="httpGatewayRouteMatch_method"><span class="annot"><span class="annottext">httpGatewayRouteMatch_method :: (Maybe HttpMethod -&gt; f (Maybe HttpMethod))
+-&gt; HttpGatewayRouteMatch -&gt; f HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#httpGatewayRouteMatch_method"><span class="hs-identifier hs-var hs-var">httpGatewayRouteMatch_method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpGatewayRouteMatch -&gt; Maybe HttpMethod)
+-&gt; (HttpGatewayRouteMatch
+    -&gt; Maybe HttpMethod -&gt; HttpGatewayRouteMatch)
+-&gt; Lens
+     HttpGatewayRouteMatch
+     HttpGatewayRouteMatch
+     (Maybe HttpMethod)
+     (Maybe HttpMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330811"><span class="annot"><span class="annottext">Maybe HttpMethod
+method :: Maybe HttpMethod
+$sel:method:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe HttpMethod
+</span><a href="#local-6989586621679330811"><span class="hs-identifier hs-var hs-var">method</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330811"><span class="hs-identifier hs-var">method</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330810"><span class="annot"><span class="annottext">s :: HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330809"><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpGatewayRouteMatch
+</span><a href="#local-6989586621679330810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:method:HttpGatewayRouteMatch' :: Maybe HttpMethod
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#%24sel%3Amethod%3AHttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330806"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679330804"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpGatewayRouteMatch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HttpGatewayRouteMatch)
+-&gt; Value
+-&gt; Parser HttpGatewayRouteMatch
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HttpGatewayRouteMatch&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330801"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330801"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe GatewayRouteHostnameMatch
+-&gt; Maybe HttpPathMatch
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty HttpQueryParameter)
+-&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+-&gt; Maybe HttpMethod
+-&gt; HttpGatewayRouteMatch
+</span><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-var">HttpGatewayRouteMatch'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GatewayRouteHostnameMatch
+ -&gt; Maybe HttpPathMatch
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty HttpQueryParameter)
+ -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+ -&gt; Maybe HttpMethod
+ -&gt; HttpGatewayRouteMatch)
+-&gt; Parser (Maybe GatewayRouteHostnameMatch)
+-&gt; Parser
+     (Maybe HttpPathMatch
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty HttpQueryParameter)
+      -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+      -&gt; Maybe HttpMethod
+      -&gt; HttpGatewayRouteMatch)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GatewayRouteHostnameMatch)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hostname&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HttpPathMatch
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty HttpQueryParameter)
+   -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+   -&gt; Maybe HttpMethod
+   -&gt; HttpGatewayRouteMatch)
+-&gt; Parser (Maybe HttpPathMatch)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty HttpQueryParameter)
+      -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+      -&gt; Maybe HttpMethod
+      -&gt; HttpGatewayRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpPathMatch)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty HttpQueryParameter)
+   -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+   -&gt; Maybe HttpMethod
+   -&gt; HttpGatewayRouteMatch)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty HttpQueryParameter)
+      -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+      -&gt; Maybe HttpMethod
+      -&gt; HttpGatewayRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty HttpQueryParameter)
+   -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+   -&gt; Maybe HttpMethod
+   -&gt; HttpGatewayRouteMatch)
+-&gt; Parser (Maybe (NonEmpty HttpQueryParameter))
+-&gt; Parser
+     (Maybe (NonEmpty HttpGatewayRouteHeader)
+      -&gt; Maybe HttpMethod -&gt; HttpGatewayRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty HttpQueryParameter))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queryParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty HttpGatewayRouteHeader)
+   -&gt; Maybe HttpMethod -&gt; HttpGatewayRouteMatch)
+-&gt; Parser (Maybe (NonEmpty HttpGatewayRouteHeader))
+-&gt; Parser (Maybe HttpMethod -&gt; HttpGatewayRouteMatch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty HttpGatewayRouteHeader))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;headers&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HttpMethod -&gt; HttpGatewayRouteMatch)
+-&gt; Parser (Maybe HttpMethod) -&gt; Parser HttpGatewayRouteMatch
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpMethod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;method&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330795"><span id="local-6989586621679330797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330784"><span id="local-6989586621679330786"><span id="local-6989586621679330788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch"><span class="hs-identifier hs-type">HttpGatewayRouteMatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679330782"><span class="annot"><span class="annottext">toJSON :: HttpGatewayRouteMatch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpGatewayRouteMatch.html#HttpGatewayRouteMatch%27"><span class="hs-identifier hs-type">HttpGatewayRouteMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330775"><span id="local-6989586621679330776"><span id="local-6989586621679330777"><span id="local-6989586621679330778"><span id="local-6989586621679330779"><span id="local-6989586621679330780"><span class="annot"><span class="annottext">Maybe (NonEmpty HttpGatewayRouteHeader)
+Maybe (NonEmpty HttpQueryParameter)
+Maybe Text
+Maybe GatewayRouteHostnameMatch
+Maybe HttpMethod
+Maybe HttpPathMatch
+method :: Maybe HttpMethod
+headers :: Maybe (NonEmpty HttpGatewayRouteHeader)
+queryParameters :: Maybe (NonEmpty HttpQueryParameter)
+prefix :: Maybe Text
+path :: Maybe HttpPathMatch
+hostname :: Maybe GatewayRouteHostnameMatch
+$sel:method:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe HttpMethod
+$sel:headers:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpGatewayRouteHeader)
+$sel:queryParameters:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe (NonEmpty HttpQueryParameter)
+$sel:prefix:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe Text
+$sel:path:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe HttpPathMatch
+$sel:hostname:HttpGatewayRouteMatch' :: HttpGatewayRouteMatch -&gt; Maybe GatewayRouteHostnameMatch
+</span><a href="#local-6989586621679330775"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hostname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GatewayRouteHostnameMatch -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteHostnameMatch -&gt; Pair)
+-&gt; Maybe GatewayRouteHostnameMatch -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GatewayRouteHostnameMatch
+</span><a href="#local-6989586621679330780"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpPathMatch -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpPathMatch -&gt; Pair) -&gt; Maybe HttpPathMatch -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpPathMatch
+</span><a href="#local-6989586621679330779"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330778"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queryParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty HttpQueryParameter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty HttpQueryParameter -&gt; Pair)
+-&gt; Maybe (NonEmpty HttpQueryParameter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpQueryParameter)
+</span><a href="#local-6989586621679330777"><span class="hs-identifier hs-var">queryParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty HttpGatewayRouteHeader -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty HttpGatewayRouteHeader -&gt; Pair)
+-&gt; Maybe (NonEmpty HttpGatewayRouteHeader) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HttpGatewayRouteHeader)
+</span><a href="#local-6989586621679330776"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;method&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpMethod -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpMethod -&gt; Pair) -&gt; Maybe HttpMethod -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpMethod
+</span><a href="#local-6989586621679330775"><span class="hs-identifier hs-var">method</span></a></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span></pre></body></html>

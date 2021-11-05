@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- the notebook execution, for example, an EMR cluster.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExecutionEngineConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679368251"><span id="local-6989586621679368252"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionEngineConfig"><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-var">ExecutionEngineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionEngineConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-var">ExecutionEngineConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679368260"><span id="local-6989586621679368261"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionEngineConfig"><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-var">ExecutionEngineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionEngineConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-var">ExecutionEngineConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional unique ID of an EC2 security group to associate with the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- master instance of the EMR cluster for this notebook execution. For more</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- information see</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aid%3AExecutionEngineConfig%27"><span class="annot"><span class="annottext">ExecutionEngineConfig -&gt; Text
 </span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#%24sel%3Aid%3AExecutionEngineConfig%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368243"><span id="local-6989586621679368245"><span class="annot"><span class="annottext">ExecutionEngineConfig -&gt; ExecutionEngineConfig -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368252"><span id="local-6989586621679368254"><span class="annot"><span class="annottext">ExecutionEngineConfig -&gt; ExecutionEngineConfig -&gt; Bool
 (ExecutionEngineConfig -&gt; ExecutionEngineConfig -&gt; Bool)
 -&gt; (ExecutionEngineConfig -&gt; ExecutionEngineConfig -&gt; Bool)
 -&gt; Eq ExecutionEngineConfig
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecutionEngineConfig -&gt; ExecutionEngineConfig -&gt; Bool
 == :: ExecutionEngineConfig -&gt; ExecutionEngineConfig -&gt; Bool
 $c== :: ExecutionEngineConfig -&gt; ExecutionEngineConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368234"><span id="local-6989586621679368236"><span id="local-6989586621679368238"><span id="local-6989586621679368240"><span class="annot"><span class="annottext">ReadPrec [ExecutionEngineConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368243"><span id="local-6989586621679368245"><span id="local-6989586621679368247"><span id="local-6989586621679368249"><span class="annot"><span class="annottext">ReadPrec [ExecutionEngineConfig]
 ReadPrec ExecutionEngineConfig
 Int -&gt; ReadS ExecutionEngineConfig
 ReadS [ExecutionEngineConfig]
@@ -73,7 +73,7 @@ readList :: ReadS [ExecutionEngineConfig]
 $creadList :: ReadS [ExecutionEngineConfig]
 readsPrec :: Int -&gt; ReadS ExecutionEngineConfig
 $creadsPrec :: Int -&gt; ReadS ExecutionEngineConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368227"><span id="local-6989586621679368229"><span id="local-6989586621679368231"><span class="annot"><span class="annottext">Int -&gt; ExecutionEngineConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368236"><span id="local-6989586621679368238"><span id="local-6989586621679368240"><span class="annot"><span class="annottext">Int -&gt; ExecutionEngineConfig -&gt; ShowS
 [ExecutionEngineConfig] -&gt; ShowS
 ExecutionEngineConfig -&gt; String
 (Int -&gt; ExecutionEngineConfig -&gt; ShowS)
@@ -122,8 +122,8 @@ $cfrom :: forall x. ExecutionEngineConfig -&gt; Rep ExecutionEngineConfig x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span>
 </span><span id="line-68"></span><span id="newExecutionEngineConfig"><span class="annot"><span class="annottext">newExecutionEngineConfig :: Text -&gt; ExecutionEngineConfig
-</span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#newExecutionEngineConfig"><span class="hs-identifier hs-var hs-var">newExecutionEngineConfig</span></a></span></span><span> </span><span id="local-6989586621679368221"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368221"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#newExecutionEngineConfig"><span class="hs-identifier hs-var hs-var">newExecutionEngineConfig</span></a></span></span><span> </span><span id="local-6989586621679368230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368230"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ExecutionEngineConfig' :: Maybe Text
 -&gt; Maybe ExecutionEngineType -&gt; Text -&gt; ExecutionEngineConfig
 </span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span>
@@ -138,7 +138,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ExecutionEngineConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#%24sel%3Aid%3AExecutionEngineConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368221"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679368230"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | An optional unique ID of an EC2 security group to associate with the</span><span>
@@ -157,16 +157,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368217"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368226"><span class="annot"><span class="annottext">Maybe Text
 masterInstanceSecurityGroupId :: Maybe Text
 $sel:masterInstanceSecurityGroupId:ExecutionEngineConfig' :: ExecutionEngineConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679368217"><span class="hs-identifier hs-var hs-var">masterInstanceSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368217"><span class="hs-identifier hs-var">masterInstanceSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368216"><span class="annot"><span class="annottext">s :: ExecutionEngineConfig
-</span><a href="#local-6989586621679368216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368215"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionEngineConfig
-</span><a href="#local-6989586621679368216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterInstanceSecurityGroupId:ExecutionEngineConfig' :: Maybe Text
+</span><a href="#local-6989586621679368226"><span class="hs-identifier hs-var hs-var">masterInstanceSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368226"><span class="hs-identifier hs-var">masterInstanceSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368225"><span class="annot"><span class="annottext">s :: ExecutionEngineConfig
+</span><a href="#local-6989586621679368225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionEngineConfig
+</span><a href="#local-6989586621679368225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterInstanceSecurityGroupId:ExecutionEngineConfig' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#%24sel%3AmasterInstanceSecurityGroupId%3AExecutionEngineConfig%27"><span class="hs-identifier hs-var">masterInstanceSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#executionEngineConfig_type"><span class="hs-identifier hs-type">executionEngineConfig_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineType.html#ExecutionEngineType"><span class="hs-identifier hs-type">ExecutionEngineType</span></a></span><span class="hs-special">)</span><span>
@@ -181,16 +181,16 @@ $sel:masterInstanceSecurityGroupId:ExecutionEngineConfig' :: ExecutionEngineConf
      (Maybe ExecutionEngineType)
      (Maybe ExecutionEngineType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368213"><span class="annot"><span class="annottext">Maybe ExecutionEngineType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368222"><span class="annot"><span class="annottext">Maybe ExecutionEngineType
 type' :: Maybe ExecutionEngineType
 $sel:type':ExecutionEngineConfig' :: ExecutionEngineConfig -&gt; Maybe ExecutionEngineType
-</span><a href="#local-6989586621679368213"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionEngineType
-</span><a href="#local-6989586621679368213"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368212"><span class="annot"><span class="annottext">s :: ExecutionEngineConfig
-</span><a href="#local-6989586621679368212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368211"><span class="annot"><span class="annottext">Maybe ExecutionEngineType
-</span><a href="#local-6989586621679368211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionEngineConfig
-</span><a href="#local-6989586621679368212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ExecutionEngineConfig' :: Maybe ExecutionEngineType
+</span><a href="#local-6989586621679368222"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionEngineType
+</span><a href="#local-6989586621679368222"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368221"><span class="annot"><span class="annottext">s :: ExecutionEngineConfig
+</span><a href="#local-6989586621679368221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368220"><span class="annot"><span class="annottext">Maybe ExecutionEngineType
+</span><a href="#local-6989586621679368220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionEngineConfig
+</span><a href="#local-6989586621679368221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ExecutionEngineConfig' :: Maybe ExecutionEngineType
 </span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#%24sel%3Atype%27%3AExecutionEngineConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionEngineType
-</span><a href="#local-6989586621679368211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The unique identifier of the execution engine. For an EMR cluster, this</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- is the cluster ID.</span><span>
@@ -201,19 +201,19 @@ $sel:type':ExecutionEngineConfig' :: ExecutionEngineConfig -&gt; Maybe Execution
 -&gt; (ExecutionEngineConfig -&gt; Text -&gt; ExecutionEngineConfig)
 -&gt; Lens ExecutionEngineConfig ExecutionEngineConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368209"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368218"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ExecutionEngineConfig' :: ExecutionEngineConfig -&gt; Text
-</span><a href="#local-6989586621679368209"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368209"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368208"><span class="annot"><span class="annottext">s :: ExecutionEngineConfig
-</span><a href="#local-6989586621679368208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368207"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionEngineConfig
-</span><a href="#local-6989586621679368208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ExecutionEngineConfig' :: Text
+</span><a href="#local-6989586621679368218"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368218"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368217"><span class="annot"><span class="annottext">s :: ExecutionEngineConfig
+</span><a href="#local-6989586621679368217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionEngineConfig
+</span><a href="#local-6989586621679368217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ExecutionEngineConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#%24sel%3Aid%3AExecutionEngineConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368204"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679368202"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionEngineConfig
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368213"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679368211"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionEngineConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExecutionEngineConfig)
@@ -223,8 +223,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExecutionEngineConfig&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368199"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368199"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368208"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368208"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe ExecutionEngineType -&gt; Text -&gt; ExecutionEngineConfig
 </span><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-var">ExecutionEngineConfig'</span></a></span><span>
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe ExecutionEngineType -&gt; Text -&gt; ExecutionEngineConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MasterInstanceSecurityGroupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -244,7 +244,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; ExecutionEngineConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionEngineType)
+</span><a href="#local-6989586621679368208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionEngineType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,19 +252,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser ExecutionEngineConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679368208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368192"><span id="local-6989586621679368194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368201"><span id="local-6989586621679368203"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368181"><span id="local-6989586621679368183"><span id="local-6989586621679368185"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679368179"><span class="annot"><span class="annottext">toJSON :: ExecutionEngineConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368175"><span id="local-6989586621679368176"><span id="local-6989586621679368177"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368190"><span id="local-6989586621679368192"><span id="local-6989586621679368194"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig"><span class="hs-identifier hs-type">ExecutionEngineConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679368188"><span class="annot"><span class="annottext">toJSON :: ExecutionEngineConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ExecutionEngineConfig.html#ExecutionEngineConfig%27"><span class="hs-identifier hs-type">ExecutionEngineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368184"><span id="local-6989586621679368185"><span id="local-6989586621679368186"><span class="annot"><span class="annottext">Maybe Text
 Maybe ExecutionEngineType
 Text
 id :: Text
@@ -273,7 +273,7 @@ masterInstanceSecurityGroupId :: Maybe Text
 $sel:id:ExecutionEngineConfig' :: ExecutionEngineConfig -&gt; Text
 $sel:type':ExecutionEngineConfig' :: ExecutionEngineConfig -&gt; Maybe ExecutionEngineType
 $sel:masterInstanceSecurityGroupId:ExecutionEngineConfig' :: ExecutionEngineConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679368175"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368184"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -286,7 +286,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368177"><span class="hs-identifier hs-var">masterInstanceSecurityGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679368186"><span class="hs-identifier hs-var">masterInstanceSecurityGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutionEngineType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -294,14 +294,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ExecutionEngineType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionEngineType
-</span><a href="#local-6989586621679368176"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679368185"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368175"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368184"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

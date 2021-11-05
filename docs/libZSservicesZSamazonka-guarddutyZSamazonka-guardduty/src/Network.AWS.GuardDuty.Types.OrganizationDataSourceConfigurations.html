@@ -29,14 +29,14 @@
 </span><span id="line-29"></span><span class="hs-comment">-- organization.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOrganizationDataSourceConfigurations' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679298226"><span id="local-6989586621679298227"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationDataSourceConfigurations"><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations"><span class="hs-identifier hs-var">OrganizationDataSourceConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationDataSourceConfigurations%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-var">OrganizationDataSourceConfigurations'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679298235"><span id="local-6989586621679298236"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationDataSourceConfigurations"><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations"><span class="hs-identifier hs-var">OrganizationDataSourceConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationDataSourceConfigurations%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-var">OrganizationDataSourceConfigurations'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes whether S3 data event logs are enabled for new members of the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- organization.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3As3Logs%3AOrganizationDataSourceConfigurations%27"><span class="annot"><span class="annottext">OrganizationDataSourceConfigurations
 -&gt; Maybe OrganizationS3LogsConfiguration
 </span><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#%24sel%3As3Logs%3AOrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298220"><span id="local-6989586621679298222"><span class="annot"><span class="annottext">OrganizationDataSourceConfigurations
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298229"><span id="local-6989586621679298231"><span class="annot"><span class="annottext">OrganizationDataSourceConfigurations
 -&gt; OrganizationDataSourceConfigurations -&gt; Bool
 (OrganizationDataSourceConfigurations
  -&gt; OrganizationDataSourceConfigurations -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: OrganizationDataSourceConfigurations
 -&gt; OrganizationDataSourceConfigurations -&gt; Bool
 $c== :: OrganizationDataSourceConfigurations
 -&gt; OrganizationDataSourceConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298211"><span id="local-6989586621679298213"><span id="local-6989586621679298215"><span id="local-6989586621679298217"><span class="annot"><span class="annottext">ReadPrec [OrganizationDataSourceConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298220"><span id="local-6989586621679298222"><span id="local-6989586621679298224"><span id="local-6989586621679298226"><span class="annot"><span class="annottext">ReadPrec [OrganizationDataSourceConfigurations]
 ReadPrec OrganizationDataSourceConfigurations
 Int -&gt; ReadS OrganizationDataSourceConfigurations
 ReadS [OrganizationDataSourceConfigurations]
@@ -72,7 +72,7 @@ readList :: ReadS [OrganizationDataSourceConfigurations]
 $creadList :: ReadS [OrganizationDataSourceConfigurations]
 readsPrec :: Int -&gt; ReadS OrganizationDataSourceConfigurations
 $creadsPrec :: Int -&gt; ReadS OrganizationDataSourceConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298204"><span id="local-6989586621679298206"><span id="local-6989586621679298208"><span class="annot"><span class="annottext">Int -&gt; OrganizationDataSourceConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298213"><span id="local-6989586621679298215"><span id="local-6989586621679298217"><span class="annot"><span class="annottext">Int -&gt; OrganizationDataSourceConfigurations -&gt; ShowS
 [OrganizationDataSourceConfigurations] -&gt; ShowS
 OrganizationDataSourceConfigurations -&gt; String
 (Int -&gt; OrganizationDataSourceConfigurations -&gt; ShowS)
@@ -152,36 +152,36 @@ forall a. Maybe a
      (Maybe OrganizationS3LogsConfiguration)
      (Maybe OrganizationS3LogsConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298195"><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298204"><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
 s3Logs :: Maybe OrganizationS3LogsConfiguration
 $sel:s3Logs:OrganizationDataSourceConfigurations' :: OrganizationDataSourceConfigurations
 -&gt; Maybe OrganizationS3LogsConfiguration
-</span><a href="#local-6989586621679298195"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
-</span><a href="#local-6989586621679298195"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298194"><span class="annot"><span class="annottext">s :: OrganizationDataSourceConfigurations
-</span><a href="#local-6989586621679298194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298193"><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
-</span><a href="#local-6989586621679298193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationDataSourceConfigurations
-</span><a href="#local-6989586621679298194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Logs:OrganizationDataSourceConfigurations' :: Maybe OrganizationS3LogsConfiguration
+</span><a href="#local-6989586621679298204"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
+</span><a href="#local-6989586621679298204"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298203"><span class="annot"><span class="annottext">s :: OrganizationDataSourceConfigurations
+</span><a href="#local-6989586621679298203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298202"><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
+</span><a href="#local-6989586621679298202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationDataSourceConfigurations
+</span><a href="#local-6989586621679298203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Logs:OrganizationDataSourceConfigurations' :: Maybe OrganizationS3LogsConfiguration
 </span><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#%24sel%3As3Logs%3AOrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-var">s3Logs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
-</span><a href="#local-6989586621679298193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679298189"><span id="local-6989586621679298191"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679298198"><span id="local-6989586621679298200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679298186"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679298195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations</span></a></span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679298178"><span id="local-6989586621679298180"><span id="local-6989586621679298182"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679298187"><span id="local-6989586621679298189"><span id="local-6989586621679298191"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations</span></a></span></span></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679298176"><span class="annot"><span class="annottext">toJSON :: OrganizationDataSourceConfigurations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298174"><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679298185"><span class="annot"><span class="annottext">toJSON :: OrganizationDataSourceConfigurations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations.html#OrganizationDataSourceConfigurations%27"><span class="hs-identifier hs-type">OrganizationDataSourceConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298183"><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
 s3Logs :: Maybe OrganizationS3LogsConfiguration
 $sel:s3Logs:OrganizationDataSourceConfigurations' :: OrganizationDataSourceConfigurations
 -&gt; Maybe OrganizationS3LogsConfiguration
-</span><a href="#local-6989586621679298174"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679298183"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -194,6 +194,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OrganizationS3LogsConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationS3LogsConfiguration
-</span><a href="#local-6989586621679298174"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679298183"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

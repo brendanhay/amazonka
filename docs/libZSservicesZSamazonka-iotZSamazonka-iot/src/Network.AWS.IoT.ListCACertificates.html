@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-comment">-- | Input for the ListCACertificates operation.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- /See:/ 'newListCACertificates' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679827310"><span id="local-6989586621679827311"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCACertificates"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-var">ListCACertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCACertificates%27"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-var">ListCACertificates'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679827319"><span id="local-6989586621679827320"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCACertificates"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-var">ListCACertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCACertificates%27"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-var">ListCACertificates'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The marker for the next set of results.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Amarker%3AListCACertificates%27"><span class="annot"><span class="annottext">ListCACertificates -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3Amarker%3AListCACertificates%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3ApageSize%3AListCACertificates%27"><span class="annot"><span class="annottext">ListCACertificates -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3ApageSize%3AListCACertificates%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827302"><span id="local-6989586621679827304"><span class="annot"><span class="annottext">ListCACertificates -&gt; ListCACertificates -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827311"><span id="local-6989586621679827313"><span class="annot"><span class="annottext">ListCACertificates -&gt; ListCACertificates -&gt; Bool
 (ListCACertificates -&gt; ListCACertificates -&gt; Bool)
 -&gt; (ListCACertificates -&gt; ListCACertificates -&gt; Bool)
 -&gt; Eq ListCACertificates
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCACertificates -&gt; ListCACertificates -&gt; Bool
 == :: ListCACertificates -&gt; ListCACertificates -&gt; Bool
 $c== :: ListCACertificates -&gt; ListCACertificates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827293"><span id="local-6989586621679827295"><span id="local-6989586621679827297"><span id="local-6989586621679827299"><span class="annot"><span class="annottext">ReadPrec [ListCACertificates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827302"><span id="local-6989586621679827304"><span id="local-6989586621679827306"><span id="local-6989586621679827308"><span class="annot"><span class="annottext">ReadPrec [ListCACertificates]
 ReadPrec ListCACertificates
 Int -&gt; ReadS ListCACertificates
 ReadS [ListCACertificates]
@@ -102,7 +102,7 @@ readList :: ReadS [ListCACertificates]
 $creadList :: ReadS [ListCACertificates]
 readsPrec :: Int -&gt; ReadS ListCACertificates
 $creadsPrec :: Int -&gt; ReadS ListCACertificates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827286"><span id="local-6989586621679827288"><span id="local-6989586621679827290"><span class="annot"><span class="annottext">Int -&gt; ListCACertificates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827295"><span id="local-6989586621679827297"><span id="local-6989586621679827299"><span class="annot"><span class="annottext">Int -&gt; ListCACertificates -&gt; ShowS
 [ListCACertificates] -&gt; ShowS
 ListCACertificates -&gt; String
 (Int -&gt; ListCACertificates -&gt; ShowS)
@@ -170,16 +170,16 @@ forall a. Maybe a
 -&gt; Lens
      ListCACertificates ListCACertificates (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827280"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827289"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListCACertificates' :: ListCACertificates -&gt; Maybe Text
-</span><a href="#local-6989586621679827280"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827280"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827279"><span class="annot"><span class="annottext">s :: ListCACertificates
-</span><a href="#local-6989586621679827279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827278"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificates
-</span><a href="#local-6989586621679827279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListCACertificates' :: Maybe Text
+</span><a href="#local-6989586621679827289"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827289"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827288"><span class="annot"><span class="annottext">s :: ListCACertificates
+</span><a href="#local-6989586621679827288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificates
+</span><a href="#local-6989586621679827288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListCACertificates' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3Amarker%3AListCACertificates%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Determines the order of the results.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#listCACertificates_ascendingOrder"><span class="hs-identifier hs-type">listCACertificates_ascendingOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -190,16 +190,16 @@ $sel:marker:ListCACertificates' :: ListCACertificates -&gt; Maybe Text
 -&gt; Lens
      ListCACertificates ListCACertificates (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827277"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827286"><span class="annot"><span class="annottext">Maybe Bool
 ascendingOrder :: Maybe Bool
 $sel:ascendingOrder:ListCACertificates' :: ListCACertificates -&gt; Maybe Bool
-</span><a href="#local-6989586621679827277"><span class="hs-identifier hs-var hs-var">ascendingOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679827277"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827276"><span class="annot"><span class="annottext">s :: ListCACertificates
-</span><a href="#local-6989586621679827276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827275"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679827275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificates
-</span><a href="#local-6989586621679827276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ascendingOrder:ListCACertificates' :: Maybe Bool
+</span><a href="#local-6989586621679827286"><span class="hs-identifier hs-var hs-var">ascendingOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679827286"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827285"><span class="annot"><span class="annottext">s :: ListCACertificates
+</span><a href="#local-6989586621679827285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827284"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679827284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificates
+</span><a href="#local-6989586621679827285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ascendingOrder:ListCACertificates' :: Maybe Bool
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3AascendingOrder%3AListCACertificates%27"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679827275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The result page size.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#listCACertificates_pageSize"><span class="hs-identifier hs-type">listCACertificates_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -213,29 +213,29 @@ $sel:ascendingOrder:ListCACertificates' :: ListCACertificates -&gt; Maybe Bool
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827274"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827283"><span class="annot"><span class="annottext">Maybe Natural
 pageSize :: Maybe Natural
 $sel:pageSize:ListCACertificates' :: ListCACertificates -&gt; Maybe Natural
-</span><a href="#local-6989586621679827274"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827274"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827273"><span class="annot"><span class="annottext">s :: ListCACertificates
-</span><a href="#local-6989586621679827273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827272"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificates
-</span><a href="#local-6989586621679827273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListCACertificates' :: Maybe Natural
+</span><a href="#local-6989586621679827283"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827283"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827282"><span class="annot"><span class="annottext">s :: ListCACertificates
+</span><a href="#local-6989586621679827282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827281"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificates
+</span><a href="#local-6989586621679827282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListCACertificates' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3ApageSize%3AListCACertificates%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679827268"><span class="annot"><span class="annottext">page :: ListCACertificates
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679827277"><span class="annot"><span class="annottext">page :: ListCACertificates
 -&gt; AWSResponse ListCACertificates -&gt; Maybe ListCACertificates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679827266"><span class="annot"><span class="annottext">ListCACertificates
-</span><a href="#local-6989586621679827266"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679827265"><span class="annot"><span class="annottext">AWSResponse ListCACertificates
-</span><a href="#local-6989586621679827265"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679827275"><span class="annot"><span class="annottext">ListCACertificates
+</span><a href="#local-6989586621679827275"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679827274"><span class="annot"><span class="annottext">AWSResponse ListCACertificates
+</span><a href="#local-6989586621679827274"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCACertificates
 ListCACertificatesResponse
-</span><a href="#local-6989586621679827265"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679827274"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListCACertificatesResponse
 -&gt; Getting (First Text) ListCACertificatesResponse Text
 -&gt; Maybe Text
@@ -265,7 +265,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCACertificates
 ListCACertificatesResponse
-</span><a href="#local-6989586621679827265"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679827274"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListCACertificatesResponse
 -&gt; Getting
      (First [CACertificate]) ListCACertificatesResponse [CACertificate]
@@ -306,7 +306,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ListCACertificates
-</span><a href="#local-6989586621679827266"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679827275"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListCACertificates
 -&gt; (ListCACertificates -&gt; ListCACertificates) -&gt; ListCACertificates
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -321,7 +321,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCACertificates
 ListCACertificatesResponse
-</span><a href="#local-6989586621679827265"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679827274"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ListCACertificatesResponse
 -&gt; Getting (First Text) ListCACertificatesResponse Text
 -&gt; Maybe Text
@@ -347,12 +347,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679827255"><span class="annot"><span class="annottext">request :: ListCACertificates -&gt; Request ListCACertificates
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679827264"><span class="annot"><span class="annottext">request :: ListCACertificates -&gt; Request ListCACertificates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListCACertificates -&gt; Request ListCACertificates
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679827251"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679827260"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListCACertificates
 -&gt; ClientResponse ClientBody
@@ -378,10 +378,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827248"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827247"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679827247"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827246"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827257"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827256"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679827256"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827255"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679827255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CACertificate]
 -&gt; Maybe Text -&gt; Int -&gt; ListCACertificatesResponse
 </span><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-var">ListCACertificatesResponse'</span></a></span><span>
@@ -391,7 +391,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListCACertificatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CACertificate]))
+</span><a href="#local-6989586621679827255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CACertificate]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CACertificate]))
@@ -405,7 +405,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListCACertificatesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679827255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,15 +417,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827248"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827257"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827237"><span id="local-6989586621679827239"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827246"><span id="local-6989586621679827248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679827230"><span class="annot"><span class="annottext">toHeaders :: ListCACertificates -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679827239"><span class="annot"><span class="annottext">toHeaders :: ListCACertificates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListCACertificates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -433,15 +433,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679827225"><span class="annot"><span class="annottext">toPath :: ListCACertificates -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679827234"><span class="annot"><span class="annottext">toPath :: ListCACertificates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListCACertificates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/cacertificates&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates"><span class="hs-identifier hs-type">ListCACertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679827221"><span class="annot"><span class="annottext">toQuery :: ListCACertificates -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827217"><span id="local-6989586621679827218"><span id="local-6989586621679827219"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679827230"><span class="annot"><span class="annottext">toQuery :: ListCACertificates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificates%27"><span class="hs-identifier hs-type">ListCACertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827226"><span id="local-6989586621679827227"><span id="local-6989586621679827228"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 pageSize :: Maybe Natural
@@ -450,7 +450,7 @@ marker :: Maybe Text
 $sel:pageSize:ListCACertificates' :: ListCACertificates -&gt; Maybe Natural
 $sel:ascendingOrder:ListCACertificates' :: ListCACertificates -&gt; Maybe Bool
 $sel:marker:ListCACertificates' :: ListCACertificates -&gt; Maybe Text
-</span><a href="#local-6989586621679827217"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679827226"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -458,23 +458,23 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827219"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827228"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;isAscendingOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679827218"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827227"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;pageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827217"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><a href="#local-6989586621679827226"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The output from the ListCACertificates operation.</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- /See:/ 'newListCACertificatesResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679827214"><span id="local-6989586621679827215"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCACertificatesResponse"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-var">ListCACertificatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCACertificatesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-var">ListCACertificatesResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679827223"><span id="local-6989586621679827224"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCACertificatesResponse"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-var">ListCACertificatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCACertificatesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-var">ListCACertificatesResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The CA certificates registered in your Amazon Web Services account.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3Acertificates%3AListCACertificatesResponse%27"><span class="annot"><span class="annottext">ListCACertificatesResponse -&gt; Maybe [CACertificate]
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3Acertificates%3AListCACertificatesResponse%27"><span class="hs-identifier hs-var hs-var">certificates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.CACertificate.html#CACertificate"><span class="hs-identifier hs-type">CACertificate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -485,7 +485,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCACertificatesResponse%27"><span class="annot"><span class="annottext">ListCACertificatesResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3AhttpStatus%3AListCACertificatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827207"><span id="local-6989586621679827209"><span class="annot"><span class="annottext">ListCACertificatesResponse -&gt; ListCACertificatesResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827216"><span id="local-6989586621679827218"><span class="annot"><span class="annottext">ListCACertificatesResponse -&gt; ListCACertificatesResponse -&gt; Bool
 (ListCACertificatesResponse -&gt; ListCACertificatesResponse -&gt; Bool)
 -&gt; (ListCACertificatesResponse
     -&gt; ListCACertificatesResponse -&gt; Bool)
@@ -495,7 +495,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCACertificatesResponse -&gt; ListCACertificatesResponse -&gt; Bool
 == :: ListCACertificatesResponse -&gt; ListCACertificatesResponse -&gt; Bool
 $c== :: ListCACertificatesResponse -&gt; ListCACertificatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827199"><span id="local-6989586621679827201"><span id="local-6989586621679827203"><span id="local-6989586621679827205"><span class="annot"><span class="annottext">ReadPrec [ListCACertificatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827208"><span id="local-6989586621679827210"><span id="local-6989586621679827212"><span id="local-6989586621679827214"><span class="annot"><span class="annottext">ReadPrec [ListCACertificatesResponse]
 ReadPrec ListCACertificatesResponse
 Int -&gt; ReadS ListCACertificatesResponse
 ReadS [ListCACertificatesResponse]
@@ -515,7 +515,7 @@ readList :: ReadS [ListCACertificatesResponse]
 $creadList :: ReadS [ListCACertificatesResponse]
 readsPrec :: Int -&gt; ReadS ListCACertificatesResponse
 $creadsPrec :: Int -&gt; ReadS ListCACertificatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827193"><span id="local-6989586621679827195"><span id="local-6989586621679827197"><span class="annot"><span class="annottext">Int -&gt; ListCACertificatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827202"><span id="local-6989586621679827204"><span id="local-6989586621679827206"><span class="annot"><span class="annottext">Int -&gt; ListCACertificatesResponse -&gt; ShowS
 [ListCACertificatesResponse] -&gt; ShowS
 ListCACertificatesResponse -&gt; String
 (Int -&gt; ListCACertificatesResponse -&gt; ShowS)
@@ -565,8 +565,8 @@ ListCACertificatesResponse -&gt; Rep ListCACertificatesResponse x
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span>
 </span><span id="line-193"></span><span id="newListCACertificatesResponse"><span class="annot"><span class="annottext">newListCACertificatesResponse :: Int -&gt; ListCACertificatesResponse
-</span><a href="Network.AWS.IoT.ListCACertificates.html#newListCACertificatesResponse"><span class="hs-identifier hs-var hs-var">newListCACertificatesResponse</span></a></span></span><span> </span><span id="local-6989586621679827190"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827190"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListCACertificates.html#newListCACertificatesResponse"><span class="hs-identifier hs-var hs-var">newListCACertificatesResponse</span></a></span></span><span> </span><span id="local-6989586621679827199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">ListCACertificatesResponse' :: Maybe [CACertificate]
 -&gt; Maybe Text -&gt; Int -&gt; ListCACertificatesResponse
 </span><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span>
@@ -581,7 +581,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCACertificatesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3AhttpStatus%3AListCACertificatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827190"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679827199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The CA certificates registered in your Amazon Web Services account.</span><span>
@@ -593,16 +593,16 @@ forall a. Maybe a
     -&gt; Maybe [CACertificate] -&gt; ListCACertificatesResponse)
 -&gt; Lens' ListCACertificatesResponse (Maybe [CACertificate])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827189"><span class="annot"><span class="annottext">Maybe [CACertificate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827198"><span class="annot"><span class="annottext">Maybe [CACertificate]
 certificates :: Maybe [CACertificate]
 $sel:certificates:ListCACertificatesResponse' :: ListCACertificatesResponse -&gt; Maybe [CACertificate]
-</span><a href="#local-6989586621679827189"><span class="hs-identifier hs-var hs-var">certificates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CACertificate]
-</span><a href="#local-6989586621679827189"><span class="hs-identifier hs-var">certificates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827188"><span class="annot"><span class="annottext">s :: ListCACertificatesResponse
-</span><a href="#local-6989586621679827188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827187"><span class="annot"><span class="annottext">Maybe [CACertificate]
-</span><a href="#local-6989586621679827187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificatesResponse
-</span><a href="#local-6989586621679827188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificates:ListCACertificatesResponse' :: Maybe [CACertificate]
+</span><a href="#local-6989586621679827198"><span class="hs-identifier hs-var hs-var">certificates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CACertificate]
+</span><a href="#local-6989586621679827198"><span class="hs-identifier hs-var">certificates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827197"><span class="annot"><span class="annottext">s :: ListCACertificatesResponse
+</span><a href="#local-6989586621679827197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827196"><span class="annot"><span class="annottext">Maybe [CACertificate]
+</span><a href="#local-6989586621679827196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificatesResponse
+</span><a href="#local-6989586621679827197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificates:ListCACertificatesResponse' :: Maybe [CACertificate]
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3Acertificates%3AListCACertificatesResponse%27"><span class="hs-identifier hs-var">certificates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CACertificate]
-</span><a href="#local-6989586621679827187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CACertificate] -&gt; f (Maybe [CACertificate]))
+</span><a href="#local-6989586621679827196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CACertificate] -&gt; f (Maybe [CACertificate]))
  -&gt; ListCACertificatesResponse -&gt; f ListCACertificatesResponse)
 -&gt; ((Maybe [CACertificate] -&gt; f (Maybe [CACertificate]))
     -&gt; Maybe [CACertificate] -&gt; f (Maybe [CACertificate]))
@@ -634,16 +634,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListCACertificatesResponse)
 -&gt; Lens' ListCACertificatesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827184"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827193"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListCACertificatesResponse' :: ListCACertificatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679827184"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827184"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827183"><span class="annot"><span class="annottext">s :: ListCACertificatesResponse
-</span><a href="#local-6989586621679827183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827182"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificatesResponse
-</span><a href="#local-6989586621679827183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListCACertificatesResponse' :: Maybe Text
+</span><a href="#local-6989586621679827193"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827193"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827192"><span class="annot"><span class="annottext">s :: ListCACertificatesResponse
+</span><a href="#local-6989586621679827192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificatesResponse
+</span><a href="#local-6989586621679827192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListCACertificatesResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3AnextMarker%3AListCACertificatesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#listCACertificatesResponse_httpStatus"><span class="hs-identifier hs-type">listCACertificatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -655,16 +655,16 @@ $sel:nextMarker:ListCACertificatesResponse' :: ListCACertificatesResponse -&gt; 
 -&gt; Lens
      ListCACertificatesResponse ListCACertificatesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827181"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827190"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListCACertificatesResponse' :: ListCACertificatesResponse -&gt; Int
-</span><a href="#local-6989586621679827181"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827181"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827180"><span class="annot"><span class="annottext">s :: ListCACertificatesResponse
-</span><a href="#local-6989586621679827180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827179"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificatesResponse
-</span><a href="#local-6989586621679827180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCACertificatesResponse' :: Int
+</span><a href="#local-6989586621679827190"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827190"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827189"><span class="annot"><span class="annottext">s :: ListCACertificatesResponse
+</span><a href="#local-6989586621679827189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse%27"><span class="hs-identifier hs-type">ListCACertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827188"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCACertificatesResponse
+</span><a href="#local-6989586621679827189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCACertificatesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListCACertificates.html#%24sel%3AhttpStatus%3AListCACertificatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827186"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListCACertificates.html#ListCACertificatesResponse"><span class="hs-identifier hs-type">ListCACertificatesResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

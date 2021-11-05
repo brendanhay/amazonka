@@ -1,0 +1,1539 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.ConnectorMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.ConnectorMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.AmplitudeMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.AmplitudeMetadata</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.CustomerProfilesMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.CustomerProfilesMetadata</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DatadogMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.DatadogMetadata</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.DynatraceMetadata</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.EventBridgeMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.EventBridgeMetadata</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.GoogleAnalyticsMetadata</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.HoneycodeMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.HoneycodeMetadata</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.InforNexusMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.InforNexusMetadata</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.MarketoMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.MarketoMetadata</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.RedshiftMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.RedshiftMetadata</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.S3Metadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.S3Metadata</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SAPODataMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SAPODataMetadata</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SalesforceMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SalesforceMetadata</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ServiceNowMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.ServiceNowMetadata</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SingularMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SingularMetadata</span></a></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SlackMetadata</span></a></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SnowflakeMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SnowflakeMetadata</span></a></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TrendmicroMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.TrendmicroMetadata</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.UpsolverMetadata</span></a></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.VeevaMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.VeevaMetadata</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskMetadata.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.ZendeskMetadata</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | A structure to specify connector-specific metadata such as</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- @oAuthScopes@, @supportedRegions@, @privateLinkServiceUrl@, and so on.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newConnectorMetadata' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679331060"><span id="local-6989586621679331061"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectorMetadata"><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-var">ConnectorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorMetadata%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-var">ConnectorMetadata'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The connector metadata specific to Upsolver.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aupsolver%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe UpsolverMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aupsolver%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">upsolver</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverMetadata.html#UpsolverMetadata"><span class="hs-identifier hs-type">UpsolverMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Snowflake.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Asnowflake%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe SnowflakeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asnowflake%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">snowflake</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SnowflakeMetadata.html#SnowflakeMetadata"><span class="hs-identifier hs-type">SnowflakeMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Amazon Honeycode.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Ahoneycode%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe HoneycodeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Ahoneycode%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">honeycode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.HoneycodeMetadata.html#HoneycodeMetadata"><span class="hs-identifier hs-type">HoneycodeMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to ServiceNow.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AserviceNow%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe ServiceNowMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AserviceNow%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">serviceNow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ServiceNowMetadata.html#ServiceNowMetadata"><span class="hs-identifier hs-type">ServiceNowMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Dynatrace.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adynatrace%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe DynatraceMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Adynatrace%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">dynatrace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata"><span class="hs-identifier hs-type">DynatraceMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Marketo.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Amarketo%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe MarketoMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Amarketo%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">marketo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.MarketoMetadata.html#MarketoMetadata"><span class="hs-identifier hs-type">MarketoMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Slack.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aslack%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe SlackMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aslack%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">slack</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackMetadata.html#SlackMetadata"><span class="hs-identifier hs-type">SlackMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Singular.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Asingular%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe SingularMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asingular%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">singular</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SingularMetadata.html#SingularMetadata"><span class="hs-identifier hs-type">SingularMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Infor Nexus.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AinforNexus%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe InforNexusMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AinforNexus%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">inforNexus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.InforNexusMetadata.html#InforNexusMetadata"><span class="hs-identifier hs-type">InforNexusMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Amplitude.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aamplitude%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe AmplitudeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aamplitude%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">amplitude</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.AmplitudeMetadata.html#AmplitudeMetadata"><span class="hs-identifier hs-type">AmplitudeMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Amazon Connect Customer Profiles.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcustomerProfiles%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe CustomerProfilesMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AcustomerProfiles%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">customerProfiles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.CustomerProfilesMetadata.html#CustomerProfilesMetadata"><span class="hs-identifier hs-type">CustomerProfilesMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Datadog.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Adatadog%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe DatadogMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Adatadog%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">datadog</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DatadogMetadata.html#DatadogMetadata"><span class="hs-identifier hs-type">DatadogMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Google Analytics.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AgoogleAnalytics%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe GoogleAnalyticsMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AgoogleAnalytics%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">googleAnalytics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsMetadata.html#GoogleAnalyticsMetadata"><span class="hs-identifier hs-type">GoogleAnalyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsAPOData%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe SAPODataMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AsAPOData%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">sAPOData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SAPODataMetadata.html#SAPODataMetadata"><span class="hs-identifier hs-type">SAPODataMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Salesforce.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Asalesforce%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe SalesforceMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asalesforce%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SalesforceMetadata.html#SalesforceMetadata"><span class="hs-identifier hs-type">SalesforceMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Zendesk.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Azendesk%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe ZendeskMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Azendesk%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">zendesk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskMetadata.html#ZendeskMetadata"><span class="hs-identifier hs-type">ZendeskMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Amazon S3.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3As3%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe S3Metadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3As3%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.S3Metadata.html#S3Metadata"><span class="hs-identifier hs-type">S3Metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Amazon EventBridge.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AeventBridge%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe EventBridgeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AeventBridge%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">eventBridge</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.EventBridgeMetadata.html#EventBridgeMetadata"><span class="hs-identifier hs-type">EventBridgeMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Trend Micro.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Atrendmicro%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe TrendmicroMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Atrendmicro%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">trendmicro</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TrendmicroMetadata.html#TrendmicroMetadata"><span class="hs-identifier hs-type">TrendmicroMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Amazon Redshift.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Aredshift%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe RedshiftMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aredshift%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">redshift</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.RedshiftMetadata.html#RedshiftMetadata"><span class="hs-identifier hs-type">RedshiftMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The connector metadata specific to Veeva.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Aveeva%3AConnectorMetadata%27"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; Maybe VeevaMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aveeva%3AConnectorMetadata%27"><span class="hs-identifier hs-var hs-var">veeva</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.VeevaMetadata.html#VeevaMetadata"><span class="hs-identifier hs-type">VeevaMetadata</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331034"><span id="local-6989586621679331036"><span class="annot"><span class="annottext">ConnectorMetadata -&gt; ConnectorMetadata -&gt; Bool
+(ConnectorMetadata -&gt; ConnectorMetadata -&gt; Bool)
+-&gt; (ConnectorMetadata -&gt; ConnectorMetadata -&gt; Bool)
+-&gt; Eq ConnectorMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectorMetadata -&gt; ConnectorMetadata -&gt; Bool
+$c/= :: ConnectorMetadata -&gt; ConnectorMetadata -&gt; Bool
+== :: ConnectorMetadata -&gt; ConnectorMetadata -&gt; Bool
+$c== :: ConnectorMetadata -&gt; ConnectorMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331025"><span id="local-6989586621679331027"><span id="local-6989586621679331029"><span id="local-6989586621679331031"><span class="annot"><span class="annottext">ReadPrec [ConnectorMetadata]
+ReadPrec ConnectorMetadata
+Int -&gt; ReadS ConnectorMetadata
+ReadS [ConnectorMetadata]
+(Int -&gt; ReadS ConnectorMetadata)
+-&gt; ReadS [ConnectorMetadata]
+-&gt; ReadPrec ConnectorMetadata
+-&gt; ReadPrec [ConnectorMetadata]
+-&gt; Read ConnectorMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectorMetadata]
+$creadListPrec :: ReadPrec [ConnectorMetadata]
+readPrec :: ReadPrec ConnectorMetadata
+$creadPrec :: ReadPrec ConnectorMetadata
+readList :: ReadS [ConnectorMetadata]
+$creadList :: ReadS [ConnectorMetadata]
+readsPrec :: Int -&gt; ReadS ConnectorMetadata
+$creadsPrec :: Int -&gt; ReadS ConnectorMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331018"><span id="local-6989586621679331020"><span id="local-6989586621679331022"><span class="annot"><span class="annottext">Int -&gt; ConnectorMetadata -&gt; ShowS
+[ConnectorMetadata] -&gt; ShowS
+ConnectorMetadata -&gt; String
+(Int -&gt; ConnectorMetadata -&gt; ShowS)
+-&gt; (ConnectorMetadata -&gt; String)
+-&gt; ([ConnectorMetadata] -&gt; ShowS)
+-&gt; Show ConnectorMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectorMetadata] -&gt; ShowS
+$cshowList :: [ConnectorMetadata] -&gt; ShowS
+show :: ConnectorMetadata -&gt; String
+$cshow :: ConnectorMetadata -&gt; String
+showsPrec :: Int -&gt; ConnectorMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectorMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConnectorMetadata -&gt; Rep ConnectorMetadata x)
+-&gt; (forall x. Rep ConnectorMetadata x -&gt; ConnectorMetadata)
+-&gt; Generic ConnectorMetadata
+forall x. Rep ConnectorMetadata x -&gt; ConnectorMetadata
+forall x. ConnectorMetadata -&gt; Rep ConnectorMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectorMetadata x -&gt; ConnectorMetadata
+$cfrom :: forall x. ConnectorMetadata -&gt; Rep ConnectorMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'ConnectorMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'upsolver', 'connectorMetadata_upsolver' - The connector metadata specific to Upsolver.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'snowflake', 'connectorMetadata_snowflake' - The connector metadata specific to Snowflake.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'honeycode', 'connectorMetadata_honeycode' - The connector metadata specific to Amazon Honeycode.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'serviceNow', 'connectorMetadata_serviceNow' - The connector metadata specific to ServiceNow.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'dynatrace', 'connectorMetadata_dynatrace' - The connector metadata specific to Dynatrace.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'marketo', 'connectorMetadata_marketo' - The connector metadata specific to Marketo.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'slack', 'connectorMetadata_slack' - The connector metadata specific to Slack.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'singular', 'connectorMetadata_singular' - The connector metadata specific to Singular.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'inforNexus', 'connectorMetadata_inforNexus' - The connector metadata specific to Infor Nexus.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'amplitude', 'connectorMetadata_amplitude' - The connector metadata specific to Amplitude.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'customerProfiles', 'connectorMetadata_customerProfiles' - The connector metadata specific to Amazon Connect Customer Profiles.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'datadog', 'connectorMetadata_datadog' - The connector metadata specific to Datadog.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'googleAnalytics', 'connectorMetadata_googleAnalytics' - The connector metadata specific to Google Analytics.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'sAPOData', 'connectorMetadata_sAPOData' - Undocumented member.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'salesforce', 'connectorMetadata_salesforce' - The connector metadata specific to Salesforce.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'zendesk', 'connectorMetadata_zendesk' - The connector metadata specific to Zendesk.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 's3', 'connectorMetadata_s3' - The connector metadata specific to Amazon S3.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'eventBridge', 'connectorMetadata_eventBridge' - The connector metadata specific to Amazon EventBridge.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'trendmicro', 'connectorMetadata_trendmicro' - The connector metadata specific to Trend Micro.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'redshift', 'connectorMetadata_redshift' - The connector metadata specific to Amazon Redshift.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'veeva', 'connectorMetadata_veeva' - The connector metadata specific to Veeva.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#newConnectorMetadata"><span class="hs-identifier hs-type">newConnectorMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span>
+</span><span id="line-147"></span><span id="newConnectorMetadata"><span class="annot"><span class="annottext">newConnectorMetadata :: ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#newConnectorMetadata"><span class="hs-identifier hs-var hs-var">newConnectorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">ConnectorMetadata' :: Maybe UpsolverMetadata
+-&gt; Maybe SnowflakeMetadata
+-&gt; Maybe HoneycodeMetadata
+-&gt; Maybe ServiceNowMetadata
+-&gt; Maybe DynatraceMetadata
+-&gt; Maybe MarketoMetadata
+-&gt; Maybe SlackMetadata
+-&gt; Maybe SingularMetadata
+-&gt; Maybe InforNexusMetadata
+-&gt; Maybe AmplitudeMetadata
+-&gt; Maybe CustomerProfilesMetadata
+-&gt; Maybe DatadogMetadata
+-&gt; Maybe GoogleAnalyticsMetadata
+-&gt; Maybe SAPODataMetadata
+-&gt; Maybe SalesforceMetadata
+-&gt; Maybe ZendeskMetadata
+-&gt; Maybe S3Metadata
+-&gt; Maybe EventBridgeMetadata
+-&gt; Maybe TrendmicroMetadata
+-&gt; Maybe RedshiftMetadata
+-&gt; Maybe VeevaMetadata
+-&gt; ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:upsolver:ConnectorMetadata' :: Maybe UpsolverMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aupsolver%3AConnectorMetadata%27"><span class="hs-identifier hs-var">upsolver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpsolverMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:snowflake:ConnectorMetadata' :: Maybe SnowflakeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asnowflake%3AConnectorMetadata%27"><span class="hs-identifier hs-var">snowflake</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowflakeMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:honeycode:ConnectorMetadata' :: Maybe HoneycodeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Ahoneycode%3AConnectorMetadata%27"><span class="hs-identifier hs-var">honeycode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HoneycodeMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceNow:ConnectorMetadata' :: Maybe ServiceNowMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AserviceNow%3AConnectorMetadata%27"><span class="hs-identifier hs-var">serviceNow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynatrace:ConnectorMetadata' :: Maybe DynatraceMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Adynatrace%3AConnectorMetadata%27"><span class="hs-identifier hs-var">dynatrace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynatraceMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:marketo:ConnectorMetadata' :: Maybe MarketoMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Amarketo%3AConnectorMetadata%27"><span class="hs-identifier hs-var">marketo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:slack:ConnectorMetadata' :: Maybe SlackMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aslack%3AConnectorMetadata%27"><span class="hs-identifier hs-var">slack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SlackMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:singular:ConnectorMetadata' :: Maybe SingularMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asingular%3AConnectorMetadata%27"><span class="hs-identifier hs-var">singular</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SingularMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:inforNexus:ConnectorMetadata' :: Maybe InforNexusMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AinforNexus%3AConnectorMetadata%27"><span class="hs-identifier hs-var">inforNexus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InforNexusMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:amplitude:ConnectorMetadata' :: Maybe AmplitudeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aamplitude%3AConnectorMetadata%27"><span class="hs-identifier hs-var">amplitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmplitudeMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerProfiles:ConnectorMetadata' :: Maybe CustomerProfilesMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AcustomerProfiles%3AConnectorMetadata%27"><span class="hs-identifier hs-var">customerProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerProfilesMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:datadog:ConnectorMetadata' :: Maybe DatadogMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Adatadog%3AConnectorMetadata%27"><span class="hs-identifier hs-var">datadog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatadogMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:googleAnalytics:ConnectorMetadata' :: Maybe GoogleAnalyticsMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AgoogleAnalytics%3AConnectorMetadata%27"><span class="hs-identifier hs-var">googleAnalytics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GoogleAnalyticsMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:sAPOData:ConnectorMetadata' :: Maybe SAPODataMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AsAPOData%3AConnectorMetadata%27"><span class="hs-identifier hs-var">sAPOData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAPODataMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:salesforce:ConnectorMetadata' :: Maybe SalesforceMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asalesforce%3AConnectorMetadata%27"><span class="hs-identifier hs-var">salesforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:zendesk:ConnectorMetadata' :: Maybe ZendeskMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Azendesk%3AConnectorMetadata%27"><span class="hs-identifier hs-var">zendesk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3:ConnectorMetadata' :: Maybe S3Metadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3As3%3AConnectorMetadata%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Metadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventBridge:ConnectorMetadata' :: Maybe EventBridgeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AeventBridge%3AConnectorMetadata%27"><span class="hs-identifier hs-var">eventBridge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventBridgeMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:trendmicro:ConnectorMetadata' :: Maybe TrendmicroMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Atrendmicro%3AConnectorMetadata%27"><span class="hs-identifier hs-var">trendmicro</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrendmicroMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:redshift:ConnectorMetadata' :: Maybe RedshiftMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aredshift%3AConnectorMetadata%27"><span class="hs-identifier hs-var">redshift</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:veeva:ConnectorMetadata' :: Maybe VeevaMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aveeva%3AConnectorMetadata%27"><span class="hs-identifier hs-var">veeva</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VeevaMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The connector metadata specific to Upsolver.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_upsolver"><span class="hs-identifier hs-type">connectorMetadata_upsolver</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverMetadata.html#UpsolverMetadata"><span class="hs-identifier hs-type">UpsolverMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="connectorMetadata_upsolver"><span class="annot"><span class="annottext">connectorMetadata_upsolver :: (Maybe UpsolverMetadata -&gt; f (Maybe UpsolverMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_upsolver"><span class="hs-identifier hs-var hs-var">connectorMetadata_upsolver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe UpsolverMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe UpsolverMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe UpsolverMetadata)
+     (Maybe UpsolverMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331009"><span class="annot"><span class="annottext">Maybe UpsolverMetadata
+upsolver :: Maybe UpsolverMetadata
+$sel:upsolver:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe UpsolverMetadata
+</span><a href="#local-6989586621679331009"><span class="hs-identifier hs-var hs-var">upsolver</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpsolverMetadata
+</span><a href="#local-6989586621679331009"><span class="hs-identifier hs-var">upsolver</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331008"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679331008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331007"><span class="annot"><span class="annottext">Maybe UpsolverMetadata
+</span><a href="#local-6989586621679331007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679331008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upsolver:ConnectorMetadata' :: Maybe UpsolverMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aupsolver%3AConnectorMetadata%27"><span class="hs-identifier hs-var">upsolver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpsolverMetadata
+</span><a href="#local-6989586621679331007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The connector metadata specific to Snowflake.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_snowflake"><span class="hs-identifier hs-type">connectorMetadata_snowflake</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SnowflakeMetadata.html#SnowflakeMetadata"><span class="hs-identifier hs-type">SnowflakeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="connectorMetadata_snowflake"><span class="annot"><span class="annottext">connectorMetadata_snowflake :: (Maybe SnowflakeMetadata -&gt; f (Maybe SnowflakeMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_snowflake"><span class="hs-identifier hs-var hs-var">connectorMetadata_snowflake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe SnowflakeMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe SnowflakeMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe SnowflakeMetadata)
+     (Maybe SnowflakeMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331005"><span class="annot"><span class="annottext">Maybe SnowflakeMetadata
+snowflake :: Maybe SnowflakeMetadata
+$sel:snowflake:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe SnowflakeMetadata
+</span><a href="#local-6989586621679331005"><span class="hs-identifier hs-var hs-var">snowflake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnowflakeMetadata
+</span><a href="#local-6989586621679331005"><span class="hs-identifier hs-var">snowflake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331004"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679331004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331003"><span class="annot"><span class="annottext">Maybe SnowflakeMetadata
+</span><a href="#local-6989586621679331003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679331004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snowflake:ConnectorMetadata' :: Maybe SnowflakeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asnowflake%3AConnectorMetadata%27"><span class="hs-identifier hs-var">snowflake</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowflakeMetadata
+</span><a href="#local-6989586621679331003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The connector metadata specific to Amazon Honeycode.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_honeycode"><span class="hs-identifier hs-type">connectorMetadata_honeycode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.HoneycodeMetadata.html#HoneycodeMetadata"><span class="hs-identifier hs-type">HoneycodeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="connectorMetadata_honeycode"><span class="annot"><span class="annottext">connectorMetadata_honeycode :: (Maybe HoneycodeMetadata -&gt; f (Maybe HoneycodeMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_honeycode"><span class="hs-identifier hs-var hs-var">connectorMetadata_honeycode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe HoneycodeMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe HoneycodeMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe HoneycodeMetadata)
+     (Maybe HoneycodeMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331001"><span class="annot"><span class="annottext">Maybe HoneycodeMetadata
+honeycode :: Maybe HoneycodeMetadata
+$sel:honeycode:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe HoneycodeMetadata
+</span><a href="#local-6989586621679331001"><span class="hs-identifier hs-var hs-var">honeycode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HoneycodeMetadata
+</span><a href="#local-6989586621679331001"><span class="hs-identifier hs-var">honeycode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331000"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679331000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330999"><span class="annot"><span class="annottext">Maybe HoneycodeMetadata
+</span><a href="#local-6989586621679330999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679331000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:honeycode:ConnectorMetadata' :: Maybe HoneycodeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Ahoneycode%3AConnectorMetadata%27"><span class="hs-identifier hs-var">honeycode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HoneycodeMetadata
+</span><a href="#local-6989586621679330999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The connector metadata specific to ServiceNow.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_serviceNow"><span class="hs-identifier hs-type">connectorMetadata_serviceNow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ServiceNowMetadata.html#ServiceNowMetadata"><span class="hs-identifier hs-type">ServiceNowMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="connectorMetadata_serviceNow"><span class="annot"><span class="annottext">connectorMetadata_serviceNow :: (Maybe ServiceNowMetadata -&gt; f (Maybe ServiceNowMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_serviceNow"><span class="hs-identifier hs-var hs-var">connectorMetadata_serviceNow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe ServiceNowMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe ServiceNowMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe ServiceNowMetadata)
+     (Maybe ServiceNowMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330997"><span class="annot"><span class="annottext">Maybe ServiceNowMetadata
+serviceNow :: Maybe ServiceNowMetadata
+$sel:serviceNow:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe ServiceNowMetadata
+</span><a href="#local-6989586621679330997"><span class="hs-identifier hs-var hs-var">serviceNow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowMetadata
+</span><a href="#local-6989586621679330997"><span class="hs-identifier hs-var">serviceNow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330996"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330995"><span class="annot"><span class="annottext">Maybe ServiceNowMetadata
+</span><a href="#local-6989586621679330995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNow:ConnectorMetadata' :: Maybe ServiceNowMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AserviceNow%3AConnectorMetadata%27"><span class="hs-identifier hs-var">serviceNow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowMetadata
+</span><a href="#local-6989586621679330995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The connector metadata specific to Dynatrace.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_dynatrace"><span class="hs-identifier hs-type">connectorMetadata_dynatrace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata"><span class="hs-identifier hs-type">DynatraceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="connectorMetadata_dynatrace"><span class="annot"><span class="annottext">connectorMetadata_dynatrace :: (Maybe DynatraceMetadata -&gt; f (Maybe DynatraceMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_dynatrace"><span class="hs-identifier hs-var hs-var">connectorMetadata_dynatrace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe DynatraceMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe DynatraceMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe DynatraceMetadata)
+     (Maybe DynatraceMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330993"><span class="annot"><span class="annottext">Maybe DynatraceMetadata
+dynatrace :: Maybe DynatraceMetadata
+$sel:dynatrace:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe DynatraceMetadata
+</span><a href="#local-6989586621679330993"><span class="hs-identifier hs-var hs-var">dynatrace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynatraceMetadata
+</span><a href="#local-6989586621679330993"><span class="hs-identifier hs-var">dynatrace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330992"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330991"><span class="annot"><span class="annottext">Maybe DynatraceMetadata
+</span><a href="#local-6989586621679330991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynatrace:ConnectorMetadata' :: Maybe DynatraceMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Adynatrace%3AConnectorMetadata%27"><span class="hs-identifier hs-var">dynatrace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynatraceMetadata
+</span><a href="#local-6989586621679330991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The connector metadata specific to Marketo.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_marketo"><span class="hs-identifier hs-type">connectorMetadata_marketo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.MarketoMetadata.html#MarketoMetadata"><span class="hs-identifier hs-type">MarketoMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="connectorMetadata_marketo"><span class="annot"><span class="annottext">connectorMetadata_marketo :: (Maybe MarketoMetadata -&gt; f (Maybe MarketoMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_marketo"><span class="hs-identifier hs-var hs-var">connectorMetadata_marketo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe MarketoMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe MarketoMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe MarketoMetadata)
+     (Maybe MarketoMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330989"><span class="annot"><span class="annottext">Maybe MarketoMetadata
+marketo :: Maybe MarketoMetadata
+$sel:marketo:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe MarketoMetadata
+</span><a href="#local-6989586621679330989"><span class="hs-identifier hs-var hs-var">marketo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoMetadata
+</span><a href="#local-6989586621679330989"><span class="hs-identifier hs-var">marketo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330988"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330987"><span class="annot"><span class="annottext">Maybe MarketoMetadata
+</span><a href="#local-6989586621679330987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marketo:ConnectorMetadata' :: Maybe MarketoMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Amarketo%3AConnectorMetadata%27"><span class="hs-identifier hs-var">marketo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoMetadata
+</span><a href="#local-6989586621679330987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The connector metadata specific to Slack.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_slack"><span class="hs-identifier hs-type">connectorMetadata_slack</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackMetadata.html#SlackMetadata"><span class="hs-identifier hs-type">SlackMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="connectorMetadata_slack"><span class="annot"><span class="annottext">connectorMetadata_slack :: (Maybe SlackMetadata -&gt; f (Maybe SlackMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_slack"><span class="hs-identifier hs-var hs-var">connectorMetadata_slack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe SlackMetadata)
+-&gt; (ConnectorMetadata -&gt; Maybe SlackMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe SlackMetadata)
+     (Maybe SlackMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330985"><span class="annot"><span class="annottext">Maybe SlackMetadata
+slack :: Maybe SlackMetadata
+$sel:slack:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe SlackMetadata
+</span><a href="#local-6989586621679330985"><span class="hs-identifier hs-var hs-var">slack</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlackMetadata
+</span><a href="#local-6989586621679330985"><span class="hs-identifier hs-var">slack</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330984"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330983"><span class="annot"><span class="annottext">Maybe SlackMetadata
+</span><a href="#local-6989586621679330983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slack:ConnectorMetadata' :: Maybe SlackMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aslack%3AConnectorMetadata%27"><span class="hs-identifier hs-var">slack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SlackMetadata
+</span><a href="#local-6989586621679330983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The connector metadata specific to Singular.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_singular"><span class="hs-identifier hs-type">connectorMetadata_singular</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SingularMetadata.html#SingularMetadata"><span class="hs-identifier hs-type">SingularMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="connectorMetadata_singular"><span class="annot"><span class="annottext">connectorMetadata_singular :: (Maybe SingularMetadata -&gt; f (Maybe SingularMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_singular"><span class="hs-identifier hs-var hs-var">connectorMetadata_singular</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe SingularMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe SingularMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe SingularMetadata)
+     (Maybe SingularMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330981"><span class="annot"><span class="annottext">Maybe SingularMetadata
+singular :: Maybe SingularMetadata
+$sel:singular:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe SingularMetadata
+</span><a href="#local-6989586621679330981"><span class="hs-identifier hs-var hs-var">singular</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SingularMetadata
+</span><a href="#local-6989586621679330981"><span class="hs-identifier hs-var">singular</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330980"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330979"><span class="annot"><span class="annottext">Maybe SingularMetadata
+</span><a href="#local-6989586621679330979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singular:ConnectorMetadata' :: Maybe SingularMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asingular%3AConnectorMetadata%27"><span class="hs-identifier hs-var">singular</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SingularMetadata
+</span><a href="#local-6989586621679330979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The connector metadata specific to Infor Nexus.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_inforNexus"><span class="hs-identifier hs-type">connectorMetadata_inforNexus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.InforNexusMetadata.html#InforNexusMetadata"><span class="hs-identifier hs-type">InforNexusMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="connectorMetadata_inforNexus"><span class="annot"><span class="annottext">connectorMetadata_inforNexus :: (Maybe InforNexusMetadata -&gt; f (Maybe InforNexusMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_inforNexus"><span class="hs-identifier hs-var hs-var">connectorMetadata_inforNexus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe InforNexusMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe InforNexusMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe InforNexusMetadata)
+     (Maybe InforNexusMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330977"><span class="annot"><span class="annottext">Maybe InforNexusMetadata
+inforNexus :: Maybe InforNexusMetadata
+$sel:inforNexus:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe InforNexusMetadata
+</span><a href="#local-6989586621679330977"><span class="hs-identifier hs-var hs-var">inforNexus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InforNexusMetadata
+</span><a href="#local-6989586621679330977"><span class="hs-identifier hs-var">inforNexus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330976"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330975"><span class="annot"><span class="annottext">Maybe InforNexusMetadata
+</span><a href="#local-6989586621679330975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inforNexus:ConnectorMetadata' :: Maybe InforNexusMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AinforNexus%3AConnectorMetadata%27"><span class="hs-identifier hs-var">inforNexus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InforNexusMetadata
+</span><a href="#local-6989586621679330975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The connector metadata specific to Amplitude.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_amplitude"><span class="hs-identifier hs-type">connectorMetadata_amplitude</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.AmplitudeMetadata.html#AmplitudeMetadata"><span class="hs-identifier hs-type">AmplitudeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="connectorMetadata_amplitude"><span class="annot"><span class="annottext">connectorMetadata_amplitude :: (Maybe AmplitudeMetadata -&gt; f (Maybe AmplitudeMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_amplitude"><span class="hs-identifier hs-var hs-var">connectorMetadata_amplitude</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe AmplitudeMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe AmplitudeMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe AmplitudeMetadata)
+     (Maybe AmplitudeMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330973"><span class="annot"><span class="annottext">Maybe AmplitudeMetadata
+amplitude :: Maybe AmplitudeMetadata
+$sel:amplitude:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe AmplitudeMetadata
+</span><a href="#local-6989586621679330973"><span class="hs-identifier hs-var hs-var">amplitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AmplitudeMetadata
+</span><a href="#local-6989586621679330973"><span class="hs-identifier hs-var">amplitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330972"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330971"><span class="annot"><span class="annottext">Maybe AmplitudeMetadata
+</span><a href="#local-6989586621679330971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amplitude:ConnectorMetadata' :: Maybe AmplitudeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aamplitude%3AConnectorMetadata%27"><span class="hs-identifier hs-var">amplitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AmplitudeMetadata
+</span><a href="#local-6989586621679330971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The connector metadata specific to Amazon Connect Customer Profiles.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_customerProfiles"><span class="hs-identifier hs-type">connectorMetadata_customerProfiles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.CustomerProfilesMetadata.html#CustomerProfilesMetadata"><span class="hs-identifier hs-type">CustomerProfilesMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="connectorMetadata_customerProfiles"><span class="annot"><span class="annottext">connectorMetadata_customerProfiles :: (Maybe CustomerProfilesMetadata
+ -&gt; f (Maybe CustomerProfilesMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_customerProfiles"><span class="hs-identifier hs-var hs-var">connectorMetadata_customerProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe CustomerProfilesMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe CustomerProfilesMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe CustomerProfilesMetadata)
+     (Maybe CustomerProfilesMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330969"><span class="annot"><span class="annottext">Maybe CustomerProfilesMetadata
+customerProfiles :: Maybe CustomerProfilesMetadata
+$sel:customerProfiles:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe CustomerProfilesMetadata
+</span><a href="#local-6989586621679330969"><span class="hs-identifier hs-var hs-var">customerProfiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerProfilesMetadata
+</span><a href="#local-6989586621679330969"><span class="hs-identifier hs-var">customerProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330968"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330967"><span class="annot"><span class="annottext">Maybe CustomerProfilesMetadata
+</span><a href="#local-6989586621679330967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerProfiles:ConnectorMetadata' :: Maybe CustomerProfilesMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AcustomerProfiles%3AConnectorMetadata%27"><span class="hs-identifier hs-var">customerProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerProfilesMetadata
+</span><a href="#local-6989586621679330967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The connector metadata specific to Datadog.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_datadog"><span class="hs-identifier hs-type">connectorMetadata_datadog</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DatadogMetadata.html#DatadogMetadata"><span class="hs-identifier hs-type">DatadogMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="connectorMetadata_datadog"><span class="annot"><span class="annottext">connectorMetadata_datadog :: (Maybe DatadogMetadata -&gt; f (Maybe DatadogMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_datadog"><span class="hs-identifier hs-var hs-var">connectorMetadata_datadog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe DatadogMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe DatadogMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe DatadogMetadata)
+     (Maybe DatadogMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330965"><span class="annot"><span class="annottext">Maybe DatadogMetadata
+datadog :: Maybe DatadogMetadata
+$sel:datadog:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe DatadogMetadata
+</span><a href="#local-6989586621679330965"><span class="hs-identifier hs-var hs-var">datadog</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatadogMetadata
+</span><a href="#local-6989586621679330965"><span class="hs-identifier hs-var">datadog</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330964"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330963"><span class="annot"><span class="annottext">Maybe DatadogMetadata
+</span><a href="#local-6989586621679330963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datadog:ConnectorMetadata' :: Maybe DatadogMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Adatadog%3AConnectorMetadata%27"><span class="hs-identifier hs-var">datadog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatadogMetadata
+</span><a href="#local-6989586621679330963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The connector metadata specific to Google Analytics.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_googleAnalytics"><span class="hs-identifier hs-type">connectorMetadata_googleAnalytics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsMetadata.html#GoogleAnalyticsMetadata"><span class="hs-identifier hs-type">GoogleAnalyticsMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="connectorMetadata_googleAnalytics"><span class="annot"><span class="annottext">connectorMetadata_googleAnalytics :: (Maybe GoogleAnalyticsMetadata
+ -&gt; f (Maybe GoogleAnalyticsMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_googleAnalytics"><span class="hs-identifier hs-var hs-var">connectorMetadata_googleAnalytics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe GoogleAnalyticsMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe GoogleAnalyticsMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe GoogleAnalyticsMetadata)
+     (Maybe GoogleAnalyticsMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330961"><span class="annot"><span class="annottext">Maybe GoogleAnalyticsMetadata
+googleAnalytics :: Maybe GoogleAnalyticsMetadata
+$sel:googleAnalytics:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe GoogleAnalyticsMetadata
+</span><a href="#local-6989586621679330961"><span class="hs-identifier hs-var hs-var">googleAnalytics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GoogleAnalyticsMetadata
+</span><a href="#local-6989586621679330961"><span class="hs-identifier hs-var">googleAnalytics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330960"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330959"><span class="annot"><span class="annottext">Maybe GoogleAnalyticsMetadata
+</span><a href="#local-6989586621679330959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:googleAnalytics:ConnectorMetadata' :: Maybe GoogleAnalyticsMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AgoogleAnalytics%3AConnectorMetadata%27"><span class="hs-identifier hs-var">googleAnalytics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GoogleAnalyticsMetadata
+</span><a href="#local-6989586621679330959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_sAPOData"><span class="hs-identifier hs-type">connectorMetadata_sAPOData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SAPODataMetadata.html#SAPODataMetadata"><span class="hs-identifier hs-type">SAPODataMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="connectorMetadata_sAPOData"><span class="annot"><span class="annottext">connectorMetadata_sAPOData :: (Maybe SAPODataMetadata -&gt; f (Maybe SAPODataMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_sAPOData"><span class="hs-identifier hs-var hs-var">connectorMetadata_sAPOData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe SAPODataMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe SAPODataMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe SAPODataMetadata)
+     (Maybe SAPODataMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330957"><span class="annot"><span class="annottext">Maybe SAPODataMetadata
+sAPOData :: Maybe SAPODataMetadata
+$sel:sAPOData:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe SAPODataMetadata
+</span><a href="#local-6989586621679330957"><span class="hs-identifier hs-var hs-var">sAPOData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SAPODataMetadata
+</span><a href="#local-6989586621679330957"><span class="hs-identifier hs-var">sAPOData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330956"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330955"><span class="annot"><span class="annottext">Maybe SAPODataMetadata
+</span><a href="#local-6989586621679330955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAPOData:ConnectorMetadata' :: Maybe SAPODataMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AsAPOData%3AConnectorMetadata%27"><span class="hs-identifier hs-var">sAPOData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAPODataMetadata
+</span><a href="#local-6989586621679330955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The connector metadata specific to Salesforce.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_salesforce"><span class="hs-identifier hs-type">connectorMetadata_salesforce</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SalesforceMetadata.html#SalesforceMetadata"><span class="hs-identifier hs-type">SalesforceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="connectorMetadata_salesforce"><span class="annot"><span class="annottext">connectorMetadata_salesforce :: (Maybe SalesforceMetadata -&gt; f (Maybe SalesforceMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_salesforce"><span class="hs-identifier hs-var hs-var">connectorMetadata_salesforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe SalesforceMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe SalesforceMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe SalesforceMetadata)
+     (Maybe SalesforceMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330953"><span class="annot"><span class="annottext">Maybe SalesforceMetadata
+salesforce :: Maybe SalesforceMetadata
+$sel:salesforce:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe SalesforceMetadata
+</span><a href="#local-6989586621679330953"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceMetadata
+</span><a href="#local-6989586621679330953"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330952"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330951"><span class="annot"><span class="annottext">Maybe SalesforceMetadata
+</span><a href="#local-6989586621679330951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:salesforce:ConnectorMetadata' :: Maybe SalesforceMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Asalesforce%3AConnectorMetadata%27"><span class="hs-identifier hs-var">salesforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceMetadata
+</span><a href="#local-6989586621679330951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The connector metadata specific to Zendesk.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_zendesk"><span class="hs-identifier hs-type">connectorMetadata_zendesk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ZendeskMetadata.html#ZendeskMetadata"><span class="hs-identifier hs-type">ZendeskMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="connectorMetadata_zendesk"><span class="annot"><span class="annottext">connectorMetadata_zendesk :: (Maybe ZendeskMetadata -&gt; f (Maybe ZendeskMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_zendesk"><span class="hs-identifier hs-var hs-var">connectorMetadata_zendesk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe ZendeskMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe ZendeskMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe ZendeskMetadata)
+     (Maybe ZendeskMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330949"><span class="annot"><span class="annottext">Maybe ZendeskMetadata
+zendesk :: Maybe ZendeskMetadata
+$sel:zendesk:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe ZendeskMetadata
+</span><a href="#local-6989586621679330949"><span class="hs-identifier hs-var hs-var">zendesk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskMetadata
+</span><a href="#local-6989586621679330949"><span class="hs-identifier hs-var">zendesk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330948"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330947"><span class="annot"><span class="annottext">Maybe ZendeskMetadata
+</span><a href="#local-6989586621679330947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zendesk:ConnectorMetadata' :: Maybe ZendeskMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Azendesk%3AConnectorMetadata%27"><span class="hs-identifier hs-var">zendesk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskMetadata
+</span><a href="#local-6989586621679330947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The connector metadata specific to Amazon S3.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_s3"><span class="hs-identifier hs-type">connectorMetadata_s3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.S3Metadata.html#S3Metadata"><span class="hs-identifier hs-type">S3Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="connectorMetadata_s3"><span class="annot"><span class="annottext">connectorMetadata_s3 :: (Maybe S3Metadata -&gt; f (Maybe S3Metadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_s3"><span class="hs-identifier hs-var hs-var">connectorMetadata_s3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe S3Metadata)
+-&gt; (ConnectorMetadata -&gt; Maybe S3Metadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe S3Metadata)
+     (Maybe S3Metadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330945"><span class="annot"><span class="annottext">Maybe S3Metadata
+s3 :: Maybe S3Metadata
+$sel:s3:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe S3Metadata
+</span><a href="#local-6989586621679330945"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Metadata
+</span><a href="#local-6989586621679330945"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330944"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330943"><span class="annot"><span class="annottext">Maybe S3Metadata
+</span><a href="#local-6989586621679330943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:ConnectorMetadata' :: Maybe S3Metadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3As3%3AConnectorMetadata%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Metadata
+</span><a href="#local-6989586621679330943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The connector metadata specific to Amazon EventBridge.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_eventBridge"><span class="hs-identifier hs-type">connectorMetadata_eventBridge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.EventBridgeMetadata.html#EventBridgeMetadata"><span class="hs-identifier hs-type">EventBridgeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="connectorMetadata_eventBridge"><span class="annot"><span class="annottext">connectorMetadata_eventBridge :: (Maybe EventBridgeMetadata -&gt; f (Maybe EventBridgeMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_eventBridge"><span class="hs-identifier hs-var hs-var">connectorMetadata_eventBridge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe EventBridgeMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe EventBridgeMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe EventBridgeMetadata)
+     (Maybe EventBridgeMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330941"><span class="annot"><span class="annottext">Maybe EventBridgeMetadata
+eventBridge :: Maybe EventBridgeMetadata
+$sel:eventBridge:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe EventBridgeMetadata
+</span><a href="#local-6989586621679330941"><span class="hs-identifier hs-var hs-var">eventBridge</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventBridgeMetadata
+</span><a href="#local-6989586621679330941"><span class="hs-identifier hs-var">eventBridge</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330940"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330939"><span class="annot"><span class="annottext">Maybe EventBridgeMetadata
+</span><a href="#local-6989586621679330939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBridge:ConnectorMetadata' :: Maybe EventBridgeMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3AeventBridge%3AConnectorMetadata%27"><span class="hs-identifier hs-var">eventBridge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventBridgeMetadata
+</span><a href="#local-6989586621679330939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The connector metadata specific to Trend Micro.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_trendmicro"><span class="hs-identifier hs-type">connectorMetadata_trendmicro</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.TrendmicroMetadata.html#TrendmicroMetadata"><span class="hs-identifier hs-type">TrendmicroMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="connectorMetadata_trendmicro"><span class="annot"><span class="annottext">connectorMetadata_trendmicro :: (Maybe TrendmicroMetadata -&gt; f (Maybe TrendmicroMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_trendmicro"><span class="hs-identifier hs-var hs-var">connectorMetadata_trendmicro</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe TrendmicroMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe TrendmicroMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe TrendmicroMetadata)
+     (Maybe TrendmicroMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330937"><span class="annot"><span class="annottext">Maybe TrendmicroMetadata
+trendmicro :: Maybe TrendmicroMetadata
+$sel:trendmicro:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe TrendmicroMetadata
+</span><a href="#local-6989586621679330937"><span class="hs-identifier hs-var hs-var">trendmicro</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrendmicroMetadata
+</span><a href="#local-6989586621679330937"><span class="hs-identifier hs-var">trendmicro</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330936"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330935"><span class="annot"><span class="annottext">Maybe TrendmicroMetadata
+</span><a href="#local-6989586621679330935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trendmicro:ConnectorMetadata' :: Maybe TrendmicroMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Atrendmicro%3AConnectorMetadata%27"><span class="hs-identifier hs-var">trendmicro</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrendmicroMetadata
+</span><a href="#local-6989586621679330935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The connector metadata specific to Amazon Redshift.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_redshift"><span class="hs-identifier hs-type">connectorMetadata_redshift</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.RedshiftMetadata.html#RedshiftMetadata"><span class="hs-identifier hs-type">RedshiftMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="connectorMetadata_redshift"><span class="annot"><span class="annottext">connectorMetadata_redshift :: (Maybe RedshiftMetadata -&gt; f (Maybe RedshiftMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_redshift"><span class="hs-identifier hs-var hs-var">connectorMetadata_redshift</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe RedshiftMetadata)
+-&gt; (ConnectorMetadata
+    -&gt; Maybe RedshiftMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe RedshiftMetadata)
+     (Maybe RedshiftMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330933"><span class="annot"><span class="annottext">Maybe RedshiftMetadata
+redshift :: Maybe RedshiftMetadata
+$sel:redshift:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe RedshiftMetadata
+</span><a href="#local-6989586621679330933"><span class="hs-identifier hs-var hs-var">redshift</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftMetadata
+</span><a href="#local-6989586621679330933"><span class="hs-identifier hs-var">redshift</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330932"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330931"><span class="annot"><span class="annottext">Maybe RedshiftMetadata
+</span><a href="#local-6989586621679330931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redshift:ConnectorMetadata' :: Maybe RedshiftMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aredshift%3AConnectorMetadata%27"><span class="hs-identifier hs-var">redshift</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftMetadata
+</span><a href="#local-6989586621679330931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The connector metadata specific to Veeva.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_veeva"><span class="hs-identifier hs-type">connectorMetadata_veeva</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.VeevaMetadata.html#VeevaMetadata"><span class="hs-identifier hs-type">VeevaMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="connectorMetadata_veeva"><span class="annot"><span class="annottext">connectorMetadata_veeva :: (Maybe VeevaMetadata -&gt; f (Maybe VeevaMetadata))
+-&gt; ConnectorMetadata -&gt; f ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#connectorMetadata_veeva"><span class="hs-identifier hs-var hs-var">connectorMetadata_veeva</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorMetadata -&gt; Maybe VeevaMetadata)
+-&gt; (ConnectorMetadata -&gt; Maybe VeevaMetadata -&gt; ConnectorMetadata)
+-&gt; Lens
+     ConnectorMetadata
+     ConnectorMetadata
+     (Maybe VeevaMetadata)
+     (Maybe VeevaMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330929"><span class="annot"><span class="annottext">Maybe VeevaMetadata
+veeva :: Maybe VeevaMetadata
+$sel:veeva:ConnectorMetadata' :: ConnectorMetadata -&gt; Maybe VeevaMetadata
+</span><a href="#local-6989586621679330929"><span class="hs-identifier hs-var hs-var">veeva</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VeevaMetadata
+</span><a href="#local-6989586621679330929"><span class="hs-identifier hs-var">veeva</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330928"><span class="annot"><span class="annottext">s :: ConnectorMetadata
+</span><a href="#local-6989586621679330928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-type">ConnectorMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330927"><span class="annot"><span class="annottext">Maybe VeevaMetadata
+</span><a href="#local-6989586621679330927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorMetadata
+</span><a href="#local-6989586621679330928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:veeva:ConnectorMetadata' :: Maybe VeevaMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#%24sel%3Aveeva%3AConnectorMetadata%27"><span class="hs-identifier hs-var">veeva</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VeevaMetadata
+</span><a href="#local-6989586621679330927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330924"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679330922"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectorMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConnectorMetadata)
+-&gt; Value
+-&gt; Parser ConnectorMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConnectorMetadata&quot;</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330919"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">Maybe UpsolverMetadata
+-&gt; Maybe SnowflakeMetadata
+-&gt; Maybe HoneycodeMetadata
+-&gt; Maybe ServiceNowMetadata
+-&gt; Maybe DynatraceMetadata
+-&gt; Maybe MarketoMetadata
+-&gt; Maybe SlackMetadata
+-&gt; Maybe SingularMetadata
+-&gt; Maybe InforNexusMetadata
+-&gt; Maybe AmplitudeMetadata
+-&gt; Maybe CustomerProfilesMetadata
+-&gt; Maybe DatadogMetadata
+-&gt; Maybe GoogleAnalyticsMetadata
+-&gt; Maybe SAPODataMetadata
+-&gt; Maybe SalesforceMetadata
+-&gt; Maybe ZendeskMetadata
+-&gt; Maybe S3Metadata
+-&gt; Maybe EventBridgeMetadata
+-&gt; Maybe TrendmicroMetadata
+-&gt; Maybe RedshiftMetadata
+-&gt; Maybe VeevaMetadata
+-&gt; ConnectorMetadata
+</span><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata%27"><span class="hs-identifier hs-var">ConnectorMetadata'</span></a></span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">(Maybe UpsolverMetadata
+ -&gt; Maybe SnowflakeMetadata
+ -&gt; Maybe HoneycodeMetadata
+ -&gt; Maybe ServiceNowMetadata
+ -&gt; Maybe DynatraceMetadata
+ -&gt; Maybe MarketoMetadata
+ -&gt; Maybe SlackMetadata
+ -&gt; Maybe SingularMetadata
+ -&gt; Maybe InforNexusMetadata
+ -&gt; Maybe AmplitudeMetadata
+ -&gt; Maybe CustomerProfilesMetadata
+ -&gt; Maybe DatadogMetadata
+ -&gt; Maybe GoogleAnalyticsMetadata
+ -&gt; Maybe SAPODataMetadata
+ -&gt; Maybe SalesforceMetadata
+ -&gt; Maybe ZendeskMetadata
+ -&gt; Maybe S3Metadata
+ -&gt; Maybe EventBridgeMetadata
+ -&gt; Maybe TrendmicroMetadata
+ -&gt; Maybe RedshiftMetadata
+ -&gt; Maybe VeevaMetadata
+ -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe UpsolverMetadata)
+-&gt; Parser
+     (Maybe SnowflakeMetadata
+      -&gt; Maybe HoneycodeMetadata
+      -&gt; Maybe ServiceNowMetadata
+      -&gt; Maybe DynatraceMetadata
+      -&gt; Maybe MarketoMetadata
+      -&gt; Maybe SlackMetadata
+      -&gt; Maybe SingularMetadata
+      -&gt; Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpsolverMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Upsolver&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SnowflakeMetadata
+   -&gt; Maybe HoneycodeMetadata
+   -&gt; Maybe ServiceNowMetadata
+   -&gt; Maybe DynatraceMetadata
+   -&gt; Maybe MarketoMetadata
+   -&gt; Maybe SlackMetadata
+   -&gt; Maybe SingularMetadata
+   -&gt; Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe SnowflakeMetadata)
+-&gt; Parser
+     (Maybe HoneycodeMetadata
+      -&gt; Maybe ServiceNowMetadata
+      -&gt; Maybe DynatraceMetadata
+      -&gt; Maybe MarketoMetadata
+      -&gt; Maybe SlackMetadata
+      -&gt; Maybe SingularMetadata
+      -&gt; Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnowflakeMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Snowflake&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HoneycodeMetadata
+   -&gt; Maybe ServiceNowMetadata
+   -&gt; Maybe DynatraceMetadata
+   -&gt; Maybe MarketoMetadata
+   -&gt; Maybe SlackMetadata
+   -&gt; Maybe SingularMetadata
+   -&gt; Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe HoneycodeMetadata)
+-&gt; Parser
+     (Maybe ServiceNowMetadata
+      -&gt; Maybe DynatraceMetadata
+      -&gt; Maybe MarketoMetadata
+      -&gt; Maybe SlackMetadata
+      -&gt; Maybe SingularMetadata
+      -&gt; Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HoneycodeMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Honeycode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServiceNowMetadata
+   -&gt; Maybe DynatraceMetadata
+   -&gt; Maybe MarketoMetadata
+   -&gt; Maybe SlackMetadata
+   -&gt; Maybe SingularMetadata
+   -&gt; Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe ServiceNowMetadata)
+-&gt; Parser
+     (Maybe DynatraceMetadata
+      -&gt; Maybe MarketoMetadata
+      -&gt; Maybe SlackMetadata
+      -&gt; Maybe SingularMetadata
+      -&gt; Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceNowMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNow&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DynatraceMetadata
+   -&gt; Maybe MarketoMetadata
+   -&gt; Maybe SlackMetadata
+   -&gt; Maybe SingularMetadata
+   -&gt; Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe DynatraceMetadata)
+-&gt; Parser
+     (Maybe MarketoMetadata
+      -&gt; Maybe SlackMetadata
+      -&gt; Maybe SingularMetadata
+      -&gt; Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynatraceMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dynatrace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MarketoMetadata
+   -&gt; Maybe SlackMetadata
+   -&gt; Maybe SingularMetadata
+   -&gt; Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe MarketoMetadata)
+-&gt; Parser
+     (Maybe SlackMetadata
+      -&gt; Maybe SingularMetadata
+      -&gt; Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MarketoMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marketo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SlackMetadata
+   -&gt; Maybe SingularMetadata
+   -&gt; Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe SlackMetadata)
+-&gt; Parser
+     (Maybe SingularMetadata
+      -&gt; Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SlackMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Slack&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SingularMetadata
+   -&gt; Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe SingularMetadata)
+-&gt; Parser
+     (Maybe InforNexusMetadata
+      -&gt; Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SingularMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Singular&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InforNexusMetadata
+   -&gt; Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe InforNexusMetadata)
+-&gt; Parser
+     (Maybe AmplitudeMetadata
+      -&gt; Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InforNexusMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InforNexus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AmplitudeMetadata
+   -&gt; Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe AmplitudeMetadata)
+-&gt; Parser
+     (Maybe CustomerProfilesMetadata
+      -&gt; Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AmplitudeMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Amplitude&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomerProfilesMetadata
+   -&gt; Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe CustomerProfilesMetadata)
+-&gt; Parser
+     (Maybe DatadogMetadata
+      -&gt; Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomerProfilesMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerProfiles&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatadogMetadata
+   -&gt; Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe DatadogMetadata)
+-&gt; Parser
+     (Maybe GoogleAnalyticsMetadata
+      -&gt; Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatadogMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Datadog&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GoogleAnalyticsMetadata
+   -&gt; Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe GoogleAnalyticsMetadata)
+-&gt; Parser
+     (Maybe SAPODataMetadata
+      -&gt; Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GoogleAnalyticsMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GoogleAnalytics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SAPODataMetadata
+   -&gt; Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe SAPODataMetadata)
+-&gt; Parser
+     (Maybe SalesforceMetadata
+      -&gt; Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SAPODataMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SAPOData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SalesforceMetadata
+   -&gt; Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe SalesforceMetadata)
+-&gt; Parser
+     (Maybe ZendeskMetadata
+      -&gt; Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SalesforceMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Salesforce&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ZendeskMetadata
+   -&gt; Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe ZendeskMetadata)
+-&gt; Parser
+     (Maybe S3Metadata
+      -&gt; Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ZendeskMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Zendesk&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3Metadata
+   -&gt; Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe S3Metadata)
+-&gt; Parser
+     (Maybe EventBridgeMetadata
+      -&gt; Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Metadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventBridgeMetadata
+   -&gt; Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe EventBridgeMetadata)
+-&gt; Parser
+     (Maybe TrendmicroMetadata
+      -&gt; Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata
+      -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventBridgeMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventBridge&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrendmicroMetadata
+   -&gt; Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata
+   -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe TrendmicroMetadata)
+-&gt; Parser
+     (Maybe RedshiftMetadata
+      -&gt; Maybe VeevaMetadata -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrendmicroMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Trendmicro&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RedshiftMetadata
+   -&gt; Maybe VeevaMetadata -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe RedshiftMetadata)
+-&gt; Parser (Maybe VeevaMetadata -&gt; ConnectorMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Redshift&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VeevaMetadata -&gt; ConnectorMetadata)
+-&gt; Parser (Maybe VeevaMetadata) -&gt; Parser ConnectorMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VeevaMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Veeva&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330913"><span id="local-6989586621679330915"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span></span></span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span></span><span>
+</span><span id="line-288"></span></pre></body></html>

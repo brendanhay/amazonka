@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- for more information.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAutoTuneMaintenanceSchedule' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679303255"><span id="local-6989586621679303256"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoTuneMaintenanceSchedule"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneMaintenanceSchedule%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679303264"><span id="local-6989586621679303265"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoTuneMaintenanceSchedule"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneMaintenanceSchedule%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies timestamp at which Auto-Tune maintenance schedule start.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AstartAt%3AAutoTuneMaintenanceSchedule%27"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; Maybe POSIX
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AstartAt%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var hs-var">startAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Aduration%3AAutoTuneMaintenanceSchedule%27"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; Maybe Duration
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3Aduration%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303247"><span id="local-6989586621679303249"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303256"><span id="local-6989586621679303258"><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
 (AutoTuneMaintenanceSchedule
  -&gt; AutoTuneMaintenanceSchedule -&gt; Bool)
 -&gt; (AutoTuneMaintenanceSchedule
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
 == :: AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
 $c== :: AutoTuneMaintenanceSchedule -&gt; AutoTuneMaintenanceSchedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303238"><span id="local-6989586621679303240"><span id="local-6989586621679303242"><span id="local-6989586621679303244"><span class="annot"><span class="annottext">ReadPrec [AutoTuneMaintenanceSchedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303247"><span id="local-6989586621679303249"><span id="local-6989586621679303251"><span id="local-6989586621679303253"><span class="annot"><span class="annottext">ReadPrec [AutoTuneMaintenanceSchedule]
 ReadPrec AutoTuneMaintenanceSchedule
 Int -&gt; ReadS AutoTuneMaintenanceSchedule
 ReadS [AutoTuneMaintenanceSchedule]
@@ -76,7 +76,7 @@ readList :: ReadS [AutoTuneMaintenanceSchedule]
 $creadList :: ReadS [AutoTuneMaintenanceSchedule]
 readsPrec :: Int -&gt; ReadS AutoTuneMaintenanceSchedule
 $creadsPrec :: Int -&gt; ReadS AutoTuneMaintenanceSchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303231"><span id="local-6989586621679303233"><span id="local-6989586621679303235"><span class="annot"><span class="annottext">Int -&gt; AutoTuneMaintenanceSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303240"><span id="local-6989586621679303242"><span id="local-6989586621679303244"><span class="annot"><span class="annottext">Int -&gt; AutoTuneMaintenanceSchedule -&gt; ShowS
 [AutoTuneMaintenanceSchedule] -&gt; ShowS
 AutoTuneMaintenanceSchedule -&gt; String
 (Int -&gt; AutoTuneMaintenanceSchedule -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303222"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303231"><span class="annot"><span class="annottext">Maybe POSIX
 startAt :: Maybe POSIX
 $sel:startAt:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe POSIX
-</span><a href="#local-6989586621679303222"><span class="hs-identifier hs-var hs-var">startAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679303222"><span class="hs-identifier hs-var">startAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303221"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
-</span><a href="#local-6989586621679303221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303220"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679303220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
-</span><a href="#local-6989586621679303221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startAt:AutoTuneMaintenanceSchedule' :: Maybe POSIX
+</span><a href="#local-6989586621679303231"><span class="hs-identifier hs-var hs-var">startAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679303231"><span class="hs-identifier hs-var">startAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303230"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679303230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303229"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679303229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679303230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startAt:AutoTuneMaintenanceSchedule' :: Maybe POSIX
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AstartAt%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">startAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679303220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679303229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AutoTuneMaintenanceSchedule -&gt; f AutoTuneMaintenanceSchedule)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -202,16 +202,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303215"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303224"><span class="annot"><span class="annottext">Maybe Text
 cronExpressionForRecurrence :: Maybe Text
 $sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679303215"><span class="hs-identifier hs-var hs-var">cronExpressionForRecurrence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303215"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303214"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
-</span><a href="#local-6989586621679303214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303213"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
-</span><a href="#local-6989586621679303214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: Maybe Text
+</span><a href="#local-6989586621679303224"><span class="hs-identifier hs-var hs-var">cronExpressionForRecurrence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303224"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303223"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679303223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679303223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3AcronExpressionForRecurrence%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Specifies maintenance schedule duration: duration value and duration</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- unit. See the</span><span>
@@ -229,19 +229,19 @@ $sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: AutoTuneMainten
      (Maybe Duration)
      (Maybe Duration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303211"><span class="annot"><span class="annottext">Maybe Duration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303220"><span class="annot"><span class="annottext">Maybe Duration
 duration :: Maybe Duration
 $sel:duration:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Duration
-</span><a href="#local-6989586621679303211"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
-</span><a href="#local-6989586621679303211"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303210"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
-</span><a href="#local-6989586621679303210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303209"><span class="annot"><span class="annottext">Maybe Duration
-</span><a href="#local-6989586621679303209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
-</span><a href="#local-6989586621679303210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:AutoTuneMaintenanceSchedule' :: Maybe Duration
+</span><a href="#local-6989586621679303220"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679303220"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303219"><span class="annot"><span class="annottext">s :: AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679303219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303218"><span class="annot"><span class="annottext">Maybe Duration
+</span><a href="#local-6989586621679303218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneMaintenanceSchedule
+</span><a href="#local-6989586621679303219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:AutoTuneMaintenanceSchedule' :: Maybe Duration
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#%24sel%3Aduration%3AAutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Duration
-</span><a href="#local-6989586621679303209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303206"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679303204"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoTuneMaintenanceSchedule
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303215"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679303213"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoTuneMaintenanceSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoTuneMaintenanceSchedule)
@@ -251,8 +251,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoTuneMaintenanceSchedule&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303201"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303210"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-var">AutoTuneMaintenanceSchedule'</span></a></span><span>
@@ -263,7 +263,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679303210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,7 +273,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Duration -&gt; AutoTuneMaintenanceSchedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679303210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CronExpressionForRecurrence&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,19 +281,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Duration) -&gt; Parser AutoTuneMaintenanceSchedule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Duration)
+</span><a href="#local-6989586621679303210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Duration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303195"><span id="local-6989586621679303197"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303204"><span id="local-6989586621679303206"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303184"><span id="local-6989586621679303186"><span id="local-6989586621679303188"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679303182"><span class="annot"><span class="annottext">toJSON :: AutoTuneMaintenanceSchedule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303178"><span id="local-6989586621679303179"><span id="local-6989586621679303180"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303193"><span id="local-6989586621679303195"><span id="local-6989586621679303197"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679303191"><span class="annot"><span class="annottext">toJSON :: AutoTuneMaintenanceSchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule%27"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303187"><span id="local-6989586621679303188"><span id="local-6989586621679303189"><span class="annot"><span class="annottext">Maybe Text
 Maybe POSIX
 Maybe Duration
 duration :: Maybe Duration
@@ -302,7 +302,7 @@ startAt :: Maybe POSIX
 $sel:duration:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Duration
 $sel:cronExpressionForRecurrence:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe Text
 $sel:startAt:AutoTuneMaintenanceSchedule' :: AutoTuneMaintenanceSchedule -&gt; Maybe POSIX
-</span><a href="#local-6989586621679303178"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303187"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,7 +314,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679303180"><span class="hs-identifier hs-var">startAt</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303189"><span class="hs-identifier hs-var">startAt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CronExpressionForRecurrence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -322,14 +322,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303179"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303188"><span class="hs-identifier hs-var">cronExpressionForRecurrence</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Duration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Duration -&gt; Pair) -&gt; Maybe Duration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Duration
-</span><a href="#local-6989586621679303178"><span class="hs-identifier hs-var">duration</span></a></span><span>
+</span><a href="#local-6989586621679303187"><span class="hs-identifier hs-var">duration</span></a></span><span>
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span></pre></body></html>

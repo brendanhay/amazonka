@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679790064"><span id="local-6989586621679790065"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MessageFormat"><span class="annot"><a href="Network.AWS.IoT.Types.MessageFormat.html#MessageFormat"><span class="hs-identifier hs-var">MessageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageFormat%27"><span class="annot"><a href="Network.AWS.IoT.Types.MessageFormat.html#MessageFormat%27"><span class="hs-identifier hs-var">MessageFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679790073"><span id="local-6989586621679790074"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MessageFormat"><span class="annot"><a href="Network.AWS.IoT.Types.MessageFormat.html#MessageFormat"><span class="hs-identifier hs-var">MessageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageFormat%27"><span class="annot"><a href="Network.AWS.IoT.Types.MessageFormat.html#MessageFormat%27"><span class="hs-identifier hs-var">MessageFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMessageFormat"><span class="annot"><span class="annottext">MessageFormat -&gt; Text
 </span><a href="Network.AWS.IoT.Types.MessageFormat.html#fromMessageFormat"><span class="hs-identifier hs-var hs-var">fromMessageFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790056"><span id="local-6989586621679790058"><span id="local-6989586621679790060"><span class="annot"><span class="annottext">Int -&gt; MessageFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790065"><span id="local-6989586621679790067"><span id="local-6989586621679790069"><span class="annot"><span class="annottext">Int -&gt; MessageFormat -&gt; ShowS
 [MessageFormat] -&gt; ShowS
 MessageFormat -&gt; String
 (Int -&gt; MessageFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: MessageFormat -&gt; String
 showsPrec :: Int -&gt; MessageFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; MessageFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679790047"><span id="local-6989586621679790049"><span id="local-6989586621679790051"><span id="local-6989586621679790053"><span class="annot"><span class="annottext">ReadPrec [MessageFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679790056"><span id="local-6989586621679790058"><span id="local-6989586621679790060"><span id="local-6989586621679790062"><span class="annot"><span class="annottext">ReadPrec [MessageFormat]
 ReadPrec MessageFormat
 Int -&gt; ReadS MessageFormat
 ReadS [MessageFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [MessageFormat]
 readsPrec :: Int -&gt; ReadS MessageFormat
 $creadsPrec :: Int -&gt; ReadS MessageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679790042"><span id="local-6989586621679790044"><span class="annot"><span class="annottext">MessageFormat -&gt; MessageFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679790051"><span id="local-6989586621679790053"><span class="annot"><span class="annottext">MessageFormat -&gt; MessageFormat -&gt; Bool
 (MessageFormat -&gt; MessageFormat -&gt; Bool)
 -&gt; (MessageFormat -&gt; MessageFormat -&gt; Bool) -&gt; Eq MessageFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: MessageFormat -&gt; MessageFormat -&gt; Bool
 == :: MessageFormat -&gt; MessageFormat -&gt; Bool
 $c== :: MessageFormat -&gt; MessageFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679790026"><span id="local-6989586621679790028"><span id="local-6989586621679790030"><span id="local-6989586621679790032"><span id="local-6989586621679790034"><span id="local-6989586621679790036"><span id="local-6989586621679790038"><span class="annot"><span class="annottext">Eq MessageFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679790035"><span id="local-6989586621679790037"><span id="local-6989586621679790039"><span id="local-6989586621679790041"><span id="local-6989586621679790043"><span id="local-6989586621679790045"><span id="local-6989586621679790047"><span class="annot"><span class="annottext">Eq MessageFormat
 Eq MessageFormat
 -&gt; (MessageFormat -&gt; MessageFormat -&gt; Ordering)
 -&gt; (MessageFormat -&gt; MessageFormat -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. MessageFormat -&gt; Rep MessageFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790018"><span id="local-6989586621679790020"><span class="annot"><span class="annottext">Int -&gt; MessageFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790027"><span id="local-6989586621679790029"><span class="annot"><span class="annottext">Int -&gt; MessageFormat -&gt; Int
 MessageFormat -&gt; Int
 (Int -&gt; MessageFormat -&gt; Int)
 -&gt; (MessageFormat -&gt; Int) -&gt; Hashable MessageFormat
@@ -142,49 +142,49 @@ $chash :: MessageFormat -&gt; Int
 hashWithSalt :: Int -&gt; MessageFormat -&gt; Int
 $chashWithSalt :: Int -&gt; MessageFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679790015"><span class="annot"><span class="annottext">MessageFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679790024"><span class="annot"><span class="annottext">MessageFormat -&gt; ()
 (MessageFormat -&gt; ()) -&gt; NFData MessageFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MessageFormat -&gt; ()
 $crnf :: MessageFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679790012"><span class="annot"><span class="annottext">Text -&gt; Either String MessageFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679790021"><span class="annot"><span class="annottext">Text -&gt; Either String MessageFormat
 (Text -&gt; Either String MessageFormat) -&gt; FromText MessageFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MessageFormat
 $cfromText :: Text -&gt; Either String MessageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679790009"><span class="annot"><span class="annottext">MessageFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679790018"><span class="annot"><span class="annottext">MessageFormat -&gt; Text
 (MessageFormat -&gt; Text) -&gt; ToText MessageFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MessageFormat -&gt; Text
 $ctoText :: MessageFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679790006"><span class="annot"><span class="annottext">MessageFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679790015"><span class="annot"><span class="annottext">MessageFormat -&gt; ByteString
 (MessageFormat -&gt; ByteString) -&gt; ToByteString MessageFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MessageFormat -&gt; ByteString
 $ctoBS :: MessageFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790003"><span class="annot"><span class="annottext">MessageFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790012"><span class="annot"><span class="annottext">MessageFormat -&gt; ByteStringBuilder
 (MessageFormat -&gt; ByteStringBuilder) -&gt; ToLog MessageFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MessageFormat -&gt; ByteStringBuilder
 $cbuild :: MessageFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790000"><span class="annot"><span class="annottext">HeaderName -&gt; MessageFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790009"><span class="annot"><span class="annottext">HeaderName -&gt; MessageFormat -&gt; [Header]
 (HeaderName -&gt; MessageFormat -&gt; [Header]) -&gt; ToHeader MessageFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MessageFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MessageFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679789997"><span class="annot"><span class="annottext">MessageFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790006"><span class="annot"><span class="annottext">MessageFormat -&gt; QueryString
 (MessageFormat -&gt; QueryString) -&gt; ToQuery MessageFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MessageFormat -&gt; QueryString
 $ctoQuery :: MessageFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679789992"><span id="local-6989586621679789994"><span class="annot"><span class="annottext">Value -&gt; Parser [MessageFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790001"><span id="local-6989586621679790003"><span class="annot"><span class="annottext">Value -&gt; Parser [MessageFormat]
 Value -&gt; Parser MessageFormat
 (Value -&gt; Parser MessageFormat)
 -&gt; (Value -&gt; Parser [MessageFormat]) -&gt; FromJSON MessageFormat
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [MessageFormat]
 parseJSON :: Value -&gt; Parser MessageFormat
 $cparseJSON :: Value -&gt; Parser MessageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789987"><span id="local-6989586621679789989"><span class="annot"><span class="annottext">FromJSONKeyFunction [MessageFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789996"><span id="local-6989586621679789998"><span class="annot"><span class="annottext">FromJSONKeyFunction [MessageFormat]
 FromJSONKeyFunction MessageFormat
 FromJSONKeyFunction MessageFormat
 -&gt; FromJSONKeyFunction [MessageFormat] -&gt; FromJSONKey MessageFormat
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MessageFormat]
 fromJSONKey :: FromJSONKeyFunction MessageFormat
 $cfromJSONKey :: FromJSONKeyFunction MessageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789978"><span id="local-6989586621679789980"><span id="local-6989586621679789982"><span id="local-6989586621679789984"><span class="annot"><span class="annottext">[MessageFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789987"><span id="local-6989586621679789989"><span id="local-6989586621679789991"><span id="local-6989586621679789993"><span class="annot"><span class="annottext">[MessageFormat] -&gt; Encoding
 [MessageFormat] -&gt; Value
 MessageFormat -&gt; Encoding
 MessageFormat -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: MessageFormat -&gt; Encoding
 toJSON :: MessageFormat -&gt; Value
 $ctoJSON :: MessageFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789973"><span id="local-6989586621679789975"><span class="annot"><span class="annottext">ToJSONKeyFunction [MessageFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789982"><span id="local-6989586621679789984"><span class="annot"><span class="annottext">ToJSONKeyFunction [MessageFormat]
 ToJSONKeyFunction MessageFormat
 ToJSONKeyFunction MessageFormat
 -&gt; ToJSONKeyFunction [MessageFormat] -&gt; ToJSONKey MessageFormat
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MessageFormat]
 toJSONKey :: ToJSONKeyFunction MessageFormat
 $ctoJSONKey :: ToJSONKeyFunction MessageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789970"><span class="annot"><span class="annottext">[Node] -&gt; Either String MessageFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789979"><span class="annot"><span class="annottext">[Node] -&gt; Either String MessageFormat
 ([Node] -&gt; Either String MessageFormat) -&gt; FromXML MessageFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MessageFormat
 $cparseXML :: [Node] -&gt; Either String MessageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789967"><span class="annot"><span class="annottext">MessageFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789976"><span class="annot"><span class="annottext">MessageFormat -&gt; XML
 (MessageFormat -&gt; XML) -&gt; ToXML MessageFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MessageFormat -&gt; XML

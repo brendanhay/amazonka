@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- deployed for the specified broker.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLogsSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679224550"><span id="local-6989586621679224551"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogsSummary"><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-var">LogsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogsSummary%27"><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-var">LogsSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679224559"><span id="local-6989586621679224560"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogsSummary"><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-var">LogsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogsSummary%27"><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-var">LogsSummary'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of information about logs pending to be deployed for the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specified broker.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Apending%3ALogsSummary%27"><span class="annot"><span class="annottext">LogsSummary -&gt; Maybe PendingLogs
@@ -48,7 +48,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Ageneral%3ALogsSummary%27"><span class="annot"><span class="annottext">LogsSummary -&gt; Bool
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3Ageneral%3ALogsSummary%27"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224540"><span id="local-6989586621679224542"><span class="annot"><span class="annottext">LogsSummary -&gt; LogsSummary -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224549"><span id="local-6989586621679224551"><span class="annot"><span class="annottext">LogsSummary -&gt; LogsSummary -&gt; Bool
 (LogsSummary -&gt; LogsSummary -&gt; Bool)
 -&gt; (LogsSummary -&gt; LogsSummary -&gt; Bool) -&gt; Eq LogsSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogsSummary -&gt; LogsSummary -&gt; Bool
 == :: LogsSummary -&gt; LogsSummary -&gt; Bool
 $c== :: LogsSummary -&gt; LogsSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224531"><span id="local-6989586621679224533"><span id="local-6989586621679224535"><span id="local-6989586621679224537"><span class="annot"><span class="annottext">ReadPrec [LogsSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224540"><span id="local-6989586621679224542"><span id="local-6989586621679224544"><span id="local-6989586621679224546"><span class="annot"><span class="annottext">ReadPrec [LogsSummary]
 ReadPrec LogsSummary
 Int -&gt; ReadS LogsSummary
 ReadS [LogsSummary]
@@ -76,7 +76,7 @@ readList :: ReadS [LogsSummary]
 $creadList :: ReadS [LogsSummary]
 readsPrec :: Int -&gt; ReadS LogsSummary
 $creadsPrec :: Int -&gt; ReadS LogsSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224524"><span id="local-6989586621679224526"><span id="local-6989586621679224528"><span class="annot"><span class="annottext">Int -&gt; LogsSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224533"><span id="local-6989586621679224535"><span id="local-6989586621679224537"><span class="annot"><span class="annottext">Int -&gt; LogsSummary -&gt; ShowS
 [LogsSummary] -&gt; ShowS
 LogsSummary -&gt; String
 (Int -&gt; LogsSummary -&gt; ShowS)
@@ -129,9 +129,9 @@ $cfrom :: forall x. LogsSummary -&gt; Rep LogsSummary x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span>
 </span><span id="line-74"></span><span id="newLogsSummary"><span class="annot"><span class="annottext">newLogsSummary :: Text -&gt; Bool -&gt; LogsSummary
-</span><a href="Network.AWS.MQ.Types.LogsSummary.html#newLogsSummary"><span class="hs-identifier hs-var hs-var">newLogsSummary</span></a></span></span><span> </span><span id="local-6989586621679224518"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224518"><span class="hs-identifier hs-var">pGeneralLogGroup_</span></a></span></span><span> </span><span id="local-6989586621679224517"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679224517"><span class="hs-identifier hs-var">pGeneral_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.Types.LogsSummary.html#newLogsSummary"><span class="hs-identifier hs-var hs-var">newLogsSummary</span></a></span></span><span> </span><span id="local-6989586621679224527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224527"><span class="hs-identifier hs-var">pGeneralLogGroup_</span></a></span></span><span> </span><span id="local-6989586621679224526"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224526"><span class="hs-identifier hs-var">pGeneral_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">LogsSummary' :: Maybe PendingLogs
 -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span>
@@ -149,10 +149,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:generalLogGroup:LogsSummary' :: Text
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3AgeneralLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var">generalLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224518"><span class="hs-identifier hs-var">pGeneralLogGroup_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224527"><span class="hs-identifier hs-var">pGeneralLogGroup_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:general:LogsSummary' :: Bool
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3Ageneral%3ALogsSummary%27"><span class="hs-identifier hs-var">general</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679224517"><span class="hs-identifier hs-var">pGeneral_</span></a></span><span>
+</span><a href="#local-6989586621679224526"><span class="hs-identifier hs-var">pGeneral_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The list of information about logs pending to be deployed for the</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; Lens
      LogsSummary LogsSummary (Maybe PendingLogs) (Maybe PendingLogs)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224513"><span class="annot"><span class="annottext">Maybe PendingLogs
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224522"><span class="annot"><span class="annottext">Maybe PendingLogs
 pending :: Maybe PendingLogs
 $sel:pending:LogsSummary' :: LogsSummary -&gt; Maybe PendingLogs
-</span><a href="#local-6989586621679224513"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PendingLogs
-</span><a href="#local-6989586621679224513"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224512"><span class="annot"><span class="annottext">s :: LogsSummary
-</span><a href="#local-6989586621679224512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224511"><span class="annot"><span class="annottext">Maybe PendingLogs
-</span><a href="#local-6989586621679224511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
-</span><a href="#local-6989586621679224512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:LogsSummary' :: Maybe PendingLogs
+</span><a href="#local-6989586621679224522"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PendingLogs
+</span><a href="#local-6989586621679224522"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224521"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224520"><span class="annot"><span class="annottext">Maybe PendingLogs
+</span><a href="#local-6989586621679224520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:LogsSummary' :: Maybe PendingLogs
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3Apending%3ALogsSummary%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PendingLogs
-</span><a href="#local-6989586621679224511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Enables audit logging. Every user management action made using JMX or</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- the ActiveMQ Web Console is logged.</span><span>
@@ -184,16 +184,16 @@ $sel:pending:LogsSummary' :: LogsSummary -&gt; Maybe PendingLogs
 -&gt; (LogsSummary -&gt; Maybe Bool -&gt; LogsSummary)
 -&gt; Lens LogsSummary LogsSummary (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224509"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224518"><span class="annot"><span class="annottext">Maybe Bool
 audit :: Maybe Bool
 $sel:audit:LogsSummary' :: LogsSummary -&gt; Maybe Bool
-</span><a href="#local-6989586621679224509"><span class="hs-identifier hs-var hs-var">audit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224509"><span class="hs-identifier hs-var">audit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224508"><span class="annot"><span class="annottext">s :: LogsSummary
-</span><a href="#local-6989586621679224508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224507"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
-</span><a href="#local-6989586621679224508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audit:LogsSummary' :: Maybe Bool
+</span><a href="#local-6989586621679224518"><span class="hs-identifier hs-var hs-var">audit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224518"><span class="hs-identifier hs-var">audit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224517"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224516"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audit:LogsSummary' :: Maybe Bool
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3Aaudit%3ALogsSummary%27"><span class="hs-identifier hs-var">audit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The location of the CloudWatch Logs log group where audit logs are sent.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#logsSummary_auditLogGroup"><span class="hs-identifier hs-type">logsSummary_auditLogGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -202,16 +202,16 @@ $sel:audit:LogsSummary' :: LogsSummary -&gt; Maybe Bool
 -&gt; (LogsSummary -&gt; Maybe Text -&gt; LogsSummary)
 -&gt; Lens LogsSummary LogsSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224505"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224514"><span class="annot"><span class="annottext">Maybe Text
 auditLogGroup :: Maybe Text
 $sel:auditLogGroup:LogsSummary' :: LogsSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679224505"><span class="hs-identifier hs-var hs-var">auditLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224505"><span class="hs-identifier hs-var">auditLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224504"><span class="annot"><span class="annottext">s :: LogsSummary
-</span><a href="#local-6989586621679224504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224503"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
-</span><a href="#local-6989586621679224504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditLogGroup:LogsSummary' :: Maybe Text
+</span><a href="#local-6989586621679224514"><span class="hs-identifier hs-var hs-var">auditLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224514"><span class="hs-identifier hs-var">auditLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224513"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditLogGroup:LogsSummary' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3AauditLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var">auditLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The location of the CloudWatch Logs log group where general logs are</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- sent.</span><span>
@@ -221,16 +221,16 @@ $sel:auditLogGroup:LogsSummary' :: LogsSummary -&gt; Maybe Text
 -&gt; (LogsSummary -&gt; Text -&gt; LogsSummary)
 -&gt; Lens LogsSummary LogsSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224501"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224510"><span class="annot"><span class="annottext">Text
 generalLogGroup :: Text
 $sel:generalLogGroup:LogsSummary' :: LogsSummary -&gt; Text
-</span><a href="#local-6989586621679224501"><span class="hs-identifier hs-var hs-var">generalLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224501"><span class="hs-identifier hs-var">generalLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224500"><span class="annot"><span class="annottext">s :: LogsSummary
-</span><a href="#local-6989586621679224500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224499"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
-</span><a href="#local-6989586621679224500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generalLogGroup:LogsSummary' :: Text
+</span><a href="#local-6989586621679224510"><span class="hs-identifier hs-var hs-var">generalLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224510"><span class="hs-identifier hs-var">generalLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224509"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224508"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generalLogGroup:LogsSummary' :: Text
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3AgeneralLogGroup%3ALogsSummary%27"><span class="hs-identifier hs-var">generalLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | Enables general logging.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#logsSummary_general"><span class="hs-identifier hs-type">logsSummary_general</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
@@ -239,19 +239,19 @@ $sel:generalLogGroup:LogsSummary' :: LogsSummary -&gt; Text
 -&gt; (LogsSummary -&gt; Bool -&gt; LogsSummary)
 -&gt; Lens LogsSummary LogsSummary Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224497"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224506"><span class="annot"><span class="annottext">Bool
 general :: Bool
 $sel:general:LogsSummary' :: LogsSummary -&gt; Bool
-</span><a href="#local-6989586621679224497"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679224497"><span class="hs-identifier hs-var">general</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224496"><span class="annot"><span class="annottext">s :: LogsSummary
-</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224495"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679224495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
-</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:general:LogsSummary' :: Bool
+</span><a href="#local-6989586621679224506"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224506"><span class="hs-identifier hs-var">general</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224505"><span class="annot"><span class="annottext">s :: LogsSummary
+</span><a href="#local-6989586621679224505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-type">LogsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224504"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679224504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsSummary
+</span><a href="#local-6989586621679224505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:general:LogsSummary' :: Bool
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#%24sel%3Ageneral%3ALogsSummary%27"><span class="hs-identifier hs-var">general</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679224495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224492"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679224490"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogsSummary
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224501"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679224499"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogsSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LogsSummary) -&gt; Value -&gt; Parser LogsSummary
@@ -259,8 +259,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LogsSummary&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224487"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224496"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe PendingLogs
 -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary
 </span><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary%27"><span class="hs-identifier hs-var">LogsSummary'</span></a></span><span>
@@ -270,7 +270,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PendingLogs)
+</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PendingLogs)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pending&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Text -&gt; Bool -&gt; LogsSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audit&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,7 +287,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Bool -&gt; LogsSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;auditLogGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,20 +295,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Bool -&gt; LogsSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;generalLogGroup&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; LogsSummary) -&gt; Parser Bool -&gt; Parser LogsSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679224496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;general&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224480"><span id="local-6989586621679224482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224489"><span id="local-6989586621679224491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.LogsSummary.html#LogsSummary"><span class="hs-identifier hs-type">LogsSummary</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

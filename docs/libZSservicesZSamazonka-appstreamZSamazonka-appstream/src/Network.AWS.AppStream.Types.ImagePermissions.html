@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the permissions for an image.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newImagePermissions' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679287166"><span id="local-6989586621679287167"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImagePermissions"><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-var">ImagePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImagePermissions%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-var">ImagePermissions'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679287175"><span id="local-6989586621679287176"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImagePermissions"><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-var">ImagePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImagePermissions%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-var">ImagePermissions'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the image can be used for a fleet.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AallowFleet%3AImagePermissions%27"><span class="annot"><span class="annottext">ImagePermissions -&gt; Maybe Bool
 </span><a href="Network.AWS.AppStream.Types.ImagePermissions.html#%24sel%3AallowFleet%3AImagePermissions%27"><span class="hs-identifier hs-var hs-var">allowFleet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AallowImageBuilder%3AImagePermissions%27"><span class="annot"><span class="annottext">ImagePermissions -&gt; Maybe Bool
 </span><a href="Network.AWS.AppStream.Types.ImagePermissions.html#%24sel%3AallowImageBuilder%3AImagePermissions%27"><span class="hs-identifier hs-var hs-var">allowImageBuilder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287159"><span id="local-6989586621679287161"><span class="annot"><span class="annottext">ImagePermissions -&gt; ImagePermissions -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287168"><span id="local-6989586621679287170"><span class="annot"><span class="annottext">ImagePermissions -&gt; ImagePermissions -&gt; Bool
 (ImagePermissions -&gt; ImagePermissions -&gt; Bool)
 -&gt; (ImagePermissions -&gt; ImagePermissions -&gt; Bool)
 -&gt; Eq ImagePermissions
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImagePermissions -&gt; ImagePermissions -&gt; Bool
 == :: ImagePermissions -&gt; ImagePermissions -&gt; Bool
 $c== :: ImagePermissions -&gt; ImagePermissions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287150"><span id="local-6989586621679287152"><span id="local-6989586621679287154"><span id="local-6989586621679287156"><span class="annot"><span class="annottext">ReadPrec [ImagePermissions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287159"><span id="local-6989586621679287161"><span id="local-6989586621679287163"><span id="local-6989586621679287165"><span class="annot"><span class="annottext">ReadPrec [ImagePermissions]
 ReadPrec ImagePermissions
 Int -&gt; ReadS ImagePermissions
 ReadS [ImagePermissions]
@@ -63,7 +63,7 @@ readList :: ReadS [ImagePermissions]
 $creadList :: ReadS [ImagePermissions]
 readsPrec :: Int -&gt; ReadS ImagePermissions
 $creadsPrec :: Int -&gt; ReadS ImagePermissions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287143"><span id="local-6989586621679287145"><span id="local-6989586621679287147"><span class="annot"><span class="annottext">Int -&gt; ImagePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287152"><span id="local-6989586621679287154"><span id="local-6989586621679287156"><span class="annot"><span class="annottext">Int -&gt; ImagePermissions -&gt; ShowS
 [ImagePermissions] -&gt; ShowS
 ImagePermissions -&gt; String
 (Int -&gt; ImagePermissions -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (ImagePermissions -&gt; Maybe Bool -&gt; ImagePermissions)
 -&gt; Lens ImagePermissions ImagePermissions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287134"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287143"><span class="annot"><span class="annottext">Maybe Bool
 allowFleet :: Maybe Bool
 $sel:allowFleet:ImagePermissions' :: ImagePermissions -&gt; Maybe Bool
-</span><a href="#local-6989586621679287134"><span class="hs-identifier hs-var hs-var">allowFleet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287134"><span class="hs-identifier hs-var">allowFleet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287133"><span class="annot"><span class="annottext">s :: ImagePermissions
-</span><a href="#local-6989586621679287133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287132"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
-</span><a href="#local-6989586621679287133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowFleet:ImagePermissions' :: Maybe Bool
+</span><a href="#local-6989586621679287143"><span class="hs-identifier hs-var hs-var">allowFleet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679287143"><span class="hs-identifier hs-var">allowFleet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287142"><span class="annot"><span class="annottext">s :: ImagePermissions
+</span><a href="#local-6989586621679287142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287141"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679287141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
+</span><a href="#local-6989586621679287142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowFleet:ImagePermissions' :: Maybe Bool
 </span><a href="Network.AWS.AppStream.Types.ImagePermissions.html#%24sel%3AallowFleet%3AImagePermissions%27"><span class="hs-identifier hs-var">allowFleet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | Indicates whether the image can be used for an image builder.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#imagePermissions_allowImageBuilder"><span class="hs-identifier hs-type">imagePermissions_allowImageBuilder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -143,19 +143,19 @@ $sel:allowFleet:ImagePermissions' :: ImagePermissions -&gt; Maybe Bool
 -&gt; (ImagePermissions -&gt; Maybe Bool -&gt; ImagePermissions)
 -&gt; Lens ImagePermissions ImagePermissions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287130"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287139"><span class="annot"><span class="annottext">Maybe Bool
 allowImageBuilder :: Maybe Bool
 $sel:allowImageBuilder:ImagePermissions' :: ImagePermissions -&gt; Maybe Bool
-</span><a href="#local-6989586621679287130"><span class="hs-identifier hs-var hs-var">allowImageBuilder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287130"><span class="hs-identifier hs-var">allowImageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287129"><span class="annot"><span class="annottext">s :: ImagePermissions
-</span><a href="#local-6989586621679287129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287128"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
-</span><a href="#local-6989586621679287129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowImageBuilder:ImagePermissions' :: Maybe Bool
+</span><a href="#local-6989586621679287139"><span class="hs-identifier hs-var hs-var">allowImageBuilder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679287139"><span class="hs-identifier hs-var">allowImageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287138"><span class="annot"><span class="annottext">s :: ImagePermissions
+</span><a href="#local-6989586621679287138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287137"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679287137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
+</span><a href="#local-6989586621679287138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowImageBuilder:ImagePermissions' :: Maybe Bool
 </span><a href="Network.AWS.AppStream.Types.ImagePermissions.html#%24sel%3AallowImageBuilder%3AImagePermissions%27"><span class="hs-identifier hs-var">allowImageBuilder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287125"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679287123"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImagePermissions
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287134"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679287132"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImagePermissions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImagePermissions)
@@ -165,15 +165,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImagePermissions&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287120"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287129"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287129"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; ImagePermissions
 </span><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-var">ImagePermissions'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Bool -&gt; ImagePermissions)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; ImagePermissions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679287129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowFleet&quot;</span></span><span class="hs-special">)</span><span>
@@ -181,24 +181,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser ImagePermissions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679287129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowImageBuilder&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287114"><span id="local-6989586621679287116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287123"><span id="local-6989586621679287125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287103"><span id="local-6989586621679287105"><span id="local-6989586621679287107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679287101"><span class="annot"><span class="annottext">toJSON :: ImagePermissions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287098"><span id="local-6989586621679287099"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287112"><span id="local-6989586621679287114"><span id="local-6989586621679287116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679287110"><span class="annot"><span class="annottext">toJSON :: ImagePermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions%27"><span class="hs-identifier hs-type">ImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287107"><span id="local-6989586621679287108"><span class="annot"><span class="annottext">Maybe Bool
 allowImageBuilder :: Maybe Bool
 allowFleet :: Maybe Bool
 $sel:allowImageBuilder:ImagePermissions' :: ImagePermissions -&gt; Maybe Bool
 $sel:allowFleet:ImagePermissions' :: ImagePermissions -&gt; Maybe Bool
-</span><a href="#local-6989586621679287098"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679287107"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -210,7 +210,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287099"><span class="hs-identifier hs-var">allowFleet</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287108"><span class="hs-identifier hs-var">allowFleet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowImageBuilder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -218,7 +218,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-84"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679287098"><span class="hs-identifier hs-var">allowImageBuilder</span></a></span><span>
+</span><a href="#local-6989586621679287107"><span class="hs-identifier hs-var">allowImageBuilder</span></a></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

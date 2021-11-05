@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- the action, such as the Lambda integration model.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newActionTypeExecutor' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679279047"><span id="local-6989586621679279048"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypeExecutor"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-var">ActionTypeExecutor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypeExecutor%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-var">ActionTypeExecutor'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679279056"><span id="local-6989586621679279057"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypeExecutor"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-var">ActionTypeExecutor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypeExecutor%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-var">ActionTypeExecutor'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timeout in seconds for the job. An action execution can have</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- multiple jobs. This is the timeout for a single job, not the entire</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- action execution.</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Atype%27%3AActionTypeExecutor%27"><span class="annot"><span class="annottext">ActionTypeExecutor -&gt; ExecutorType
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#%24sel%3Atype%27%3AActionTypeExecutor%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorType.html#ExecutorType"><span class="hs-identifier hs-type">ExecutorType</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279038"><span id="local-6989586621679279040"><span class="annot"><span class="annottext">ActionTypeExecutor -&gt; ActionTypeExecutor -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279047"><span id="local-6989586621679279049"><span class="annot"><span class="annottext">ActionTypeExecutor -&gt; ActionTypeExecutor -&gt; Bool
 (ActionTypeExecutor -&gt; ActionTypeExecutor -&gt; Bool)
 -&gt; (ActionTypeExecutor -&gt; ActionTypeExecutor -&gt; Bool)
 -&gt; Eq ActionTypeExecutor
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionTypeExecutor -&gt; ActionTypeExecutor -&gt; Bool
 == :: ActionTypeExecutor -&gt; ActionTypeExecutor -&gt; Bool
 $c== :: ActionTypeExecutor -&gt; ActionTypeExecutor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279029"><span id="local-6989586621679279031"><span id="local-6989586621679279033"><span id="local-6989586621679279035"><span class="annot"><span class="annottext">ReadPrec [ActionTypeExecutor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279038"><span id="local-6989586621679279040"><span id="local-6989586621679279042"><span id="local-6989586621679279044"><span class="annot"><span class="annottext">ReadPrec [ActionTypeExecutor]
 ReadPrec ActionTypeExecutor
 Int -&gt; ReadS ActionTypeExecutor
 ReadS [ActionTypeExecutor]
@@ -87,7 +87,7 @@ readList :: ReadS [ActionTypeExecutor]
 $creadList :: ReadS [ActionTypeExecutor]
 readsPrec :: Int -&gt; ReadS ActionTypeExecutor
 $creadsPrec :: Int -&gt; ReadS ActionTypeExecutor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279022"><span id="local-6989586621679279024"><span id="local-6989586621679279026"><span class="annot"><span class="annottext">Int -&gt; ActionTypeExecutor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279031"><span id="local-6989586621679279033"><span id="local-6989586621679279035"><span class="annot"><span class="annottext">Int -&gt; ActionTypeExecutor -&gt; ShowS
 [ActionTypeExecutor] -&gt; ShowS
 ActionTypeExecutor -&gt; String
 (Int -&gt; ActionTypeExecutor -&gt; ShowS)
@@ -148,9 +148,9 @@ $cfrom :: forall x. ActionTypeExecutor -&gt; Rep ActionTypeExecutor x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutorType.html#ExecutorType"><span class="hs-identifier hs-type">ExecutorType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span>
 </span><span id="line-93"></span><span id="newActionTypeExecutor"><span class="annot"><span class="annottext">newActionTypeExecutor :: ExecutorConfiguration -&gt; ExecutorType -&gt; ActionTypeExecutor
-</span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#newActionTypeExecutor"><span class="hs-identifier hs-var hs-var">newActionTypeExecutor</span></a></span></span><span> </span><span id="local-6989586621679279016"><span class="annot"><span class="annottext">ExecutorConfiguration
-</span><a href="#local-6989586621679279016"><span class="hs-identifier hs-var">pConfiguration_</span></a></span></span><span> </span><span id="local-6989586621679279015"><span class="annot"><span class="annottext">ExecutorType
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#newActionTypeExecutor"><span class="hs-identifier hs-var hs-var">newActionTypeExecutor</span></a></span></span><span> </span><span id="local-6989586621679279025"><span class="annot"><span class="annottext">ExecutorConfiguration
+</span><a href="#local-6989586621679279025"><span class="hs-identifier hs-var">pConfiguration_</span></a></span></span><span> </span><span id="local-6989586621679279024"><span class="annot"><span class="annottext">ExecutorType
+</span><a href="#local-6989586621679279024"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ActionTypeExecutor' :: Maybe Natural
 -&gt; Maybe Text
 -&gt; ExecutorConfiguration
@@ -167,10 +167,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:ActionTypeExecutor' :: ExecutorConfiguration
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#%24sel%3Aconfiguration%3AActionTypeExecutor%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutorConfiguration
-</span><a href="#local-6989586621679279016"><span class="hs-identifier hs-var">pConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279025"><span class="hs-identifier hs-var">pConfiguration_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ActionTypeExecutor' :: ExecutorType
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#%24sel%3Atype%27%3AActionTypeExecutor%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutorType
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679279024"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The timeout in seconds for the job. An action execution can have</span><span>
@@ -187,16 +187,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279011"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279020"><span class="annot"><span class="annottext">Maybe Natural
 jobTimeout :: Maybe Natural
 $sel:jobTimeout:ActionTypeExecutor' :: ActionTypeExecutor -&gt; Maybe Natural
-</span><a href="#local-6989586621679279011"><span class="hs-identifier hs-var hs-var">jobTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679279011"><span class="hs-identifier hs-var">jobTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279010"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
-</span><a href="#local-6989586621679279010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279009"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679279009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
-</span><a href="#local-6989586621679279010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTimeout:ActionTypeExecutor' :: Maybe Natural
+</span><a href="#local-6989586621679279020"><span class="hs-identifier hs-var hs-var">jobTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279020"><span class="hs-identifier hs-var">jobTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279019"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
+</span><a href="#local-6989586621679279019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279018"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679279019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTimeout:ActionTypeExecutor' :: Maybe Natural
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#%24sel%3AjobTimeout%3AActionTypeExecutor%27"><span class="hs-identifier hs-var">jobTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679279009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The policy statement that specifies the permissions in the CodePipeline</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- customer&#8217;s account that are needed to successfully run an action.</span><span>
@@ -215,16 +215,16 @@ $sel:jobTimeout:ActionTypeExecutor' :: ActionTypeExecutor -&gt; Maybe Natural
 -&gt; Lens
      ActionTypeExecutor ActionTypeExecutor (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279007"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279016"><span class="annot"><span class="annottext">Maybe Text
 policyStatementsTemplate :: Maybe Text
 $sel:policyStatementsTemplate:ActionTypeExecutor' :: ActionTypeExecutor -&gt; Maybe Text
-</span><a href="#local-6989586621679279007"><span class="hs-identifier hs-var hs-var">policyStatementsTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279007"><span class="hs-identifier hs-var">policyStatementsTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279006"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
-</span><a href="#local-6989586621679279006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279005"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
-</span><a href="#local-6989586621679279006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyStatementsTemplate:ActionTypeExecutor' :: Maybe Text
+</span><a href="#local-6989586621679279016"><span class="hs-identifier hs-var hs-var">policyStatementsTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279016"><span class="hs-identifier hs-var">policyStatementsTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279015"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
+</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279014"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyStatementsTemplate:ActionTypeExecutor' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#%24sel%3ApolicyStatementsTemplate%3AActionTypeExecutor%27"><span class="hs-identifier hs-var">policyStatementsTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The action configuration properties for the action type. These</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- properties are specified in the action definition when the action type</span><span>
@@ -241,16 +241,16 @@ $sel:policyStatementsTemplate:ActionTypeExecutor' :: ActionTypeExecutor -&gt; Ma
      ExecutorConfiguration
      ExecutorConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279003"><span class="annot"><span class="annottext">ExecutorConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279012"><span class="annot"><span class="annottext">ExecutorConfiguration
 configuration :: ExecutorConfiguration
 $sel:configuration:ActionTypeExecutor' :: ActionTypeExecutor -&gt; ExecutorConfiguration
-</span><a href="#local-6989586621679279003"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutorConfiguration
-</span><a href="#local-6989586621679279003"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279002"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
-</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279001"><span class="annot"><span class="annottext">ExecutorConfiguration
-</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
-</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:ActionTypeExecutor' :: ExecutorConfiguration
+</span><a href="#local-6989586621679279012"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutorConfiguration
+</span><a href="#local-6989586621679279012"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279011"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
+</span><a href="#local-6989586621679279011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279010"><span class="annot"><span class="annottext">ExecutorConfiguration
+</span><a href="#local-6989586621679279010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679279011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:ActionTypeExecutor' :: ExecutorConfiguration
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#%24sel%3Aconfiguration%3AActionTypeExecutor%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutorConfiguration
-</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The integration model used to create and update the action type,</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- @Lambda@ or @JobWorker@.</span><span>
@@ -262,19 +262,19 @@ $sel:configuration:ActionTypeExecutor' :: ActionTypeExecutor -&gt; ExecutorConfi
 -&gt; Lens
      ActionTypeExecutor ActionTypeExecutor ExecutorType ExecutorType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278999"><span class="annot"><span class="annottext">ExecutorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279008"><span class="annot"><span class="annottext">ExecutorType
 type' :: ExecutorType
 $sel:type':ActionTypeExecutor' :: ActionTypeExecutor -&gt; ExecutorType
-</span><a href="#local-6989586621679278999"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutorType
-</span><a href="#local-6989586621679278999"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278998"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
-</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278997"><span class="annot"><span class="annottext">ExecutorType
-</span><a href="#local-6989586621679278997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
-</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ActionTypeExecutor' :: ExecutorType
+</span><a href="#local-6989586621679279008"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutorType
+</span><a href="#local-6989586621679279008"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279007"><span class="annot"><span class="annottext">s :: ActionTypeExecutor
+</span><a href="#local-6989586621679279007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279006"><span class="annot"><span class="annottext">ExecutorType
+</span><a href="#local-6989586621679279006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679279007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ActionTypeExecutor' :: ExecutorType
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#%24sel%3Atype%27%3AActionTypeExecutor%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutorType
-</span><a href="#local-6989586621679278997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278994"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679278992"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypeExecutor
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279003"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679279001"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypeExecutor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionTypeExecutor)
@@ -284,8 +284,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionTypeExecutor&quot;</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278989"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278998"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Text
 -&gt; ExecutorConfiguration
@@ -303,7 +303,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ExecutorConfiguration -&gt; ExecutorType -&gt; ActionTypeExecutor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobTimeout&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,7 +315,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (ExecutorConfiguration -&gt; ExecutorType -&gt; ActionTypeExecutor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policyStatementsTemplate&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,7 +325,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (ExecutorType -&gt; ActionTypeExecutor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutorConfiguration
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutorConfiguration
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configuration&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,19 +333,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ExecutorType -&gt; Parser ActionTypeExecutor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutorType
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutorType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278982"><span id="local-6989586621679278984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278991"><span id="local-6989586621679278993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278971"><span id="local-6989586621679278973"><span id="local-6989586621679278975"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679278969"><span class="annot"><span class="annottext">toJSON :: ActionTypeExecutor -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278964"><span id="local-6989586621679278965"><span id="local-6989586621679278966"><span id="local-6989586621679278967"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278980"><span id="local-6989586621679278982"><span id="local-6989586621679278984"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679278978"><span class="annot"><span class="annottext">toJSON :: ActionTypeExecutor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor%27"><span class="hs-identifier hs-type">ActionTypeExecutor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278973"><span id="local-6989586621679278974"><span id="local-6989586621679278975"><span id="local-6989586621679278976"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 ExecutorType
 ExecutorConfiguration
@@ -357,7 +357,7 @@ $sel:type':ActionTypeExecutor' :: ActionTypeExecutor -&gt; ExecutorType
 $sel:configuration:ActionTypeExecutor' :: ActionTypeExecutor -&gt; ExecutorConfiguration
 $sel:policyStatementsTemplate:ActionTypeExecutor' :: ActionTypeExecutor -&gt; Maybe Text
 $sel:jobTimeout:ActionTypeExecutor' :: ActionTypeExecutor -&gt; Maybe Natural
-</span><a href="#local-6989586621679278964"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278973"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -369,7 +369,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679278967"><span class="hs-identifier hs-var">jobTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278976"><span class="hs-identifier hs-var">jobTimeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policyStatementsTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -377,21 +377,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278966"><span class="hs-identifier hs-var">policyStatementsTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278975"><span class="hs-identifier hs-var">policyStatementsTemplate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutorConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ExecutorConfiguration
-</span><a href="#local-6989586621679278965"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278974"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutorType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ExecutorType
-</span><a href="#local-6989586621679278964"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278973"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span></pre></body></html>

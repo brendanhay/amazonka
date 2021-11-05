@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newAssociateIpGroups' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679289448"><span id="local-6989586621679289449"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIpGroups"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-var">AssociateIpGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIpGroups%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-var">AssociateIpGroups'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679289457"><span id="local-6989586621679289458"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIpGroups"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-var">AssociateIpGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIpGroups%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-var">AssociateIpGroups'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the directory.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="annot"><span class="annottext">AssociateIpGroups -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="annot"><span class="annottext">AssociateIpGroups -&gt; [Text]
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="hs-identifier hs-var hs-var">groupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289441"><span id="local-6989586621679289443"><span class="annot"><span class="annottext">AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289450"><span id="local-6989586621679289452"><span class="annot"><span class="annottext">AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
 (AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool)
 -&gt; (AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool)
 -&gt; Eq AssociateIpGroups
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
 == :: AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
 $c== :: AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289432"><span id="local-6989586621679289434"><span id="local-6989586621679289436"><span id="local-6989586621679289438"><span class="annot"><span class="annottext">ReadPrec [AssociateIpGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289441"><span id="local-6989586621679289443"><span id="local-6989586621679289445"><span id="local-6989586621679289447"><span class="annot"><span class="annottext">ReadPrec [AssociateIpGroups]
 ReadPrec AssociateIpGroups
 Int -&gt; ReadS AssociateIpGroups
 ReadS [AssociateIpGroups]
@@ -85,7 +85,7 @@ readList :: ReadS [AssociateIpGroups]
 $creadList :: ReadS [AssociateIpGroups]
 readsPrec :: Int -&gt; ReadS AssociateIpGroups
 $creadsPrec :: Int -&gt; ReadS AssociateIpGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289425"><span id="local-6989586621679289427"><span id="local-6989586621679289429"><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289434"><span id="local-6989586621679289436"><span id="local-6989586621679289438"><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroups -&gt; ShowS
 [AssociateIpGroups] -&gt; ShowS
 AssociateIpGroups -&gt; String
 (Int -&gt; AssociateIpGroups -&gt; ShowS)
@@ -127,13 +127,13 @@ $cfrom :: forall x. AssociateIpGroups -&gt; Rep AssociateIpGroups x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span>
 </span><span id="line-74"></span><span id="newAssociateIpGroups"><span class="annot"><span class="annottext">newAssociateIpGroups :: Text -&gt; AssociateIpGroups
-</span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroups"><span class="hs-identifier hs-var hs-var">newAssociateIpGroups</span></a></span></span><span> </span><span id="local-6989586621679289420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289420"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroups"><span class="hs-identifier hs-var hs-var">newAssociateIpGroups</span></a></span></span><span> </span><span id="local-6989586621679289429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289429"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">AssociateIpGroups' :: Text -&gt; [Text] -&gt; AssociateIpGroups
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:AssociateIpGroups' :: Text
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289420"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289429"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupIds:AssociateIpGroups' :: [Text]
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">groupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -147,16 +147,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AssociateIpGroups -&gt; Text -&gt; AssociateIpGroups)
 -&gt; Lens AssociateIpGroups AssociateIpGroups Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289417"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289426"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:AssociateIpGroups' :: AssociateIpGroups -&gt; Text
-</span><a href="#local-6989586621679289417"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289417"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289416"><span class="annot"><span class="annottext">s :: AssociateIpGroups
-</span><a href="#local-6989586621679289416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289415"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroups
-</span><a href="#local-6989586621679289416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:AssociateIpGroups' :: Text
+</span><a href="#local-6989586621679289426"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289426"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289425"><span class="annot"><span class="annottext">s :: AssociateIpGroups
+</span><a href="#local-6989586621679289425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289424"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroups
+</span><a href="#local-6989586621679289425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:AssociateIpGroups' :: Text
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The identifiers of one or more IP access control groups.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#associateIpGroups_groupIds"><span class="hs-identifier hs-type">associateIpGroups_groupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -165,16 +165,16 @@ $sel:directoryId:AssociateIpGroups' :: AssociateIpGroups -&gt; Text
 -&gt; (AssociateIpGroups -&gt; [Text] -&gt; AssociateIpGroups)
 -&gt; Lens AssociateIpGroups AssociateIpGroups [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289414"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289423"><span class="annot"><span class="annottext">[Text]
 groupIds :: [Text]
 $sel:groupIds:AssociateIpGroups' :: AssociateIpGroups -&gt; [Text]
-</span><a href="#local-6989586621679289414"><span class="hs-identifier hs-var hs-var">groupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679289414"><span class="hs-identifier hs-var">groupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289413"><span class="annot"><span class="annottext">s :: AssociateIpGroups
-</span><a href="#local-6989586621679289413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289412"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679289412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroups
-</span><a href="#local-6989586621679289413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIds:AssociateIpGroups' :: [Text]
+</span><a href="#local-6989586621679289423"><span class="hs-identifier hs-var hs-var">groupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679289423"><span class="hs-identifier hs-var">groupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289422"><span class="annot"><span class="annottext">s :: AssociateIpGroups
+</span><a href="#local-6989586621679289422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289421"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679289421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroups
+</span><a href="#local-6989586621679289422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIds:AssociateIpGroups' :: [Text]
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">groupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679289412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AssociateIpGroups -&gt; f AssociateIpGroups)
+</span><a href="#local-6989586621679289421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AssociateIpGroups -&gt; f AssociateIpGroups)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; AssociateIpGroups
@@ -188,12 +188,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679289406"><span class="annot"><span class="annottext">request :: AssociateIpGroups -&gt; Request AssociateIpGroups
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679289415"><span class="annot"><span class="annottext">request :: AssociateIpGroups -&gt; Request AssociateIpGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateIpGroups -&gt; Request AssociateIpGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679289402"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679289411"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateIpGroups
 -&gt; ClientResponse ClientBody
@@ -219,10 +219,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289399"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289399"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289398"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679289398"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289397"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679289397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289408"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289408"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289407"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679289407"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289406"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679289406"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroupsResponse
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">AssociateIpGroupsResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateIpGroupsResponse)
@@ -233,15 +233,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289399"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289408"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289390"><span id="local-6989586621679289392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289399"><span id="local-6989586621679289401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679289383"><span class="annot"><span class="annottext">toHeaders :: AssociateIpGroups -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679289392"><span class="annot"><span class="annottext">toHeaders :: AssociateIpGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateIpGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,15 +268,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289373"><span id="local-6989586621679289375"><span id="local-6989586621679289377"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679289371"><span class="annot"><span class="annottext">toJSON :: AssociateIpGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289368"><span id="local-6989586621679289369"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289382"><span id="local-6989586621679289384"><span id="local-6989586621679289386"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679289380"><span class="annot"><span class="annottext">toJSON :: AssociateIpGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289377"><span id="local-6989586621679289378"><span class="annot"><span class="annottext">[Text]
 Text
 groupIds :: [Text]
 directoryId :: Text
 $sel:groupIds:AssociateIpGroups' :: AssociateIpGroups -&gt; [Text]
 $sel:directoryId:AssociateIpGroups' :: AssociateIpGroups -&gt; Text
-</span><a href="#local-6989586621679289368"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679289377"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,26 +288,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289369"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289378"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679289368"><span class="hs-identifier hs-var">groupIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289377"><span class="hs-identifier hs-var">groupIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679289362"><span class="annot"><span class="annottext">toPath :: AssociateIpGroups -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679289371"><span class="annot"><span class="annottext">toPath :: AssociateIpGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateIpGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679289358"><span class="annot"><span class="annottext">toQuery :: AssociateIpGroups -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679289367"><span class="annot"><span class="annottext">toQuery :: AssociateIpGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateIpGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -315,12 +315,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newAssociateIpGroupsResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679289355"><span id="local-6989586621679289356"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIpGroupsResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-var">AssociateIpGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIpGroupsResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">AssociateIpGroupsResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679289364"><span id="local-6989586621679289365"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIpGroupsResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-var">AssociateIpGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIpGroupsResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">AssociateIpGroupsResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="annot"><span class="annottext">AssociateIpGroupsResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289350"><span id="local-6989586621679289352"><span class="annot"><span class="annottext">AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289359"><span id="local-6989586621679289361"><span class="annot"><span class="annottext">AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
 (AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool)
 -&gt; (AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool)
 -&gt; Eq AssociateIpGroupsResponse
@@ -329,7 +329,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
 == :: AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
 $c== :: AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289342"><span id="local-6989586621679289344"><span id="local-6989586621679289346"><span id="local-6989586621679289348"><span class="annot"><span class="annottext">ReadPrec [AssociateIpGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289351"><span id="local-6989586621679289353"><span id="local-6989586621679289355"><span id="local-6989586621679289357"><span class="annot"><span class="annottext">ReadPrec [AssociateIpGroupsResponse]
 ReadPrec AssociateIpGroupsResponse
 Int -&gt; ReadS AssociateIpGroupsResponse
 ReadS [AssociateIpGroupsResponse]
@@ -349,7 +349,7 @@ readList :: ReadS [AssociateIpGroupsResponse]
 $creadList :: ReadS [AssociateIpGroupsResponse]
 readsPrec :: Int -&gt; ReadS AssociateIpGroupsResponse
 $creadsPrec :: Int -&gt; ReadS AssociateIpGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289336"><span id="local-6989586621679289338"><span id="local-6989586621679289340"><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289345"><span id="local-6989586621679289347"><span id="local-6989586621679289349"><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroupsResponse -&gt; ShowS
 [AssociateIpGroupsResponse] -&gt; ShowS
 AssociateIpGroupsResponse -&gt; String
 (Int -&gt; AssociateIpGroupsResponse -&gt; ShowS)
@@ -395,14 +395,14 @@ AssociateIpGroupsResponse -&gt; Rep AssociateIpGroupsResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newAssociateIpGroupsResponse"><span class="annot"><span class="annottext">newAssociateIpGroupsResponse :: Int -&gt; AssociateIpGroupsResponse
-</span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroupsResponse"><span class="hs-identifier hs-var hs-var">newAssociateIpGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679289333"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289333"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroupsResponse"><span class="hs-identifier hs-var hs-var">newAssociateIpGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679289342"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289342"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">AssociateIpGroupsResponse' :: Int -&gt; AssociateIpGroupsResponse
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIpGroupsResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289333"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679289342"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -413,16 +413,16 @@ AssociateIpGroupsResponse -&gt; Rep AssociateIpGroupsResponse x
 -&gt; (AssociateIpGroupsResponse -&gt; Int -&gt; AssociateIpGroupsResponse)
 -&gt; Lens AssociateIpGroupsResponse AssociateIpGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289332"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289341"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateIpGroupsResponse' :: AssociateIpGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679289332"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289332"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289331"><span class="annot"><span class="annottext">s :: AssociateIpGroupsResponse
-</span><a href="#local-6989586621679289331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289330"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroupsResponse
-</span><a href="#local-6989586621679289331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIpGroupsResponse' :: Int
+</span><a href="#local-6989586621679289341"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289341"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289340"><span class="annot"><span class="annottext">s :: AssociateIpGroupsResponse
+</span><a href="#local-6989586621679289340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289339"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroupsResponse
+</span><a href="#local-6989586621679289340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIpGroupsResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

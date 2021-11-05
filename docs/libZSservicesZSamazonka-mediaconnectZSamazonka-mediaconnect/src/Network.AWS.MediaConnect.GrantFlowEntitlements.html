@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.GrantFlowEntitlements</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Grants entitlements to an existing flow.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.GrantFlowEntitlements</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier">GrantFlowEntitlements</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#newGrantFlowEntitlements"><span class="hs-identifier">newGrantFlowEntitlements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlements_flowArn"><span class="hs-identifier">grantFlowEntitlements_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlements_entitlements"><span class="hs-identifier">grantFlowEntitlements_entitlements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier">GrantFlowEntitlementsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#newGrantFlowEntitlementsResponse"><span class="hs-identifier">newGrantFlowEntitlementsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_flowArn"><span class="hs-identifier">grantFlowEntitlementsResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_entitlements"><span class="hs-identifier">grantFlowEntitlementsResponse_entitlements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_httpStatus"><span class="hs-identifier">grantFlowEntitlementsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | A request to grant entitlements on a flow.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGrantFlowEntitlements' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679277573"><span id="local-6989586621679277574"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantFlowEntitlements"><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-var">GrantFlowEntitlements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantFlowEntitlements%27"><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-var">GrantFlowEntitlements'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The flow that you want to grant entitlements on.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AflowArn%3AGrantFlowEntitlements%27"><span class="annot"><span class="annottext">GrantFlowEntitlements -&gt; Text
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AflowArn%3AGrantFlowEntitlements%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The list of entitlements that you want to grant.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aentitlements%3AGrantFlowEntitlements%27"><span class="annot"><span class="annottext">GrantFlowEntitlements -&gt; [GrantEntitlementRequest]
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3Aentitlements%3AGrantFlowEntitlements%27"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277566"><span id="local-6989586621679277568"><span class="annot"><span class="annottext">GrantFlowEntitlements -&gt; GrantFlowEntitlements -&gt; Bool
+(GrantFlowEntitlements -&gt; GrantFlowEntitlements -&gt; Bool)
+-&gt; (GrantFlowEntitlements -&gt; GrantFlowEntitlements -&gt; Bool)
+-&gt; Eq GrantFlowEntitlements
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrantFlowEntitlements -&gt; GrantFlowEntitlements -&gt; Bool
+$c/= :: GrantFlowEntitlements -&gt; GrantFlowEntitlements -&gt; Bool
+== :: GrantFlowEntitlements -&gt; GrantFlowEntitlements -&gt; Bool
+$c== :: GrantFlowEntitlements -&gt; GrantFlowEntitlements -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277557"><span id="local-6989586621679277559"><span id="local-6989586621679277561"><span id="local-6989586621679277563"><span class="annot"><span class="annottext">ReadPrec [GrantFlowEntitlements]
+ReadPrec GrantFlowEntitlements
+Int -&gt; ReadS GrantFlowEntitlements
+ReadS [GrantFlowEntitlements]
+(Int -&gt; ReadS GrantFlowEntitlements)
+-&gt; ReadS [GrantFlowEntitlements]
+-&gt; ReadPrec GrantFlowEntitlements
+-&gt; ReadPrec [GrantFlowEntitlements]
+-&gt; Read GrantFlowEntitlements
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrantFlowEntitlements]
+$creadListPrec :: ReadPrec [GrantFlowEntitlements]
+readPrec :: ReadPrec GrantFlowEntitlements
+$creadPrec :: ReadPrec GrantFlowEntitlements
+readList :: ReadS [GrantFlowEntitlements]
+$creadList :: ReadS [GrantFlowEntitlements]
+readsPrec :: Int -&gt; ReadS GrantFlowEntitlements
+$creadsPrec :: Int -&gt; ReadS GrantFlowEntitlements
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277550"><span id="local-6989586621679277552"><span id="local-6989586621679277554"><span class="annot"><span class="annottext">Int -&gt; GrantFlowEntitlements -&gt; ShowS
+[GrantFlowEntitlements] -&gt; ShowS
+GrantFlowEntitlements -&gt; String
+(Int -&gt; GrantFlowEntitlements -&gt; ShowS)
+-&gt; (GrantFlowEntitlements -&gt; String)
+-&gt; ([GrantFlowEntitlements] -&gt; ShowS)
+-&gt; Show GrantFlowEntitlements
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrantFlowEntitlements] -&gt; ShowS
+$cshowList :: [GrantFlowEntitlements] -&gt; ShowS
+show :: GrantFlowEntitlements -&gt; String
+$cshow :: GrantFlowEntitlements -&gt; String
+showsPrec :: Int -&gt; GrantFlowEntitlements -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrantFlowEntitlements -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GrantFlowEntitlements -&gt; Rep GrantFlowEntitlements x)
+-&gt; (forall x. Rep GrantFlowEntitlements x -&gt; GrantFlowEntitlements)
+-&gt; Generic GrantFlowEntitlements
+forall x. Rep GrantFlowEntitlements x -&gt; GrantFlowEntitlements
+forall x. GrantFlowEntitlements -&gt; Rep GrantFlowEntitlements x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrantFlowEntitlements x -&gt; GrantFlowEntitlements
+$cfrom :: forall x. GrantFlowEntitlements -&gt; Rep GrantFlowEntitlements x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'GrantFlowEntitlements' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'flowArn', 'grantFlowEntitlements_flowArn' - The flow that you want to grant entitlements on.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'entitlements', 'grantFlowEntitlements_entitlements' - The list of entitlements that you want to grant.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#newGrantFlowEntitlements"><span class="hs-identifier hs-type">newGrantFlowEntitlements</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span>
+</span><span id="line-77"></span><span id="newGrantFlowEntitlements"><span class="annot"><span class="annottext">newGrantFlowEntitlements :: Text -&gt; GrantFlowEntitlements
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#newGrantFlowEntitlements"><span class="hs-identifier hs-var hs-var">newGrantFlowEntitlements</span></a></span></span><span> </span><span id="local-6989586621679277545"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277545"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GrantFlowEntitlements' :: Text -&gt; [GrantEntitlementRequest] -&gt; GrantFlowEntitlements
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-type">GrantFlowEntitlements'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:GrantFlowEntitlements' :: Text
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AflowArn%3AGrantFlowEntitlements%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277545"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:entitlements:GrantFlowEntitlements' :: [GrantEntitlementRequest]
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3Aentitlements%3AGrantFlowEntitlements%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The flow that you want to grant entitlements on.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlements_flowArn"><span class="hs-identifier hs-type">grantFlowEntitlements_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="grantFlowEntitlements_flowArn"><span class="annot"><span class="annottext">grantFlowEntitlements_flowArn :: (Text -&gt; f Text)
+-&gt; GrantFlowEntitlements -&gt; f GrantFlowEntitlements
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlements_flowArn"><span class="hs-identifier hs-var hs-var">grantFlowEntitlements_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantFlowEntitlements -&gt; Text)
+-&gt; (GrantFlowEntitlements -&gt; Text -&gt; GrantFlowEntitlements)
+-&gt; Lens GrantFlowEntitlements GrantFlowEntitlements Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-type">GrantFlowEntitlements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277542"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:GrantFlowEntitlements' :: GrantFlowEntitlements -&gt; Text
+</span><a href="#local-6989586621679277542"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277542"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277541"><span class="annot"><span class="annottext">s :: GrantFlowEntitlements
+</span><a href="#local-6989586621679277541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-type">GrantFlowEntitlements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantFlowEntitlements
+</span><a href="#local-6989586621679277541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:GrantFlowEntitlements' :: Text
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AflowArn%3AGrantFlowEntitlements%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The list of entitlements that you want to grant.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlements_entitlements"><span class="hs-identifier hs-type">grantFlowEntitlements_entitlements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span id="grantFlowEntitlements_entitlements"><span class="annot"><span class="annottext">grantFlowEntitlements_entitlements :: ([GrantEntitlementRequest] -&gt; f [GrantEntitlementRequest])
+-&gt; GrantFlowEntitlements -&gt; f GrantFlowEntitlements
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlements_entitlements"><span class="hs-identifier hs-var hs-var">grantFlowEntitlements_entitlements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantFlowEntitlements -&gt; [GrantEntitlementRequest])
+-&gt; (GrantFlowEntitlements
+    -&gt; [GrantEntitlementRequest] -&gt; GrantFlowEntitlements)
+-&gt; Lens
+     GrantFlowEntitlements
+     GrantFlowEntitlements
+     [GrantEntitlementRequest]
+     [GrantEntitlementRequest]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-type">GrantFlowEntitlements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277539"><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+entitlements :: [GrantEntitlementRequest]
+$sel:entitlements:GrantFlowEntitlements' :: GrantFlowEntitlements -&gt; [GrantEntitlementRequest]
+</span><a href="#local-6989586621679277539"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+</span><a href="#local-6989586621679277539"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277538"><span class="annot"><span class="annottext">s :: GrantFlowEntitlements
+</span><a href="#local-6989586621679277538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-type">GrantFlowEntitlements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277537"><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+</span><a href="#local-6989586621679277537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantFlowEntitlements
+</span><a href="#local-6989586621679277538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlements:GrantFlowEntitlements' :: [GrantEntitlementRequest]
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3Aentitlements%3AGrantFlowEntitlements%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+</span><a href="#local-6989586621679277537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([GrantEntitlementRequest] -&gt; f [GrantEntitlementRequest])
+ -&gt; GrantFlowEntitlements -&gt; f GrantFlowEntitlements)
+-&gt; (([GrantEntitlementRequest] -&gt; f [GrantEntitlementRequest])
+    -&gt; [GrantEntitlementRequest] -&gt; f [GrantEntitlementRequest])
+-&gt; ([GrantEntitlementRequest] -&gt; f [GrantEntitlementRequest])
+-&gt; GrantFlowEntitlements
+-&gt; f GrantFlowEntitlements
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([GrantEntitlementRequest] -&gt; f [GrantEntitlementRequest])
+-&gt; [GrantEntitlementRequest] -&gt; f [GrantEntitlementRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679277531"><span class="annot"><span class="annottext">request :: GrantFlowEntitlements -&gt; Request GrantFlowEntitlements
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GrantFlowEntitlements -&gt; Request GrantFlowEntitlements
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679277527"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GrantFlowEntitlements
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GrantFlowEntitlements)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GrantFlowEntitlements))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GrantFlowEntitlements
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GrantFlowEntitlements)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277524"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277524"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679277523"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679277523"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679277522"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Entitlement] -&gt; Int -&gt; GrantFlowEntitlementsResponse
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">GrantFlowEntitlementsResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Entitlement] -&gt; Int -&gt; GrantFlowEntitlementsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Entitlement] -&gt; Int -&gt; GrantFlowEntitlementsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Entitlement] -&gt; Int -&gt; GrantFlowEntitlementsResponse)
+-&gt; Either String (Maybe [Entitlement])
+-&gt; Either String (Int -&gt; GrantFlowEntitlementsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Entitlement]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entitlements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Entitlement]))
+-&gt; Maybe [Entitlement] -&gt; Either String (Maybe [Entitlement])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GrantFlowEntitlementsResponse)
+-&gt; Either String Int -&gt; Either String GrantFlowEntitlementsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277524"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277513"><span id="local-6989586621679277515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679277506"><span class="annot"><span class="annottext">toHeaders :: GrantFlowEntitlements -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GrantFlowEntitlements -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277496"><span id="local-6989586621679277498"><span id="local-6989586621679277500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679277494"><span class="annot"><span class="annottext">toJSON :: GrantFlowEntitlements -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-type">GrantFlowEntitlements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277491"><span id="local-6989586621679277492"><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+Text
+entitlements :: [GrantEntitlementRequest]
+flowArn :: Text
+$sel:entitlements:GrantFlowEntitlements' :: GrantFlowEntitlements -&gt; [GrantEntitlementRequest]
+$sel:flowArn:GrantFlowEntitlements' :: GrantFlowEntitlements -&gt; Text
+</span><a href="#local-6989586621679277491"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entitlements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GrantEntitlementRequest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+</span><a href="#local-6989586621679277491"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679277485"><span class="annot"><span class="annottext">toPath :: GrantFlowEntitlements -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements%27"><span class="hs-identifier hs-type">GrantFlowEntitlements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277482"><span id="local-6989586621679277483"><span class="annot"><span class="annottext">[GrantEntitlementRequest]
+Text
+entitlements :: [GrantEntitlementRequest]
+flowArn :: Text
+$sel:entitlements:GrantFlowEntitlements' :: GrantFlowEntitlements -&gt; [GrantEntitlementRequest]
+$sel:flowArn:GrantFlowEntitlements' :: GrantFlowEntitlements -&gt; Text
+</span><a href="#local-6989586621679277482"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277483"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/entitlements&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlements"><span class="hs-identifier hs-type">GrantFlowEntitlements</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679277478"><span class="annot"><span class="annottext">toQuery :: GrantFlowEntitlements -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GrantFlowEntitlements -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newGrantFlowEntitlementsResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679277475"><span id="local-6989586621679277476"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantFlowEntitlementsResponse"><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-var">GrantFlowEntitlementsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantFlowEntitlementsResponse%27"><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">GrantFlowEntitlementsResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that these entitlements were granted to.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AflowArn%3AGrantFlowEntitlementsResponse%27"><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AflowArn%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The entitlements that were just granted.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Aentitlements%3AGrantFlowEntitlementsResponse%27"><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse -&gt; Maybe [Entitlement]
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3Aentitlements%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGrantFlowEntitlementsResponse%27"><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse -&gt; Int
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AhttpStatus%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277468"><span id="local-6989586621679277470"><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse
+-&gt; GrantFlowEntitlementsResponse -&gt; Bool
+(GrantFlowEntitlementsResponse
+ -&gt; GrantFlowEntitlementsResponse -&gt; Bool)
+-&gt; (GrantFlowEntitlementsResponse
+    -&gt; GrantFlowEntitlementsResponse -&gt; Bool)
+-&gt; Eq GrantFlowEntitlementsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrantFlowEntitlementsResponse
+-&gt; GrantFlowEntitlementsResponse -&gt; Bool
+$c/= :: GrantFlowEntitlementsResponse
+-&gt; GrantFlowEntitlementsResponse -&gt; Bool
+== :: GrantFlowEntitlementsResponse
+-&gt; GrantFlowEntitlementsResponse -&gt; Bool
+$c== :: GrantFlowEntitlementsResponse
+-&gt; GrantFlowEntitlementsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277460"><span id="local-6989586621679277462"><span id="local-6989586621679277464"><span id="local-6989586621679277466"><span class="annot"><span class="annottext">ReadPrec [GrantFlowEntitlementsResponse]
+ReadPrec GrantFlowEntitlementsResponse
+Int -&gt; ReadS GrantFlowEntitlementsResponse
+ReadS [GrantFlowEntitlementsResponse]
+(Int -&gt; ReadS GrantFlowEntitlementsResponse)
+-&gt; ReadS [GrantFlowEntitlementsResponse]
+-&gt; ReadPrec GrantFlowEntitlementsResponse
+-&gt; ReadPrec [GrantFlowEntitlementsResponse]
+-&gt; Read GrantFlowEntitlementsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrantFlowEntitlementsResponse]
+$creadListPrec :: ReadPrec [GrantFlowEntitlementsResponse]
+readPrec :: ReadPrec GrantFlowEntitlementsResponse
+$creadPrec :: ReadPrec GrantFlowEntitlementsResponse
+readList :: ReadS [GrantFlowEntitlementsResponse]
+$creadList :: ReadS [GrantFlowEntitlementsResponse]
+readsPrec :: Int -&gt; ReadS GrantFlowEntitlementsResponse
+$creadsPrec :: Int -&gt; ReadS GrantFlowEntitlementsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277454"><span id="local-6989586621679277456"><span id="local-6989586621679277458"><span class="annot"><span class="annottext">Int -&gt; GrantFlowEntitlementsResponse -&gt; ShowS
+[GrantFlowEntitlementsResponse] -&gt; ShowS
+GrantFlowEntitlementsResponse -&gt; String
+(Int -&gt; GrantFlowEntitlementsResponse -&gt; ShowS)
+-&gt; (GrantFlowEntitlementsResponse -&gt; String)
+-&gt; ([GrantFlowEntitlementsResponse] -&gt; ShowS)
+-&gt; Show GrantFlowEntitlementsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrantFlowEntitlementsResponse] -&gt; ShowS
+$cshowList :: [GrantFlowEntitlementsResponse] -&gt; ShowS
+show :: GrantFlowEntitlementsResponse -&gt; String
+$cshow :: GrantFlowEntitlementsResponse -&gt; String
+showsPrec :: Int -&gt; GrantFlowEntitlementsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrantFlowEntitlementsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GrantFlowEntitlementsResponse
+ -&gt; Rep GrantFlowEntitlementsResponse x)
+-&gt; (forall x.
+    Rep GrantFlowEntitlementsResponse x
+    -&gt; GrantFlowEntitlementsResponse)
+-&gt; Generic GrantFlowEntitlementsResponse
+forall x.
+Rep GrantFlowEntitlementsResponse x
+-&gt; GrantFlowEntitlementsResponse
+forall x.
+GrantFlowEntitlementsResponse
+-&gt; Rep GrantFlowEntitlementsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GrantFlowEntitlementsResponse x
+-&gt; GrantFlowEntitlementsResponse
+$cfrom :: forall x.
+GrantFlowEntitlementsResponse
+-&gt; Rep GrantFlowEntitlementsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'GrantFlowEntitlementsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'flowArn', 'grantFlowEntitlementsResponse_flowArn' - The ARN of the flow that these entitlements were granted to.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'entitlements', 'grantFlowEntitlementsResponse_entitlements' - The entitlements that were just granted.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'grantFlowEntitlementsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#newGrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">newGrantFlowEntitlementsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newGrantFlowEntitlementsResponse"><span class="annot"><span class="annottext">newGrantFlowEntitlementsResponse :: Int -&gt; GrantFlowEntitlementsResponse
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#newGrantFlowEntitlementsResponse"><span class="hs-identifier hs-var hs-var">newGrantFlowEntitlementsResponse</span></a></span></span><span> </span><span id="local-6989586621679277451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse' :: Maybe Text
+-&gt; Maybe [Entitlement] -&gt; Int -&gt; GrantFlowEntitlementsResponse
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:GrantFlowEntitlementsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AflowArn%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:entitlements:GrantFlowEntitlementsResponse' :: Maybe [Entitlement]
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3Aentitlements%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GrantFlowEntitlementsResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AhttpStatus%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The ARN of the flow that these entitlements were granted to.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_flowArn"><span class="hs-identifier hs-type">grantFlowEntitlementsResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="grantFlowEntitlementsResponse_flowArn"><span class="annot"><span class="annottext">grantFlowEntitlementsResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GrantFlowEntitlementsResponse -&gt; f GrantFlowEntitlementsResponse
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_flowArn"><span class="hs-identifier hs-var hs-var">grantFlowEntitlementsResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantFlowEntitlementsResponse -&gt; Maybe Text)
+-&gt; (GrantFlowEntitlementsResponse
+    -&gt; Maybe Text -&gt; GrantFlowEntitlementsResponse)
+-&gt; Lens
+     GrantFlowEntitlementsResponse
+     GrantFlowEntitlementsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277450"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:GrantFlowEntitlementsResponse' :: GrantFlowEntitlementsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679277450"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277450"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277449"><span class="annot"><span class="annottext">s :: GrantFlowEntitlementsResponse
+</span><a href="#local-6989586621679277449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse
+</span><a href="#local-6989586621679277449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:GrantFlowEntitlementsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AflowArn%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The entitlements that were just granted.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_entitlements"><span class="hs-identifier hs-type">grantFlowEntitlementsResponse_entitlements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="grantFlowEntitlementsResponse_entitlements"><span class="annot"><span class="annottext">grantFlowEntitlementsResponse_entitlements :: (Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+-&gt; GrantFlowEntitlementsResponse -&gt; f GrantFlowEntitlementsResponse
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_entitlements"><span class="hs-identifier hs-var hs-var">grantFlowEntitlementsResponse_entitlements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantFlowEntitlementsResponse -&gt; Maybe [Entitlement])
+-&gt; (GrantFlowEntitlementsResponse
+    -&gt; Maybe [Entitlement] -&gt; GrantFlowEntitlementsResponse)
+-&gt; Lens
+     GrantFlowEntitlementsResponse
+     GrantFlowEntitlementsResponse
+     (Maybe [Entitlement])
+     (Maybe [Entitlement])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277447"><span class="annot"><span class="annottext">Maybe [Entitlement]
+entitlements :: Maybe [Entitlement]
+$sel:entitlements:GrantFlowEntitlementsResponse' :: GrantFlowEntitlementsResponse -&gt; Maybe [Entitlement]
+</span><a href="#local-6989586621679277447"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+</span><a href="#local-6989586621679277447"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277446"><span class="annot"><span class="annottext">s :: GrantFlowEntitlementsResponse
+</span><a href="#local-6989586621679277446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277445"><span class="annot"><span class="annottext">Maybe [Entitlement]
+</span><a href="#local-6989586621679277445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse
+</span><a href="#local-6989586621679277446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlements:GrantFlowEntitlementsResponse' :: Maybe [Entitlement]
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3Aentitlements%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+</span><a href="#local-6989586621679277445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+ -&gt; GrantFlowEntitlementsResponse
+ -&gt; f GrantFlowEntitlementsResponse)
+-&gt; ((Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+    -&gt; Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+-&gt; (Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+-&gt; GrantFlowEntitlementsResponse
+-&gt; f GrantFlowEntitlementsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Entitlement] [Entitlement] [Entitlement] [Entitlement]
+-&gt; Iso
+     (Maybe [Entitlement])
+     (Maybe [Entitlement])
+     (Maybe [Entitlement])
+     (Maybe [Entitlement])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Entitlement] [Entitlement] [Entitlement] [Entitlement]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_httpStatus"><span class="hs-identifier hs-type">grantFlowEntitlementsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="grantFlowEntitlementsResponse_httpStatus"><span class="annot"><span class="annottext">grantFlowEntitlementsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GrantFlowEntitlementsResponse -&gt; f GrantFlowEntitlementsResponse
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#grantFlowEntitlementsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">grantFlowEntitlementsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantFlowEntitlementsResponse -&gt; Int)
+-&gt; (GrantFlowEntitlementsResponse
+    -&gt; Int -&gt; GrantFlowEntitlementsResponse)
+-&gt; Lens
+     GrantFlowEntitlementsResponse GrantFlowEntitlementsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277443"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GrantFlowEntitlementsResponse' :: GrantFlowEntitlementsResponse -&gt; Int
+</span><a href="#local-6989586621679277443"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277443"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277442"><span class="annot"><span class="annottext">s :: GrantFlowEntitlementsResponse
+</span><a href="#local-6989586621679277442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277441"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantFlowEntitlementsResponse
+</span><a href="#local-6989586621679277442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GrantFlowEntitlementsResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#%24sel%3AhttpStatus%3AGrantFlowEntitlementsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.GrantFlowEntitlements.html#GrantFlowEntitlementsResponse"><span class="hs-identifier hs-type">GrantFlowEntitlementsResponse</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

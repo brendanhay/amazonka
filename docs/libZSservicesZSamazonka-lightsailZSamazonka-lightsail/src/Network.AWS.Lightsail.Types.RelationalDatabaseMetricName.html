@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679620862"><span id="local-6989586621679620863"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RelationalDatabaseMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseMetricName.html#RelationalDatabaseMetricName"><span class="hs-identifier hs-var">RelationalDatabaseMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationalDatabaseMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseMetricName.html#RelationalDatabaseMetricName%27"><span class="hs-identifier hs-var">RelationalDatabaseMetricName'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679620871"><span id="local-6989586621679620872"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RelationalDatabaseMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseMetricName.html#RelationalDatabaseMetricName"><span class="hs-identifier hs-var">RelationalDatabaseMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationalDatabaseMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseMetricName.html#RelationalDatabaseMetricName%27"><span class="hs-identifier hs-var">RelationalDatabaseMetricName'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRelationalDatabaseMetricName"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseMetricName.html#fromRelationalDatabaseMetricName"><span class="hs-identifier hs-var hs-var">fromRelationalDatabaseMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679620854"><span id="local-6989586621679620856"><span id="local-6989586621679620858"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseMetricName -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679620863"><span id="local-6989586621679620865"><span id="local-6989586621679620867"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseMetricName -&gt; ShowS
 [RelationalDatabaseMetricName] -&gt; ShowS
 RelationalDatabaseMetricName -&gt; String
 (Int -&gt; RelationalDatabaseMetricName -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: RelationalDatabaseMetricName -&gt; String
 showsPrec :: Int -&gt; RelationalDatabaseMetricName -&gt; ShowS
 $cshowsPrec :: Int -&gt; RelationalDatabaseMetricName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679620845"><span id="local-6989586621679620847"><span id="local-6989586621679620849"><span id="local-6989586621679620851"><span class="annot"><span class="annottext">ReadPrec [RelationalDatabaseMetricName]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679620854"><span id="local-6989586621679620856"><span id="local-6989586621679620858"><span id="local-6989586621679620860"><span class="annot"><span class="annottext">ReadPrec [RelationalDatabaseMetricName]
 ReadPrec RelationalDatabaseMetricName
 Int -&gt; ReadS RelationalDatabaseMetricName
 ReadS [RelationalDatabaseMetricName]
@@ -76,7 +76,7 @@ $creadList :: ReadS [RelationalDatabaseMetricName]
 readsPrec :: Int -&gt; ReadS RelationalDatabaseMetricName
 $creadsPrec :: Int -&gt; ReadS RelationalDatabaseMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679620840"><span id="local-6989586621679620842"><span class="annot"><span class="annottext">RelationalDatabaseMetricName
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679620849"><span id="local-6989586621679620851"><span class="annot"><span class="annottext">RelationalDatabaseMetricName
 -&gt; RelationalDatabaseMetricName -&gt; Bool
 (RelationalDatabaseMetricName
  -&gt; RelationalDatabaseMetricName -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: RelationalDatabaseMetricName
 $c== :: RelationalDatabaseMetricName
 -&gt; RelationalDatabaseMetricName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679620824"><span id="local-6989586621679620826"><span id="local-6989586621679620828"><span id="local-6989586621679620830"><span id="local-6989586621679620832"><span id="local-6989586621679620834"><span id="local-6989586621679620836"><span class="annot"><span class="annottext">Eq RelationalDatabaseMetricName
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679620833"><span id="local-6989586621679620835"><span id="local-6989586621679620837"><span id="local-6989586621679620839"><span id="local-6989586621679620841"><span id="local-6989586621679620843"><span id="local-6989586621679620845"><span class="annot"><span class="annottext">Eq RelationalDatabaseMetricName
 Eq RelationalDatabaseMetricName
 -&gt; (RelationalDatabaseMetricName
     -&gt; RelationalDatabaseMetricName -&gt; Ordering)
@@ -174,7 +174,7 @@ RelationalDatabaseMetricName -&gt; Rep RelationalDatabaseMetricName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679620816"><span id="local-6989586621679620818"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseMetricName -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679620825"><span id="local-6989586621679620827"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseMetricName -&gt; Int
 RelationalDatabaseMetricName -&gt; Int
 (Int -&gt; RelationalDatabaseMetricName -&gt; Int)
 -&gt; (RelationalDatabaseMetricName -&gt; Int)
@@ -185,56 +185,56 @@ $chash :: RelationalDatabaseMetricName -&gt; Int
 hashWithSalt :: Int -&gt; RelationalDatabaseMetricName -&gt; Int
 $chashWithSalt :: Int -&gt; RelationalDatabaseMetricName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679620813"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679620822"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; ()
 (RelationalDatabaseMetricName -&gt; ())
 -&gt; NFData RelationalDatabaseMetricName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RelationalDatabaseMetricName -&gt; ()
 $crnf :: RelationalDatabaseMetricName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679620810"><span class="annot"><span class="annottext">Text -&gt; Either String RelationalDatabaseMetricName
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679620819"><span class="annot"><span class="annottext">Text -&gt; Either String RelationalDatabaseMetricName
 (Text -&gt; Either String RelationalDatabaseMetricName)
 -&gt; FromText RelationalDatabaseMetricName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RelationalDatabaseMetricName
 $cfromText :: Text -&gt; Either String RelationalDatabaseMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679620807"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679620816"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; Text
 (RelationalDatabaseMetricName -&gt; Text)
 -&gt; ToText RelationalDatabaseMetricName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RelationalDatabaseMetricName -&gt; Text
 $ctoText :: RelationalDatabaseMetricName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679620804"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679620813"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; ByteString
 (RelationalDatabaseMetricName -&gt; ByteString)
 -&gt; ToByteString RelationalDatabaseMetricName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RelationalDatabaseMetricName -&gt; ByteString
 $ctoBS :: RelationalDatabaseMetricName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679620801"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679620810"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; ByteStringBuilder
 (RelationalDatabaseMetricName -&gt; ByteStringBuilder)
 -&gt; ToLog RelationalDatabaseMetricName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RelationalDatabaseMetricName -&gt; ByteStringBuilder
 $cbuild :: RelationalDatabaseMetricName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679620798"><span class="annot"><span class="annottext">HeaderName -&gt; RelationalDatabaseMetricName -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679620807"><span class="annot"><span class="annottext">HeaderName -&gt; RelationalDatabaseMetricName -&gt; [Header]
 (HeaderName -&gt; RelationalDatabaseMetricName -&gt; [Header])
 -&gt; ToHeader RelationalDatabaseMetricName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RelationalDatabaseMetricName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RelationalDatabaseMetricName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679620795"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679620804"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; QueryString
 (RelationalDatabaseMetricName -&gt; QueryString)
 -&gt; ToQuery RelationalDatabaseMetricName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RelationalDatabaseMetricName -&gt; QueryString
 $ctoQuery :: RelationalDatabaseMetricName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679620790"><span id="local-6989586621679620792"><span class="annot"><span class="annottext">Value -&gt; Parser [RelationalDatabaseMetricName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679620799"><span id="local-6989586621679620801"><span class="annot"><span class="annottext">Value -&gt; Parser [RelationalDatabaseMetricName]
 Value -&gt; Parser RelationalDatabaseMetricName
 (Value -&gt; Parser RelationalDatabaseMetricName)
 -&gt; (Value -&gt; Parser [RelationalDatabaseMetricName])
@@ -246,7 +246,7 @@ $cparseJSONList :: Value -&gt; Parser [RelationalDatabaseMetricName]
 parseJSON :: Value -&gt; Parser RelationalDatabaseMetricName
 $cparseJSON :: Value -&gt; Parser RelationalDatabaseMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679620785"><span id="local-6989586621679620787"><span class="annot"><span class="annottext">FromJSONKeyFunction [RelationalDatabaseMetricName]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679620794"><span id="local-6989586621679620796"><span class="annot"><span class="annottext">FromJSONKeyFunction [RelationalDatabaseMetricName]
 FromJSONKeyFunction RelationalDatabaseMetricName
 FromJSONKeyFunction RelationalDatabaseMetricName
 -&gt; FromJSONKeyFunction [RelationalDatabaseMetricName]
@@ -258,7 +258,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RelationalDatabaseMetricName]
 fromJSONKey :: FromJSONKeyFunction RelationalDatabaseMetricName
 $cfromJSONKey :: FromJSONKeyFunction RelationalDatabaseMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679620776"><span id="local-6989586621679620778"><span id="local-6989586621679620780"><span id="local-6989586621679620782"><span class="annot"><span class="annottext">[RelationalDatabaseMetricName] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679620785"><span id="local-6989586621679620787"><span id="local-6989586621679620789"><span id="local-6989586621679620791"><span class="annot"><span class="annottext">[RelationalDatabaseMetricName] -&gt; Encoding
 [RelationalDatabaseMetricName] -&gt; Value
 RelationalDatabaseMetricName -&gt; Encoding
 RelationalDatabaseMetricName -&gt; Value
@@ -282,7 +282,7 @@ $ctoEncoding :: RelationalDatabaseMetricName -&gt; Encoding
 toJSON :: RelationalDatabaseMetricName -&gt; Value
 $ctoJSON :: RelationalDatabaseMetricName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679620771"><span id="local-6989586621679620773"><span class="annot"><span class="annottext">ToJSONKeyFunction [RelationalDatabaseMetricName]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679620780"><span id="local-6989586621679620782"><span class="annot"><span class="annottext">ToJSONKeyFunction [RelationalDatabaseMetricName]
 ToJSONKeyFunction RelationalDatabaseMetricName
 ToJSONKeyFunction RelationalDatabaseMetricName
 -&gt; ToJSONKeyFunction [RelationalDatabaseMetricName]
@@ -294,14 +294,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RelationalDatabaseMetricName]
 toJSONKey :: ToJSONKeyFunction RelationalDatabaseMetricName
 $ctoJSONKey :: ToJSONKeyFunction RelationalDatabaseMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679620768"><span class="annot"><span class="annottext">[Node] -&gt; Either String RelationalDatabaseMetricName
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679620777"><span class="annot"><span class="annottext">[Node] -&gt; Either String RelationalDatabaseMetricName
 ([Node] -&gt; Either String RelationalDatabaseMetricName)
 -&gt; FromXML RelationalDatabaseMetricName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RelationalDatabaseMetricName
 $cparseXML :: [Node] -&gt; Either String RelationalDatabaseMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679620765"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679620774"><span class="annot"><span class="annottext">RelationalDatabaseMetricName -&gt; XML
 (RelationalDatabaseMetricName -&gt; XML)
 -&gt; ToXML RelationalDatabaseMetricName
 forall a. (a -&gt; XML) -&gt; ToXML a

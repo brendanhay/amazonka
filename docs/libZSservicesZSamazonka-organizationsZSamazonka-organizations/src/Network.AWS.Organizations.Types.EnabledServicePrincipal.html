@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- an AWS service that is enabled to integrate with AWS Organizations.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEnabledServicePrincipal' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679237051"><span id="local-6989586621679237052"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnabledServicePrincipal"><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-var">EnabledServicePrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnabledServicePrincipal%27"><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-var">EnabledServicePrincipal'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679237060"><span id="local-6989586621679237061"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnabledServicePrincipal"><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-var">EnabledServicePrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnabledServicePrincipal%27"><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-var">EnabledServicePrincipal'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the service principal. This is typically in the form of a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- URL, such as: @ servicename.amazonaws.com@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AservicePrincipal%3AEnabledServicePrincipal%27"><span class="annot"><span class="annottext">EnabledServicePrincipal -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AdateEnabled%3AEnabledServicePrincipal%27"><span class="annot"><span class="annottext">EnabledServicePrincipal -&gt; Maybe POSIX
 </span><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#%24sel%3AdateEnabled%3AEnabledServicePrincipal%27"><span class="hs-identifier hs-var hs-var">dateEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237044"><span id="local-6989586621679237046"><span class="annot"><span class="annottext">EnabledServicePrincipal -&gt; EnabledServicePrincipal -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237053"><span id="local-6989586621679237055"><span class="annot"><span class="annottext">EnabledServicePrincipal -&gt; EnabledServicePrincipal -&gt; Bool
 (EnabledServicePrincipal -&gt; EnabledServicePrincipal -&gt; Bool)
 -&gt; (EnabledServicePrincipal -&gt; EnabledServicePrincipal -&gt; Bool)
 -&gt; Eq EnabledServicePrincipal
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnabledServicePrincipal -&gt; EnabledServicePrincipal -&gt; Bool
 == :: EnabledServicePrincipal -&gt; EnabledServicePrincipal -&gt; Bool
 $c== :: EnabledServicePrincipal -&gt; EnabledServicePrincipal -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237035"><span id="local-6989586621679237037"><span id="local-6989586621679237039"><span id="local-6989586621679237041"><span class="annot"><span class="annottext">ReadPrec [EnabledServicePrincipal]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237044"><span id="local-6989586621679237046"><span id="local-6989586621679237048"><span id="local-6989586621679237050"><span class="annot"><span class="annottext">ReadPrec [EnabledServicePrincipal]
 ReadPrec EnabledServicePrincipal
 Int -&gt; ReadS EnabledServicePrincipal
 ReadS [EnabledServicePrincipal]
@@ -66,7 +66,7 @@ readList :: ReadS [EnabledServicePrincipal]
 $creadList :: ReadS [EnabledServicePrincipal]
 readsPrec :: Int -&gt; ReadS EnabledServicePrincipal
 $creadsPrec :: Int -&gt; ReadS EnabledServicePrincipal
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237028"><span id="local-6989586621679237030"><span id="local-6989586621679237032"><span class="annot"><span class="annottext">Int -&gt; EnabledServicePrincipal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237037"><span id="local-6989586621679237039"><span id="local-6989586621679237041"><span class="annot"><span class="annottext">Int -&gt; EnabledServicePrincipal -&gt; ShowS
 [EnabledServicePrincipal] -&gt; ShowS
 EnabledServicePrincipal -&gt; String
 (Int -&gt; EnabledServicePrincipal -&gt; ShowS)
@@ -138,16 +138,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237019"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237028"><span class="annot"><span class="annottext">Maybe Text
 servicePrincipal :: Maybe Text
 $sel:servicePrincipal:EnabledServicePrincipal' :: EnabledServicePrincipal -&gt; Maybe Text
-</span><a href="#local-6989586621679237019"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237019"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237018"><span class="annot"><span class="annottext">s :: EnabledServicePrincipal
-</span><a href="#local-6989586621679237018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237017"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledServicePrincipal
-</span><a href="#local-6989586621679237018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:EnabledServicePrincipal' :: Maybe Text
+</span><a href="#local-6989586621679237028"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237028"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237027"><span class="annot"><span class="annottext">s :: EnabledServicePrincipal
+</span><a href="#local-6989586621679237027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237026"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledServicePrincipal
+</span><a href="#local-6989586621679237027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:EnabledServicePrincipal' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#%24sel%3AservicePrincipal%3AEnabledServicePrincipal%27"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The date that the service principal was enabled for integration with AWS</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- Organizations.</span><span>
@@ -163,16 +163,16 @@ $sel:servicePrincipal:EnabledServicePrincipal' :: EnabledServicePrincipal -&gt; 
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237015"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237024"><span class="annot"><span class="annottext">Maybe POSIX
 dateEnabled :: Maybe POSIX
 $sel:dateEnabled:EnabledServicePrincipal' :: EnabledServicePrincipal -&gt; Maybe POSIX
-</span><a href="#local-6989586621679237015"><span class="hs-identifier hs-var hs-var">dateEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679237015"><span class="hs-identifier hs-var">dateEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237014"><span class="annot"><span class="annottext">s :: EnabledServicePrincipal
-</span><a href="#local-6989586621679237014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237013"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679237013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledServicePrincipal
-</span><a href="#local-6989586621679237014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateEnabled:EnabledServicePrincipal' :: Maybe POSIX
+</span><a href="#local-6989586621679237024"><span class="hs-identifier hs-var hs-var">dateEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679237024"><span class="hs-identifier hs-var">dateEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237023"><span class="annot"><span class="annottext">s :: EnabledServicePrincipal
+</span><a href="#local-6989586621679237023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-type">EnabledServicePrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237022"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679237022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnabledServicePrincipal
+</span><a href="#local-6989586621679237023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateEnabled:EnabledServicePrincipal' :: Maybe POSIX
 </span><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#%24sel%3AdateEnabled%3AEnabledServicePrincipal%27"><span class="hs-identifier hs-var">dateEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679237013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679237022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; EnabledServicePrincipal -&gt; f EnabledServicePrincipal)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -189,8 +189,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237007"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679237005"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnabledServicePrincipal
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237016"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679237014"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnabledServicePrincipal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EnabledServicePrincipal)
@@ -200,8 +200,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EnabledServicePrincipal&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237002"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237011"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237011"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; EnabledServicePrincipal
 </span><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal%27"><span class="hs-identifier hs-var">EnabledServicePrincipal'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; EnabledServicePrincipal)
@@ -209,7 +209,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; EnabledServicePrincipal)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679237011"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServicePrincipal&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,13 +217,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser EnabledServicePrincipal
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679237011"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DateEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236996"><span id="local-6989586621679236998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237005"><span id="local-6989586621679237007"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.EnabledServicePrincipal.html#EnabledServicePrincipal"><span class="hs-identifier hs-type">EnabledServicePrincipal</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

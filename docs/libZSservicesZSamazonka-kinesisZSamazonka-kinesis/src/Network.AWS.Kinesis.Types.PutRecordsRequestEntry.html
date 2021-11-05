@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents the output for @PutRecords@.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPutRecordsRequestEntry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679197527"><span id="local-6989586621679197528"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecordsRequestEntry"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-var">PutRecordsRequestEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecordsRequestEntry%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-var">PutRecordsRequestEntry'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679197536"><span id="local-6989586621679197537"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecordsRequestEntry"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-var">PutRecordsRequestEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecordsRequestEntry%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-var">PutRecordsRequestEntry'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hash value used to determine explicitly the shard that the data</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- record is assigned to by overriding the partition key hash.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AexplicitHashKey%3APutRecordsRequestEntry%27"><span class="annot"><span class="annottext">PutRecordsRequestEntry -&gt; Maybe Text
@@ -49,7 +49,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3ApartitionKey%3APutRecordsRequestEntry%27"><span class="annot"><span class="annottext">PutRecordsRequestEntry -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#%24sel%3ApartitionKey%3APutRecordsRequestEntry%27"><span class="hs-identifier hs-var hs-var">partitionKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197519"><span id="local-6989586621679197521"><span class="annot"><span class="annottext">PutRecordsRequestEntry -&gt; PutRecordsRequestEntry -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197528"><span id="local-6989586621679197530"><span class="annot"><span class="annottext">PutRecordsRequestEntry -&gt; PutRecordsRequestEntry -&gt; Bool
 (PutRecordsRequestEntry -&gt; PutRecordsRequestEntry -&gt; Bool)
 -&gt; (PutRecordsRequestEntry -&gt; PutRecordsRequestEntry -&gt; Bool)
 -&gt; Eq PutRecordsRequestEntry
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRecordsRequestEntry -&gt; PutRecordsRequestEntry -&gt; Bool
 == :: PutRecordsRequestEntry -&gt; PutRecordsRequestEntry -&gt; Bool
 $c== :: PutRecordsRequestEntry -&gt; PutRecordsRequestEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197510"><span id="local-6989586621679197512"><span id="local-6989586621679197514"><span id="local-6989586621679197516"><span class="annot"><span class="annottext">ReadPrec [PutRecordsRequestEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197519"><span id="local-6989586621679197521"><span id="local-6989586621679197523"><span id="local-6989586621679197525"><span class="annot"><span class="annottext">ReadPrec [PutRecordsRequestEntry]
 ReadPrec PutRecordsRequestEntry
 Int -&gt; ReadS PutRecordsRequestEntry
 ReadS [PutRecordsRequestEntry]
@@ -78,7 +78,7 @@ readList :: ReadS [PutRecordsRequestEntry]
 $creadList :: ReadS [PutRecordsRequestEntry]
 readsPrec :: Int -&gt; ReadS PutRecordsRequestEntry
 $creadsPrec :: Int -&gt; ReadS PutRecordsRequestEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197503"><span id="local-6989586621679197505"><span id="local-6989586621679197507"><span class="annot"><span class="annottext">Int -&gt; PutRecordsRequestEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197512"><span id="local-6989586621679197514"><span id="local-6989586621679197516"><span class="annot"><span class="annottext">Int -&gt; PutRecordsRequestEntry -&gt; ShowS
 [PutRecordsRequestEntry] -&gt; ShowS
 PutRecordsRequestEntry -&gt; String
 (Int -&gt; PutRecordsRequestEntry -&gt; ShowS)
@@ -141,9 +141,9 @@ $cfrom :: forall x. PutRecordsRequestEntry -&gt; Rep PutRecordsRequestEntry x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span>
 </span><span id="line-86"></span><span id="newPutRecordsRequestEntry"><span class="annot"><span class="annottext">newPutRecordsRequestEntry :: ByteString -&gt; Text -&gt; PutRecordsRequestEntry
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#newPutRecordsRequestEntry"><span class="hs-identifier hs-var hs-var">newPutRecordsRequestEntry</span></a></span></span><span> </span><span id="local-6989586621679197497"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197497"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span id="local-6989586621679197496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197496"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#newPutRecordsRequestEntry"><span class="hs-identifier hs-var hs-var">newPutRecordsRequestEntry</span></a></span></span><span> </span><span id="local-6989586621679197506"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197506"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span id="local-6989586621679197505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197505"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">PutRecordsRequestEntry' :: Maybe Text -&gt; Base64 -&gt; Text -&gt; PutRecordsRequestEntry
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:explicitHashKey:PutRecordsRequestEntry' :: Maybe Text
@@ -160,10 +160,10 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197497"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197506"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionKey:PutRecordsRequestEntry' :: Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#%24sel%3ApartitionKey%3APutRecordsRequestEntry%27"><span class="hs-identifier hs-var">partitionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197496"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span><span>
+</span><a href="#local-6989586621679197505"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The hash value used to determine explicitly the shard that the data</span><span>
@@ -179,16 +179,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197490"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197499"><span class="annot"><span class="annottext">Maybe Text
 explicitHashKey :: Maybe Text
 $sel:explicitHashKey:PutRecordsRequestEntry' :: PutRecordsRequestEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679197490"><span class="hs-identifier hs-var hs-var">explicitHashKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197490"><span class="hs-identifier hs-var">explicitHashKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197489"><span class="annot"><span class="annottext">s :: PutRecordsRequestEntry
-</span><a href="#local-6989586621679197489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197488"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsRequestEntry
-</span><a href="#local-6989586621679197489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:explicitHashKey:PutRecordsRequestEntry' :: Maybe Text
+</span><a href="#local-6989586621679197499"><span class="hs-identifier hs-var hs-var">explicitHashKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197499"><span class="hs-identifier hs-var">explicitHashKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197498"><span class="annot"><span class="annottext">s :: PutRecordsRequestEntry
+</span><a href="#local-6989586621679197498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsRequestEntry
+</span><a href="#local-6989586621679197498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:explicitHashKey:PutRecordsRequestEntry' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#%24sel%3AexplicitHashKey%3APutRecordsRequestEntry%27"><span class="hs-identifier hs-var">explicitHashKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The data blob to put into the record, which is base64-encoded when the</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- blob is serialized. When the data blob (the payload before</span><span>
@@ -205,16 +205,16 @@ $sel:explicitHashKey:PutRecordsRequestEntry' :: PutRecordsRequestEntry -&gt; May
 -&gt; (PutRecordsRequestEntry -&gt; Base64 -&gt; PutRecordsRequestEntry)
 -&gt; Lens PutRecordsRequestEntry PutRecordsRequestEntry Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197486"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197495"><span class="annot"><span class="annottext">Base64
 data' :: Base64
 $sel:data':PutRecordsRequestEntry' :: PutRecordsRequestEntry -&gt; Base64
-</span><a href="#local-6989586621679197486"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679197486"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197485"><span class="annot"><span class="annottext">s :: PutRecordsRequestEntry
-</span><a href="#local-6989586621679197485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197484"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679197484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsRequestEntry
-</span><a href="#local-6989586621679197485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':PutRecordsRequestEntry' :: Base64
+</span><a href="#local-6989586621679197495"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679197495"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197494"><span class="annot"><span class="annottext">s :: PutRecordsRequestEntry
+</span><a href="#local-6989586621679197494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197493"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679197493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsRequestEntry
+</span><a href="#local-6989586621679197494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':PutRecordsRequestEntry' :: Base64
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#%24sel%3Adata%27%3APutRecordsRequestEntry%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679197484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64)
+</span><a href="#local-6989586621679197493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64)
  -&gt; PutRecordsRequestEntry -&gt; f PutRecordsRequestEntry)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
@@ -241,24 +241,24 @@ Iso' Base64 ByteString
 -&gt; (PutRecordsRequestEntry -&gt; Text -&gt; PutRecordsRequestEntry)
 -&gt; Lens PutRecordsRequestEntry PutRecordsRequestEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197481"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197490"><span class="annot"><span class="annottext">Text
 partitionKey :: Text
 $sel:partitionKey:PutRecordsRequestEntry' :: PutRecordsRequestEntry -&gt; Text
-</span><a href="#local-6989586621679197481"><span class="hs-identifier hs-var hs-var">partitionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197481"><span class="hs-identifier hs-var">partitionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197480"><span class="annot"><span class="annottext">s :: PutRecordsRequestEntry
-</span><a href="#local-6989586621679197480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197479"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsRequestEntry
-</span><a href="#local-6989586621679197480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionKey:PutRecordsRequestEntry' :: Text
+</span><a href="#local-6989586621679197490"><span class="hs-identifier hs-var hs-var">partitionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197490"><span class="hs-identifier hs-var">partitionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197489"><span class="annot"><span class="annottext">s :: PutRecordsRequestEntry
+</span><a href="#local-6989586621679197489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197488"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsRequestEntry
+</span><a href="#local-6989586621679197489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionKey:PutRecordsRequestEntry' :: Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#%24sel%3ApartitionKey%3APutRecordsRequestEntry%27"><span class="hs-identifier hs-var">partitionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197475"><span id="local-6989586621679197477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197484"><span id="local-6989586621679197486"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197464"><span id="local-6989586621679197466"><span id="local-6989586621679197468"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679197462"><span class="annot"><span class="annottext">toJSON :: PutRecordsRequestEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197458"><span id="local-6989586621679197459"><span id="local-6989586621679197460"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197473"><span id="local-6989586621679197475"><span id="local-6989586621679197477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679197471"><span class="annot"><span class="annottext">toJSON :: PutRecordsRequestEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry%27"><span class="hs-identifier hs-type">PutRecordsRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197467"><span id="local-6989586621679197468"><span id="local-6989586621679197469"><span class="annot"><span class="annottext">Maybe Text
 Text
 Base64
 partitionKey :: Text
@@ -267,7 +267,7 @@ explicitHashKey :: Maybe Text
 $sel:partitionKey:PutRecordsRequestEntry' :: PutRecordsRequestEntry -&gt; Text
 $sel:data':PutRecordsRequestEntry' :: PutRecordsRequestEntry -&gt; Base64
 $sel:explicitHashKey:PutRecordsRequestEntry' :: PutRecordsRequestEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679197458"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679197467"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,21 +280,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197460"><span class="hs-identifier hs-var">explicitHashKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197469"><span class="hs-identifier hs-var">explicitHashKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679197459"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197468"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartitionKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197458"><span class="hs-identifier hs-var">partitionKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197467"><span class="hs-identifier hs-var">partitionKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span></pre></body></html>

@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access Storage class for automatically optimizing frequently and infrequently accessed objects&gt;.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newIntelligentTieringConfiguration' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679557653"><span id="local-6989586621679557654"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntelligentTieringConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-var">IntelligentTieringConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntelligentTieringConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">IntelligentTieringConfiguration'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679557662"><span id="local-6989586621679557663"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntelligentTieringConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-var">IntelligentTieringConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntelligentTieringConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">IntelligentTieringConfiguration'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies a bucket filter. The configuration only includes objects that</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- meet the filter\'s criteria.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Afilter%27%3AIntelligentTieringConfiguration%27"><span class="annot"><span class="annottext">IntelligentTieringConfiguration -&gt; Maybe IntelligentTieringFilter
@@ -50,7 +50,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Atierings%3AIntelligentTieringConfiguration%27"><span class="annot"><span class="annottext">IntelligentTieringConfiguration -&gt; [Tiering]
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Atierings%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var hs-var">tierings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557644"><span id="local-6989586621679557646"><span class="annot"><span class="annottext">IntelligentTieringConfiguration
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557653"><span id="local-6989586621679557655"><span class="annot"><span class="annottext">IntelligentTieringConfiguration
 -&gt; IntelligentTieringConfiguration -&gt; Bool
 (IntelligentTieringConfiguration
  -&gt; IntelligentTieringConfiguration -&gt; Bool)
@@ -66,7 +66,7 @@ $c/= :: IntelligentTieringConfiguration
 -&gt; IntelligentTieringConfiguration -&gt; Bool
 $c== :: IntelligentTieringConfiguration
 -&gt; IntelligentTieringConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557635"><span id="local-6989586621679557637"><span id="local-6989586621679557639"><span id="local-6989586621679557641"><span class="annot"><span class="annottext">ReadPrec [IntelligentTieringConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557644"><span id="local-6989586621679557646"><span id="local-6989586621679557648"><span id="local-6989586621679557650"><span class="annot"><span class="annottext">ReadPrec [IntelligentTieringConfiguration]
 ReadPrec IntelligentTieringConfiguration
 Int -&gt; ReadS IntelligentTieringConfiguration
 ReadS [IntelligentTieringConfiguration]
@@ -86,7 +86,7 @@ readList :: ReadS [IntelligentTieringConfiguration]
 $creadList :: ReadS [IntelligentTieringConfiguration]
 readsPrec :: Int -&gt; ReadS IntelligentTieringConfiguration
 $creadsPrec :: Int -&gt; ReadS IntelligentTieringConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557628"><span id="local-6989586621679557630"><span id="local-6989586621679557632"><span class="annot"><span class="annottext">Int -&gt; IntelligentTieringConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557637"><span id="local-6989586621679557639"><span id="local-6989586621679557641"><span class="annot"><span class="annottext">Int -&gt; IntelligentTieringConfiguration -&gt; ShowS
 [IntelligentTieringConfiguration] -&gt; ShowS
 IntelligentTieringConfiguration -&gt; String
 (Int -&gt; IntelligentTieringConfiguration -&gt; ShowS)
@@ -148,9 +148,9 @@ IntelligentTieringConfiguration
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringStatus.html#IntelligentTieringStatus"><span class="hs-identifier hs-type">IntelligentTieringStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span>
 </span><span id="line-74"></span><span id="newIntelligentTieringConfiguration"><span class="annot"><span class="annottext">newIntelligentTieringConfiguration :: Text -&gt; IntelligentTieringStatus -&gt; IntelligentTieringConfiguration
-</span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#newIntelligentTieringConfiguration"><span class="hs-identifier hs-var hs-var">newIntelligentTieringConfiguration</span></a></span></span><span> </span><span id="local-6989586621679557622"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557622"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679557621"><span class="annot"><span class="annottext">IntelligentTieringStatus
-</span><a href="#local-6989586621679557621"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#newIntelligentTieringConfiguration"><span class="hs-identifier hs-var hs-var">newIntelligentTieringConfiguration</span></a></span></span><span> </span><span id="local-6989586621679557631"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557631"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679557630"><span class="annot"><span class="annottext">IntelligentTieringStatus
+</span><a href="#local-6989586621679557630"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration' :: Maybe IntelligentTieringFilter
 -&gt; Text
 -&gt; IntelligentTieringStatus
@@ -164,10 +164,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:IntelligentTieringConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Aid%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557622"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557631"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:IntelligentTieringConfiguration' :: IntelligentTieringStatus
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Astatus%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringStatus
-</span><a href="#local-6989586621679557621"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557630"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:tierings:IntelligentTieringConfiguration' :: [Tiering]
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Atierings%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">tierings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tiering]
 forall a. Monoid a =&gt; a
@@ -191,16 +191,16 @@ forall a. Monoid a =&gt; a
      (Maybe IntelligentTieringFilter)
      (Maybe IntelligentTieringFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557617"><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557626"><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
 filter' :: Maybe IntelligentTieringFilter
 $sel:filter':IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt; Maybe IntelligentTieringFilter
-</span><a href="#local-6989586621679557617"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
-</span><a href="#local-6989586621679557617"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557616"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557615"><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
-</span><a href="#local-6989586621679557615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':IntelligentTieringConfiguration' :: Maybe IntelligentTieringFilter
+</span><a href="#local-6989586621679557626"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
+</span><a href="#local-6989586621679557626"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557625"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557624"><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
+</span><a href="#local-6989586621679557624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':IntelligentTieringConfiguration' :: Maybe IntelligentTieringFilter
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Afilter%27%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
-</span><a href="#local-6989586621679557615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ID used to identify the S3 Intelligent-Tiering configuration.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#intelligentTieringConfiguration_id"><span class="hs-identifier hs-type">intelligentTieringConfiguration_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,16 +216,16 @@ $sel:filter':IntelligentTieringConfiguration' :: IntelligentTieringConfiguration
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557613"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557622"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt; Text
-</span><a href="#local-6989586621679557613"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557613"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557612"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:IntelligentTieringConfiguration' :: Text
+</span><a href="#local-6989586621679557622"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557622"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557621"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679557620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:IntelligentTieringConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Aid%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Specifies the status of the configuration.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#intelligentTieringConfiguration_status"><span class="hs-identifier hs-type">intelligentTieringConfiguration_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringStatus.html#IntelligentTieringStatus"><span class="hs-identifier hs-type">IntelligentTieringStatus</span></a></span><span>
@@ -241,16 +241,16 @@ $sel:id:IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt
      IntelligentTieringStatus
      IntelligentTieringStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557609"><span class="annot"><span class="annottext">IntelligentTieringStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557618"><span class="annot"><span class="annottext">IntelligentTieringStatus
 status :: IntelligentTieringStatus
 $sel:status:IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt; IntelligentTieringStatus
-</span><a href="#local-6989586621679557609"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringStatus
-</span><a href="#local-6989586621679557609"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557608"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557607"><span class="annot"><span class="annottext">IntelligentTieringStatus
-</span><a href="#local-6989586621679557607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:IntelligentTieringConfiguration' :: IntelligentTieringStatus
+</span><a href="#local-6989586621679557618"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringStatus
+</span><a href="#local-6989586621679557618"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557617"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557616"><span class="annot"><span class="annottext">IntelligentTieringStatus
+</span><a href="#local-6989586621679557616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:IntelligentTieringConfiguration' :: IntelligentTieringStatus
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Astatus%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringStatus
-</span><a href="#local-6989586621679557607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | Specifies the S3 Intelligent-Tiering storage class tier of the</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- configuration.</span><span>
@@ -267,16 +267,16 @@ $sel:status:IntelligentTieringConfiguration' :: IntelligentTieringConfiguration 
      [Tiering]
      [Tiering]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557605"><span class="annot"><span class="annottext">[Tiering]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557614"><span class="annot"><span class="annottext">[Tiering]
 tierings :: [Tiering]
 $sel:tierings:IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt; [Tiering]
-</span><a href="#local-6989586621679557605"><span class="hs-identifier hs-var hs-var">tierings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tiering]
-</span><a href="#local-6989586621679557605"><span class="hs-identifier hs-var">tierings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557604"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557603"><span class="annot"><span class="annottext">[Tiering]
-</span><a href="#local-6989586621679557603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
-</span><a href="#local-6989586621679557604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tierings:IntelligentTieringConfiguration' :: [Tiering]
+</span><a href="#local-6989586621679557614"><span class="hs-identifier hs-var hs-var">tierings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tiering]
+</span><a href="#local-6989586621679557614"><span class="hs-identifier hs-var">tierings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557613"><span class="annot"><span class="annottext">s :: IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557612"><span class="annot"><span class="annottext">[Tiering]
+</span><a href="#local-6989586621679557612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringConfiguration
+</span><a href="#local-6989586621679557613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tierings:IntelligentTieringConfiguration' :: [Tiering]
 </span><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#%24sel%3Atierings%3AIntelligentTieringConfiguration%27"><span class="hs-identifier hs-var">tierings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tiering]
-</span><a href="#local-6989586621679557603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tiering] -&gt; f [Tiering])
+</span><a href="#local-6989586621679557612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tiering] -&gt; f [Tiering])
  -&gt; IntelligentTieringConfiguration
  -&gt; f IntelligentTieringConfiguration)
 -&gt; (([Tiering] -&gt; f [Tiering]) -&gt; [Tiering] -&gt; f [Tiering])
@@ -289,9 +289,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679557598"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IntelligentTieringConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557596"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557596"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679557607"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IntelligentTieringConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557605"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557605"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
 -&gt; Text
 -&gt; IntelligentTieringStatus
@@ -312,7 +312,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
       -&gt; IntelligentTieringConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IntelligentTieringFilter)
+</span><a href="#local-6989586621679557605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IntelligentTieringFilter)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span class="hs-special">)</span><span>
@@ -329,7 +329,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; [Tiering] -&gt; IntelligentTieringConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679557605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,7 +341,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ([Tiering] -&gt; IntelligentTieringConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String IntelligentTieringStatus
+</span><a href="#local-6989586621679557605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String IntelligentTieringStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -353,19 +353,19 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tiering&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557596"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557605"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679557588"><span id="local-6989586621679557590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679557597"><span id="local-6989586621679557599"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679557585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679557594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration"><span class="hs-identifier hs-type">IntelligentTieringConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679557581"><span class="annot"><span class="annottext">toXML :: IntelligentTieringConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557576"><span id="local-6989586621679557577"><span id="local-6989586621679557578"><span id="local-6989586621679557579"><span class="annot"><span class="annottext">[Tiering]
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679557590"><span class="annot"><span class="annottext">toXML :: IntelligentTieringConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringConfiguration.html#IntelligentTieringConfiguration%27"><span class="hs-identifier hs-type">IntelligentTieringConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557585"><span id="local-6989586621679557586"><span id="local-6989586621679557587"><span id="local-6989586621679557588"><span class="annot"><span class="annottext">[Tiering]
 Maybe IntelligentTieringFilter
 Text
 IntelligentTieringStatus
@@ -377,7 +377,7 @@ $sel:tierings:IntelligentTieringConfiguration' :: IntelligentTieringConfiguratio
 $sel:status:IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt; IntelligentTieringStatus
 $sel:id:IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt; Text
 $sel:filter':IntelligentTieringConfiguration' :: IntelligentTieringConfiguration -&gt; Maybe IntelligentTieringFilter
-</span><a href="#local-6989586621679557576"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679557585"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -385,21 +385,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe IntelligentTieringFilter -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringFilter
-</span><a href="#local-6989586621679557579"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557588"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679557578"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557587"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; IntelligentTieringStatus -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">IntelligentTieringStatus
-</span><a href="#local-6989586621679557577"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557586"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Name -&gt; [Tiering] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Tiering&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tiering]
-</span><a href="#local-6989586621679557576"><span class="hs-identifier hs-var">tierings</span></a></span><span>
+</span><a href="#local-6989586621679557585"><span class="hs-identifier hs-var">tierings</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span></pre></body></html>

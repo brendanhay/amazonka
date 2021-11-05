@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679405685"><span id="local-6989586621679405686"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequiresRecreation"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#RequiresRecreation"><span class="hs-identifier hs-var">RequiresRecreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequiresRecreation%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#RequiresRecreation%27"><span class="hs-identifier hs-var">RequiresRecreation'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679405694"><span id="local-6989586621679405695"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequiresRecreation"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#RequiresRecreation"><span class="hs-identifier hs-var">RequiresRecreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequiresRecreation%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#RequiresRecreation%27"><span class="hs-identifier hs-var">RequiresRecreation'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequiresRecreation"><span class="annot"><span class="annottext">RequiresRecreation -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#fromRequiresRecreation"><span class="hs-identifier hs-var hs-var">fromRequiresRecreation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405677"><span id="local-6989586621679405679"><span id="local-6989586621679405681"><span class="annot"><span class="annottext">Int -&gt; RequiresRecreation -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405686"><span id="local-6989586621679405688"><span id="local-6989586621679405690"><span class="annot"><span class="annottext">Int -&gt; RequiresRecreation -&gt; ShowS
 [RequiresRecreation] -&gt; ShowS
 RequiresRecreation -&gt; String
 (Int -&gt; RequiresRecreation -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: RequiresRecreation -&gt; String
 showsPrec :: Int -&gt; RequiresRecreation -&gt; ShowS
 $cshowsPrec :: Int -&gt; RequiresRecreation -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679405668"><span id="local-6989586621679405670"><span id="local-6989586621679405672"><span id="local-6989586621679405674"><span class="annot"><span class="annottext">ReadPrec [RequiresRecreation]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679405677"><span id="local-6989586621679405679"><span id="local-6989586621679405681"><span id="local-6989586621679405683"><span class="annot"><span class="annottext">ReadPrec [RequiresRecreation]
 ReadPrec RequiresRecreation
 Int -&gt; ReadS RequiresRecreation
 ReadS [RequiresRecreation]
@@ -73,7 +73,7 @@ $creadList :: ReadS [RequiresRecreation]
 readsPrec :: Int -&gt; ReadS RequiresRecreation
 $creadsPrec :: Int -&gt; ReadS RequiresRecreation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679405663"><span id="local-6989586621679405665"><span class="annot"><span class="annottext">RequiresRecreation -&gt; RequiresRecreation -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679405672"><span id="local-6989586621679405674"><span class="annot"><span class="annottext">RequiresRecreation -&gt; RequiresRecreation -&gt; Bool
 (RequiresRecreation -&gt; RequiresRecreation -&gt; Bool)
 -&gt; (RequiresRecreation -&gt; RequiresRecreation -&gt; Bool)
 -&gt; Eq RequiresRecreation
@@ -83,7 +83,7 @@ $c/= :: RequiresRecreation -&gt; RequiresRecreation -&gt; Bool
 == :: RequiresRecreation -&gt; RequiresRecreation -&gt; Bool
 $c== :: RequiresRecreation -&gt; RequiresRecreation -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679405647"><span id="local-6989586621679405649"><span id="local-6989586621679405651"><span id="local-6989586621679405653"><span id="local-6989586621679405655"><span id="local-6989586621679405657"><span id="local-6989586621679405659"><span class="annot"><span class="annottext">Eq RequiresRecreation
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679405656"><span id="local-6989586621679405658"><span id="local-6989586621679405660"><span id="local-6989586621679405662"><span id="local-6989586621679405664"><span id="local-6989586621679405666"><span id="local-6989586621679405668"><span class="annot"><span class="annottext">Eq RequiresRecreation
 Eq RequiresRecreation
 -&gt; (RequiresRecreation -&gt; RequiresRecreation -&gt; Ordering)
 -&gt; (RequiresRecreation -&gt; RequiresRecreation -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. RequiresRecreation -&gt; Rep RequiresRecreation x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405639"><span id="local-6989586621679405641"><span class="annot"><span class="annottext">Int -&gt; RequiresRecreation -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405648"><span id="local-6989586621679405650"><span class="annot"><span class="annottext">Int -&gt; RequiresRecreation -&gt; Int
 RequiresRecreation -&gt; Int
 (Int -&gt; RequiresRecreation -&gt; Int)
 -&gt; (RequiresRecreation -&gt; Int) -&gt; Hashable RequiresRecreation
@@ -144,53 +144,53 @@ $chash :: RequiresRecreation -&gt; Int
 hashWithSalt :: Int -&gt; RequiresRecreation -&gt; Int
 $chashWithSalt :: Int -&gt; RequiresRecreation -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679405636"><span class="annot"><span class="annottext">RequiresRecreation -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679405645"><span class="annot"><span class="annottext">RequiresRecreation -&gt; ()
 (RequiresRecreation -&gt; ()) -&gt; NFData RequiresRecreation
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RequiresRecreation -&gt; ()
 $crnf :: RequiresRecreation -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679405633"><span class="annot"><span class="annottext">Text -&gt; Either String RequiresRecreation
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679405642"><span class="annot"><span class="annottext">Text -&gt; Either String RequiresRecreation
 (Text -&gt; Either String RequiresRecreation)
 -&gt; FromText RequiresRecreation
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RequiresRecreation
 $cfromText :: Text -&gt; Either String RequiresRecreation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405630"><span class="annot"><span class="annottext">RequiresRecreation -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405639"><span class="annot"><span class="annottext">RequiresRecreation -&gt; Text
 (RequiresRecreation -&gt; Text) -&gt; ToText RequiresRecreation
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RequiresRecreation -&gt; Text
 $ctoText :: RequiresRecreation -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405627"><span class="annot"><span class="annottext">RequiresRecreation -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405636"><span class="annot"><span class="annottext">RequiresRecreation -&gt; ByteString
 (RequiresRecreation -&gt; ByteString)
 -&gt; ToByteString RequiresRecreation
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RequiresRecreation -&gt; ByteString
 $ctoBS :: RequiresRecreation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405624"><span class="annot"><span class="annottext">RequiresRecreation -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405633"><span class="annot"><span class="annottext">RequiresRecreation -&gt; ByteStringBuilder
 (RequiresRecreation -&gt; ByteStringBuilder)
 -&gt; ToLog RequiresRecreation
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RequiresRecreation -&gt; ByteStringBuilder
 $cbuild :: RequiresRecreation -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405621"><span class="annot"><span class="annottext">HeaderName -&gt; RequiresRecreation -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405630"><span class="annot"><span class="annottext">HeaderName -&gt; RequiresRecreation -&gt; [Header]
 (HeaderName -&gt; RequiresRecreation -&gt; [Header])
 -&gt; ToHeader RequiresRecreation
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RequiresRecreation -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RequiresRecreation -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405618"><span class="annot"><span class="annottext">RequiresRecreation -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405627"><span class="annot"><span class="annottext">RequiresRecreation -&gt; QueryString
 (RequiresRecreation -&gt; QueryString) -&gt; ToQuery RequiresRecreation
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RequiresRecreation -&gt; QueryString
 $ctoQuery :: RequiresRecreation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405613"><span id="local-6989586621679405615"><span class="annot"><span class="annottext">Value -&gt; Parser [RequiresRecreation]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405622"><span id="local-6989586621679405624"><span class="annot"><span class="annottext">Value -&gt; Parser [RequiresRecreation]
 Value -&gt; Parser RequiresRecreation
 (Value -&gt; Parser RequiresRecreation)
 -&gt; (Value -&gt; Parser [RequiresRecreation])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [RequiresRecreation]
 parseJSON :: Value -&gt; Parser RequiresRecreation
 $cparseJSON :: Value -&gt; Parser RequiresRecreation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405608"><span id="local-6989586621679405610"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequiresRecreation]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405617"><span id="local-6989586621679405619"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequiresRecreation]
 FromJSONKeyFunction RequiresRecreation
 FromJSONKeyFunction RequiresRecreation
 -&gt; FromJSONKeyFunction [RequiresRecreation]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RequiresRecreation]
 fromJSONKey :: FromJSONKeyFunction RequiresRecreation
 $cfromJSONKey :: FromJSONKeyFunction RequiresRecreation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405599"><span id="local-6989586621679405601"><span id="local-6989586621679405603"><span id="local-6989586621679405605"><span class="annot"><span class="annottext">[RequiresRecreation] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405608"><span id="local-6989586621679405610"><span id="local-6989586621679405612"><span id="local-6989586621679405614"><span class="annot"><span class="annottext">[RequiresRecreation] -&gt; Encoding
 [RequiresRecreation] -&gt; Value
 RequiresRecreation -&gt; Encoding
 RequiresRecreation -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: RequiresRecreation -&gt; Encoding
 toJSON :: RequiresRecreation -&gt; Value
 $ctoJSON :: RequiresRecreation -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679405594"><span id="local-6989586621679405596"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequiresRecreation]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679405603"><span id="local-6989586621679405605"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequiresRecreation]
 ToJSONKeyFunction RequiresRecreation
 ToJSONKeyFunction RequiresRecreation
 -&gt; ToJSONKeyFunction [RequiresRecreation]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RequiresRecreation]
 toJSONKey :: ToJSONKeyFunction RequiresRecreation
 $ctoJSONKey :: ToJSONKeyFunction RequiresRecreation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679405591"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequiresRecreation
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679405600"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequiresRecreation
 ([Node] -&gt; Either String RequiresRecreation)
 -&gt; FromXML RequiresRecreation
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RequiresRecreation
 $cparseXML :: [Node] -&gt; Either String RequiresRecreation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679405588"><span class="annot"><span class="annottext">RequiresRecreation -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679405597"><span class="annot"><span class="annottext">RequiresRecreation -&gt; XML
 (RequiresRecreation -&gt; XML) -&gt; ToXML RequiresRecreation
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RequiresRecreation -&gt; XML

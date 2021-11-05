@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- compliance.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCompliance' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679396269"><span id="local-6989586621679396270"></span></span><span class="hs-keyword">data</span><span> </span><span id="Compliance"><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-var">Compliance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Compliance%27"><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-var">Compliance'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679396278"><span id="local-6989586621679396279"></span></span><span class="hs-keyword">data</span><span> </span><span id="Compliance"><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-var">Compliance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Compliance%27"><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-var">Compliance'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of Amazon Web Services resources or Config rules that cause a</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- result of @NON_COMPLIANT@, up to a maximum number.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcomplianceContributorCount%3ACompliance%27"><span class="annot"><span class="annottext">Compliance -&gt; Maybe ComplianceContributorCount
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcomplianceType%3ACompliance%27"><span class="annot"><span class="annottext">Compliance -&gt; Maybe ComplianceType
 </span><a href="Network.AWS.Config.Types.Compliance.html#%24sel%3AcomplianceType%3ACompliance%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396262"><span id="local-6989586621679396264"><span class="annot"><span class="annottext">Compliance -&gt; Compliance -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396271"><span id="local-6989586621679396273"><span class="annot"><span class="annottext">Compliance -&gt; Compliance -&gt; Bool
 (Compliance -&gt; Compliance -&gt; Bool)
 -&gt; (Compliance -&gt; Compliance -&gt; Bool) -&gt; Eq Compliance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Compliance -&gt; Compliance -&gt; Bool
 == :: Compliance -&gt; Compliance -&gt; Bool
 $c== :: Compliance -&gt; Compliance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396253"><span id="local-6989586621679396255"><span id="local-6989586621679396257"><span id="local-6989586621679396259"><span class="annot"><span class="annottext">ReadPrec [Compliance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396262"><span id="local-6989586621679396264"><span id="local-6989586621679396266"><span id="local-6989586621679396268"><span class="annot"><span class="annottext">ReadPrec [Compliance]
 ReadPrec Compliance
 Int -&gt; ReadS Compliance
 ReadS [Compliance]
@@ -83,7 +83,7 @@ readList :: ReadS [Compliance]
 $creadList :: ReadS [Compliance]
 readsPrec :: Int -&gt; ReadS Compliance
 $creadsPrec :: Int -&gt; ReadS Compliance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396246"><span id="local-6989586621679396248"><span id="local-6989586621679396250"><span class="annot"><span class="annottext">Int -&gt; Compliance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396255"><span id="local-6989586621679396257"><span id="local-6989586621679396259"><span class="annot"><span class="annottext">Int -&gt; Compliance -&gt; ShowS
 [Compliance] -&gt; ShowS
 Compliance -&gt; String
 (Int -&gt; Compliance -&gt; ShowS)
@@ -168,16 +168,16 @@ forall a. Maybe a
      (Maybe ComplianceContributorCount)
      (Maybe ComplianceContributorCount)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396237"><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396246"><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
 complianceContributorCount :: Maybe ComplianceContributorCount
 $sel:complianceContributorCount:Compliance' :: Compliance -&gt; Maybe ComplianceContributorCount
-</span><a href="#local-6989586621679396237"><span class="hs-identifier hs-var hs-var">complianceContributorCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
-</span><a href="#local-6989586621679396237"><span class="hs-identifier hs-var">complianceContributorCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396236"><span class="annot"><span class="annottext">s :: Compliance
-</span><a href="#local-6989586621679396236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396235"><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
-</span><a href="#local-6989586621679396235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Compliance
-</span><a href="#local-6989586621679396236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceContributorCount:Compliance' :: Maybe ComplianceContributorCount
+</span><a href="#local-6989586621679396246"><span class="hs-identifier hs-var hs-var">complianceContributorCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
+</span><a href="#local-6989586621679396246"><span class="hs-identifier hs-var">complianceContributorCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396245"><span class="annot"><span class="annottext">s :: Compliance
+</span><a href="#local-6989586621679396245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396244"><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
+</span><a href="#local-6989586621679396244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Compliance
+</span><a href="#local-6989586621679396245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceContributorCount:Compliance' :: Maybe ComplianceContributorCount
 </span><a href="Network.AWS.Config.Types.Compliance.html#%24sel%3AcomplianceContributorCount%3ACompliance%27"><span class="hs-identifier hs-var">complianceContributorCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
-</span><a href="#local-6989586621679396235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Indicates whether an Amazon Web Services resource or Config rule is</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- compliant.</span><span>
@@ -204,19 +204,19 @@ $sel:complianceContributorCount:Compliance' :: Compliance -&gt; Maybe Compliance
 -&gt; Lens
      Compliance Compliance (Maybe ComplianceType) (Maybe ComplianceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396233"><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396242"><span class="annot"><span class="annottext">Maybe ComplianceType
 complianceType :: Maybe ComplianceType
 $sel:complianceType:Compliance' :: Compliance -&gt; Maybe ComplianceType
-</span><a href="#local-6989586621679396233"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679396233"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396232"><span class="annot"><span class="annottext">s :: Compliance
-</span><a href="#local-6989586621679396232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396231"><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679396231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Compliance
-</span><a href="#local-6989586621679396232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:Compliance' :: Maybe ComplianceType
+</span><a href="#local-6989586621679396242"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679396242"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396241"><span class="annot"><span class="annottext">s :: Compliance
+</span><a href="#local-6989586621679396241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-type">Compliance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396240"><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679396240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Compliance
+</span><a href="#local-6989586621679396241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:Compliance' :: Maybe ComplianceType
 </span><a href="Network.AWS.Config.Types.Compliance.html#%24sel%3AcomplianceType%3ACompliance%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679396231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396228"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679396226"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Compliance
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396237"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679396235"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Compliance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Compliance) -&gt; Value -&gt; Parser Compliance
@@ -224,8 +224,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Compliance&quot;</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396223"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396232"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe ComplianceContributorCount
 -&gt; Maybe ComplianceType -&gt; Compliance
 </span><a href="Network.AWS.Config.Types.Compliance.html#Compliance%27"><span class="hs-identifier hs-var">Compliance'</span></a></span><span>
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ComplianceType -&gt; Compliance)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceContributorCount)
+</span><a href="#local-6989586621679396232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceContributorCount)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceContributorCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,13 +243,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ComplianceType) -&gt; Parser Compliance
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceType)
+</span><a href="#local-6989586621679396232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396217"><span id="local-6989586621679396219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396226"><span id="local-6989586621679396228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Compliance.html#Compliance"><span class="hs-identifier hs-type">Compliance</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

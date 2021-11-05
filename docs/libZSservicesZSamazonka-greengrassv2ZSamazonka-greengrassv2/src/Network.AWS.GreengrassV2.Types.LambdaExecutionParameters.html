@@ -1,0 +1,760 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GreengrassV2.Types.LambdaExecutionParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GreengrassV2.Types.LambdaExecutionParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaEventSource.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.LambdaEventSource</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaInputPayloadEncodingType.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.LambdaInputPayloadEncodingType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaLinuxProcessParams.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.LambdaLinuxProcessParams</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains parameters for a Lambda function that runs on IoT Greengrass.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLambdaExecutionParameters' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679232540"><span id="local-6989586621679232541"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaExecutionParameters"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-var">LambdaExecutionParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaExecutionParameters%27"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-var">LambdaExecutionParameters'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of arguments to pass to the Lambda function when it runs.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AexecArgs%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe [Text]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AexecArgs%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">execArgs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The maximum size of the message queue for the Lambda function component.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The IoT Greengrass core stores messages in a FIFO (first-in-first-out)</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- queue until it can run the Lambda function to consume each message.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmaxQueueSize%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxQueueSize%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">maxQueueSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Whether or not the Lambda function is pinned, or long-lived.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   A pinned Lambda function starts when IoT Greengrass starts and keeps</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     running in its own container.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   A non-pinned Lambda function starts only when it receives a work</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     item and exists after it idles for @maxIdleTimeInSeconds@. If the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     function has multiple work items, the IoT Greengrass Core software</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     creates multiple instances of the function.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Default: @true@</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Apinned%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe Bool
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3Apinned%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">pinned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The encoding type that the Lambda function supports.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Default: @json@</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AinputPayloadEncodingType%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe LambdaInputPayloadEncodingType
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AinputPayloadEncodingType%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">inputPayloadEncodingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaInputPayloadEncodingType.html#LambdaInputPayloadEncodingType"><span class="hs-identifier hs-type">LambdaInputPayloadEncodingType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The maximum amount of time in seconds that a non-pinned Lambda function</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- can idle before the IoT Greengrass Core software stops its process.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmaxIdleTimeInSeconds%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxIdleTimeInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">maxIdleTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The maximum amount of time in seconds that the Lambda function can</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- process a work item.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AtimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The list of event sources to which to subscribe to receive work</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- messages. The Lambda function runs when it receives a message from an</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- event source. You can subscribe this function to local</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- publish\/subscribe messages and Amazon Web Services IoT Core MQTT</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- messages.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AeventSources%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe [LambdaEventSource]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AeventSources%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">eventSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaEventSource.html#LambdaEventSource"><span class="hs-identifier hs-type">LambdaEventSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that a non-pinned Lambda function can</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- run at the same time.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxInstancesCount%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxInstancesCount%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">maxInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The map of environment variables that are available to the Lambda</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- function when it runs.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AenvironmentVariables%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AenvironmentVariables%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The interval in seconds at which a pinned (also known as long-lived)</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Lambda function component sends status updates to the Lambda manager</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AstatusTimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AstatusTimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">statusTimeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The parameters for the Linux process that contains the Lambda function.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AlinuxProcessParams%3ALambdaExecutionParameters%27"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; Maybe LambdaLinuxProcessParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AlinuxProcessParams%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var hs-var">linuxProcessParams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232524"><span id="local-6989586621679232526"><span class="annot"><span class="annottext">LambdaExecutionParameters -&gt; LambdaExecutionParameters -&gt; Bool
+(LambdaExecutionParameters -&gt; LambdaExecutionParameters -&gt; Bool)
+-&gt; (LambdaExecutionParameters -&gt; LambdaExecutionParameters -&gt; Bool)
+-&gt; Eq LambdaExecutionParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaExecutionParameters -&gt; LambdaExecutionParameters -&gt; Bool
+$c/= :: LambdaExecutionParameters -&gt; LambdaExecutionParameters -&gt; Bool
+== :: LambdaExecutionParameters -&gt; LambdaExecutionParameters -&gt; Bool
+$c== :: LambdaExecutionParameters -&gt; LambdaExecutionParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232515"><span id="local-6989586621679232517"><span id="local-6989586621679232519"><span id="local-6989586621679232521"><span class="annot"><span class="annottext">ReadPrec [LambdaExecutionParameters]
+ReadPrec LambdaExecutionParameters
+Int -&gt; ReadS LambdaExecutionParameters
+ReadS [LambdaExecutionParameters]
+(Int -&gt; ReadS LambdaExecutionParameters)
+-&gt; ReadS [LambdaExecutionParameters]
+-&gt; ReadPrec LambdaExecutionParameters
+-&gt; ReadPrec [LambdaExecutionParameters]
+-&gt; Read LambdaExecutionParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaExecutionParameters]
+$creadListPrec :: ReadPrec [LambdaExecutionParameters]
+readPrec :: ReadPrec LambdaExecutionParameters
+$creadPrec :: ReadPrec LambdaExecutionParameters
+readList :: ReadS [LambdaExecutionParameters]
+$creadList :: ReadS [LambdaExecutionParameters]
+readsPrec :: Int -&gt; ReadS LambdaExecutionParameters
+$creadsPrec :: Int -&gt; ReadS LambdaExecutionParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232508"><span id="local-6989586621679232510"><span id="local-6989586621679232512"><span class="annot"><span class="annottext">Int -&gt; LambdaExecutionParameters -&gt; ShowS
+[LambdaExecutionParameters] -&gt; ShowS
+LambdaExecutionParameters -&gt; String
+(Int -&gt; LambdaExecutionParameters -&gt; ShowS)
+-&gt; (LambdaExecutionParameters -&gt; String)
+-&gt; ([LambdaExecutionParameters] -&gt; ShowS)
+-&gt; Show LambdaExecutionParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaExecutionParameters] -&gt; ShowS
+$cshowList :: [LambdaExecutionParameters] -&gt; ShowS
+show :: LambdaExecutionParameters -&gt; String
+$cshow :: LambdaExecutionParameters -&gt; String
+showsPrec :: Int -&gt; LambdaExecutionParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaExecutionParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LambdaExecutionParameters -&gt; Rep LambdaExecutionParameters x)
+-&gt; (forall x.
+    Rep LambdaExecutionParameters x -&gt; LambdaExecutionParameters)
+-&gt; Generic LambdaExecutionParameters
+forall x.
+Rep LambdaExecutionParameters x -&gt; LambdaExecutionParameters
+forall x.
+LambdaExecutionParameters -&gt; Rep LambdaExecutionParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LambdaExecutionParameters x -&gt; LambdaExecutionParameters
+$cfrom :: forall x.
+LambdaExecutionParameters -&gt; Rep LambdaExecutionParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'LambdaExecutionParameters' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'execArgs', 'lambdaExecutionParameters_execArgs' - The list of arguments to pass to the Lambda function when it runs.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'maxQueueSize', 'lambdaExecutionParameters_maxQueueSize' - The maximum size of the message queue for the Lambda function component.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The IoT Greengrass core stores messages in a FIFO (first-in-first-out)</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- queue until it can run the Lambda function to consume each message.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'pinned', 'lambdaExecutionParameters_pinned' - Whether or not the Lambda function is pinned, or long-lived.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   A pinned Lambda function starts when IoT Greengrass starts and keeps</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     running in its own container.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   A non-pinned Lambda function starts only when it receives a work</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     item and exists after it idles for @maxIdleTimeInSeconds@. If the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     function has multiple work items, the IoT Greengrass Core software</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     creates multiple instances of the function.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Default: @true@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'inputPayloadEncodingType', 'lambdaExecutionParameters_inputPayloadEncodingType' - The encoding type that the Lambda function supports.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Default: @json@</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'maxIdleTimeInSeconds', 'lambdaExecutionParameters_maxIdleTimeInSeconds' - The maximum amount of time in seconds that a non-pinned Lambda function</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- can idle before the IoT Greengrass Core software stops its process.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'timeoutInSeconds', 'lambdaExecutionParameters_timeoutInSeconds' - The maximum amount of time in seconds that the Lambda function can</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- process a work item.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'eventSources', 'lambdaExecutionParameters_eventSources' - The list of event sources to which to subscribe to receive work</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- messages. The Lambda function runs when it receives a message from an</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- event source. You can subscribe this function to local</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- publish\/subscribe messages and Amazon Web Services IoT Core MQTT</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- messages.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'maxInstancesCount', 'lambdaExecutionParameters_maxInstancesCount' - The maximum number of instances that a non-pinned Lambda function can</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- run at the same time.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'environmentVariables', 'lambdaExecutionParameters_environmentVariables' - The map of environment variables that are available to the Lambda</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- function when it runs.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'statusTimeoutInSeconds', 'lambdaExecutionParameters_statusTimeoutInSeconds' - The interval in seconds at which a pinned (also known as long-lived)</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Lambda function component sends status updates to the Lambda manager</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'linuxProcessParams', 'lambdaExecutionParameters_linuxProcessParams' - The parameters for the Linux process that contains the Lambda function.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#newLambdaExecutionParameters"><span class="hs-identifier hs-type">newLambdaExecutionParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span>
+</span><span id="line-137"></span><span id="newLambdaExecutionParameters"><span class="annot"><span class="annottext">newLambdaExecutionParameters :: LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#newLambdaExecutionParameters"><span class="hs-identifier hs-var hs-var">newLambdaExecutionParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">LambdaExecutionParameters' :: Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe LambdaInputPayloadEncodingType
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe [LambdaEventSource]
+-&gt; Maybe Int
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Int
+-&gt; Maybe LambdaLinuxProcessParams
+-&gt; LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:execArgs:LambdaExecutionParameters' :: Maybe [Text]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AexecArgs%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">execArgs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxQueueSize:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxQueueSize%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">maxQueueSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:pinned:LambdaExecutionParameters' :: Maybe Bool
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3Apinned%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">pinned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputPayloadEncodingType:LambdaExecutionParameters' :: Maybe LambdaInputPayloadEncodingType
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AinputPayloadEncodingType%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">inputPayloadEncodingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaInputPayloadEncodingType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxIdleTimeInSeconds:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxIdleTimeInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">maxIdleTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AtimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventSources:LambdaExecutionParameters' :: Maybe [LambdaEventSource]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AeventSources%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">eventSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaEventSource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxInstancesCount:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxInstancesCount%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">maxInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentVariables:LambdaExecutionParameters' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AenvironmentVariables%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusTimeoutInSeconds:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AstatusTimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">statusTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:linuxProcessParams:LambdaExecutionParameters' :: Maybe LambdaLinuxProcessParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AlinuxProcessParams%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">linuxProcessParams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaLinuxProcessParams
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The list of arguments to pass to the Lambda function when it runs.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_execArgs"><span class="hs-identifier hs-type">lambdaExecutionParameters_execArgs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="lambdaExecutionParameters_execArgs"><span class="annot"><span class="annottext">lambdaExecutionParameters_execArgs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_execArgs"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_execArgs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe [Text])
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe [Text] -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232499"><span class="annot"><span class="annottext">Maybe [Text]
+execArgs :: Maybe [Text]
+$sel:execArgs:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe [Text]
+</span><a href="#local-6989586621679232499"><span class="hs-identifier hs-var hs-var">execArgs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679232499"><span class="hs-identifier hs-var">execArgs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232498"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232497"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679232497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:execArgs:LambdaExecutionParameters' :: Maybe [Text]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AexecArgs%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">execArgs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679232497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; LambdaExecutionParameters
+-&gt; f LambdaExecutionParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The maximum size of the message queue for the Lambda function component.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The IoT Greengrass core stores messages in a FIFO (first-in-first-out)</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- queue until it can run the Lambda function to consume each message.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_maxQueueSize"><span class="hs-identifier hs-type">lambdaExecutionParameters_maxQueueSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="lambdaExecutionParameters_maxQueueSize"><span class="annot"><span class="annottext">lambdaExecutionParameters_maxQueueSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_maxQueueSize"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_maxQueueSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe Int)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe Int -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232492"><span class="annot"><span class="annottext">Maybe Int
+maxQueueSize :: Maybe Int
+$sel:maxQueueSize:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679232492"><span class="hs-identifier hs-var hs-var">maxQueueSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232492"><span class="hs-identifier hs-var">maxQueueSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232491"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232490"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxQueueSize:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxQueueSize%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">maxQueueSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Whether or not the Lambda function is pinned, or long-lived.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   A pinned Lambda function starts when IoT Greengrass starts and keeps</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     running in its own container.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   A non-pinned Lambda function starts only when it receives a work</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     item and exists after it idles for @maxIdleTimeInSeconds@. If the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     function has multiple work items, the IoT Greengrass Core software</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--     creates multiple instances of the function.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Default: @true@</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_pinned"><span class="hs-identifier hs-type">lambdaExecutionParameters_pinned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="lambdaExecutionParameters_pinned"><span class="annot"><span class="annottext">lambdaExecutionParameters_pinned :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_pinned"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_pinned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe Bool)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe Bool -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232488"><span class="annot"><span class="annottext">Maybe Bool
+pinned :: Maybe Bool
+$sel:pinned:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Bool
+</span><a href="#local-6989586621679232488"><span class="hs-identifier hs-var hs-var">pinned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232488"><span class="hs-identifier hs-var">pinned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232487"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232486"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pinned:LambdaExecutionParameters' :: Maybe Bool
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3Apinned%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">pinned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The encoding type that the Lambda function supports.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Default: @json@</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_inputPayloadEncodingType"><span class="hs-identifier hs-type">lambdaExecutionParameters_inputPayloadEncodingType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaInputPayloadEncodingType.html#LambdaInputPayloadEncodingType"><span class="hs-identifier hs-type">LambdaInputPayloadEncodingType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="lambdaExecutionParameters_inputPayloadEncodingType"><span class="annot"><span class="annottext">lambdaExecutionParameters_inputPayloadEncodingType :: (Maybe LambdaInputPayloadEncodingType
+ -&gt; f (Maybe LambdaInputPayloadEncodingType))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_inputPayloadEncodingType"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_inputPayloadEncodingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe LambdaInputPayloadEncodingType)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe LambdaInputPayloadEncodingType
+    -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe LambdaInputPayloadEncodingType)
+     (Maybe LambdaInputPayloadEncodingType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232484"><span class="annot"><span class="annottext">Maybe LambdaInputPayloadEncodingType
+inputPayloadEncodingType :: Maybe LambdaInputPayloadEncodingType
+$sel:inputPayloadEncodingType:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe LambdaInputPayloadEncodingType
+</span><a href="#local-6989586621679232484"><span class="hs-identifier hs-var hs-var">inputPayloadEncodingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaInputPayloadEncodingType
+</span><a href="#local-6989586621679232484"><span class="hs-identifier hs-var">inputPayloadEncodingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232483"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232482"><span class="annot"><span class="annottext">Maybe LambdaInputPayloadEncodingType
+</span><a href="#local-6989586621679232482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPayloadEncodingType:LambdaExecutionParameters' :: Maybe LambdaInputPayloadEncodingType
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AinputPayloadEncodingType%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">inputPayloadEncodingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaInputPayloadEncodingType
+</span><a href="#local-6989586621679232482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The maximum amount of time in seconds that a non-pinned Lambda function</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- can idle before the IoT Greengrass Core software stops its process.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_maxIdleTimeInSeconds"><span class="hs-identifier hs-type">lambdaExecutionParameters_maxIdleTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="lambdaExecutionParameters_maxIdleTimeInSeconds"><span class="annot"><span class="annottext">lambdaExecutionParameters_maxIdleTimeInSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_maxIdleTimeInSeconds"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_maxIdleTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe Int)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe Int -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232480"><span class="annot"><span class="annottext">Maybe Int
+maxIdleTimeInSeconds :: Maybe Int
+$sel:maxIdleTimeInSeconds:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679232480"><span class="hs-identifier hs-var hs-var">maxIdleTimeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232480"><span class="hs-identifier hs-var">maxIdleTimeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232479"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232478"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxIdleTimeInSeconds:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxIdleTimeInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">maxIdleTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The maximum amount of time in seconds that the Lambda function can</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- process a work item.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_timeoutInSeconds"><span class="hs-identifier hs-type">lambdaExecutionParameters_timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="lambdaExecutionParameters_timeoutInSeconds"><span class="annot"><span class="annottext">lambdaExecutionParameters_timeoutInSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_timeoutInSeconds"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe Int)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe Int -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232476"><span class="annot"><span class="annottext">Maybe Int
+timeoutInSeconds :: Maybe Int
+$sel:timeoutInSeconds:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679232476"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232476"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232475"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232474"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AtimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The list of event sources to which to subscribe to receive work</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- messages. The Lambda function runs when it receives a message from an</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- event source. You can subscribe this function to local</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- publish\/subscribe messages and Amazon Web Services IoT Core MQTT</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- messages.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_eventSources"><span class="hs-identifier hs-type">lambdaExecutionParameters_eventSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaEventSource.html#LambdaEventSource"><span class="hs-identifier hs-type">LambdaEventSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="lambdaExecutionParameters_eventSources"><span class="annot"><span class="annottext">lambdaExecutionParameters_eventSources :: (Maybe [LambdaEventSource] -&gt; f (Maybe [LambdaEventSource]))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_eventSources"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_eventSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe [LambdaEventSource])
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe [LambdaEventSource] -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe [LambdaEventSource])
+     (Maybe [LambdaEventSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232472"><span class="annot"><span class="annottext">Maybe [LambdaEventSource]
+eventSources :: Maybe [LambdaEventSource]
+$sel:eventSources:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe [LambdaEventSource]
+</span><a href="#local-6989586621679232472"><span class="hs-identifier hs-var hs-var">eventSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaEventSource]
+</span><a href="#local-6989586621679232472"><span class="hs-identifier hs-var">eventSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232471"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232470"><span class="annot"><span class="annottext">Maybe [LambdaEventSource]
+</span><a href="#local-6989586621679232470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSources:LambdaExecutionParameters' :: Maybe [LambdaEventSource]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AeventSources%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">eventSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaEventSource]
+</span><a href="#local-6989586621679232470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LambdaEventSource] -&gt; f (Maybe [LambdaEventSource]))
+ -&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters)
+-&gt; ((Maybe [LambdaEventSource] -&gt; f (Maybe [LambdaEventSource]))
+    -&gt; Maybe [LambdaEventSource] -&gt; f (Maybe [LambdaEventSource]))
+-&gt; (Maybe [LambdaEventSource] -&gt; f (Maybe [LambdaEventSource]))
+-&gt; LambdaExecutionParameters
+-&gt; f LambdaExecutionParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LambdaEventSource]
+  [LambdaEventSource]
+  [LambdaEventSource]
+  [LambdaEventSource]
+-&gt; Iso
+     (Maybe [LambdaEventSource])
+     (Maybe [LambdaEventSource])
+     (Maybe [LambdaEventSource])
+     (Maybe [LambdaEventSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LambdaEventSource]
+  [LambdaEventSource]
+  [LambdaEventSource]
+  [LambdaEventSource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The maximum number of instances that a non-pinned Lambda function can</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- run at the same time.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_maxInstancesCount"><span class="hs-identifier hs-type">lambdaExecutionParameters_maxInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="lambdaExecutionParameters_maxInstancesCount"><span class="annot"><span class="annottext">lambdaExecutionParameters_maxInstancesCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_maxInstancesCount"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_maxInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe Int)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe Int -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232468"><span class="annot"><span class="annottext">Maybe Int
+maxInstancesCount :: Maybe Int
+$sel:maxInstancesCount:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679232468"><span class="hs-identifier hs-var hs-var">maxInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232468"><span class="hs-identifier hs-var">maxInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232467"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232466"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxInstancesCount:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AmaxInstancesCount%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">maxInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The map of environment variables that are available to the Lambda</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- function when it runs.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_environmentVariables"><span class="hs-identifier hs-type">lambdaExecutionParameters_environmentVariables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="lambdaExecutionParameters_environmentVariables"><span class="annot"><span class="annottext">lambdaExecutionParameters_environmentVariables :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_environmentVariables"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_environmentVariables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe (HashMap Text Text))
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe (HashMap Text Text) -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232464"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+environmentVariables :: Maybe (HashMap Text Text)
+$sel:environmentVariables:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232464"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232464"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232463"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232462"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentVariables:LambdaExecutionParameters' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AenvironmentVariables%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; LambdaExecutionParameters
+-&gt; f LambdaExecutionParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The interval in seconds at which a pinned (also known as long-lived)</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Lambda function component sends status updates to the Lambda manager</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_statusTimeoutInSeconds"><span class="hs-identifier hs-type">lambdaExecutionParameters_statusTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="lambdaExecutionParameters_statusTimeoutInSeconds"><span class="annot"><span class="annottext">lambdaExecutionParameters_statusTimeoutInSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_statusTimeoutInSeconds"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_statusTimeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe Int)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe Int -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232460"><span class="annot"><span class="annottext">Maybe Int
+statusTimeoutInSeconds :: Maybe Int
+$sel:statusTimeoutInSeconds:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679232460"><span class="hs-identifier hs-var hs-var">statusTimeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232460"><span class="hs-identifier hs-var">statusTimeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232459"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232458"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusTimeoutInSeconds:LambdaExecutionParameters' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AstatusTimeoutInSeconds%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">statusTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The parameters for the Linux process that contains the Lambda function.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_linuxProcessParams"><span class="hs-identifier hs-type">lambdaExecutionParameters_linuxProcessParams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaLinuxProcessParams.html#LambdaLinuxProcessParams"><span class="hs-identifier hs-type">LambdaLinuxProcessParams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="lambdaExecutionParameters_linuxProcessParams"><span class="annot"><span class="annottext">lambdaExecutionParameters_linuxProcessParams :: (Maybe LambdaLinuxProcessParams
+ -&gt; f (Maybe LambdaLinuxProcessParams))
+-&gt; LambdaExecutionParameters -&gt; f LambdaExecutionParameters
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#lambdaExecutionParameters_linuxProcessParams"><span class="hs-identifier hs-var hs-var">lambdaExecutionParameters_linuxProcessParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaExecutionParameters -&gt; Maybe LambdaLinuxProcessParams)
+-&gt; (LambdaExecutionParameters
+    -&gt; Maybe LambdaLinuxProcessParams -&gt; LambdaExecutionParameters)
+-&gt; Lens
+     LambdaExecutionParameters
+     LambdaExecutionParameters
+     (Maybe LambdaLinuxProcessParams)
+     (Maybe LambdaLinuxProcessParams)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232456"><span class="annot"><span class="annottext">Maybe LambdaLinuxProcessParams
+linuxProcessParams :: Maybe LambdaLinuxProcessParams
+$sel:linuxProcessParams:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232456"><span class="hs-identifier hs-var hs-var">linuxProcessParams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232456"><span class="hs-identifier hs-var">linuxProcessParams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232455"><span class="annot"><span class="annottext">s :: LambdaExecutionParameters
+</span><a href="#local-6989586621679232455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232454"><span class="annot"><span class="annottext">Maybe LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaExecutionParameters
+</span><a href="#local-6989586621679232455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linuxProcessParams:LambdaExecutionParameters' :: Maybe LambdaLinuxProcessParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#%24sel%3AlinuxProcessParams%3ALambdaExecutionParameters%27"><span class="hs-identifier hs-var">linuxProcessParams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232450"><span id="local-6989586621679232452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span></span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232439"><span id="local-6989586621679232441"><span id="local-6989586621679232443"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters"><span class="hs-identifier hs-type">LambdaExecutionParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679232437"><span class="annot"><span class="annottext">toJSON :: LambdaExecutionParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaExecutionParameters.html#LambdaExecutionParameters%27"><span class="hs-identifier hs-type">LambdaExecutionParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232425"><span id="local-6989586621679232426"><span id="local-6989586621679232427"><span id="local-6989586621679232428"><span id="local-6989586621679232429"><span id="local-6989586621679232430"><span id="local-6989586621679232431"><span id="local-6989586621679232432"><span id="local-6989586621679232433"><span id="local-6989586621679232434"><span id="local-6989586621679232435"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Text]
+Maybe [LambdaEventSource]
+Maybe (HashMap Text Text)
+Maybe LambdaInputPayloadEncodingType
+Maybe LambdaLinuxProcessParams
+linuxProcessParams :: Maybe LambdaLinuxProcessParams
+statusTimeoutInSeconds :: Maybe Int
+environmentVariables :: Maybe (HashMap Text Text)
+maxInstancesCount :: Maybe Int
+eventSources :: Maybe [LambdaEventSource]
+timeoutInSeconds :: Maybe Int
+maxIdleTimeInSeconds :: Maybe Int
+inputPayloadEncodingType :: Maybe LambdaInputPayloadEncodingType
+pinned :: Maybe Bool
+maxQueueSize :: Maybe Int
+execArgs :: Maybe [Text]
+$sel:linuxProcessParams:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe LambdaLinuxProcessParams
+$sel:statusTimeoutInSeconds:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+$sel:environmentVariables:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe (HashMap Text Text)
+$sel:maxInstancesCount:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+$sel:eventSources:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe [LambdaEventSource]
+$sel:timeoutInSeconds:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+$sel:maxIdleTimeInSeconds:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+$sel:inputPayloadEncodingType:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe LambdaInputPayloadEncodingType
+$sel:pinned:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Bool
+$sel:maxQueueSize:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe Int
+$sel:execArgs:LambdaExecutionParameters' :: LambdaExecutionParameters -&gt; Maybe [Text]
+</span><a href="#local-6989586621679232425"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;execArgs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679232435"><span class="hs-identifier hs-var">execArgs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxQueueSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232434"><span class="hs-identifier hs-var">maxQueueSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pinned&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232433"><span class="hs-identifier hs-var">pinned</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputPayloadEncodingType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaInputPayloadEncodingType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">(LambdaInputPayloadEncodingType -&gt; Pair)
+-&gt; Maybe LambdaInputPayloadEncodingType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaInputPayloadEncodingType
+</span><a href="#local-6989586621679232432"><span class="hs-identifier hs-var">inputPayloadEncodingType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxIdleTimeInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232431"><span class="hs-identifier hs-var">maxIdleTimeInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeoutInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232430"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LambdaEventSource] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([LambdaEventSource] -&gt; Pair)
+-&gt; Maybe [LambdaEventSource] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaEventSource]
+</span><a href="#local-6989586621679232429"><span class="hs-identifier hs-var">eventSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxInstancesCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232428"><span class="hs-identifier hs-var">maxInstancesCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentVariables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232427"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusTimeoutInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232426"><span class="hs-identifier hs-var">statusTimeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;linuxProcessParams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaLinuxProcessParams -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">(LambdaLinuxProcessParams -&gt; Pair)
+-&gt; Maybe LambdaLinuxProcessParams -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaLinuxProcessParams
+</span><a href="#local-6989586621679232425"><span class="hs-identifier hs-var">linuxProcessParams</span></a></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span></pre></body></html>

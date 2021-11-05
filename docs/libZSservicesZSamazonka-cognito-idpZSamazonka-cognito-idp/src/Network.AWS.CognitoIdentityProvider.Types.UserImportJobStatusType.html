@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679435661"><span id="local-6989586621679435662"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserImportJobStatusType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-var">UserImportJobStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserImportJobStatusType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-var">UserImportJobStatusType'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679435670"><span id="local-6989586621679435671"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserImportJobStatusType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-var">UserImportJobStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserImportJobStatusType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-var">UserImportJobStatusType'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserImportJobStatusType"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#fromUserImportJobStatusType"><span class="hs-identifier hs-var hs-var">fromUserImportJobStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435653"><span id="local-6989586621679435655"><span id="local-6989586621679435657"><span class="annot"><span class="annottext">Int -&gt; UserImportJobStatusType -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435662"><span id="local-6989586621679435664"><span id="local-6989586621679435666"><span class="annot"><span class="annottext">Int -&gt; UserImportJobStatusType -&gt; ShowS
 [UserImportJobStatusType] -&gt; ShowS
 UserImportJobStatusType -&gt; String
 (Int -&gt; UserImportJobStatusType -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: UserImportJobStatusType -&gt; String
 showsPrec :: Int -&gt; UserImportJobStatusType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UserImportJobStatusType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679435644"><span id="local-6989586621679435646"><span id="local-6989586621679435648"><span id="local-6989586621679435650"><span class="annot"><span class="annottext">ReadPrec [UserImportJobStatusType]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679435653"><span id="local-6989586621679435655"><span id="local-6989586621679435657"><span id="local-6989586621679435659"><span class="annot"><span class="annottext">ReadPrec [UserImportJobStatusType]
 ReadPrec UserImportJobStatusType
 Int -&gt; ReadS UserImportJobStatusType
 ReadS [UserImportJobStatusType]
@@ -78,7 +78,7 @@ $creadList :: ReadS [UserImportJobStatusType]
 readsPrec :: Int -&gt; ReadS UserImportJobStatusType
 $creadsPrec :: Int -&gt; ReadS UserImportJobStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679435639"><span id="local-6989586621679435641"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679435648"><span id="local-6989586621679435650"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
 (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
 -&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
 -&gt; Eq UserImportJobStatusType
@@ -88,7 +88,7 @@ $c/= :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
 == :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
 $c== :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435623"><span id="local-6989586621679435625"><span id="local-6989586621679435627"><span id="local-6989586621679435629"><span id="local-6989586621679435631"><span id="local-6989586621679435633"><span id="local-6989586621679435635"><span class="annot"><span class="annottext">Eq UserImportJobStatusType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435632"><span id="local-6989586621679435634"><span id="local-6989586621679435636"><span id="local-6989586621679435638"><span id="local-6989586621679435640"><span id="local-6989586621679435642"><span id="local-6989586621679435644"><span class="annot"><span class="annottext">Eq UserImportJobStatusType
 Eq UserImportJobStatusType
 -&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Ordering)
 -&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. UserImportJobStatusType -&gt; Rep UserImportJobStatusType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435615"><span id="local-6989586621679435617"><span class="annot"><span class="annottext">Int -&gt; UserImportJobStatusType -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435624"><span id="local-6989586621679435626"><span class="annot"><span class="annottext">Int -&gt; UserImportJobStatusType -&gt; Int
 UserImportJobStatusType -&gt; Int
 (Int -&gt; UserImportJobStatusType -&gt; Int)
 -&gt; (UserImportJobStatusType -&gt; Int)
@@ -159,54 +159,54 @@ $chash :: UserImportJobStatusType -&gt; Int
 hashWithSalt :: Int -&gt; UserImportJobStatusType -&gt; Int
 $chashWithSalt :: Int -&gt; UserImportJobStatusType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435612"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435621"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ()
 (UserImportJobStatusType -&gt; ()) -&gt; NFData UserImportJobStatusType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UserImportJobStatusType -&gt; ()
 $crnf :: UserImportJobStatusType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435609"><span class="annot"><span class="annottext">Text -&gt; Either String UserImportJobStatusType
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435618"><span class="annot"><span class="annottext">Text -&gt; Either String UserImportJobStatusType
 (Text -&gt; Either String UserImportJobStatusType)
 -&gt; FromText UserImportJobStatusType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UserImportJobStatusType
 $cfromText :: Text -&gt; Either String UserImportJobStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435606"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435615"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; Text
 (UserImportJobStatusType -&gt; Text) -&gt; ToText UserImportJobStatusType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UserImportJobStatusType -&gt; Text
 $ctoText :: UserImportJobStatusType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435603"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435612"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ByteString
 (UserImportJobStatusType -&gt; ByteString)
 -&gt; ToByteString UserImportJobStatusType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UserImportJobStatusType -&gt; ByteString
 $ctoBS :: UserImportJobStatusType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435600"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435609"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ByteStringBuilder
 (UserImportJobStatusType -&gt; ByteStringBuilder)
 -&gt; ToLog UserImportJobStatusType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UserImportJobStatusType -&gt; ByteStringBuilder
 $cbuild :: UserImportJobStatusType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435597"><span class="annot"><span class="annottext">HeaderName -&gt; UserImportJobStatusType -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435606"><span class="annot"><span class="annottext">HeaderName -&gt; UserImportJobStatusType -&gt; [Header]
 (HeaderName -&gt; UserImportJobStatusType -&gt; [Header])
 -&gt; ToHeader UserImportJobStatusType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UserImportJobStatusType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UserImportJobStatusType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435594"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435603"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; QueryString
 (UserImportJobStatusType -&gt; QueryString)
 -&gt; ToQuery UserImportJobStatusType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UserImportJobStatusType -&gt; QueryString
 $ctoQuery :: UserImportJobStatusType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435589"><span id="local-6989586621679435591"><span class="annot"><span class="annottext">Value -&gt; Parser [UserImportJobStatusType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435598"><span id="local-6989586621679435600"><span class="annot"><span class="annottext">Value -&gt; Parser [UserImportJobStatusType]
 Value -&gt; Parser UserImportJobStatusType
 (Value -&gt; Parser UserImportJobStatusType)
 -&gt; (Value -&gt; Parser [UserImportJobStatusType])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [UserImportJobStatusType]
 parseJSON :: Value -&gt; Parser UserImportJobStatusType
 $cparseJSON :: Value -&gt; Parser UserImportJobStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679435584"><span id="local-6989586621679435586"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserImportJobStatusType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679435593"><span id="local-6989586621679435595"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserImportJobStatusType]
 FromJSONKeyFunction UserImportJobStatusType
 FromJSONKeyFunction UserImportJobStatusType
 -&gt; FromJSONKeyFunction [UserImportJobStatusType]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UserImportJobStatusType]
 fromJSONKey :: FromJSONKeyFunction UserImportJobStatusType
 $cfromJSONKey :: FromJSONKeyFunction UserImportJobStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679435575"><span id="local-6989586621679435577"><span id="local-6989586621679435579"><span id="local-6989586621679435581"><span class="annot"><span class="annottext">[UserImportJobStatusType] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679435584"><span id="local-6989586621679435586"><span id="local-6989586621679435588"><span id="local-6989586621679435590"><span class="annot"><span class="annottext">[UserImportJobStatusType] -&gt; Encoding
 [UserImportJobStatusType] -&gt; Value
 UserImportJobStatusType -&gt; Encoding
 UserImportJobStatusType -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: UserImportJobStatusType -&gt; Encoding
 toJSON :: UserImportJobStatusType -&gt; Value
 $ctoJSON :: UserImportJobStatusType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679435570"><span id="local-6989586621679435572"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserImportJobStatusType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679435579"><span id="local-6989586621679435581"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserImportJobStatusType]
 ToJSONKeyFunction UserImportJobStatusType
 ToJSONKeyFunction UserImportJobStatusType
 -&gt; ToJSONKeyFunction [UserImportJobStatusType]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UserImportJobStatusType]
 toJSONKey :: ToJSONKeyFunction UserImportJobStatusType
 $ctoJSONKey :: ToJSONKeyFunction UserImportJobStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679435567"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserImportJobStatusType
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679435576"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserImportJobStatusType
 ([Node] -&gt; Either String UserImportJobStatusType)
 -&gt; FromXML UserImportJobStatusType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UserImportJobStatusType
 $cparseXML :: [Node] -&gt; Either String UserImportJobStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679435564"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679435573"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; XML
 (UserImportJobStatusType -&gt; XML) -&gt; ToXML UserImportJobStatusType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UserImportJobStatusType -&gt; XML

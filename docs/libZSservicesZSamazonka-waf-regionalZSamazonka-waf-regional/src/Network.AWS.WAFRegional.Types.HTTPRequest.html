@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- were returned by @GetSampledRequests@.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newHTTPRequest' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679304759"><span id="local-6989586621679304760"></span></span><span class="hs-keyword">data</span><span> </span><span id="HTTPRequest"><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-var">HTTPRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HTTPRequest%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-var">HTTPRequest'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679304768"><span id="local-6989586621679304769"></span></span><span class="hs-keyword">data</span><span> </span><span id="HTTPRequest"><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-var">HTTPRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HTTPRequest%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-var">HTTPRequest'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HTTP version specified in the sampled web request, for example,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @HTTP\/1.1@.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AhTTPVersion%3AHTTPRequest%27"><span class="annot"><span class="annottext">HTTPRequest -&gt; Maybe Text
@@ -74,7 +74,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AclientIP%3AHTTPRequest%27"><span class="annot"><span class="annottext">HTTPRequest -&gt; Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#%24sel%3AclientIP%3AHTTPRequest%27"><span class="hs-identifier hs-var hs-var">clientIP</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304748"><span id="local-6989586621679304750"><span class="annot"><span class="annottext">HTTPRequest -&gt; HTTPRequest -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304757"><span id="local-6989586621679304759"><span class="annot"><span class="annottext">HTTPRequest -&gt; HTTPRequest -&gt; Bool
 (HTTPRequest -&gt; HTTPRequest -&gt; Bool)
 -&gt; (HTTPRequest -&gt; HTTPRequest -&gt; Bool) -&gt; Eq HTTPRequest
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HTTPRequest -&gt; HTTPRequest -&gt; Bool
 == :: HTTPRequest -&gt; HTTPRequest -&gt; Bool
 $c== :: HTTPRequest -&gt; HTTPRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304739"><span id="local-6989586621679304741"><span id="local-6989586621679304743"><span id="local-6989586621679304745"><span class="annot"><span class="annottext">ReadPrec [HTTPRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304748"><span id="local-6989586621679304750"><span id="local-6989586621679304752"><span id="local-6989586621679304754"><span class="annot"><span class="annottext">ReadPrec [HTTPRequest]
 ReadPrec HTTPRequest
 Int -&gt; ReadS HTTPRequest
 ReadS [HTTPRequest]
@@ -102,7 +102,7 @@ readList :: ReadS [HTTPRequest]
 $creadList :: ReadS [HTTPRequest]
 readsPrec :: Int -&gt; ReadS HTTPRequest
 $creadsPrec :: Int -&gt; ReadS HTTPRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304732"><span id="local-6989586621679304734"><span id="local-6989586621679304736"><span class="annot"><span class="annottext">Int -&gt; HTTPRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304741"><span id="local-6989586621679304743"><span id="local-6989586621679304745"><span class="annot"><span class="annottext">Int -&gt; HTTPRequest -&gt; ShowS
 [HTTPRequest] -&gt; ShowS
 HTTPRequest -&gt; String
 (Int -&gt; HTTPRequest -&gt; ShowS)
@@ -208,16 +208,16 @@ forall a. Maybe a
 -&gt; (HTTPRequest -&gt; Maybe Text -&gt; HTTPRequest)
 -&gt; Lens HTTPRequest HTTPRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304723"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304732"><span class="annot"><span class="annottext">Maybe Text
 hTTPVersion :: Maybe Text
 $sel:hTTPVersion:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679304723"><span class="hs-identifier hs-var hs-var">hTTPVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304723"><span class="hs-identifier hs-var">hTTPVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304722"><span class="annot"><span class="annottext">s :: HTTPRequest
-</span><a href="#local-6989586621679304722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304721"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
-</span><a href="#local-6989586621679304722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPVersion:HTTPRequest' :: Maybe Text
+</span><a href="#local-6989586621679304732"><span class="hs-identifier hs-var hs-var">hTTPVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304732"><span class="hs-identifier hs-var">hTTPVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304731"><span class="annot"><span class="annottext">s :: HTTPRequest
+</span><a href="#local-6989586621679304731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304730"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
+</span><a href="#local-6989586621679304731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPVersion:HTTPRequest' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#%24sel%3AhTTPVersion%3AHTTPRequest%27"><span class="hs-identifier hs-var">hTTPVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The two-letter country code for the country that the request originated</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- from. For a current list of country codes, see the Wikipedia entry</span><span>
@@ -228,16 +228,16 @@ $sel:hTTPVersion:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
 -&gt; (HTTPRequest -&gt; Maybe Text -&gt; HTTPRequest)
 -&gt; Lens HTTPRequest HTTPRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304719"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304728"><span class="annot"><span class="annottext">Maybe Text
 country :: Maybe Text
 $sel:country:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679304719"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304719"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304718"><span class="annot"><span class="annottext">s :: HTTPRequest
-</span><a href="#local-6989586621679304718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304717"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
-</span><a href="#local-6989586621679304718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:HTTPRequest' :: Maybe Text
+</span><a href="#local-6989586621679304728"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304728"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304727"><span class="annot"><span class="annottext">s :: HTTPRequest
+</span><a href="#local-6989586621679304727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304726"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
+</span><a href="#local-6989586621679304727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:HTTPRequest' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#%24sel%3Acountry%3AHTTPRequest%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The part of a web request that identifies the resource, for example,</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- @\/images\/daily-ad.jpg@.</span><span>
@@ -247,16 +247,16 @@ $sel:country:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
 -&gt; (HTTPRequest -&gt; Maybe Text -&gt; HTTPRequest)
 -&gt; Lens HTTPRequest HTTPRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304715"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304724"><span class="annot"><span class="annottext">Maybe Text
 uri :: Maybe Text
 $sel:uri:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679304715"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304715"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304714"><span class="annot"><span class="annottext">s :: HTTPRequest
-</span><a href="#local-6989586621679304714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304713"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
-</span><a href="#local-6989586621679304714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:HTTPRequest' :: Maybe Text
+</span><a href="#local-6989586621679304724"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304724"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304723"><span class="annot"><span class="annottext">s :: HTTPRequest
+</span><a href="#local-6989586621679304723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
+</span><a href="#local-6989586621679304723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:HTTPRequest' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#%24sel%3Auri%3AHTTPRequest%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | A complex type that contains two values for each header in the sampled</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- web request: the name of the header and the value of the header.</span><span>
@@ -268,16 +268,16 @@ $sel:uri:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
 -&gt; Lens
      HTTPRequest HTTPRequest (Maybe [HTTPHeader]) (Maybe [HTTPHeader])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304711"><span class="annot"><span class="annottext">Maybe [HTTPHeader]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304720"><span class="annot"><span class="annottext">Maybe [HTTPHeader]
 headers :: Maybe [HTTPHeader]
 $sel:headers:HTTPRequest' :: HTTPRequest -&gt; Maybe [HTTPHeader]
-</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HTTPHeader]
-</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304710"><span class="annot"><span class="annottext">s :: HTTPRequest
-</span><a href="#local-6989586621679304710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304709"><span class="annot"><span class="annottext">Maybe [HTTPHeader]
-</span><a href="#local-6989586621679304709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
-</span><a href="#local-6989586621679304710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HTTPRequest' :: Maybe [HTTPHeader]
+</span><a href="#local-6989586621679304720"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HTTPHeader]
+</span><a href="#local-6989586621679304720"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304719"><span class="annot"><span class="annottext">s :: HTTPRequest
+</span><a href="#local-6989586621679304719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304718"><span class="annot"><span class="annottext">Maybe [HTTPHeader]
+</span><a href="#local-6989586621679304718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
+</span><a href="#local-6989586621679304719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HTTPRequest' :: Maybe [HTTPHeader]
 </span><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#%24sel%3Aheaders%3AHTTPRequest%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HTTPHeader]
-</span><a href="#local-6989586621679304709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HTTPHeader] -&gt; f (Maybe [HTTPHeader]))
+</span><a href="#local-6989586621679304718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HTTPHeader] -&gt; f (Maybe [HTTPHeader]))
  -&gt; HTTPRequest -&gt; f HTTPRequest)
 -&gt; ((Maybe [HTTPHeader] -&gt; f (Maybe [HTTPHeader]))
     -&gt; Maybe [HTTPHeader] -&gt; f (Maybe [HTTPHeader]))
@@ -307,16 +307,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (HTTPRequest -&gt; Maybe Text -&gt; HTTPRequest)
 -&gt; Lens HTTPRequest HTTPRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304704"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304713"><span class="annot"><span class="annottext">Maybe Text
 method :: Maybe Text
 $sel:method:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679304704"><span class="hs-identifier hs-var hs-var">method</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304704"><span class="hs-identifier hs-var">method</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304703"><span class="annot"><span class="annottext">s :: HTTPRequest
-</span><a href="#local-6989586621679304703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304702"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
-</span><a href="#local-6989586621679304703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:method:HTTPRequest' :: Maybe Text
+</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var hs-var">method</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var">method</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304712"><span class="annot"><span class="annottext">s :: HTTPRequest
+</span><a href="#local-6989586621679304712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
+</span><a href="#local-6989586621679304712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:method:HTTPRequest' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#%24sel%3Amethod%3AHTTPRequest%27"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The IP address that the request originated from. If the @WebACL@ is</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- associated with a CloudFront distribution, this is the value of one of</span><span>
@@ -333,19 +333,19 @@ $sel:method:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
 -&gt; (HTTPRequest -&gt; Maybe Text -&gt; HTTPRequest)
 -&gt; Lens HTTPRequest HTTPRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304700"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304709"><span class="annot"><span class="annottext">Maybe Text
 clientIP :: Maybe Text
 $sel:clientIP:HTTPRequest' :: HTTPRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679304700"><span class="hs-identifier hs-var hs-var">clientIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304700"><span class="hs-identifier hs-var">clientIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304699"><span class="annot"><span class="annottext">s :: HTTPRequest
-</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304698"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
-</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientIP:HTTPRequest' :: Maybe Text
+</span><a href="#local-6989586621679304709"><span class="hs-identifier hs-var hs-var">clientIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304709"><span class="hs-identifier hs-var">clientIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304708"><span class="annot"><span class="annottext">s :: HTTPRequest
+</span><a href="#local-6989586621679304708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest%27"><span class="hs-identifier hs-type">HTTPRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304707"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HTTPRequest
+</span><a href="#local-6989586621679304708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientIP:HTTPRequest' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#%24sel%3AclientIP%3AHTTPRequest%27"><span class="hs-identifier hs-var">clientIP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304695"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679304693"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HTTPRequest
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304704"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679304702"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HTTPRequest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HTTPRequest) -&gt; Value -&gt; Parser HTTPRequest
@@ -353,8 +353,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HTTPRequest&quot;</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304690"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304699"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -380,7 +380,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; HTTPRequest)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HTTPVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -397,7 +397,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe [HTTPHeader] -&gt; Maybe Text -&gt; Maybe Text -&gt; HTTPRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span class="hs-special">)</span><span>
@@ -409,7 +409,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe [HTTPHeader] -&gt; Maybe Text -&gt; Maybe Text -&gt; HTTPRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;URI&quot;</span></span><span class="hs-special">)</span><span>
@@ -419,7 +419,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; HTTPRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HTTPHeader]))
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HTTPHeader]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [HTTPHeader]))
@@ -432,7 +432,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; HTTPRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Method&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,13 +440,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser HTTPRequest
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679304699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientIP&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304683"><span id="local-6989586621679304685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304692"><span id="local-6989586621679304694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.HTTPRequest.html#HTTPRequest"><span class="hs-identifier hs-type">HTTPRequest</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

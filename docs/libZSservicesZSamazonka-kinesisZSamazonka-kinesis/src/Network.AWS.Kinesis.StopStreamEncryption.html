@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newStopStreamEncryption' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679200264"><span id="local-6989586621679200265"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamEncryption"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-var">StopStreamEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamEncryption%27"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-var">StopStreamEncryption'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679200273"><span id="local-6989586621679200274"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamEncryption"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-var">StopStreamEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamEncryption%27"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-var">StopStreamEncryption'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stream on which to stop encrypting records.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AstreamName%3AStopStreamEncryption%27"><span class="annot"><span class="annottext">StopStreamEncryption -&gt; Text
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AstreamName%3AStopStreamEncryption%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AkeyId%3AStopStreamEncryption%27"><span class="annot"><span class="annottext">StopStreamEncryption -&gt; Text
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AkeyId%3AStopStreamEncryption%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200256"><span id="local-6989586621679200258"><span class="annot"><span class="annottext">StopStreamEncryption -&gt; StopStreamEncryption -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200265"><span id="local-6989586621679200267"><span class="annot"><span class="annottext">StopStreamEncryption -&gt; StopStreamEncryption -&gt; Bool
 (StopStreamEncryption -&gt; StopStreamEncryption -&gt; Bool)
 -&gt; (StopStreamEncryption -&gt; StopStreamEncryption -&gt; Bool)
 -&gt; Eq StopStreamEncryption
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopStreamEncryption -&gt; StopStreamEncryption -&gt; Bool
 == :: StopStreamEncryption -&gt; StopStreamEncryption -&gt; Bool
 $c== :: StopStreamEncryption -&gt; StopStreamEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200247"><span id="local-6989586621679200249"><span id="local-6989586621679200251"><span id="local-6989586621679200253"><span class="annot"><span class="annottext">ReadPrec [StopStreamEncryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200256"><span id="local-6989586621679200258"><span id="local-6989586621679200260"><span id="local-6989586621679200262"><span class="annot"><span class="annottext">ReadPrec [StopStreamEncryption]
 ReadPrec StopStreamEncryption
 Int -&gt; ReadS StopStreamEncryption
 ReadS [StopStreamEncryption]
@@ -121,7 +121,7 @@ readList :: ReadS [StopStreamEncryption]
 $creadList :: ReadS [StopStreamEncryption]
 readsPrec :: Int -&gt; ReadS StopStreamEncryption
 $creadsPrec :: Int -&gt; ReadS StopStreamEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200240"><span id="local-6989586621679200242"><span id="local-6989586621679200244"><span class="annot"><span class="annottext">Int -&gt; StopStreamEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200249"><span id="local-6989586621679200251"><span id="local-6989586621679200253"><span class="annot"><span class="annottext">Int -&gt; StopStreamEncryption -&gt; ShowS
 [StopStreamEncryption] -&gt; ShowS
 StopStreamEncryption -&gt; String
 (Int -&gt; StopStreamEncryption -&gt; ShowS)
@@ -187,23 +187,23 @@ $cfrom :: forall x. StopStreamEncryption -&gt; Rep StopStreamEncryption x
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span>
 </span><span id="line-132"></span><span id="newStopStreamEncryption"><span class="annot"><span class="annottext">newStopStreamEncryption :: Text -&gt; EncryptionType -&gt; Text -&gt; StopStreamEncryption
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#newStopStreamEncryption"><span class="hs-identifier hs-var hs-var">newStopStreamEncryption</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679200235"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200235"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679200234"><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679200234"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679200233"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200233"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679200244"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200244"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679200243"><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679200243"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679200242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200242"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">StopStreamEncryption' :: Text -&gt; EncryptionType -&gt; Text -&gt; StopStreamEncryption
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamName:StopStreamEncryption' :: Text
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AstreamName%3AStopStreamEncryption%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200235"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200244"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:encryptionType:StopStreamEncryption' :: EncryptionType
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AencryptionType%3AStopStreamEncryption%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679200234"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200243"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyId:StopStreamEncryption' :: Text
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AkeyId%3AStopStreamEncryption%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200233"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679200242"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The name of the stream on which to stop encrypting records.</span><span>
@@ -213,16 +213,16 @@ $cfrom :: forall x. StopStreamEncryption -&gt; Rep StopStreamEncryption x
 -&gt; (StopStreamEncryption -&gt; Text -&gt; StopStreamEncryption)
 -&gt; Lens StopStreamEncryption StopStreamEncryption Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200230"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200239"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:StopStreamEncryption' :: StopStreamEncryption -&gt; Text
-</span><a href="#local-6989586621679200230"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200230"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200229"><span class="annot"><span class="annottext">s :: StopStreamEncryption
-</span><a href="#local-6989586621679200229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200228"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamEncryption
-</span><a href="#local-6989586621679200229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:StopStreamEncryption' :: Text
+</span><a href="#local-6989586621679200239"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200239"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200238"><span class="annot"><span class="annottext">s :: StopStreamEncryption
+</span><a href="#local-6989586621679200238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200237"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamEncryption
+</span><a href="#local-6989586621679200238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:StopStreamEncryption' :: Text
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AstreamName%3AStopStreamEncryption%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The encryption type. The only valid value is @KMS@.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#stopStreamEncryption_encryptionType"><span class="hs-identifier hs-type">stopStreamEncryption_encryptionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span>
@@ -236,16 +236,16 @@ $sel:streamName:StopStreamEncryption' :: StopStreamEncryption -&gt; Text
      EncryptionType
      EncryptionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200227"><span class="annot"><span class="annottext">EncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200236"><span class="annot"><span class="annottext">EncryptionType
 encryptionType :: EncryptionType
 $sel:encryptionType:StopStreamEncryption' :: StopStreamEncryption -&gt; EncryptionType
-</span><a href="#local-6989586621679200227"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679200227"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200226"><span class="annot"><span class="annottext">s :: StopStreamEncryption
-</span><a href="#local-6989586621679200226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200225"><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679200225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamEncryption
-</span><a href="#local-6989586621679200226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:StopStreamEncryption' :: EncryptionType
+</span><a href="#local-6989586621679200236"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679200236"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200235"><span class="annot"><span class="annottext">s :: StopStreamEncryption
+</span><a href="#local-6989586621679200235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200234"><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679200234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamEncryption
+</span><a href="#local-6989586621679200235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:StopStreamEncryption' :: EncryptionType
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AencryptionType%3AStopStreamEncryption%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679200225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The GUID for the customer-managed AWS KMS key to use for encryption.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- This value can be a globally unique identifier, a fully specified Amazon</span><span>
@@ -271,27 +271,27 @@ $sel:encryptionType:StopStreamEncryption' :: StopStreamEncryption -&gt; Encrypti
 -&gt; (StopStreamEncryption -&gt; Text -&gt; StopStreamEncryption)
 -&gt; Lens StopStreamEncryption StopStreamEncryption Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200224"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200233"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:StopStreamEncryption' :: StopStreamEncryption -&gt; Text
-</span><a href="#local-6989586621679200224"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200224"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200223"><span class="annot"><span class="annottext">s :: StopStreamEncryption
-</span><a href="#local-6989586621679200223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200222"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamEncryption
-</span><a href="#local-6989586621679200223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:StopStreamEncryption' :: Text
+</span><a href="#local-6989586621679200233"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200233"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200232"><span class="annot"><span class="annottext">s :: StopStreamEncryption
+</span><a href="#local-6989586621679200232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200231"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamEncryption
+</span><a href="#local-6989586621679200232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:StopStreamEncryption' :: Text
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#%24sel%3AkeyId%3AStopStreamEncryption%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-173"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse"><span class="hs-identifier hs-type">StopStreamEncryptionResponse</span></a></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679200218"><span class="annot"><span class="annottext">request :: StopStreamEncryption -&gt; Request StopStreamEncryption
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679200227"><span class="annot"><span class="annottext">request :: StopStreamEncryption -&gt; Request StopStreamEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopStreamEncryption -&gt; Request StopStreamEncryption
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679200214"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679200223"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopStreamEncryption
 -&gt; ClientResponse ClientBody
@@ -317,12 +317,12 @@ AWSResponse a
 StopStreamEncryptionResponse
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StopStreamEncryptionResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200207"><span id="local-6989586621679200209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200216"><span id="local-6989586621679200218"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679200200"><span class="annot"><span class="annottext">toHeaders :: StopStreamEncryption -&gt; [Header]
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679200209"><span class="annot"><span class="annottext">toHeaders :: StopStreamEncryption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StopStreamEncryption -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -349,9 +349,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200190"><span id="local-6989586621679200192"><span id="local-6989586621679200194"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679200188"><span class="annot"><span class="annottext">toJSON :: StopStreamEncryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200184"><span id="local-6989586621679200185"><span id="local-6989586621679200186"><span class="annot"><span class="annottext">Text
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200199"><span id="local-6989586621679200201"><span id="local-6989586621679200203"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679200197"><span class="annot"><span class="annottext">toJSON :: StopStreamEncryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption%27"><span class="hs-identifier hs-type">StopStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200193"><span id="local-6989586621679200194"><span id="local-6989586621679200195"><span class="annot"><span class="annottext">Text
 EncryptionType
 keyId :: Text
 encryptionType :: EncryptionType
@@ -359,7 +359,7 @@ streamName :: Text
 $sel:keyId:StopStreamEncryption' :: StopStreamEncryption -&gt; Text
 $sel:encryptionType:StopStreamEncryption' :: StopStreamEncryption -&gt; EncryptionType
 $sel:streamName:StopStreamEncryption' :: StopStreamEncryption -&gt; Text
-</span><a href="#local-6989586621679200184"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200193"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -371,7 +371,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200186"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200195"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -379,26 +379,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679200185"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200194"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200184"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200193"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679200178"><span class="annot"><span class="annottext">toPath :: StopStreamEncryption -&gt; ByteString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679200187"><span class="annot"><span class="annottext">toPath :: StopStreamEncryption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopStreamEncryption -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryption"><span class="hs-identifier hs-type">StopStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679200174"><span class="annot"><span class="annottext">toQuery :: StopStreamEncryption -&gt; QueryString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679200183"><span class="annot"><span class="annottext">toQuery :: StopStreamEncryption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopStreamEncryption -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -406,10 +406,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | /See:/ 'newStopStreamEncryptionResponse' smart constructor.</span><span>
-</span><span id="line-216"></span><span id="local-6989586621679200171"><span id="local-6989586621679200172"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamEncryptionResponse"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse"><span class="hs-identifier hs-var">StopStreamEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamEncryptionResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StopStreamEncryptionResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span id="local-6989586621679200180"><span id="local-6989586621679200181"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamEncryptionResponse"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse"><span class="hs-identifier hs-var">StopStreamEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamEncryptionResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StopStreamEncryptionResponse'</span></a></span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200167"><span id="local-6989586621679200169"><span class="annot"><span class="annottext">StopStreamEncryptionResponse
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200176"><span id="local-6989586621679200178"><span class="annot"><span class="annottext">StopStreamEncryptionResponse
 -&gt; StopStreamEncryptionResponse -&gt; Bool
 (StopStreamEncryptionResponse
  -&gt; StopStreamEncryptionResponse -&gt; Bool)
@@ -425,7 +425,7 @@ $c/= :: StopStreamEncryptionResponse
 -&gt; StopStreamEncryptionResponse -&gt; Bool
 $c== :: StopStreamEncryptionResponse
 -&gt; StopStreamEncryptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200159"><span id="local-6989586621679200161"><span id="local-6989586621679200163"><span id="local-6989586621679200165"><span class="annot"><span class="annottext">ReadPrec [StopStreamEncryptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200168"><span id="local-6989586621679200170"><span id="local-6989586621679200172"><span id="local-6989586621679200174"><span class="annot"><span class="annottext">ReadPrec [StopStreamEncryptionResponse]
 ReadPrec StopStreamEncryptionResponse
 Int -&gt; ReadS StopStreamEncryptionResponse
 ReadS [StopStreamEncryptionResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [StopStreamEncryptionResponse]
 $creadList :: ReadS [StopStreamEncryptionResponse]
 readsPrec :: Int -&gt; ReadS StopStreamEncryptionResponse
 $creadsPrec :: Int -&gt; ReadS StopStreamEncryptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200153"><span id="local-6989586621679200155"><span id="local-6989586621679200157"><span class="annot"><span class="annottext">Int -&gt; StopStreamEncryptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200162"><span id="local-6989586621679200164"><span id="local-6989586621679200166"><span class="annot"><span class="annottext">Int -&gt; StopStreamEncryptionResponse -&gt; ShowS
 [StopStreamEncryptionResponse] -&gt; ShowS
 StopStreamEncryptionResponse -&gt; String
 (Int -&gt; StopStreamEncryptionResponse -&gt; ShowS)
@@ -488,5 +488,5 @@ StopStreamEncryptionResponse -&gt; Rep StopStreamEncryptionResponse x
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">StopStreamEncryptionResponse
 </span><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StopStreamEncryptionResponse'</span></a></span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse"><span class="hs-identifier hs-type">StopStreamEncryptionResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.StopStreamEncryption.html#StopStreamEncryptionResponse"><span class="hs-identifier hs-type">StopStreamEncryptionResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

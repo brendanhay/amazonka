@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html Set up an API\'s method&gt;</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newMethod' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679370999"><span id="local-6989586621679371000"></span></span><span class="hs-keyword">data</span><span> </span><span id="Method"><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-var">Method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Method%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-var">Method'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679371008"><span id="local-6989586621679371009"></span></span><span class="hs-keyword">data</span><span> </span><span id="Method"><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-var">Method</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Method%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-var">Method'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Gets a method response associated with a given HTTP status code.</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- The collection of method responses are encapsulated in a key-value map,</span><span>
@@ -161,7 +161,7 @@
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AmethodIntegration%3AMethod%27"><span class="annot"><span class="annottext">Method -&gt; Maybe Integration
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AmethodIntegration%3AMethod%27"><span class="hs-identifier hs-var hs-var">methodIntegration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Integration.html#Integration"><span class="hs-identifier hs-type">Integration</span></a></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370983"><span id="local-6989586621679370985"><span class="annot"><span class="annottext">Method -&gt; Method -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370992"><span id="local-6989586621679370994"><span class="annot"><span class="annottext">Method -&gt; Method -&gt; Bool
 (Method -&gt; Method -&gt; Bool)
 -&gt; (Method -&gt; Method -&gt; Bool) -&gt; Eq Method
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -169,7 +169,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Method -&gt; Method -&gt; Bool
 == :: Method -&gt; Method -&gt; Bool
 $c== :: Method -&gt; Method -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370974"><span id="local-6989586621679370976"><span id="local-6989586621679370978"><span id="local-6989586621679370980"><span class="annot"><span class="annottext">ReadPrec [Method]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370983"><span id="local-6989586621679370985"><span id="local-6989586621679370987"><span id="local-6989586621679370989"><span class="annot"><span class="annottext">ReadPrec [Method]
 ReadPrec Method
 Int -&gt; ReadS Method
 ReadS [Method]
@@ -189,7 +189,7 @@ readList :: ReadS [Method]
 $creadList :: ReadS [Method]
 readsPrec :: Int -&gt; ReadS Method
 $creadsPrec :: Int -&gt; ReadS Method
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370967"><span id="local-6989586621679370969"><span id="local-6989586621679370971"><span class="annot"><span class="annottext">Int -&gt; Method -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370976"><span id="local-6989586621679370978"><span id="local-6989586621679370980"><span class="annot"><span class="annottext">Int -&gt; Method -&gt; ShowS
 [Method] -&gt; ShowS
 Method -&gt; String
 (Int -&gt; Method -&gt; ShowS)
@@ -398,16 +398,16 @@ forall a. Maybe a
      (Maybe (HashMap Text MethodResponse))
      (Maybe (HashMap Text MethodResponse))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370958"><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370967"><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
 methodResponses :: Maybe (HashMap Text MethodResponse)
 $sel:methodResponses:Method' :: Method -&gt; Maybe (HashMap Text MethodResponse)
-</span><a href="#local-6989586621679370958"><span class="hs-identifier hs-var hs-var">methodResponses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
-</span><a href="#local-6989586621679370958"><span class="hs-identifier hs-var">methodResponses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370957"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370956"><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
-</span><a href="#local-6989586621679370956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:methodResponses:Method' :: Maybe (HashMap Text MethodResponse)
+</span><a href="#local-6989586621679370967"><span class="hs-identifier hs-var hs-var">methodResponses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
+</span><a href="#local-6989586621679370967"><span class="hs-identifier hs-var">methodResponses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370966"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370965"><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
+</span><a href="#local-6989586621679370965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:methodResponses:Method' :: Maybe (HashMap Text MethodResponse)
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AmethodResponses%3AMethod%27"><span class="hs-identifier hs-var">methodResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
-</span><a href="#local-6989586621679370956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MethodResponse)
+</span><a href="#local-6989586621679370965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MethodResponse)
   -&gt; f (Maybe (HashMap Text MethodResponse)))
  -&gt; Method -&gt; f Method)
 -&gt; ((Maybe (HashMap Text MethodResponse)
@@ -447,16 +447,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Method -&gt; Maybe Text -&gt; Method)
 -&gt; Lens Method Method (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370951"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370960"><span class="annot"><span class="annottext">Maybe Text
 httpMethod :: Maybe Text
 $sel:httpMethod:Method' :: Method -&gt; Maybe Text
-</span><a href="#local-6989586621679370951"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370951"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370950"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370949"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:Method' :: Maybe Text
+</span><a href="#local-6989586621679370960"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370960"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370959"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:Method' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AhttpMethod%3AMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | A list of authorization scopes configured on the method. The scopes are</span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method</span><span>
@@ -472,16 +472,16 @@ $sel:httpMethod:Method' :: Method -&gt; Maybe Text
 -&gt; (Method -&gt; Maybe [Text] -&gt; Method)
 -&gt; Lens Method Method (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370947"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370956"><span class="annot"><span class="annottext">Maybe [Text]
 authorizationScopes :: Maybe [Text]
 $sel:authorizationScopes:Method' :: Method -&gt; Maybe [Text]
-</span><a href="#local-6989586621679370947"><span class="hs-identifier hs-var hs-var">authorizationScopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370947"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370946"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370945"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationScopes:Method' :: Maybe [Text]
+</span><a href="#local-6989586621679370956"><span class="hs-identifier hs-var hs-var">authorizationScopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370956"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370955"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370954"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationScopes:Method' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AauthorizationScopes%3AMethod%27"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Method -&gt; f Method)
+</span><a href="#local-6989586621679370954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Method -&gt; f Method)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -504,16 +504,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Method -&gt; Maybe Text -&gt; Method)
 -&gt; Lens Method Method (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370952"><span class="annot"><span class="annottext">Maybe Text
 requestValidatorId :: Maybe Text
 $sel:requestValidatorId:Method' :: Method -&gt; Maybe Text
-</span><a href="#local-6989586621679370943"><span class="hs-identifier hs-var hs-var">requestValidatorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370943"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370942"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestValidatorId:Method' :: Maybe Text
+</span><a href="#local-6989586621679370952"><span class="hs-identifier hs-var hs-var">requestValidatorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370952"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370951"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestValidatorId:Method' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3ArequestValidatorId%3AMethod%27"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | A key-value map specifying data schemas, represented by Model resources,</span><span>
 </span><span id="line-306"></span><span class="hs-comment">-- (as the mapped value) of the request payloads of given content types (as</span><span>
@@ -529,16 +529,16 @@ $sel:requestValidatorId:Method' :: Method -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370939"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370948"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 requestModels :: Maybe (HashMap Text Text)
 $sel:requestModels:Method' :: Method -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679370939"><span class="hs-identifier hs-var hs-var">requestModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679370939"><span class="hs-identifier hs-var">requestModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370938"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370937"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679370937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestModels:Method' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370948"><span class="hs-identifier hs-var hs-var">requestModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370948"><span class="hs-identifier hs-var">requestModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370947"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370946"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestModels:Method' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3ArequestModels%3AMethod%27"><span class="hs-identifier hs-var">requestModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679370937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679370946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Method -&gt; f Method)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -587,16 +587,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text Bool))
      (Maybe (HashMap Text Bool))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370935"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370944"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
 requestParameters :: Maybe (HashMap Text Bool)
 $sel:requestParameters:Method' :: Method -&gt; Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679370935"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679370935"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370934"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370933"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679370933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestParameters:Method' :: Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679370944"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679370944"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370943"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370942"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679370942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestParameters:Method' :: Maybe (HashMap Text Bool)
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3ArequestParameters%3AMethod%27"><span class="hs-identifier hs-var">requestParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679370933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
+</span><a href="#local-6989586621679370942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
  -&gt; Method -&gt; f Method)
 -&gt; ((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
     -&gt; Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
@@ -633,16 +633,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Method -&gt; Maybe Text -&gt; Method)
 -&gt; Lens Method Method (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370931"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370940"><span class="annot"><span class="annottext">Maybe Text
 authorizerId :: Maybe Text
 $sel:authorizerId:Method' :: Method -&gt; Maybe Text
-</span><a href="#local-6989586621679370931"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370931"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370930"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370929"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:Method' :: Maybe Text
+</span><a href="#local-6989586621679370940"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370940"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370939"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370938"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:Method' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AauthorizerId%3AMethod%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- | A human-friendly operation identifier for the method. For example, you</span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method</span><span>
@@ -653,16 +653,16 @@ $sel:authorizerId:Method' :: Method -&gt; Maybe Text
 -&gt; (Method -&gt; Maybe Text -&gt; Method)
 -&gt; Lens Method Method (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370927"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370936"><span class="annot"><span class="annottext">Maybe Text
 operationName :: Maybe Text
 $sel:operationName:Method' :: Method -&gt; Maybe Text
-</span><a href="#local-6989586621679370927"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370927"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370926"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370925"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationName:Method' :: Maybe Text
+</span><a href="#local-6989586621679370936"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370936"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370935"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370934"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationName:Method' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AoperationName%3AMethod%27"><span class="hs-identifier hs-var">operationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- | The method\'s authorization type. Valid values are @NONE@ for open</span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a</span><span>
@@ -674,16 +674,16 @@ $sel:operationName:Method' :: Method -&gt; Maybe Text
 -&gt; (Method -&gt; Maybe Text -&gt; Method)
 -&gt; Lens Method Method (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370923"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370932"><span class="annot"><span class="annottext">Maybe Text
 authorizationType :: Maybe Text
 $sel:authorizationType:Method' :: Method -&gt; Maybe Text
-</span><a href="#local-6989586621679370923"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370923"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370922"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370921"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:Method' :: Maybe Text
+</span><a href="#local-6989586621679370932"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370932"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370931"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:Method' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AauthorizationType%3AMethod%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-340"></span><span>
 </span><span id="line-341"></span><span class="hs-comment">-- | A boolean flag specifying whether a valid ApiKey is required to invoke</span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- this method.</span><span>
@@ -693,16 +693,16 @@ $sel:authorizationType:Method' :: Method -&gt; Maybe Text
 -&gt; (Method -&gt; Maybe Bool -&gt; Method)
 -&gt; Lens Method Method (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370919"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370928"><span class="annot"><span class="annottext">Maybe Bool
 apiKeyRequired :: Maybe Bool
 $sel:apiKeyRequired:Method' :: Method -&gt; Maybe Bool
-</span><a href="#local-6989586621679370919"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370919"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370918"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370917"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyRequired:Method' :: Maybe Bool
+</span><a href="#local-6989586621679370928"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370928"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370927"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370926"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyRequired:Method' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AapiKeyRequired%3AMethod%27"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-345"></span><span>
 </span><span id="line-346"></span><span class="hs-comment">-- | Gets the method\'s integration responsible for passing the</span><span>
 </span><span id="line-347"></span><span class="hs-comment">-- client-submitted request to the back end and performing necessary</span><span>
@@ -728,27 +728,27 @@ $sel:apiKeyRequired:Method' :: Method -&gt; Maybe Bool
 -&gt; (Method -&gt; Maybe Integration -&gt; Method)
 -&gt; Lens Method Method (Maybe Integration) (Maybe Integration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370915"><span class="annot"><span class="annottext">Maybe Integration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370924"><span class="annot"><span class="annottext">Maybe Integration
 methodIntegration :: Maybe Integration
 $sel:methodIntegration:Method' :: Method -&gt; Maybe Integration
-</span><a href="#local-6989586621679370915"><span class="hs-identifier hs-var hs-var">methodIntegration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integration
-</span><a href="#local-6989586621679370915"><span class="hs-identifier hs-var">methodIntegration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370914"><span class="annot"><span class="annottext">s :: Method
-</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370913"><span class="annot"><span class="annottext">Maybe Integration
-</span><a href="#local-6989586621679370913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
-</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:methodIntegration:Method' :: Maybe Integration
+</span><a href="#local-6989586621679370924"><span class="hs-identifier hs-var hs-var">methodIntegration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integration
+</span><a href="#local-6989586621679370924"><span class="hs-identifier hs-var">methodIntegration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370923"><span class="annot"><span class="annottext">s :: Method
+</span><a href="#local-6989586621679370923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method%27"><span class="hs-identifier hs-type">Method'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370922"><span class="annot"><span class="annottext">Maybe Integration
+</span><a href="#local-6989586621679370922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Method
+</span><a href="#local-6989586621679370923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:methodIntegration:Method' :: Maybe Integration
 </span><a href="Network.AWS.APIGateway.Types.Method.html#%24sel%3AmethodIntegration%3AMethod%27"><span class="hs-identifier hs-var">methodIntegration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integration
-</span><a href="#local-6989586621679370913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-366"></span><span>
-</span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370910"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-368"></span><span>  </span><span id="local-6989586621679370908"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Method
+</span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370919"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-368"></span><span>  </span><span id="local-6989586621679370917"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Method
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-369"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Method) -&gt; Value -&gt; Parser Method
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-370"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Method&quot;</span></span><span>
-</span><span id="line-371"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370905"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-371"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370914"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-372"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text MethodResponse)
 -&gt; Maybe Text
 -&gt; Maybe [Text]
@@ -789,7 +789,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Method)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text MethodResponse)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -828,7 +828,7 @@ forall a. Monoid a =&gt; a
       -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;httpMethod&quot;</span></span><span class="hs-special">)</span><span>
@@ -856,7 +856,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationScopes&quot;</span></span><span>
@@ -889,7 +889,7 @@ forall a. Monoid a =&gt; a
       -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestValidatorId&quot;</span></span><span class="hs-special">)</span><span>
@@ -913,7 +913,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestModels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -940,7 +940,7 @@ forall a. Monoid a =&gt; a
       -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Bool)))
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Bool)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestParameters&quot;</span></span><span>
@@ -964,7 +964,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Integration -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -975,7 +975,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; Maybe Integration -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operationName&quot;</span></span><span class="hs-special">)</span><span>
@@ -984,7 +984,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Maybe Integration -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationType&quot;</span></span><span class="hs-special">)</span><span>
@@ -992,7 +992,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Integration -&gt; Method)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;apiKeyRequired&quot;</span></span><span class="hs-special">)</span><span>
@@ -1000,13 +1000,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integration) -&gt; Parser Method
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integration)
+</span><a href="#local-6989586621679370914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;methodIntegration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-390"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>
-</span><span id="line-392"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370898"><span id="local-6989586621679370900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span></span></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370907"><span id="local-6989586621679370909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span></span></span><span>
 </span><span id="line-393"></span><span>
-</span><span id="line-394"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span></span><span>
+</span><span id="line-394"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span></span><span>
 </span><span id="line-395"></span></pre></body></html>

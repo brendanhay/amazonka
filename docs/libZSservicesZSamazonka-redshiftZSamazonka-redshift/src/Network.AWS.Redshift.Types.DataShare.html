@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html"><span class="hs-identifier">Network.AWS.Redshift.Types.DataShareAssociation</span></a></span><span>
 </span><span id="line-27"></span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- | /See:/ 'newDataShare' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679491571"><span id="local-6989586621679491572"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataShare"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-var">DataShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShare%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-var">DataShare'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679491580"><span id="local-6989586621679491581"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataShare"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-var">DataShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShare%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-var">DataShare'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the producer.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AproducerArn%3ADataShare%27"><span class="annot"><span class="annottext">DataShare -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.DataShare.html#%24sel%3AproducerArn%3ADataShare%27"><span class="hs-identifier hs-var hs-var">producerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AallowPubliclyAccessibleConsumers%3ADataShare%27"><span class="annot"><span class="annottext">DataShare -&gt; Maybe Bool
 </span><a href="Network.AWS.Redshift.Types.DataShare.html#%24sel%3AallowPubliclyAccessibleConsumers%3ADataShare%27"><span class="hs-identifier hs-var hs-var">allowPubliclyAccessibleConsumers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679491562"><span id="local-6989586621679491564"><span class="annot"><span class="annottext">DataShare -&gt; DataShare -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679491571"><span id="local-6989586621679491573"><span class="annot"><span class="annottext">DataShare -&gt; DataShare -&gt; Bool
 (DataShare -&gt; DataShare -&gt; Bool)
 -&gt; (DataShare -&gt; DataShare -&gt; Bool) -&gt; Eq DataShare
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DataShare -&gt; DataShare -&gt; Bool
 == :: DataShare -&gt; DataShare -&gt; Bool
 $c== :: DataShare -&gt; DataShare -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491553"><span id="local-6989586621679491555"><span id="local-6989586621679491557"><span id="local-6989586621679491559"><span class="annot"><span class="annottext">ReadPrec [DataShare]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491562"><span id="local-6989586621679491564"><span id="local-6989586621679491566"><span id="local-6989586621679491568"><span class="annot"><span class="annottext">ReadPrec [DataShare]
 ReadPrec DataShare
 Int -&gt; ReadS DataShare
 ReadS [DataShare]
@@ -74,7 +74,7 @@ readList :: ReadS [DataShare]
 $creadList :: ReadS [DataShare]
 readsPrec :: Int -&gt; ReadS DataShare
 $creadsPrec :: Int -&gt; ReadS DataShare
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491546"><span id="local-6989586621679491548"><span id="local-6989586621679491550"><span class="annot"><span class="annottext">Int -&gt; DataShare -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491555"><span id="local-6989586621679491557"><span id="local-6989586621679491559"><span class="annot"><span class="annottext">Int -&gt; DataShare -&gt; ShowS
 [DataShare] -&gt; ShowS
 DataShare -&gt; String
 (Int -&gt; DataShare -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Maybe a
 -&gt; (DataShare -&gt; Maybe Text -&gt; DataShare)
 -&gt; Lens DataShare DataShare (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491537"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491546"><span class="annot"><span class="annottext">Maybe Text
 producerArn :: Maybe Text
 $sel:producerArn:DataShare' :: DataShare -&gt; Maybe Text
-</span><a href="#local-6989586621679491537"><span class="hs-identifier hs-var hs-var">producerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491537"><span class="hs-identifier hs-var">producerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491536"><span class="annot"><span class="annottext">s :: DataShare
-</span><a href="#local-6989586621679491536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491535"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
-</span><a href="#local-6989586621679491536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:producerArn:DataShare' :: Maybe Text
+</span><a href="#local-6989586621679491546"><span class="hs-identifier hs-var hs-var">producerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491546"><span class="hs-identifier hs-var">producerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491545"><span class="annot"><span class="annottext">s :: DataShare
+</span><a href="#local-6989586621679491545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491544"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
+</span><a href="#local-6989586621679491545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:producerArn:DataShare' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.DataShare.html#%24sel%3AproducerArn%3ADataShare%27"><span class="hs-identifier hs-var">producerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679491544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | A value that specifies when the datashare has an association between a</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- producer and data consumers.</span><span>
@@ -179,16 +179,16 @@ $sel:producerArn:DataShare' :: DataShare -&gt; Maybe Text
      (Maybe [DataShareAssociation])
      (Maybe [DataShareAssociation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491533"><span class="annot"><span class="annottext">Maybe [DataShareAssociation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491542"><span class="annot"><span class="annottext">Maybe [DataShareAssociation]
 dataShareAssociations :: Maybe [DataShareAssociation]
 $sel:dataShareAssociations:DataShare' :: DataShare -&gt; Maybe [DataShareAssociation]
-</span><a href="#local-6989586621679491533"><span class="hs-identifier hs-var hs-var">dataShareAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataShareAssociation]
-</span><a href="#local-6989586621679491533"><span class="hs-identifier hs-var">dataShareAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491532"><span class="annot"><span class="annottext">s :: DataShare
-</span><a href="#local-6989586621679491532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491531"><span class="annot"><span class="annottext">Maybe [DataShareAssociation]
-</span><a href="#local-6989586621679491531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
-</span><a href="#local-6989586621679491532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareAssociations:DataShare' :: Maybe [DataShareAssociation]
+</span><a href="#local-6989586621679491542"><span class="hs-identifier hs-var hs-var">dataShareAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataShareAssociation]
+</span><a href="#local-6989586621679491542"><span class="hs-identifier hs-var">dataShareAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491541"><span class="annot"><span class="annottext">s :: DataShare
+</span><a href="#local-6989586621679491541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491540"><span class="annot"><span class="annottext">Maybe [DataShareAssociation]
+</span><a href="#local-6989586621679491540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
+</span><a href="#local-6989586621679491541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareAssociations:DataShare' :: Maybe [DataShareAssociation]
 </span><a href="Network.AWS.Redshift.Types.DataShare.html#%24sel%3AdataShareAssociations%3ADataShare%27"><span class="hs-identifier hs-var">dataShareAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataShareAssociation]
-</span><a href="#local-6989586621679491531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataShareAssociation] -&gt; f (Maybe [DataShareAssociation]))
+</span><a href="#local-6989586621679491540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataShareAssociation] -&gt; f (Maybe [DataShareAssociation]))
  -&gt; DataShare -&gt; f DataShare)
 -&gt; ((Maybe [DataShareAssociation]
      -&gt; f (Maybe [DataShareAssociation]))
@@ -231,16 +231,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DataShare -&gt; Maybe Text -&gt; DataShare)
 -&gt; Lens DataShare DataShare (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491526"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491535"><span class="annot"><span class="annottext">Maybe Text
 dataShareArn :: Maybe Text
 $sel:dataShareArn:DataShare' :: DataShare -&gt; Maybe Text
-</span><a href="#local-6989586621679491526"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491526"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491525"><span class="annot"><span class="annottext">s :: DataShare
-</span><a href="#local-6989586621679491525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491524"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
-</span><a href="#local-6989586621679491525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:DataShare' :: Maybe Text
+</span><a href="#local-6989586621679491535"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491535"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491534"><span class="annot"><span class="annottext">s :: DataShare
+</span><a href="#local-6989586621679491534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491533"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
+</span><a href="#local-6989586621679491534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:DataShare' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.DataShare.html#%24sel%3AdataShareArn%3ADataShare%27"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679491533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A value that specifies whether the datashare can be shared to a publicly</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- accessible cluster.</span><span>
@@ -250,21 +250,21 @@ $sel:dataShareArn:DataShare' :: DataShare -&gt; Maybe Text
 -&gt; (DataShare -&gt; Maybe Bool -&gt; DataShare)
 -&gt; Lens DataShare DataShare (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491522"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491531"><span class="annot"><span class="annottext">Maybe Bool
 allowPubliclyAccessibleConsumers :: Maybe Bool
 $sel:allowPubliclyAccessibleConsumers:DataShare' :: DataShare -&gt; Maybe Bool
-</span><a href="#local-6989586621679491522"><span class="hs-identifier hs-var hs-var">allowPubliclyAccessibleConsumers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679491522"><span class="hs-identifier hs-var">allowPubliclyAccessibleConsumers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491521"><span class="annot"><span class="annottext">s :: DataShare
-</span><a href="#local-6989586621679491521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491520"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679491520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
-</span><a href="#local-6989586621679491521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowPubliclyAccessibleConsumers:DataShare' :: Maybe Bool
+</span><a href="#local-6989586621679491531"><span class="hs-identifier hs-var hs-var">allowPubliclyAccessibleConsumers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679491531"><span class="hs-identifier hs-var">allowPubliclyAccessibleConsumers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491530"><span class="annot"><span class="annottext">s :: DataShare
+</span><a href="#local-6989586621679491530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare%27"><span class="hs-identifier hs-type">DataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491529"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679491529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShare
+</span><a href="#local-6989586621679491530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowPubliclyAccessibleConsumers:DataShare' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.Types.DataShare.html#%24sel%3AallowPubliclyAccessibleConsumers%3ADataShare%27"><span class="hs-identifier hs-var">allowPubliclyAccessibleConsumers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679491520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679491529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679491517"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DataShare
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679491515"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679491526"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DataShare
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679491524"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679491524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [DataShareAssociation]
 -&gt; Maybe Text
@@ -283,7 +283,7 @@ $sel:allowPubliclyAccessibleConsumers:DataShare' :: DataShare -&gt; Maybe Bool
       -&gt; Maybe Text -&gt; Maybe Bool -&gt; DataShare)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679491524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProducerArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,7 +295,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Maybe Bool -&gt; DataShare)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679491524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataShareAssociations&quot;</span></span><span>
@@ -323,7 +323,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Bool -&gt; DataShare)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679491524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataShareArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -331,12 +331,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool) -&gt; Either String DataShare
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679491524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowPubliclyAccessibleConsumers&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491506"><span id="local-6989586621679491508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491515"><span id="local-6989586621679491517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

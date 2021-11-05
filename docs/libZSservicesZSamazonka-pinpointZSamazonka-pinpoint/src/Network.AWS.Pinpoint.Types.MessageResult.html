@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- an endpoint address.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMessageResult' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679603513"><span id="local-6989586621679603514"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageResult"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-var">MessageResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageResult%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-var">MessageResult'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679603522"><span id="local-6989586621679603523"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageResult"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-var">MessageResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageResult%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-var">MessageResult'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status message for delivering the message.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AstatusMessage%3AMessageResult%27"><span class="annot"><span class="annottext">MessageResult -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AstatusMessage%3AMessageResult%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AstatusCode%3AMessageResult%27"><span class="annot"><span class="annottext">MessageResult -&gt; Int
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AstatusCode%3AMessageResult%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603503"><span id="local-6989586621679603505"><span class="annot"><span class="annottext">MessageResult -&gt; MessageResult -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603512"><span id="local-6989586621679603514"><span class="annot"><span class="annottext">MessageResult -&gt; MessageResult -&gt; Bool
 (MessageResult -&gt; MessageResult -&gt; Bool)
 -&gt; (MessageResult -&gt; MessageResult -&gt; Bool) -&gt; Eq MessageResult
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MessageResult -&gt; MessageResult -&gt; Bool
 == :: MessageResult -&gt; MessageResult -&gt; Bool
 $c== :: MessageResult -&gt; MessageResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603494"><span id="local-6989586621679603496"><span id="local-6989586621679603498"><span id="local-6989586621679603500"><span class="annot"><span class="annottext">ReadPrec [MessageResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603503"><span id="local-6989586621679603505"><span id="local-6989586621679603507"><span id="local-6989586621679603509"><span class="annot"><span class="annottext">ReadPrec [MessageResult]
 ReadPrec MessageResult
 Int -&gt; ReadS MessageResult
 ReadS [MessageResult]
@@ -99,7 +99,7 @@ readList :: ReadS [MessageResult]
 $creadList :: ReadS [MessageResult]
 readsPrec :: Int -&gt; ReadS MessageResult
 $creadsPrec :: Int -&gt; ReadS MessageResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603487"><span id="local-6989586621679603489"><span id="local-6989586621679603491"><span class="annot"><span class="annottext">Int -&gt; MessageResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603496"><span id="local-6989586621679603498"><span id="local-6989586621679603500"><span class="annot"><span class="annottext">Int -&gt; MessageResult -&gt; ShowS
 [MessageResult] -&gt; ShowS
 MessageResult -&gt; String
 (Int -&gt; MessageResult -&gt; ShowS)
@@ -175,9 +175,9 @@ $cfrom :: forall x. MessageResult -&gt; Rep MessageResult x
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span>
 </span><span id="line-120"></span><span id="newMessageResult"><span class="annot"><span class="annottext">newMessageResult :: DeliveryStatus -&gt; Int -&gt; MessageResult
-</span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#newMessageResult"><span class="hs-identifier hs-var hs-var">newMessageResult</span></a></span></span><span> </span><span id="local-6989586621679603481"><span class="annot"><span class="annottext">DeliveryStatus
-</span><a href="#local-6989586621679603481"><span class="hs-identifier hs-var">pDeliveryStatus_</span></a></span></span><span> </span><span id="local-6989586621679603480"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679603480"><span class="hs-identifier hs-var">pStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#newMessageResult"><span class="hs-identifier hs-var hs-var">newMessageResult</span></a></span></span><span> </span><span id="local-6989586621679603490"><span class="annot"><span class="annottext">DeliveryStatus
+</span><a href="#local-6989586621679603490"><span class="hs-identifier hs-var">pDeliveryStatus_</span></a></span></span><span> </span><span id="local-6989586621679603489"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679603489"><span class="hs-identifier hs-var">pStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">MessageResult' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -199,10 +199,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliveryStatus:MessageResult' :: DeliveryStatus
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AdeliveryStatus%3AMessageResult%27"><span class="hs-identifier hs-var">deliveryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeliveryStatus
-</span><a href="#local-6989586621679603481"><span class="hs-identifier hs-var">pDeliveryStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679603490"><span class="hs-identifier hs-var">pDeliveryStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusCode:MessageResult' :: Int
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AstatusCode%3AMessageResult%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679603480"><span class="hs-identifier hs-var">pStatusCode_</span></a></span><span>
+</span><a href="#local-6989586621679603489"><span class="hs-identifier hs-var">pStatusCode_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The status message for delivering the message.</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
 -&gt; (MessageResult -&gt; Maybe Text -&gt; MessageResult)
 -&gt; Lens MessageResult MessageResult (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603476"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603485"><span class="annot"><span class="annottext">Maybe Text
 statusMessage :: Maybe Text
 $sel:statusMessage:MessageResult' :: MessageResult -&gt; Maybe Text
-</span><a href="#local-6989586621679603476"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603476"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603475"><span class="annot"><span class="annottext">s :: MessageResult
-</span><a href="#local-6989586621679603475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603474"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
-</span><a href="#local-6989586621679603475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:MessageResult' :: Maybe Text
+</span><a href="#local-6989586621679603485"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603485"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603484"><span class="annot"><span class="annottext">s :: MessageResult
+</span><a href="#local-6989586621679603484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
+</span><a href="#local-6989586621679603484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:MessageResult' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AstatusMessage%3AMessageResult%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | For push notifications that are sent through the GCM channel, specifies</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- whether the endpoint\'s device registration token was updated as part of</span><span>
@@ -232,16 +232,16 @@ $sel:statusMessage:MessageResult' :: MessageResult -&gt; Maybe Text
 -&gt; (MessageResult -&gt; Maybe Text -&gt; MessageResult)
 -&gt; Lens MessageResult MessageResult (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603472"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603481"><span class="annot"><span class="annottext">Maybe Text
 updatedToken :: Maybe Text
 $sel:updatedToken:MessageResult' :: MessageResult -&gt; Maybe Text
-</span><a href="#local-6989586621679603472"><span class="hs-identifier hs-var hs-var">updatedToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603472"><span class="hs-identifier hs-var">updatedToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603471"><span class="annot"><span class="annottext">s :: MessageResult
-</span><a href="#local-6989586621679603471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603470"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
-</span><a href="#local-6989586621679603471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedToken:MessageResult' :: Maybe Text
+</span><a href="#local-6989586621679603481"><span class="hs-identifier hs-var hs-var">updatedToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603481"><span class="hs-identifier hs-var">updatedToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603480"><span class="annot"><span class="annottext">s :: MessageResult
+</span><a href="#local-6989586621679603480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
+</span><a href="#local-6989586621679603480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedToken:MessageResult' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AupdatedToken%3AMessageResult%27"><span class="hs-identifier hs-var">updatedToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The unique identifier for the message that was sent.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#messageResult_messageId"><span class="hs-identifier hs-type">messageResult_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -250,16 +250,16 @@ $sel:updatedToken:MessageResult' :: MessageResult -&gt; Maybe Text
 -&gt; (MessageResult -&gt; Maybe Text -&gt; MessageResult)
 -&gt; Lens MessageResult MessageResult (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603468"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603477"><span class="annot"><span class="annottext">Maybe Text
 messageId :: Maybe Text
 $sel:messageId:MessageResult' :: MessageResult -&gt; Maybe Text
-</span><a href="#local-6989586621679603468"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603468"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603467"><span class="annot"><span class="annottext">s :: MessageResult
-</span><a href="#local-6989586621679603467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603466"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
-</span><a href="#local-6989586621679603467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:MessageResult' :: Maybe Text
+</span><a href="#local-6989586621679603477"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603477"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603476"><span class="annot"><span class="annottext">s :: MessageResult
+</span><a href="#local-6989586621679603476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
+</span><a href="#local-6989586621679603476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:MessageResult' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AmessageId%3AMessageResult%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The delivery status of the message. Possible values are:</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
@@ -293,16 +293,16 @@ $sel:messageId:MessageResult' :: MessageResult -&gt; Maybe Text
 -&gt; (MessageResult -&gt; DeliveryStatus -&gt; MessageResult)
 -&gt; Lens MessageResult MessageResult DeliveryStatus DeliveryStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603464"><span class="annot"><span class="annottext">DeliveryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603473"><span class="annot"><span class="annottext">DeliveryStatus
 deliveryStatus :: DeliveryStatus
 $sel:deliveryStatus:MessageResult' :: MessageResult -&gt; DeliveryStatus
-</span><a href="#local-6989586621679603464"><span class="hs-identifier hs-var hs-var">deliveryStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStatus
-</span><a href="#local-6989586621679603464"><span class="hs-identifier hs-var">deliveryStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603463"><span class="annot"><span class="annottext">s :: MessageResult
-</span><a href="#local-6989586621679603463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603462"><span class="annot"><span class="annottext">DeliveryStatus
-</span><a href="#local-6989586621679603462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
-</span><a href="#local-6989586621679603463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStatus:MessageResult' :: DeliveryStatus
+</span><a href="#local-6989586621679603473"><span class="hs-identifier hs-var hs-var">deliveryStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStatus
+</span><a href="#local-6989586621679603473"><span class="hs-identifier hs-var">deliveryStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603472"><span class="annot"><span class="annottext">s :: MessageResult
+</span><a href="#local-6989586621679603472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603471"><span class="annot"><span class="annottext">DeliveryStatus
+</span><a href="#local-6989586621679603471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
+</span><a href="#local-6989586621679603472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStatus:MessageResult' :: DeliveryStatus
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AdeliveryStatus%3AMessageResult%27"><span class="hs-identifier hs-var">deliveryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeliveryStatus
-</span><a href="#local-6989586621679603462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The downstream service status code for delivering the message.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#messageResult_statusCode"><span class="hs-identifier hs-type">messageResult_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -311,19 +311,19 @@ $sel:deliveryStatus:MessageResult' :: MessageResult -&gt; DeliveryStatus
 -&gt; (MessageResult -&gt; Int -&gt; MessageResult)
 -&gt; Lens MessageResult MessageResult Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603460"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603469"><span class="annot"><span class="annottext">Int
 statusCode :: Int
 $sel:statusCode:MessageResult' :: MessageResult -&gt; Int
-</span><a href="#local-6989586621679603460"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679603460"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603459"><span class="annot"><span class="annottext">s :: MessageResult
-</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603458"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679603458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
-</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:MessageResult' :: Int
+</span><a href="#local-6989586621679603469"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679603469"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603468"><span class="annot"><span class="annottext">s :: MessageResult
+</span><a href="#local-6989586621679603468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult%27"><span class="hs-identifier hs-type">MessageResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679603467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageResult
+</span><a href="#local-6989586621679603468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:MessageResult' :: Int
 </span><a href="Network.AWS.Pinpoint.Types.MessageResult.html#%24sel%3AstatusCode%3AMessageResult%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679603458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679603453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MessageResult
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603464"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679603462"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MessageResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MessageResult)
@@ -333,8 +333,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MessageResult&quot;</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603450"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -354,7 +354,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; DeliveryStatus -&gt; Int -&gt; MessageResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -365,7 +365,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; DeliveryStatus -&gt; Int -&gt; MessageResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdatedToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -374,7 +374,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (DeliveryStatus -&gt; Int -&gt; MessageResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,20 +382,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DeliveryStatus -&gt; Parser (Int -&gt; MessageResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeliveryStatus
+</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeliveryStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeliveryStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; MessageResult) -&gt; Parser Int -&gt; Parser MessageResult
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679603459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603443"><span id="local-6989586621679603445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603452"><span id="local-6989586621679603454"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageResult.html#MessageResult"><span class="hs-identifier hs-type">MessageResult</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DevOpsGuru.Types.InsightStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.InsightStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier">InsightStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus_CLOSED"><span class="hs-identifier">InsightStatus_CLOSED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus_ONGOING"><span class="hs-identifier">InsightStatus_ONGOING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679233388"><span id="local-6989586621679233389"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsightStatus"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier hs-var">InsightStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightStatus%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus%27"><span class="hs-identifier hs-var">InsightStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInsightStatus"><span class="annot"><span class="annottext">InsightStatus -&gt; Text
+</span><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#fromInsightStatus"><span class="hs-identifier hs-var hs-var">fromInsightStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233380"><span id="local-6989586621679233382"><span id="local-6989586621679233384"><span class="annot"><span class="annottext">Int -&gt; InsightStatus -&gt; ShowS
+[InsightStatus] -&gt; ShowS
+InsightStatus -&gt; String
+(Int -&gt; InsightStatus -&gt; ShowS)
+-&gt; (InsightStatus -&gt; String)
+-&gt; ([InsightStatus] -&gt; ShowS)
+-&gt; Show InsightStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InsightStatus] -&gt; ShowS
+$cshowList :: [InsightStatus] -&gt; ShowS
+show :: InsightStatus -&gt; String
+$cshow :: InsightStatus -&gt; String
+showsPrec :: Int -&gt; InsightStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; InsightStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679233371"><span id="local-6989586621679233373"><span id="local-6989586621679233375"><span id="local-6989586621679233377"><span class="annot"><span class="annottext">ReadPrec [InsightStatus]
+ReadPrec InsightStatus
+Int -&gt; ReadS InsightStatus
+ReadS [InsightStatus]
+(Int -&gt; ReadS InsightStatus)
+-&gt; ReadS [InsightStatus]
+-&gt; ReadPrec InsightStatus
+-&gt; ReadPrec [InsightStatus]
+-&gt; Read InsightStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InsightStatus]
+$creadListPrec :: ReadPrec [InsightStatus]
+readPrec :: ReadPrec InsightStatus
+$creadPrec :: ReadPrec InsightStatus
+readList :: ReadS [InsightStatus]
+$creadList :: ReadS [InsightStatus]
+readsPrec :: Int -&gt; ReadS InsightStatus
+$creadsPrec :: Int -&gt; ReadS InsightStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679233366"><span id="local-6989586621679233368"><span class="annot"><span class="annottext">InsightStatus -&gt; InsightStatus -&gt; Bool
+(InsightStatus -&gt; InsightStatus -&gt; Bool)
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; Bool) -&gt; Eq InsightStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InsightStatus -&gt; InsightStatus -&gt; Bool
+$c/= :: InsightStatus -&gt; InsightStatus -&gt; Bool
+== :: InsightStatus -&gt; InsightStatus -&gt; Bool
+$c== :: InsightStatus -&gt; InsightStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679233350"><span id="local-6989586621679233352"><span id="local-6989586621679233354"><span id="local-6989586621679233356"><span id="local-6989586621679233358"><span id="local-6989586621679233360"><span id="local-6989586621679233362"><span class="annot"><span class="annottext">Eq InsightStatus
+Eq InsightStatus
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; Ordering)
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; Bool)
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; Bool)
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; Bool)
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; Bool)
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; InsightStatus)
+-&gt; (InsightStatus -&gt; InsightStatus -&gt; InsightStatus)
+-&gt; Ord InsightStatus
+InsightStatus -&gt; InsightStatus -&gt; Bool
+InsightStatus -&gt; InsightStatus -&gt; Ordering
+InsightStatus -&gt; InsightStatus -&gt; InsightStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InsightStatus -&gt; InsightStatus -&gt; InsightStatus
+$cmin :: InsightStatus -&gt; InsightStatus -&gt; InsightStatus
+max :: InsightStatus -&gt; InsightStatus -&gt; InsightStatus
+$cmax :: InsightStatus -&gt; InsightStatus -&gt; InsightStatus
+&gt;= :: InsightStatus -&gt; InsightStatus -&gt; Bool
+$c&gt;= :: InsightStatus -&gt; InsightStatus -&gt; Bool
+&gt; :: InsightStatus -&gt; InsightStatus -&gt; Bool
+$c&gt; :: InsightStatus -&gt; InsightStatus -&gt; Bool
+&lt;= :: InsightStatus -&gt; InsightStatus -&gt; Bool
+$c&lt;= :: InsightStatus -&gt; InsightStatus -&gt; Bool
+&lt; :: InsightStatus -&gt; InsightStatus -&gt; Bool
+$c&lt; :: InsightStatus -&gt; InsightStatus -&gt; Bool
+compare :: InsightStatus -&gt; InsightStatus -&gt; Ordering
+$ccompare :: InsightStatus -&gt; InsightStatus -&gt; Ordering
+$cp1Ord :: Eq InsightStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InsightStatus -&gt; Rep InsightStatus x)
+-&gt; (forall x. Rep InsightStatus x -&gt; InsightStatus)
+-&gt; Generic InsightStatus
+forall x. Rep InsightStatus x -&gt; InsightStatus
+forall x. InsightStatus -&gt; Rep InsightStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InsightStatus x -&gt; InsightStatus
+$cfrom :: forall x. InsightStatus -&gt; Rep InsightStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233342"><span id="local-6989586621679233344"><span class="annot"><span class="annottext">Int -&gt; InsightStatus -&gt; Int
+InsightStatus -&gt; Int
+(Int -&gt; InsightStatus -&gt; Int)
+-&gt; (InsightStatus -&gt; Int) -&gt; Hashable InsightStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InsightStatus -&gt; Int
+$chash :: InsightStatus -&gt; Int
+hashWithSalt :: Int -&gt; InsightStatus -&gt; Int
+$chashWithSalt :: Int -&gt; InsightStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679233339"><span class="annot"><span class="annottext">InsightStatus -&gt; ()
+(InsightStatus -&gt; ()) -&gt; NFData InsightStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InsightStatus -&gt; ()
+$crnf :: InsightStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679233336"><span class="annot"><span class="annottext">Text -&gt; Either String InsightStatus
+(Text -&gt; Either String InsightStatus) -&gt; FromText InsightStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InsightStatus
+$cfromText :: Text -&gt; Either String InsightStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679233333"><span class="annot"><span class="annottext">InsightStatus -&gt; Text
+(InsightStatus -&gt; Text) -&gt; ToText InsightStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InsightStatus -&gt; Text
+$ctoText :: InsightStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679233330"><span class="annot"><span class="annottext">InsightStatus -&gt; ByteString
+(InsightStatus -&gt; ByteString) -&gt; ToByteString InsightStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InsightStatus -&gt; ByteString
+$ctoBS :: InsightStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679233327"><span class="annot"><span class="annottext">InsightStatus -&gt; ByteStringBuilder
+(InsightStatus -&gt; ByteStringBuilder) -&gt; ToLog InsightStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InsightStatus -&gt; ByteStringBuilder
+$cbuild :: InsightStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679233324"><span class="annot"><span class="annottext">HeaderName -&gt; InsightStatus -&gt; [Header]
+(HeaderName -&gt; InsightStatus -&gt; [Header]) -&gt; ToHeader InsightStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InsightStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InsightStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679233321"><span class="annot"><span class="annottext">InsightStatus -&gt; QueryString
+(InsightStatus -&gt; QueryString) -&gt; ToQuery InsightStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InsightStatus -&gt; QueryString
+$ctoQuery :: InsightStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679233316"><span id="local-6989586621679233318"><span class="annot"><span class="annottext">Value -&gt; Parser [InsightStatus]
+Value -&gt; Parser InsightStatus
+(Value -&gt; Parser InsightStatus)
+-&gt; (Value -&gt; Parser [InsightStatus]) -&gt; FromJSON InsightStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InsightStatus]
+$cparseJSONList :: Value -&gt; Parser [InsightStatus]
+parseJSON :: Value -&gt; Parser InsightStatus
+$cparseJSON :: Value -&gt; Parser InsightStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679233311"><span id="local-6989586621679233313"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsightStatus]
+FromJSONKeyFunction InsightStatus
+FromJSONKeyFunction InsightStatus
+-&gt; FromJSONKeyFunction [InsightStatus] -&gt; FromJSONKey InsightStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InsightStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [InsightStatus]
+fromJSONKey :: FromJSONKeyFunction InsightStatus
+$cfromJSONKey :: FromJSONKeyFunction InsightStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679233302"><span id="local-6989586621679233304"><span id="local-6989586621679233306"><span id="local-6989586621679233308"><span class="annot"><span class="annottext">[InsightStatus] -&gt; Encoding
+[InsightStatus] -&gt; Value
+InsightStatus -&gt; Encoding
+InsightStatus -&gt; Value
+(InsightStatus -&gt; Value)
+-&gt; (InsightStatus -&gt; Encoding)
+-&gt; ([InsightStatus] -&gt; Value)
+-&gt; ([InsightStatus] -&gt; Encoding)
+-&gt; ToJSON InsightStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InsightStatus] -&gt; Encoding
+$ctoEncodingList :: [InsightStatus] -&gt; Encoding
+toJSONList :: [InsightStatus] -&gt; Value
+$ctoJSONList :: [InsightStatus] -&gt; Value
+toEncoding :: InsightStatus -&gt; Encoding
+$ctoEncoding :: InsightStatus -&gt; Encoding
+toJSON :: InsightStatus -&gt; Value
+$ctoJSON :: InsightStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679233297"><span id="local-6989586621679233299"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsightStatus]
+ToJSONKeyFunction InsightStatus
+ToJSONKeyFunction InsightStatus
+-&gt; ToJSONKeyFunction [InsightStatus] -&gt; ToJSONKey InsightStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InsightStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [InsightStatus]
+toJSONKey :: ToJSONKeyFunction InsightStatus
+$ctoJSONKey :: ToJSONKeyFunction InsightStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679233294"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsightStatus
+([Node] -&gt; Either String InsightStatus) -&gt; FromXML InsightStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InsightStatus
+$cparseXML :: [Node] -&gt; Either String InsightStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679233291"><span class="annot"><span class="annottext">InsightStatus -&gt; XML
+(InsightStatus -&gt; XML) -&gt; ToXML InsightStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InsightStatus -&gt; XML
+$ctoXML :: InsightStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus_CLOSED"><span class="hs-identifier hs-type">InsightStatus_CLOSED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier hs-type">InsightStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInsightStatus_CLOSED"><span id="%24mInsightStatus_CLOSED"><span id="InsightStatus_CLOSED"><span class="annot"><span class="annottext">$bInsightStatus_CLOSED :: InsightStatus
+$mInsightStatus_CLOSED :: forall r. InsightStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#%24bInsightStatus_CLOSED"><span class="hs-identifier hs-var hs-var hs-var">InsightStatus_CLOSED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus%27"><span class="hs-identifier hs-type">InsightStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOSED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus_ONGOING"><span class="hs-identifier hs-type">InsightStatus_ONGOING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier hs-type">InsightStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInsightStatus_ONGOING"><span id="%24mInsightStatus_ONGOING"><span id="InsightStatus_ONGOING"><span class="annot"><span class="annottext">$bInsightStatus_ONGOING :: InsightStatus
+$mInsightStatus_ONGOING :: forall r. InsightStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#%24bInsightStatus_ONGOING"><span class="hs-identifier hs-var hs-var hs-var">InsightStatus_ONGOING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus%27"><span class="hs-identifier hs-type">InsightStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ONGOING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus_CLOSED"><span class="hs-pragma hs-type">InsightStatus_CLOSED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus_ONGOING"><span class="hs-pragma hs-type">InsightStatus_ONGOING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus%27"><span class="hs-pragma hs-type">InsightStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

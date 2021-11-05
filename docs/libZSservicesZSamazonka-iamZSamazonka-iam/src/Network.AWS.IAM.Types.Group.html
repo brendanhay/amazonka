@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- -   ListGroups</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newGroup' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679425566"><span id="local-6989586621679425567"></span></span><span class="hs-keyword">data</span><span> </span><span id="Group"><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-var">Group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Group%27"><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679425575"><span id="local-6989586621679425576"></span></span><span class="hs-keyword">data</span><span> </span><span id="Group"><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-var">Group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Group%27"><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
@@ -62,14 +62,14 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AcreateDate%3AGroup%27"><span class="annot"><span class="annottext">Group -&gt; ISO8601
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3AcreateDate%3AGroup%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425556"><span id="local-6989586621679425558"><span class="annot"><span class="annottext">Group -&gt; Group -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425565"><span id="local-6989586621679425567"><span class="annot"><span class="annottext">Group -&gt; Group -&gt; Bool
 (Group -&gt; Group -&gt; Bool) -&gt; (Group -&gt; Group -&gt; Bool) -&gt; Eq Group
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Group -&gt; Group -&gt; Bool
 $c/= :: Group -&gt; Group -&gt; Bool
 == :: Group -&gt; Group -&gt; Bool
 $c== :: Group -&gt; Group -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425547"><span id="local-6989586621679425549"><span id="local-6989586621679425551"><span id="local-6989586621679425553"><span class="annot"><span class="annottext">ReadPrec [Group]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425556"><span id="local-6989586621679425558"><span id="local-6989586621679425560"><span id="local-6989586621679425562"><span class="annot"><span class="annottext">ReadPrec [Group]
 ReadPrec Group
 Int -&gt; ReadS Group
 ReadS [Group]
@@ -89,7 +89,7 @@ readList :: ReadS [Group]
 $creadList :: ReadS [Group]
 readsPrec :: Int -&gt; ReadS Group
 $creadsPrec :: Int -&gt; ReadS Group
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425540"><span id="local-6989586621679425542"><span id="local-6989586621679425544"><span class="annot"><span class="annottext">Int -&gt; Group -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425549"><span id="local-6989586621679425551"><span id="local-6989586621679425553"><span class="annot"><span class="annottext">Int -&gt; Group -&gt; ShowS
 [Group] -&gt; ShowS
 Group -&gt; String
 (Int -&gt; Group -&gt; ShowS)
@@ -153,30 +153,30 @@ $cfrom :: forall x. Group -&gt; Rep Group x
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span>
 </span><span id="line-101"></span><span id="newGroup"><span class="annot"><span class="annottext">newGroup :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; UTCTime -&gt; Group
 </span><a href="Network.AWS.IAM.Types.Group.html#newGroup"><span class="hs-identifier hs-var hs-var">newGroup</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679425534"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425534"><span class="hs-identifier hs-var">pPath_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679425533"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425533"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679425532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425532"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679425531"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425531"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679425530"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679425530"><span class="hs-identifier hs-var">pCreateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679425543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425543"><span class="hs-identifier hs-var">pPath_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679425542"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425542"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679425541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425541"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679425540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425540"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679425539"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679425539"><span class="hs-identifier hs-var">pCreateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Group' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; Group
 </span><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3Apath%3AGroup%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425534"><span class="hs-identifier hs-var">pPath_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425543"><span class="hs-identifier hs-var">pPath_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupName:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3AgroupName%3AGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425533"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425542"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupId:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3AgroupId%3AGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425532"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425541"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3Aarn%3AGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425531"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425540"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:createDate:Group' :: ISO8601
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3AcreateDate%3AGroup%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -186,7 +186,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679425530"><span class="hs-identifier hs-var">pCreateDate_</span></a></span><span>
+</span><a href="#local-6989586621679425539"><span class="hs-identifier hs-var">pCreateDate_</span></a></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
@@ -197,16 +197,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 </span><a href="Network.AWS.IAM.Types.Group.html#group_path"><span class="hs-identifier hs-var hs-var">group_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Group -&gt; Text)
 -&gt; (Group -&gt; Text -&gt; Group) -&gt; Lens Group Group Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425524"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425533"><span class="annot"><span class="annottext">Text
 path :: Text
 $sel:path:Group' :: Group -&gt; Text
-</span><a href="#local-6989586621679425524"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425524"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425523"><span class="annot"><span class="annottext">s :: Group
-</span><a href="#local-6989586621679425523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425522"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679425523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:Group' :: Text
+</span><a href="#local-6989586621679425533"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425533"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425532"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679425532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679425532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3Apath%3AGroup%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The friendly name that identifies the group.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#group_groupName"><span class="hs-identifier hs-type">group_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -214,16 +214,16 @@ $sel:path:Group' :: Group -&gt; Text
 </span><a href="Network.AWS.IAM.Types.Group.html#group_groupName"><span class="hs-identifier hs-var hs-var">group_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Group -&gt; Text)
 -&gt; (Group -&gt; Text -&gt; Group) -&gt; Lens Group Group Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425520"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425529"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:Group' :: Group -&gt; Text
-</span><a href="#local-6989586621679425520"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425520"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425519"><span class="annot"><span class="annottext">s :: Group
-</span><a href="#local-6989586621679425519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425518"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679425519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:Group' :: Text
+</span><a href="#local-6989586621679425529"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425529"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425528"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679425528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679425528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3AgroupName%3AGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The stable and unique string identifying the group. For more information</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- about IDs, see</span><span>
@@ -234,16 +234,16 @@ $sel:groupName:Group' :: Group -&gt; Text
 </span><a href="Network.AWS.IAM.Types.Group.html#group_groupId"><span class="hs-identifier hs-var hs-var">group_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Group -&gt; Text)
 -&gt; (Group -&gt; Text -&gt; Group) -&gt; Lens Group Group Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425516"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425525"><span class="annot"><span class="annottext">Text
 groupId :: Text
 $sel:groupId:Group' :: Group -&gt; Text
-</span><a href="#local-6989586621679425516"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425516"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425515"><span class="annot"><span class="annottext">s :: Group
-</span><a href="#local-6989586621679425515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425514"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679425515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:Group' :: Text
+</span><a href="#local-6989586621679425525"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425525"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425524"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679425524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425523"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679425524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3AgroupId%3AGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) specifying the group. For more</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- information about ARNs and how to use them in policies, see</span><span>
@@ -254,16 +254,16 @@ $sel:groupId:Group' :: Group -&gt; Text
 </span><a href="Network.AWS.IAM.Types.Group.html#group_arn"><span class="hs-identifier hs-var hs-var">group_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Group -&gt; Text)
 -&gt; (Group -&gt; Text -&gt; Group) -&gt; Lens Group Group Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425512"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425521"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:Group' :: Group -&gt; Text
-</span><a href="#local-6989586621679425512"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425512"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425511"><span class="annot"><span class="annottext">s :: Group
-</span><a href="#local-6989586621679425511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425510"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679425511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Group' :: Text
+</span><a href="#local-6989586621679425521"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425521"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425520"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679425520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679425520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Group' :: Text
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3Aarn%3AGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The date and time, in</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
@@ -273,16 +273,16 @@ $sel:arn:Group' :: Group -&gt; Text
 </span><a href="Network.AWS.IAM.Types.Group.html#group_createDate"><span class="hs-identifier hs-var hs-var">group_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Group -&gt; ISO8601)
 -&gt; (Group -&gt; ISO8601 -&gt; Group) -&gt; Lens Group Group ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425508"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425517"><span class="annot"><span class="annottext">ISO8601
 createDate :: ISO8601
 $sel:createDate:Group' :: Group -&gt; ISO8601
-</span><a href="#local-6989586621679425508"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679425508"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425507"><span class="annot"><span class="annottext">s :: Group
-</span><a href="#local-6989586621679425507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425506"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679425506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679425507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:Group' :: ISO8601
+</span><a href="#local-6989586621679425517"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679425517"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425516"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679425516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425515"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679425515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679425516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:Group' :: ISO8601
 </span><a href="Network.AWS.IAM.Types.Group.html#%24sel%3AcreateDate%3AGroup%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679425506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Group -&gt; f Group)
+</span><a href="#local-6989586621679425515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Group -&gt; f Group)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Group
@@ -293,9 +293,9 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679425502"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Group
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679425500"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679425511"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Group
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679425509"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; Group
 </span><a href="Network.AWS.IAM.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; Group)
@@ -303,7 +303,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; Group)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679425509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,7 +312,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; ISO8601 -&gt; Group)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679425509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,7 +320,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Text -&gt; ISO8601 -&gt; Group)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679425509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,7 +328,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (ISO8601 -&gt; Group)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679425509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -336,12 +336,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ISO8601 -&gt; Either String Group
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679425509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425494"><span id="local-6989586621679425496"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425503"><span id="local-6989586621679425505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

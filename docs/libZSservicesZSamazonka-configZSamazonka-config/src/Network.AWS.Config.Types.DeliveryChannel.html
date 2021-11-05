@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- configuration states.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDeliveryChannel' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679401372"><span id="local-6989586621679401373"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryChannel"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-var">DeliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryChannel%27"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-var">DeliveryChannel'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679401381"><span id="local-6989586621679401382"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryChannel"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-var">DeliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryChannel%27"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-var">DeliveryChannel'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix for the specified Amazon S3 bucket.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3As3KeyPrefix%3ADeliveryChannel%27"><span class="annot"><span class="annottext">DeliveryChannel -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3As3KeyPrefix%3ADeliveryChannel%27"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3As3BucketName%3ADeliveryChannel%27"><span class="annot"><span class="annottext">DeliveryChannel -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3As3BucketName%3ADeliveryChannel%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401361"><span id="local-6989586621679401363"><span class="annot"><span class="annottext">DeliveryChannel -&gt; DeliveryChannel -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401370"><span id="local-6989586621679401372"><span class="annot"><span class="annottext">DeliveryChannel -&gt; DeliveryChannel -&gt; Bool
 (DeliveryChannel -&gt; DeliveryChannel -&gt; Bool)
 -&gt; (DeliveryChannel -&gt; DeliveryChannel -&gt; Bool)
 -&gt; Eq DeliveryChannel
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeliveryChannel -&gt; DeliveryChannel -&gt; Bool
 == :: DeliveryChannel -&gt; DeliveryChannel -&gt; Bool
 $c== :: DeliveryChannel -&gt; DeliveryChannel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401352"><span id="local-6989586621679401354"><span id="local-6989586621679401356"><span id="local-6989586621679401358"><span class="annot"><span class="annottext">ReadPrec [DeliveryChannel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401361"><span id="local-6989586621679401363"><span id="local-6989586621679401365"><span id="local-6989586621679401367"><span class="annot"><span class="annottext">ReadPrec [DeliveryChannel]
 ReadPrec DeliveryChannel
 Int -&gt; ReadS DeliveryChannel
 ReadS [DeliveryChannel]
@@ -98,7 +98,7 @@ readList :: ReadS [DeliveryChannel]
 $creadList :: ReadS [DeliveryChannel]
 readsPrec :: Int -&gt; ReadS DeliveryChannel
 $creadsPrec :: Int -&gt; ReadS DeliveryChannel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401345"><span id="local-6989586621679401347"><span id="local-6989586621679401349"><span class="annot"><span class="annottext">Int -&gt; DeliveryChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401354"><span id="local-6989586621679401356"><span id="local-6989586621679401358"><span class="annot"><span class="annottext">Int -&gt; DeliveryChannel -&gt; ShowS
 [DeliveryChannel] -&gt; ShowS
 DeliveryChannel -&gt; String
 (Int -&gt; DeliveryChannel -&gt; ShowS)
@@ -210,16 +210,16 @@ forall a. Maybe a
 -&gt; (DeliveryChannel -&gt; Maybe Text -&gt; DeliveryChannel)
 -&gt; Lens DeliveryChannel DeliveryChannel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401336"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401345"><span class="annot"><span class="annottext">Maybe Text
 s3KeyPrefix :: Maybe Text
 $sel:s3KeyPrefix:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679401336"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401336"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401335"><span class="annot"><span class="annottext">s :: DeliveryChannel
-</span><a href="#local-6989586621679401335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401334"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
-</span><a href="#local-6989586621679401335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:DeliveryChannel' :: Maybe Text
+</span><a href="#local-6989586621679401345"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401345"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401344"><span class="annot"><span class="annottext">s :: DeliveryChannel
+</span><a href="#local-6989586621679401344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679401344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:DeliveryChannel' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3As3KeyPrefix%3ADeliveryChannel%27"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- sends notifications about configuration changes.</span><span>
@@ -235,16 +235,16 @@ $sel:s3KeyPrefix:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
 -&gt; (DeliveryChannel -&gt; Maybe Text -&gt; DeliveryChannel)
 -&gt; Lens DeliveryChannel DeliveryChannel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401332"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401341"><span class="annot"><span class="annottext">Maybe Text
 snsTopicARN :: Maybe Text
 $sel:snsTopicARN:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679401332"><span class="hs-identifier hs-var hs-var">snsTopicARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401332"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401331"><span class="annot"><span class="annottext">s :: DeliveryChannel
-</span><a href="#local-6989586621679401331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401330"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
-</span><a href="#local-6989586621679401331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicARN:DeliveryChannel' :: Maybe Text
+</span><a href="#local-6989586621679401341"><span class="hs-identifier hs-var hs-var">snsTopicARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401341"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401340"><span class="annot"><span class="annottext">s :: DeliveryChannel
+</span><a href="#local-6989586621679401340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679401340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicARN:DeliveryChannel' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3AsnsTopicARN%3ADeliveryChannel%27"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The name of the delivery channel. By default, Config assigns the name</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- \&quot;default\&quot; when creating the delivery channel. To change the delivery</span><span>
@@ -259,16 +259,16 @@ $sel:snsTopicARN:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
 -&gt; (DeliveryChannel -&gt; Maybe Text -&gt; DeliveryChannel)
 -&gt; Lens DeliveryChannel DeliveryChannel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401328"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401337"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679401328"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401328"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401327"><span class="annot"><span class="annottext">s :: DeliveryChannel
-</span><a href="#local-6989586621679401327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401326"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
-</span><a href="#local-6989586621679401327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeliveryChannel' :: Maybe Text
+</span><a href="#local-6989586621679401337"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401337"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401336"><span class="annot"><span class="annottext">s :: DeliveryChannel
+</span><a href="#local-6989586621679401336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679401336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeliveryChannel' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3Aname%3ADeliveryChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- key (KMS key) used to encrypt objects delivered by Config. Must belong</span><span>
@@ -280,16 +280,16 @@ $sel:name:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
 -&gt; (DeliveryChannel -&gt; Maybe Text -&gt; DeliveryChannel)
 -&gt; Lens DeliveryChannel DeliveryChannel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401324"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401333"><span class="annot"><span class="annottext">Maybe Text
 s3KmsKeyArn :: Maybe Text
 $sel:s3KmsKeyArn:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679401324"><span class="hs-identifier hs-var hs-var">s3KmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401324"><span class="hs-identifier hs-var">s3KmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401323"><span class="annot"><span class="annottext">s :: DeliveryChannel
-</span><a href="#local-6989586621679401323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401322"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
-</span><a href="#local-6989586621679401323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KmsKeyArn:DeliveryChannel' :: Maybe Text
+</span><a href="#local-6989586621679401333"><span class="hs-identifier hs-var hs-var">s3KmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401333"><span class="hs-identifier hs-var">s3KmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401332"><span class="annot"><span class="annottext">s :: DeliveryChannel
+</span><a href="#local-6989586621679401332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679401332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KmsKeyArn:DeliveryChannel' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3As3KmsKeyArn%3ADeliveryChannel%27"><span class="hs-identifier hs-var">s3KmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The options for how often Config delivers configuration snapshots to the</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- Amazon S3 bucket.</span><span>
@@ -306,16 +306,16 @@ $sel:s3KmsKeyArn:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
      (Maybe ConfigSnapshotDeliveryProperties)
      (Maybe ConfigSnapshotDeliveryProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401320"><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401329"><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
 configSnapshotDeliveryProperties :: Maybe ConfigSnapshotDeliveryProperties
 $sel:configSnapshotDeliveryProperties:DeliveryChannel' :: DeliveryChannel -&gt; Maybe ConfigSnapshotDeliveryProperties
-</span><a href="#local-6989586621679401320"><span class="hs-identifier hs-var hs-var">configSnapshotDeliveryProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
-</span><a href="#local-6989586621679401320"><span class="hs-identifier hs-var">configSnapshotDeliveryProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401319"><span class="annot"><span class="annottext">s :: DeliveryChannel
-</span><a href="#local-6989586621679401319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401318"><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
-</span><a href="#local-6989586621679401318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
-</span><a href="#local-6989586621679401319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configSnapshotDeliveryProperties:DeliveryChannel' :: Maybe ConfigSnapshotDeliveryProperties
+</span><a href="#local-6989586621679401329"><span class="hs-identifier hs-var hs-var">configSnapshotDeliveryProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
+</span><a href="#local-6989586621679401329"><span class="hs-identifier hs-var">configSnapshotDeliveryProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401328"><span class="annot"><span class="annottext">s :: DeliveryChannel
+</span><a href="#local-6989586621679401328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401327"><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
+</span><a href="#local-6989586621679401327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679401328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configSnapshotDeliveryProperties:DeliveryChannel' :: Maybe ConfigSnapshotDeliveryProperties
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3AconfigSnapshotDeliveryProperties%3ADeliveryChannel%27"><span class="hs-identifier hs-var">configSnapshotDeliveryProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
-</span><a href="#local-6989586621679401318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket to which Config delivers configuration</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- snapshots and configuration history files.</span><span>
@@ -332,19 +332,19 @@ $sel:configSnapshotDeliveryProperties:DeliveryChannel' :: DeliveryChannel -&gt; 
 -&gt; (DeliveryChannel -&gt; Maybe Text -&gt; DeliveryChannel)
 -&gt; Lens DeliveryChannel DeliveryChannel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401316"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401325"><span class="annot"><span class="annottext">Maybe Text
 s3BucketName :: Maybe Text
 $sel:s3BucketName:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679401316"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401316"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401315"><span class="annot"><span class="annottext">s :: DeliveryChannel
-</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401314"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
-</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:DeliveryChannel' :: Maybe Text
+</span><a href="#local-6989586621679401325"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401325"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401324"><span class="annot"><span class="annottext">s :: DeliveryChannel
+</span><a href="#local-6989586621679401324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannel
+</span><a href="#local-6989586621679401324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:DeliveryChannel' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.DeliveryChannel.html#%24sel%3As3BucketName%3ADeliveryChannel%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401311"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679401309"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeliveryChannel
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401320"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679401318"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeliveryChannel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeliveryChannel)
@@ -354,8 +354,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeliveryChannel&quot;</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401306"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401315"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -381,7 +381,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DeliveryChannel)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3KeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -401,7 +401,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DeliveryChannel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;snsTopicARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -419,7 +419,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DeliveryChannel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -434,7 +434,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; DeliveryChannel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -445,7 +445,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; DeliveryChannel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigSnapshotDeliveryProperties)
+</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigSnapshotDeliveryProperties)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configSnapshotDeliveryProperties&quot;</span></span><span class="hs-special">)</span><span>
@@ -453,19 +453,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser DeliveryChannel
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3BucketName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401300"><span id="local-6989586621679401302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401309"><span id="local-6989586621679401311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401289"><span id="local-6989586621679401291"><span id="local-6989586621679401293"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679401287"><span class="annot"><span class="annottext">toJSON :: DeliveryChannel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401280"><span id="local-6989586621679401281"><span id="local-6989586621679401282"><span id="local-6989586621679401283"><span id="local-6989586621679401284"><span id="local-6989586621679401285"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401298"><span id="local-6989586621679401300"><span id="local-6989586621679401302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel"><span class="hs-identifier hs-type">DeliveryChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679401296"><span class="annot"><span class="annottext">toJSON :: DeliveryChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannel.html#DeliveryChannel%27"><span class="hs-identifier hs-type">DeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401289"><span id="local-6989586621679401290"><span id="local-6989586621679401291"><span id="local-6989586621679401292"><span id="local-6989586621679401293"><span id="local-6989586621679401294"><span class="annot"><span class="annottext">Maybe Text
 Maybe ConfigSnapshotDeliveryProperties
 s3BucketName :: Maybe Text
 configSnapshotDeliveryProperties :: Maybe ConfigSnapshotDeliveryProperties
@@ -479,7 +479,7 @@ $sel:s3KmsKeyArn:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
 $sel:name:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
 $sel:snsTopicARN:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
 $sel:s3KeyPrefix:DeliveryChannel' :: DeliveryChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679401280"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679401289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -491,28 +491,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401285"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401294"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;snsTopicARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401284"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401293"><span class="hs-identifier hs-var">snsTopicARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401283"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401292"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3KmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401282"><span class="hs-identifier hs-var">s3KmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401291"><span class="hs-identifier hs-var">s3KmsKeyArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configSnapshotDeliveryProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfigSnapshotDeliveryProperties -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -521,14 +521,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConfigSnapshotDeliveryProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConfigSnapshotDeliveryProperties
-</span><a href="#local-6989586621679401281"><span class="hs-identifier hs-var">configSnapshotDeliveryProperties</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401290"><span class="hs-identifier hs-var">configSnapshotDeliveryProperties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401280"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span>
+</span><a href="#local-6989586621679401289"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span>
 </span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span></pre></body></html>

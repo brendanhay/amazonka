@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679242902"><span id="local-6989586621679242903"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HITAccessActions"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITAccessActions.html#HITAccessActions"><span class="hs-identifier hs-var">HITAccessActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HITAccessActions%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITAccessActions.html#HITAccessActions%27"><span class="hs-identifier hs-var">HITAccessActions'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679242911"><span id="local-6989586621679242912"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HITAccessActions"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITAccessActions.html#HITAccessActions"><span class="hs-identifier hs-var">HITAccessActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HITAccessActions%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITAccessActions.html#HITAccessActions%27"><span class="hs-identifier hs-var">HITAccessActions'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHITAccessActions"><span class="annot"><span class="annottext">HITAccessActions -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.HITAccessActions.html#fromHITAccessActions"><span class="hs-identifier hs-var hs-var">fromHITAccessActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242894"><span id="local-6989586621679242896"><span id="local-6989586621679242898"><span class="annot"><span class="annottext">Int -&gt; HITAccessActions -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242903"><span id="local-6989586621679242905"><span id="local-6989586621679242907"><span class="annot"><span class="annottext">Int -&gt; HITAccessActions -&gt; ShowS
 [HITAccessActions] -&gt; ShowS
 HITAccessActions -&gt; String
 (Int -&gt; HITAccessActions -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HITAccessActions -&gt; String
 showsPrec :: Int -&gt; HITAccessActions -&gt; ShowS
 $cshowsPrec :: Int -&gt; HITAccessActions -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679242885"><span id="local-6989586621679242887"><span id="local-6989586621679242889"><span id="local-6989586621679242891"><span class="annot"><span class="annottext">ReadPrec [HITAccessActions]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679242894"><span id="local-6989586621679242896"><span id="local-6989586621679242898"><span id="local-6989586621679242900"><span class="annot"><span class="annottext">ReadPrec [HITAccessActions]
 ReadPrec HITAccessActions
 Int -&gt; ReadS HITAccessActions
 ReadS [HITAccessActions]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HITAccessActions]
 readsPrec :: Int -&gt; ReadS HITAccessActions
 $creadsPrec :: Int -&gt; ReadS HITAccessActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679242880"><span id="local-6989586621679242882"><span class="annot"><span class="annottext">HITAccessActions -&gt; HITAccessActions -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679242889"><span id="local-6989586621679242891"><span class="annot"><span class="annottext">HITAccessActions -&gt; HITAccessActions -&gt; Bool
 (HITAccessActions -&gt; HITAccessActions -&gt; Bool)
 -&gt; (HITAccessActions -&gt; HITAccessActions -&gt; Bool)
 -&gt; Eq HITAccessActions
@@ -83,7 +83,7 @@ $c/= :: HITAccessActions -&gt; HITAccessActions -&gt; Bool
 == :: HITAccessActions -&gt; HITAccessActions -&gt; Bool
 $c== :: HITAccessActions -&gt; HITAccessActions -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679242864"><span id="local-6989586621679242866"><span id="local-6989586621679242868"><span id="local-6989586621679242870"><span id="local-6989586621679242872"><span id="local-6989586621679242874"><span id="local-6989586621679242876"><span class="annot"><span class="annottext">Eq HITAccessActions
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679242873"><span id="local-6989586621679242875"><span id="local-6989586621679242877"><span id="local-6989586621679242879"><span id="local-6989586621679242881"><span id="local-6989586621679242883"><span id="local-6989586621679242885"><span class="annot"><span class="annottext">Eq HITAccessActions
 Eq HITAccessActions
 -&gt; (HITAccessActions -&gt; HITAccessActions -&gt; Ordering)
 -&gt; (HITAccessActions -&gt; HITAccessActions -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. HITAccessActions -&gt; Rep HITAccessActions x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242856"><span id="local-6989586621679242858"><span class="annot"><span class="annottext">Int -&gt; HITAccessActions -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242865"><span id="local-6989586621679242867"><span class="annot"><span class="annottext">Int -&gt; HITAccessActions -&gt; Int
 HITAccessActions -&gt; Int
 (Int -&gt; HITAccessActions -&gt; Int)
 -&gt; (HITAccessActions -&gt; Int) -&gt; Hashable HITAccessActions
@@ -144,51 +144,51 @@ $chash :: HITAccessActions -&gt; Int
 hashWithSalt :: Int -&gt; HITAccessActions -&gt; Int
 $chashWithSalt :: Int -&gt; HITAccessActions -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679242853"><span class="annot"><span class="annottext">HITAccessActions -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679242862"><span class="annot"><span class="annottext">HITAccessActions -&gt; ()
 (HITAccessActions -&gt; ()) -&gt; NFData HITAccessActions
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HITAccessActions -&gt; ()
 $crnf :: HITAccessActions -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679242850"><span class="annot"><span class="annottext">Text -&gt; Either String HITAccessActions
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679242859"><span class="annot"><span class="annottext">Text -&gt; Either String HITAccessActions
 (Text -&gt; Either String HITAccessActions)
 -&gt; FromText HITAccessActions
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HITAccessActions
 $cfromText :: Text -&gt; Either String HITAccessActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679242847"><span class="annot"><span class="annottext">HITAccessActions -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679242856"><span class="annot"><span class="annottext">HITAccessActions -&gt; Text
 (HITAccessActions -&gt; Text) -&gt; ToText HITAccessActions
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HITAccessActions -&gt; Text
 $ctoText :: HITAccessActions -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679242844"><span class="annot"><span class="annottext">HITAccessActions -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679242853"><span class="annot"><span class="annottext">HITAccessActions -&gt; ByteString
 (HITAccessActions -&gt; ByteString) -&gt; ToByteString HITAccessActions
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HITAccessActions -&gt; ByteString
 $ctoBS :: HITAccessActions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679242841"><span class="annot"><span class="annottext">HITAccessActions -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679242850"><span class="annot"><span class="annottext">HITAccessActions -&gt; ByteStringBuilder
 (HITAccessActions -&gt; ByteStringBuilder) -&gt; ToLog HITAccessActions
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HITAccessActions -&gt; ByteStringBuilder
 $cbuild :: HITAccessActions -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679242838"><span class="annot"><span class="annottext">HeaderName -&gt; HITAccessActions -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679242847"><span class="annot"><span class="annottext">HeaderName -&gt; HITAccessActions -&gt; [Header]
 (HeaderName -&gt; HITAccessActions -&gt; [Header])
 -&gt; ToHeader HITAccessActions
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HITAccessActions -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HITAccessActions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679242835"><span class="annot"><span class="annottext">HITAccessActions -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679242844"><span class="annot"><span class="annottext">HITAccessActions -&gt; QueryString
 (HITAccessActions -&gt; QueryString) -&gt; ToQuery HITAccessActions
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HITAccessActions -&gt; QueryString
 $ctoQuery :: HITAccessActions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679242830"><span id="local-6989586621679242832"><span class="annot"><span class="annottext">Value -&gt; Parser [HITAccessActions]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679242839"><span id="local-6989586621679242841"><span class="annot"><span class="annottext">Value -&gt; Parser [HITAccessActions]
 Value -&gt; Parser HITAccessActions
 (Value -&gt; Parser HITAccessActions)
 -&gt; (Value -&gt; Parser [HITAccessActions])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [HITAccessActions]
 parseJSON :: Value -&gt; Parser HITAccessActions
 $cparseJSON :: Value -&gt; Parser HITAccessActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679242825"><span id="local-6989586621679242827"><span class="annot"><span class="annottext">FromJSONKeyFunction [HITAccessActions]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679242834"><span id="local-6989586621679242836"><span class="annot"><span class="annottext">FromJSONKeyFunction [HITAccessActions]
 FromJSONKeyFunction HITAccessActions
 FromJSONKeyFunction HITAccessActions
 -&gt; FromJSONKeyFunction [HITAccessActions]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HITAccessActions]
 fromJSONKey :: FromJSONKeyFunction HITAccessActions
 $cfromJSONKey :: FromJSONKeyFunction HITAccessActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679242816"><span id="local-6989586621679242818"><span id="local-6989586621679242820"><span id="local-6989586621679242822"><span class="annot"><span class="annottext">[HITAccessActions] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679242825"><span id="local-6989586621679242827"><span id="local-6989586621679242829"><span id="local-6989586621679242831"><span class="annot"><span class="annottext">[HITAccessActions] -&gt; Encoding
 [HITAccessActions] -&gt; Value
 HITAccessActions -&gt; Encoding
 HITAccessActions -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: HITAccessActions -&gt; Encoding
 toJSON :: HITAccessActions -&gt; Value
 $ctoJSON :: HITAccessActions -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679242811"><span id="local-6989586621679242813"><span class="annot"><span class="annottext">ToJSONKeyFunction [HITAccessActions]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679242820"><span id="local-6989586621679242822"><span class="annot"><span class="annottext">ToJSONKeyFunction [HITAccessActions]
 ToJSONKeyFunction HITAccessActions
 ToJSONKeyFunction HITAccessActions
 -&gt; ToJSONKeyFunction [HITAccessActions]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HITAccessActions]
 toJSONKey :: ToJSONKeyFunction HITAccessActions
 $ctoJSONKey :: ToJSONKeyFunction HITAccessActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679242808"><span class="annot"><span class="annottext">[Node] -&gt; Either String HITAccessActions
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679242817"><span class="annot"><span class="annottext">[Node] -&gt; Either String HITAccessActions
 ([Node] -&gt; Either String HITAccessActions)
 -&gt; FromXML HITAccessActions
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HITAccessActions
 $cparseXML :: [Node] -&gt; Either String HITAccessActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679242805"><span class="annot"><span class="annottext">HITAccessActions -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679242814"><span class="annot"><span class="annottext">HITAccessActions -&gt; XML
 (HITAccessActions -&gt; XML) -&gt; ToXML HITAccessActions
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HITAccessActions -&gt; XML

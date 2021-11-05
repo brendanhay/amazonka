@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteUser' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679298810"><span id="local-6989586621679298811"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUser"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-var">DeleteUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUser%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-var">DeleteUser'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679298819"><span id="local-6989586621679298820"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUser"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-var">DeleteUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUser%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-var">DeleteUser'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address of the user.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Users\' email addresses are case-sensitive.</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AauthenticationType%3ADeleteUser%27"><span class="annot"><span class="annottext">DeleteUser -&gt; AuthenticationType
 </span><a href="Network.AWS.AppStream.DeleteUser.html#%24sel%3AauthenticationType%3ADeleteUser%27"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298803"><span id="local-6989586621679298805"><span class="annot"><span class="annottext">DeleteUser -&gt; DeleteUser -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298812"><span id="local-6989586621679298814"><span class="annot"><span class="annottext">DeleteUser -&gt; DeleteUser -&gt; Bool
 (DeleteUser -&gt; DeleteUser -&gt; Bool)
 -&gt; (DeleteUser -&gt; DeleteUser -&gt; Bool) -&gt; Eq DeleteUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUser -&gt; DeleteUser -&gt; Bool
 == :: DeleteUser -&gt; DeleteUser -&gt; Bool
 $c== :: DeleteUser -&gt; DeleteUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298796"><span id="local-6989586621679298798"><span id="local-6989586621679298800"><span class="annot"><span class="annottext">Int -&gt; DeleteUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298805"><span id="local-6989586621679298807"><span id="local-6989586621679298809"><span class="annot"><span class="annottext">Int -&gt; DeleteUser -&gt; ShowS
 [DeleteUser] -&gt; ShowS
 DeleteUser -&gt; String
 (Int -&gt; DeleteUser -&gt; ShowS)
@@ -110,9 +110,9 @@ $cfrom :: forall x. DeleteUser -&gt; Rep DeleteUser x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span>
 </span><span id="line-79"></span><span id="newDeleteUser"><span class="annot"><span class="annottext">newDeleteUser :: Text -&gt; AuthenticationType -&gt; DeleteUser
-</span><a href="Network.AWS.AppStream.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-var hs-var">newDeleteUser</span></a></span></span><span> </span><span id="local-6989586621679298791"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298791"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679298790"><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679298790"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-var hs-var">newDeleteUser</span></a></span></span><span> </span><span id="local-6989586621679298800"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298800"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679298799"><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679298799"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteUser' :: Sensitive Text -&gt; AuthenticationType -&gt; DeleteUser
 </span><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:DeleteUser' :: Sensitive Text
@@ -125,10 +125,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679298791"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679298800"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationType:DeleteUser' :: AuthenticationType
 </span><a href="Network.AWS.AppStream.DeleteUser.html#%24sel%3AauthenticationType%3ADeleteUser%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679298790"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span><span>
+</span><a href="#local-6989586621679298799"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The email address of the user.</span><span>
@@ -140,16 +140,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (DeleteUser -&gt; Sensitive Text -&gt; DeleteUser)
 -&gt; Lens DeleteUser DeleteUser (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298785"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298794"><span class="annot"><span class="annottext">Sensitive Text
 userName :: Sensitive Text
 $sel:userName:DeleteUser' :: DeleteUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679298785"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679298785"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298784"><span class="annot"><span class="annottext">s :: DeleteUser
-</span><a href="#local-6989586621679298784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298783"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679298783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
-</span><a href="#local-6989586621679298784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:DeleteUser' :: Sensitive Text
+</span><a href="#local-6989586621679298794"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679298794"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298793"><span class="annot"><span class="annottext">s :: DeleteUser
+</span><a href="#local-6989586621679298793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298792"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679298792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
+</span><a href="#local-6989586621679298793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:DeleteUser' :: Sensitive Text
 </span><a href="Network.AWS.AppStream.DeleteUser.html#%24sel%3AuserName%3ADeleteUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679298783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679298792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; DeleteUser -&gt; f DeleteUser)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -168,25 +168,25 @@ forall a. Iso' (Sensitive a) a
 -&gt; (DeleteUser -&gt; AuthenticationType -&gt; DeleteUser)
 -&gt; Lens DeleteUser DeleteUser AuthenticationType AuthenticationType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298781"><span class="annot"><span class="annottext">AuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298790"><span class="annot"><span class="annottext">AuthenticationType
 authenticationType :: AuthenticationType
 $sel:authenticationType:DeleteUser' :: DeleteUser -&gt; AuthenticationType
-</span><a href="#local-6989586621679298781"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679298781"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298780"><span class="annot"><span class="annottext">s :: DeleteUser
-</span><a href="#local-6989586621679298780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298779"><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679298779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
-</span><a href="#local-6989586621679298780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:DeleteUser' :: AuthenticationType
+</span><a href="#local-6989586621679298790"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679298790"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298789"><span class="annot"><span class="annottext">s :: DeleteUser
+</span><a href="#local-6989586621679298789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298788"><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679298788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
+</span><a href="#local-6989586621679298789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:DeleteUser' :: AuthenticationType
 </span><a href="Network.AWS.AppStream.DeleteUser.html#%24sel%3AauthenticationType%3ADeleteUser%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679298779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679298775"><span class="annot"><span class="annottext">request :: DeleteUser -&gt; Request DeleteUser
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679298784"><span class="annot"><span class="annottext">request :: DeleteUser -&gt; Request DeleteUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUser -&gt; Request DeleteUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679298771"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679298780"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUser
 -&gt; ClientResponse ClientBody
@@ -208,10 +208,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298768"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679298767"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679298767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679298766"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679298766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298777"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679298776"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679298776"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679298775"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679298775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse
 </span><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteUserResponse)
@@ -222,15 +222,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298777"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298759"><span id="local-6989586621679298761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298768"><span id="local-6989586621679298770"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679298752"><span class="annot"><span class="annottext">toHeaders :: DeleteUser -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679298761"><span class="annot"><span class="annottext">toHeaders :: DeleteUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -257,15 +257,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298742"><span id="local-6989586621679298744"><span id="local-6989586621679298746"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679298740"><span class="annot"><span class="annottext">toJSON :: DeleteUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298737"><span id="local-6989586621679298738"><span class="annot"><span class="annottext">Sensitive Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298751"><span id="local-6989586621679298753"><span id="local-6989586621679298755"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679298749"><span class="annot"><span class="annottext">toJSON :: DeleteUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298746"><span id="local-6989586621679298747"><span class="annot"><span class="annottext">Sensitive Text
 AuthenticationType
 authenticationType :: AuthenticationType
 userName :: Sensitive Text
 $sel:authenticationType:DeleteUser' :: DeleteUser -&gt; AuthenticationType
 $sel:userName:DeleteUser' :: DeleteUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679298737"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679298746"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -277,7 +277,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679298738"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679298747"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -285,19 +285,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AuthenticationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679298737"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679298731"><span class="annot"><span class="annottext">toPath :: DeleteUser -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679298740"><span class="annot"><span class="annottext">toPath :: DeleteUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679298727"><span class="annot"><span class="annottext">toQuery :: DeleteUser -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679298736"><span class="annot"><span class="annottext">toQuery :: DeleteUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -305,12 +305,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679298724"><span id="local-6989586621679298725"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserResponse"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-var">DeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679298733"><span id="local-6989586621679298734"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserResponse"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-var">DeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.DeleteUser.html#%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298719"><span id="local-6989586621679298721"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298728"><span id="local-6989586621679298730"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 (DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
 -&gt; (DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
 -&gt; Eq DeleteUserResponse
@@ -319,7 +319,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 == :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 $c== :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298711"><span id="local-6989586621679298713"><span id="local-6989586621679298715"><span id="local-6989586621679298717"><span class="annot"><span class="annottext">ReadPrec [DeleteUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298720"><span id="local-6989586621679298722"><span id="local-6989586621679298724"><span id="local-6989586621679298726"><span class="annot"><span class="annottext">ReadPrec [DeleteUserResponse]
 ReadPrec DeleteUserResponse
 Int -&gt; ReadS DeleteUserResponse
 ReadS [DeleteUserResponse]
@@ -339,7 +339,7 @@ readList :: ReadS [DeleteUserResponse]
 $creadList :: ReadS [DeleteUserResponse]
 readsPrec :: Int -&gt; ReadS DeleteUserResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298704"><span id="local-6989586621679298706"><span id="local-6989586621679298708"><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298713"><span id="local-6989586621679298715"><span id="local-6989586621679298717"><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse -&gt; ShowS
 [DeleteUserResponse] -&gt; ShowS
 DeleteUserResponse -&gt; String
 (Int -&gt; DeleteUserResponse -&gt; ShowS)
@@ -379,12 +379,12 @@ $cfrom :: forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDeleteUserResponse"><span class="annot"><span class="annottext">newDeleteUserResponse :: Int -&gt; DeleteUserResponse
-</span><a href="Network.AWS.AppStream.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserResponse</span></a></span></span><span> </span><span id="local-6989586621679298701"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserResponse</span></a></span></span><span> </span><span id="local-6989586621679298710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserResponse' :: Int -&gt; DeleteUserResponse
 </span><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserResponse' :: Int
 </span><a href="Network.AWS.AppStream.DeleteUser.html#%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679298710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#deleteUserResponse_httpStatus"><span class="hs-identifier hs-type">deleteUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -393,16 +393,16 @@ $cfrom :: forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x
 -&gt; (DeleteUserResponse -&gt; Int -&gt; DeleteUserResponse)
 -&gt; Lens DeleteUserResponse DeleteUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298700"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298709"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteUserResponse' :: DeleteUserResponse -&gt; Int
-</span><a href="#local-6989586621679298700"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298700"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298699"><span class="annot"><span class="annottext">s :: DeleteUserResponse
-</span><a href="#local-6989586621679298699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298698"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserResponse
-</span><a href="#local-6989586621679298699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserResponse' :: Int
+</span><a href="#local-6989586621679298709"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298709"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298708"><span class="annot"><span class="annottext">s :: DeleteUserResponse
+</span><a href="#local-6989586621679298708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserResponse
+</span><a href="#local-6989586621679298708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserResponse' :: Int
 </span><a href="Network.AWS.AppStream.DeleteUser.html#%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679298698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

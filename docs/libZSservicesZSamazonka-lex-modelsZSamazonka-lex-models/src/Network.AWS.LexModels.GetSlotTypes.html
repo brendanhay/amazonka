@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetSlotTypes' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679320827"><span id="local-6989586621679320828"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSlotTypes"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-var">GetSlotTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSlotTypes%27"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-var">GetSlotTypes'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679320836"><span id="local-6989586621679320837"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSlotTypes"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-var">GetSlotTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSlotTypes%27"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-var">GetSlotTypes'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Substring to match in slot type names. A slot type will be returned if</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- any part of its name matches the substring. For example, \&quot;xyz\&quot; matches</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- both \&quot;xyzabc\&quot; and \&quot;abcxyz.\&quot;</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetSlotTypes%27"><span class="annot"><span class="annottext">GetSlotTypes -&gt; Maybe Natural
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AmaxResults%3AGetSlotTypes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320819"><span id="local-6989586621679320821"><span class="annot"><span class="annottext">GetSlotTypes -&gt; GetSlotTypes -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320828"><span id="local-6989586621679320830"><span class="annot"><span class="annottext">GetSlotTypes -&gt; GetSlotTypes -&gt; Bool
 (GetSlotTypes -&gt; GetSlotTypes -&gt; Bool)
 -&gt; (GetSlotTypes -&gt; GetSlotTypes -&gt; Bool) -&gt; Eq GetSlotTypes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSlotTypes -&gt; GetSlotTypes -&gt; Bool
 == :: GetSlotTypes -&gt; GetSlotTypes -&gt; Bool
 $c== :: GetSlotTypes -&gt; GetSlotTypes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320810"><span id="local-6989586621679320812"><span id="local-6989586621679320814"><span id="local-6989586621679320816"><span class="annot"><span class="annottext">ReadPrec [GetSlotTypes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320819"><span id="local-6989586621679320821"><span id="local-6989586621679320823"><span id="local-6989586621679320825"><span class="annot"><span class="annottext">ReadPrec [GetSlotTypes]
 ReadPrec GetSlotTypes
 Int -&gt; ReadS GetSlotTypes
 ReadS [GetSlotTypes]
@@ -105,7 +105,7 @@ readList :: ReadS [GetSlotTypes]
 $creadList :: ReadS [GetSlotTypes]
 readsPrec :: Int -&gt; ReadS GetSlotTypes
 $creadsPrec :: Int -&gt; ReadS GetSlotTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320803"><span id="local-6989586621679320805"><span id="local-6989586621679320807"><span class="annot"><span class="annottext">Int -&gt; GetSlotTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320812"><span id="local-6989586621679320814"><span id="local-6989586621679320816"><span class="annot"><span class="annottext">Int -&gt; GetSlotTypes -&gt; ShowS
 [GetSlotTypes] -&gt; ShowS
 GetSlotTypes -&gt; String
 (Int -&gt; GetSlotTypes -&gt; ShowS)
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (GetSlotTypes -&gt; Maybe Text -&gt; GetSlotTypes)
 -&gt; Lens GetSlotTypes GetSlotTypes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320797"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320806"><span class="annot"><span class="annottext">Maybe Text
 nameContains :: Maybe Text
 $sel:nameContains:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679320797"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320797"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320796"><span class="annot"><span class="annottext">s :: GetSlotTypes
-</span><a href="#local-6989586621679320796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320795"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypes
-</span><a href="#local-6989586621679320796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:GetSlotTypes' :: Maybe Text
+</span><a href="#local-6989586621679320806"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320806"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320805"><span class="annot"><span class="annottext">s :: GetSlotTypes
+</span><a href="#local-6989586621679320805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320804"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypes
+</span><a href="#local-6989586621679320805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:GetSlotTypes' :: Maybe Text
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AnameContains%3AGetSlotTypes%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | A pagination token that fetches the next page of slot types. If the</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- response to this API call is truncated, Amazon Lex returns a pagination</span><span>
@@ -200,16 +200,16 @@ $sel:nameContains:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Text
 -&gt; (GetSlotTypes -&gt; Maybe Text -&gt; GetSlotTypes)
 -&gt; Lens GetSlotTypes GetSlotTypes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320794"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320803"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679320794"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320794"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320793"><span class="annot"><span class="annottext">s :: GetSlotTypes
-</span><a href="#local-6989586621679320793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320792"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypes
-</span><a href="#local-6989586621679320793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetSlotTypes' :: Maybe Text
+</span><a href="#local-6989586621679320803"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320803"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320802"><span class="annot"><span class="annottext">s :: GetSlotTypes
+</span><a href="#local-6989586621679320802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320801"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypes
+</span><a href="#local-6989586621679320802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetSlotTypes' :: Maybe Text
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AnextToken%3AGetSlotTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The maximum number of slot types to return in the response. The default</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- is 10.</span><span>
@@ -220,28 +220,28 @@ $sel:nextToken:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Text
 -&gt; (GetSlotTypes -&gt; Maybe Natural -&gt; GetSlotTypes)
 -&gt; Lens GetSlotTypes GetSlotTypes (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320791"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320800"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Natural
-</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320790"><span class="annot"><span class="annottext">s :: GetSlotTypes
-</span><a href="#local-6989586621679320790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320789"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679320789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypes
-</span><a href="#local-6989586621679320790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetSlotTypes' :: Maybe Natural
+</span><a href="#local-6989586621679320800"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679320800"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320799"><span class="annot"><span class="annottext">s :: GetSlotTypes
+</span><a href="#local-6989586621679320799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320798"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679320798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypes
+</span><a href="#local-6989586621679320799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetSlotTypes' :: Maybe Natural
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AmaxResults%3AGetSlotTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679320789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679320785"><span class="annot"><span class="annottext">page :: GetSlotTypes -&gt; AWSResponse GetSlotTypes -&gt; Maybe GetSlotTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679320783"><span class="annot"><span class="annottext">GetSlotTypes
-</span><a href="#local-6989586621679320783"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679320782"><span class="annot"><span class="annottext">AWSResponse GetSlotTypes
-</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679320794"><span class="annot"><span class="annottext">page :: GetSlotTypes -&gt; AWSResponse GetSlotTypes -&gt; Maybe GetSlotTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679320792"><span class="annot"><span class="annottext">GetSlotTypes
+</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679320791"><span class="annot"><span class="annottext">AWSResponse GetSlotTypes
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSlotTypes
 GetSlotTypesResponse
-</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">GetSlotTypesResponse
 -&gt; Getting (First Text) GetSlotTypesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -267,7 +267,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSlotTypes
 GetSlotTypesResponse
-</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">GetSlotTypesResponse
 -&gt; Getting
      (First [SlotTypeMetadata]) GetSlotTypesResponse [SlotTypeMetadata]
@@ -308,7 +308,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">GetSlotTypes
-</span><a href="#local-6989586621679320783"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">GetSlotTypes -&gt; (GetSlotTypes -&gt; GetSlotTypes) -&gt; GetSlotTypes
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -321,7 +321,7 @@ Lens GetSlotTypes GetSlotTypes (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSlotTypes
 GetSlotTypesResponse
-</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">GetSlotTypesResponse
 -&gt; Getting (First Text) GetSlotTypesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -341,12 +341,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679320772"><span class="annot"><span class="annottext">request :: GetSlotTypes -&gt; Request GetSlotTypes
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679320781"><span class="annot"><span class="annottext">request :: GetSlotTypes -&gt; Request GetSlotTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSlotTypes -&gt; Request GetSlotTypes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679320768"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679320777"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSlotTypes
 -&gt; ClientResponse ClientBody
@@ -370,10 +370,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320765"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320765"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320764"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679320764"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320763"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679320763"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320774"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320774"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320773"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679320773"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320772"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320772"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [SlotTypeMetadata] -&gt; Int -&gt; GetSlotTypesResponse
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-var">GetSlotTypesResponse'</span></a></span><span>
@@ -384,7 +384,7 @@ MonadResource m =&gt;
      String (Maybe [SlotTypeMetadata] -&gt; Int -&gt; GetSlotTypesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679320763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679320772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -394,7 +394,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetSlotTypesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679320763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SlotTypeMetadata]))
+</span><a href="#local-6989586621679320772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SlotTypeMetadata]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SlotTypeMetadata]))
@@ -412,15 +412,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320765"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320774"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320754"><span id="local-6989586621679320756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320763"><span id="local-6989586621679320765"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320760"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679320747"><span class="annot"><span class="annottext">toHeaders :: GetSlotTypes -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679320756"><span class="annot"><span class="annottext">toHeaders :: GetSlotTypes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSlotTypes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -440,15 +440,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679320741"><span class="annot"><span class="annottext">toPath :: GetSlotTypes -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679320750"><span class="annot"><span class="annottext">toPath :: GetSlotTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSlotTypes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/slottypes/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes"><span class="hs-identifier hs-type">GetSlotTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679320737"><span class="annot"><span class="annottext">toQuery :: GetSlotTypes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320733"><span id="local-6989586621679320734"><span id="local-6989586621679320735"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679320746"><span class="annot"><span class="annottext">toQuery :: GetSlotTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypes%27"><span class="hs-identifier hs-type">GetSlotTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320742"><span id="local-6989586621679320743"><span id="local-6989586621679320744"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -456,7 +456,7 @@ nameContains :: Maybe Text
 $sel:maxResults:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Natural
 $sel:nextToken:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Text
 $sel:nameContains:GetSlotTypes' :: GetSlotTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679320733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679320742"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -464,21 +464,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320735"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679320744"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320734"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679320743"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679320733"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679320742"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newGetSlotTypesResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679320730"><span id="local-6989586621679320731"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSlotTypesResponse"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-var">GetSlotTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSlotTypesResponse%27"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-var">GetSlotTypesResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679320739"><span id="local-6989586621679320740"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSlotTypesResponse"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-var">GetSlotTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSlotTypesResponse%27"><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-var">GetSlotTypesResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response is truncated, it includes a pagination token that you</span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-comment">-- can specify in your next request to fetch the next page of slot types.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AnextToken%3AGetSlotTypesResponse%27"><span class="annot"><span class="annottext">GetSlotTypesResponse -&gt; Maybe Text
@@ -491,7 +491,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSlotTypesResponse%27"><span class="annot"><span class="annottext">GetSlotTypesResponse -&gt; Int
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AhttpStatus%3AGetSlotTypesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320723"><span id="local-6989586621679320725"><span class="annot"><span class="annottext">GetSlotTypesResponse -&gt; GetSlotTypesResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320732"><span id="local-6989586621679320734"><span class="annot"><span class="annottext">GetSlotTypesResponse -&gt; GetSlotTypesResponse -&gt; Bool
 (GetSlotTypesResponse -&gt; GetSlotTypesResponse -&gt; Bool)
 -&gt; (GetSlotTypesResponse -&gt; GetSlotTypesResponse -&gt; Bool)
 -&gt; Eq GetSlotTypesResponse
@@ -500,7 +500,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSlotTypesResponse -&gt; GetSlotTypesResponse -&gt; Bool
 == :: GetSlotTypesResponse -&gt; GetSlotTypesResponse -&gt; Bool
 $c== :: GetSlotTypesResponse -&gt; GetSlotTypesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320715"><span id="local-6989586621679320717"><span id="local-6989586621679320719"><span id="local-6989586621679320721"><span class="annot"><span class="annottext">ReadPrec [GetSlotTypesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320724"><span id="local-6989586621679320726"><span id="local-6989586621679320728"><span id="local-6989586621679320730"><span class="annot"><span class="annottext">ReadPrec [GetSlotTypesResponse]
 ReadPrec GetSlotTypesResponse
 Int -&gt; ReadS GetSlotTypesResponse
 ReadS [GetSlotTypesResponse]
@@ -520,7 +520,7 @@ readList :: ReadS [GetSlotTypesResponse]
 $creadList :: ReadS [GetSlotTypesResponse]
 readsPrec :: Int -&gt; ReadS GetSlotTypesResponse
 $creadsPrec :: Int -&gt; ReadS GetSlotTypesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320709"><span id="local-6989586621679320711"><span id="local-6989586621679320713"><span class="annot"><span class="annottext">Int -&gt; GetSlotTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320718"><span id="local-6989586621679320720"><span id="local-6989586621679320722"><span class="annot"><span class="annottext">Int -&gt; GetSlotTypesResponse -&gt; ShowS
 [GetSlotTypesResponse] -&gt; ShowS
 GetSlotTypesResponse -&gt; String
 (Int -&gt; GetSlotTypesResponse -&gt; ShowS)
@@ -566,8 +566,8 @@ $cfrom :: forall x. GetSlotTypesResponse -&gt; Rep GetSlotTypesResponse x
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newGetSlotTypesResponse"><span class="annot"><span class="annottext">newGetSlotTypesResponse :: Int -&gt; GetSlotTypesResponse
-</span><a href="Network.AWS.LexModels.GetSlotTypes.html#newGetSlotTypesResponse"><span class="hs-identifier hs-var hs-var">newGetSlotTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679320706"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.GetSlotTypes.html#newGetSlotTypesResponse"><span class="hs-identifier hs-var hs-var">newGetSlotTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679320715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">GetSlotTypesResponse' :: Maybe Text
 -&gt; Maybe [SlotTypeMetadata] -&gt; Int -&gt; GetSlotTypesResponse
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span>
@@ -581,7 +581,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSlotTypesResponse' :: Int
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AhttpStatus%3AGetSlotTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679320715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | If the response is truncated, it includes a pagination token that you</span><span>
@@ -593,16 +593,16 @@ forall a. Maybe a
 -&gt; (GetSlotTypesResponse -&gt; Maybe Text -&gt; GetSlotTypesResponse)
 -&gt; Lens' GetSlotTypesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320705"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320714"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetSlotTypesResponse' :: GetSlotTypesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679320705"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320705"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320704"><span class="annot"><span class="annottext">s :: GetSlotTypesResponse
-</span><a href="#local-6989586621679320704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320703"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypesResponse
-</span><a href="#local-6989586621679320704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetSlotTypesResponse' :: Maybe Text
+</span><a href="#local-6989586621679320714"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320714"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320713"><span class="annot"><span class="annottext">s :: GetSlotTypesResponse
+</span><a href="#local-6989586621679320713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320712"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypesResponse
+</span><a href="#local-6989586621679320713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetSlotTypesResponse' :: Maybe Text
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AnextToken%3AGetSlotTypesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | An array of objects, one for each slot type, that provides information</span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- such as the name of the slot type, the version, and a description.</span><span>
@@ -614,16 +614,16 @@ $sel:nextToken:GetSlotTypesResponse' :: GetSlotTypesResponse -&gt; Maybe Text
     -&gt; Maybe [SlotTypeMetadata] -&gt; GetSlotTypesResponse)
 -&gt; Lens' GetSlotTypesResponse (Maybe [SlotTypeMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320702"><span class="annot"><span class="annottext">Maybe [SlotTypeMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320711"><span class="annot"><span class="annottext">Maybe [SlotTypeMetadata]
 slotTypes :: Maybe [SlotTypeMetadata]
 $sel:slotTypes:GetSlotTypesResponse' :: GetSlotTypesResponse -&gt; Maybe [SlotTypeMetadata]
-</span><a href="#local-6989586621679320702"><span class="hs-identifier hs-var hs-var">slotTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SlotTypeMetadata]
-</span><a href="#local-6989586621679320702"><span class="hs-identifier hs-var">slotTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320701"><span class="annot"><span class="annottext">s :: GetSlotTypesResponse
-</span><a href="#local-6989586621679320701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320700"><span class="annot"><span class="annottext">Maybe [SlotTypeMetadata]
-</span><a href="#local-6989586621679320700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypesResponse
-</span><a href="#local-6989586621679320701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotTypes:GetSlotTypesResponse' :: Maybe [SlotTypeMetadata]
+</span><a href="#local-6989586621679320711"><span class="hs-identifier hs-var hs-var">slotTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SlotTypeMetadata]
+</span><a href="#local-6989586621679320711"><span class="hs-identifier hs-var">slotTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320710"><span class="annot"><span class="annottext">s :: GetSlotTypesResponse
+</span><a href="#local-6989586621679320710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320709"><span class="annot"><span class="annottext">Maybe [SlotTypeMetadata]
+</span><a href="#local-6989586621679320709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypesResponse
+</span><a href="#local-6989586621679320710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotTypes:GetSlotTypesResponse' :: Maybe [SlotTypeMetadata]
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AslotTypes%3AGetSlotTypesResponse%27"><span class="hs-identifier hs-var">slotTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SlotTypeMetadata]
-</span><a href="#local-6989586621679320700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SlotTypeMetadata] -&gt; f (Maybe [SlotTypeMetadata]))
+</span><a href="#local-6989586621679320709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SlotTypeMetadata] -&gt; f (Maybe [SlotTypeMetadata]))
  -&gt; GetSlotTypesResponse -&gt; f GetSlotTypesResponse)
 -&gt; ((Maybe [SlotTypeMetadata] -&gt; f (Maybe [SlotTypeMetadata]))
     -&gt; Maybe [SlotTypeMetadata] -&gt; f (Maybe [SlotTypeMetadata]))
@@ -659,16 +659,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetSlotTypesResponse -&gt; Int -&gt; GetSlotTypesResponse)
 -&gt; Lens GetSlotTypesResponse GetSlotTypesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320697"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320706"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSlotTypesResponse' :: GetSlotTypesResponse -&gt; Int
-</span><a href="#local-6989586621679320697"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320697"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320696"><span class="annot"><span class="annottext">s :: GetSlotTypesResponse
-</span><a href="#local-6989586621679320696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypesResponse
-</span><a href="#local-6989586621679320696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSlotTypesResponse' :: Int
+</span><a href="#local-6989586621679320706"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320706"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320705"><span class="annot"><span class="annottext">s :: GetSlotTypesResponse
+</span><a href="#local-6989586621679320705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse%27"><span class="hs-identifier hs-type">GetSlotTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSlotTypesResponse
+</span><a href="#local-6989586621679320705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSlotTypesResponse' :: Int
 </span><a href="Network.AWS.LexModels.GetSlotTypes.html#%24sel%3AhttpStatus%3AGetSlotTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetSlotTypes.html#GetSlotTypesResponse"><span class="hs-identifier hs-type">GetSlotTypesResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

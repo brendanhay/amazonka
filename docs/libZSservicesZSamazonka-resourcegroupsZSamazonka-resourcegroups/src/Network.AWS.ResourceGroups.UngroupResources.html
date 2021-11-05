@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newUngroupResources' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679180994"><span id="local-6989586621679180995"></span></span><span class="hs-keyword">data</span><span> </span><span id="UngroupResources"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-var">UngroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UngroupResources%27"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-var">UngroupResources'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679181003"><span id="local-6989586621679181004"></span></span><span class="hs-keyword">data</span><span> </span><span id="UngroupResources"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-var">UngroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UngroupResources%27"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-var">UngroupResources'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the ARN of the resource group from which to remove the</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- resources.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Agroup%27%3AUngroupResources%27"><span class="annot"><span class="annottext">UngroupResources -&gt; Text
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AresourceArns%3AUngroupResources%27"><span class="annot"><span class="annottext">UngroupResources -&gt; NonEmpty Text
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3AresourceArns%3AUngroupResources%27"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180987"><span id="local-6989586621679180989"><span class="annot"><span class="annottext">UngroupResources -&gt; UngroupResources -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180996"><span id="local-6989586621679180998"><span class="annot"><span class="annottext">UngroupResources -&gt; UngroupResources -&gt; Bool
 (UngroupResources -&gt; UngroupResources -&gt; Bool)
 -&gt; (UngroupResources -&gt; UngroupResources -&gt; Bool)
 -&gt; Eq UngroupResources
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UngroupResources -&gt; UngroupResources -&gt; Bool
 == :: UngroupResources -&gt; UngroupResources -&gt; Bool
 $c== :: UngroupResources -&gt; UngroupResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180978"><span id="local-6989586621679180980"><span id="local-6989586621679180982"><span id="local-6989586621679180984"><span class="annot"><span class="annottext">ReadPrec [UngroupResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180987"><span id="local-6989586621679180989"><span id="local-6989586621679180991"><span id="local-6989586621679180993"><span class="annot"><span class="annottext">ReadPrec [UngroupResources]
 ReadPrec UngroupResources
 Int -&gt; ReadS UngroupResources
 ReadS [UngroupResources]
@@ -94,7 +94,7 @@ readList :: ReadS [UngroupResources]
 $creadList :: ReadS [UngroupResources]
 readsPrec :: Int -&gt; ReadS UngroupResources
 $creadsPrec :: Int -&gt; ReadS UngroupResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180971"><span id="local-6989586621679180973"><span id="local-6989586621679180975"><span class="annot"><span class="annottext">Int -&gt; UngroupResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180980"><span id="local-6989586621679180982"><span id="local-6989586621679180984"><span class="annot"><span class="annottext">Int -&gt; UngroupResources -&gt; ShowS
 [UngroupResources] -&gt; ShowS
 UngroupResources -&gt; String
 (Int -&gt; UngroupResources -&gt; ShowS)
@@ -139,14 +139,14 @@ $cfrom :: forall x. UngroupResources -&gt; Rep UngroupResources x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span>
 </span><span id="line-86"></span><span id="newUngroupResources"><span class="annot"><span class="annottext">newUngroupResources :: Text -&gt; NonEmpty Text -&gt; UngroupResources
-</span><a href="Network.AWS.ResourceGroups.UngroupResources.html#newUngroupResources"><span class="hs-identifier hs-var hs-var">newUngroupResources</span></a></span></span><span> </span><span id="local-6989586621679180966"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679180966"><span class="hs-identifier hs-var">pGroup_</span></a></span></span><span> </span><span id="local-6989586621679180965"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679180965"><span class="hs-identifier hs-var">pResourceArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.UngroupResources.html#newUngroupResources"><span class="hs-identifier hs-var hs-var">newUngroupResources</span></a></span></span><span> </span><span id="local-6989586621679180975"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180975"><span class="hs-identifier hs-var">pGroup_</span></a></span></span><span> </span><span id="local-6989586621679180974"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679180974"><span class="hs-identifier hs-var">pResourceArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UngroupResources' :: Text -&gt; NonEmpty Text -&gt; UngroupResources
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':UngroupResources' :: Text
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3Agroup%27%3AUngroupResources%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679180966"><span class="hs-identifier hs-var">pGroup_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679180975"><span class="hs-identifier hs-var">pGroup_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArns:UngroupResources' :: NonEmpty Text
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3AresourceArns%3AUngroupResources%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -156,7 +156,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679180965"><span class="hs-identifier hs-var">pResourceArns_</span></a></span><span>
+</span><a href="#local-6989586621679180974"><span class="hs-identifier hs-var">pResourceArns_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name or the ARN of the resource group from which to remove the</span><span>
@@ -167,16 +167,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (UngroupResources -&gt; Text -&gt; UngroupResources)
 -&gt; Lens UngroupResources UngroupResources Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180960"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180969"><span class="annot"><span class="annottext">Text
 group' :: Text
 $sel:group':UngroupResources' :: UngroupResources -&gt; Text
-</span><a href="#local-6989586621679180960"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679180960"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180959"><span class="annot"><span class="annottext">s :: UngroupResources
-</span><a href="#local-6989586621679180959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180958"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679180958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResources
-</span><a href="#local-6989586621679180959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':UngroupResources' :: Text
+</span><a href="#local-6989586621679180969"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180969"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180968"><span class="annot"><span class="annottext">s :: UngroupResources
+</span><a href="#local-6989586621679180968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResources
+</span><a href="#local-6989586621679180968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':UngroupResources' :: Text
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3Agroup%27%3AUngroupResources%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679180958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The ARNs of the resources to be removed from the group.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#ungroupResources_resourceArns"><span class="hs-identifier hs-type">ungroupResources_resourceArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -187,16 +187,16 @@ $sel:group':UngroupResources' :: UngroupResources -&gt; Text
 -&gt; Lens
      UngroupResources UngroupResources (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180957"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180966"><span class="annot"><span class="annottext">NonEmpty Text
 resourceArns :: NonEmpty Text
 $sel:resourceArns:UngroupResources' :: UngroupResources -&gt; NonEmpty Text
-</span><a href="#local-6989586621679180957"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679180957"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180956"><span class="annot"><span class="annottext">s :: UngroupResources
-</span><a href="#local-6989586621679180956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180955"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679180955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResources
-</span><a href="#local-6989586621679180956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArns:UngroupResources' :: NonEmpty Text
+</span><a href="#local-6989586621679180966"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679180966"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180965"><span class="annot"><span class="annottext">s :: UngroupResources
+</span><a href="#local-6989586621679180965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180964"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679180964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResources
+</span><a href="#local-6989586621679180965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArns:UngroupResources' :: NonEmpty Text
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3AresourceArns%3AUngroupResources%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679180955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679180964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; UngroupResources -&gt; f UngroupResources)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -213,12 +213,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679180950"><span class="annot"><span class="annottext">request :: UngroupResources -&gt; Request UngroupResources
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679180959"><span class="annot"><span class="annottext">request :: UngroupResources -&gt; Request UngroupResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UngroupResources -&gt; Request UngroupResources
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679180946"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679180955"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UngroupResources
 -&gt; ClientResponse ClientBody
@@ -242,10 +242,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180943"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180943"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180942"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679180942"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180941"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679180941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180952"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180951"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679180951"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180950"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180950"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PendingResource]
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe [FailedResource]
@@ -264,7 +264,7 @@ MonadResource m =&gt;
       -&gt; Maybe [FailedResource] -&gt; Int -&gt; UngroupResourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679180941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PendingResource]))
+</span><a href="#local-6989586621679180950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PendingResource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Pending&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PendingResource]))
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
      String (Maybe [FailedResource] -&gt; Int -&gt; UngroupResourcesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679180941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679180950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Succeeded&quot;</span></span><span class="hs-special">)</span><span>
@@ -293,7 +293,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; UngroupResourcesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679180941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FailedResource]))
+</span><a href="#local-6989586621679180950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FailedResource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Failed&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FailedResource]))
@@ -310,30 +310,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180943"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180952"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180932"><span id="local-6989586621679180934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180941"><span id="local-6989586621679180943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679180925"><span class="annot"><span class="annottext">toHeaders :: UngroupResources -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679180934"><span class="annot"><span class="annottext">toHeaders :: UngroupResources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UngroupResources -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180916"><span id="local-6989586621679180918"><span id="local-6989586621679180920"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679180914"><span class="annot"><span class="annottext">toJSON :: UngroupResources -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180911"><span id="local-6989586621679180912"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180925"><span id="local-6989586621679180927"><span id="local-6989586621679180929"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679180923"><span class="annot"><span class="annottext">toJSON :: UngroupResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources%27"><span class="hs-identifier hs-type">UngroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180920"><span id="local-6989586621679180921"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 resourceArns :: NonEmpty Text
 group' :: Text
 $sel:resourceArns:UngroupResources' :: UngroupResources -&gt; NonEmpty Text
 $sel:group':UngroupResources' :: UngroupResources -&gt; Text
-</span><a href="#local-6989586621679180911"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679180920"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -345,26 +345,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Group&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679180912"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679180921"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679180911"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180920"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679180905"><span class="annot"><span class="annottext">toPath :: UngroupResources -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679180914"><span class="annot"><span class="annottext">toPath :: UngroupResources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UngroupResources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/ungroup-resources&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResources"><span class="hs-identifier hs-type">UngroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679180901"><span class="annot"><span class="annottext">toQuery :: UngroupResources -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679180910"><span class="annot"><span class="annottext">toQuery :: UngroupResources -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UngroupResources -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -372,7 +372,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newUngroupResourcesResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679180898"><span id="local-6989586621679180899"></span></span><span class="hs-keyword">data</span><span> </span><span id="UngroupResourcesResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-var">UngroupResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UngroupResourcesResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-var">UngroupResourcesResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679180907"><span id="local-6989586621679180908"></span></span><span class="hs-keyword">data</span><span> </span><span id="UngroupResourcesResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-var">UngroupResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UngroupResourcesResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-var">UngroupResourcesResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of any resources that are still in the process of being removed</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- from the group by this operation. These pending removals continue</span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-comment">-- asynchronously. You can check the status of pending removals by using</span><span>
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUngroupResourcesResponse%27"><span class="annot"><span class="annottext">UngroupResourcesResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3AhttpStatus%3AUngroupResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180890"><span id="local-6989586621679180892"><span class="annot"><span class="annottext">UngroupResourcesResponse -&gt; UngroupResourcesResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180899"><span id="local-6989586621679180901"><span class="annot"><span class="annottext">UngroupResourcesResponse -&gt; UngroupResourcesResponse -&gt; Bool
 (UngroupResourcesResponse -&gt; UngroupResourcesResponse -&gt; Bool)
 -&gt; (UngroupResourcesResponse -&gt; UngroupResourcesResponse -&gt; Bool)
 -&gt; Eq UngroupResourcesResponse
@@ -401,7 +401,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UngroupResourcesResponse -&gt; UngroupResourcesResponse -&gt; Bool
 == :: UngroupResourcesResponse -&gt; UngroupResourcesResponse -&gt; Bool
 $c== :: UngroupResourcesResponse -&gt; UngroupResourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180882"><span id="local-6989586621679180884"><span id="local-6989586621679180886"><span id="local-6989586621679180888"><span class="annot"><span class="annottext">ReadPrec [UngroupResourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180891"><span id="local-6989586621679180893"><span id="local-6989586621679180895"><span id="local-6989586621679180897"><span class="annot"><span class="annottext">ReadPrec [UngroupResourcesResponse]
 ReadPrec UngroupResourcesResponse
 Int -&gt; ReadS UngroupResourcesResponse
 ReadS [UngroupResourcesResponse]
@@ -421,7 +421,7 @@ readList :: ReadS [UngroupResourcesResponse]
 $creadList :: ReadS [UngroupResourcesResponse]
 readsPrec :: Int -&gt; ReadS UngroupResourcesResponse
 $creadsPrec :: Int -&gt; ReadS UngroupResourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180876"><span id="local-6989586621679180878"><span id="local-6989586621679180880"><span class="annot"><span class="annottext">Int -&gt; UngroupResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180885"><span id="local-6989586621679180887"><span id="local-6989586621679180889"><span class="annot"><span class="annottext">Int -&gt; UngroupResourcesResponse -&gt; ShowS
 [UngroupResourcesResponse] -&gt; ShowS
 UngroupResourcesResponse -&gt; String
 (Int -&gt; UngroupResourcesResponse -&gt; ShowS)
@@ -479,8 +479,8 @@ UngroupResourcesResponse -&gt; Rep UngroupResourcesResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newUngroupResourcesResponse"><span class="annot"><span class="annottext">newUngroupResourcesResponse :: Int -&gt; UngroupResourcesResponse
-</span><a href="Network.AWS.ResourceGroups.UngroupResources.html#newUngroupResourcesResponse"><span class="hs-identifier hs-var hs-var">newUngroupResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679180873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.UngroupResources.html#newUngroupResourcesResponse"><span class="hs-identifier hs-var hs-var">newUngroupResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679180882"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180882"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">UngroupResourcesResponse' :: Maybe [PendingResource]
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe [FailedResource]
@@ -502,7 +502,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UngroupResourcesResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3AhttpStatus%3AUngroupResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679180882"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | A list of any resources that are still in the process of being removed</span><span>
@@ -522,16 +522,16 @@ forall a. Maybe a
      (Maybe [PendingResource])
      (Maybe [PendingResource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180872"><span class="annot"><span class="annottext">Maybe [PendingResource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180881"><span class="annot"><span class="annottext">Maybe [PendingResource]
 pending :: Maybe [PendingResource]
 $sel:pending:UngroupResourcesResponse' :: UngroupResourcesResponse -&gt; Maybe [PendingResource]
-</span><a href="#local-6989586621679180872"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingResource]
-</span><a href="#local-6989586621679180872"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180871"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
-</span><a href="#local-6989586621679180871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180870"><span class="annot"><span class="annottext">Maybe [PendingResource]
-</span><a href="#local-6989586621679180870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
-</span><a href="#local-6989586621679180871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:UngroupResourcesResponse' :: Maybe [PendingResource]
+</span><a href="#local-6989586621679180881"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingResource]
+</span><a href="#local-6989586621679180881"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180880"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
+</span><a href="#local-6989586621679180880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180879"><span class="annot"><span class="annottext">Maybe [PendingResource]
+</span><a href="#local-6989586621679180879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
+</span><a href="#local-6989586621679180880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:UngroupResourcesResponse' :: Maybe [PendingResource]
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3Apending%3AUngroupResourcesResponse%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingResource]
-</span><a href="#local-6989586621679180870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PendingResource] -&gt; f (Maybe [PendingResource]))
+</span><a href="#local-6989586621679180879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PendingResource] -&gt; f (Maybe [PendingResource]))
  -&gt; UngroupResourcesResponse -&gt; f UngroupResourcesResponse)
 -&gt; ((Maybe [PendingResource] -&gt; f (Maybe [PendingResource]))
     -&gt; Maybe [PendingResource] -&gt; f (Maybe [PendingResource]))
@@ -574,16 +574,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180868"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180877"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 succeeded :: Maybe (NonEmpty Text)
 $sel:succeeded:UngroupResourcesResponse' :: UngroupResourcesResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679180868"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679180868"><span class="hs-identifier hs-var">succeeded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180867"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
-</span><a href="#local-6989586621679180867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180866"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679180866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
-</span><a href="#local-6989586621679180867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeeded:UngroupResourcesResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679180877"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679180877"><span class="hs-identifier hs-var">succeeded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180876"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
+</span><a href="#local-6989586621679180876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180875"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679180875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
+</span><a href="#local-6989586621679180876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeeded:UngroupResourcesResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3Asucceeded%3AUngroupResourcesResponse%27"><span class="hs-identifier hs-var">succeeded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679180866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679180875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; UngroupResourcesResponse -&gt; f UngroupResourcesResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -620,16 +620,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [FailedResource])
      (Maybe [FailedResource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180865"><span class="annot"><span class="annottext">Maybe [FailedResource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180874"><span class="annot"><span class="annottext">Maybe [FailedResource]
 failed :: Maybe [FailedResource]
 $sel:failed:UngroupResourcesResponse' :: UngroupResourcesResponse -&gt; Maybe [FailedResource]
-</span><a href="#local-6989586621679180865"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedResource]
-</span><a href="#local-6989586621679180865"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180864"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
-</span><a href="#local-6989586621679180864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180863"><span class="annot"><span class="annottext">Maybe [FailedResource]
-</span><a href="#local-6989586621679180863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
-</span><a href="#local-6989586621679180864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:UngroupResourcesResponse' :: Maybe [FailedResource]
+</span><a href="#local-6989586621679180874"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedResource]
+</span><a href="#local-6989586621679180874"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180873"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
+</span><a href="#local-6989586621679180873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180872"><span class="annot"><span class="annottext">Maybe [FailedResource]
+</span><a href="#local-6989586621679180872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
+</span><a href="#local-6989586621679180873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:UngroupResourcesResponse' :: Maybe [FailedResource]
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3Afailed%3AUngroupResourcesResponse%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedResource]
-</span><a href="#local-6989586621679180863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedResource] -&gt; f (Maybe [FailedResource]))
+</span><a href="#local-6989586621679180872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedResource] -&gt; f (Maybe [FailedResource]))
  -&gt; UngroupResourcesResponse -&gt; f UngroupResourcesResponse)
 -&gt; ((Maybe [FailedResource] -&gt; f (Maybe [FailedResource]))
     -&gt; Maybe [FailedResource] -&gt; f (Maybe [FailedResource]))
@@ -660,16 +660,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UngroupResourcesResponse -&gt; Int -&gt; UngroupResourcesResponse)
 -&gt; Lens UngroupResourcesResponse UngroupResourcesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180862"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180871"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UngroupResourcesResponse' :: UngroupResourcesResponse -&gt; Int
-</span><a href="#local-6989586621679180862"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180862"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180861"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
-</span><a href="#local-6989586621679180861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180860"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
-</span><a href="#local-6989586621679180861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UngroupResourcesResponse' :: Int
+</span><a href="#local-6989586621679180871"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180871"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180870"><span class="annot"><span class="annottext">s :: UngroupResourcesResponse
+</span><a href="#local-6989586621679180870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse%27"><span class="hs-identifier hs-type">UngroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UngroupResourcesResponse
+</span><a href="#local-6989586621679180870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UngroupResourcesResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.UngroupResources.html#%24sel%3AhttpStatus%3AUngroupResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.UngroupResources.html#UngroupResourcesResponse"><span class="hs-identifier hs-type">UngroupResourcesResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

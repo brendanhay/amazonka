@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newApplySchema' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679349576"><span id="local-6989586621679349577"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplySchema"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-var">ApplySchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplySchema%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-var">ApplySchema'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679349585"><span id="local-6989586621679349586"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplySchema"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-var">ApplySchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplySchema%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-var">ApplySchema'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Published schema Amazon Resource Name (ARN) that needs to be copied. For</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- more information, see arns.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3ApublishedSchemaArn%3AApplySchema%27"><span class="annot"><span class="annottext">ApplySchema -&gt; Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdirectoryArn%3AApplySchema%27"><span class="annot"><span class="annottext">ApplySchema -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AdirectoryArn%3AApplySchema%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349569"><span id="local-6989586621679349571"><span class="annot"><span class="annottext">ApplySchema -&gt; ApplySchema -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349578"><span id="local-6989586621679349580"><span class="annot"><span class="annottext">ApplySchema -&gt; ApplySchema -&gt; Bool
 (ApplySchema -&gt; ApplySchema -&gt; Bool)
 -&gt; (ApplySchema -&gt; ApplySchema -&gt; Bool) -&gt; Eq ApplySchema
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApplySchema -&gt; ApplySchema -&gt; Bool
 == :: ApplySchema -&gt; ApplySchema -&gt; Bool
 $c== :: ApplySchema -&gt; ApplySchema -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349560"><span id="local-6989586621679349562"><span id="local-6989586621679349564"><span id="local-6989586621679349566"><span class="annot"><span class="annottext">ReadPrec [ApplySchema]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349569"><span id="local-6989586621679349571"><span id="local-6989586621679349573"><span id="local-6989586621679349575"><span class="annot"><span class="annottext">ReadPrec [ApplySchema]
 ReadPrec ApplySchema
 Int -&gt; ReadS ApplySchema
 ReadS [ApplySchema]
@@ -89,7 +89,7 @@ readList :: ReadS [ApplySchema]
 $creadList :: ReadS [ApplySchema]
 readsPrec :: Int -&gt; ReadS ApplySchema
 $creadsPrec :: Int -&gt; ReadS ApplySchema
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349553"><span id="local-6989586621679349555"><span id="local-6989586621679349557"><span class="annot"><span class="annottext">Int -&gt; ApplySchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349562"><span id="local-6989586621679349564"><span id="local-6989586621679349566"><span class="annot"><span class="annottext">Int -&gt; ApplySchema -&gt; ShowS
 [ApplySchema] -&gt; ShowS
 ApplySchema -&gt; String
 (Int -&gt; ApplySchema -&gt; ShowS)
@@ -135,18 +135,18 @@ $cfrom :: forall x. ApplySchema -&gt; Rep ApplySchema x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span>
 </span><span id="line-83"></span><span id="newApplySchema"><span class="annot"><span class="annottext">newApplySchema :: Text -&gt; Text -&gt; ApplySchema
-</span><a href="Network.AWS.CloudDirectory.ApplySchema.html#newApplySchema"><span class="hs-identifier hs-var hs-var">newApplySchema</span></a></span></span><span> </span><span id="local-6989586621679349548"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349548"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679349547"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349547"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.ApplySchema.html#newApplySchema"><span class="hs-identifier hs-var hs-var">newApplySchema</span></a></span></span><span> </span><span id="local-6989586621679349557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349557"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679349556"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349556"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ApplySchema' :: Text -&gt; Text -&gt; ApplySchema
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:publishedSchemaArn:ApplySchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3ApublishedSchemaArn%3AApplySchema%27"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349548"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349557"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryArn:ApplySchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AdirectoryArn%3AApplySchema%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349547"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span>
+</span><a href="#local-6989586621679349556"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Published schema Amazon Resource Name (ARN) that needs to be copied. For</span><span>
@@ -157,16 +157,16 @@ $cfrom :: forall x. ApplySchema -&gt; Rep ApplySchema x
 -&gt; (ApplySchema -&gt; Text -&gt; ApplySchema)
 -&gt; Lens ApplySchema ApplySchema Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349544"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349553"><span class="annot"><span class="annottext">Text
 publishedSchemaArn :: Text
 $sel:publishedSchemaArn:ApplySchema' :: ApplySchema -&gt; Text
-</span><a href="#local-6989586621679349544"><span class="hs-identifier hs-var hs-var">publishedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349544"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349543"><span class="annot"><span class="annottext">s :: ApplySchema
-</span><a href="#local-6989586621679349543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349542"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchema
-</span><a href="#local-6989586621679349543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publishedSchemaArn:ApplySchema' :: Text
+</span><a href="#local-6989586621679349553"><span class="hs-identifier hs-var hs-var">publishedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349553"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349552"><span class="annot"><span class="annottext">s :: ApplySchema
+</span><a href="#local-6989586621679349552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchema
+</span><a href="#local-6989586621679349552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publishedSchemaArn:ApplySchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3ApublishedSchemaArn%3AApplySchema%27"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- into which the schema is copied. For more information, see arns.</span><span>
@@ -176,25 +176,25 @@ $sel:publishedSchemaArn:ApplySchema' :: ApplySchema -&gt; Text
 -&gt; (ApplySchema -&gt; Text -&gt; ApplySchema)
 -&gt; Lens ApplySchema ApplySchema Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349541"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349550"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:ApplySchema' :: ApplySchema -&gt; Text
-</span><a href="#local-6989586621679349541"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349541"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349540"><span class="annot"><span class="annottext">s :: ApplySchema
-</span><a href="#local-6989586621679349540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchema
-</span><a href="#local-6989586621679349540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:ApplySchema' :: Text
+</span><a href="#local-6989586621679349550"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349550"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349549"><span class="annot"><span class="annottext">s :: ApplySchema
+</span><a href="#local-6989586621679349549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchema
+</span><a href="#local-6989586621679349549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:ApplySchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AdirectoryArn%3AApplySchema%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679349535"><span class="annot"><span class="annottext">request :: ApplySchema -&gt; Request ApplySchema
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679349544"><span class="annot"><span class="annottext">request :: ApplySchema -&gt; Request ApplySchema
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ApplySchema -&gt; Request ApplySchema
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679349531"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679349540"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ApplySchema
 -&gt; ClientResponse ClientBody
@@ -218,10 +218,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349528"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349528"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349527"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679349527"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349526"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349526"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349537"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349536"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349536"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349535"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ApplySchemaResponse
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-var">ApplySchemaResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ApplySchemaResponse)
@@ -229,7 +229,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ApplySchemaResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679349535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,7 +238,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ApplySchemaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679349535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppliedSchemaArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,21 +250,21 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349528"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349537"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349518"><span id="local-6989586621679349520"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349527"><span id="local-6989586621679349529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679349511"><span class="annot"><span class="annottext">toHeaders :: ApplySchema -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349508"><span id="local-6989586621679349509"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679349520"><span class="annot"><span class="annottext">toHeaders :: ApplySchema -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349517"><span id="local-6989586621679349518"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 publishedSchemaArn :: Text
 $sel:directoryArn:ApplySchema' :: ApplySchema -&gt; Text
 $sel:publishedSchemaArn:ApplySchema' :: ApplySchema -&gt; Text
-</span><a href="#local-6989586621679349508"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349517"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -272,16 +272,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349508"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679349517"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349500"><span id="local-6989586621679349502"><span id="local-6989586621679349504"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679349498"><span class="annot"><span class="annottext">toJSON :: ApplySchema -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349495"><span id="local-6989586621679349496"><span class="annot"><span class="annottext">Text
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349509"><span id="local-6989586621679349511"><span id="local-6989586621679349513"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679349507"><span class="annot"><span class="annottext">toJSON :: ApplySchema -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema%27"><span class="hs-identifier hs-type">ApplySchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349504"><span id="local-6989586621679349505"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 publishedSchemaArn :: Text
 $sel:directoryArn:ApplySchema' :: ApplySchema -&gt; Text
 $sel:publishedSchemaArn:ApplySchema' :: ApplySchema -&gt; Text
-</span><a href="#local-6989586621679349495"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349504"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,12 +294,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PublishedSchemaArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349496"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349505"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679349489"><span class="annot"><span class="annottext">toPath :: ApplySchema -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679349498"><span class="annot"><span class="annottext">toPath :: ApplySchema -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ApplySchema -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -308,7 +308,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/schema/apply&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchema"><span class="hs-identifier hs-type">ApplySchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679349484"><span class="annot"><span class="annottext">toQuery :: ApplySchema -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679349493"><span class="annot"><span class="annottext">toQuery :: ApplySchema -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ApplySchema -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -316,7 +316,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newApplySchemaResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679349481"><span id="local-6989586621679349482"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplySchemaResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-var">ApplySchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplySchemaResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-var">ApplySchemaResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679349490"><span id="local-6989586621679349491"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplySchemaResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-var">ApplySchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplySchemaResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-var">ApplySchemaResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN that is associated with the Directory. For more information, see</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- arns.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AdirectoryArn%3AApplySchemaResponse%27"><span class="annot"><span class="annottext">ApplySchemaResponse -&gt; Maybe Text
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AApplySchemaResponse%27"><span class="annot"><span class="annottext">ApplySchemaResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AhttpStatus%3AApplySchemaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349474"><span id="local-6989586621679349476"><span class="annot"><span class="annottext">ApplySchemaResponse -&gt; ApplySchemaResponse -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349483"><span id="local-6989586621679349485"><span class="annot"><span class="annottext">ApplySchemaResponse -&gt; ApplySchemaResponse -&gt; Bool
 (ApplySchemaResponse -&gt; ApplySchemaResponse -&gt; Bool)
 -&gt; (ApplySchemaResponse -&gt; ApplySchemaResponse -&gt; Bool)
 -&gt; Eq ApplySchemaResponse
@@ -339,7 +339,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApplySchemaResponse -&gt; ApplySchemaResponse -&gt; Bool
 == :: ApplySchemaResponse -&gt; ApplySchemaResponse -&gt; Bool
 $c== :: ApplySchemaResponse -&gt; ApplySchemaResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349466"><span id="local-6989586621679349468"><span id="local-6989586621679349470"><span id="local-6989586621679349472"><span class="annot"><span class="annottext">ReadPrec [ApplySchemaResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349475"><span id="local-6989586621679349477"><span id="local-6989586621679349479"><span id="local-6989586621679349481"><span class="annot"><span class="annottext">ReadPrec [ApplySchemaResponse]
 ReadPrec ApplySchemaResponse
 Int -&gt; ReadS ApplySchemaResponse
 ReadS [ApplySchemaResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [ApplySchemaResponse]
 $creadList :: ReadS [ApplySchemaResponse]
 readsPrec :: Int -&gt; ReadS ApplySchemaResponse
 $creadsPrec :: Int -&gt; ReadS ApplySchemaResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349460"><span id="local-6989586621679349462"><span id="local-6989586621679349464"><span class="annot"><span class="annottext">Int -&gt; ApplySchemaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349469"><span id="local-6989586621679349471"><span id="local-6989586621679349473"><span class="annot"><span class="annottext">Int -&gt; ApplySchemaResponse -&gt; ShowS
 [ApplySchemaResponse] -&gt; ShowS
 ApplySchemaResponse -&gt; String
 (Int -&gt; ApplySchemaResponse -&gt; ShowS)
@@ -406,8 +406,8 @@ $cfrom :: forall x. ApplySchemaResponse -&gt; Rep ApplySchemaResponse x
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newApplySchemaResponse"><span class="annot"><span class="annottext">newApplySchemaResponse :: Int -&gt; ApplySchemaResponse
-</span><a href="Network.AWS.CloudDirectory.ApplySchema.html#newApplySchemaResponse"><span class="hs-identifier hs-var hs-var">newApplySchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679349457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.ApplySchema.html#newApplySchemaResponse"><span class="hs-identifier hs-var hs-var">newApplySchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679349466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ApplySchemaResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ApplySchemaResponse
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:ApplySchemaResponse' :: Maybe Text
@@ -421,7 +421,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ApplySchemaResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AhttpStatus%3AApplySchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679349466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The ARN that is associated with the Directory. For more information, see</span><span>
@@ -434,16 +434,16 @@ forall a. Maybe a
 -&gt; Lens
      ApplySchemaResponse ApplySchemaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349456"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349465"><span class="annot"><span class="annottext">Maybe Text
 directoryArn :: Maybe Text
 $sel:directoryArn:ApplySchemaResponse' :: ApplySchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679349456"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349456"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349455"><span class="annot"><span class="annottext">s :: ApplySchemaResponse
-</span><a href="#local-6989586621679349455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349454"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchemaResponse
-</span><a href="#local-6989586621679349455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:ApplySchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679349465"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349465"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349464"><span class="annot"><span class="annottext">s :: ApplySchemaResponse
+</span><a href="#local-6989586621679349464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349463"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchemaResponse
+</span><a href="#local-6989586621679349464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:ApplySchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AdirectoryArn%3AApplySchemaResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The applied schema ARN that is associated with the copied schema in the</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- Directory. You can use this ARN to describe the schema information</span><span>
@@ -456,16 +456,16 @@ $sel:directoryArn:ApplySchemaResponse' :: ApplySchemaResponse -&gt; Maybe Text
 -&gt; Lens
      ApplySchemaResponse ApplySchemaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349453"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349462"><span class="annot"><span class="annottext">Maybe Text
 appliedSchemaArn :: Maybe Text
 $sel:appliedSchemaArn:ApplySchemaResponse' :: ApplySchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679349453"><span class="hs-identifier hs-var hs-var">appliedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349453"><span class="hs-identifier hs-var">appliedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349452"><span class="annot"><span class="annottext">s :: ApplySchemaResponse
-</span><a href="#local-6989586621679349452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349451"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchemaResponse
-</span><a href="#local-6989586621679349452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appliedSchemaArn:ApplySchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679349462"><span class="hs-identifier hs-var hs-var">appliedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349462"><span class="hs-identifier hs-var">appliedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349461"><span class="annot"><span class="annottext">s :: ApplySchemaResponse
+</span><a href="#local-6989586621679349461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchemaResponse
+</span><a href="#local-6989586621679349461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appliedSchemaArn:ApplySchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AappliedSchemaArn%3AApplySchemaResponse%27"><span class="hs-identifier hs-var">appliedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#applySchemaResponse_httpStatus"><span class="hs-identifier hs-type">applySchemaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -474,16 +474,16 @@ $sel:appliedSchemaArn:ApplySchemaResponse' :: ApplySchemaResponse -&gt; Maybe Te
 -&gt; (ApplySchemaResponse -&gt; Int -&gt; ApplySchemaResponse)
 -&gt; Lens ApplySchemaResponse ApplySchemaResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349450"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349459"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ApplySchemaResponse' :: ApplySchemaResponse -&gt; Int
-</span><a href="#local-6989586621679349450"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349450"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349449"><span class="annot"><span class="annottext">s :: ApplySchemaResponse
-</span><a href="#local-6989586621679349449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349448"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchemaResponse
-</span><a href="#local-6989586621679349449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ApplySchemaResponse' :: Int
+</span><a href="#local-6989586621679349459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349458"><span class="annot"><span class="annottext">s :: ApplySchemaResponse
+</span><a href="#local-6989586621679349458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse%27"><span class="hs-identifier hs-type">ApplySchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplySchemaResponse
+</span><a href="#local-6989586621679349458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ApplySchemaResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.ApplySchema.html#%24sel%3AhttpStatus%3AApplySchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ApplySchema.html#ApplySchemaResponse"><span class="hs-identifier hs-type">ApplySchemaResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

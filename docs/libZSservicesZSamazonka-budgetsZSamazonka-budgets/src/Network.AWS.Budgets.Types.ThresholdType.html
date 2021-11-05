@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The type of threshold for a notification.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679208458"><span id="local-6989586621679208459"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThresholdType"><span class="annot"><a href="Network.AWS.Budgets.Types.ThresholdType.html#ThresholdType"><span class="hs-identifier hs-var">ThresholdType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThresholdType%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ThresholdType.html#ThresholdType%27"><span class="hs-identifier hs-var">ThresholdType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679208467"><span id="local-6989586621679208468"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThresholdType"><span class="annot"><a href="Network.AWS.Budgets.Types.ThresholdType.html#ThresholdType"><span class="hs-identifier hs-var">ThresholdType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThresholdType%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ThresholdType.html#ThresholdType%27"><span class="hs-identifier hs-var">ThresholdType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromThresholdType"><span class="annot"><span class="annottext">ThresholdType -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.ThresholdType.html#fromThresholdType"><span class="hs-identifier hs-var hs-var">fromThresholdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208450"><span id="local-6989586621679208452"><span id="local-6989586621679208454"><span class="annot"><span class="annottext">Int -&gt; ThresholdType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208459"><span id="local-6989586621679208461"><span id="local-6989586621679208463"><span class="annot"><span class="annottext">Int -&gt; ThresholdType -&gt; ShowS
 [ThresholdType] -&gt; ShowS
 ThresholdType -&gt; String
 (Int -&gt; ThresholdType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ThresholdType -&gt; String
 showsPrec :: Int -&gt; ThresholdType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ThresholdType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679208441"><span id="local-6989586621679208443"><span id="local-6989586621679208445"><span id="local-6989586621679208447"><span class="annot"><span class="annottext">ReadPrec [ThresholdType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679208450"><span id="local-6989586621679208452"><span id="local-6989586621679208454"><span id="local-6989586621679208456"><span class="annot"><span class="annottext">ReadPrec [ThresholdType]
 ReadPrec ThresholdType
 Int -&gt; ReadS ThresholdType
 ReadS [ThresholdType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ThresholdType]
 readsPrec :: Int -&gt; ReadS ThresholdType
 $creadsPrec :: Int -&gt; ReadS ThresholdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679208436"><span id="local-6989586621679208438"><span class="annot"><span class="annottext">ThresholdType -&gt; ThresholdType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679208445"><span id="local-6989586621679208447"><span class="annot"><span class="annottext">ThresholdType -&gt; ThresholdType -&gt; Bool
 (ThresholdType -&gt; ThresholdType -&gt; Bool)
 -&gt; (ThresholdType -&gt; ThresholdType -&gt; Bool) -&gt; Eq ThresholdType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ThresholdType -&gt; ThresholdType -&gt; Bool
 == :: ThresholdType -&gt; ThresholdType -&gt; Bool
 $c== :: ThresholdType -&gt; ThresholdType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679208420"><span id="local-6989586621679208422"><span id="local-6989586621679208424"><span id="local-6989586621679208426"><span id="local-6989586621679208428"><span id="local-6989586621679208430"><span id="local-6989586621679208432"><span class="annot"><span class="annottext">Eq ThresholdType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679208429"><span id="local-6989586621679208431"><span id="local-6989586621679208433"><span id="local-6989586621679208435"><span id="local-6989586621679208437"><span id="local-6989586621679208439"><span id="local-6989586621679208441"><span class="annot"><span class="annottext">Eq ThresholdType
 Eq ThresholdType
 -&gt; (ThresholdType -&gt; ThresholdType -&gt; Ordering)
 -&gt; (ThresholdType -&gt; ThresholdType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ThresholdType -&gt; Rep ThresholdType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208412"><span id="local-6989586621679208414"><span class="annot"><span class="annottext">Int -&gt; ThresholdType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208421"><span id="local-6989586621679208423"><span class="annot"><span class="annottext">Int -&gt; ThresholdType -&gt; Int
 ThresholdType -&gt; Int
 (Int -&gt; ThresholdType -&gt; Int)
 -&gt; (ThresholdType -&gt; Int) -&gt; Hashable ThresholdType
@@ -143,49 +143,49 @@ $chash :: ThresholdType -&gt; Int
 hashWithSalt :: Int -&gt; ThresholdType -&gt; Int
 $chashWithSalt :: Int -&gt; ThresholdType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679208409"><span class="annot"><span class="annottext">ThresholdType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679208418"><span class="annot"><span class="annottext">ThresholdType -&gt; ()
 (ThresholdType -&gt; ()) -&gt; NFData ThresholdType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ThresholdType -&gt; ()
 $crnf :: ThresholdType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679208406"><span class="annot"><span class="annottext">Text -&gt; Either String ThresholdType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679208415"><span class="annot"><span class="annottext">Text -&gt; Either String ThresholdType
 (Text -&gt; Either String ThresholdType) -&gt; FromText ThresholdType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ThresholdType
 $cfromText :: Text -&gt; Either String ThresholdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679208403"><span class="annot"><span class="annottext">ThresholdType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679208412"><span class="annot"><span class="annottext">ThresholdType -&gt; Text
 (ThresholdType -&gt; Text) -&gt; ToText ThresholdType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ThresholdType -&gt; Text
 $ctoText :: ThresholdType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679208400"><span class="annot"><span class="annottext">ThresholdType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679208409"><span class="annot"><span class="annottext">ThresholdType -&gt; ByteString
 (ThresholdType -&gt; ByteString) -&gt; ToByteString ThresholdType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ThresholdType -&gt; ByteString
 $ctoBS :: ThresholdType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679208397"><span class="annot"><span class="annottext">ThresholdType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679208406"><span class="annot"><span class="annottext">ThresholdType -&gt; ByteStringBuilder
 (ThresholdType -&gt; ByteStringBuilder) -&gt; ToLog ThresholdType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ThresholdType -&gt; ByteStringBuilder
 $cbuild :: ThresholdType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679208394"><span class="annot"><span class="annottext">HeaderName -&gt; ThresholdType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679208403"><span class="annot"><span class="annottext">HeaderName -&gt; ThresholdType -&gt; [Header]
 (HeaderName -&gt; ThresholdType -&gt; [Header]) -&gt; ToHeader ThresholdType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ThresholdType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ThresholdType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679208391"><span class="annot"><span class="annottext">ThresholdType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679208400"><span class="annot"><span class="annottext">ThresholdType -&gt; QueryString
 (ThresholdType -&gt; QueryString) -&gt; ToQuery ThresholdType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ThresholdType -&gt; QueryString
 $ctoQuery :: ThresholdType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679208386"><span id="local-6989586621679208388"><span class="annot"><span class="annottext">Value -&gt; Parser [ThresholdType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679208395"><span id="local-6989586621679208397"><span class="annot"><span class="annottext">Value -&gt; Parser [ThresholdType]
 Value -&gt; Parser ThresholdType
 (Value -&gt; Parser ThresholdType)
 -&gt; (Value -&gt; Parser [ThresholdType]) -&gt; FromJSON ThresholdType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ThresholdType]
 parseJSON :: Value -&gt; Parser ThresholdType
 $cparseJSON :: Value -&gt; Parser ThresholdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679208381"><span id="local-6989586621679208383"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThresholdType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679208390"><span id="local-6989586621679208392"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThresholdType]
 FromJSONKeyFunction ThresholdType
 FromJSONKeyFunction ThresholdType
 -&gt; FromJSONKeyFunction [ThresholdType] -&gt; FromJSONKey ThresholdType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ThresholdType]
 fromJSONKey :: FromJSONKeyFunction ThresholdType
 $cfromJSONKey :: FromJSONKeyFunction ThresholdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679208372"><span id="local-6989586621679208374"><span id="local-6989586621679208376"><span id="local-6989586621679208378"><span class="annot"><span class="annottext">[ThresholdType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679208381"><span id="local-6989586621679208383"><span id="local-6989586621679208385"><span id="local-6989586621679208387"><span class="annot"><span class="annottext">[ThresholdType] -&gt; Encoding
 [ThresholdType] -&gt; Value
 ThresholdType -&gt; Encoding
 ThresholdType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ThresholdType -&gt; Encoding
 toJSON :: ThresholdType -&gt; Value
 $ctoJSON :: ThresholdType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679208367"><span id="local-6989586621679208369"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThresholdType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679208376"><span id="local-6989586621679208378"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThresholdType]
 ToJSONKeyFunction ThresholdType
 ToJSONKeyFunction ThresholdType
 -&gt; ToJSONKeyFunction [ThresholdType] -&gt; ToJSONKey ThresholdType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ThresholdType]
 toJSONKey :: ToJSONKeyFunction ThresholdType
 $ctoJSONKey :: ToJSONKeyFunction ThresholdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679208364"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThresholdType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679208373"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThresholdType
 ([Node] -&gt; Either String ThresholdType) -&gt; FromXML ThresholdType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ThresholdType
 $cparseXML :: [Node] -&gt; Either String ThresholdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679208361"><span class="annot"><span class="annottext">ThresholdType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679208370"><span class="annot"><span class="annottext">ThresholdType -&gt; XML
 (ThresholdType -&gt; XML) -&gt; ToXML ThresholdType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ThresholdType -&gt; XML

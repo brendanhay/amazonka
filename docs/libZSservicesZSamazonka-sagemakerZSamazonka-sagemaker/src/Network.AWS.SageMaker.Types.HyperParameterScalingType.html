@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621680308315"><span id="local-6989586621680308316"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HyperParameterScalingType"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterScalingType.html#HyperParameterScalingType"><span class="hs-identifier hs-var">HyperParameterScalingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HyperParameterScalingType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterScalingType.html#HyperParameterScalingType%27"><span class="hs-identifier hs-var">HyperParameterScalingType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680308324"><span id="local-6989586621680308325"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HyperParameterScalingType"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterScalingType.html#HyperParameterScalingType"><span class="hs-identifier hs-var">HyperParameterScalingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HyperParameterScalingType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterScalingType.html#HyperParameterScalingType%27"><span class="hs-identifier hs-var">HyperParameterScalingType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHyperParameterScalingType"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterScalingType.html#fromHyperParameterScalingType"><span class="hs-identifier hs-var hs-var">fromHyperParameterScalingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308307"><span id="local-6989586621680308309"><span id="local-6989586621680308311"><span class="annot"><span class="annottext">Int -&gt; HyperParameterScalingType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308316"><span id="local-6989586621680308318"><span id="local-6989586621680308320"><span class="annot"><span class="annottext">Int -&gt; HyperParameterScalingType -&gt; ShowS
 [HyperParameterScalingType] -&gt; ShowS
 HyperParameterScalingType -&gt; String
 (Int -&gt; HyperParameterScalingType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: HyperParameterScalingType -&gt; String
 showsPrec :: Int -&gt; HyperParameterScalingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HyperParameterScalingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680308298"><span id="local-6989586621680308300"><span id="local-6989586621680308302"><span id="local-6989586621680308304"><span class="annot"><span class="annottext">ReadPrec [HyperParameterScalingType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680308307"><span id="local-6989586621680308309"><span id="local-6989586621680308311"><span id="local-6989586621680308313"><span class="annot"><span class="annottext">ReadPrec [HyperParameterScalingType]
 ReadPrec HyperParameterScalingType
 Int -&gt; ReadS HyperParameterScalingType
 ReadS [HyperParameterScalingType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [HyperParameterScalingType]
 readsPrec :: Int -&gt; ReadS HyperParameterScalingType
 $creadsPrec :: Int -&gt; ReadS HyperParameterScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680308293"><span id="local-6989586621680308295"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; HyperParameterScalingType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680308302"><span id="local-6989586621680308304"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; HyperParameterScalingType -&gt; Bool
 (HyperParameterScalingType -&gt; HyperParameterScalingType -&gt; Bool)
 -&gt; (HyperParameterScalingType -&gt; HyperParameterScalingType -&gt; Bool)
 -&gt; Eq HyperParameterScalingType
@@ -84,7 +84,7 @@ $c/= :: HyperParameterScalingType -&gt; HyperParameterScalingType -&gt; Bool
 == :: HyperParameterScalingType -&gt; HyperParameterScalingType -&gt; Bool
 $c== :: HyperParameterScalingType -&gt; HyperParameterScalingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680308277"><span id="local-6989586621680308279"><span id="local-6989586621680308281"><span id="local-6989586621680308283"><span id="local-6989586621680308285"><span id="local-6989586621680308287"><span id="local-6989586621680308289"><span class="annot"><span class="annottext">Eq HyperParameterScalingType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680308286"><span id="local-6989586621680308288"><span id="local-6989586621680308290"><span id="local-6989586621680308292"><span id="local-6989586621680308294"><span id="local-6989586621680308296"><span id="local-6989586621680308298"><span class="annot"><span class="annottext">Eq HyperParameterScalingType
 Eq HyperParameterScalingType
 -&gt; (HyperParameterScalingType
     -&gt; HyperParameterScalingType -&gt; Ordering)
@@ -149,7 +149,7 @@ HyperParameterScalingType -&gt; Rep HyperParameterScalingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308269"><span id="local-6989586621680308271"><span class="annot"><span class="annottext">Int -&gt; HyperParameterScalingType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308278"><span id="local-6989586621680308280"><span class="annot"><span class="annottext">Int -&gt; HyperParameterScalingType -&gt; Int
 HyperParameterScalingType -&gt; Int
 (Int -&gt; HyperParameterScalingType -&gt; Int)
 -&gt; (HyperParameterScalingType -&gt; Int)
@@ -160,56 +160,56 @@ $chash :: HyperParameterScalingType -&gt; Int
 hashWithSalt :: Int -&gt; HyperParameterScalingType -&gt; Int
 $chashWithSalt :: Int -&gt; HyperParameterScalingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680308266"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680308275"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; ()
 (HyperParameterScalingType -&gt; ())
 -&gt; NFData HyperParameterScalingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HyperParameterScalingType -&gt; ()
 $crnf :: HyperParameterScalingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680308263"><span class="annot"><span class="annottext">Text -&gt; Either String HyperParameterScalingType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680308272"><span class="annot"><span class="annottext">Text -&gt; Either String HyperParameterScalingType
 (Text -&gt; Either String HyperParameterScalingType)
 -&gt; FromText HyperParameterScalingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HyperParameterScalingType
 $cfromText :: Text -&gt; Either String HyperParameterScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680308260"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680308269"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; Text
 (HyperParameterScalingType -&gt; Text)
 -&gt; ToText HyperParameterScalingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HyperParameterScalingType -&gt; Text
 $ctoText :: HyperParameterScalingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680308257"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680308266"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; ByteString
 (HyperParameterScalingType -&gt; ByteString)
 -&gt; ToByteString HyperParameterScalingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HyperParameterScalingType -&gt; ByteString
 $ctoBS :: HyperParameterScalingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680308254"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680308263"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; ByteStringBuilder
 (HyperParameterScalingType -&gt; ByteStringBuilder)
 -&gt; ToLog HyperParameterScalingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HyperParameterScalingType -&gt; ByteStringBuilder
 $cbuild :: HyperParameterScalingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680308251"><span class="annot"><span class="annottext">HeaderName -&gt; HyperParameterScalingType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680308260"><span class="annot"><span class="annottext">HeaderName -&gt; HyperParameterScalingType -&gt; [Header]
 (HeaderName -&gt; HyperParameterScalingType -&gt; [Header])
 -&gt; ToHeader HyperParameterScalingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HyperParameterScalingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HyperParameterScalingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680308248"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680308257"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; QueryString
 (HyperParameterScalingType -&gt; QueryString)
 -&gt; ToQuery HyperParameterScalingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HyperParameterScalingType -&gt; QueryString
 $ctoQuery :: HyperParameterScalingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680308243"><span id="local-6989586621680308245"><span class="annot"><span class="annottext">Value -&gt; Parser [HyperParameterScalingType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680308252"><span id="local-6989586621680308254"><span class="annot"><span class="annottext">Value -&gt; Parser [HyperParameterScalingType]
 Value -&gt; Parser HyperParameterScalingType
 (Value -&gt; Parser HyperParameterScalingType)
 -&gt; (Value -&gt; Parser [HyperParameterScalingType])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [HyperParameterScalingType]
 parseJSON :: Value -&gt; Parser HyperParameterScalingType
 $cparseJSON :: Value -&gt; Parser HyperParameterScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680308238"><span id="local-6989586621680308240"><span class="annot"><span class="annottext">FromJSONKeyFunction [HyperParameterScalingType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680308247"><span id="local-6989586621680308249"><span class="annot"><span class="annottext">FromJSONKeyFunction [HyperParameterScalingType]
 FromJSONKeyFunction HyperParameterScalingType
 FromJSONKeyFunction HyperParameterScalingType
 -&gt; FromJSONKeyFunction [HyperParameterScalingType]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HyperParameterScalingType]
 fromJSONKey :: FromJSONKeyFunction HyperParameterScalingType
 $cfromJSONKey :: FromJSONKeyFunction HyperParameterScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680308229"><span id="local-6989586621680308231"><span id="local-6989586621680308233"><span id="local-6989586621680308235"><span class="annot"><span class="annottext">[HyperParameterScalingType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680308238"><span id="local-6989586621680308240"><span id="local-6989586621680308242"><span id="local-6989586621680308244"><span class="annot"><span class="annottext">[HyperParameterScalingType] -&gt; Encoding
 [HyperParameterScalingType] -&gt; Value
 HyperParameterScalingType -&gt; Encoding
 HyperParameterScalingType -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: HyperParameterScalingType -&gt; Encoding
 toJSON :: HyperParameterScalingType -&gt; Value
 $ctoJSON :: HyperParameterScalingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680308224"><span id="local-6989586621680308226"><span class="annot"><span class="annottext">ToJSONKeyFunction [HyperParameterScalingType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680308233"><span id="local-6989586621680308235"><span class="annot"><span class="annottext">ToJSONKeyFunction [HyperParameterScalingType]
 ToJSONKeyFunction HyperParameterScalingType
 ToJSONKeyFunction HyperParameterScalingType
 -&gt; ToJSONKeyFunction [HyperParameterScalingType]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HyperParameterScalingType]
 toJSONKey :: ToJSONKeyFunction HyperParameterScalingType
 $ctoJSONKey :: ToJSONKeyFunction HyperParameterScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680308221"><span class="annot"><span class="annottext">[Node] -&gt; Either String HyperParameterScalingType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680308230"><span class="annot"><span class="annottext">[Node] -&gt; Either String HyperParameterScalingType
 ([Node] -&gt; Either String HyperParameterScalingType)
 -&gt; FromXML HyperParameterScalingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HyperParameterScalingType
 $cparseXML :: [Node] -&gt; Either String HyperParameterScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680308218"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680308227"><span class="annot"><span class="annottext">HyperParameterScalingType -&gt; XML
 (HyperParameterScalingType -&gt; XML)
 -&gt; ToXML HyperParameterScalingType
 forall a. (a -&gt; XML) -&gt; ToXML a

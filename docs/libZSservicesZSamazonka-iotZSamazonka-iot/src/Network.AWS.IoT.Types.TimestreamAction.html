@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- topic rule action documentation.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTimestreamAction' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679804300"><span id="local-6989586621679804301"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimestreamAction"><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-var">TimestreamAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimestreamAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-var">TimestreamAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679804309"><span id="local-6989586621679804310"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimestreamAction"><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-var">TimestreamAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimestreamAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-var">TimestreamAction'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies an application-defined value to replace the default value</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- assigned to the Timestream record\'s timestamp in the @time@ column.</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Adimensions%3ATimestreamAction%27"><span class="annot"><span class="annottext">TimestreamAction -&gt; NonEmpty TimestreamDimension
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3Adimensions%3ATimestreamAction%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamDimension.html#TimestreamDimension"><span class="hs-identifier hs-type">TimestreamDimension</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804290"><span id="local-6989586621679804292"><span class="annot"><span class="annottext">TimestreamAction -&gt; TimestreamAction -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804299"><span id="local-6989586621679804301"><span class="annot"><span class="annottext">TimestreamAction -&gt; TimestreamAction -&gt; Bool
 (TimestreamAction -&gt; TimestreamAction -&gt; Bool)
 -&gt; (TimestreamAction -&gt; TimestreamAction -&gt; Bool)
 -&gt; Eq TimestreamAction
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimestreamAction -&gt; TimestreamAction -&gt; Bool
 == :: TimestreamAction -&gt; TimestreamAction -&gt; Bool
 $c== :: TimestreamAction -&gt; TimestreamAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804281"><span id="local-6989586621679804283"><span id="local-6989586621679804285"><span id="local-6989586621679804287"><span class="annot"><span class="annottext">ReadPrec [TimestreamAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804290"><span id="local-6989586621679804292"><span id="local-6989586621679804294"><span id="local-6989586621679804296"><span class="annot"><span class="annottext">ReadPrec [TimestreamAction]
 ReadPrec TimestreamAction
 Int -&gt; ReadS TimestreamAction
 ReadS [TimestreamAction]
@@ -87,7 +87,7 @@ readList :: ReadS [TimestreamAction]
 $creadList :: ReadS [TimestreamAction]
 readsPrec :: Int -&gt; ReadS TimestreamAction
 $creadsPrec :: Int -&gt; ReadS TimestreamAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804274"><span id="local-6989586621679804276"><span id="local-6989586621679804278"><span class="annot"><span class="annottext">Int -&gt; TimestreamAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804283"><span id="local-6989586621679804285"><span id="local-6989586621679804287"><span class="annot"><span class="annottext">Int -&gt; TimestreamAction -&gt; ShowS
 [TimestreamAction] -&gt; ShowS
 TimestreamAction -&gt; String
 (Int -&gt; TimestreamAction -&gt; ShowS)
@@ -153,14 +153,14 @@ $cfrom :: forall x. TimestreamAction -&gt; Rep TimestreamAction x
 </span><span id="line-95"></span><span id="newTimestreamAction"><span class="annot"><span class="annottext">newTimestreamAction :: Text
 -&gt; Text -&gt; Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#newTimestreamAction"><span class="hs-identifier hs-var hs-var">newTimestreamAction</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679804268"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804268"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679804267"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804267"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679804266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804266"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679804265"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
-</span><a href="#local-6989586621679804265"><span class="hs-identifier hs-var">pDimensions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679804277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804277"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679804276"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804276"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679804275"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804275"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679804274"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679804274"><span class="hs-identifier hs-var">pDimensions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">TimestreamAction' :: Maybe TimestreamTimestamp
 -&gt; Text
 -&gt; Text
@@ -174,13 +174,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:TimestreamAction' :: Text
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3AroleArn%3ATimestreamAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804268"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804277"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:TimestreamAction' :: Text
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3AdatabaseName%3ATimestreamAction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804267"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804276"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:TimestreamAction' :: Text
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3AtableName%3ATimestreamAction%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804266"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804275"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimensions:TimestreamAction' :: NonEmpty TimestreamDimension
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3Adimensions%3ATimestreamAction%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty TimestreamDimension)
@@ -198,7 +198,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty TimestreamDimension -&gt; NonEmpty TimestreamDimension
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
-</span><a href="#local-6989586621679804265"><span class="hs-identifier hs-var">pDimensions_</span></a></span><span>
+</span><a href="#local-6989586621679804274"><span class="hs-identifier hs-var">pDimensions_</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Specifies an application-defined value to replace the default value</span><span>
@@ -222,16 +222,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe TimestreamTimestamp)
      (Maybe TimestreamTimestamp)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804259"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804268"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
 timestamp :: Maybe TimestreamTimestamp
 $sel:timestamp:TimestreamAction' :: TimestreamAction -&gt; Maybe TimestreamTimestamp
-</span><a href="#local-6989586621679804259"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
-</span><a href="#local-6989586621679804259"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804258"><span class="annot"><span class="annottext">s :: TimestreamAction
-</span><a href="#local-6989586621679804258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804257"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
-</span><a href="#local-6989586621679804257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
-</span><a href="#local-6989586621679804258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:TimestreamAction' :: Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679804268"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679804268"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804267"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679804267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804266"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><a href="#local-6989586621679804266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679804267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:TimestreamAction' :: Maybe TimestreamTimestamp
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3Atimestamp%3ATimestreamAction%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
-</span><a href="#local-6989586621679804257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The ARN of the role that grants permission to write to the Amazon</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- Timestream database table.</span><span>
@@ -241,16 +241,16 @@ $sel:timestamp:TimestreamAction' :: TimestreamAction -&gt; Maybe TimestreamTimes
 -&gt; (TimestreamAction -&gt; Text -&gt; TimestreamAction)
 -&gt; Lens TimestreamAction TimestreamAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804255"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804264"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:TimestreamAction' :: TimestreamAction -&gt; Text
-</span><a href="#local-6989586621679804255"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804255"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804254"><span class="annot"><span class="annottext">s :: TimestreamAction
-</span><a href="#local-6989586621679804254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804253"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
-</span><a href="#local-6989586621679804254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:TimestreamAction' :: Text
+</span><a href="#local-6989586621679804264"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804264"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804263"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679804263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679804263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:TimestreamAction' :: Text
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3AroleArn%3ATimestreamAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The name of an Amazon Timestream database.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#timestreamAction_databaseName"><span class="hs-identifier hs-type">timestreamAction_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -259,16 +259,16 @@ $sel:roleArn:TimestreamAction' :: TimestreamAction -&gt; Text
 -&gt; (TimestreamAction -&gt; Text -&gt; TimestreamAction)
 -&gt; Lens TimestreamAction TimestreamAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804251"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804260"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:TimestreamAction' :: TimestreamAction -&gt; Text
-</span><a href="#local-6989586621679804251"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804251"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804250"><span class="annot"><span class="annottext">s :: TimestreamAction
-</span><a href="#local-6989586621679804250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804249"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
-</span><a href="#local-6989586621679804250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:TimestreamAction' :: Text
+</span><a href="#local-6989586621679804260"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804260"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804259"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679804259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679804259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:TimestreamAction' :: Text
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3AdatabaseName%3ATimestreamAction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The name of the database table into which to write the measure records.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#timestreamAction_tableName"><span class="hs-identifier hs-type">timestreamAction_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -277,16 +277,16 @@ $sel:databaseName:TimestreamAction' :: TimestreamAction -&gt; Text
 -&gt; (TimestreamAction -&gt; Text -&gt; TimestreamAction)
 -&gt; Lens TimestreamAction TimestreamAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804247"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804256"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:TimestreamAction' :: TimestreamAction -&gt; Text
-</span><a href="#local-6989586621679804247"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804247"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804246"><span class="annot"><span class="annottext">s :: TimestreamAction
-</span><a href="#local-6989586621679804246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
-</span><a href="#local-6989586621679804246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:TimestreamAction' :: Text
+</span><a href="#local-6989586621679804256"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804256"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804255"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679804255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679804254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679804255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:TimestreamAction' :: Text
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3AtableName%3ATimestreamAction%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | Metadata attributes of the time series that are written in each measure</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- record.</span><span>
@@ -302,16 +302,16 @@ $sel:tableName:TimestreamAction' :: TimestreamAction -&gt; Text
      (NonEmpty TimestreamDimension)
      (NonEmpty TimestreamDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804243"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804252"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
 dimensions :: NonEmpty TimestreamDimension
 $sel:dimensions:TimestreamAction' :: TimestreamAction -&gt; NonEmpty TimestreamDimension
-</span><a href="#local-6989586621679804243"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
-</span><a href="#local-6989586621679804243"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804242"><span class="annot"><span class="annottext">s :: TimestreamAction
-</span><a href="#local-6989586621679804242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804241"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
-</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
-</span><a href="#local-6989586621679804242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:TimestreamAction' :: NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679804252"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679804252"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804251"><span class="annot"><span class="annottext">s :: TimestreamAction
+</span><a href="#local-6989586621679804251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804250"><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
+</span><a href="#local-6989586621679804250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestreamAction
+</span><a href="#local-6989586621679804251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:TimestreamAction' :: NonEmpty TimestreamDimension
 </span><a href="Network.AWS.IoT.Types.TimestreamAction.html#%24sel%3Adimensions%3ATimestreamAction%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
-</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TimestreamDimension -&gt; f (NonEmpty TimestreamDimension))
+</span><a href="#local-6989586621679804250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TimestreamDimension -&gt; f (NonEmpty TimestreamDimension))
  -&gt; TimestreamAction -&gt; f TimestreamAction)
 -&gt; ((NonEmpty TimestreamDimension
      -&gt; f (NonEmpty TimestreamDimension))
@@ -327,8 +327,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804237"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679804235"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimestreamAction
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804246"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679804244"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimestreamAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TimestreamAction)
@@ -338,8 +338,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimestreamAction&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679804232"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679804241"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
 -&gt; Text
 -&gt; Text
@@ -362,7 +362,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; TimestreamAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimestreamTimestamp)
+</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimestreamTimestamp)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -377,7 +377,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -388,7 +388,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (Text -&gt; NonEmpty TimestreamDimension -&gt; TimestreamAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;databaseName&quot;</span></span><span class="hs-special">)</span><span>
@@ -397,7 +397,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty TimestreamDimension -&gt; TimestreamAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tableName&quot;</span></span><span class="hs-special">)</span><span>
@@ -405,19 +405,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty TimestreamDimension) -&gt; Parser TimestreamAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty TimestreamDimension)
+</span><a href="#local-6989586621679804241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty TimestreamDimension)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dimensions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804225"><span id="local-6989586621679804227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804234"><span id="local-6989586621679804236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804214"><span id="local-6989586621679804216"><span id="local-6989586621679804218"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679804212"><span class="annot"><span class="annottext">toJSON :: TimestreamAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804206"><span id="local-6989586621679804207"><span id="local-6989586621679804208"><span id="local-6989586621679804209"><span id="local-6989586621679804210"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804223"><span id="local-6989586621679804225"><span id="local-6989586621679804227"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction"><span class="hs-identifier hs-type">TimestreamAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679804221"><span class="annot"><span class="annottext">toJSON :: TimestreamAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimestreamAction.html#TimestreamAction%27"><span class="hs-identifier hs-type">TimestreamAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804215"><span id="local-6989586621679804216"><span id="local-6989586621679804217"><span id="local-6989586621679804218"><span id="local-6989586621679804219"><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
 NonEmpty TimestreamDimension
 Text
 dimensions :: NonEmpty TimestreamDimension
@@ -430,7 +430,7 @@ $sel:tableName:TimestreamAction' :: TimestreamAction -&gt; Text
 $sel:databaseName:TimestreamAction' :: TimestreamAction -&gt; Text
 $sel:roleArn:TimestreamAction' :: TimestreamAction -&gt; Text
 $sel:timestamp:TimestreamAction' :: TimestreamAction -&gt; Maybe TimestreamTimestamp
-</span><a href="#local-6989586621679804206"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679804215"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -443,35 +443,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TimestreamTimestamp -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamTimestamp
-</span><a href="#local-6989586621679804210"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804219"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804209"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804218"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;databaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804208"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804217"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804207"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804216"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty TimestreamDimension -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TimestreamDimension
-</span><a href="#local-6989586621679804206"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804215"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span></pre></body></html>

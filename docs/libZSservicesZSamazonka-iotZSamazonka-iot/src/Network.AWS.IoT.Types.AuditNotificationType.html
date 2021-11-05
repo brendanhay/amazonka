@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679776325"><span id="local-6989586621679776326"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditNotificationType"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationType.html#AuditNotificationType"><span class="hs-identifier hs-var">AuditNotificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditNotificationType%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationType.html#AuditNotificationType%27"><span class="hs-identifier hs-var">AuditNotificationType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679776334"><span id="local-6989586621679776335"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditNotificationType"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationType.html#AuditNotificationType"><span class="hs-identifier hs-var">AuditNotificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditNotificationType%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationType.html#AuditNotificationType%27"><span class="hs-identifier hs-var">AuditNotificationType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuditNotificationType"><span class="annot"><span class="annottext">AuditNotificationType -&gt; Text
 </span><a href="Network.AWS.IoT.Types.AuditNotificationType.html#fromAuditNotificationType"><span class="hs-identifier hs-var hs-var">fromAuditNotificationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776317"><span id="local-6989586621679776319"><span id="local-6989586621679776321"><span class="annot"><span class="annottext">Int -&gt; AuditNotificationType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776326"><span id="local-6989586621679776328"><span id="local-6989586621679776330"><span class="annot"><span class="annottext">Int -&gt; AuditNotificationType -&gt; ShowS
 [AuditNotificationType] -&gt; ShowS
 AuditNotificationType -&gt; String
 (Int -&gt; AuditNotificationType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: AuditNotificationType -&gt; String
 showsPrec :: Int -&gt; AuditNotificationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuditNotificationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679776308"><span id="local-6989586621679776310"><span id="local-6989586621679776312"><span id="local-6989586621679776314"><span class="annot"><span class="annottext">ReadPrec [AuditNotificationType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679776317"><span id="local-6989586621679776319"><span id="local-6989586621679776321"><span id="local-6989586621679776323"><span class="annot"><span class="annottext">ReadPrec [AuditNotificationType]
 ReadPrec AuditNotificationType
 Int -&gt; ReadS AuditNotificationType
 ReadS [AuditNotificationType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [AuditNotificationType]
 readsPrec :: Int -&gt; ReadS AuditNotificationType
 $creadsPrec :: Int -&gt; ReadS AuditNotificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679776303"><span id="local-6989586621679776305"><span class="annot"><span class="annottext">AuditNotificationType -&gt; AuditNotificationType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679776312"><span id="local-6989586621679776314"><span class="annot"><span class="annottext">AuditNotificationType -&gt; AuditNotificationType -&gt; Bool
 (AuditNotificationType -&gt; AuditNotificationType -&gt; Bool)
 -&gt; (AuditNotificationType -&gt; AuditNotificationType -&gt; Bool)
 -&gt; Eq AuditNotificationType
@@ -81,7 +81,7 @@ $c/= :: AuditNotificationType -&gt; AuditNotificationType -&gt; Bool
 == :: AuditNotificationType -&gt; AuditNotificationType -&gt; Bool
 $c== :: AuditNotificationType -&gt; AuditNotificationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679776287"><span id="local-6989586621679776289"><span id="local-6989586621679776291"><span id="local-6989586621679776293"><span id="local-6989586621679776295"><span id="local-6989586621679776297"><span id="local-6989586621679776299"><span class="annot"><span class="annottext">Eq AuditNotificationType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679776296"><span id="local-6989586621679776298"><span id="local-6989586621679776300"><span id="local-6989586621679776302"><span id="local-6989586621679776304"><span id="local-6989586621679776306"><span id="local-6989586621679776308"><span class="annot"><span class="annottext">Eq AuditNotificationType
 Eq AuditNotificationType
 -&gt; (AuditNotificationType -&gt; AuditNotificationType -&gt; Ordering)
 -&gt; (AuditNotificationType -&gt; AuditNotificationType -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. AuditNotificationType -&gt; Rep AuditNotificationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776279"><span id="local-6989586621679776281"><span class="annot"><span class="annottext">Int -&gt; AuditNotificationType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776288"><span id="local-6989586621679776290"><span class="annot"><span class="annottext">Int -&gt; AuditNotificationType -&gt; Int
 AuditNotificationType -&gt; Int
 (Int -&gt; AuditNotificationType -&gt; Int)
 -&gt; (AuditNotificationType -&gt; Int) -&gt; Hashable AuditNotificationType
@@ -149,54 +149,54 @@ $chash :: AuditNotificationType -&gt; Int
 hashWithSalt :: Int -&gt; AuditNotificationType -&gt; Int
 $chashWithSalt :: Int -&gt; AuditNotificationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679776276"><span class="annot"><span class="annottext">AuditNotificationType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679776285"><span class="annot"><span class="annottext">AuditNotificationType -&gt; ()
 (AuditNotificationType -&gt; ()) -&gt; NFData AuditNotificationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuditNotificationType -&gt; ()
 $crnf :: AuditNotificationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679776273"><span class="annot"><span class="annottext">Text -&gt; Either String AuditNotificationType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679776282"><span class="annot"><span class="annottext">Text -&gt; Either String AuditNotificationType
 (Text -&gt; Either String AuditNotificationType)
 -&gt; FromText AuditNotificationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuditNotificationType
 $cfromText :: Text -&gt; Either String AuditNotificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679776270"><span class="annot"><span class="annottext">AuditNotificationType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679776279"><span class="annot"><span class="annottext">AuditNotificationType -&gt; Text
 (AuditNotificationType -&gt; Text) -&gt; ToText AuditNotificationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuditNotificationType -&gt; Text
 $ctoText :: AuditNotificationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679776267"><span class="annot"><span class="annottext">AuditNotificationType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679776276"><span class="annot"><span class="annottext">AuditNotificationType -&gt; ByteString
 (AuditNotificationType -&gt; ByteString)
 -&gt; ToByteString AuditNotificationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuditNotificationType -&gt; ByteString
 $ctoBS :: AuditNotificationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679776264"><span class="annot"><span class="annottext">AuditNotificationType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679776273"><span class="annot"><span class="annottext">AuditNotificationType -&gt; ByteStringBuilder
 (AuditNotificationType -&gt; ByteStringBuilder)
 -&gt; ToLog AuditNotificationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuditNotificationType -&gt; ByteStringBuilder
 $cbuild :: AuditNotificationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679776261"><span class="annot"><span class="annottext">HeaderName -&gt; AuditNotificationType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679776270"><span class="annot"><span class="annottext">HeaderName -&gt; AuditNotificationType -&gt; [Header]
 (HeaderName -&gt; AuditNotificationType -&gt; [Header])
 -&gt; ToHeader AuditNotificationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuditNotificationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuditNotificationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679776258"><span class="annot"><span class="annottext">AuditNotificationType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679776267"><span class="annot"><span class="annottext">AuditNotificationType -&gt; QueryString
 (AuditNotificationType -&gt; QueryString)
 -&gt; ToQuery AuditNotificationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuditNotificationType -&gt; QueryString
 $ctoQuery :: AuditNotificationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679776253"><span id="local-6989586621679776255"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditNotificationType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679776262"><span id="local-6989586621679776264"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditNotificationType]
 Value -&gt; Parser AuditNotificationType
 (Value -&gt; Parser AuditNotificationType)
 -&gt; (Value -&gt; Parser [AuditNotificationType])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [AuditNotificationType]
 parseJSON :: Value -&gt; Parser AuditNotificationType
 $cparseJSON :: Value -&gt; Parser AuditNotificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679776248"><span id="local-6989586621679776250"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditNotificationType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679776257"><span id="local-6989586621679776259"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditNotificationType]
 FromJSONKeyFunction AuditNotificationType
 FromJSONKeyFunction AuditNotificationType
 -&gt; FromJSONKeyFunction [AuditNotificationType]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuditNotificationType]
 fromJSONKey :: FromJSONKeyFunction AuditNotificationType
 $cfromJSONKey :: FromJSONKeyFunction AuditNotificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679776239"><span id="local-6989586621679776241"><span id="local-6989586621679776243"><span id="local-6989586621679776245"><span class="annot"><span class="annottext">[AuditNotificationType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679776248"><span id="local-6989586621679776250"><span id="local-6989586621679776252"><span id="local-6989586621679776254"><span class="annot"><span class="annottext">[AuditNotificationType] -&gt; Encoding
 [AuditNotificationType] -&gt; Value
 AuditNotificationType -&gt; Encoding
 AuditNotificationType -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: AuditNotificationType -&gt; Encoding
 toJSON :: AuditNotificationType -&gt; Value
 $ctoJSON :: AuditNotificationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679776234"><span id="local-6989586621679776236"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditNotificationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679776243"><span id="local-6989586621679776245"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditNotificationType]
 ToJSONKeyFunction AuditNotificationType
 ToJSONKeyFunction AuditNotificationType
 -&gt; ToJSONKeyFunction [AuditNotificationType]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuditNotificationType]
 toJSONKey :: ToJSONKeyFunction AuditNotificationType
 $ctoJSONKey :: ToJSONKeyFunction AuditNotificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679776231"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditNotificationType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679776240"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditNotificationType
 ([Node] -&gt; Either String AuditNotificationType)
 -&gt; FromXML AuditNotificationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuditNotificationType
 $cparseXML :: [Node] -&gt; Either String AuditNotificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679776228"><span class="annot"><span class="annottext">AuditNotificationType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679776237"><span class="annot"><span class="annottext">AuditNotificationType -&gt; XML
 (AuditNotificationType -&gt; XML) -&gt; ToXML AuditNotificationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuditNotificationType -&gt; XML

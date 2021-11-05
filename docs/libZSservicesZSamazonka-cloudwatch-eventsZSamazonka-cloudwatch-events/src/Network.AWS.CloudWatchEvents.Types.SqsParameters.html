@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- is an SQS FIFO queue.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSqsParameters' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679306699"><span id="local-6989586621679306700"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqsParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-var">SqsParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqsParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-var">SqsParameters'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679306708"><span id="local-6989586621679306709"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqsParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-var">SqsParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqsParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-var">SqsParameters'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The FIFO message group ID to use as the target.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmessageGroupId%3ASqsParameters%27"><span class="annot"><span class="annottext">SqsParameters -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#%24sel%3AmessageGroupId%3ASqsParameters%27"><span class="hs-identifier hs-var hs-var">messageGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306693"><span id="local-6989586621679306695"><span class="annot"><span class="annottext">SqsParameters -&gt; SqsParameters -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306702"><span id="local-6989586621679306704"><span class="annot"><span class="annottext">SqsParameters -&gt; SqsParameters -&gt; Bool
 (SqsParameters -&gt; SqsParameters -&gt; Bool)
 -&gt; (SqsParameters -&gt; SqsParameters -&gt; Bool) -&gt; Eq SqsParameters
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SqsParameters -&gt; SqsParameters -&gt; Bool
 == :: SqsParameters -&gt; SqsParameters -&gt; Bool
 $c== :: SqsParameters -&gt; SqsParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306684"><span id="local-6989586621679306686"><span id="local-6989586621679306688"><span id="local-6989586621679306690"><span class="annot"><span class="annottext">ReadPrec [SqsParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306693"><span id="local-6989586621679306695"><span id="local-6989586621679306697"><span id="local-6989586621679306699"><span class="annot"><span class="annottext">ReadPrec [SqsParameters]
 ReadPrec SqsParameters
 Int -&gt; ReadS SqsParameters
 ReadS [SqsParameters]
@@ -60,7 +60,7 @@ readList :: ReadS [SqsParameters]
 $creadList :: ReadS [SqsParameters]
 readsPrec :: Int -&gt; ReadS SqsParameters
 $creadsPrec :: Int -&gt; ReadS SqsParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306677"><span id="local-6989586621679306679"><span id="local-6989586621679306681"><span class="annot"><span class="annottext">Int -&gt; SqsParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306686"><span id="local-6989586621679306688"><span id="local-6989586621679306690"><span class="annot"><span class="annottext">Int -&gt; SqsParameters -&gt; ShowS
 [SqsParameters] -&gt; ShowS
 SqsParameters -&gt; String
 (Int -&gt; SqsParameters -&gt; ShowS)
@@ -112,19 +112,19 @@ forall a. Maybe a
 -&gt; (SqsParameters -&gt; Maybe Text -&gt; SqsParameters)
 -&gt; Lens SqsParameters SqsParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-type">SqsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306668"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-type">SqsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306677"><span class="annot"><span class="annottext">Maybe Text
 messageGroupId :: Maybe Text
 $sel:messageGroupId:SqsParameters' :: SqsParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679306668"><span class="hs-identifier hs-var hs-var">messageGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306668"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306667"><span class="annot"><span class="annottext">s :: SqsParameters
-</span><a href="#local-6989586621679306667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-type">SqsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306666"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsParameters
-</span><a href="#local-6989586621679306667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageGroupId:SqsParameters' :: Maybe Text
+</span><a href="#local-6989586621679306677"><span class="hs-identifier hs-var hs-var">messageGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306677"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306676"><span class="annot"><span class="annottext">s :: SqsParameters
+</span><a href="#local-6989586621679306676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-type">SqsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306675"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqsParameters
+</span><a href="#local-6989586621679306676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageGroupId:SqsParameters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#%24sel%3AmessageGroupId%3ASqsParameters%27"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306663"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679306661"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqsParameters
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306672"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679306670"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqsParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SqsParameters)
@@ -134,30 +134,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SqsParameters&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306658"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306667"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; SqsParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-var">SqsParameters'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; SqsParameters)
 -&gt; Parser (Maybe Text) -&gt; Parser SqsParameters
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679306667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageGroupId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306652"><span id="local-6989586621679306654"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306661"><span id="local-6989586621679306663"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306658"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306641"><span id="local-6989586621679306643"><span id="local-6989586621679306645"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679306639"><span class="annot"><span class="annottext">toJSON :: SqsParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-type">SqsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306637"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306650"><span id="local-6989586621679306652"><span id="local-6989586621679306654"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679306648"><span class="annot"><span class="annottext">toJSON :: SqsParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.SqsParameters.html#SqsParameters%27"><span class="hs-identifier hs-type">SqsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306646"><span class="annot"><span class="annottext">Maybe Text
 messageGroupId :: Maybe Text
 $sel:messageGroupId:SqsParameters' :: SqsParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679306637"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306646"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -170,7 +170,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-72"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306637"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span>
+</span><a href="#local-6989586621679306646"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span>
 </span><span id="line-73"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

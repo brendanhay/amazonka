@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.TraversalDirection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.TraversalDirection</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection"><span class="hs-identifier">TraversalDirection</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection_CHILD"><span class="hs-identifier">TraversalDirection_CHILD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection_PARENT"><span class="hs-identifier">TraversalDirection_PARENT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679344562"><span id="local-6989586621679344563"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TraversalDirection"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection"><span class="hs-identifier hs-var">TraversalDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TraversalDirection%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection%27"><span class="hs-identifier hs-var">TraversalDirection'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTraversalDirection"><span class="annot"><span class="annottext">TraversalDirection -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#fromTraversalDirection"><span class="hs-identifier hs-var hs-var">fromTraversalDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344554"><span id="local-6989586621679344556"><span id="local-6989586621679344558"><span class="annot"><span class="annottext">Int -&gt; TraversalDirection -&gt; ShowS
+[TraversalDirection] -&gt; ShowS
+TraversalDirection -&gt; String
+(Int -&gt; TraversalDirection -&gt; ShowS)
+-&gt; (TraversalDirection -&gt; String)
+-&gt; ([TraversalDirection] -&gt; ShowS)
+-&gt; Show TraversalDirection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TraversalDirection] -&gt; ShowS
+$cshowList :: [TraversalDirection] -&gt; ShowS
+show :: TraversalDirection -&gt; String
+$cshow :: TraversalDirection -&gt; String
+showsPrec :: Int -&gt; TraversalDirection -&gt; ShowS
+$cshowsPrec :: Int -&gt; TraversalDirection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344545"><span id="local-6989586621679344547"><span id="local-6989586621679344549"><span id="local-6989586621679344551"><span class="annot"><span class="annottext">ReadPrec [TraversalDirection]
+ReadPrec TraversalDirection
+Int -&gt; ReadS TraversalDirection
+ReadS [TraversalDirection]
+(Int -&gt; ReadS TraversalDirection)
+-&gt; ReadS [TraversalDirection]
+-&gt; ReadPrec TraversalDirection
+-&gt; ReadPrec [TraversalDirection]
+-&gt; Read TraversalDirection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TraversalDirection]
+$creadListPrec :: ReadPrec [TraversalDirection]
+readPrec :: ReadPrec TraversalDirection
+$creadPrec :: ReadPrec TraversalDirection
+readList :: ReadS [TraversalDirection]
+$creadList :: ReadS [TraversalDirection]
+readsPrec :: Int -&gt; ReadS TraversalDirection
+$creadsPrec :: Int -&gt; ReadS TraversalDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344540"><span id="local-6989586621679344542"><span class="annot"><span class="annottext">TraversalDirection -&gt; TraversalDirection -&gt; Bool
+(TraversalDirection -&gt; TraversalDirection -&gt; Bool)
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; Bool)
+-&gt; Eq TraversalDirection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+$c/= :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+== :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+$c== :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679344524"><span id="local-6989586621679344526"><span id="local-6989586621679344528"><span id="local-6989586621679344530"><span id="local-6989586621679344532"><span id="local-6989586621679344534"><span id="local-6989586621679344536"><span class="annot"><span class="annottext">Eq TraversalDirection
+Eq TraversalDirection
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; Ordering)
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; Bool)
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; Bool)
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; Bool)
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; Bool)
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; TraversalDirection)
+-&gt; (TraversalDirection -&gt; TraversalDirection -&gt; TraversalDirection)
+-&gt; Ord TraversalDirection
+TraversalDirection -&gt; TraversalDirection -&gt; Bool
+TraversalDirection -&gt; TraversalDirection -&gt; Ordering
+TraversalDirection -&gt; TraversalDirection -&gt; TraversalDirection
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TraversalDirection -&gt; TraversalDirection -&gt; TraversalDirection
+$cmin :: TraversalDirection -&gt; TraversalDirection -&gt; TraversalDirection
+max :: TraversalDirection -&gt; TraversalDirection -&gt; TraversalDirection
+$cmax :: TraversalDirection -&gt; TraversalDirection -&gt; TraversalDirection
+&gt;= :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+$c&gt;= :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+&gt; :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+$c&gt; :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+&lt;= :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+$c&lt;= :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+&lt; :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+$c&lt; :: TraversalDirection -&gt; TraversalDirection -&gt; Bool
+compare :: TraversalDirection -&gt; TraversalDirection -&gt; Ordering
+$ccompare :: TraversalDirection -&gt; TraversalDirection -&gt; Ordering
+$cp1Ord :: Eq TraversalDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TraversalDirection -&gt; Rep TraversalDirection x)
+-&gt; (forall x. Rep TraversalDirection x -&gt; TraversalDirection)
+-&gt; Generic TraversalDirection
+forall x. Rep TraversalDirection x -&gt; TraversalDirection
+forall x. TraversalDirection -&gt; Rep TraversalDirection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TraversalDirection x -&gt; TraversalDirection
+$cfrom :: forall x. TraversalDirection -&gt; Rep TraversalDirection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344516"><span id="local-6989586621679344518"><span class="annot"><span class="annottext">Int -&gt; TraversalDirection -&gt; Int
+TraversalDirection -&gt; Int
+(Int -&gt; TraversalDirection -&gt; Int)
+-&gt; (TraversalDirection -&gt; Int) -&gt; Hashable TraversalDirection
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TraversalDirection -&gt; Int
+$chash :: TraversalDirection -&gt; Int
+hashWithSalt :: Int -&gt; TraversalDirection -&gt; Int
+$chashWithSalt :: Int -&gt; TraversalDirection -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344513"><span class="annot"><span class="annottext">TraversalDirection -&gt; ()
+(TraversalDirection -&gt; ()) -&gt; NFData TraversalDirection
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TraversalDirection -&gt; ()
+$crnf :: TraversalDirection -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344510"><span class="annot"><span class="annottext">Text -&gt; Either String TraversalDirection
+(Text -&gt; Either String TraversalDirection)
+-&gt; FromText TraversalDirection
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TraversalDirection
+$cfromText :: Text -&gt; Either String TraversalDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344507"><span class="annot"><span class="annottext">TraversalDirection -&gt; Text
+(TraversalDirection -&gt; Text) -&gt; ToText TraversalDirection
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TraversalDirection -&gt; Text
+$ctoText :: TraversalDirection -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344504"><span class="annot"><span class="annottext">TraversalDirection -&gt; ByteString
+(TraversalDirection -&gt; ByteString)
+-&gt; ToByteString TraversalDirection
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TraversalDirection -&gt; ByteString
+$ctoBS :: TraversalDirection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344501"><span class="annot"><span class="annottext">TraversalDirection -&gt; ByteStringBuilder
+(TraversalDirection -&gt; ByteStringBuilder)
+-&gt; ToLog TraversalDirection
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TraversalDirection -&gt; ByteStringBuilder
+$cbuild :: TraversalDirection -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344498"><span class="annot"><span class="annottext">HeaderName -&gt; TraversalDirection -&gt; [Header]
+(HeaderName -&gt; TraversalDirection -&gt; [Header])
+-&gt; ToHeader TraversalDirection
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TraversalDirection -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TraversalDirection -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344495"><span class="annot"><span class="annottext">TraversalDirection -&gt; QueryString
+(TraversalDirection -&gt; QueryString) -&gt; ToQuery TraversalDirection
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TraversalDirection -&gt; QueryString
+$ctoQuery :: TraversalDirection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344490"><span id="local-6989586621679344492"><span class="annot"><span class="annottext">Value -&gt; Parser [TraversalDirection]
+Value -&gt; Parser TraversalDirection
+(Value -&gt; Parser TraversalDirection)
+-&gt; (Value -&gt; Parser [TraversalDirection])
+-&gt; FromJSON TraversalDirection
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TraversalDirection]
+$cparseJSONList :: Value -&gt; Parser [TraversalDirection]
+parseJSON :: Value -&gt; Parser TraversalDirection
+$cparseJSON :: Value -&gt; Parser TraversalDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344485"><span id="local-6989586621679344487"><span class="annot"><span class="annottext">FromJSONKeyFunction [TraversalDirection]
+FromJSONKeyFunction TraversalDirection
+FromJSONKeyFunction TraversalDirection
+-&gt; FromJSONKeyFunction [TraversalDirection]
+-&gt; FromJSONKey TraversalDirection
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TraversalDirection]
+$cfromJSONKeyList :: FromJSONKeyFunction [TraversalDirection]
+fromJSONKey :: FromJSONKeyFunction TraversalDirection
+$cfromJSONKey :: FromJSONKeyFunction TraversalDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344476"><span id="local-6989586621679344478"><span id="local-6989586621679344480"><span id="local-6989586621679344482"><span class="annot"><span class="annottext">[TraversalDirection] -&gt; Encoding
+[TraversalDirection] -&gt; Value
+TraversalDirection -&gt; Encoding
+TraversalDirection -&gt; Value
+(TraversalDirection -&gt; Value)
+-&gt; (TraversalDirection -&gt; Encoding)
+-&gt; ([TraversalDirection] -&gt; Value)
+-&gt; ([TraversalDirection] -&gt; Encoding)
+-&gt; ToJSON TraversalDirection
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TraversalDirection] -&gt; Encoding
+$ctoEncodingList :: [TraversalDirection] -&gt; Encoding
+toJSONList :: [TraversalDirection] -&gt; Value
+$ctoJSONList :: [TraversalDirection] -&gt; Value
+toEncoding :: TraversalDirection -&gt; Encoding
+$ctoEncoding :: TraversalDirection -&gt; Encoding
+toJSON :: TraversalDirection -&gt; Value
+$ctoJSON :: TraversalDirection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344471"><span id="local-6989586621679344473"><span class="annot"><span class="annottext">ToJSONKeyFunction [TraversalDirection]
+ToJSONKeyFunction TraversalDirection
+ToJSONKeyFunction TraversalDirection
+-&gt; ToJSONKeyFunction [TraversalDirection]
+-&gt; ToJSONKey TraversalDirection
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TraversalDirection]
+$ctoJSONKeyList :: ToJSONKeyFunction [TraversalDirection]
+toJSONKey :: ToJSONKeyFunction TraversalDirection
+$ctoJSONKey :: ToJSONKeyFunction TraversalDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344468"><span class="annot"><span class="annottext">[Node] -&gt; Either String TraversalDirection
+([Node] -&gt; Either String TraversalDirection)
+-&gt; FromXML TraversalDirection
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TraversalDirection
+$cparseXML :: [Node] -&gt; Either String TraversalDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344465"><span class="annot"><span class="annottext">TraversalDirection -&gt; XML
+(TraversalDirection -&gt; XML) -&gt; ToXML TraversalDirection
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TraversalDirection -&gt; XML
+$ctoXML :: TraversalDirection -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection_CHILD"><span class="hs-identifier hs-type">TraversalDirection_CHILD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection"><span class="hs-identifier hs-type">TraversalDirection</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTraversalDirection_CHILD"><span id="%24mTraversalDirection_CHILD"><span id="TraversalDirection_CHILD"><span class="annot"><span class="annottext">$bTraversalDirection_CHILD :: TraversalDirection
+$mTraversalDirection_CHILD :: forall r. TraversalDirection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#%24bTraversalDirection_CHILD"><span class="hs-identifier hs-var hs-var hs-var">TraversalDirection_CHILD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection%27"><span class="hs-identifier hs-type">TraversalDirection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CHILD&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection_PARENT"><span class="hs-identifier hs-type">TraversalDirection_PARENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection"><span class="hs-identifier hs-type">TraversalDirection</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTraversalDirection_PARENT"><span id="%24mTraversalDirection_PARENT"><span id="TraversalDirection_PARENT"><span class="annot"><span class="annottext">$bTraversalDirection_PARENT :: TraversalDirection
+$mTraversalDirection_PARENT :: forall r. TraversalDirection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#%24bTraversalDirection_PARENT"><span class="hs-identifier hs-var hs-var hs-var">TraversalDirection_PARENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection%27"><span class="hs-identifier hs-type">TraversalDirection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARENT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection_CHILD"><span class="hs-pragma hs-type">TraversalDirection_CHILD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection_PARENT"><span class="hs-pragma hs-type">TraversalDirection_PARENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalDirection.html#TraversalDirection%27"><span class="hs-pragma hs-type">TraversalDirection'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

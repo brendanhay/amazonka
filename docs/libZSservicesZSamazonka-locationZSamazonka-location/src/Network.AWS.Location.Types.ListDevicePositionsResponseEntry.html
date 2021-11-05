@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Location.Types.ListDevicePositionsResponseEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.Types.ListDevicePositionsResponseEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains the tracker resource details.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newListDevicePositionsResponseEntry' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679260711"><span id="local-6989586621679260712"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDevicePositionsResponseEntry"><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-var">ListDevicePositionsResponseEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDevicePositionsResponseEntry%27"><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">ListDevicePositionsResponseEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the device for this position.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AdeviceId%3AListDevicePositionsResponseEntry%27"><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry -&gt; Text
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3AdeviceId%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The last known device position. Empty if no positions currently stored.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aposition%3AListDevicePositionsResponseEntry%27"><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry -&gt; Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3Aposition%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The timestamp at which the device position was determined. Uses</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsampleTime%3AListDevicePositionsResponseEntry%27"><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry -&gt; POSIX
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3AsampleTime%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var hs-var">sampleTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260703"><span id="local-6989586621679260705"><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry
+-&gt; ListDevicePositionsResponseEntry -&gt; Bool
+(ListDevicePositionsResponseEntry
+ -&gt; ListDevicePositionsResponseEntry -&gt; Bool)
+-&gt; (ListDevicePositionsResponseEntry
+    -&gt; ListDevicePositionsResponseEntry -&gt; Bool)
+-&gt; Eq ListDevicePositionsResponseEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDevicePositionsResponseEntry
+-&gt; ListDevicePositionsResponseEntry -&gt; Bool
+$c/= :: ListDevicePositionsResponseEntry
+-&gt; ListDevicePositionsResponseEntry -&gt; Bool
+== :: ListDevicePositionsResponseEntry
+-&gt; ListDevicePositionsResponseEntry -&gt; Bool
+$c== :: ListDevicePositionsResponseEntry
+-&gt; ListDevicePositionsResponseEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260696"><span id="local-6989586621679260698"><span id="local-6989586621679260700"><span class="annot"><span class="annottext">Int -&gt; ListDevicePositionsResponseEntry -&gt; ShowS
+[ListDevicePositionsResponseEntry] -&gt; ShowS
+ListDevicePositionsResponseEntry -&gt; String
+(Int -&gt; ListDevicePositionsResponseEntry -&gt; ShowS)
+-&gt; (ListDevicePositionsResponseEntry -&gt; String)
+-&gt; ([ListDevicePositionsResponseEntry] -&gt; ShowS)
+-&gt; Show ListDevicePositionsResponseEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDevicePositionsResponseEntry] -&gt; ShowS
+$cshowList :: [ListDevicePositionsResponseEntry] -&gt; ShowS
+show :: ListDevicePositionsResponseEntry -&gt; String
+$cshow :: ListDevicePositionsResponseEntry -&gt; String
+showsPrec :: Int -&gt; ListDevicePositionsResponseEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDevicePositionsResponseEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDevicePositionsResponseEntry
+ -&gt; Rep ListDevicePositionsResponseEntry x)
+-&gt; (forall x.
+    Rep ListDevicePositionsResponseEntry x
+    -&gt; ListDevicePositionsResponseEntry)
+-&gt; Generic ListDevicePositionsResponseEntry
+forall x.
+Rep ListDevicePositionsResponseEntry x
+-&gt; ListDevicePositionsResponseEntry
+forall x.
+ListDevicePositionsResponseEntry
+-&gt; Rep ListDevicePositionsResponseEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDevicePositionsResponseEntry x
+-&gt; ListDevicePositionsResponseEntry
+$cfrom :: forall x.
+ListDevicePositionsResponseEntry
+-&gt; Rep ListDevicePositionsResponseEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ListDevicePositionsResponseEntry' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'deviceId', 'listDevicePositionsResponseEntry_deviceId' - The ID of the device for this position.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'position', 'listDevicePositionsResponseEntry_position' - The last known device position. Empty if no positions currently stored.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'sampleTime', 'listDevicePositionsResponseEntry_sampleTime' - The timestamp at which the device position was determined. Uses</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#newListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">newListDevicePositionsResponseEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'position'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'sampleTime'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span><span>
+</span><span id="line-64"></span><span id="newListDevicePositionsResponseEntry"><span class="annot"><span class="annottext">newListDevicePositionsResponseEntry :: Text
+-&gt; NonEmpty Double -&gt; UTCTime -&gt; ListDevicePositionsResponseEntry
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#newListDevicePositionsResponseEntry"><span class="hs-identifier hs-var hs-var">newListDevicePositionsResponseEntry</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679260690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260690"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679260689"><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679260689"><span class="hs-identifier hs-var">pPosition_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679260688"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679260688"><span class="hs-identifier hs-var">pSampleTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry' :: Text
+-&gt; Sensitive (NonEmpty Double)
+-&gt; POSIX
+-&gt; ListDevicePositionsResponseEntry
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry'</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceId:ListDevicePositionsResponseEntry' :: Text
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3AdeviceId%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260690"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:position:ListDevicePositionsResponseEntry' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3Aposition%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; (Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+    -&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double)))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; NonEmpty Double -&gt; Sensitive (NonEmpty Double)
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679260689"><span class="hs-identifier hs-var">pPosition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:sampleTime:ListDevicePositionsResponseEntry' :: POSIX
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3AsampleTime%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">sampleTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679260688"><span class="hs-identifier hs-var">pSampleTime_</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the device for this position.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_deviceId"><span class="hs-identifier hs-type">listDevicePositionsResponseEntry_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="listDevicePositionsResponseEntry_deviceId"><span class="annot"><span class="annottext">listDevicePositionsResponseEntry_deviceId :: (Text -&gt; f Text)
+-&gt; ListDevicePositionsResponseEntry
+-&gt; f ListDevicePositionsResponseEntry
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_deviceId"><span class="hs-identifier hs-var hs-var">listDevicePositionsResponseEntry_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicePositionsResponseEntry -&gt; Text)
+-&gt; (ListDevicePositionsResponseEntry
+    -&gt; Text -&gt; ListDevicePositionsResponseEntry)
+-&gt; Lens
+     ListDevicePositionsResponseEntry
+     ListDevicePositionsResponseEntry
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260679"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:ListDevicePositionsResponseEntry' :: ListDevicePositionsResponseEntry -&gt; Text
+</span><a href="#local-6989586621679260679"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260679"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260678"><span class="annot"><span class="annottext">s :: ListDevicePositionsResponseEntry
+</span><a href="#local-6989586621679260678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260677"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry
+</span><a href="#local-6989586621679260678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:ListDevicePositionsResponseEntry' :: Text
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3AdeviceId%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The last known device position. Empty if no positions currently stored.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_position"><span class="hs-identifier hs-type">listDevicePositionsResponseEntry_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="listDevicePositionsResponseEntry_position"><span class="annot"><span class="annottext">listDevicePositionsResponseEntry_position :: (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; ListDevicePositionsResponseEntry
+-&gt; f ListDevicePositionsResponseEntry
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_position"><span class="hs-identifier hs-var hs-var">listDevicePositionsResponseEntry_position</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicePositionsResponseEntry -&gt; Sensitive (NonEmpty Double))
+-&gt; (ListDevicePositionsResponseEntry
+    -&gt; Sensitive (NonEmpty Double) -&gt; ListDevicePositionsResponseEntry)
+-&gt; Lens
+     ListDevicePositionsResponseEntry
+     ListDevicePositionsResponseEntry
+     (Sensitive (NonEmpty Double))
+     (Sensitive (NonEmpty Double))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260675"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+position :: Sensitive (NonEmpty Double)
+$sel:position:ListDevicePositionsResponseEntry' :: ListDevicePositionsResponseEntry -&gt; Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679260675"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679260675"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260674"><span class="annot"><span class="annottext">s :: ListDevicePositionsResponseEntry
+</span><a href="#local-6989586621679260674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260673"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679260673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry
+</span><a href="#local-6989586621679260674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:ListDevicePositionsResponseEntry' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3Aposition%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679260673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+ -&gt; ListDevicePositionsResponseEntry
+ -&gt; f ListDevicePositionsResponseEntry)
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; ListDevicePositionsResponseEntry
+-&gt; f ListDevicePositionsResponseEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">((NonEmpty Double -&gt; f (NonEmpty Double))
+ -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double)
+-&gt; f (Sensitive (NonEmpty Double))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; NonEmpty Double -&gt; f (NonEmpty Double)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The timestamp at which the device position was determined. Uses</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_sampleTime"><span class="hs-identifier hs-type">listDevicePositionsResponseEntry_sampleTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-90"></span><span id="listDevicePositionsResponseEntry_sampleTime"><span class="annot"><span class="annottext">listDevicePositionsResponseEntry_sampleTime :: (UTCTime -&gt; f UTCTime)
+-&gt; ListDevicePositionsResponseEntry
+-&gt; f ListDevicePositionsResponseEntry
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_sampleTime"><span class="hs-identifier hs-var hs-var">listDevicePositionsResponseEntry_sampleTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicePositionsResponseEntry -&gt; POSIX)
+-&gt; (ListDevicePositionsResponseEntry
+    -&gt; POSIX -&gt; ListDevicePositionsResponseEntry)
+-&gt; Lens
+     ListDevicePositionsResponseEntry
+     ListDevicePositionsResponseEntry
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260671"><span class="annot"><span class="annottext">POSIX
+sampleTime :: POSIX
+$sel:sampleTime:ListDevicePositionsResponseEntry' :: ListDevicePositionsResponseEntry -&gt; POSIX
+</span><a href="#local-6989586621679260671"><span class="hs-identifier hs-var hs-var">sampleTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679260671"><span class="hs-identifier hs-var">sampleTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260670"><span class="annot"><span class="annottext">s :: ListDevicePositionsResponseEntry
+</span><a href="#local-6989586621679260670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260669"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679260669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicePositionsResponseEntry
+</span><a href="#local-6989586621679260670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleTime:ListDevicePositionsResponseEntry' :: POSIX
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#%24sel%3AsampleTime%3AListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">sampleTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679260669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; ListDevicePositionsResponseEntry
+ -&gt; f ListDevicePositionsResponseEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ListDevicePositionsResponseEntry
+-&gt; f ListDevicePositionsResponseEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679260666"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679260664"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ListDevicePositionsResponseEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ListDevicePositionsResponseEntry)
+-&gt; Value
+-&gt; Parser ListDevicePositionsResponseEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ListDevicePositionsResponseEntry&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260661"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; Sensitive (NonEmpty Double)
+-&gt; POSIX
+-&gt; ListDevicePositionsResponseEntry
+</span><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry%27"><span class="hs-identifier hs-var">ListDevicePositionsResponseEntry'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; Sensitive (NonEmpty Double)
+ -&gt; POSIX
+ -&gt; ListDevicePositionsResponseEntry)
+-&gt; Parser Text
+-&gt; Parser
+     (Sensitive (NonEmpty Double)
+      -&gt; POSIX -&gt; ListDevicePositionsResponseEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Sensitive (NonEmpty Double)
+   -&gt; POSIX -&gt; ListDevicePositionsResponseEntry)
+-&gt; Parser (Sensitive (NonEmpty Double))
+-&gt; Parser (POSIX -&gt; ListDevicePositionsResponseEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive (NonEmpty Double))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Position&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; ListDevicePositionsResponseEntry)
+-&gt; Parser POSIX -&gt; Parser ListDevicePositionsResponseEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SampleTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679260655"><span id="local-6989586621679260657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679260652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier hs-type">ListDevicePositionsResponseEntry</span></a></span></span><span>
+</span><span id="line-113"></span></pre></body></html>

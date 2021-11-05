@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorkGroup' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679228414"><span id="local-6989586621679228415"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkGroup"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-var">UpdateWorkGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkGroup%27"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-var">UpdateWorkGroup'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679228423"><span id="local-6989586621679228424"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkGroup"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-var">UpdateWorkGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkGroup%27"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-var">UpdateWorkGroup'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The workgroup state that will be updated for the given workgroup.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Astate%3AUpdateWorkGroup%27"><span class="annot"><span class="annottext">UpdateWorkGroup -&gt; Maybe WorkGroupState
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3Astate%3AUpdateWorkGroup%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState"><span class="hs-identifier hs-type">WorkGroupState</span></a></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AworkGroup%3AUpdateWorkGroup%27"><span class="annot"><span class="annottext">UpdateWorkGroup -&gt; Text
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3AworkGroup%3AUpdateWorkGroup%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228405"><span id="local-6989586621679228407"><span class="annot"><span class="annottext">UpdateWorkGroup -&gt; UpdateWorkGroup -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228414"><span id="local-6989586621679228416"><span class="annot"><span class="annottext">UpdateWorkGroup -&gt; UpdateWorkGroup -&gt; Bool
 (UpdateWorkGroup -&gt; UpdateWorkGroup -&gt; Bool)
 -&gt; (UpdateWorkGroup -&gt; UpdateWorkGroup -&gt; Bool)
 -&gt; Eq UpdateWorkGroup
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWorkGroup -&gt; UpdateWorkGroup -&gt; Bool
 == :: UpdateWorkGroup -&gt; UpdateWorkGroup -&gt; Bool
 $c== :: UpdateWorkGroup -&gt; UpdateWorkGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228396"><span id="local-6989586621679228398"><span id="local-6989586621679228400"><span id="local-6989586621679228402"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228405"><span id="local-6989586621679228407"><span id="local-6989586621679228409"><span id="local-6989586621679228411"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkGroup]
 ReadPrec UpdateWorkGroup
 Int -&gt; ReadS UpdateWorkGroup
 ReadS [UpdateWorkGroup]
@@ -94,7 +94,7 @@ readList :: ReadS [UpdateWorkGroup]
 $creadList :: ReadS [UpdateWorkGroup]
 readsPrec :: Int -&gt; ReadS UpdateWorkGroup
 $creadsPrec :: Int -&gt; ReadS UpdateWorkGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228389"><span id="local-6989586621679228391"><span id="local-6989586621679228393"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228398"><span id="local-6989586621679228400"><span id="local-6989586621679228402"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkGroup -&gt; ShowS
 [UpdateWorkGroup] -&gt; ShowS
 UpdateWorkGroup -&gt; String
 (Int -&gt; UpdateWorkGroup -&gt; ShowS)
@@ -141,8 +141,8 @@ $cfrom :: forall x. UpdateWorkGroup -&gt; Rep UpdateWorkGroup x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span>
 </span><span id="line-86"></span><span id="newUpdateWorkGroup"><span class="annot"><span class="annottext">newUpdateWorkGroup :: Text -&gt; UpdateWorkGroup
-</span><a href="Network.AWS.Athena.UpdateWorkGroup.html#newUpdateWorkGroup"><span class="hs-identifier hs-var hs-var">newUpdateWorkGroup</span></a></span></span><span> </span><span id="local-6989586621679228384"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228384"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.UpdateWorkGroup.html#newUpdateWorkGroup"><span class="hs-identifier hs-var hs-var">newUpdateWorkGroup</span></a></span></span><span> </span><span id="local-6989586621679228393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228393"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkGroup' :: Maybe WorkGroupState
 -&gt; Maybe WorkGroupConfigurationUpdates
 -&gt; Maybe Text
@@ -163,7 +163,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:workGroup:UpdateWorkGroup' :: Text
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3AworkGroup%3AUpdateWorkGroup%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228384"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span>
+</span><a href="#local-6989586621679228393"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The workgroup state that will be updated for the given workgroup.</span><span>
@@ -178,16 +178,16 @@ forall a. Maybe a
      (Maybe WorkGroupState)
      (Maybe WorkGroupState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228381"><span class="annot"><span class="annottext">Maybe WorkGroupState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228390"><span class="annot"><span class="annottext">Maybe WorkGroupState
 state :: Maybe WorkGroupState
 $sel:state:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe WorkGroupState
-</span><a href="#local-6989586621679228381"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
-</span><a href="#local-6989586621679228381"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228380"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
-</span><a href="#local-6989586621679228380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228379"><span class="annot"><span class="annottext">Maybe WorkGroupState
-</span><a href="#local-6989586621679228379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
-</span><a href="#local-6989586621679228380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:UpdateWorkGroup' :: Maybe WorkGroupState
+</span><a href="#local-6989586621679228390"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
+</span><a href="#local-6989586621679228390"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228389"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
+</span><a href="#local-6989586621679228389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228388"><span class="annot"><span class="annottext">Maybe WorkGroupState
+</span><a href="#local-6989586621679228388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
+</span><a href="#local-6989586621679228389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:UpdateWorkGroup' :: Maybe WorkGroupState
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3Astate%3AUpdateWorkGroup%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
-</span><a href="#local-6989586621679228379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The workgroup configuration that will be updated for the given</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- workgroup.</span><span>
@@ -204,16 +204,16 @@ $sel:state:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe WorkGroupState
      (Maybe WorkGroupConfigurationUpdates)
      (Maybe WorkGroupConfigurationUpdates)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228378"><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228387"><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
 configurationUpdates :: Maybe WorkGroupConfigurationUpdates
 $sel:configurationUpdates:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe WorkGroupConfigurationUpdates
-</span><a href="#local-6989586621679228378"><span class="hs-identifier hs-var hs-var">configurationUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
-</span><a href="#local-6989586621679228378"><span class="hs-identifier hs-var">configurationUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228377"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
-</span><a href="#local-6989586621679228377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228376"><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
-</span><a href="#local-6989586621679228376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
-</span><a href="#local-6989586621679228377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationUpdates:UpdateWorkGroup' :: Maybe WorkGroupConfigurationUpdates
+</span><a href="#local-6989586621679228387"><span class="hs-identifier hs-var hs-var">configurationUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
+</span><a href="#local-6989586621679228387"><span class="hs-identifier hs-var">configurationUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228386"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
+</span><a href="#local-6989586621679228386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228385"><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
+</span><a href="#local-6989586621679228385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
+</span><a href="#local-6989586621679228386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationUpdates:UpdateWorkGroup' :: Maybe WorkGroupConfigurationUpdates
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3AconfigurationUpdates%3AUpdateWorkGroup%27"><span class="hs-identifier hs-var">configurationUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
-</span><a href="#local-6989586621679228376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The workgroup description.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#updateWorkGroup_description"><span class="hs-identifier hs-type">updateWorkGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:configurationUpdates:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe WorkGr
 -&gt; (UpdateWorkGroup -&gt; Maybe Text -&gt; UpdateWorkGroup)
 -&gt; Lens UpdateWorkGroup UpdateWorkGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228375"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228384"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679228375"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228375"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228374"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
-</span><a href="#local-6989586621679228374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228373"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
-</span><a href="#local-6989586621679228374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateWorkGroup' :: Maybe Text
+</span><a href="#local-6989586621679228384"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228384"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228383"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
+</span><a href="#local-6989586621679228383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
+</span><a href="#local-6989586621679228383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateWorkGroup' :: Maybe Text
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3Adescription%3AUpdateWorkGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The specified workgroup that will be updated.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#updateWorkGroup_workGroup"><span class="hs-identifier hs-type">updateWorkGroup_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -241,27 +241,27 @@ $sel:description:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe Text
 -&gt; (UpdateWorkGroup -&gt; Text -&gt; UpdateWorkGroup)
 -&gt; Lens UpdateWorkGroup UpdateWorkGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228372"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228381"><span class="annot"><span class="annottext">Text
 workGroup :: Text
 $sel:workGroup:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Text
-</span><a href="#local-6989586621679228372"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228372"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228371"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
-</span><a href="#local-6989586621679228371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228370"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
-</span><a href="#local-6989586621679228371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:UpdateWorkGroup' :: Text
+</span><a href="#local-6989586621679228381"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228381"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228380"><span class="annot"><span class="annottext">s :: UpdateWorkGroup
+</span><a href="#local-6989586621679228380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroup
+</span><a href="#local-6989586621679228380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:UpdateWorkGroup' :: Text
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3AworkGroup%3AUpdateWorkGroup%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-type">UpdateWorkGroupResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679228366"><span class="annot"><span class="annottext">request :: UpdateWorkGroup -&gt; Request UpdateWorkGroup
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679228375"><span class="annot"><span class="annottext">request :: UpdateWorkGroup -&gt; Request UpdateWorkGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateWorkGroup -&gt; Request UpdateWorkGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679228362"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679228371"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateWorkGroup
 -&gt; ClientResponse ClientBody
@@ -285,10 +285,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228359"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228358"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679228358"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228357"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679228357"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228368"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228367"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679228367"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228366"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679228366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateWorkGroupResponse
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-var">UpdateWorkGroupResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateWorkGroupResponse)
@@ -299,15 +299,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228359"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228368"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228350"><span id="local-6989586621679228352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228359"><span id="local-6989586621679228361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679228343"><span class="annot"><span class="annottext">toHeaders :: UpdateWorkGroup -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679228352"><span class="annot"><span class="annottext">toHeaders :: UpdateWorkGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateWorkGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -334,9 +334,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228333"><span id="local-6989586621679228335"><span id="local-6989586621679228337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679228331"><span class="annot"><span class="annottext">toJSON :: UpdateWorkGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228326"><span id="local-6989586621679228327"><span id="local-6989586621679228328"><span id="local-6989586621679228329"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228342"><span id="local-6989586621679228344"><span id="local-6989586621679228346"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679228340"><span class="annot"><span class="annottext">toJSON :: UpdateWorkGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup%27"><span class="hs-identifier hs-type">UpdateWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228335"><span id="local-6989586621679228336"><span id="local-6989586621679228337"><span id="local-6989586621679228338"><span class="annot"><span class="annottext">Maybe Text
 Maybe WorkGroupConfigurationUpdates
 Maybe WorkGroupState
 Text
@@ -348,7 +348,7 @@ $sel:workGroup:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Text
 $sel:description:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe Text
 $sel:configurationUpdates:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe WorkGroupConfigurationUpdates
 $sel:state:UpdateWorkGroup' :: UpdateWorkGroup -&gt; Maybe WorkGroupState
-</span><a href="#local-6989586621679228326"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679228335"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,7 +360,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WorkGroupState -&gt; Pair) -&gt; Maybe WorkGroupState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
-</span><a href="#local-6989586621679228329"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228338"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigurationUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WorkGroupConfigurationUpdates -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -369,33 +369,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe WorkGroupConfigurationUpdates -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfigurationUpdates
-</span><a href="#local-6989586621679228328"><span class="hs-identifier hs-var">configurationUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228337"><span class="hs-identifier hs-var">configurationUpdates</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228327"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228336"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228326"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228335"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679228320"><span class="annot"><span class="annottext">toPath :: UpdateWorkGroup -&gt; ByteString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679228329"><span class="annot"><span class="annottext">toPath :: UpdateWorkGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateWorkGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroup"><span class="hs-identifier hs-type">UpdateWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679228316"><span class="annot"><span class="annottext">toQuery :: UpdateWorkGroup -&gt; QueryString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679228325"><span class="annot"><span class="annottext">toQuery :: UpdateWorkGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateWorkGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -403,12 +403,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorkGroupResponse' smart constructor.</span><span>
-</span><span id="line-161"></span><span id="local-6989586621679228313"><span id="local-6989586621679228314"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkGroupResponse"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-var">UpdateWorkGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkGroupResponse%27"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-var">UpdateWorkGroupResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span id="local-6989586621679228322"><span id="local-6989586621679228323"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkGroupResponse"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-var">UpdateWorkGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkGroupResponse%27"><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-var">UpdateWorkGroupResponse'</span></a></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateWorkGroupResponse%27"><span class="annot"><span class="annottext">UpdateWorkGroupResponse -&gt; Int
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3AhttpStatus%3AUpdateWorkGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228308"><span id="local-6989586621679228310"><span class="annot"><span class="annottext">UpdateWorkGroupResponse -&gt; UpdateWorkGroupResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228317"><span id="local-6989586621679228319"><span class="annot"><span class="annottext">UpdateWorkGroupResponse -&gt; UpdateWorkGroupResponse -&gt; Bool
 (UpdateWorkGroupResponse -&gt; UpdateWorkGroupResponse -&gt; Bool)
 -&gt; (UpdateWorkGroupResponse -&gt; UpdateWorkGroupResponse -&gt; Bool)
 -&gt; Eq UpdateWorkGroupResponse
@@ -417,7 +417,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWorkGroupResponse -&gt; UpdateWorkGroupResponse -&gt; Bool
 == :: UpdateWorkGroupResponse -&gt; UpdateWorkGroupResponse -&gt; Bool
 $c== :: UpdateWorkGroupResponse -&gt; UpdateWorkGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228300"><span id="local-6989586621679228302"><span id="local-6989586621679228304"><span id="local-6989586621679228306"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228309"><span id="local-6989586621679228311"><span id="local-6989586621679228313"><span id="local-6989586621679228315"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkGroupResponse]
 ReadPrec UpdateWorkGroupResponse
 Int -&gt; ReadS UpdateWorkGroupResponse
 ReadS [UpdateWorkGroupResponse]
@@ -437,7 +437,7 @@ readList :: ReadS [UpdateWorkGroupResponse]
 $creadList :: ReadS [UpdateWorkGroupResponse]
 readsPrec :: Int -&gt; ReadS UpdateWorkGroupResponse
 $creadsPrec :: Int -&gt; ReadS UpdateWorkGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228294"><span id="local-6989586621679228296"><span id="local-6989586621679228298"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228303"><span id="local-6989586621679228305"><span id="local-6989586621679228307"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkGroupResponse -&gt; ShowS
 [UpdateWorkGroupResponse] -&gt; ShowS
 UpdateWorkGroupResponse -&gt; String
 (Int -&gt; UpdateWorkGroupResponse -&gt; ShowS)
@@ -479,12 +479,12 @@ $cfrom :: forall x. UpdateWorkGroupResponse -&gt; Rep UpdateWorkGroupResponse x
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-type">UpdateWorkGroupResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newUpdateWorkGroupResponse"><span class="annot"><span class="annottext">newUpdateWorkGroupResponse :: Int -&gt; UpdateWorkGroupResponse
-</span><a href="Network.AWS.Athena.UpdateWorkGroup.html#newUpdateWorkGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorkGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679228291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.UpdateWorkGroup.html#newUpdateWorkGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorkGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679228300"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkGroupResponse' :: Int -&gt; UpdateWorkGroupResponse
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-type">UpdateWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkGroupResponse' :: Int
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3AhttpStatus%3AUpdateWorkGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679228300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#updateWorkGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateWorkGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-type">UpdateWorkGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -494,16 +494,16 @@ $cfrom :: forall x. UpdateWorkGroupResponse -&gt; Rep UpdateWorkGroupResponse x
 -&gt; (UpdateWorkGroupResponse -&gt; Int -&gt; UpdateWorkGroupResponse)
 -&gt; Lens UpdateWorkGroupResponse UpdateWorkGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-type">UpdateWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228290"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-type">UpdateWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228299"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateWorkGroupResponse' :: UpdateWorkGroupResponse -&gt; Int
-</span><a href="#local-6989586621679228290"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228290"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228289"><span class="annot"><span class="annottext">s :: UpdateWorkGroupResponse
-</span><a href="#local-6989586621679228289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-type">UpdateWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroupResponse
-</span><a href="#local-6989586621679228289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkGroupResponse' :: Int
+</span><a href="#local-6989586621679228299"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228299"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228298"><span class="annot"><span class="annottext">s :: UpdateWorkGroupResponse
+</span><a href="#local-6989586621679228298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse%27"><span class="hs-identifier hs-type">UpdateWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkGroupResponse
+</span><a href="#local-6989586621679228298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkGroupResponse' :: Int
 </span><a href="Network.AWS.Athena.UpdateWorkGroup.html#%24sel%3AhttpStatus%3AUpdateWorkGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-type">UpdateWorkGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-type">UpdateWorkGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-type">UpdateWorkGroupResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.UpdateWorkGroup.html#UpdateWorkGroupResponse"><span class="hs-identifier hs-type">UpdateWorkGroupResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

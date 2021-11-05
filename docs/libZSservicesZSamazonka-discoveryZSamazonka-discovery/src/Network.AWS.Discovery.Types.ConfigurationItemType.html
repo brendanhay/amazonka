@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679202170"><span id="local-6989586621679202171"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationItemType"><span class="annot"><a href="Network.AWS.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier hs-var">ConfigurationItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationItemType%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-identifier hs-var">ConfigurationItemType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679202179"><span id="local-6989586621679202180"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationItemType"><span class="annot"><a href="Network.AWS.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType"><span class="hs-identifier hs-var">ConfigurationItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationItemType%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ConfigurationItemType.html#ConfigurationItemType%27"><span class="hs-identifier hs-var">ConfigurationItemType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigurationItemType"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.ConfigurationItemType.html#fromConfigurationItemType"><span class="hs-identifier hs-var hs-var">fromConfigurationItemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202162"><span id="local-6989586621679202164"><span id="local-6989586621679202166"><span class="annot"><span class="annottext">Int -&gt; ConfigurationItemType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202171"><span id="local-6989586621679202173"><span id="local-6989586621679202175"><span class="annot"><span class="annottext">Int -&gt; ConfigurationItemType -&gt; ShowS
 [ConfigurationItemType] -&gt; ShowS
 ConfigurationItemType -&gt; String
 (Int -&gt; ConfigurationItemType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ConfigurationItemType -&gt; String
 showsPrec :: Int -&gt; ConfigurationItemType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConfigurationItemType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679202153"><span id="local-6989586621679202155"><span id="local-6989586621679202157"><span id="local-6989586621679202159"><span class="annot"><span class="annottext">ReadPrec [ConfigurationItemType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679202162"><span id="local-6989586621679202164"><span id="local-6989586621679202166"><span id="local-6989586621679202168"><span class="annot"><span class="annottext">ReadPrec [ConfigurationItemType]
 ReadPrec ConfigurationItemType
 Int -&gt; ReadS ConfigurationItemType
 ReadS [ConfigurationItemType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ConfigurationItemType]
 readsPrec :: Int -&gt; ReadS ConfigurationItemType
 $creadsPrec :: Int -&gt; ReadS ConfigurationItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679202148"><span id="local-6989586621679202150"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679202157"><span id="local-6989586621679202159"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
 (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
 -&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
 -&gt; Eq ConfigurationItemType
@@ -84,7 +84,7 @@ $c/= :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
 == :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
 $c== :: ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679202132"><span id="local-6989586621679202134"><span id="local-6989586621679202136"><span id="local-6989586621679202138"><span id="local-6989586621679202140"><span id="local-6989586621679202142"><span id="local-6989586621679202144"><span class="annot"><span class="annottext">Eq ConfigurationItemType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679202141"><span id="local-6989586621679202143"><span id="local-6989586621679202145"><span id="local-6989586621679202147"><span id="local-6989586621679202149"><span id="local-6989586621679202151"><span id="local-6989586621679202153"><span class="annot"><span class="annottext">Eq ConfigurationItemType
 Eq ConfigurationItemType
 -&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Ordering)
 -&gt; (ConfigurationItemType -&gt; ConfigurationItemType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ConfigurationItemType -&gt; Rep ConfigurationItemType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202124"><span id="local-6989586621679202126"><span class="annot"><span class="annottext">Int -&gt; ConfigurationItemType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202133"><span id="local-6989586621679202135"><span class="annot"><span class="annottext">Int -&gt; ConfigurationItemType -&gt; Int
 ConfigurationItemType -&gt; Int
 (Int -&gt; ConfigurationItemType -&gt; Int)
 -&gt; (ConfigurationItemType -&gt; Int) -&gt; Hashable ConfigurationItemType
@@ -152,54 +152,54 @@ $chash :: ConfigurationItemType -&gt; Int
 hashWithSalt :: Int -&gt; ConfigurationItemType -&gt; Int
 $chashWithSalt :: Int -&gt; ConfigurationItemType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679202121"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679202130"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ()
 (ConfigurationItemType -&gt; ()) -&gt; NFData ConfigurationItemType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConfigurationItemType -&gt; ()
 $crnf :: ConfigurationItemType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202118"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationItemType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202127"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationItemType
 (Text -&gt; Either String ConfigurationItemType)
 -&gt; FromText ConfigurationItemType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConfigurationItemType
 $cfromText :: Text -&gt; Either String ConfigurationItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202115"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202124"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; Text
 (ConfigurationItemType -&gt; Text) -&gt; ToText ConfigurationItemType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConfigurationItemType -&gt; Text
 $ctoText :: ConfigurationItemType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202112"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202121"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ByteString
 (ConfigurationItemType -&gt; ByteString)
 -&gt; ToByteString ConfigurationItemType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConfigurationItemType -&gt; ByteString
 $ctoBS :: ConfigurationItemType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202109"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202118"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; ByteStringBuilder
 (ConfigurationItemType -&gt; ByteStringBuilder)
 -&gt; ToLog ConfigurationItemType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConfigurationItemType -&gt; ByteStringBuilder
 $cbuild :: ConfigurationItemType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202106"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationItemType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202115"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationItemType -&gt; [Header]
 (HeaderName -&gt; ConfigurationItemType -&gt; [Header])
 -&gt; ToHeader ConfigurationItemType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConfigurationItemType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConfigurationItemType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202103"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202112"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; QueryString
 (ConfigurationItemType -&gt; QueryString)
 -&gt; ToQuery ConfigurationItemType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConfigurationItemType -&gt; QueryString
 $ctoQuery :: ConfigurationItemType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202098"><span id="local-6989586621679202100"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationItemType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202107"><span id="local-6989586621679202109"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationItemType]
 Value -&gt; Parser ConfigurationItemType
 (Value -&gt; Parser ConfigurationItemType)
 -&gt; (Value -&gt; Parser [ConfigurationItemType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [ConfigurationItemType]
 parseJSON :: Value -&gt; Parser ConfigurationItemType
 $cparseJSON :: Value -&gt; Parser ConfigurationItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202093"><span id="local-6989586621679202095"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationItemType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202102"><span id="local-6989586621679202104"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationItemType]
 FromJSONKeyFunction ConfigurationItemType
 FromJSONKeyFunction ConfigurationItemType
 -&gt; FromJSONKeyFunction [ConfigurationItemType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConfigurationItemType]
 fromJSONKey :: FromJSONKeyFunction ConfigurationItemType
 $cfromJSONKey :: FromJSONKeyFunction ConfigurationItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202084"><span id="local-6989586621679202086"><span id="local-6989586621679202088"><span id="local-6989586621679202090"><span class="annot"><span class="annottext">[ConfigurationItemType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202093"><span id="local-6989586621679202095"><span id="local-6989586621679202097"><span id="local-6989586621679202099"><span class="annot"><span class="annottext">[ConfigurationItemType] -&gt; Encoding
 [ConfigurationItemType] -&gt; Value
 ConfigurationItemType -&gt; Encoding
 ConfigurationItemType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: ConfigurationItemType -&gt; Encoding
 toJSON :: ConfigurationItemType -&gt; Value
 $ctoJSON :: ConfigurationItemType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202079"><span id="local-6989586621679202081"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationItemType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202088"><span id="local-6989586621679202090"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationItemType]
 ToJSONKeyFunction ConfigurationItemType
 ToJSONKeyFunction ConfigurationItemType
 -&gt; ToJSONKeyFunction [ConfigurationItemType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConfigurationItemType]
 toJSONKey :: ToJSONKeyFunction ConfigurationItemType
 $ctoJSONKey :: ToJSONKeyFunction ConfigurationItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202076"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationItemType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202085"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationItemType
 ([Node] -&gt; Either String ConfigurationItemType)
 -&gt; FromXML ConfigurationItemType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConfigurationItemType
 $cparseXML :: [Node] -&gt; Either String ConfigurationItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679202073"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679202082"><span class="annot"><span class="annottext">ConfigurationItemType -&gt; XML
 (ConfigurationItemType -&gt; XML) -&gt; ToXML ConfigurationItemType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConfigurationItemType -&gt; XML

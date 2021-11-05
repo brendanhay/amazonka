@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The KernelGateway app settings.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newKernelGatewayAppSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680338346"><span id="local-6989586621680338347"></span></span><span class="hs-keyword">data</span><span> </span><span id="KernelGatewayAppSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-var">KernelGatewayAppSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KernelGatewayAppSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-var">KernelGatewayAppSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680338355"><span id="local-6989586621680338356"></span></span><span class="hs-keyword">data</span><span> </span><span id="KernelGatewayAppSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-var">KernelGatewayAppSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KernelGatewayAppSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-var">KernelGatewayAppSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default instance type and the Amazon Resource Name (ARN) of the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- default SageMaker image used by the KernelGateway app.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdefaultResourceSpec%3AKernelGatewayAppSettings%27"><span class="annot"><span class="annottext">KernelGatewayAppSettings -&gt; Maybe ResourceSpec
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AlifecycleConfigArns%3AKernelGatewayAppSettings%27"><span class="annot"><span class="annottext">KernelGatewayAppSettings -&gt; Maybe [Text]
 </span><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#%24sel%3AlifecycleConfigArns%3AKernelGatewayAppSettings%27"><span class="hs-identifier hs-var hs-var">lifecycleConfigArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680338338"><span id="local-6989586621680338340"><span class="annot"><span class="annottext">KernelGatewayAppSettings -&gt; KernelGatewayAppSettings -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680338347"><span id="local-6989586621680338349"><span class="annot"><span class="annottext">KernelGatewayAppSettings -&gt; KernelGatewayAppSettings -&gt; Bool
 (KernelGatewayAppSettings -&gt; KernelGatewayAppSettings -&gt; Bool)
 -&gt; (KernelGatewayAppSettings -&gt; KernelGatewayAppSettings -&gt; Bool)
 -&gt; Eq KernelGatewayAppSettings
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KernelGatewayAppSettings -&gt; KernelGatewayAppSettings -&gt; Bool
 == :: KernelGatewayAppSettings -&gt; KernelGatewayAppSettings -&gt; Bool
 $c== :: KernelGatewayAppSettings -&gt; KernelGatewayAppSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338329"><span id="local-6989586621680338331"><span id="local-6989586621680338333"><span id="local-6989586621680338335"><span class="annot"><span class="annottext">ReadPrec [KernelGatewayAppSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338338"><span id="local-6989586621680338340"><span id="local-6989586621680338342"><span id="local-6989586621680338344"><span class="annot"><span class="annottext">ReadPrec [KernelGatewayAppSettings]
 ReadPrec KernelGatewayAppSettings
 Int -&gt; ReadS KernelGatewayAppSettings
 ReadS [KernelGatewayAppSettings]
@@ -71,7 +71,7 @@ readList :: ReadS [KernelGatewayAppSettings]
 $creadList :: ReadS [KernelGatewayAppSettings]
 readsPrec :: Int -&gt; ReadS KernelGatewayAppSettings
 $creadsPrec :: Int -&gt; ReadS KernelGatewayAppSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338322"><span id="local-6989586621680338324"><span id="local-6989586621680338326"><span class="annot"><span class="annottext">Int -&gt; KernelGatewayAppSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338331"><span id="local-6989586621680338333"><span id="local-6989586621680338335"><span class="annot"><span class="annottext">Int -&gt; KernelGatewayAppSettings -&gt; ShowS
 [KernelGatewayAppSettings] -&gt; ShowS
 KernelGatewayAppSettings -&gt; String
 (Int -&gt; KernelGatewayAppSettings -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Maybe a
      (Maybe ResourceSpec)
      (Maybe ResourceSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338313"><span class="annot"><span class="annottext">Maybe ResourceSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338322"><span class="annot"><span class="annottext">Maybe ResourceSpec
 defaultResourceSpec :: Maybe ResourceSpec
 $sel:defaultResourceSpec:KernelGatewayAppSettings' :: KernelGatewayAppSettings -&gt; Maybe ResourceSpec
-</span><a href="#local-6989586621680338313"><span class="hs-identifier hs-var hs-var">defaultResourceSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680338313"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338312"><span class="annot"><span class="annottext">s :: KernelGatewayAppSettings
-</span><a href="#local-6989586621680338312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338311"><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680338311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelGatewayAppSettings
-</span><a href="#local-6989586621680338312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultResourceSpec:KernelGatewayAppSettings' :: Maybe ResourceSpec
+</span><a href="#local-6989586621680338322"><span class="hs-identifier hs-var hs-var">defaultResourceSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
+</span><a href="#local-6989586621680338322"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338321"><span class="annot"><span class="annottext">s :: KernelGatewayAppSettings
+</span><a href="#local-6989586621680338321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338320"><span class="annot"><span class="annottext">Maybe ResourceSpec
+</span><a href="#local-6989586621680338320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelGatewayAppSettings
+</span><a href="#local-6989586621680338321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultResourceSpec:KernelGatewayAppSettings' :: Maybe ResourceSpec
 </span><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#%24sel%3AdefaultResourceSpec%3AKernelGatewayAppSettings%27"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680338311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680338320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | A list of custom SageMaker images that are configured to run as a</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- KernelGateway app.</span><span>
@@ -180,16 +180,16 @@ $sel:defaultResourceSpec:KernelGatewayAppSettings' :: KernelGatewayAppSettings -
      (Maybe [CustomImage])
      (Maybe [CustomImage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338309"><span class="annot"><span class="annottext">Maybe [CustomImage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338318"><span class="annot"><span class="annottext">Maybe [CustomImage]
 customImages :: Maybe [CustomImage]
 $sel:customImages:KernelGatewayAppSettings' :: KernelGatewayAppSettings -&gt; Maybe [CustomImage]
-</span><a href="#local-6989586621680338309"><span class="hs-identifier hs-var hs-var">customImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomImage]
-</span><a href="#local-6989586621680338309"><span class="hs-identifier hs-var">customImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338308"><span class="annot"><span class="annottext">s :: KernelGatewayAppSettings
-</span><a href="#local-6989586621680338308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338307"><span class="annot"><span class="annottext">Maybe [CustomImage]
-</span><a href="#local-6989586621680338307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelGatewayAppSettings
-</span><a href="#local-6989586621680338308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customImages:KernelGatewayAppSettings' :: Maybe [CustomImage]
+</span><a href="#local-6989586621680338318"><span class="hs-identifier hs-var hs-var">customImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomImage]
+</span><a href="#local-6989586621680338318"><span class="hs-identifier hs-var">customImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338317"><span class="annot"><span class="annottext">s :: KernelGatewayAppSettings
+</span><a href="#local-6989586621680338317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338316"><span class="annot"><span class="annottext">Maybe [CustomImage]
+</span><a href="#local-6989586621680338316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelGatewayAppSettings
+</span><a href="#local-6989586621680338317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customImages:KernelGatewayAppSettings' :: Maybe [CustomImage]
 </span><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#%24sel%3AcustomImages%3AKernelGatewayAppSettings%27"><span class="hs-identifier hs-var">customImages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomImage]
-</span><a href="#local-6989586621680338307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomImage] -&gt; f (Maybe [CustomImage]))
+</span><a href="#local-6989586621680338316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomImage] -&gt; f (Maybe [CustomImage]))
  -&gt; KernelGatewayAppSettings -&gt; f KernelGatewayAppSettings)
 -&gt; ((Maybe [CustomImage] -&gt; f (Maybe [CustomImage]))
     -&gt; Maybe [CustomImage] -&gt; f (Maybe [CustomImage]))
@@ -224,16 +224,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338302"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338311"><span class="annot"><span class="annottext">Maybe [Text]
 lifecycleConfigArns :: Maybe [Text]
 $sel:lifecycleConfigArns:KernelGatewayAppSettings' :: KernelGatewayAppSettings -&gt; Maybe [Text]
-</span><a href="#local-6989586621680338302"><span class="hs-identifier hs-var hs-var">lifecycleConfigArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680338302"><span class="hs-identifier hs-var">lifecycleConfigArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338301"><span class="annot"><span class="annottext">s :: KernelGatewayAppSettings
-</span><a href="#local-6989586621680338301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338300"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680338300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelGatewayAppSettings
-</span><a href="#local-6989586621680338301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleConfigArns:KernelGatewayAppSettings' :: Maybe [Text]
+</span><a href="#local-6989586621680338311"><span class="hs-identifier hs-var hs-var">lifecycleConfigArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680338311"><span class="hs-identifier hs-var">lifecycleConfigArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338310"><span class="annot"><span class="annottext">s :: KernelGatewayAppSettings
+</span><a href="#local-6989586621680338310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338309"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680338309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelGatewayAppSettings
+</span><a href="#local-6989586621680338310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleConfigArns:KernelGatewayAppSettings' :: Maybe [Text]
 </span><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#%24sel%3AlifecycleConfigArns%3AKernelGatewayAppSettings%27"><span class="hs-identifier hs-var">lifecycleConfigArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680338300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621680338309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; KernelGatewayAppSettings -&gt; f KernelGatewayAppSettings)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -250,8 +250,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338297"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621680338295"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KernelGatewayAppSettings
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338306"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621680338304"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KernelGatewayAppSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KernelGatewayAppSettings)
@@ -261,8 +261,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KernelGatewayAppSettings&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680338292"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680338301"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680338301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceSpec
 -&gt; Maybe [CustomImage] -&gt; Maybe [Text] -&gt; KernelGatewayAppSettings
 </span><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-var">KernelGatewayAppSettings'</span></a></span><span>
@@ -273,7 +273,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [CustomImage] -&gt; Maybe [Text] -&gt; KernelGatewayAppSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceSpec)
+</span><a href="#local-6989586621680338301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultResourceSpec&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,7 +283,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text] -&gt; KernelGatewayAppSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CustomImage]))
+</span><a href="#local-6989586621680338301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CustomImage]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomImages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CustomImage]))
@@ -296,7 +296,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser KernelGatewayAppSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621680338301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LifecycleConfigArns&quot;</span></span><span>
@@ -309,13 +309,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-95"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338285"><span id="local-6989586621680338287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338294"><span id="local-6989586621680338296"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338274"><span id="local-6989586621680338276"><span id="local-6989586621680338278"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680338272"><span class="annot"><span class="annottext">toJSON :: KernelGatewayAppSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338268"><span id="local-6989586621680338269"><span id="local-6989586621680338270"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338283"><span id="local-6989586621680338285"><span id="local-6989586621680338287"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680338281"><span class="annot"><span class="annottext">toJSON :: KernelGatewayAppSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings%27"><span class="hs-identifier hs-type">KernelGatewayAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338277"><span id="local-6989586621680338278"><span id="local-6989586621680338279"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [CustomImage]
 Maybe ResourceSpec
 lifecycleConfigArns :: Maybe [Text]
@@ -324,7 +324,7 @@ defaultResourceSpec :: Maybe ResourceSpec
 $sel:lifecycleConfigArns:KernelGatewayAppSettings' :: KernelGatewayAppSettings -&gt; Maybe [Text]
 $sel:customImages:KernelGatewayAppSettings' :: KernelGatewayAppSettings -&gt; Maybe [CustomImage]
 $sel:defaultResourceSpec:KernelGatewayAppSettings' :: KernelGatewayAppSettings -&gt; Maybe ResourceSpec
-</span><a href="#local-6989586621680338268"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680338277"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -337,14 +337,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(ResourceSpec -&gt; Pair) -&gt; Maybe ResourceSpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680338270"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680338279"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomImages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CustomImage] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CustomImage] -&gt; Pair) -&gt; Maybe [CustomImage] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CustomImage]
-</span><a href="#local-6989586621680338269"><span class="hs-identifier hs-var">customImages</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680338278"><span class="hs-identifier hs-var">customImages</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LifecycleConfigArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -352,7 +352,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680338268"><span class="hs-identifier hs-var">lifecycleConfigArns</span></a></span><span>
+</span><a href="#local-6989586621680338277"><span class="hs-identifier hs-var">lifecycleConfigArns</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span></pre></body></html>

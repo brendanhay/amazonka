@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeviceUsageData' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679389404"><span id="local-6989586621679389405"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeviceUsageData"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-var">DeleteDeviceUsageData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeviceUsageData%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-var">DeleteDeviceUsageData'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679389413"><span id="local-6989586621679389414"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeviceUsageData"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-var">DeleteDeviceUsageData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeviceUsageData%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-var">DeleteDeviceUsageData'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the device.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdeviceArn%3ADeleteDeviceUsageData%27"><span class="annot"><span class="annottext">DeleteDeviceUsageData -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AdeviceArn%3ADeleteDeviceUsageData%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AdeviceUsageType%3ADeleteDeviceUsageData%27"><span class="annot"><span class="annottext">DeleteDeviceUsageData -&gt; DeviceUsageType
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AdeviceUsageType%3ADeleteDeviceUsageData%27"><span class="hs-identifier hs-var hs-var">deviceUsageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceUsageType.html#DeviceUsageType"><span class="hs-identifier hs-type">DeviceUsageType</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389397"><span id="local-6989586621679389399"><span class="annot"><span class="annottext">DeleteDeviceUsageData -&gt; DeleteDeviceUsageData -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389406"><span id="local-6989586621679389408"><span class="annot"><span class="annottext">DeleteDeviceUsageData -&gt; DeleteDeviceUsageData -&gt; Bool
 (DeleteDeviceUsageData -&gt; DeleteDeviceUsageData -&gt; Bool)
 -&gt; (DeleteDeviceUsageData -&gt; DeleteDeviceUsageData -&gt; Bool)
 -&gt; Eq DeleteDeviceUsageData
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDeviceUsageData -&gt; DeleteDeviceUsageData -&gt; Bool
 == :: DeleteDeviceUsageData -&gt; DeleteDeviceUsageData -&gt; Bool
 $c== :: DeleteDeviceUsageData -&gt; DeleteDeviceUsageData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389388"><span id="local-6989586621679389390"><span id="local-6989586621679389392"><span id="local-6989586621679389394"><span class="annot"><span class="annottext">ReadPrec [DeleteDeviceUsageData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389397"><span id="local-6989586621679389399"><span id="local-6989586621679389401"><span id="local-6989586621679389403"><span class="annot"><span class="annottext">ReadPrec [DeleteDeviceUsageData]
 ReadPrec DeleteDeviceUsageData
 Int -&gt; ReadS DeleteDeviceUsageData
 ReadS [DeleteDeviceUsageData]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteDeviceUsageData]
 $creadList :: ReadS [DeleteDeviceUsageData]
 readsPrec :: Int -&gt; ReadS DeleteDeviceUsageData
 $creadsPrec :: Int -&gt; ReadS DeleteDeviceUsageData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389381"><span id="local-6989586621679389383"><span id="local-6989586621679389385"><span class="annot"><span class="annottext">Int -&gt; DeleteDeviceUsageData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389390"><span id="local-6989586621679389392"><span id="local-6989586621679389394"><span class="annot"><span class="annottext">Int -&gt; DeleteDeviceUsageData -&gt; ShowS
 [DeleteDeviceUsageData] -&gt; ShowS
 DeleteDeviceUsageData -&gt; String
 (Int -&gt; DeleteDeviceUsageData -&gt; ShowS)
@@ -132,18 +132,18 @@ $cfrom :: forall x. DeleteDeviceUsageData -&gt; Rep DeleteDeviceUsageData x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span>
 </span><span id="line-78"></span><span id="newDeleteDeviceUsageData"><span class="annot"><span class="annottext">newDeleteDeviceUsageData :: Text -&gt; DeviceUsageType -&gt; DeleteDeviceUsageData
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#newDeleteDeviceUsageData"><span class="hs-identifier hs-var hs-var">newDeleteDeviceUsageData</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679389376"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389376"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679389375"><span class="annot"><span class="annottext">DeviceUsageType
-</span><a href="#local-6989586621679389375"><span class="hs-identifier hs-var">pDeviceUsageType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679389385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389385"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679389384"><span class="annot"><span class="annottext">DeviceUsageType
+</span><a href="#local-6989586621679389384"><span class="hs-identifier hs-var">pDeviceUsageType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">DeleteDeviceUsageData' :: Text -&gt; DeviceUsageType -&gt; DeleteDeviceUsageData
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceArn:DeleteDeviceUsageData' :: Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AdeviceArn%3ADeleteDeviceUsageData%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389376"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389385"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceUsageType:DeleteDeviceUsageData' :: DeviceUsageType
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AdeviceUsageType%3ADeleteDeviceUsageData%27"><span class="hs-identifier hs-var">deviceUsageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceUsageType
-</span><a href="#local-6989586621679389375"><span class="hs-identifier hs-var">pDeviceUsageType_</span></a></span><span>
+</span><a href="#local-6989586621679389384"><span class="hs-identifier hs-var">pDeviceUsageType_</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The ARN of the device.</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. DeleteDeviceUsageData -&gt; Rep DeleteDeviceUsageData x
 -&gt; (DeleteDeviceUsageData -&gt; Text -&gt; DeleteDeviceUsageData)
 -&gt; Lens DeleteDeviceUsageData DeleteDeviceUsageData Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389372"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389381"><span class="annot"><span class="annottext">Text
 deviceArn :: Text
 $sel:deviceArn:DeleteDeviceUsageData' :: DeleteDeviceUsageData -&gt; Text
-</span><a href="#local-6989586621679389372"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389372"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389371"><span class="annot"><span class="annottext">s :: DeleteDeviceUsageData
-</span><a href="#local-6989586621679389371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389370"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeviceUsageData
-</span><a href="#local-6989586621679389371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:DeleteDeviceUsageData' :: Text
+</span><a href="#local-6989586621679389381"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389381"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389380"><span class="annot"><span class="annottext">s :: DeleteDeviceUsageData
+</span><a href="#local-6989586621679389380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeviceUsageData
+</span><a href="#local-6989586621679389380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:DeleteDeviceUsageData' :: Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AdeviceArn%3ADeleteDeviceUsageData%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The type of usage data to delete.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#deleteDeviceUsageData_deviceUsageType"><span class="hs-identifier hs-type">deleteDeviceUsageData_deviceUsageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceUsageType.html#DeviceUsageType"><span class="hs-identifier hs-type">DeviceUsageType</span></a></span><span>
@@ -178,27 +178,27 @@ $sel:deviceArn:DeleteDeviceUsageData' :: DeleteDeviceUsageData -&gt; Text
      DeviceUsageType
      DeviceUsageType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389369"><span class="annot"><span class="annottext">DeviceUsageType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389378"><span class="annot"><span class="annottext">DeviceUsageType
 deviceUsageType :: DeviceUsageType
 $sel:deviceUsageType:DeleteDeviceUsageData' :: DeleteDeviceUsageData -&gt; DeviceUsageType
-</span><a href="#local-6989586621679389369"><span class="hs-identifier hs-var hs-var">deviceUsageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceUsageType
-</span><a href="#local-6989586621679389369"><span class="hs-identifier hs-var">deviceUsageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389368"><span class="annot"><span class="annottext">s :: DeleteDeviceUsageData
-</span><a href="#local-6989586621679389368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389367"><span class="annot"><span class="annottext">DeviceUsageType
-</span><a href="#local-6989586621679389367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeviceUsageData
-</span><a href="#local-6989586621679389368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceUsageType:DeleteDeviceUsageData' :: DeviceUsageType
+</span><a href="#local-6989586621679389378"><span class="hs-identifier hs-var hs-var">deviceUsageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceUsageType
+</span><a href="#local-6989586621679389378"><span class="hs-identifier hs-var">deviceUsageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389377"><span class="annot"><span class="annottext">s :: DeleteDeviceUsageData
+</span><a href="#local-6989586621679389377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389376"><span class="annot"><span class="annottext">DeviceUsageType
+</span><a href="#local-6989586621679389376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeviceUsageData
+</span><a href="#local-6989586621679389377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceUsageType:DeleteDeviceUsageData' :: DeviceUsageType
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AdeviceUsageType%3ADeleteDeviceUsageData%27"><span class="hs-identifier hs-var">deviceUsageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceUsageType
-</span><a href="#local-6989586621679389367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679389363"><span class="annot"><span class="annottext">request :: DeleteDeviceUsageData -&gt; Request DeleteDeviceUsageData
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679389372"><span class="annot"><span class="annottext">request :: DeleteDeviceUsageData -&gt; Request DeleteDeviceUsageData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDeviceUsageData -&gt; Request DeleteDeviceUsageData
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679389359"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679389368"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDeviceUsageData
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389356"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389356"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389355"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389355"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389354"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679389354"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389365"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389364"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389363"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679389363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteDeviceUsageDataResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-var">DeleteDeviceUsageDataResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteDeviceUsageDataResponse)
@@ -238,15 +238,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389356"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389347"><span id="local-6989586621679389349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389356"><span id="local-6989586621679389358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679389340"><span class="annot"><span class="annottext">toHeaders :: DeleteDeviceUsageData -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679389349"><span class="annot"><span class="annottext">toHeaders :: DeleteDeviceUsageData -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDeviceUsageData -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -273,15 +273,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389330"><span id="local-6989586621679389332"><span id="local-6989586621679389334"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679389328"><span class="annot"><span class="annottext">toJSON :: DeleteDeviceUsageData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389325"><span id="local-6989586621679389326"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389339"><span id="local-6989586621679389341"><span id="local-6989586621679389343"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679389337"><span class="annot"><span class="annottext">toJSON :: DeleteDeviceUsageData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData%27"><span class="hs-identifier hs-type">DeleteDeviceUsageData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389334"><span id="local-6989586621679389335"><span class="annot"><span class="annottext">Text
 DeviceUsageType
 deviceUsageType :: DeviceUsageType
 deviceArn :: Text
 $sel:deviceUsageType:DeleteDeviceUsageData' :: DeleteDeviceUsageData -&gt; DeviceUsageType
 $sel:deviceArn:DeleteDeviceUsageData' :: DeleteDeviceUsageData -&gt; Text
-</span><a href="#local-6989586621679389325"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389334"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,7 +293,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeviceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389326"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389335"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -301,19 +301,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeviceUsageType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceUsageType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeviceUsageType
-</span><a href="#local-6989586621679389325"><span class="hs-identifier hs-var">deviceUsageType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389334"><span class="hs-identifier hs-var">deviceUsageType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679389319"><span class="annot"><span class="annottext">toPath :: DeleteDeviceUsageData -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679389328"><span class="annot"><span class="annottext">toPath :: DeleteDeviceUsageData -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDeviceUsageData -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageData"><span class="hs-identifier hs-type">DeleteDeviceUsageData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679389315"><span class="annot"><span class="annottext">toQuery :: DeleteDeviceUsageData -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679389324"><span class="annot"><span class="annottext">toQuery :: DeleteDeviceUsageData -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDeviceUsageData -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,12 +321,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeviceUsageDataResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679389312"><span id="local-6989586621679389313"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeviceUsageDataResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-var">DeleteDeviceUsageDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeviceUsageDataResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-var">DeleteDeviceUsageDataResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679389321"><span id="local-6989586621679389322"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeviceUsageDataResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-var">DeleteDeviceUsageDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeviceUsageDataResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-var">DeleteDeviceUsageDataResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDeviceUsageDataResponse%27"><span class="annot"><span class="annottext">DeleteDeviceUsageDataResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AhttpStatus%3ADeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389307"><span id="local-6989586621679389309"><span class="annot"><span class="annottext">DeleteDeviceUsageDataResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389316"><span id="local-6989586621679389318"><span class="annot"><span class="annottext">DeleteDeviceUsageDataResponse
 -&gt; DeleteDeviceUsageDataResponse -&gt; Bool
 (DeleteDeviceUsageDataResponse
  -&gt; DeleteDeviceUsageDataResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: DeleteDeviceUsageDataResponse
 -&gt; DeleteDeviceUsageDataResponse -&gt; Bool
 $c== :: DeleteDeviceUsageDataResponse
 -&gt; DeleteDeviceUsageDataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389299"><span id="local-6989586621679389301"><span id="local-6989586621679389303"><span id="local-6989586621679389305"><span class="annot"><span class="annottext">ReadPrec [DeleteDeviceUsageDataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389308"><span id="local-6989586621679389310"><span id="local-6989586621679389312"><span id="local-6989586621679389314"><span class="annot"><span class="annottext">ReadPrec [DeleteDeviceUsageDataResponse]
 ReadPrec DeleteDeviceUsageDataResponse
 Int -&gt; ReadS DeleteDeviceUsageDataResponse
 ReadS [DeleteDeviceUsageDataResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [DeleteDeviceUsageDataResponse]
 $creadList :: ReadS [DeleteDeviceUsageDataResponse]
 readsPrec :: Int -&gt; ReadS DeleteDeviceUsageDataResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDeviceUsageDataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389293"><span id="local-6989586621679389295"><span id="local-6989586621679389297"><span class="annot"><span class="annottext">Int -&gt; DeleteDeviceUsageDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389302"><span id="local-6989586621679389304"><span id="local-6989586621679389306"><span class="annot"><span class="annottext">Int -&gt; DeleteDeviceUsageDataResponse -&gt; ShowS
 [DeleteDeviceUsageDataResponse] -&gt; ShowS
 DeleteDeviceUsageDataResponse -&gt; String
 (Int -&gt; DeleteDeviceUsageDataResponse -&gt; ShowS)
@@ -414,14 +414,14 @@ DeleteDeviceUsageDataResponse
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDeleteDeviceUsageDataResponse"><span class="annot"><span class="annottext">newDeleteDeviceUsageDataResponse :: Int -&gt; DeleteDeviceUsageDataResponse
-</span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#newDeleteDeviceUsageDataResponse"><span class="hs-identifier hs-var hs-var">newDeleteDeviceUsageDataResponse</span></a></span></span><span> </span><span id="local-6989586621679389290"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#newDeleteDeviceUsageDataResponse"><span class="hs-identifier hs-var hs-var">newDeleteDeviceUsageDataResponse</span></a></span></span><span> </span><span id="local-6989586621679389299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389299"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeviceUsageDataResponse' :: Int -&gt; DeleteDeviceUsageDataResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDeviceUsageDataResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AhttpStatus%3ADeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389299"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -434,16 +434,16 @@ DeleteDeviceUsageDataResponse
 -&gt; Lens
      DeleteDeviceUsageDataResponse DeleteDeviceUsageDataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389289"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389298"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDeviceUsageDataResponse' :: DeleteDeviceUsageDataResponse -&gt; Int
-</span><a href="#local-6989586621679389289"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389289"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389288"><span class="annot"><span class="annottext">s :: DeleteDeviceUsageDataResponse
-</span><a href="#local-6989586621679389288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389287"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeviceUsageDataResponse
-</span><a href="#local-6989586621679389288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDeviceUsageDataResponse' :: Int
+</span><a href="#local-6989586621679389298"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389298"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389297"><span class="annot"><span class="annottext">s :: DeleteDeviceUsageDataResponse
+</span><a href="#local-6989586621679389297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeviceUsageDataResponse
+</span><a href="#local-6989586621679389297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDeviceUsageDataResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#%24sel%3AhttpStatus%3ADeleteDeviceUsageDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteDeviceUsageData.html#DeleteDeviceUsageDataResponse"><span class="hs-identifier hs-type">DeleteDeviceUsageDataResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

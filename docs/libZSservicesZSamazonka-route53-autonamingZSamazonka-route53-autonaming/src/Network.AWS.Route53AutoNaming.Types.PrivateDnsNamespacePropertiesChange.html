@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Updated properties for the private DNS namespace.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPrivateDnsNamespacePropertiesChange' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679224268"><span id="local-6989586621679224269"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrivateDnsNamespacePropertiesChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-var">PrivateDnsNamespacePropertiesChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrivateDnsNamespacePropertiesChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">PrivateDnsNamespacePropertiesChange'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679224277"><span id="local-6989586621679224278"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrivateDnsNamespacePropertiesChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-var">PrivateDnsNamespacePropertiesChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrivateDnsNamespacePropertiesChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">PrivateDnsNamespacePropertiesChange'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updated DNS properties for the private DNS namespace.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AdnsProperties%3APrivateDnsNamespacePropertiesChange%27"><span class="annot"><span class="annottext">PrivateDnsNamespacePropertiesChange
 -&gt; PrivateDnsPropertiesMutableChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#%24sel%3AdnsProperties%3APrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange.html#PrivateDnsPropertiesMutableChange"><span class="hs-identifier hs-type">PrivateDnsPropertiesMutableChange</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224262"><span id="local-6989586621679224264"><span class="annot"><span class="annottext">PrivateDnsNamespacePropertiesChange
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224271"><span id="local-6989586621679224273"><span class="annot"><span class="annottext">PrivateDnsNamespacePropertiesChange
 -&gt; PrivateDnsNamespacePropertiesChange -&gt; Bool
 (PrivateDnsNamespacePropertiesChange
  -&gt; PrivateDnsNamespacePropertiesChange -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: PrivateDnsNamespacePropertiesChange
 -&gt; PrivateDnsNamespacePropertiesChange -&gt; Bool
 $c== :: PrivateDnsNamespacePropertiesChange
 -&gt; PrivateDnsNamespacePropertiesChange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224253"><span id="local-6989586621679224255"><span id="local-6989586621679224257"><span id="local-6989586621679224259"><span class="annot"><span class="annottext">ReadPrec [PrivateDnsNamespacePropertiesChange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224262"><span id="local-6989586621679224264"><span id="local-6989586621679224266"><span id="local-6989586621679224268"><span class="annot"><span class="annottext">ReadPrec [PrivateDnsNamespacePropertiesChange]
 ReadPrec PrivateDnsNamespacePropertiesChange
 Int -&gt; ReadS PrivateDnsNamespacePropertiesChange
 ReadS [PrivateDnsNamespacePropertiesChange]
@@ -69,7 +69,7 @@ readList :: ReadS [PrivateDnsNamespacePropertiesChange]
 $creadList :: ReadS [PrivateDnsNamespacePropertiesChange]
 readsPrec :: Int -&gt; ReadS PrivateDnsNamespacePropertiesChange
 $creadsPrec :: Int -&gt; ReadS PrivateDnsNamespacePropertiesChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224246"><span id="local-6989586621679224248"><span id="local-6989586621679224250"><span class="annot"><span class="annottext">Int -&gt; PrivateDnsNamespacePropertiesChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224255"><span id="local-6989586621679224257"><span id="local-6989586621679224259"><span class="annot"><span class="annottext">Int -&gt; PrivateDnsNamespacePropertiesChange -&gt; ShowS
 [PrivateDnsNamespacePropertiesChange] -&gt; ShowS
 PrivateDnsNamespacePropertiesChange -&gt; String
 (Int -&gt; PrivateDnsNamespacePropertiesChange -&gt; ShowS)
@@ -123,15 +123,15 @@ PrivateDnsNamespacePropertiesChange
 </span><span id="line-49"></span><span id="newPrivateDnsNamespacePropertiesChange"><span class="annot"><span class="annottext">newPrivateDnsNamespacePropertiesChange :: PrivateDnsPropertiesMutableChange
 -&gt; PrivateDnsNamespacePropertiesChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#newPrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-var hs-var">newPrivateDnsNamespacePropertiesChange</span></a></span></span><span>
-</span><span id="line-50"></span><span>  </span><span id="local-6989586621679224240"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224240"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span id="local-6989586621679224249"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
+</span><a href="#local-6989586621679224249"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="annottext">PrivateDnsNamespacePropertiesChange' :: PrivateDnsPropertiesMutableChange
 -&gt; PrivateDnsNamespacePropertiesChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange'</span></a></span><span>
 </span><span id="line-52"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dnsProperties:PrivateDnsNamespacePropertiesChange' :: PrivateDnsPropertiesMutableChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#%24sel%3AdnsProperties%3APrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>          </span><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224240"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span><span>
+</span><a href="#local-6989586621679224249"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span><span>
 </span><span id="line-54"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | Updated DNS properties for the private DNS namespace.</span><span>
@@ -151,36 +151,36 @@ PrivateDnsNamespacePropertiesChange
      PrivateDnsPropertiesMutableChange
      PrivateDnsPropertiesMutableChange
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224236"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224245"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
 dnsProperties :: PrivateDnsPropertiesMutableChange
 $sel:dnsProperties:PrivateDnsNamespacePropertiesChange' :: PrivateDnsNamespacePropertiesChange
 -&gt; PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224236"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224236"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224235"><span class="annot"><span class="annottext">s :: PrivateDnsNamespacePropertiesChange
-</span><a href="#local-6989586621679224235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224234"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateDnsNamespacePropertiesChange
-</span><a href="#local-6989586621679224235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsProperties:PrivateDnsNamespacePropertiesChange' :: PrivateDnsPropertiesMutableChange
+</span><a href="#local-6989586621679224245"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
+</span><a href="#local-6989586621679224245"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224244"><span class="annot"><span class="annottext">s :: PrivateDnsNamespacePropertiesChange
+</span><a href="#local-6989586621679224244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224243"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
+</span><a href="#local-6989586621679224243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateDnsNamespacePropertiesChange
+</span><a href="#local-6989586621679224244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsProperties:PrivateDnsNamespacePropertiesChange' :: PrivateDnsPropertiesMutableChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#%24sel%3AdnsProperties%3APrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679224230"><span id="local-6989586621679224232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679224239"><span id="local-6989586621679224241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679224227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679224236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange</span></a></span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679224219"><span id="local-6989586621679224221"><span id="local-6989586621679224223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679224228"><span id="local-6989586621679224230"><span id="local-6989586621679224232"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange</span></a></span></span></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679224217"><span class="annot"><span class="annottext">toJSON :: PrivateDnsNamespacePropertiesChange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224215"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679224226"><span class="annot"><span class="annottext">toJSON :: PrivateDnsNamespacePropertiesChange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange.html#PrivateDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PrivateDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224224"><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
 dnsProperties :: PrivateDnsPropertiesMutableChange
 $sel:dnsProperties:PrivateDnsNamespacePropertiesChange' :: PrivateDnsNamespacePropertiesChange
 -&gt; PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224215"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224224"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -193,7 +193,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DnsProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PrivateDnsPropertiesMutableChange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PrivateDnsPropertiesMutableChange
-</span><a href="#local-6989586621679224215"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224224"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribePipeline' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679266896"><span id="local-6989586621679266897"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipeline"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-var">DescribePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipeline%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-var">DescribePipeline'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679266905"><span id="local-6989586621679266906"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipeline"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-var">DescribePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipeline%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-var">DescribePipeline'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the pipeline whose information is retrieved.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3ApipelineName%3ADescribePipeline%27"><span class="annot"><span class="annottext">DescribePipeline -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3ApipelineName%3ADescribePipeline%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266890"><span id="local-6989586621679266892"><span class="annot"><span class="annottext">DescribePipeline -&gt; DescribePipeline -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266899"><span id="local-6989586621679266901"><span class="annot"><span class="annottext">DescribePipeline -&gt; DescribePipeline -&gt; Bool
 (DescribePipeline -&gt; DescribePipeline -&gt; Bool)
 -&gt; (DescribePipeline -&gt; DescribePipeline -&gt; Bool)
 -&gt; Eq DescribePipeline
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribePipeline -&gt; DescribePipeline -&gt; Bool
 == :: DescribePipeline -&gt; DescribePipeline -&gt; Bool
 $c== :: DescribePipeline -&gt; DescribePipeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266881"><span id="local-6989586621679266883"><span id="local-6989586621679266885"><span id="local-6989586621679266887"><span class="annot"><span class="annottext">ReadPrec [DescribePipeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266890"><span id="local-6989586621679266892"><span id="local-6989586621679266894"><span id="local-6989586621679266896"><span class="annot"><span class="annottext">ReadPrec [DescribePipeline]
 ReadPrec DescribePipeline
 Int -&gt; ReadS DescribePipeline
 ReadS [DescribePipeline]
@@ -81,7 +81,7 @@ readList :: ReadS [DescribePipeline]
 $creadList :: ReadS [DescribePipeline]
 readsPrec :: Int -&gt; ReadS DescribePipeline
 $creadsPrec :: Int -&gt; ReadS DescribePipeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266874"><span id="local-6989586621679266876"><span id="local-6989586621679266878"><span class="annot"><span class="annottext">Int -&gt; DescribePipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266883"><span id="local-6989586621679266885"><span id="local-6989586621679266887"><span class="annot"><span class="annottext">Int -&gt; DescribePipeline -&gt; ShowS
 [DescribePipeline] -&gt; ShowS
 DescribePipeline -&gt; String
 (Int -&gt; DescribePipeline -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. DescribePipeline -&gt; Rep DescribePipeline x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span>
 </span><span id="line-69"></span><span id="newDescribePipeline"><span class="annot"><span class="annottext">newDescribePipeline :: Text -&gt; DescribePipeline
-</span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#newDescribePipeline"><span class="hs-identifier hs-var hs-var">newDescribePipeline</span></a></span></span><span> </span><span id="local-6989586621679266869"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266869"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#newDescribePipeline"><span class="hs-identifier hs-var hs-var">newDescribePipeline</span></a></span></span><span> </span><span id="local-6989586621679266878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266878"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DescribePipeline' :: Text -&gt; DescribePipeline
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-type">DescribePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:DescribePipeline' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3ApipelineName%3ADescribePipeline%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266869"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679266878"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the pipeline whose information is retrieved.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#describePipeline_pipelineName"><span class="hs-identifier hs-type">describePipeline_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DescribePipeline -&gt; Rep DescribePipeline x
 -&gt; (DescribePipeline -&gt; Text -&gt; DescribePipeline)
 -&gt; Lens DescribePipeline DescribePipeline Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-type">DescribePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266866"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-type">DescribePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266875"><span class="annot"><span class="annottext">Text
 pipelineName :: Text
 $sel:pipelineName:DescribePipeline' :: DescribePipeline -&gt; Text
-</span><a href="#local-6989586621679266866"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266866"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266865"><span class="annot"><span class="annottext">s :: DescribePipeline
-</span><a href="#local-6989586621679266865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-type">DescribePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266864"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipeline
-</span><a href="#local-6989586621679266865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:DescribePipeline' :: Text
+</span><a href="#local-6989586621679266875"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266875"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266874"><span class="annot"><span class="annottext">s :: DescribePipeline
+</span><a href="#local-6989586621679266874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-type">DescribePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266873"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipeline
+</span><a href="#local-6989586621679266874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:DescribePipeline' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3ApipelineName%3ADescribePipeline%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679266860"><span class="annot"><span class="annottext">request :: DescribePipeline -&gt; Request DescribePipeline
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679266869"><span class="annot"><span class="annottext">request :: DescribePipeline -&gt; Request DescribePipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribePipeline -&gt; Request DescribePipeline
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679266856"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679266865"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribePipeline
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266853"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266853"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266852"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679266852"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266851"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266851"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266862"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266862"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266861"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679266861"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266860"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Pipeline -&gt; Int -&gt; DescribePipelineResponse
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-var">DescribePipelineResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Pipeline -&gt; Int -&gt; DescribePipelineResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribePipelineResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Pipeline)
+</span><a href="#local-6989586621679266860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Pipeline)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipeline&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266853"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266862"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266843"><span id="local-6989586621679266845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266852"><span id="local-6989586621679266854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679266836"><span class="annot"><span class="annottext">toHeaders :: DescribePipeline -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679266845"><span class="annot"><span class="annottext">toHeaders :: DescribePipeline -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePipeline -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -218,11 +218,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679266831"><span class="annot"><span class="annottext">toPath :: DescribePipeline -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-type">DescribePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266829"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679266840"><span class="annot"><span class="annottext">toPath :: DescribePipeline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline%27"><span class="hs-identifier hs-type">DescribePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266838"><span class="annot"><span class="annottext">Text
 pipelineName :: Text
 $sel:pipelineName:DescribePipeline' :: DescribePipeline -&gt; Text
-</span><a href="#local-6989586621679266829"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679266838"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -230,10 +230,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/pipelines/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266829"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679266838"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipeline"><span class="hs-identifier hs-type">DescribePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679266825"><span class="annot"><span class="annottext">toQuery :: DescribePipeline -&gt; QueryString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679266834"><span class="annot"><span class="annottext">toQuery :: DescribePipeline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePipeline -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -241,7 +241,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | /See:/ 'newDescribePipelineResponse' smart constructor.</span><span>
-</span><span id="line-105"></span><span id="local-6989586621679266822"><span id="local-6989586621679266823"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipelineResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-var">DescribePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipelineResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-var">DescribePipelineResponse'</span></a></span></span><span>
+</span><span id="line-105"></span><span id="local-6989586621679266831"><span id="local-6989586621679266832"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipelineResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-var">DescribePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipelineResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-var">DescribePipelineResponse'</span></a></span></span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @Pipeline@ object that contains information about the pipeline.</span><span>
 </span><span id="line-107"></span><span>    </span><span id="%24sel%3Apipeline%3ADescribePipelineResponse%27"><span class="annot"><span class="annottext">DescribePipelineResponse -&gt; Maybe Pipeline
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3Apipeline%3ADescribePipelineResponse%27"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#Pipeline"><span class="hs-identifier hs-type">Pipeline</span></a></span><span class="hs-special">,</span><span>
@@ -249,7 +249,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePipelineResponse%27"><span class="annot"><span class="annottext">DescribePipelineResponse -&gt; Int
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3AhttpStatus%3ADescribePipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266816"><span id="local-6989586621679266818"><span class="annot"><span class="annottext">DescribePipelineResponse -&gt; DescribePipelineResponse -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266825"><span id="local-6989586621679266827"><span class="annot"><span class="annottext">DescribePipelineResponse -&gt; DescribePipelineResponse -&gt; Bool
 (DescribePipelineResponse -&gt; DescribePipelineResponse -&gt; Bool)
 -&gt; (DescribePipelineResponse -&gt; DescribePipelineResponse -&gt; Bool)
 -&gt; Eq DescribePipelineResponse
@@ -258,7 +258,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribePipelineResponse -&gt; DescribePipelineResponse -&gt; Bool
 == :: DescribePipelineResponse -&gt; DescribePipelineResponse -&gt; Bool
 $c== :: DescribePipelineResponse -&gt; DescribePipelineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266808"><span id="local-6989586621679266810"><span id="local-6989586621679266812"><span id="local-6989586621679266814"><span class="annot"><span class="annottext">ReadPrec [DescribePipelineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266817"><span id="local-6989586621679266819"><span id="local-6989586621679266821"><span id="local-6989586621679266823"><span class="annot"><span class="annottext">ReadPrec [DescribePipelineResponse]
 ReadPrec DescribePipelineResponse
 Int -&gt; ReadS DescribePipelineResponse
 ReadS [DescribePipelineResponse]
@@ -278,7 +278,7 @@ readList :: ReadS [DescribePipelineResponse]
 $creadList :: ReadS [DescribePipelineResponse]
 readsPrec :: Int -&gt; ReadS DescribePipelineResponse
 $creadsPrec :: Int -&gt; ReadS DescribePipelineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266802"><span id="local-6989586621679266804"><span id="local-6989586621679266806"><span class="annot"><span class="annottext">Int -&gt; DescribePipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266811"><span id="local-6989586621679266813"><span id="local-6989586621679266815"><span class="annot"><span class="annottext">Int -&gt; DescribePipelineResponse -&gt; ShowS
 [DescribePipelineResponse] -&gt; ShowS
 DescribePipelineResponse -&gt; String
 (Int -&gt; DescribePipelineResponse -&gt; ShowS)
@@ -326,8 +326,8 @@ DescribePipelineResponse -&gt; Rep DescribePipelineResponse x
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span><span>
 </span><span id="line-128"></span><span id="newDescribePipelineResponse"><span class="annot"><span class="annottext">newDescribePipelineResponse :: Int -&gt; DescribePipelineResponse
-</span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#newDescribePipelineResponse"><span class="hs-identifier hs-var hs-var">newDescribePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679266799"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#newDescribePipelineResponse"><span class="hs-identifier hs-var hs-var">newDescribePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679266808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">DescribePipelineResponse' :: Maybe Pipeline -&gt; Int -&gt; DescribePipelineResponse
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipeline:DescribePipelineResponse' :: Maybe Pipeline
@@ -337,7 +337,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePipelineResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3AhttpStatus%3ADescribePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679266808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | A @Pipeline@ object that contains information about the pipeline.</span><span>
@@ -353,16 +353,16 @@ forall a. Maybe a
      (Maybe Pipeline)
      (Maybe Pipeline)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266798"><span class="annot"><span class="annottext">Maybe Pipeline
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266807"><span class="annot"><span class="annottext">Maybe Pipeline
 pipeline :: Maybe Pipeline
 $sel:pipeline:DescribePipelineResponse' :: DescribePipelineResponse -&gt; Maybe Pipeline
-</span><a href="#local-6989586621679266798"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
-</span><a href="#local-6989586621679266798"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266797"><span class="annot"><span class="annottext">s :: DescribePipelineResponse
-</span><a href="#local-6989586621679266797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266796"><span class="annot"><span class="annottext">Maybe Pipeline
-</span><a href="#local-6989586621679266796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineResponse
-</span><a href="#local-6989586621679266797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:DescribePipelineResponse' :: Maybe Pipeline
+</span><a href="#local-6989586621679266807"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679266807"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266806"><span class="annot"><span class="annottext">s :: DescribePipelineResponse
+</span><a href="#local-6989586621679266806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266805"><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679266805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineResponse
+</span><a href="#local-6989586621679266806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:DescribePipelineResponse' :: Maybe Pipeline
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3Apipeline%3ADescribePipelineResponse%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
-</span><a href="#local-6989586621679266796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#describePipelineResponse_httpStatus"><span class="hs-identifier hs-type">describePipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -372,16 +372,16 @@ $sel:pipeline:DescribePipelineResponse' :: DescribePipelineResponse -&gt; Maybe 
 -&gt; (DescribePipelineResponse -&gt; Int -&gt; DescribePipelineResponse)
 -&gt; Lens DescribePipelineResponse DescribePipelineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266795"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266804"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribePipelineResponse' :: DescribePipelineResponse -&gt; Int
-</span><a href="#local-6989586621679266795"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266795"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266794"><span class="annot"><span class="annottext">s :: DescribePipelineResponse
-</span><a href="#local-6989586621679266794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineResponse
-</span><a href="#local-6989586621679266794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePipelineResponse' :: Int
+</span><a href="#local-6989586621679266804"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266804"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266803"><span class="annot"><span class="annottext">s :: DescribePipelineResponse
+</span><a href="#local-6989586621679266803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse%27"><span class="hs-identifier hs-type">DescribePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineResponse
+</span><a href="#local-6989586621679266803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePipelineResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#%24sel%3AhttpStatus%3ADescribePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribePipeline.html#DescribePipelineResponse"><span class="hs-identifier hs-type">DescribePipelineResponse</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

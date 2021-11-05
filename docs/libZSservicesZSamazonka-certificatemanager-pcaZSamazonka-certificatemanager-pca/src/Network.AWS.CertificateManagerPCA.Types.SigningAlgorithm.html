@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679212388"><span id="local-6989586621679212389"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SigningAlgorithm"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#SigningAlgorithm"><span class="hs-identifier hs-var">SigningAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigningAlgorithm%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#SigningAlgorithm%27"><span class="hs-identifier hs-var">SigningAlgorithm'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679212397"><span id="local-6989586621679212398"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SigningAlgorithm"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#SigningAlgorithm"><span class="hs-identifier hs-var">SigningAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigningAlgorithm%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#SigningAlgorithm%27"><span class="hs-identifier hs-var">SigningAlgorithm'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSigningAlgorithm"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#fromSigningAlgorithm"><span class="hs-identifier hs-var hs-var">fromSigningAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212380"><span id="local-6989586621679212382"><span id="local-6989586621679212384"><span class="annot"><span class="annottext">Int -&gt; SigningAlgorithm -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212389"><span id="local-6989586621679212391"><span id="local-6989586621679212393"><span class="annot"><span class="annottext">Int -&gt; SigningAlgorithm -&gt; ShowS
 [SigningAlgorithm] -&gt; ShowS
 SigningAlgorithm -&gt; String
 (Int -&gt; SigningAlgorithm -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: SigningAlgorithm -&gt; String
 showsPrec :: Int -&gt; SigningAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; SigningAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679212371"><span id="local-6989586621679212373"><span id="local-6989586621679212375"><span id="local-6989586621679212377"><span class="annot"><span class="annottext">ReadPrec [SigningAlgorithm]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679212380"><span id="local-6989586621679212382"><span id="local-6989586621679212384"><span id="local-6989586621679212386"><span class="annot"><span class="annottext">ReadPrec [SigningAlgorithm]
 ReadPrec SigningAlgorithm
 Int -&gt; ReadS SigningAlgorithm
 ReadS [SigningAlgorithm]
@@ -76,7 +76,7 @@ $creadList :: ReadS [SigningAlgorithm]
 readsPrec :: Int -&gt; ReadS SigningAlgorithm
 $creadsPrec :: Int -&gt; ReadS SigningAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679212366"><span id="local-6989586621679212368"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679212375"><span id="local-6989586621679212377"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool
 (SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool)
 -&gt; (SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool)
 -&gt; Eq SigningAlgorithm
@@ -86,7 +86,7 @@ $c/= :: SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool
 == :: SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool
 $c== :: SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679212350"><span id="local-6989586621679212352"><span id="local-6989586621679212354"><span id="local-6989586621679212356"><span id="local-6989586621679212358"><span id="local-6989586621679212360"><span id="local-6989586621679212362"><span class="annot"><span class="annottext">Eq SigningAlgorithm
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679212359"><span id="local-6989586621679212361"><span id="local-6989586621679212363"><span id="local-6989586621679212365"><span id="local-6989586621679212367"><span id="local-6989586621679212369"><span id="local-6989586621679212371"><span class="annot"><span class="annottext">Eq SigningAlgorithm
 Eq SigningAlgorithm
 -&gt; (SigningAlgorithm -&gt; SigningAlgorithm -&gt; Ordering)
 -&gt; (SigningAlgorithm -&gt; SigningAlgorithm -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. SigningAlgorithm -&gt; Rep SigningAlgorithm x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212342"><span id="local-6989586621679212344"><span class="annot"><span class="annottext">Int -&gt; SigningAlgorithm -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212351"><span id="local-6989586621679212353"><span class="annot"><span class="annottext">Int -&gt; SigningAlgorithm -&gt; Int
 SigningAlgorithm -&gt; Int
 (Int -&gt; SigningAlgorithm -&gt; Int)
 -&gt; (SigningAlgorithm -&gt; Int) -&gt; Hashable SigningAlgorithm
@@ -147,51 +147,51 @@ $chash :: SigningAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; SigningAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; SigningAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679212339"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679212348"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; ()
 (SigningAlgorithm -&gt; ()) -&gt; NFData SigningAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SigningAlgorithm -&gt; ()
 $crnf :: SigningAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679212336"><span class="annot"><span class="annottext">Text -&gt; Either String SigningAlgorithm
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679212345"><span class="annot"><span class="annottext">Text -&gt; Either String SigningAlgorithm
 (Text -&gt; Either String SigningAlgorithm)
 -&gt; FromText SigningAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SigningAlgorithm
 $cfromText :: Text -&gt; Either String SigningAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679212333"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679212342"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; Text
 (SigningAlgorithm -&gt; Text) -&gt; ToText SigningAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SigningAlgorithm -&gt; Text
 $ctoText :: SigningAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679212330"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679212339"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; ByteString
 (SigningAlgorithm -&gt; ByteString) -&gt; ToByteString SigningAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SigningAlgorithm -&gt; ByteString
 $ctoBS :: SigningAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679212327"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679212336"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; ByteStringBuilder
 (SigningAlgorithm -&gt; ByteStringBuilder) -&gt; ToLog SigningAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SigningAlgorithm -&gt; ByteStringBuilder
 $cbuild :: SigningAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679212324"><span class="annot"><span class="annottext">HeaderName -&gt; SigningAlgorithm -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679212333"><span class="annot"><span class="annottext">HeaderName -&gt; SigningAlgorithm -&gt; [Header]
 (HeaderName -&gt; SigningAlgorithm -&gt; [Header])
 -&gt; ToHeader SigningAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SigningAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SigningAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679212321"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679212330"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; QueryString
 (SigningAlgorithm -&gt; QueryString) -&gt; ToQuery SigningAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SigningAlgorithm -&gt; QueryString
 $ctoQuery :: SigningAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679212316"><span id="local-6989586621679212318"><span class="annot"><span class="annottext">Value -&gt; Parser [SigningAlgorithm]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679212325"><span id="local-6989586621679212327"><span class="annot"><span class="annottext">Value -&gt; Parser [SigningAlgorithm]
 Value -&gt; Parser SigningAlgorithm
 (Value -&gt; Parser SigningAlgorithm)
 -&gt; (Value -&gt; Parser [SigningAlgorithm])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [SigningAlgorithm]
 parseJSON :: Value -&gt; Parser SigningAlgorithm
 $cparseJSON :: Value -&gt; Parser SigningAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679212311"><span id="local-6989586621679212313"><span class="annot"><span class="annottext">FromJSONKeyFunction [SigningAlgorithm]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679212320"><span id="local-6989586621679212322"><span class="annot"><span class="annottext">FromJSONKeyFunction [SigningAlgorithm]
 FromJSONKeyFunction SigningAlgorithm
 FromJSONKeyFunction SigningAlgorithm
 -&gt; FromJSONKeyFunction [SigningAlgorithm]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SigningAlgorithm]
 fromJSONKey :: FromJSONKeyFunction SigningAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction SigningAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679212302"><span id="local-6989586621679212304"><span id="local-6989586621679212306"><span id="local-6989586621679212308"><span class="annot"><span class="annottext">[SigningAlgorithm] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679212311"><span id="local-6989586621679212313"><span id="local-6989586621679212315"><span id="local-6989586621679212317"><span class="annot"><span class="annottext">[SigningAlgorithm] -&gt; Encoding
 [SigningAlgorithm] -&gt; Value
 SigningAlgorithm -&gt; Encoding
 SigningAlgorithm -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: SigningAlgorithm -&gt; Encoding
 toJSON :: SigningAlgorithm -&gt; Value
 $ctoJSON :: SigningAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679212297"><span id="local-6989586621679212299"><span class="annot"><span class="annottext">ToJSONKeyFunction [SigningAlgorithm]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679212306"><span id="local-6989586621679212308"><span class="annot"><span class="annottext">ToJSONKeyFunction [SigningAlgorithm]
 ToJSONKeyFunction SigningAlgorithm
 ToJSONKeyFunction SigningAlgorithm
 -&gt; ToJSONKeyFunction [SigningAlgorithm]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SigningAlgorithm]
 toJSONKey :: ToJSONKeyFunction SigningAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction SigningAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679212294"><span class="annot"><span class="annottext">[Node] -&gt; Either String SigningAlgorithm
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679212303"><span class="annot"><span class="annottext">[Node] -&gt; Either String SigningAlgorithm
 ([Node] -&gt; Either String SigningAlgorithm)
 -&gt; FromXML SigningAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SigningAlgorithm
 $cparseXML :: [Node] -&gt; Either String SigningAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679212291"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679212300"><span class="annot"><span class="annottext">SigningAlgorithm -&gt; XML
 (SigningAlgorithm -&gt; XML) -&gt; ToXML SigningAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SigningAlgorithm -&gt; XML

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCostTypes' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679206524"><span id="local-6989586621679206525"></span></span><span class="hs-keyword">data</span><span> </span><span id="CostTypes"><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-var">CostTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostTypes%27"><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-var">CostTypes'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679206533"><span id="local-6989586621679206534"></span></span><span class="hs-keyword">data</span><span> </span><span id="CostTypes"><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-var">CostTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostTypes%27"><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-var">CostTypes'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether a budget uses the amortized rate.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The default value is @false@.</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AincludeCredit%3ACostTypes%27"><span class="annot"><span class="annottext">CostTypes -&gt; Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeCredit%3ACostTypes%27"><span class="hs-identifier hs-var hs-var">includeCredit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206508"><span id="local-6989586621679206510"><span class="annot"><span class="annottext">CostTypes -&gt; CostTypes -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206517"><span id="local-6989586621679206519"><span class="annot"><span class="annottext">CostTypes -&gt; CostTypes -&gt; Bool
 (CostTypes -&gt; CostTypes -&gt; Bool)
 -&gt; (CostTypes -&gt; CostTypes -&gt; Bool) -&gt; Eq CostTypes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CostTypes -&gt; CostTypes -&gt; Bool
 == :: CostTypes -&gt; CostTypes -&gt; Bool
 $c== :: CostTypes -&gt; CostTypes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206499"><span id="local-6989586621679206501"><span id="local-6989586621679206503"><span id="local-6989586621679206505"><span class="annot"><span class="annottext">ReadPrec [CostTypes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206508"><span id="local-6989586621679206510"><span id="local-6989586621679206512"><span id="local-6989586621679206514"><span class="annot"><span class="annottext">ReadPrec [CostTypes]
 ReadPrec CostTypes
 Int -&gt; ReadS CostTypes
 ReadS [CostTypes]
@@ -116,7 +116,7 @@ readList :: ReadS [CostTypes]
 $creadList :: ReadS [CostTypes]
 readsPrec :: Int -&gt; ReadS CostTypes
 $creadsPrec :: Int -&gt; ReadS CostTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206492"><span id="local-6989586621679206494"><span id="local-6989586621679206496"><span class="annot"><span class="annottext">Int -&gt; CostTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206501"><span id="local-6989586621679206503"><span id="local-6989586621679206505"><span class="annot"><span class="annottext">Int -&gt; CostTypes -&gt; ShowS
 [CostTypes] -&gt; ShowS
 CostTypes -&gt; String
 (Int -&gt; CostTypes -&gt; ShowS)
@@ -265,16 +265,16 @@ forall a. Maybe a
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206483"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206492"><span class="annot"><span class="annottext">Maybe Bool
 useAmortized :: Maybe Bool
 $sel:useAmortized:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206483"><span class="hs-identifier hs-var hs-var">useAmortized</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206483"><span class="hs-identifier hs-var">useAmortized</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206482"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206481"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useAmortized:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206492"><span class="hs-identifier hs-var hs-var">useAmortized</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206492"><span class="hs-identifier hs-var">useAmortized</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206491"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206490"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useAmortized:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AuseAmortized%3ACostTypes%27"><span class="hs-identifier hs-var">useAmortized</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Specifies whether a budget includes recurring fees such as monthly RI</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- fees.</span><span>
@@ -286,16 +286,16 @@ $sel:useAmortized:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206479"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206488"><span class="annot"><span class="annottext">Maybe Bool
 includeRecurring :: Maybe Bool
 $sel:includeRecurring:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206479"><span class="hs-identifier hs-var hs-var">includeRecurring</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206479"><span class="hs-identifier hs-var">includeRecurring</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206478"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206477"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeRecurring:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206488"><span class="hs-identifier hs-var hs-var">includeRecurring</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206488"><span class="hs-identifier hs-var">includeRecurring</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206487"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206486"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeRecurring:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeRecurring%3ACostTypes%27"><span class="hs-identifier hs-var">includeRecurring</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | Specifies whether a budget uses a blended rate.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
@@ -306,16 +306,16 @@ $sel:includeRecurring:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206475"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206484"><span class="annot"><span class="annottext">Maybe Bool
 useBlended :: Maybe Bool
 $sel:useBlended:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206475"><span class="hs-identifier hs-var hs-var">useBlended</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206475"><span class="hs-identifier hs-var">useBlended</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206474"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206473"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useBlended:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206484"><span class="hs-identifier hs-var hs-var">useBlended</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206484"><span class="hs-identifier hs-var">useBlended</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206483"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206482"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useBlended:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AuseBlended%3ACostTypes%27"><span class="hs-identifier hs-var">useBlended</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | Specifies whether a budget includes support subscription fees.</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
@@ -326,16 +326,16 @@ $sel:useBlended:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206471"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206480"><span class="annot"><span class="annottext">Maybe Bool
 includeSupport :: Maybe Bool
 $sel:includeSupport:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206471"><span class="hs-identifier hs-var hs-var">includeSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206471"><span class="hs-identifier hs-var">includeSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206470"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206469"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeSupport:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206480"><span class="hs-identifier hs-var hs-var">includeSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206480"><span class="hs-identifier hs-var">includeSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206479"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206478"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeSupport:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeSupport%3ACostTypes%27"><span class="hs-identifier hs-var">includeSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Specifies whether a budget includes discounts.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
@@ -346,16 +346,16 @@ $sel:includeSupport:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206467"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206476"><span class="annot"><span class="annottext">Maybe Bool
 includeDiscount :: Maybe Bool
 $sel:includeDiscount:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206467"><span class="hs-identifier hs-var hs-var">includeDiscount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206467"><span class="hs-identifier hs-var">includeDiscount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206466"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206465"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDiscount:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206476"><span class="hs-identifier hs-var hs-var">includeDiscount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206476"><span class="hs-identifier hs-var">includeDiscount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206475"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206474"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDiscount:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeDiscount%3ACostTypes%27"><span class="hs-identifier hs-var">includeDiscount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | Specifies whether a budget includes subscriptions.</span><span>
 </span><span id="line-183"></span><span class="hs-comment">--</span><span>
@@ -366,16 +366,16 @@ $sel:includeDiscount:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206463"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206472"><span class="annot"><span class="annottext">Maybe Bool
 includeSubscription :: Maybe Bool
 $sel:includeSubscription:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206463"><span class="hs-identifier hs-var hs-var">includeSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206463"><span class="hs-identifier hs-var">includeSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206462"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206461"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeSubscription:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206472"><span class="hs-identifier hs-var hs-var">includeSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206472"><span class="hs-identifier hs-var">includeSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206471"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206470"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeSubscription:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeSubscription%3ACostTypes%27"><span class="hs-identifier hs-var">includeSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Specifies whether a budget includes refunds.</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
@@ -386,16 +386,16 @@ $sel:includeSubscription:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206459"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206468"><span class="annot"><span class="annottext">Maybe Bool
 includeRefund :: Maybe Bool
 $sel:includeRefund:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206459"><span class="hs-identifier hs-var hs-var">includeRefund</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206459"><span class="hs-identifier hs-var">includeRefund</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206458"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206457"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeRefund:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206468"><span class="hs-identifier hs-var hs-var">includeRefund</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206468"><span class="hs-identifier hs-var">includeRefund</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206467"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206466"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeRefund:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeRefund%3ACostTypes%27"><span class="hs-identifier hs-var">includeRefund</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | Specifies whether a budget includes upfront RI costs.</span><span>
 </span><span id="line-195"></span><span class="hs-comment">--</span><span>
@@ -406,16 +406,16 @@ $sel:includeRefund:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206455"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206464"><span class="annot"><span class="annottext">Maybe Bool
 includeUpfront :: Maybe Bool
 $sel:includeUpfront:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206455"><span class="hs-identifier hs-var hs-var">includeUpfront</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206455"><span class="hs-identifier hs-var">includeUpfront</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206454"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206453"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeUpfront:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206464"><span class="hs-identifier hs-var hs-var">includeUpfront</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206464"><span class="hs-identifier hs-var">includeUpfront</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206463"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206462"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeUpfront:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeUpfront%3ACostTypes%27"><span class="hs-identifier hs-var">includeUpfront</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | Specifies whether a budget includes non-RI subscription costs.</span><span>
 </span><span id="line-201"></span><span class="hs-comment">--</span><span>
@@ -426,16 +426,16 @@ $sel:includeUpfront:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206451"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206460"><span class="annot"><span class="annottext">Maybe Bool
 includeOtherSubscription :: Maybe Bool
 $sel:includeOtherSubscription:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206451"><span class="hs-identifier hs-var hs-var">includeOtherSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206451"><span class="hs-identifier hs-var">includeOtherSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206450"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206449"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeOtherSubscription:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206460"><span class="hs-identifier hs-var hs-var">includeOtherSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206460"><span class="hs-identifier hs-var">includeOtherSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206459"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206458"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeOtherSubscription:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeOtherSubscription%3ACostTypes%27"><span class="hs-identifier hs-var">includeOtherSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | Specifies whether a budget includes taxes.</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
@@ -446,16 +446,16 @@ $sel:includeOtherSubscription:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206447"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206456"><span class="annot"><span class="annottext">Maybe Bool
 includeTax :: Maybe Bool
 $sel:includeTax:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206447"><span class="hs-identifier hs-var hs-var">includeTax</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206447"><span class="hs-identifier hs-var">includeTax</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206446"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206445"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTax:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206456"><span class="hs-identifier hs-var hs-var">includeTax</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206456"><span class="hs-identifier hs-var">includeTax</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206455"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206454"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTax:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeTax%3ACostTypes%27"><span class="hs-identifier hs-var">includeTax</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Specifies whether a budget includes credits.</span><span>
 </span><span id="line-213"></span><span class="hs-comment">--</span><span>
@@ -466,27 +466,27 @@ $sel:includeTax:CostTypes' :: CostTypes -&gt; Maybe Bool
 -&gt; (CostTypes -&gt; Maybe Bool -&gt; CostTypes)
 -&gt; Lens CostTypes CostTypes (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206443"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206452"><span class="annot"><span class="annottext">Maybe Bool
 includeCredit :: Maybe Bool
 $sel:includeCredit:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206443"><span class="hs-identifier hs-var hs-var">includeCredit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206443"><span class="hs-identifier hs-var">includeCredit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206442"><span class="annot"><span class="annottext">s :: CostTypes
-</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206441"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
-</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeCredit:CostTypes' :: Maybe Bool
+</span><a href="#local-6989586621679206452"><span class="hs-identifier hs-var hs-var">includeCredit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206452"><span class="hs-identifier hs-var">includeCredit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206451"><span class="annot"><span class="annottext">s :: CostTypes
+</span><a href="#local-6989586621679206451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206450"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679206450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostTypes
+</span><a href="#local-6989586621679206451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeCredit:CostTypes' :: Maybe Bool
 </span><a href="Network.AWS.Budgets.Types.CostTypes.html#%24sel%3AincludeCredit%3ACostTypes%27"><span class="hs-identifier hs-var">includeCredit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206438"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679206436"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CostTypes
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679206445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CostTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser CostTypes) -&gt; Value -&gt; Parser CostTypes
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CostTypes&quot;</span></span><span>
-</span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206433"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206442"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Bool
@@ -527,7 +527,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UseAmortized&quot;</span></span><span class="hs-special">)</span><span>
@@ -557,7 +557,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeRecurring&quot;</span></span><span class="hs-special">)</span><span>
@@ -585,7 +585,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UseBlended&quot;</span></span><span class="hs-special">)</span><span>
@@ -611,7 +611,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeSupport&quot;</span></span><span class="hs-special">)</span><span>
@@ -635,7 +635,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeDiscount&quot;</span></span><span class="hs-special">)</span><span>
@@ -657,7 +657,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeSubscription&quot;</span></span><span class="hs-special">)</span><span>
@@ -673,7 +673,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeRefund&quot;</span></span><span class="hs-special">)</span><span>
@@ -683,7 +683,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeUpfront&quot;</span></span><span class="hs-special">)</span><span>
@@ -692,7 +692,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeOtherSubscription&quot;</span></span><span class="hs-special">)</span><span>
@@ -700,7 +700,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; CostTypes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTax&quot;</span></span><span class="hs-special">)</span><span>
@@ -708,19 +708,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser CostTypes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679206442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeCredit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206427"><span id="local-6989586621679206429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206436"><span id="local-6989586621679206438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span></span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206416"><span id="local-6989586621679206418"><span id="local-6989586621679206420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679206414"><span class="annot"><span class="annottext">toJSON :: CostTypes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206402"><span id="local-6989586621679206403"><span id="local-6989586621679206404"><span id="local-6989586621679206405"><span id="local-6989586621679206406"><span id="local-6989586621679206407"><span id="local-6989586621679206408"><span id="local-6989586621679206409"><span id="local-6989586621679206410"><span id="local-6989586621679206411"><span id="local-6989586621679206412"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206425"><span id="local-6989586621679206427"><span id="local-6989586621679206429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679206423"><span class="annot"><span class="annottext">toJSON :: CostTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes%27"><span class="hs-identifier hs-type">CostTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206411"><span id="local-6989586621679206412"><span id="local-6989586621679206413"><span id="local-6989586621679206414"><span id="local-6989586621679206415"><span id="local-6989586621679206416"><span id="local-6989586621679206417"><span id="local-6989586621679206418"><span id="local-6989586621679206419"><span id="local-6989586621679206420"><span id="local-6989586621679206421"><span class="annot"><span class="annottext">Maybe Bool
 includeCredit :: Maybe Bool
 includeTax :: Maybe Bool
 includeOtherSubscription :: Maybe Bool
@@ -743,7 +743,7 @@ $sel:includeSupport:CostTypes' :: CostTypes -&gt; Maybe Bool
 $sel:useBlended:CostTypes' :: CostTypes -&gt; Maybe Bool
 $sel:includeRecurring:CostTypes' :: CostTypes -&gt; Maybe Bool
 $sel:useAmortized:CostTypes' :: CostTypes -&gt; Maybe Bool
-</span><a href="#local-6989586621679206402"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679206411"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -755,7 +755,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206412"><span class="hs-identifier hs-var">useAmortized</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206421"><span class="hs-identifier hs-var">useAmortized</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeRecurring&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -763,14 +763,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206411"><span class="hs-identifier hs-var">includeRecurring</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206420"><span class="hs-identifier hs-var">includeRecurring</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UseBlended&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206410"><span class="hs-identifier hs-var">useBlended</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206419"><span class="hs-identifier hs-var">useBlended</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeSupport&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -778,7 +778,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206409"><span class="hs-identifier hs-var">includeSupport</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206418"><span class="hs-identifier hs-var">includeSupport</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeDiscount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -786,7 +786,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206408"><span class="hs-identifier hs-var">includeDiscount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206417"><span class="hs-identifier hs-var">includeDiscount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeSubscription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -794,14 +794,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206407"><span class="hs-identifier hs-var">includeSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206416"><span class="hs-identifier hs-var">includeSubscription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeRefund&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206406"><span class="hs-identifier hs-var">includeRefund</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206415"><span class="hs-identifier hs-var">includeRefund</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeUpfront&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -809,7 +809,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206405"><span class="hs-identifier hs-var">includeUpfront</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206414"><span class="hs-identifier hs-var">includeUpfront</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeOtherSubscription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -817,21 +817,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206404"><span class="hs-identifier hs-var">includeOtherSubscription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206413"><span class="hs-identifier hs-var">includeOtherSubscription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTax&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206403"><span class="hs-identifier hs-var">includeTax</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206412"><span class="hs-identifier hs-var">includeTax</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeCredit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679206402"><span class="hs-identifier hs-var">includeCredit</span></a></span><span>
+</span><a href="#local-6989586621679206411"><span class="hs-identifier hs-var">includeCredit</span></a></span><span>
 </span><span id="line-262"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span></pre></body></html>

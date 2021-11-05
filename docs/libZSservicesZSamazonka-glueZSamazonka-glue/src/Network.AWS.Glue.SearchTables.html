@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newSearchTables' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679713941"><span id="local-6989586621679713942"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchTables"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-var">SearchTables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchTables%27"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-var">SearchTables'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679713950"><span id="local-6989586621679713951"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchTables"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-var">SearchTables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchTables%27"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-var">SearchTables'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allows you to specify that you want to search the tables shared with</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- your account. The allowable values are @FOREIGN@ or @ALL@.</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -109,7 +109,7 @@
 </span><span id="line-103"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchTables%27"><span class="annot"><span class="annottext">SearchTables -&gt; Maybe Natural
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AmaxResults%3ASearchTables%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679713929"><span id="local-6989586621679713931"><span class="annot"><span class="annottext">SearchTables -&gt; SearchTables -&gt; Bool
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679713938"><span id="local-6989586621679713940"><span class="annot"><span class="annottext">SearchTables -&gt; SearchTables -&gt; Bool
 (SearchTables -&gt; SearchTables -&gt; Bool)
 -&gt; (SearchTables -&gt; SearchTables -&gt; Bool) -&gt; Eq SearchTables
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -117,7 +117,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchTables -&gt; SearchTables -&gt; Bool
 == :: SearchTables -&gt; SearchTables -&gt; Bool
 $c== :: SearchTables -&gt; SearchTables -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713920"><span id="local-6989586621679713922"><span id="local-6989586621679713924"><span id="local-6989586621679713926"><span class="annot"><span class="annottext">ReadPrec [SearchTables]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713929"><span id="local-6989586621679713931"><span id="local-6989586621679713933"><span id="local-6989586621679713935"><span class="annot"><span class="annottext">ReadPrec [SearchTables]
 ReadPrec SearchTables
 Int -&gt; ReadS SearchTables
 ReadS [SearchTables]
@@ -137,7 +137,7 @@ readList :: ReadS [SearchTables]
 $creadList :: ReadS [SearchTables]
 readsPrec :: Int -&gt; ReadS SearchTables
 $creadsPrec :: Int -&gt; ReadS SearchTables
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713913"><span id="local-6989586621679713915"><span id="local-6989586621679713917"><span class="annot"><span class="annottext">Int -&gt; SearchTables -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713922"><span id="local-6989586621679713924"><span id="local-6989586621679713926"><span class="annot"><span class="annottext">Int -&gt; SearchTables -&gt; ShowS
 [SearchTables] -&gt; ShowS
 SearchTables -&gt; String
 (Int -&gt; SearchTables -&gt; ShowS)
@@ -268,16 +268,16 @@ forall a. Maybe a
      (Maybe ResourceShareType)
      (Maybe ResourceShareType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713906"><span class="annot"><span class="annottext">Maybe ResourceShareType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713915"><span class="annot"><span class="annottext">Maybe ResourceShareType
 resourceShareType :: Maybe ResourceShareType
 $sel:resourceShareType:SearchTables' :: SearchTables -&gt; Maybe ResourceShareType
-</span><a href="#local-6989586621679713906"><span class="hs-identifier hs-var hs-var">resourceShareType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareType
-</span><a href="#local-6989586621679713906"><span class="hs-identifier hs-var">resourceShareType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713905"><span class="annot"><span class="annottext">s :: SearchTables
-</span><a href="#local-6989586621679713905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713904"><span class="annot"><span class="annottext">Maybe ResourceShareType
-</span><a href="#local-6989586621679713904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
-</span><a href="#local-6989586621679713905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareType:SearchTables' :: Maybe ResourceShareType
+</span><a href="#local-6989586621679713915"><span class="hs-identifier hs-var hs-var">resourceShareType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareType
+</span><a href="#local-6989586621679713915"><span class="hs-identifier hs-var">resourceShareType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713914"><span class="annot"><span class="annottext">s :: SearchTables
+</span><a href="#local-6989586621679713914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713913"><span class="annot"><span class="annottext">Maybe ResourceShareType
+</span><a href="#local-6989586621679713913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
+</span><a href="#local-6989586621679713914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareType:SearchTables' :: Maybe ResourceShareType
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AresourceShareType%3ASearchTables%27"><span class="hs-identifier hs-var">resourceShareType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareType
-</span><a href="#local-6989586621679713904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | A string used for a text search.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
@@ -289,16 +289,16 @@ $sel:resourceShareType:SearchTables' :: SearchTables -&gt; Maybe ResourceShareTy
 -&gt; (SearchTables -&gt; Maybe Text -&gt; SearchTables)
 -&gt; Lens SearchTables SearchTables (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713903"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713912"><span class="annot"><span class="annottext">Maybe Text
 searchText :: Maybe Text
 $sel:searchText:SearchTables' :: SearchTables -&gt; Maybe Text
-</span><a href="#local-6989586621679713903"><span class="hs-identifier hs-var hs-var">searchText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713903"><span class="hs-identifier hs-var">searchText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713902"><span class="annot"><span class="annottext">s :: SearchTables
-</span><a href="#local-6989586621679713902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713901"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
-</span><a href="#local-6989586621679713902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchText:SearchTables' :: Maybe Text
+</span><a href="#local-6989586621679713912"><span class="hs-identifier hs-var hs-var">searchText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713912"><span class="hs-identifier hs-var">searchText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713911"><span class="annot"><span class="annottext">s :: SearchTables
+</span><a href="#local-6989586621679713911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713910"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
+</span><a href="#local-6989586621679713911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchText:SearchTables' :: Maybe Text
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AsearchText%3ASearchTables%27"><span class="hs-identifier hs-var">searchText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | A list of key-value pairs, and a comparator used to filter the search</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- results. Returns all entities matching the predicate.</span><span>
@@ -323,16 +323,16 @@ $sel:searchText:SearchTables' :: SearchTables -&gt; Maybe Text
      (Maybe [PropertyPredicate])
      (Maybe [PropertyPredicate])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713900"><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713909"><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
 filters :: Maybe [PropertyPredicate]
 $sel:filters:SearchTables' :: SearchTables -&gt; Maybe [PropertyPredicate]
-</span><a href="#local-6989586621679713900"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
-</span><a href="#local-6989586621679713900"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713899"><span class="annot"><span class="annottext">s :: SearchTables
-</span><a href="#local-6989586621679713899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713898"><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
-</span><a href="#local-6989586621679713898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
-</span><a href="#local-6989586621679713899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchTables' :: Maybe [PropertyPredicate]
+</span><a href="#local-6989586621679713909"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
+</span><a href="#local-6989586621679713909"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713908"><span class="annot"><span class="annottext">s :: SearchTables
+</span><a href="#local-6989586621679713908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713907"><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
+</span><a href="#local-6989586621679713907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
+</span><a href="#local-6989586621679713908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchTables' :: Maybe [PropertyPredicate]
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3Afilters%3ASearchTables%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
-</span><a href="#local-6989586621679713898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PropertyPredicate] -&gt; f (Maybe [PropertyPredicate]))
+</span><a href="#local-6989586621679713907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PropertyPredicate] -&gt; f (Maybe [PropertyPredicate]))
  -&gt; SearchTables -&gt; f SearchTables)
 -&gt; ((Maybe [PropertyPredicate] -&gt; f (Maybe [PropertyPredicate]))
     -&gt; Maybe [PropertyPredicate] -&gt; f (Maybe [PropertyPredicate]))
@@ -368,16 +368,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SearchTables -&gt; Maybe Text -&gt; SearchTables)
 -&gt; Lens SearchTables SearchTables (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713894"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713903"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:SearchTables' :: SearchTables -&gt; Maybe Text
-</span><a href="#local-6989586621679713894"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713894"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713893"><span class="annot"><span class="annottext">s :: SearchTables
-</span><a href="#local-6989586621679713893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713892"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
-</span><a href="#local-6989586621679713893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:SearchTables' :: Maybe Text
+</span><a href="#local-6989586621679713903"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713903"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713902"><span class="annot"><span class="annottext">s :: SearchTables
+</span><a href="#local-6989586621679713902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
+</span><a href="#local-6989586621679713902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:SearchTables' :: Maybe Text
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AcatalogId%3ASearchTables%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | A list of criteria for sorting the results by a field name, in an</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- ascending or descending order.</span><span>
@@ -392,16 +392,16 @@ $sel:catalogId:SearchTables' :: SearchTables -&gt; Maybe Text
      (Maybe [SortCriterion])
      (Maybe [SortCriterion])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713891"><span class="annot"><span class="annottext">Maybe [SortCriterion]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713900"><span class="annot"><span class="annottext">Maybe [SortCriterion]
 sortCriteria :: Maybe [SortCriterion]
 $sel:sortCriteria:SearchTables' :: SearchTables -&gt; Maybe [SortCriterion]
-</span><a href="#local-6989586621679713891"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SortCriterion]
-</span><a href="#local-6989586621679713891"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713890"><span class="annot"><span class="annottext">s :: SearchTables
-</span><a href="#local-6989586621679713890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713889"><span class="annot"><span class="annottext">Maybe [SortCriterion]
-</span><a href="#local-6989586621679713889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
-</span><a href="#local-6989586621679713890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchTables' :: Maybe [SortCriterion]
+</span><a href="#local-6989586621679713900"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SortCriterion]
+</span><a href="#local-6989586621679713900"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713899"><span class="annot"><span class="annottext">s :: SearchTables
+</span><a href="#local-6989586621679713899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713898"><span class="annot"><span class="annottext">Maybe [SortCriterion]
+</span><a href="#local-6989586621679713898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
+</span><a href="#local-6989586621679713899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchTables' :: Maybe [SortCriterion]
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AsortCriteria%3ASearchTables%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SortCriterion]
-</span><a href="#local-6989586621679713889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SortCriterion] -&gt; f (Maybe [SortCriterion]))
+</span><a href="#local-6989586621679713898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SortCriterion] -&gt; f (Maybe [SortCriterion]))
  -&gt; SearchTables -&gt; f SearchTables)
 -&gt; ((Maybe [SortCriterion] -&gt; f (Maybe [SortCriterion]))
     -&gt; Maybe [SortCriterion] -&gt; f (Maybe [SortCriterion]))
@@ -431,16 +431,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SearchTables -&gt; Maybe Text -&gt; SearchTables)
 -&gt; Lens SearchTables SearchTables (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713888"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713897"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchTables' :: SearchTables -&gt; Maybe Text
-</span><a href="#local-6989586621679713888"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713888"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713887"><span class="annot"><span class="annottext">s :: SearchTables
-</span><a href="#local-6989586621679713887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713886"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
-</span><a href="#local-6989586621679713887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchTables' :: Maybe Text
+</span><a href="#local-6989586621679713897"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713897"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713896"><span class="annot"><span class="annottext">s :: SearchTables
+</span><a href="#local-6989586621679713896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
+</span><a href="#local-6989586621679713896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchTables' :: Maybe Text
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AnextToken%3ASearchTables%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The maximum number of tables to return in a single response.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#searchTables_maxResults"><span class="hs-identifier hs-type">searchTables_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -450,25 +450,25 @@ $sel:nextToken:SearchTables' :: SearchTables -&gt; Maybe Text
 -&gt; (SearchTables -&gt; Maybe Natural -&gt; SearchTables)
 -&gt; Lens SearchTables SearchTables (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713885"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713894"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:SearchTables' :: SearchTables -&gt; Maybe Natural
-</span><a href="#local-6989586621679713885"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679713885"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713884"><span class="annot"><span class="annottext">s :: SearchTables
-</span><a href="#local-6989586621679713884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713883"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679713883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
-</span><a href="#local-6989586621679713884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchTables' :: Maybe Natural
+</span><a href="#local-6989586621679713894"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679713894"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713893"><span class="annot"><span class="annottext">s :: SearchTables
+</span><a href="#local-6989586621679713893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713892"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679713892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTables
+</span><a href="#local-6989586621679713893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchTables' :: Maybe Natural
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AmaxResults%3ASearchTables%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679713883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679713879"><span class="annot"><span class="annottext">request :: SearchTables -&gt; Request SearchTables
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679713888"><span class="annot"><span class="annottext">request :: SearchTables -&gt; Request SearchTables
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchTables -&gt; Request SearchTables
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679713875"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679713884"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SearchTables
 -&gt; ClientResponse ClientBody
@@ -492,10 +492,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679713872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679713872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679713871"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679713871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679713870"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679713870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679713881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679713881"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679713880"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679713880"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679713879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679713879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Table] -&gt; Maybe Text -&gt; Int -&gt; SearchTablesResponse
 </span><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-var">SearchTablesResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Table] -&gt; Maybe Text -&gt; Int -&gt; SearchTablesResponse)
@@ -503,7 +503,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; SearchTablesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679713870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Table]))
+</span><a href="#local-6989586621679713879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Table]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Table]))
@@ -517,7 +517,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; SearchTablesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679713870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679713879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -529,15 +529,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679713872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713881"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713861"><span id="local-6989586621679713863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713870"><span id="local-6989586621679713872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span></span></span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679713854"><span class="annot"><span class="annottext">toHeaders :: SearchTables -&gt; ResponseHeaders
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679713863"><span class="annot"><span class="annottext">toHeaders :: SearchTables -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchTables -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -562,9 +562,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-239"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713844"><span id="local-6989586621679713846"><span id="local-6989586621679713848"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679713842"><span class="annot"><span class="annottext">toJSON :: SearchTables -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713834"><span id="local-6989586621679713835"><span id="local-6989586621679713836"><span id="local-6989586621679713837"><span id="local-6989586621679713838"><span id="local-6989586621679713839"><span id="local-6989586621679713840"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713853"><span id="local-6989586621679713855"><span id="local-6989586621679713857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679713851"><span class="annot"><span class="annottext">toJSON :: SearchTables -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables%27"><span class="hs-identifier hs-type">SearchTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713843"><span id="local-6989586621679713844"><span id="local-6989586621679713845"><span id="local-6989586621679713846"><span id="local-6989586621679713847"><span id="local-6989586621679713848"><span id="local-6989586621679713849"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [PropertyPredicate]
 Maybe [SortCriterion]
 Maybe Text
@@ -583,7 +583,7 @@ $sel:catalogId:SearchTables' :: SearchTables -&gt; Maybe Text
 $sel:filters:SearchTables' :: SearchTables -&gt; Maybe [PropertyPredicate]
 $sel:searchText:SearchTables' :: SearchTables -&gt; Maybe Text
 $sel:resourceShareType:SearchTables' :: SearchTables -&gt; Maybe ResourceShareType
-</span><a href="#local-6989586621679713834"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679713843"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -597,14 +597,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ResourceShareType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareType
-</span><a href="#local-6989586621679713840"><span class="hs-identifier hs-var">resourceShareType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679713849"><span class="hs-identifier hs-var">resourceShareType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SearchText&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713839"><span class="hs-identifier hs-var">searchText</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679713848"><span class="hs-identifier hs-var">searchText</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PropertyPredicate] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -612,47 +612,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PropertyPredicate] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyPredicate]
-</span><a href="#local-6989586621679713838"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679713847"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713837"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679713846"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SortCriterion] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SortCriterion] -&gt; Pair) -&gt; Maybe [SortCriterion] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SortCriterion]
-</span><a href="#local-6989586621679713836"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679713845"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713835"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679713844"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679713834"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679713843"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679713828"><span class="annot"><span class="annottext">toPath :: SearchTables -&gt; ByteString
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679713837"><span class="annot"><span class="annottext">toPath :: SearchTables -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchTables -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTables"><span class="hs-identifier hs-type">SearchTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679713824"><span class="annot"><span class="annottext">toQuery :: SearchTables -&gt; QueryString
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679713833"><span class="annot"><span class="annottext">toQuery :: SearchTables -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchTables -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -660,7 +660,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | /See:/ 'newSearchTablesResponse' smart constructor.</span><span>
-</span><span id="line-264"></span><span id="local-6989586621679713821"><span id="local-6989586621679713822"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchTablesResponse"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-var">SearchTablesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchTablesResponse%27"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-var">SearchTablesResponse'</span></a></span></span><span>
+</span><span id="line-264"></span><span id="local-6989586621679713830"><span id="local-6989586621679713831"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchTablesResponse"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-var">SearchTablesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchTablesResponse%27"><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-var">SearchTablesResponse'</span></a></span></span><span>
 </span><span id="line-265"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the requested @Table@ objects. The @SearchTables@ response</span><span>
 </span><span id="line-266"></span><span>    </span><span class="hs-comment">-- returns only the tables that you have access to.</span><span>
 </span><span id="line-267"></span><span>    </span><span id="%24sel%3AtableList%3ASearchTablesResponse%27"><span class="annot"><span class="annottext">SearchTablesResponse -&gt; Maybe [Table]
@@ -673,7 +673,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-272"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchTablesResponse%27"><span class="annot"><span class="annottext">SearchTablesResponse -&gt; Int
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AhttpStatus%3ASearchTablesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-273"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-274"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679713814"><span id="local-6989586621679713816"><span class="annot"><span class="annottext">SearchTablesResponse -&gt; SearchTablesResponse -&gt; Bool
+</span><span id="line-274"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679713823"><span id="local-6989586621679713825"><span class="annot"><span class="annottext">SearchTablesResponse -&gt; SearchTablesResponse -&gt; Bool
 (SearchTablesResponse -&gt; SearchTablesResponse -&gt; Bool)
 -&gt; (SearchTablesResponse -&gt; SearchTablesResponse -&gt; Bool)
 -&gt; Eq SearchTablesResponse
@@ -682,7 +682,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchTablesResponse -&gt; SearchTablesResponse -&gt; Bool
 == :: SearchTablesResponse -&gt; SearchTablesResponse -&gt; Bool
 $c== :: SearchTablesResponse -&gt; SearchTablesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713806"><span id="local-6989586621679713808"><span id="local-6989586621679713810"><span id="local-6989586621679713812"><span class="annot"><span class="annottext">ReadPrec [SearchTablesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713815"><span id="local-6989586621679713817"><span id="local-6989586621679713819"><span id="local-6989586621679713821"><span class="annot"><span class="annottext">ReadPrec [SearchTablesResponse]
 ReadPrec SearchTablesResponse
 Int -&gt; ReadS SearchTablesResponse
 ReadS [SearchTablesResponse]
@@ -702,7 +702,7 @@ readList :: ReadS [SearchTablesResponse]
 $creadList :: ReadS [SearchTablesResponse]
 readsPrec :: Int -&gt; ReadS SearchTablesResponse
 $creadsPrec :: Int -&gt; ReadS SearchTablesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713800"><span id="local-6989586621679713802"><span id="local-6989586621679713804"><span class="annot"><span class="annottext">Int -&gt; SearchTablesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679713809"><span id="local-6989586621679713811"><span id="local-6989586621679713813"><span class="annot"><span class="annottext">Int -&gt; SearchTablesResponse -&gt; ShowS
 [SearchTablesResponse] -&gt; ShowS
 SearchTablesResponse -&gt; String
 (Int -&gt; SearchTablesResponse -&gt; ShowS)
@@ -748,8 +748,8 @@ $cfrom :: forall x. SearchTablesResponse -&gt; Rep SearchTablesResponse x
 </span><span id="line-293"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-294"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span>
 </span><span id="line-295"></span><span id="newSearchTablesResponse"><span class="annot"><span class="annottext">newSearchTablesResponse :: Int -&gt; SearchTablesResponse
-</span><a href="Network.AWS.Glue.SearchTables.html#newSearchTablesResponse"><span class="hs-identifier hs-var hs-var">newSearchTablesResponse</span></a></span></span><span> </span><span id="local-6989586621679713797"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679713797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.SearchTables.html#newSearchTablesResponse"><span class="hs-identifier hs-var hs-var">newSearchTablesResponse</span></a></span></span><span> </span><span id="local-6989586621679713806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679713806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-296"></span><span>  </span><span class="annot"><span class="annottext">SearchTablesResponse' :: Maybe [Table] -&gt; Maybe Text -&gt; Int -&gt; SearchTablesResponse
 </span><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span>
 </span><span id="line-297"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableList:SearchTablesResponse' :: Maybe [Table]
@@ -762,7 +762,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchTablesResponse' :: Int
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AhttpStatus%3ASearchTablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679713797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679713806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-300"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | A list of the requested @Table@ objects. The @SearchTables@ response</span><span>
@@ -778,16 +778,16 @@ forall a. Maybe a
      (Maybe [Table])
      (Maybe [Table])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713796"><span class="annot"><span class="annottext">Maybe [Table]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713805"><span class="annot"><span class="annottext">Maybe [Table]
 tableList :: Maybe [Table]
 $sel:tableList:SearchTablesResponse' :: SearchTablesResponse -&gt; Maybe [Table]
-</span><a href="#local-6989586621679713796"><span class="hs-identifier hs-var hs-var">tableList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Table]
-</span><a href="#local-6989586621679713796"><span class="hs-identifier hs-var">tableList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713795"><span class="annot"><span class="annottext">s :: SearchTablesResponse
-</span><a href="#local-6989586621679713795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713794"><span class="annot"><span class="annottext">Maybe [Table]
-</span><a href="#local-6989586621679713794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTablesResponse
-</span><a href="#local-6989586621679713795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableList:SearchTablesResponse' :: Maybe [Table]
+</span><a href="#local-6989586621679713805"><span class="hs-identifier hs-var hs-var">tableList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Table]
+</span><a href="#local-6989586621679713805"><span class="hs-identifier hs-var">tableList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713804"><span class="annot"><span class="annottext">s :: SearchTablesResponse
+</span><a href="#local-6989586621679713804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713803"><span class="annot"><span class="annottext">Maybe [Table]
+</span><a href="#local-6989586621679713803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTablesResponse
+</span><a href="#local-6989586621679713804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableList:SearchTablesResponse' :: Maybe [Table]
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AtableList%3ASearchTablesResponse%27"><span class="hs-identifier hs-var">tableList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Table]
-</span><a href="#local-6989586621679713794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Table] -&gt; f (Maybe [Table]))
+</span><a href="#local-6989586621679713803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Table] -&gt; f (Maybe [Table]))
  -&gt; SearchTablesResponse -&gt; f SearchTablesResponse)
 -&gt; ((Maybe [Table] -&gt; f (Maybe [Table]))
     -&gt; Maybe [Table] -&gt; f (Maybe [Table]))
@@ -815,16 +815,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      SearchTablesResponse SearchTablesResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713793"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713802"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchTablesResponse' :: SearchTablesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679713793"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713793"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713792"><span class="annot"><span class="annottext">s :: SearchTablesResponse
-</span><a href="#local-6989586621679713792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713791"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTablesResponse
-</span><a href="#local-6989586621679713792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchTablesResponse' :: Maybe Text
+</span><a href="#local-6989586621679713802"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713802"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713801"><span class="annot"><span class="annottext">s :: SearchTablesResponse
+</span><a href="#local-6989586621679713801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679713800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTablesResponse
+</span><a href="#local-6989586621679713801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchTablesResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AnextToken%3ASearchTablesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679713791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-313"></span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#searchTablesResponse_httpStatus"><span class="hs-identifier hs-type">searchTablesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -833,16 +833,16 @@ $sel:nextToken:SearchTablesResponse' :: SearchTablesResponse -&gt; Maybe Text
 -&gt; (SearchTablesResponse -&gt; Int -&gt; SearchTablesResponse)
 -&gt; Lens SearchTablesResponse SearchTablesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713790"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679713799"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SearchTablesResponse' :: SearchTablesResponse -&gt; Int
-</span><a href="#local-6989586621679713790"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679713790"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713789"><span class="annot"><span class="annottext">s :: SearchTablesResponse
-</span><a href="#local-6989586621679713789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713788"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679713788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTablesResponse
-</span><a href="#local-6989586621679713789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchTablesResponse' :: Int
+</span><a href="#local-6989586621679713799"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679713799"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679713798"><span class="annot"><span class="annottext">s :: SearchTablesResponse
+</span><a href="#local-6989586621679713798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse%27"><span class="hs-identifier hs-type">SearchTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679713797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679713797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchTablesResponse
+</span><a href="#local-6989586621679713798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchTablesResponse' :: Int
 </span><a href="Network.AWS.Glue.SearchTables.html#%24sel%3AhttpStatus%3ASearchTablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679713788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679713797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
-</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679713795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.SearchTables.html#SearchTablesResponse"><span class="hs-identifier hs-type">SearchTablesResponse</span></a></span></span><span>
 </span><span id="line-317"></span></pre></body></html>

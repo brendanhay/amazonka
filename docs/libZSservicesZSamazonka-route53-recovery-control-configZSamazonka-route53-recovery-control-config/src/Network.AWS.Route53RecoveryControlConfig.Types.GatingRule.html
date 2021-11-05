@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryControlConfig.Types.GatingRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Types.GatingRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Status.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Types.Status</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A gating rule verifies that a set of gating controls evaluates as true,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- based on a rule configuration that you specify. If the gating rule</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- evaluates to true, Amazon Route 53 Application Recovery Controller</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- allows a set of routing control state changes to run and complete</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- against the set of target controls.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newGatingRule' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679175512"><span id="local-6989586621679175513"></span></span><span class="hs-keyword">data</span><span> </span><span id="GatingRule"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-var">GatingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GatingRule%27"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-var">GatingRule'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The deployment status of a gating rule. Status can be one of the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- following: PENDING, DEPLOYED, PENDING_DELETION.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; Status
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3Astatus%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Routing controls that can only be set or unset if the specified</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- RuleConfig evaluates to true for the specified GatingControls. For</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- example, say you have three gating controls, one for each of three</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Regions. Now you specify ATLEAST 2 as your</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- RuleConfig. With these settings, you can only change (set or unset) the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- routing controls that you have specified as TargetControls if that rule</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- evaluates to true.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- In other words, your ability to change the routing controls that you</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- have specified as TargetControls is gated by the rule that you set for</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- the routing controls in GatingControls.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtargetControls%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; [Text]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AtargetControls%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">targetControls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the control panel.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcontrolPanelArn%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AcontrolPanelArn%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">controlPanelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the gating rule.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsafetyRuleArn%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AsafetyRuleArn%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">safetyRuleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The gating controls for the gating rule. That is, routing controls that</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- are evaluated by the rule configuration that you specify.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AgatingControls%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; [Text]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AgatingControls%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">gatingControls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The criteria that you set for specific gating controls (routing</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- controls) that designates how many controls must be enabled to allow you</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to change (set or unset) the target controls.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AruleConfig%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; RuleConfig
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AruleConfig%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">ruleConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig.html#RuleConfig"><span class="hs-identifier hs-type">RuleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | An evaluation period, in milliseconds (ms), during which any request</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- against the target routing controls will fail. This helps prevent</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- \&quot;flapping\&quot; of state. The wait period is 5000 ms by default, but you</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- can choose a custom value.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AwaitPeriodMs%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AwaitPeriodMs%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">waitPeriodMs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name for the gating rule.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aname%3AGatingRule%27"><span class="annot"><span class="annottext">GatingRule -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3Aname%3AGatingRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175499"><span id="local-6989586621679175501"><span class="annot"><span class="annottext">GatingRule -&gt; GatingRule -&gt; Bool
+(GatingRule -&gt; GatingRule -&gt; Bool)
+-&gt; (GatingRule -&gt; GatingRule -&gt; Bool) -&gt; Eq GatingRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GatingRule -&gt; GatingRule -&gt; Bool
+$c/= :: GatingRule -&gt; GatingRule -&gt; Bool
+== :: GatingRule -&gt; GatingRule -&gt; Bool
+$c== :: GatingRule -&gt; GatingRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175490"><span id="local-6989586621679175492"><span id="local-6989586621679175494"><span id="local-6989586621679175496"><span class="annot"><span class="annottext">ReadPrec [GatingRule]
+ReadPrec GatingRule
+Int -&gt; ReadS GatingRule
+ReadS [GatingRule]
+(Int -&gt; ReadS GatingRule)
+-&gt; ReadS [GatingRule]
+-&gt; ReadPrec GatingRule
+-&gt; ReadPrec [GatingRule]
+-&gt; Read GatingRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GatingRule]
+$creadListPrec :: ReadPrec [GatingRule]
+readPrec :: ReadPrec GatingRule
+$creadPrec :: ReadPrec GatingRule
+readList :: ReadS [GatingRule]
+$creadList :: ReadS [GatingRule]
+readsPrec :: Int -&gt; ReadS GatingRule
+$creadsPrec :: Int -&gt; ReadS GatingRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175483"><span id="local-6989586621679175485"><span id="local-6989586621679175487"><span class="annot"><span class="annottext">Int -&gt; GatingRule -&gt; ShowS
+[GatingRule] -&gt; ShowS
+GatingRule -&gt; String
+(Int -&gt; GatingRule -&gt; ShowS)
+-&gt; (GatingRule -&gt; String)
+-&gt; ([GatingRule] -&gt; ShowS)
+-&gt; Show GatingRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GatingRule] -&gt; ShowS
+$cshowList :: [GatingRule] -&gt; ShowS
+show :: GatingRule -&gt; String
+$cshow :: GatingRule -&gt; String
+showsPrec :: Int -&gt; GatingRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; GatingRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GatingRule -&gt; Rep GatingRule x)
+-&gt; (forall x. Rep GatingRule x -&gt; GatingRule) -&gt; Generic GatingRule
+forall x. Rep GatingRule x -&gt; GatingRule
+forall x. GatingRule -&gt; Rep GatingRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GatingRule x -&gt; GatingRule
+$cfrom :: forall x. GatingRule -&gt; Rep GatingRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'GatingRule' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'status', 'gatingRule_status' - The deployment status of a gating rule. Status can be one of the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- following: PENDING, DEPLOYED, PENDING_DELETION.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'targetControls', 'gatingRule_targetControls' - Routing controls that can only be set or unset if the specified</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- RuleConfig evaluates to true for the specified GatingControls. For</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- example, say you have three gating controls, one for each of three</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Amazon Web Services Regions. Now you specify ATLEAST 2 as your</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- RuleConfig. With these settings, you can only change (set or unset) the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- routing controls that you have specified as TargetControls if that rule</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- evaluates to true.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- In other words, your ability to change the routing controls that you</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- have specified as TargetControls is gated by the rule that you set for</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the routing controls in GatingControls.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'controlPanelArn', 'gatingRule_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'safetyRuleArn', 'gatingRule_safetyRuleArn' - The Amazon Resource Name (ARN) of the gating rule.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'gatingControls', 'gatingRule_gatingControls' - The gating controls for the gating rule. That is, routing controls that</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- are evaluated by the rule configuration that you specify.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'ruleConfig', 'gatingRule_ruleConfig' - The criteria that you set for specific gating controls (routing</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- controls) that designates how many controls must be enabled to allow you</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- to change (set or unset) the target controls.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'waitPeriodMs', 'gatingRule_waitPeriodMs' - An evaluation period, in milliseconds (ms), during which any request</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- against the target routing controls will fail. This helps prevent</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- \&quot;flapping\&quot; of state. The wait period is 5000 ms by default, but you</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- can choose a custom value.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'name', 'gatingRule_name' - The name for the gating rule.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#newGatingRule"><span class="hs-identifier hs-type">newGatingRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'controlPanelArn'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-comment">-- | 'safetyRuleArn'</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'ruleConfig'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig.html#RuleConfig"><span class="hs-identifier hs-type">RuleConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'waitPeriodMs'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span>
+</span><span id="line-126"></span><span id="newGatingRule"><span class="annot"><span class="annottext">newGatingRule :: Status -&gt; Text -&gt; Text -&gt; RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#newGatingRule"><span class="hs-identifier hs-var hs-var">newGatingRule</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679175477"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679175477"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679175476"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175476"><span class="hs-identifier hs-var">pControlPanelArn_</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679175475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175475"><span class="hs-identifier hs-var">pSafetyRuleArn_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679175474"><span class="annot"><span class="annottext">RuleConfig
+</span><a href="#local-6989586621679175474"><span class="hs-identifier hs-var">pRuleConfig_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679175473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175473"><span class="hs-identifier hs-var">pWaitPeriodMs_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679175472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175472"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">GatingRule' :: Status
+-&gt; [Text]
+-&gt; Text
+-&gt; Text
+-&gt; [Text]
+-&gt; RuleConfig
+-&gt; Int
+-&gt; Text
+-&gt; GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GatingRule' :: Status
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3Astatus%3AGatingRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679175477"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetControls:GatingRule' :: [Text]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AtargetControls%3AGatingRule%27"><span class="hs-identifier hs-var">targetControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:controlPanelArn:GatingRule' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AcontrolPanelArn%3AGatingRule%27"><span class="hs-identifier hs-var">controlPanelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175476"><span class="hs-identifier hs-var">pControlPanelArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:safetyRuleArn:GatingRule' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AsafetyRuleArn%3AGatingRule%27"><span class="hs-identifier hs-var">safetyRuleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175475"><span class="hs-identifier hs-var">pSafetyRuleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatingControls:GatingRule' :: [Text]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AgatingControls%3AGatingRule%27"><span class="hs-identifier hs-var">gatingControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleConfig:GatingRule' :: RuleConfig
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AruleConfig%3AGatingRule%27"><span class="hs-identifier hs-var">ruleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleConfig
+</span><a href="#local-6989586621679175474"><span class="hs-identifier hs-var">pRuleConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:waitPeriodMs:GatingRule' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AwaitPeriodMs%3AGatingRule%27"><span class="hs-identifier hs-var">waitPeriodMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175473"><span class="hs-identifier hs-var">pWaitPeriodMs_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:GatingRule' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3Aname%3AGatingRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175472"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The deployment status of a gating rule. Status can be one of the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- following: PENDING, DEPLOYED, PENDING_DELETION.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_status"><span class="hs-identifier hs-type">gatingRule_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span>
+</span><span id="line-147"></span><span id="gatingRule_status"><span class="annot"><span class="annottext">gatingRule_status :: (Status -&gt; f Status) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_status"><span class="hs-identifier hs-var hs-var">gatingRule_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; Status)
+-&gt; (GatingRule -&gt; Status -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule Status Status
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175468"><span class="annot"><span class="annottext">Status
+status :: Status
+$sel:status:GatingRule' :: GatingRule -&gt; Status
+</span><a href="#local-6989586621679175468"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679175468"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175467"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175466"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679175466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GatingRule' :: Status
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3Astatus%3AGatingRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679175466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Routing controls that can only be set or unset if the specified</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- RuleConfig evaluates to true for the specified GatingControls. For</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- example, say you have three gating controls, one for each of three</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Amazon Web Services Regions. Now you specify ATLEAST 2 as your</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- RuleConfig. With these settings, you can only change (set or unset) the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- routing controls that you have specified as TargetControls if that rule</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- evaluates to true.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- In other words, your ability to change the routing controls that you</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- have specified as TargetControls is gated by the rule that you set for</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the routing controls in GatingControls.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_targetControls"><span class="hs-identifier hs-type">gatingRule_targetControls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span id="gatingRule_targetControls"><span class="annot"><span class="annottext">gatingRule_targetControls :: ([Text] -&gt; f [Text]) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_targetControls"><span class="hs-identifier hs-var hs-var">gatingRule_targetControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; [Text])
+-&gt; (GatingRule -&gt; [Text] -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175464"><span class="annot"><span class="annottext">[Text]
+targetControls :: [Text]
+$sel:targetControls:GatingRule' :: GatingRule -&gt; [Text]
+</span><a href="#local-6989586621679175464"><span class="hs-identifier hs-var hs-var">targetControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175464"><span class="hs-identifier hs-var">targetControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175463"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175462"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetControls:GatingRule' :: [Text]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AtargetControls%3AGatingRule%27"><span class="hs-identifier hs-var">targetControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; GatingRule -&gt; f GatingRule)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GatingRule
+-&gt; f GatingRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the control panel.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_controlPanelArn"><span class="hs-identifier hs-type">gatingRule_controlPanelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-165"></span><span id="gatingRule_controlPanelArn"><span class="annot"><span class="annottext">gatingRule_controlPanelArn :: (Text -&gt; f Text) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_controlPanelArn"><span class="hs-identifier hs-var hs-var">gatingRule_controlPanelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; Text)
+-&gt; (GatingRule -&gt; Text -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175458"><span class="annot"><span class="annottext">Text
+controlPanelArn :: Text
+$sel:controlPanelArn:GatingRule' :: GatingRule -&gt; Text
+</span><a href="#local-6989586621679175458"><span class="hs-identifier hs-var hs-var">controlPanelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175458"><span class="hs-identifier hs-var">controlPanelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175457"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlPanelArn:GatingRule' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AcontrolPanelArn%3AGatingRule%27"><span class="hs-identifier hs-var">controlPanelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the gating rule.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_safetyRuleArn"><span class="hs-identifier hs-type">gatingRule_safetyRuleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-169"></span><span id="gatingRule_safetyRuleArn"><span class="annot"><span class="annottext">gatingRule_safetyRuleArn :: (Text -&gt; f Text) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_safetyRuleArn"><span class="hs-identifier hs-var hs-var">gatingRule_safetyRuleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; Text)
+-&gt; (GatingRule -&gt; Text -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175454"><span class="annot"><span class="annottext">Text
+safetyRuleArn :: Text
+$sel:safetyRuleArn:GatingRule' :: GatingRule -&gt; Text
+</span><a href="#local-6989586621679175454"><span class="hs-identifier hs-var hs-var">safetyRuleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175454"><span class="hs-identifier hs-var">safetyRuleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175453"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175452"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:safetyRuleArn:GatingRule' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AsafetyRuleArn%3AGatingRule%27"><span class="hs-identifier hs-var">safetyRuleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The gating controls for the gating rule. That is, routing controls that</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- are evaluated by the rule configuration that you specify.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_gatingControls"><span class="hs-identifier hs-type">gatingRule_gatingControls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span id="gatingRule_gatingControls"><span class="annot"><span class="annottext">gatingRule_gatingControls :: ([Text] -&gt; f [Text]) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_gatingControls"><span class="hs-identifier hs-var hs-var">gatingRule_gatingControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; [Text])
+-&gt; (GatingRule -&gt; [Text] -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175450"><span class="annot"><span class="annottext">[Text]
+gatingControls :: [Text]
+$sel:gatingControls:GatingRule' :: GatingRule -&gt; [Text]
+</span><a href="#local-6989586621679175450"><span class="hs-identifier hs-var hs-var">gatingControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175450"><span class="hs-identifier hs-var">gatingControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175449"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175448"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatingControls:GatingRule' :: [Text]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AgatingControls%3AGatingRule%27"><span class="hs-identifier hs-var">gatingControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; GatingRule -&gt; f GatingRule)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GatingRule
+-&gt; f GatingRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The criteria that you set for specific gating controls (routing</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- controls) that designates how many controls must be enabled to allow you</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- to change (set or unset) the target controls.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_ruleConfig"><span class="hs-identifier hs-type">gatingRule_ruleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig.html#RuleConfig"><span class="hs-identifier hs-type">RuleConfig</span></a></span><span>
+</span><span id="line-180"></span><span id="gatingRule_ruleConfig"><span class="annot"><span class="annottext">gatingRule_ruleConfig :: (RuleConfig -&gt; f RuleConfig) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_ruleConfig"><span class="hs-identifier hs-var hs-var">gatingRule_ruleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; RuleConfig)
+-&gt; (GatingRule -&gt; RuleConfig -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule RuleConfig RuleConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175446"><span class="annot"><span class="annottext">RuleConfig
+ruleConfig :: RuleConfig
+$sel:ruleConfig:GatingRule' :: GatingRule -&gt; RuleConfig
+</span><a href="#local-6989586621679175446"><span class="hs-identifier hs-var hs-var">ruleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleConfig
+</span><a href="#local-6989586621679175446"><span class="hs-identifier hs-var">ruleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175445"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175444"><span class="annot"><span class="annottext">RuleConfig
+</span><a href="#local-6989586621679175444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleConfig:GatingRule' :: RuleConfig
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AruleConfig%3AGatingRule%27"><span class="hs-identifier hs-var">ruleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleConfig
+</span><a href="#local-6989586621679175444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | An evaluation period, in milliseconds (ms), during which any request</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- against the target routing controls will fail. This helps prevent</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- \&quot;flapping\&quot; of state. The wait period is 5000 ms by default, but you</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- can choose a custom value.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_waitPeriodMs"><span class="hs-identifier hs-type">gatingRule_waitPeriodMs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span id="gatingRule_waitPeriodMs"><span class="annot"><span class="annottext">gatingRule_waitPeriodMs :: (Int -&gt; f Int) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_waitPeriodMs"><span class="hs-identifier hs-var hs-var">gatingRule_waitPeriodMs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; Int)
+-&gt; (GatingRule -&gt; Int -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175442"><span class="annot"><span class="annottext">Int
+waitPeriodMs :: Int
+$sel:waitPeriodMs:GatingRule' :: GatingRule -&gt; Int
+</span><a href="#local-6989586621679175442"><span class="hs-identifier hs-var hs-var">waitPeriodMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175442"><span class="hs-identifier hs-var">waitPeriodMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175441"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:waitPeriodMs:GatingRule' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3AwaitPeriodMs%3AGatingRule%27"><span class="hs-identifier hs-var">waitPeriodMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The name for the gating rule.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_name"><span class="hs-identifier hs-type">gatingRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-191"></span><span id="gatingRule_name"><span class="annot"><span class="annottext">gatingRule_name :: (Text -&gt; f Text) -&gt; GatingRule -&gt; f GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#gatingRule_name"><span class="hs-identifier hs-var hs-var">gatingRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatingRule -&gt; Text)
+-&gt; (GatingRule -&gt; Text -&gt; GatingRule)
+-&gt; Lens GatingRule GatingRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175438"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GatingRule' :: GatingRule -&gt; Text
+</span><a href="#local-6989586621679175438"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175438"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175437"><span class="annot"><span class="annottext">s :: GatingRule
+</span><a href="#local-6989586621679175437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-type">GatingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatingRule
+</span><a href="#local-6989586621679175437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GatingRule' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#%24sel%3Aname%3AGatingRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175433"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679175431"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GatingRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GatingRule) -&gt; Value -&gt; Parser GatingRule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GatingRule&quot;</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175428"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Status
+-&gt; [Text]
+-&gt; Text
+-&gt; Text
+-&gt; [Text]
+-&gt; RuleConfig
+-&gt; Int
+-&gt; Text
+-&gt; GatingRule
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule%27"><span class="hs-identifier hs-var">GatingRule'</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Status
+ -&gt; [Text]
+ -&gt; Text
+ -&gt; Text
+ -&gt; [Text]
+ -&gt; RuleConfig
+ -&gt; Int
+ -&gt; Text
+ -&gt; GatingRule)
+-&gt; Parser Status
+-&gt; Parser
+     ([Text]
+      -&gt; Text
+      -&gt; Text
+      -&gt; [Text]
+      -&gt; RuleConfig
+      -&gt; Int
+      -&gt; Text
+      -&gt; GatingRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Status
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  ([Text]
+   -&gt; Text
+   -&gt; Text
+   -&gt; [Text]
+   -&gt; RuleConfig
+   -&gt; Int
+   -&gt; Text
+   -&gt; GatingRule)
+-&gt; Parser [Text]
+-&gt; Parser
+     (Text -&gt; Text -&gt; [Text] -&gt; RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetControls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; [Text] -&gt; RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; [Text] -&gt; RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ControlPanelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [Text] -&gt; RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+-&gt; Parser Text
+-&gt; Parser ([Text] -&gt; RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SafetyRuleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+-&gt; Parser [Text]
+-&gt; Parser (RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatingControls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser (RuleConfig -&gt; Int -&gt; Text -&gt; GatingRule)
+-&gt; Parser RuleConfig -&gt; Parser (Int -&gt; Text -&gt; GatingRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RuleConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; Text -&gt; GatingRule)
+-&gt; Parser Int -&gt; Parser (Text -&gt; GatingRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WaitPeriodMs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; GatingRule) -&gt; Parser Text -&gt; Parser GatingRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175420"><span id="local-6989586621679175422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span></span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

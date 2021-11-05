@@ -60,13 +60,13 @@
 </span><span id="line-60"></span><span class="hs-comment">-- | Contains the parameters for DescribeLoadBalancerPolicyTypes.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newDescribeLoadBalancerPolicyTypes' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679201006"><span id="local-6989586621679201007"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoadBalancerPolicyTypes"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoadBalancerPolicyTypes%27"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypes'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679201015"><span id="local-6989586621679201016"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoadBalancerPolicyTypes"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoadBalancerPolicyTypes%27"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypes'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the policy types. If no names are specified, describes all</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- policy types defined by Elastic Load Balancing.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3ApolicyTypeNames%3ADescribeLoadBalancerPolicyTypes%27"><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypes -&gt; Maybe [Text]
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#%24sel%3ApolicyTypeNames%3ADescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-var hs-var">policyTypeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201000"><span id="local-6989586621679201002"><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypes
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201009"><span id="local-6989586621679201011"><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypes
 -&gt; DescribeLoadBalancerPolicyTypes -&gt; Bool
 (DescribeLoadBalancerPolicyTypes
  -&gt; DescribeLoadBalancerPolicyTypes -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: DescribeLoadBalancerPolicyTypes
 -&gt; DescribeLoadBalancerPolicyTypes -&gt; Bool
 $c== :: DescribeLoadBalancerPolicyTypes
 -&gt; DescribeLoadBalancerPolicyTypes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200991"><span id="local-6989586621679200993"><span id="local-6989586621679200995"><span id="local-6989586621679200997"><span class="annot"><span class="annottext">ReadPrec [DescribeLoadBalancerPolicyTypes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201000"><span id="local-6989586621679201002"><span id="local-6989586621679201004"><span id="local-6989586621679201006"><span class="annot"><span class="annottext">ReadPrec [DescribeLoadBalancerPolicyTypes]
 ReadPrec DescribeLoadBalancerPolicyTypes
 Int -&gt; ReadS DescribeLoadBalancerPolicyTypes
 ReadS [DescribeLoadBalancerPolicyTypes]
@@ -102,7 +102,7 @@ readList :: ReadS [DescribeLoadBalancerPolicyTypes]
 $creadList :: ReadS [DescribeLoadBalancerPolicyTypes]
 readsPrec :: Int -&gt; ReadS DescribeLoadBalancerPolicyTypes
 $creadsPrec :: Int -&gt; ReadS DescribeLoadBalancerPolicyTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200984"><span id="local-6989586621679200986"><span id="local-6989586621679200988"><span class="annot"><span class="annottext">Int -&gt; DescribeLoadBalancerPolicyTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200993"><span id="local-6989586621679200995"><span id="local-6989586621679200997"><span class="annot"><span class="annottext">Int -&gt; DescribeLoadBalancerPolicyTypes -&gt; ShowS
 [DescribeLoadBalancerPolicyTypes] -&gt; ShowS
 DescribeLoadBalancerPolicyTypes -&gt; String
 (Int -&gt; DescribeLoadBalancerPolicyTypes -&gt; ShowS)
@@ -178,16 +178,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200977"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200986"><span class="annot"><span class="annottext">Maybe [Text]
 policyTypeNames :: Maybe [Text]
 $sel:policyTypeNames:DescribeLoadBalancerPolicyTypes' :: DescribeLoadBalancerPolicyTypes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679200977"><span class="hs-identifier hs-var hs-var">policyTypeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200977"><span class="hs-identifier hs-var">policyTypeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200976"><span class="annot"><span class="annottext">s :: DescribeLoadBalancerPolicyTypes
-</span><a href="#local-6989586621679200976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200975"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypes
-</span><a href="#local-6989586621679200976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypeNames:DescribeLoadBalancerPolicyTypes' :: Maybe [Text]
+</span><a href="#local-6989586621679200986"><span class="hs-identifier hs-var hs-var">policyTypeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200986"><span class="hs-identifier hs-var">policyTypeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200985"><span class="annot"><span class="annottext">s :: DescribeLoadBalancerPolicyTypes
+</span><a href="#local-6989586621679200985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200984"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypes
+</span><a href="#local-6989586621679200985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypeNames:DescribeLoadBalancerPolicyTypes' :: Maybe [Text]
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#%24sel%3ApolicyTypeNames%3ADescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-var">policyTypeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679200984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeLoadBalancerPolicyTypes
  -&gt; f DescribeLoadBalancerPolicyTypes)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -212,7 +212,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679200968"><span class="annot"><span class="annottext">request :: DescribeLoadBalancerPolicyTypes
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679200977"><span class="annot"><span class="annottext">request :: DescribeLoadBalancerPolicyTypes
 -&gt; Request DescribeLoadBalancerPolicyTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeLoadBalancerPolicyTypes
@@ -220,7 +220,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679200964"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679200973"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLoadBalancerPolicyTypes
 -&gt; ClientResponse ClientBody
@@ -253,10 +253,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeLoadBalancerPolicyTypesResult&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200961"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200961"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200960"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200960"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200959"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679200959"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200970"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200970"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200969"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200969"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200968"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679200968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
 -&gt; Int -&gt; DescribeLoadBalancerPolicyTypesResponse
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span>
@@ -266,7 +266,7 @@ Text
 -&gt; Either String (Int -&gt; DescribeLoadBalancerPolicyTypesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679200959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679200968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyTypeDescriptions&quot;</span></span><span>
@@ -298,22 +298,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200961"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200970"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679200948"><span id="local-6989586621679200950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679200957"><span id="local-6989586621679200959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679200945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679200954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679200941"><span class="annot"><span class="annottext">toHeaders :: DescribeLoadBalancerPolicyTypes -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679200950"><span class="annot"><span class="annottext">toHeaders :: DescribeLoadBalancerPolicyTypes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeLoadBalancerPolicyTypes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -322,18 +322,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679200936"><span class="annot"><span class="annottext">toPath :: DescribeLoadBalancerPolicyTypes -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679200945"><span class="annot"><span class="annottext">toPath :: DescribeLoadBalancerPolicyTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLoadBalancerPolicyTypes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679200932"><span class="annot"><span class="annottext">toQuery :: DescribeLoadBalancerPolicyTypes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200930"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679200941"><span class="annot"><span class="annottext">toQuery :: DescribeLoadBalancerPolicyTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypes%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200939"><span class="annot"><span class="annottext">Maybe [Text]
 policyTypeNames :: Maybe [Text]
 $sel:policyTypeNames:DescribeLoadBalancerPolicyTypes' :: DescribeLoadBalancerPolicyTypes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679200930"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200939"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -367,14 +367,14 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-142"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200930"><span class="hs-identifier hs-var">policyTypeNames</span></a></span><span>
+</span><a href="#local-6989586621679200939"><span class="hs-identifier hs-var">policyTypeNames</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | Contains the output of DescribeLoadBalancerPolicyTypes.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newDescribeLoadBalancerPolicyTypesResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679200926"><span id="local-6989586621679200927"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoadBalancerPolicyTypesResponse"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoadBalancerPolicyTypesResponse%27"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypesResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679200935"><span id="local-6989586621679200936"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoadBalancerPolicyTypesResponse"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoadBalancerPolicyTypesResponse%27"><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-var">DescribeLoadBalancerPolicyTypesResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the policy types.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3ApolicyTypeDescriptions%3ADescribeLoadBalancerPolicyTypesResponse%27"><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse
 -&gt; Maybe [PolicyTypeDescription]
@@ -383,7 +383,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLoadBalancerPolicyTypesResponse%27"><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse -&gt; Int
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#%24sel%3AhttpStatus%3ADescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200920"><span id="local-6989586621679200922"><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200929"><span id="local-6989586621679200931"><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse
 -&gt; DescribeLoadBalancerPolicyTypesResponse -&gt; Bool
 (DescribeLoadBalancerPolicyTypesResponse
  -&gt; DescribeLoadBalancerPolicyTypesResponse -&gt; Bool)
@@ -399,7 +399,7 @@ $c/= :: DescribeLoadBalancerPolicyTypesResponse
 -&gt; DescribeLoadBalancerPolicyTypesResponse -&gt; Bool
 $c== :: DescribeLoadBalancerPolicyTypesResponse
 -&gt; DescribeLoadBalancerPolicyTypesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200912"><span id="local-6989586621679200914"><span id="local-6989586621679200916"><span id="local-6989586621679200918"><span class="annot"><span class="annottext">ReadPrec [DescribeLoadBalancerPolicyTypesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200921"><span id="local-6989586621679200923"><span id="local-6989586621679200925"><span id="local-6989586621679200927"><span class="annot"><span class="annottext">ReadPrec [DescribeLoadBalancerPolicyTypesResponse]
 ReadPrec DescribeLoadBalancerPolicyTypesResponse
 Int -&gt; ReadS DescribeLoadBalancerPolicyTypesResponse
 ReadS [DescribeLoadBalancerPolicyTypesResponse]
@@ -419,7 +419,7 @@ readList :: ReadS [DescribeLoadBalancerPolicyTypesResponse]
 $creadList :: ReadS [DescribeLoadBalancerPolicyTypesResponse]
 readsPrec :: Int -&gt; ReadS DescribeLoadBalancerPolicyTypesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLoadBalancerPolicyTypesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200906"><span id="local-6989586621679200908"><span id="local-6989586621679200910"><span class="annot"><span class="annottext">Int -&gt; DescribeLoadBalancerPolicyTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200915"><span id="local-6989586621679200917"><span id="local-6989586621679200919"><span class="annot"><span class="annottext">Int -&gt; DescribeLoadBalancerPolicyTypesResponse -&gt; ShowS
 [DescribeLoadBalancerPolicyTypesResponse] -&gt; ShowS
 DescribeLoadBalancerPolicyTypesResponse -&gt; String
 (Int -&gt; DescribeLoadBalancerPolicyTypesResponse -&gt; ShowS)
@@ -474,8 +474,8 @@ DescribeLoadBalancerPolicyTypesResponse
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newDescribeLoadBalancerPolicyTypesResponse"><span class="annot"><span class="annottext">newDescribeLoadBalancerPolicyTypesResponse :: Int -&gt; DescribeLoadBalancerPolicyTypesResponse
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#newDescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-var hs-var">newDescribeLoadBalancerPolicyTypesResponse</span></a></span></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679200903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679200912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse' :: Maybe [PolicyTypeDescription]
 -&gt; Int -&gt; DescribeLoadBalancerPolicyTypesResponse
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span>
@@ -486,7 +486,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoadBalancerPolicyTypesResponse' :: Int
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#%24sel%3AhttpStatus%3ADescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679200912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | Information about the policy types.</span><span>
@@ -506,17 +506,17 @@ forall a. Maybe a
      (Maybe [PolicyTypeDescription])
      (Maybe [PolicyTypeDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200902"><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200911"><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
 policyTypeDescriptions :: Maybe [PolicyTypeDescription]
 $sel:policyTypeDescriptions:DescribeLoadBalancerPolicyTypesResponse' :: DescribeLoadBalancerPolicyTypesResponse
 -&gt; Maybe [PolicyTypeDescription]
-</span><a href="#local-6989586621679200902"><span class="hs-identifier hs-var hs-var">policyTypeDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
-</span><a href="#local-6989586621679200902"><span class="hs-identifier hs-var">policyTypeDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200901"><span class="annot"><span class="annottext">s :: DescribeLoadBalancerPolicyTypesResponse
-</span><a href="#local-6989586621679200901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200900"><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
-</span><a href="#local-6989586621679200900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse
-</span><a href="#local-6989586621679200901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypeDescriptions:DescribeLoadBalancerPolicyTypesResponse' :: Maybe [PolicyTypeDescription]
+</span><a href="#local-6989586621679200911"><span class="hs-identifier hs-var hs-var">policyTypeDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
+</span><a href="#local-6989586621679200911"><span class="hs-identifier hs-var">policyTypeDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200910"><span class="annot"><span class="annottext">s :: DescribeLoadBalancerPolicyTypesResponse
+</span><a href="#local-6989586621679200910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200909"><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
+</span><a href="#local-6989586621679200909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse
+</span><a href="#local-6989586621679200910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypeDescriptions:DescribeLoadBalancerPolicyTypesResponse' :: Maybe [PolicyTypeDescription]
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#%24sel%3ApolicyTypeDescriptions%3ADescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-var">policyTypeDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyTypeDescription]
-</span><a href="#local-6989586621679200900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyTypeDescription]
+</span><a href="#local-6989586621679200909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyTypeDescription]
   -&gt; f (Maybe [PolicyTypeDescription]))
  -&gt; DescribeLoadBalancerPolicyTypesResponse
  -&gt; f DescribeLoadBalancerPolicyTypesResponse)
@@ -564,18 +564,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200899"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200908"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLoadBalancerPolicyTypesResponse' :: DescribeLoadBalancerPolicyTypesResponse -&gt; Int
-</span><a href="#local-6989586621679200899"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200899"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200898"><span class="annot"><span class="annottext">s :: DescribeLoadBalancerPolicyTypesResponse
-</span><a href="#local-6989586621679200898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200897"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse
-</span><a href="#local-6989586621679200898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoadBalancerPolicyTypesResponse' :: Int
+</span><a href="#local-6989586621679200908"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200908"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200907"><span class="annot"><span class="annottext">s :: DescribeLoadBalancerPolicyTypesResponse
+</span><a href="#local-6989586621679200907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoadBalancerPolicyTypesResponse
+</span><a href="#local-6989586621679200907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoadBalancerPolicyTypesResponse' :: Int
 </span><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#%24sel%3AhttpStatus%3ADescribeLoadBalancerPolicyTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679200895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679200904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DescribeLoadBalancerPolicyTypes.html#DescribeLoadBalancerPolicyTypesResponse"><span class="hs-identifier hs-type">DescribeLoadBalancerPolicyTypesResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

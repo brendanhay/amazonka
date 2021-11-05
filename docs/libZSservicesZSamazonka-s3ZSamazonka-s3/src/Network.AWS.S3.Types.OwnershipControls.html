@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The container element for a bucket\'s ownership controls.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newOwnershipControls' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679547885"><span id="local-6989586621679547886"></span></span><span class="hs-keyword">data</span><span> </span><span id="OwnershipControls"><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-var">OwnershipControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OwnershipControls%27"><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-var">OwnershipControls'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679547894"><span id="local-6989586621679547895"></span></span><span class="hs-keyword">data</span><span> </span><span id="OwnershipControls"><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-var">OwnershipControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OwnershipControls%27"><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-var">OwnershipControls'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The container element for an ownership control rule.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Arules%3AOwnershipControls%27"><span class="annot"><span class="annottext">OwnershipControls -&gt; [OwnershipControlsRule]
 </span><a href="Network.AWS.S3.Types.OwnershipControls.html#%24sel%3Arules%3AOwnershipControls%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControlsRule.html#OwnershipControlsRule"><span class="hs-identifier hs-type">OwnershipControlsRule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547879"><span id="local-6989586621679547881"><span class="annot"><span class="annottext">OwnershipControls -&gt; OwnershipControls -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547888"><span id="local-6989586621679547890"><span class="annot"><span class="annottext">OwnershipControls -&gt; OwnershipControls -&gt; Bool
 (OwnershipControls -&gt; OwnershipControls -&gt; Bool)
 -&gt; (OwnershipControls -&gt; OwnershipControls -&gt; Bool)
 -&gt; Eq OwnershipControls
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OwnershipControls -&gt; OwnershipControls -&gt; Bool
 == :: OwnershipControls -&gt; OwnershipControls -&gt; Bool
 $c== :: OwnershipControls -&gt; OwnershipControls -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547870"><span id="local-6989586621679547872"><span id="local-6989586621679547874"><span id="local-6989586621679547876"><span class="annot"><span class="annottext">ReadPrec [OwnershipControls]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547879"><span id="local-6989586621679547881"><span id="local-6989586621679547883"><span id="local-6989586621679547885"><span class="annot"><span class="annottext">ReadPrec [OwnershipControls]
 ReadPrec OwnershipControls
 Int -&gt; ReadS OwnershipControls
 ReadS [OwnershipControls]
@@ -62,7 +62,7 @@ readList :: ReadS [OwnershipControls]
 $creadList :: ReadS [OwnershipControls]
 readsPrec :: Int -&gt; ReadS OwnershipControls
 $creadsPrec :: Int -&gt; ReadS OwnershipControls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547863"><span id="local-6989586621679547865"><span id="local-6989586621679547867"><span class="annot"><span class="annottext">Int -&gt; OwnershipControls -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547872"><span id="local-6989586621679547874"><span id="local-6989586621679547876"><span class="annot"><span class="annottext">Int -&gt; OwnershipControls -&gt; ShowS
 [OwnershipControls] -&gt; ShowS
 OwnershipControls -&gt; String
 (Int -&gt; OwnershipControls -&gt; ShowS)
@@ -120,16 +120,16 @@ forall a. Monoid a =&gt; a
      [OwnershipControlsRule]
      [OwnershipControlsRule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-type">OwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547854"><span class="annot"><span class="annottext">[OwnershipControlsRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-type">OwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547863"><span class="annot"><span class="annottext">[OwnershipControlsRule]
 rules :: [OwnershipControlsRule]
 $sel:rules:OwnershipControls' :: OwnershipControls -&gt; [OwnershipControlsRule]
-</span><a href="#local-6989586621679547854"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[OwnershipControlsRule]
-</span><a href="#local-6989586621679547854"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547853"><span class="annot"><span class="annottext">s :: OwnershipControls
-</span><a href="#local-6989586621679547853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-type">OwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547852"><span class="annot"><span class="annottext">[OwnershipControlsRule]
-</span><a href="#local-6989586621679547852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OwnershipControls
-</span><a href="#local-6989586621679547853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:OwnershipControls' :: [OwnershipControlsRule]
+</span><a href="#local-6989586621679547863"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[OwnershipControlsRule]
+</span><a href="#local-6989586621679547863"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547862"><span class="annot"><span class="annottext">s :: OwnershipControls
+</span><a href="#local-6989586621679547862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-type">OwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547861"><span class="annot"><span class="annottext">[OwnershipControlsRule]
+</span><a href="#local-6989586621679547861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OwnershipControls
+</span><a href="#local-6989586621679547862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:OwnershipControls' :: [OwnershipControlsRule]
 </span><a href="Network.AWS.S3.Types.OwnershipControls.html#%24sel%3Arules%3AOwnershipControls%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[OwnershipControlsRule]
-</span><a href="#local-6989586621679547852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([OwnershipControlsRule] -&gt; f [OwnershipControlsRule])
+</span><a href="#local-6989586621679547861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([OwnershipControlsRule] -&gt; f [OwnershipControlsRule])
  -&gt; OwnershipControls -&gt; f OwnershipControls)
 -&gt; (([OwnershipControlsRule] -&gt; f [OwnershipControlsRule])
     -&gt; [OwnershipControlsRule] -&gt; f [OwnershipControlsRule])
@@ -143,9 +143,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679547847"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OwnershipControls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679547845"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547845"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679547856"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OwnershipControls
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679547854"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679547854"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">[OwnershipControlsRule] -&gt; OwnershipControls
 </span><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-var">OwnershipControls'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">([OwnershipControlsRule] -&gt; OwnershipControls)
@@ -156,23 +156,23 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547845"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679547854"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547839"><span id="local-6989586621679547841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547848"><span id="local-6989586621679547850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679547832"><span class="annot"><span class="annottext">toXML :: OwnershipControls -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-type">OwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547830"><span class="annot"><span class="annottext">[OwnershipControlsRule]
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679547841"><span class="annot"><span class="annottext">toXML :: OwnershipControls -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls%27"><span class="hs-identifier hs-type">OwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547839"><span class="annot"><span class="annottext">[OwnershipControlsRule]
 rules :: [OwnershipControlsRule]
 $sel:rules:OwnershipControls' :: OwnershipControls -&gt; [OwnershipControlsRule]
-</span><a href="#local-6989586621679547830"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679547839"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name -&gt; [OwnershipControlsRule] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">[OwnershipControlsRule]
-</span><a href="#local-6989586621679547830"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679547839"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span></pre></body></html>

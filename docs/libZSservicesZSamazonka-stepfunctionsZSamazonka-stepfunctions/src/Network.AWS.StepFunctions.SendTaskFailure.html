@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.html"><span class="hs-identifier">Network.AWS.StepFunctions.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newSendTaskFailure' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679230797"><span id="local-6989586621679230798"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendTaskFailure"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-var">SendTaskFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendTaskFailure%27"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-var">SendTaskFailure'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679230806"><span id="local-6989586621679230807"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendTaskFailure"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-var">SendTaskFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendTaskFailure%27"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-var">SendTaskFailure'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code of the failure.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aerror%3ASendTaskFailure%27"><span class="annot"><span class="annottext">SendTaskFailure -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3Aerror%3ASendTaskFailure%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AtaskToken%3ASendTaskFailure%27"><span class="annot"><span class="annottext">SendTaskFailure -&gt; Text
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3AtaskToken%3ASendTaskFailure%27"><span class="hs-identifier hs-var hs-var">taskToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230789"><span id="local-6989586621679230791"><span class="annot"><span class="annottext">SendTaskFailure -&gt; SendTaskFailure -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230798"><span id="local-6989586621679230800"><span class="annot"><span class="annottext">SendTaskFailure -&gt; SendTaskFailure -&gt; Bool
 (SendTaskFailure -&gt; SendTaskFailure -&gt; Bool)
 -&gt; (SendTaskFailure -&gt; SendTaskFailure -&gt; Bool)
 -&gt; Eq SendTaskFailure
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendTaskFailure -&gt; SendTaskFailure -&gt; Bool
 == :: SendTaskFailure -&gt; SendTaskFailure -&gt; Bool
 $c== :: SendTaskFailure -&gt; SendTaskFailure -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230782"><span id="local-6989586621679230784"><span id="local-6989586621679230786"><span class="annot"><span class="annottext">Int -&gt; SendTaskFailure -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230791"><span id="local-6989586621679230793"><span id="local-6989586621679230795"><span class="annot"><span class="annottext">Int -&gt; SendTaskFailure -&gt; ShowS
 [SendTaskFailure] -&gt; ShowS
 SendTaskFailure -&gt; String
 (Int -&gt; SendTaskFailure -&gt; ShowS)
@@ -122,8 +122,8 @@ $cfrom :: forall x. SendTaskFailure -&gt; Rep SendTaskFailure x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span>
 </span><span id="line-88"></span><span id="newSendTaskFailure"><span class="annot"><span class="annottext">newSendTaskFailure :: Text -&gt; SendTaskFailure
-</span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#newSendTaskFailure"><span class="hs-identifier hs-var hs-var">newSendTaskFailure</span></a></span></span><span> </span><span id="local-6989586621679230777"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230777"><span class="hs-identifier hs-var">pTaskToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#newSendTaskFailure"><span class="hs-identifier hs-var hs-var">newSendTaskFailure</span></a></span></span><span> </span><span id="local-6989586621679230786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230786"><span class="hs-identifier hs-var">pTaskToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">SendTaskFailure' :: Maybe (Sensitive Text)
 -&gt; Maybe (Sensitive Text) -&gt; Text -&gt; SendTaskFailure
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span>
@@ -137,7 +137,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskToken:SendTaskFailure' :: Text
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3AtaskToken%3ASendTaskFailure%27"><span class="hs-identifier hs-var">taskToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230777"><span class="hs-identifier hs-var">pTaskToken_</span></a></span><span>
+</span><a href="#local-6989586621679230786"><span class="hs-identifier hs-var">pTaskToken_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The error code of the failure.</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230774"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230783"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 error :: Maybe (Sensitive Text)
 $sel:error:SendTaskFailure' :: SendTaskFailure -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230774"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230774"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230773"><span class="annot"><span class="annottext">s :: SendTaskFailure
-</span><a href="#local-6989586621679230773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230772"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailure
-</span><a href="#local-6989586621679230773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:SendTaskFailure' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679230783"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679230783"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230782"><span class="annot"><span class="annottext">s :: SendTaskFailure
+</span><a href="#local-6989586621679230782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230781"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679230781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailure
+</span><a href="#local-6989586621679230782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:SendTaskFailure' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3Aerror%3ASendTaskFailure%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679230781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; SendTaskFailure -&gt; f SendTaskFailure)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -194,16 +194,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230768"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230777"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 cause :: Maybe (Sensitive Text)
 $sel:cause:SendTaskFailure' :: SendTaskFailure -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230768"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230768"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230767"><span class="annot"><span class="annottext">s :: SendTaskFailure
-</span><a href="#local-6989586621679230767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230766"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailure
-</span><a href="#local-6989586621679230767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:SendTaskFailure' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679230777"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679230777"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230776"><span class="annot"><span class="annottext">s :: SendTaskFailure
+</span><a href="#local-6989586621679230776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230775"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679230775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailure
+</span><a href="#local-6989586621679230776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:SendTaskFailure' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3Acause%3ASendTaskFailure%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679230775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; SendTaskFailure -&gt; f SendTaskFailure)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -235,27 +235,27 @@ forall a. Iso' (Sensitive a) a
 -&gt; (SendTaskFailure -&gt; Text -&gt; SendTaskFailure)
 -&gt; Lens SendTaskFailure SendTaskFailure Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230765"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230774"><span class="annot"><span class="annottext">Text
 taskToken :: Text
 $sel:taskToken:SendTaskFailure' :: SendTaskFailure -&gt; Text
-</span><a href="#local-6989586621679230765"><span class="hs-identifier hs-var hs-var">taskToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230765"><span class="hs-identifier hs-var">taskToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230764"><span class="annot"><span class="annottext">s :: SendTaskFailure
-</span><a href="#local-6989586621679230764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230763"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailure
-</span><a href="#local-6989586621679230764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskToken:SendTaskFailure' :: Text
+</span><a href="#local-6989586621679230774"><span class="hs-identifier hs-var hs-var">taskToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230774"><span class="hs-identifier hs-var">taskToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230773"><span class="annot"><span class="annottext">s :: SendTaskFailure
+</span><a href="#local-6989586621679230773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailure
+</span><a href="#local-6989586621679230773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskToken:SendTaskFailure' :: Text
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3AtaskToken%3ASendTaskFailure%27"><span class="hs-identifier hs-var">taskToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-type">SendTaskFailureResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679230759"><span class="annot"><span class="annottext">request :: SendTaskFailure -&gt; Request SendTaskFailure
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679230768"><span class="annot"><span class="annottext">request :: SendTaskFailure -&gt; Request SendTaskFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendTaskFailure -&gt; Request SendTaskFailure
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679230755"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679230764"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SendTaskFailure
 -&gt; ClientResponse ClientBody
@@ -279,10 +279,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230752"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230752"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230751"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679230751"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230750"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679230750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230761"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230761"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230760"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679230760"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230759"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679230759"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SendTaskFailureResponse
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-var">SendTaskFailureResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SendTaskFailureResponse)
@@ -293,15 +293,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230752"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230761"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230743"><span id="local-6989586621679230745"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230752"><span id="local-6989586621679230754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679230736"><span class="annot"><span class="annottext">toHeaders :: SendTaskFailure -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679230745"><span class="annot"><span class="annottext">toHeaders :: SendTaskFailure -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendTaskFailure -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -328,9 +328,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230726"><span id="local-6989586621679230728"><span id="local-6989586621679230730"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679230724"><span class="annot"><span class="annottext">toJSON :: SendTaskFailure -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230720"><span id="local-6989586621679230721"><span id="local-6989586621679230722"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230735"><span id="local-6989586621679230737"><span id="local-6989586621679230739"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679230733"><span class="annot"><span class="annottext">toJSON :: SendTaskFailure -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure%27"><span class="hs-identifier hs-type">SendTaskFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230729"><span id="local-6989586621679230730"><span id="local-6989586621679230731"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Text
 taskToken :: Text
 cause :: Maybe (Sensitive Text)
@@ -338,7 +338,7 @@ error :: Maybe (Sensitive Text)
 $sel:taskToken:SendTaskFailure' :: SendTaskFailure -&gt; Text
 $sel:cause:SendTaskFailure' :: SendTaskFailure -&gt; Maybe (Sensitive Text)
 $sel:error:SendTaskFailure' :: SendTaskFailure -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230720"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679230729"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -350,33 +350,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230722"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679230731"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cause&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679230721"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679230730"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230720"><span class="hs-identifier hs-var">taskToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230729"><span class="hs-identifier hs-var">taskToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679230714"><span class="annot"><span class="annottext">toPath :: SendTaskFailure -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679230723"><span class="annot"><span class="annottext">toPath :: SendTaskFailure -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendTaskFailure -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailure"><span class="hs-identifier hs-type">SendTaskFailure</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679230710"><span class="annot"><span class="annottext">toQuery :: SendTaskFailure -&gt; QueryString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679230719"><span class="annot"><span class="annottext">toQuery :: SendTaskFailure -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SendTaskFailure -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -384,12 +384,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newSendTaskFailureResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679230707"><span id="local-6989586621679230708"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendTaskFailureResponse"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-var">SendTaskFailureResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendTaskFailureResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-var">SendTaskFailureResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679230716"><span id="local-6989586621679230717"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendTaskFailureResponse"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-var">SendTaskFailureResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendTaskFailureResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-var">SendTaskFailureResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendTaskFailureResponse%27"><span class="annot"><span class="annottext">SendTaskFailureResponse -&gt; Int
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3AhttpStatus%3ASendTaskFailureResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230702"><span id="local-6989586621679230704"><span class="annot"><span class="annottext">SendTaskFailureResponse -&gt; SendTaskFailureResponse -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230711"><span id="local-6989586621679230713"><span class="annot"><span class="annottext">SendTaskFailureResponse -&gt; SendTaskFailureResponse -&gt; Bool
 (SendTaskFailureResponse -&gt; SendTaskFailureResponse -&gt; Bool)
 -&gt; (SendTaskFailureResponse -&gt; SendTaskFailureResponse -&gt; Bool)
 -&gt; Eq SendTaskFailureResponse
@@ -398,7 +398,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendTaskFailureResponse -&gt; SendTaskFailureResponse -&gt; Bool
 == :: SendTaskFailureResponse -&gt; SendTaskFailureResponse -&gt; Bool
 $c== :: SendTaskFailureResponse -&gt; SendTaskFailureResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230694"><span id="local-6989586621679230696"><span id="local-6989586621679230698"><span id="local-6989586621679230700"><span class="annot"><span class="annottext">ReadPrec [SendTaskFailureResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230703"><span id="local-6989586621679230705"><span id="local-6989586621679230707"><span id="local-6989586621679230709"><span class="annot"><span class="annottext">ReadPrec [SendTaskFailureResponse]
 ReadPrec SendTaskFailureResponse
 Int -&gt; ReadS SendTaskFailureResponse
 ReadS [SendTaskFailureResponse]
@@ -418,7 +418,7 @@ readList :: ReadS [SendTaskFailureResponse]
 $creadList :: ReadS [SendTaskFailureResponse]
 readsPrec :: Int -&gt; ReadS SendTaskFailureResponse
 $creadsPrec :: Int -&gt; ReadS SendTaskFailureResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230687"><span id="local-6989586621679230689"><span id="local-6989586621679230691"><span class="annot"><span class="annottext">Int -&gt; SendTaskFailureResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230696"><span id="local-6989586621679230698"><span id="local-6989586621679230700"><span class="annot"><span class="annottext">Int -&gt; SendTaskFailureResponse -&gt; ShowS
 [SendTaskFailureResponse] -&gt; ShowS
 SendTaskFailureResponse -&gt; String
 (Int -&gt; SendTaskFailureResponse -&gt; ShowS)
@@ -460,12 +460,12 @@ $cfrom :: forall x. SendTaskFailureResponse -&gt; Rep SendTaskFailureResponse x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-type">SendTaskFailureResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newSendTaskFailureResponse"><span class="annot"><span class="annottext">newSendTaskFailureResponse :: Int -&gt; SendTaskFailureResponse
-</span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#newSendTaskFailureResponse"><span class="hs-identifier hs-var hs-var">newSendTaskFailureResponse</span></a></span></span><span> </span><span id="local-6989586621679230684"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#newSendTaskFailureResponse"><span class="hs-identifier hs-var hs-var">newSendTaskFailureResponse</span></a></span></span><span> </span><span id="local-6989586621679230693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">SendTaskFailureResponse' :: Int -&gt; SendTaskFailureResponse
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-type">SendTaskFailureResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendTaskFailureResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3AhttpStatus%3ASendTaskFailureResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679230693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#sendTaskFailureResponse_httpStatus"><span class="hs-identifier hs-type">sendTaskFailureResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-type">SendTaskFailureResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -475,16 +475,16 @@ $cfrom :: forall x. SendTaskFailureResponse -&gt; Rep SendTaskFailureResponse x
 -&gt; (SendTaskFailureResponse -&gt; Int -&gt; SendTaskFailureResponse)
 -&gt; Lens SendTaskFailureResponse SendTaskFailureResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-type">SendTaskFailureResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230683"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-type">SendTaskFailureResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230692"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SendTaskFailureResponse' :: SendTaskFailureResponse -&gt; Int
-</span><a href="#local-6989586621679230683"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230683"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230682"><span class="annot"><span class="annottext">s :: SendTaskFailureResponse
-</span><a href="#local-6989586621679230682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-type">SendTaskFailureResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230681"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailureResponse
-</span><a href="#local-6989586621679230682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendTaskFailureResponse' :: Int
+</span><a href="#local-6989586621679230692"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230692"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230691"><span class="annot"><span class="annottext">s :: SendTaskFailureResponse
+</span><a href="#local-6989586621679230691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse%27"><span class="hs-identifier hs-type">SendTaskFailureResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendTaskFailureResponse
+</span><a href="#local-6989586621679230691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendTaskFailureResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.SendTaskFailure.html#%24sel%3AhttpStatus%3ASendTaskFailureResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-type">SendTaskFailureResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-type">SendTaskFailureResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-type">SendTaskFailureResponse</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.SendTaskFailure.html#SendTaskFailureResponse"><span class="hs-identifier hs-type">SendTaskFailureResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

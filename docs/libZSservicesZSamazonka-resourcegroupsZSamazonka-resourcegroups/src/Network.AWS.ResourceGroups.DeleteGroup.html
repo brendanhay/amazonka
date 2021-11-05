@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroup' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679180494"><span id="local-6989586621679180495"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroup"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-var">DeleteGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroup%27"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-var">DeleteGroup'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679180503"><span id="local-6989586621679180504"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroup"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-var">DeleteGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroup%27"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-var">DeleteGroup'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the ARN of the resource group to delete.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Agroup%27%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3Agroup%27%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AgroupName%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180487"><span id="local-6989586621679180489"><span class="annot"><span class="annottext">DeleteGroup -&gt; DeleteGroup -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180496"><span id="local-6989586621679180498"><span class="annot"><span class="annottext">DeleteGroup -&gt; DeleteGroup -&gt; Bool
 (DeleteGroup -&gt; DeleteGroup -&gt; Bool)
 -&gt; (DeleteGroup -&gt; DeleteGroup -&gt; Bool) -&gt; Eq DeleteGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
 == :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
 $c== :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180478"><span id="local-6989586621679180480"><span id="local-6989586621679180482"><span id="local-6989586621679180484"><span class="annot"><span class="annottext">ReadPrec [DeleteGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180487"><span id="local-6989586621679180489"><span id="local-6989586621679180491"><span id="local-6989586621679180493"><span class="annot"><span class="annottext">ReadPrec [DeleteGroup]
 ReadPrec DeleteGroup
 Int -&gt; ReadS DeleteGroup
 ReadS [DeleteGroup]
@@ -92,7 +92,7 @@ readList :: ReadS [DeleteGroup]
 $creadList :: ReadS [DeleteGroup]
 readsPrec :: Int -&gt; ReadS DeleteGroup
 $creadsPrec :: Int -&gt; ReadS DeleteGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180471"><span id="local-6989586621679180473"><span id="local-6989586621679180475"><span class="annot"><span class="annottext">Int -&gt; DeleteGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180480"><span id="local-6989586621679180482"><span id="local-6989586621679180484"><span class="annot"><span class="annottext">Int -&gt; DeleteGroup -&gt; ShowS
 [DeleteGroup] -&gt; ShowS
 DeleteGroup -&gt; String
 (Int -&gt; DeleteGroup -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (DeleteGroup -&gt; Maybe Text -&gt; DeleteGroup)
 -&gt; Lens DeleteGroup DeleteGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180464"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180473"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':DeleteGroup' :: DeleteGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679180464"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180464"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180463"><span class="annot"><span class="annottext">s :: DeleteGroup
-</span><a href="#local-6989586621679180463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180462"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
-</span><a href="#local-6989586621679180463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':DeleteGroup' :: Maybe Text
+</span><a href="#local-6989586621679180473"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180473"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180472"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679180472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679180472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':DeleteGroup' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3Agroup%27%3ADeleteGroup%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Deprecated - don\'t use this parameter. Use @Group@ instead.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#deleteGroup_groupName"><span class="hs-identifier hs-type">deleteGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -170,25 +170,25 @@ $sel:group':DeleteGroup' :: DeleteGroup -&gt; Maybe Text
 -&gt; (DeleteGroup -&gt; Maybe Text -&gt; DeleteGroup)
 -&gt; Lens DeleteGroup DeleteGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180461"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180470"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:DeleteGroup' :: DeleteGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679180461"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180461"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180460"><span class="annot"><span class="annottext">s :: DeleteGroup
-</span><a href="#local-6989586621679180460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180459"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
-</span><a href="#local-6989586621679180460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroup' :: Maybe Text
+</span><a href="#local-6989586621679180470"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180470"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180469"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679180469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679180469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroup' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679180455"><span class="annot"><span class="annottext">request :: DeleteGroup -&gt; Request DeleteGroup
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679180464"><span class="annot"><span class="annottext">request :: DeleteGroup -&gt; Request DeleteGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGroup -&gt; Request DeleteGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679180451"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679180460"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteGroup
 -&gt; ClientResponse ClientBody
@@ -212,10 +212,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180448"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180448"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180447"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679180447"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180446"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679180446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180456"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679180456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180455"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Group -&gt; Int -&gt; DeleteGroupResponse
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Group -&gt; Int -&gt; DeleteGroupResponse)
@@ -223,7 +223,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679180446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Group)
+</span><a href="#local-6989586621679180455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Group)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,29 +235,29 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180448"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180438"><span id="local-6989586621679180440"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180447"><span id="local-6989586621679180449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679180431"><span class="annot"><span class="annottext">toHeaders :: DeleteGroup -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679180440"><span class="annot"><span class="annottext">toHeaders :: DeleteGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180422"><span id="local-6989586621679180424"><span id="local-6989586621679180426"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679180420"><span class="annot"><span class="annottext">toJSON :: DeleteGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180417"><span id="local-6989586621679180418"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180431"><span id="local-6989586621679180433"><span id="local-6989586621679180435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679180429"><span class="annot"><span class="annottext">toJSON :: DeleteGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180426"><span id="local-6989586621679180427"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 group' :: Maybe Text
 $sel:groupName:DeleteGroup' :: DeleteGroup -&gt; Maybe Text
 $sel:group':DeleteGroup' :: DeleteGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679180417"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679180426"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -269,26 +269,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180418"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679180427"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679180417"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621679180426"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679180411"><span class="annot"><span class="annottext">toPath :: DeleteGroup -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679180420"><span class="annot"><span class="annottext">toPath :: DeleteGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/delete-group&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679180407"><span class="annot"><span class="annottext">toQuery :: DeleteGroup -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679180416"><span class="annot"><span class="annottext">toQuery :: DeleteGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -296,7 +296,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroupResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679180404"><span id="local-6989586621679180405"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-var">DeleteGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679180413"><span id="local-6989586621679180414"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-var">DeleteGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A full description of the deleted resource group.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3Agroup%27%3ADeleteGroupResponse%27"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; Maybe Group
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3Agroup%27%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">,</span><span>
@@ -304,7 +304,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180398"><span id="local-6989586621679180400"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180407"><span id="local-6989586621679180409"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
 (DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
 -&gt; (DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
 -&gt; Eq DeleteGroupResponse
@@ -313,7 +313,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
 == :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
 $c== :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180390"><span id="local-6989586621679180392"><span id="local-6989586621679180394"><span id="local-6989586621679180396"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180399"><span id="local-6989586621679180401"><span id="local-6989586621679180403"><span id="local-6989586621679180405"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupResponse]
 ReadPrec DeleteGroupResponse
 Int -&gt; ReadS DeleteGroupResponse
 ReadS [DeleteGroupResponse]
@@ -333,7 +333,7 @@ readList :: ReadS [DeleteGroupResponse]
 $creadList :: ReadS [DeleteGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180384"><span id="local-6989586621679180386"><span id="local-6989586621679180388"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180393"><span id="local-6989586621679180395"><span id="local-6989586621679180397"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupResponse -&gt; ShowS
 [DeleteGroupResponse] -&gt; ShowS
 DeleteGroupResponse -&gt; String
 (Int -&gt; DeleteGroupResponse -&gt; ShowS)
@@ -375,8 +375,8 @@ $cfrom :: forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span>
 </span><span id="line-151"></span><span id="newDeleteGroupResponse"><span class="annot"><span class="annottext">newDeleteGroupResponse :: Int -&gt; DeleteGroupResponse
-</span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679180381"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679180390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroupResponse' :: Maybe Group -&gt; Int -&gt; DeleteGroupResponse
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':DeleteGroupResponse' :: Maybe Group
@@ -385,7 +385,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGroupResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679180390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | A full description of the deleted resource group.</span><span>
@@ -397,16 +397,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteGroupResponse DeleteGroupResponse (Maybe Group) (Maybe Group)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180380"><span class="annot"><span class="annottext">Maybe Group
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180389"><span class="annot"><span class="annottext">Maybe Group
 group' :: Maybe Group
 $sel:group':DeleteGroupResponse' :: DeleteGroupResponse -&gt; Maybe Group
-</span><a href="#local-6989586621679180380"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Group
-</span><a href="#local-6989586621679180380"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180379"><span class="annot"><span class="annottext">s :: DeleteGroupResponse
-</span><a href="#local-6989586621679180379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180378"><span class="annot"><span class="annottext">Maybe Group
-</span><a href="#local-6989586621679180378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
-</span><a href="#local-6989586621679180379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':DeleteGroupResponse' :: Maybe Group
+</span><a href="#local-6989586621679180389"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679180389"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180388"><span class="annot"><span class="annottext">s :: DeleteGroupResponse
+</span><a href="#local-6989586621679180388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180387"><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679180387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
+</span><a href="#local-6989586621679180388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':DeleteGroupResponse' :: Maybe Group
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3Agroup%27%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Group
-</span><a href="#local-6989586621679180378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#deleteGroupResponse_httpStatus"><span class="hs-identifier hs-type">deleteGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -415,16 +415,16 @@ $sel:group':DeleteGroupResponse' :: DeleteGroupResponse -&gt; Maybe Group
 -&gt; (DeleteGroupResponse -&gt; Int -&gt; DeleteGroupResponse)
 -&gt; Lens DeleteGroupResponse DeleteGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180377"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180386"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteGroupResponse' :: DeleteGroupResponse -&gt; Int
-</span><a href="#local-6989586621679180377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180376"><span class="annot"><span class="annottext">s :: DeleteGroupResponse
-</span><a href="#local-6989586621679180376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180375"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
-</span><a href="#local-6989586621679180376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGroupResponse' :: Int
+</span><a href="#local-6989586621679180386"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180386"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180385"><span class="annot"><span class="annottext">s :: DeleteGroupResponse
+</span><a href="#local-6989586621679180385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
+</span><a href="#local-6989586621679180385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGroupResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.DeleteGroup.html#%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

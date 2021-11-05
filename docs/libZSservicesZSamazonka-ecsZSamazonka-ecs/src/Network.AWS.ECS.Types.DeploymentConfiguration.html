@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- deployment and the ordering of stopping and starting tasks.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDeploymentConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679450489"><span id="local-6989586621679450490"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-var">DeploymentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-var">DeploymentConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679450498"><span id="local-6989586621679450499"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-var">DeploymentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-var">DeploymentConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a service is using the rolling update (@ECS@) deployment type, the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- __minimum healthy percent__ represents a lower limit on the number of</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- tasks in a service that must remain in the @RUNNING@ state during a</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AdeploymentCircuitBreaker%3ADeploymentConfiguration%27"><span class="annot"><span class="annottext">DeploymentConfiguration -&gt; Maybe DeploymentCircuitBreaker
 </span><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#%24sel%3AdeploymentCircuitBreaker%3ADeploymentConfiguration%27"><span class="hs-identifier hs-var hs-var">deploymentCircuitBreaker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentCircuitBreaker.html#DeploymentCircuitBreaker"><span class="hs-identifier hs-type">DeploymentCircuitBreaker</span></a></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450481"><span id="local-6989586621679450483"><span class="annot"><span class="annottext">DeploymentConfiguration -&gt; DeploymentConfiguration -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450490"><span id="local-6989586621679450492"><span class="annot"><span class="annottext">DeploymentConfiguration -&gt; DeploymentConfiguration -&gt; Bool
 (DeploymentConfiguration -&gt; DeploymentConfiguration -&gt; Bool)
 -&gt; (DeploymentConfiguration -&gt; DeploymentConfiguration -&gt; Bool)
 -&gt; Eq DeploymentConfiguration
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeploymentConfiguration -&gt; DeploymentConfiguration -&gt; Bool
 == :: DeploymentConfiguration -&gt; DeploymentConfiguration -&gt; Bool
 $c== :: DeploymentConfiguration -&gt; DeploymentConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450472"><span id="local-6989586621679450474"><span id="local-6989586621679450476"><span id="local-6989586621679450478"><span class="annot"><span class="annottext">ReadPrec [DeploymentConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450481"><span id="local-6989586621679450483"><span id="local-6989586621679450485"><span id="local-6989586621679450487"><span class="annot"><span class="annottext">ReadPrec [DeploymentConfiguration]
 ReadPrec DeploymentConfiguration
 Int -&gt; ReadS DeploymentConfiguration
 ReadS [DeploymentConfiguration]
@@ -119,7 +119,7 @@ readList :: ReadS [DeploymentConfiguration]
 $creadList :: ReadS [DeploymentConfiguration]
 readsPrec :: Int -&gt; ReadS DeploymentConfiguration
 $creadsPrec :: Int -&gt; ReadS DeploymentConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450465"><span id="local-6989586621679450467"><span id="local-6989586621679450469"><span class="annot"><span class="annottext">Int -&gt; DeploymentConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450474"><span id="local-6989586621679450476"><span id="local-6989586621679450478"><span class="annot"><span class="annottext">Int -&gt; DeploymentConfiguration -&gt; ShowS
 [DeploymentConfiguration] -&gt; ShowS
 DeploymentConfiguration -&gt; String
 (Int -&gt; DeploymentConfiguration -&gt; ShowS)
@@ -271,16 +271,16 @@ forall a. Maybe a
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450456"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450465"><span class="annot"><span class="annottext">Maybe Int
 minimumHealthyPercent :: Maybe Int
 $sel:minimumHealthyPercent:DeploymentConfiguration' :: DeploymentConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679450456"><span class="hs-identifier hs-var hs-var">minimumHealthyPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450456"><span class="hs-identifier hs-var">minimumHealthyPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450455"><span class="annot"><span class="annottext">s :: DeploymentConfiguration
-</span><a href="#local-6989586621679450455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450454"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentConfiguration
-</span><a href="#local-6989586621679450455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumHealthyPercent:DeploymentConfiguration' :: Maybe Int
+</span><a href="#local-6989586621679450465"><span class="hs-identifier hs-var hs-var">minimumHealthyPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679450465"><span class="hs-identifier hs-var">minimumHealthyPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450464"><span class="annot"><span class="annottext">s :: DeploymentConfiguration
+</span><a href="#local-6989586621679450464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450463"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679450463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentConfiguration
+</span><a href="#local-6989586621679450464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumHealthyPercent:DeploymentConfiguration' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#%24sel%3AminimumHealthyPercent%3ADeploymentConfiguration%27"><span class="hs-identifier hs-var">minimumHealthyPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | If a service is using the rolling update (@ECS@) deployment type, the</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- __maximum percent__ parameter represents an upper limit on the number of</span><span>
@@ -315,16 +315,16 @@ $sel:minimumHealthyPercent:DeploymentConfiguration' :: DeploymentConfiguration -
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450452"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450461"><span class="annot"><span class="annottext">Maybe Int
 maximumPercent :: Maybe Int
 $sel:maximumPercent:DeploymentConfiguration' :: DeploymentConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679450452"><span class="hs-identifier hs-var hs-var">maximumPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450452"><span class="hs-identifier hs-var">maximumPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450451"><span class="annot"><span class="annottext">s :: DeploymentConfiguration
-</span><a href="#local-6989586621679450451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450450"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentConfiguration
-</span><a href="#local-6989586621679450451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPercent:DeploymentConfiguration' :: Maybe Int
+</span><a href="#local-6989586621679450461"><span class="hs-identifier hs-var hs-var">maximumPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679450461"><span class="hs-identifier hs-var">maximumPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450460"><span class="annot"><span class="annottext">s :: DeploymentConfiguration
+</span><a href="#local-6989586621679450460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450459"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679450459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentConfiguration
+</span><a href="#local-6989586621679450460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPercent:DeploymentConfiguration' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#%24sel%3AmaximumPercent%3ADeploymentConfiguration%27"><span class="hs-identifier hs-var">maximumPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The deployment circuit breaker can only be used for services using the</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- rolling update (@ECS@) deployment type.</span><span>
@@ -348,19 +348,19 @@ $sel:maximumPercent:DeploymentConfiguration' :: DeploymentConfiguration -&gt; Ma
      (Maybe DeploymentCircuitBreaker)
      (Maybe DeploymentCircuitBreaker)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450448"><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450457"><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
 deploymentCircuitBreaker :: Maybe DeploymentCircuitBreaker
 $sel:deploymentCircuitBreaker:DeploymentConfiguration' :: DeploymentConfiguration -&gt; Maybe DeploymentCircuitBreaker
-</span><a href="#local-6989586621679450448"><span class="hs-identifier hs-var hs-var">deploymentCircuitBreaker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
-</span><a href="#local-6989586621679450448"><span class="hs-identifier hs-var">deploymentCircuitBreaker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450447"><span class="annot"><span class="annottext">s :: DeploymentConfiguration
-</span><a href="#local-6989586621679450447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450446"><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
-</span><a href="#local-6989586621679450446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentConfiguration
-</span><a href="#local-6989586621679450447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentCircuitBreaker:DeploymentConfiguration' :: Maybe DeploymentCircuitBreaker
+</span><a href="#local-6989586621679450457"><span class="hs-identifier hs-var hs-var">deploymentCircuitBreaker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
+</span><a href="#local-6989586621679450457"><span class="hs-identifier hs-var">deploymentCircuitBreaker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450456"><span class="annot"><span class="annottext">s :: DeploymentConfiguration
+</span><a href="#local-6989586621679450456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450455"><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
+</span><a href="#local-6989586621679450455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentConfiguration
+</span><a href="#local-6989586621679450456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentCircuitBreaker:DeploymentConfiguration' :: Maybe DeploymentCircuitBreaker
 </span><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#%24sel%3AdeploymentCircuitBreaker%3ADeploymentConfiguration%27"><span class="hs-identifier hs-var">deploymentCircuitBreaker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
-</span><a href="#local-6989586621679450446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450443"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679450441"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentConfiguration
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450452"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679450450"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeploymentConfiguration)
@@ -370,8 +370,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeploymentConfiguration&quot;</span></span><span>
-</span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450438"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450438"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450447"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679450447"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe DeploymentCircuitBreaker
@@ -387,7 +387,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe DeploymentCircuitBreaker -&gt; DeploymentConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679450447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minimumHealthyPercent&quot;</span></span><span class="hs-special">)</span><span>
@@ -399,7 +399,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe DeploymentCircuitBreaker -&gt; DeploymentConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679450447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumPercent&quot;</span></span><span class="hs-special">)</span><span>
@@ -408,19 +408,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DeploymentConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentCircuitBreaker)
+</span><a href="#local-6989586621679450447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentCircuitBreaker)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentCircuitBreaker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450432"><span id="local-6989586621679450434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450441"><span id="local-6989586621679450443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span></span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450421"><span id="local-6989586621679450423"><span id="local-6989586621679450425"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679450419"><span class="annot"><span class="annottext">toJSON :: DeploymentConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450415"><span id="local-6989586621679450416"><span id="local-6989586621679450417"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450430"><span id="local-6989586621679450432"><span id="local-6989586621679450434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration"><span class="hs-identifier hs-type">DeploymentConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679450428"><span class="annot"><span class="annottext">toJSON :: DeploymentConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentConfiguration.html#DeploymentConfiguration%27"><span class="hs-identifier hs-type">DeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450424"><span id="local-6989586621679450425"><span id="local-6989586621679450426"><span class="annot"><span class="annottext">Maybe Int
 Maybe DeploymentCircuitBreaker
 deploymentCircuitBreaker :: Maybe DeploymentCircuitBreaker
 maximumPercent :: Maybe Int
@@ -428,7 +428,7 @@ minimumHealthyPercent :: Maybe Int
 $sel:deploymentCircuitBreaker:DeploymentConfiguration' :: DeploymentConfiguration -&gt; Maybe DeploymentCircuitBreaker
 $sel:maximumPercent:DeploymentConfiguration' :: DeploymentConfiguration -&gt; Maybe Int
 $sel:minimumHealthyPercent:DeploymentConfiguration' :: DeploymentConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679450415"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679450424"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -441,7 +441,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-249"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450417"><span class="hs-identifier hs-var">minimumHealthyPercent</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679450426"><span class="hs-identifier hs-var">minimumHealthyPercent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumPercent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -449,7 +449,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679450416"><span class="hs-identifier hs-var">maximumPercent</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679450425"><span class="hs-identifier hs-var">maximumPercent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentCircuitBreaker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentCircuitBreaker -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -458,7 +458,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeploymentCircuitBreaker -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentCircuitBreaker
-</span><a href="#local-6989586621679450415"><span class="hs-identifier hs-var">deploymentCircuitBreaker</span></a></span><span>
+</span><a href="#local-6989586621679450424"><span class="hs-identifier hs-var">deploymentCircuitBreaker</span></a></span><span>
 </span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span></pre></body></html>

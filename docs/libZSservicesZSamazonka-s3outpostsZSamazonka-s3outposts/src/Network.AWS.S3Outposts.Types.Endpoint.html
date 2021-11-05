@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3Outposts.Types.Endpoint</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3Outposts.Types.Endpoint</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.EndpointAccessType.html"><span class="hs-identifier">Network.AWS.S3Outposts.Types.EndpointAccessType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.EndpointStatus.html"><span class="hs-identifier">Network.AWS.S3Outposts.Types.EndpointStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.NetworkInterface.html"><span class="hs-identifier">Network.AWS.S3Outposts.Types.NetworkInterface</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Amazon S3 on Outposts Access Points simplify managing data access at</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- scale for shared datasets in S3 on Outposts. S3 on Outposts uses</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- endpoints to connect to Outposts buckets so that you can perform actions</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- within your virtual private cloud (VPC). For more information, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html Accessing S3 on Outposts using VPC only access points&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newEndpoint' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679144071"><span id="local-6989586621679144072"></span></span><span class="hs-keyword">data</span><span> </span><span id="Endpoint"><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-var">Endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Endpoint%27"><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the endpoint was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreationTime%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe POSIX
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcreationTime%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The status of the endpoint.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe EndpointStatus
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3Astatus%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC used for the endpoint.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvpcId%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AvpcId%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The network interface of the endpoint.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AnetworkInterfaces%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe [NetworkInterface]
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AnetworkInterfaces%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the AWS Outposts.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AoutpostsId%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AoutpostsId%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">outpostsId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet used for the endpoint.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsubnetId%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AsubnetId%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ID of the security group used for the endpoint.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsecurityGroupId%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AsecurityGroupId%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">securityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AaccessType%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe EndpointAccessType
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AaccessType%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">accessType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.EndpointAccessType.html#EndpointAccessType"><span class="hs-identifier hs-type">EndpointAccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ID of the customer-owned IPv4 pool used for the endpoint.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcustomerOwnedIpv4Pool%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcustomerOwnedIpv4Pool%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">customerOwnedIpv4Pool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The VPC CIDR committed by this endpoint.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcidrBlock%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcidrBlock%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the endpoint.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AendpointArn%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AendpointArn%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144055"><span id="local-6989586621679144057"><span class="annot"><span class="annottext">Endpoint -&gt; Endpoint -&gt; Bool
+(Endpoint -&gt; Endpoint -&gt; Bool)
+-&gt; (Endpoint -&gt; Endpoint -&gt; Bool) -&gt; Eq Endpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Endpoint -&gt; Endpoint -&gt; Bool
+$c/= :: Endpoint -&gt; Endpoint -&gt; Bool
+== :: Endpoint -&gt; Endpoint -&gt; Bool
+$c== :: Endpoint -&gt; Endpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144046"><span id="local-6989586621679144048"><span id="local-6989586621679144050"><span id="local-6989586621679144052"><span class="annot"><span class="annottext">ReadPrec [Endpoint]
+ReadPrec Endpoint
+Int -&gt; ReadS Endpoint
+ReadS [Endpoint]
+(Int -&gt; ReadS Endpoint)
+-&gt; ReadS [Endpoint]
+-&gt; ReadPrec Endpoint
+-&gt; ReadPrec [Endpoint]
+-&gt; Read Endpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Endpoint]
+$creadListPrec :: ReadPrec [Endpoint]
+readPrec :: ReadPrec Endpoint
+$creadPrec :: ReadPrec Endpoint
+readList :: ReadS [Endpoint]
+$creadList :: ReadS [Endpoint]
+readsPrec :: Int -&gt; ReadS Endpoint
+$creadsPrec :: Int -&gt; ReadS Endpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144039"><span id="local-6989586621679144041"><span id="local-6989586621679144043"><span class="annot"><span class="annottext">Int -&gt; Endpoint -&gt; ShowS
+[Endpoint] -&gt; ShowS
+Endpoint -&gt; String
+(Int -&gt; Endpoint -&gt; ShowS)
+-&gt; (Endpoint -&gt; String) -&gt; ([Endpoint] -&gt; ShowS) -&gt; Show Endpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Endpoint] -&gt; ShowS
+$cshowList :: [Endpoint] -&gt; ShowS
+show :: Endpoint -&gt; String
+$cshow :: Endpoint -&gt; String
+showsPrec :: Int -&gt; Endpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; Endpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Endpoint -&gt; Rep Endpoint x)
+-&gt; (forall x. Rep Endpoint x -&gt; Endpoint) -&gt; Generic Endpoint
+forall x. Rep Endpoint x -&gt; Endpoint
+forall x. Endpoint -&gt; Rep Endpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Endpoint x -&gt; Endpoint
+$cfrom :: forall x. Endpoint -&gt; Rep Endpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'Endpoint' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'creationTime', 'endpoint_creationTime' - The time the endpoint was created.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'status', 'endpoint_status' - The status of the endpoint.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'vpcId', 'endpoint_vpcId' - The ID of the VPC used for the endpoint.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'networkInterfaces', 'endpoint_networkInterfaces' - The network interface of the endpoint.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'outpostsId', 'endpoint_outpostsId' - The ID of the AWS Outposts.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'subnetId', 'endpoint_subnetId' - The ID of the subnet used for the endpoint.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'securityGroupId', 'endpoint_securityGroupId' - The ID of the security group used for the endpoint.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'accessType', 'endpoint_accessType' -</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'customerOwnedIpv4Pool', 'endpoint_customerOwnedIpv4Pool' - The ID of the customer-owned IPv4 pool used for the endpoint.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'cidrBlock', 'endpoint_cidrBlock' - The VPC CIDR committed by this endpoint.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'endpointArn', 'endpoint_endpointArn' - The Amazon Resource Name (ARN) of the endpoint.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#newEndpoint"><span class="hs-identifier hs-type">newEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span>
+</span><span id="line-92"></span><span id="newEndpoint"><span class="annot"><span class="annottext">newEndpoint :: Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#newEndpoint"><span class="hs-identifier hs-var hs-var">newEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">Endpoint' :: Maybe POSIX
+-&gt; Maybe EndpointStatus
+-&gt; Maybe Text
+-&gt; Maybe [NetworkInterface]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EndpointAccessType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Endpoint' :: Maybe POSIX
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcreationTime%3AEndpoint%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Endpoint' :: Maybe EndpointStatus
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3Astatus%3AEndpoint%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AvpcId%3AEndpoint%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaces:Endpoint' :: Maybe [NetworkInterface]
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AnetworkInterfaces%3AEndpoint%27"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:outpostsId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AoutpostsId%3AEndpoint%27"><span class="hs-identifier hs-var">outpostsId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AsubnetId%3AEndpoint%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroupId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AsecurityGroupId%3AEndpoint%27"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessType:Endpoint' :: Maybe EndpointAccessType
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AaccessType%3AEndpoint%27"><span class="hs-identifier hs-var">accessType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointAccessType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerOwnedIpv4Pool:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcustomerOwnedIpv4Pool%3AEndpoint%27"><span class="hs-identifier hs-var">customerOwnedIpv4Pool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrBlock:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcidrBlock%3AEndpoint%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointArn:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AendpointArn%3AEndpoint%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The time the endpoint was created.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_creationTime"><span class="hs-identifier hs-type">endpoint_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="endpoint_creationTime"><span class="annot"><span class="annottext">endpoint_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_creationTime"><span class="hs-identifier hs-var hs-var">endpoint_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe POSIX)
+-&gt; (Endpoint -&gt; Maybe POSIX -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144030"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:Endpoint' :: Endpoint -&gt; Maybe POSIX
+</span><a href="#local-6989586621679144030"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679144030"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144029"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679144029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144028"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679144028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679144029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Endpoint' :: Maybe POSIX
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcreationTime%3AEndpoint%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679144028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Endpoint -&gt; f Endpoint)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Endpoint
+-&gt; f Endpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The status of the endpoint.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_status"><span class="hs-identifier hs-type">endpoint_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="endpoint_status"><span class="annot"><span class="annottext">endpoint_status :: (Maybe EndpointStatus -&gt; f (Maybe EndpointStatus))
+-&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_status"><span class="hs-identifier hs-var hs-var">endpoint_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe EndpointStatus)
+-&gt; (Endpoint -&gt; Maybe EndpointStatus -&gt; Endpoint)
+-&gt; Lens
+     Endpoint Endpoint (Maybe EndpointStatus) (Maybe EndpointStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144023"><span class="annot"><span class="annottext">Maybe EndpointStatus
+status :: Maybe EndpointStatus
+$sel:status:Endpoint' :: Endpoint -&gt; Maybe EndpointStatus
+</span><a href="#local-6989586621679144023"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointStatus
+</span><a href="#local-6989586621679144023"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144022"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679144022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144021"><span class="annot"><span class="annottext">Maybe EndpointStatus
+</span><a href="#local-6989586621679144021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679144022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Endpoint' :: Maybe EndpointStatus
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3Astatus%3AEndpoint%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointStatus
+</span><a href="#local-6989586621679144021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The ID of the VPC used for the endpoint.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_vpcId"><span class="hs-identifier hs-type">endpoint_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="endpoint_vpcId"><span class="annot"><span class="annottext">endpoint_vpcId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_vpcId"><span class="hs-identifier hs-var hs-var">endpoint_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144019"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679144019"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144019"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144018"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679144018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144017"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679144018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AvpcId%3AEndpoint%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The network interface of the endpoint.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_networkInterfaces"><span class="hs-identifier hs-type">endpoint_networkInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="endpoint_networkInterfaces"><span class="annot"><span class="annottext">endpoint_networkInterfaces :: (Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+-&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_networkInterfaces"><span class="hs-identifier hs-var hs-var">endpoint_networkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe [NetworkInterface])
+-&gt; (Endpoint -&gt; Maybe [NetworkInterface] -&gt; Endpoint)
+-&gt; Lens
+     Endpoint
+     Endpoint
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144015"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+networkInterfaces :: Maybe [NetworkInterface]
+$sel:networkInterfaces:Endpoint' :: Endpoint -&gt; Maybe [NetworkInterface]
+</span><a href="#local-6989586621679144015"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679144015"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144014"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679144014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144013"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679144013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679144014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaces:Endpoint' :: Maybe [NetworkInterface]
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AnetworkInterfaces%3AEndpoint%27"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679144013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+ -&gt; Endpoint -&gt; f Endpoint)
+-&gt; ((Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+    -&gt; Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+-&gt; (Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+-&gt; Endpoint
+-&gt; f Endpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+-&gt; Iso
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The ID of the AWS Outposts.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_outpostsId"><span class="hs-identifier hs-type">endpoint_outpostsId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="endpoint_outpostsId"><span class="annot"><span class="annottext">endpoint_outpostsId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_outpostsId"><span class="hs-identifier hs-var hs-var">endpoint_outpostsId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144010"><span class="annot"><span class="annottext">Maybe Text
+outpostsId :: Maybe Text
+$sel:outpostsId:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679144010"><span class="hs-identifier hs-var hs-var">outpostsId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144010"><span class="hs-identifier hs-var">outpostsId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144009"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679144009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144008"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679144009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostsId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AoutpostsId%3AEndpoint%27"><span class="hs-identifier hs-var">outpostsId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The ID of the subnet used for the endpoint.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_subnetId"><span class="hs-identifier hs-type">endpoint_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="endpoint_subnetId"><span class="annot"><span class="annottext">endpoint_subnetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_subnetId"><span class="hs-identifier hs-var hs-var">endpoint_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144006"><span class="annot"><span class="annottext">Maybe Text
+subnetId :: Maybe Text
+$sel:subnetId:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679144006"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144006"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144005"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679144005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144004"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679144005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AsubnetId%3AEndpoint%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The ID of the security group used for the endpoint.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_securityGroupId"><span class="hs-identifier hs-type">endpoint_securityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="endpoint_securityGroupId"><span class="annot"><span class="annottext">endpoint_securityGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_securityGroupId"><span class="hs-identifier hs-var hs-var">endpoint_securityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144002"><span class="annot"><span class="annottext">Maybe Text
+securityGroupId :: Maybe Text
+$sel:securityGroupId:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679144002"><span class="hs-identifier hs-var hs-var">securityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144002"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144001"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679144001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679144001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupId:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AsecurityGroupId%3AEndpoint%27"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_accessType"><span class="hs-identifier hs-type">endpoint_accessType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.EndpointAccessType.html#EndpointAccessType"><span class="hs-identifier hs-type">EndpointAccessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="endpoint_accessType"><span class="annot"><span class="annottext">endpoint_accessType :: (Maybe EndpointAccessType -&gt; f (Maybe EndpointAccessType))
+-&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_accessType"><span class="hs-identifier hs-var hs-var">endpoint_accessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe EndpointAccessType)
+-&gt; (Endpoint -&gt; Maybe EndpointAccessType -&gt; Endpoint)
+-&gt; Lens
+     Endpoint
+     Endpoint
+     (Maybe EndpointAccessType)
+     (Maybe EndpointAccessType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143998"><span class="annot"><span class="annottext">Maybe EndpointAccessType
+accessType :: Maybe EndpointAccessType
+$sel:accessType:Endpoint' :: Endpoint -&gt; Maybe EndpointAccessType
+</span><a href="#local-6989586621679143998"><span class="hs-identifier hs-var hs-var">accessType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointAccessType
+</span><a href="#local-6989586621679143998"><span class="hs-identifier hs-var">accessType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143997"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679143997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143996"><span class="annot"><span class="annottext">Maybe EndpointAccessType
+</span><a href="#local-6989586621679143996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679143997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessType:Endpoint' :: Maybe EndpointAccessType
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AaccessType%3AEndpoint%27"><span class="hs-identifier hs-var">accessType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointAccessType
+</span><a href="#local-6989586621679143996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The ID of the customer-owned IPv4 pool used for the endpoint.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_customerOwnedIpv4Pool"><span class="hs-identifier hs-type">endpoint_customerOwnedIpv4Pool</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="endpoint_customerOwnedIpv4Pool"><span class="annot"><span class="annottext">endpoint_customerOwnedIpv4Pool :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_customerOwnedIpv4Pool"><span class="hs-identifier hs-var hs-var">endpoint_customerOwnedIpv4Pool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143994"><span class="annot"><span class="annottext">Maybe Text
+customerOwnedIpv4Pool :: Maybe Text
+$sel:customerOwnedIpv4Pool:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679143994"><span class="hs-identifier hs-var hs-var">customerOwnedIpv4Pool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143994"><span class="hs-identifier hs-var">customerOwnedIpv4Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143993"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679143993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143992"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679143993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerOwnedIpv4Pool:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcustomerOwnedIpv4Pool%3AEndpoint%27"><span class="hs-identifier hs-var">customerOwnedIpv4Pool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The VPC CIDR committed by this endpoint.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_cidrBlock"><span class="hs-identifier hs-type">endpoint_cidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="endpoint_cidrBlock"><span class="annot"><span class="annottext">endpoint_cidrBlock :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_cidrBlock"><span class="hs-identifier hs-var hs-var">endpoint_cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143990"><span class="annot"><span class="annottext">Maybe Text
+cidrBlock :: Maybe Text
+$sel:cidrBlock:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679143990"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143990"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143989"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679143989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679143989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AcidrBlock%3AEndpoint%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the endpoint.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_endpointArn"><span class="hs-identifier hs-type">endpoint_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="endpoint_endpointArn"><span class="annot"><span class="annottext">endpoint_endpointArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#endpoint_endpointArn"><span class="hs-identifier hs-var hs-var">endpoint_endpointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143986"><span class="annot"><span class="annottext">Maybe Text
+endpointArn :: Maybe Text
+$sel:endpointArn:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679143986"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143986"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143985"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679143985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143984"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679143985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#%24sel%3AendpointArn%3AEndpoint%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143981"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679143979"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Endpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Endpoint) -&gt; Value -&gt; Parser Endpoint
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679143976"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe EndpointStatus
+-&gt; Maybe Text
+-&gt; Maybe [NetworkInterface]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EndpointAccessType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Endpoint
+</span><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe EndpointStatus
+ -&gt; Maybe Text
+ -&gt; Maybe [NetworkInterface]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe EndpointAccessType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Endpoint)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe EndpointStatus
+      -&gt; Maybe Text
+      -&gt; Maybe [NetworkInterface]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointAccessType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EndpointStatus
+   -&gt; Maybe Text
+   -&gt; Maybe [NetworkInterface]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointAccessType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Endpoint)
+-&gt; Parser (Maybe EndpointStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [NetworkInterface]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointAccessType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EndpointStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [NetworkInterface]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointAccessType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Endpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [NetworkInterface]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointAccessType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [NetworkInterface]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointAccessType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Endpoint)
+-&gt; Parser (Maybe [NetworkInterface])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointAccessType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [NetworkInterface]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkInterfaces&quot;</span></span><span>
+</span><span id="line-161"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [NetworkInterface]))
+-&gt; Maybe [NetworkInterface] -&gt; Parser (Maybe [NetworkInterface])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointAccessType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Endpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointAccessType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutpostsId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointAccessType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Endpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EndpointAccessType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EndpointAccessType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Endpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EndpointAccessType
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EndpointAccessType
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Parser (Maybe EndpointAccessType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EndpointAccessType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerOwnedIpv4Pool&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Endpoint)
+-&gt; Parser (Maybe Text) -&gt; Parser Endpoint
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143969"><span id="local-6989586621679143971"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3Outposts.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

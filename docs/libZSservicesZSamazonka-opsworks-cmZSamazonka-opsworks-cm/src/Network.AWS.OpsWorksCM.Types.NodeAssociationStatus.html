@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- -   @IN_PROGRESS@: The association or disassociation is still in</span><span>
 </span><span id="line-42"></span><span class="hs-comment">--     progress.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679190803"><span id="local-6989586621679190804"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeAssociationStatus"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.html#NodeAssociationStatus"><span class="hs-identifier hs-var">NodeAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeAssociationStatus%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.html#NodeAssociationStatus%27"><span class="hs-identifier hs-var">NodeAssociationStatus'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679190812"><span id="local-6989586621679190813"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeAssociationStatus"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.html#NodeAssociationStatus"><span class="hs-identifier hs-var">NodeAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeAssociationStatus%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.html#NodeAssociationStatus%27"><span class="hs-identifier hs-var">NodeAssociationStatus'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodeAssociationStatus"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; Text
 </span><a href="Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.html#fromNodeAssociationStatus"><span class="hs-identifier hs-var hs-var">fromNodeAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190795"><span id="local-6989586621679190797"><span id="local-6989586621679190799"><span class="annot"><span class="annottext">Int -&gt; NodeAssociationStatus -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190804"><span id="local-6989586621679190806"><span id="local-6989586621679190808"><span class="annot"><span class="annottext">Int -&gt; NodeAssociationStatus -&gt; ShowS
 [NodeAssociationStatus] -&gt; ShowS
 NodeAssociationStatus -&gt; String
 (Int -&gt; NodeAssociationStatus -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: NodeAssociationStatus -&gt; String
 showsPrec :: Int -&gt; NodeAssociationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; NodeAssociationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679190786"><span id="local-6989586621679190788"><span id="local-6989586621679190790"><span id="local-6989586621679190792"><span class="annot"><span class="annottext">ReadPrec [NodeAssociationStatus]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679190795"><span id="local-6989586621679190797"><span id="local-6989586621679190799"><span id="local-6989586621679190801"><span class="annot"><span class="annottext">ReadPrec [NodeAssociationStatus]
 ReadPrec NodeAssociationStatus
 Int -&gt; ReadS NodeAssociationStatus
 ReadS [NodeAssociationStatus]
@@ -83,7 +83,7 @@ $creadList :: ReadS [NodeAssociationStatus]
 readsPrec :: Int -&gt; ReadS NodeAssociationStatus
 $creadsPrec :: Int -&gt; ReadS NodeAssociationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679190781"><span id="local-6989586621679190783"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679190790"><span id="local-6989586621679190792"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool
 (NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool)
 -&gt; (NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool)
 -&gt; Eq NodeAssociationStatus
@@ -93,7 +93,7 @@ $c/= :: NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool
 == :: NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool
 $c== :: NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190765"><span id="local-6989586621679190767"><span id="local-6989586621679190769"><span id="local-6989586621679190771"><span id="local-6989586621679190773"><span id="local-6989586621679190775"><span id="local-6989586621679190777"><span class="annot"><span class="annottext">Eq NodeAssociationStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190774"><span id="local-6989586621679190776"><span id="local-6989586621679190778"><span id="local-6989586621679190780"><span id="local-6989586621679190782"><span id="local-6989586621679190784"><span id="local-6989586621679190786"><span class="annot"><span class="annottext">Eq NodeAssociationStatus
 Eq NodeAssociationStatus
 -&gt; (NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Ordering)
 -&gt; (NodeAssociationStatus -&gt; NodeAssociationStatus -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. NodeAssociationStatus -&gt; Rep NodeAssociationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190757"><span id="local-6989586621679190759"><span class="annot"><span class="annottext">Int -&gt; NodeAssociationStatus -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190766"><span id="local-6989586621679190768"><span class="annot"><span class="annottext">Int -&gt; NodeAssociationStatus -&gt; Int
 NodeAssociationStatus -&gt; Int
 (Int -&gt; NodeAssociationStatus -&gt; Int)
 -&gt; (NodeAssociationStatus -&gt; Int) -&gt; Hashable NodeAssociationStatus
@@ -161,54 +161,54 @@ $chash :: NodeAssociationStatus -&gt; Int
 hashWithSalt :: Int -&gt; NodeAssociationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; NodeAssociationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679190754"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679190763"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; ()
 (NodeAssociationStatus -&gt; ()) -&gt; NFData NodeAssociationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NodeAssociationStatus -&gt; ()
 $crnf :: NodeAssociationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679190751"><span class="annot"><span class="annottext">Text -&gt; Either String NodeAssociationStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679190760"><span class="annot"><span class="annottext">Text -&gt; Either String NodeAssociationStatus
 (Text -&gt; Either String NodeAssociationStatus)
 -&gt; FromText NodeAssociationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NodeAssociationStatus
 $cfromText :: Text -&gt; Either String NodeAssociationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679190748"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679190757"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; Text
 (NodeAssociationStatus -&gt; Text) -&gt; ToText NodeAssociationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NodeAssociationStatus -&gt; Text
 $ctoText :: NodeAssociationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679190745"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679190754"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; ByteString
 (NodeAssociationStatus -&gt; ByteString)
 -&gt; ToByteString NodeAssociationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NodeAssociationStatus -&gt; ByteString
 $ctoBS :: NodeAssociationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679190742"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679190751"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; ByteStringBuilder
 (NodeAssociationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog NodeAssociationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NodeAssociationStatus -&gt; ByteStringBuilder
 $cbuild :: NodeAssociationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679190739"><span class="annot"><span class="annottext">HeaderName -&gt; NodeAssociationStatus -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679190748"><span class="annot"><span class="annottext">HeaderName -&gt; NodeAssociationStatus -&gt; [Header]
 (HeaderName -&gt; NodeAssociationStatus -&gt; [Header])
 -&gt; ToHeader NodeAssociationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NodeAssociationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NodeAssociationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679190736"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679190745"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; QueryString
 (NodeAssociationStatus -&gt; QueryString)
 -&gt; ToQuery NodeAssociationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NodeAssociationStatus -&gt; QueryString
 $ctoQuery :: NodeAssociationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679190731"><span id="local-6989586621679190733"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeAssociationStatus]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679190740"><span id="local-6989586621679190742"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeAssociationStatus]
 Value -&gt; Parser NodeAssociationStatus
 (Value -&gt; Parser NodeAssociationStatus)
 -&gt; (Value -&gt; Parser [NodeAssociationStatus])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [NodeAssociationStatus]
 parseJSON :: Value -&gt; Parser NodeAssociationStatus
 $cparseJSON :: Value -&gt; Parser NodeAssociationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679190726"><span id="local-6989586621679190728"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeAssociationStatus]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679190735"><span id="local-6989586621679190737"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeAssociationStatus]
 FromJSONKeyFunction NodeAssociationStatus
 FromJSONKeyFunction NodeAssociationStatus
 -&gt; FromJSONKeyFunction [NodeAssociationStatus]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NodeAssociationStatus]
 fromJSONKey :: FromJSONKeyFunction NodeAssociationStatus
 $cfromJSONKey :: FromJSONKeyFunction NodeAssociationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679190717"><span id="local-6989586621679190719"><span id="local-6989586621679190721"><span id="local-6989586621679190723"><span class="annot"><span class="annottext">[NodeAssociationStatus] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679190726"><span id="local-6989586621679190728"><span id="local-6989586621679190730"><span id="local-6989586621679190732"><span class="annot"><span class="annottext">[NodeAssociationStatus] -&gt; Encoding
 [NodeAssociationStatus] -&gt; Value
 NodeAssociationStatus -&gt; Encoding
 NodeAssociationStatus -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: NodeAssociationStatus -&gt; Encoding
 toJSON :: NodeAssociationStatus -&gt; Value
 $ctoJSON :: NodeAssociationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679190712"><span id="local-6989586621679190714"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeAssociationStatus]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679190721"><span id="local-6989586621679190723"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeAssociationStatus]
 ToJSONKeyFunction NodeAssociationStatus
 ToJSONKeyFunction NodeAssociationStatus
 -&gt; ToJSONKeyFunction [NodeAssociationStatus]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NodeAssociationStatus]
 toJSONKey :: ToJSONKeyFunction NodeAssociationStatus
 $ctoJSONKey :: ToJSONKeyFunction NodeAssociationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679190709"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeAssociationStatus
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679190718"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeAssociationStatus
 ([Node] -&gt; Either String NodeAssociationStatus)
 -&gt; FromXML NodeAssociationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NodeAssociationStatus
 $cparseXML :: [Node] -&gt; Either String NodeAssociationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679190706"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679190715"><span class="annot"><span class="annottext">NodeAssociationStatus -&gt; XML
 (NodeAssociationStatus -&gt; XML) -&gt; ToXML NodeAssociationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NodeAssociationStatus -&gt; XML

@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DocumentDB.ApplyPendingMaintenanceAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Applies a pending maintenance action to a resource (for example, to an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon DocumentDB instance).</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DocumentDB.ApplyPendingMaintenanceAction</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#newApplyPendingMaintenanceAction"><span class="hs-identifier">newApplyPendingMaintenanceAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_resourceIdentifier"><span class="hs-identifier">applyPendingMaintenanceAction_resourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_applyAction"><span class="hs-identifier">applyPendingMaintenanceAction_applyAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_optInType"><span class="hs-identifier">applyPendingMaintenanceAction_optInType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier">ApplyPendingMaintenanceActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#newApplyPendingMaintenanceActionResponse"><span class="hs-identifier">newApplyPendingMaintenanceActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions"><span class="hs-identifier">applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceActionResponse_httpStatus"><span class="hs-identifier">applyPendingMaintenanceActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.html"><span class="hs-identifier">Network.AWS.DocumentDB.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Represents the input to ApplyPendingMaintenanceAction.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newApplyPendingMaintenanceAction' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679314289"><span id="local-6989586621679314290"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplyPendingMaintenanceAction"><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-var">ApplyPendingMaintenanceAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplyPendingMaintenanceAction%27"><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var">ApplyPendingMaintenanceAction'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource that the pending</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- maintenance action applies to.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AresourceIdentifier%3AApplyPendingMaintenanceAction%27"><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction -&gt; Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AresourceIdentifier%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The pending maintenance action to apply to this resource.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Valid values: @system-update@, @db-upgrade@</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AapplyAction%3AApplyPendingMaintenanceAction%27"><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction -&gt; Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AapplyAction%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var hs-var">applyAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A value that specifies the type of opt-in request or undoes an opt-in</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- request. An opt-in request of type @immediate@ can\'t be undone.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @immediate@ - Apply the maintenance action immediately.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @next-maintenance@ - Apply the maintenance action during the next</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     maintenance window for the resource.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     requests.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AoptInType%3AApplyPendingMaintenanceAction%27"><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction -&gt; Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AoptInType%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var hs-var">optInType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314281"><span id="local-6989586621679314283"><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction
+-&gt; ApplyPendingMaintenanceAction -&gt; Bool
+(ApplyPendingMaintenanceAction
+ -&gt; ApplyPendingMaintenanceAction -&gt; Bool)
+-&gt; (ApplyPendingMaintenanceAction
+    -&gt; ApplyPendingMaintenanceAction -&gt; Bool)
+-&gt; Eq ApplyPendingMaintenanceAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplyPendingMaintenanceAction
+-&gt; ApplyPendingMaintenanceAction -&gt; Bool
+$c/= :: ApplyPendingMaintenanceAction
+-&gt; ApplyPendingMaintenanceAction -&gt; Bool
+== :: ApplyPendingMaintenanceAction
+-&gt; ApplyPendingMaintenanceAction -&gt; Bool
+$c== :: ApplyPendingMaintenanceAction
+-&gt; ApplyPendingMaintenanceAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314272"><span id="local-6989586621679314274"><span id="local-6989586621679314276"><span id="local-6989586621679314278"><span class="annot"><span class="annottext">ReadPrec [ApplyPendingMaintenanceAction]
+ReadPrec ApplyPendingMaintenanceAction
+Int -&gt; ReadS ApplyPendingMaintenanceAction
+ReadS [ApplyPendingMaintenanceAction]
+(Int -&gt; ReadS ApplyPendingMaintenanceAction)
+-&gt; ReadS [ApplyPendingMaintenanceAction]
+-&gt; ReadPrec ApplyPendingMaintenanceAction
+-&gt; ReadPrec [ApplyPendingMaintenanceAction]
+-&gt; Read ApplyPendingMaintenanceAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplyPendingMaintenanceAction]
+$creadListPrec :: ReadPrec [ApplyPendingMaintenanceAction]
+readPrec :: ReadPrec ApplyPendingMaintenanceAction
+$creadPrec :: ReadPrec ApplyPendingMaintenanceAction
+readList :: ReadS [ApplyPendingMaintenanceAction]
+$creadList :: ReadS [ApplyPendingMaintenanceAction]
+readsPrec :: Int -&gt; ReadS ApplyPendingMaintenanceAction
+$creadsPrec :: Int -&gt; ReadS ApplyPendingMaintenanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314265"><span id="local-6989586621679314267"><span id="local-6989586621679314269"><span class="annot"><span class="annottext">Int -&gt; ApplyPendingMaintenanceAction -&gt; ShowS
+[ApplyPendingMaintenanceAction] -&gt; ShowS
+ApplyPendingMaintenanceAction -&gt; String
+(Int -&gt; ApplyPendingMaintenanceAction -&gt; ShowS)
+-&gt; (ApplyPendingMaintenanceAction -&gt; String)
+-&gt; ([ApplyPendingMaintenanceAction] -&gt; ShowS)
+-&gt; Show ApplyPendingMaintenanceAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplyPendingMaintenanceAction] -&gt; ShowS
+$cshowList :: [ApplyPendingMaintenanceAction] -&gt; ShowS
+show :: ApplyPendingMaintenanceAction -&gt; String
+$cshow :: ApplyPendingMaintenanceAction -&gt; String
+showsPrec :: Int -&gt; ApplyPendingMaintenanceAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplyPendingMaintenanceAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplyPendingMaintenanceAction
+ -&gt; Rep ApplyPendingMaintenanceAction x)
+-&gt; (forall x.
+    Rep ApplyPendingMaintenanceAction x
+    -&gt; ApplyPendingMaintenanceAction)
+-&gt; Generic ApplyPendingMaintenanceAction
+forall x.
+Rep ApplyPendingMaintenanceAction x
+-&gt; ApplyPendingMaintenanceAction
+forall x.
+ApplyPendingMaintenanceAction
+-&gt; Rep ApplyPendingMaintenanceAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplyPendingMaintenanceAction x
+-&gt; ApplyPendingMaintenanceAction
+$cfrom :: forall x.
+ApplyPendingMaintenanceAction
+-&gt; Rep ApplyPendingMaintenanceAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'ApplyPendingMaintenanceAction' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'resourceIdentifier', 'applyPendingMaintenanceAction_resourceIdentifier' - The Amazon Resource Name (ARN) of the resource that the pending</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- maintenance action applies to.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'applyAction', 'applyPendingMaintenanceAction_applyAction' - The pending maintenance action to apply to this resource.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Valid values: @system-update@, @db-upgrade@</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'optInType', 'applyPendingMaintenanceAction_optInType' - A value that specifies the type of opt-in request or undoes an opt-in</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- request. An opt-in request of type @immediate@ can\'t be undone.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @immediate@ - Apply the maintenance action immediately.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   @next-maintenance@ - Apply the maintenance action during the next</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     maintenance window for the resource.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--     requests.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#newApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">newApplyPendingMaintenanceAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'resourceIdentifier'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'applyAction'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'optInType'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span>
+</span><span id="line-114"></span><span id="newApplyPendingMaintenanceAction"><span class="annot"><span class="annottext">newApplyPendingMaintenanceAction :: Text -&gt; Text -&gt; Text -&gt; ApplyPendingMaintenanceAction
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#newApplyPendingMaintenanceAction"><span class="hs-identifier hs-var hs-var">newApplyPendingMaintenanceAction</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679314260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314260"><span class="hs-identifier hs-var">pResourceIdentifier_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679314259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314259"><span class="hs-identifier hs-var">pApplyAction_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679314258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314258"><span class="hs-identifier hs-var">pOptInType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction' :: Text -&gt; Text -&gt; Text -&gt; ApplyPendingMaintenanceAction
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceIdentifier:ApplyPendingMaintenanceAction' :: Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AresourceIdentifier%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314260"><span class="hs-identifier hs-var">pResourceIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:applyAction:ApplyPendingMaintenanceAction' :: Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AapplyAction%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var">applyAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314259"><span class="hs-identifier hs-var">pApplyAction_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:optInType:ApplyPendingMaintenanceAction' :: Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AoptInType%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var">optInType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314258"><span class="hs-identifier hs-var">pOptInType_</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource that the pending</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- maintenance action applies to.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_resourceIdentifier"><span class="hs-identifier hs-type">applyPendingMaintenanceAction_resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="applyPendingMaintenanceAction_resourceIdentifier"><span class="annot"><span class="annottext">applyPendingMaintenanceAction_resourceIdentifier :: (Text -&gt; f Text)
+-&gt; ApplyPendingMaintenanceAction -&gt; f ApplyPendingMaintenanceAction
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_resourceIdentifier"><span class="hs-identifier hs-var hs-var">applyPendingMaintenanceAction_resourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyPendingMaintenanceAction -&gt; Text)
+-&gt; (ApplyPendingMaintenanceAction
+    -&gt; Text -&gt; ApplyPendingMaintenanceAction)
+-&gt; Lens
+     ApplyPendingMaintenanceAction
+     ApplyPendingMaintenanceAction
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314255"><span class="annot"><span class="annottext">Text
+resourceIdentifier :: Text
+$sel:resourceIdentifier:ApplyPendingMaintenanceAction' :: ApplyPendingMaintenanceAction -&gt; Text
+</span><a href="#local-6989586621679314255"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314255"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314254"><span class="annot"><span class="annottext">s :: ApplyPendingMaintenanceAction
+</span><a href="#local-6989586621679314254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314253"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction
+</span><a href="#local-6989586621679314254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifier:ApplyPendingMaintenanceAction' :: Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AresourceIdentifier%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The pending maintenance action to apply to this resource.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Valid values: @system-update@, @db-upgrade@</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_applyAction"><span class="hs-identifier hs-type">applyPendingMaintenanceAction_applyAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="applyPendingMaintenanceAction_applyAction"><span class="annot"><span class="annottext">applyPendingMaintenanceAction_applyAction :: (Text -&gt; f Text)
+-&gt; ApplyPendingMaintenanceAction -&gt; f ApplyPendingMaintenanceAction
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_applyAction"><span class="hs-identifier hs-var hs-var">applyPendingMaintenanceAction_applyAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyPendingMaintenanceAction -&gt; Text)
+-&gt; (ApplyPendingMaintenanceAction
+    -&gt; Text -&gt; ApplyPendingMaintenanceAction)
+-&gt; Lens
+     ApplyPendingMaintenanceAction
+     ApplyPendingMaintenanceAction
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314252"><span class="annot"><span class="annottext">Text
+applyAction :: Text
+$sel:applyAction:ApplyPendingMaintenanceAction' :: ApplyPendingMaintenanceAction -&gt; Text
+</span><a href="#local-6989586621679314252"><span class="hs-identifier hs-var hs-var">applyAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314252"><span class="hs-identifier hs-var">applyAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314251"><span class="annot"><span class="annottext">s :: ApplyPendingMaintenanceAction
+</span><a href="#local-6989586621679314251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction
+</span><a href="#local-6989586621679314251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyAction:ApplyPendingMaintenanceAction' :: Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AapplyAction%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var">applyAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A value that specifies the type of opt-in request or undoes an opt-in</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- request. An opt-in request of type @immediate@ can\'t be undone.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @immediate@ - Apply the maintenance action immediately.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @next-maintenance@ - Apply the maintenance action during the next</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     maintenance window for the resource.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     requests.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_optInType"><span class="hs-identifier hs-type">applyPendingMaintenanceAction_optInType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="applyPendingMaintenanceAction_optInType"><span class="annot"><span class="annottext">applyPendingMaintenanceAction_optInType :: (Text -&gt; f Text)
+-&gt; ApplyPendingMaintenanceAction -&gt; f ApplyPendingMaintenanceAction
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceAction_optInType"><span class="hs-identifier hs-var hs-var">applyPendingMaintenanceAction_optInType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyPendingMaintenanceAction -&gt; Text)
+-&gt; (ApplyPendingMaintenanceAction
+    -&gt; Text -&gt; ApplyPendingMaintenanceAction)
+-&gt; Lens
+     ApplyPendingMaintenanceAction
+     ApplyPendingMaintenanceAction
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314249"><span class="annot"><span class="annottext">Text
+optInType :: Text
+$sel:optInType:ApplyPendingMaintenanceAction' :: ApplyPendingMaintenanceAction -&gt; Text
+</span><a href="#local-6989586621679314249"><span class="hs-identifier hs-var hs-var">optInType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314249"><span class="hs-identifier hs-var">optInType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314248"><span class="annot"><span class="annottext">s :: ApplyPendingMaintenanceAction
+</span><a href="#local-6989586621679314248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyPendingMaintenanceAction
+</span><a href="#local-6989586621679314248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optInType:ApplyPendingMaintenanceAction' :: Text
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AoptInType%3AApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-var">optInType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679314243"><span class="annot"><span class="annottext">request :: ApplyPendingMaintenanceAction
+-&gt; Request ApplyPendingMaintenanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ApplyPendingMaintenanceAction
+-&gt; Request ApplyPendingMaintenanceAction
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DocumentDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679314239"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ApplyPendingMaintenanceAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ApplyPendingMaintenanceAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ApplyPendingMaintenanceAction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ApplyPendingMaintenanceAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ApplyPendingMaintenanceAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplyPendingMaintenanceActionResult&quot;</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314236"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314235"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314235"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314234"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679314234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourcePendingMaintenanceActions
+-&gt; Int -&gt; ApplyPendingMaintenanceActionResponse
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var">ApplyPendingMaintenanceActionResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourcePendingMaintenanceActions
+ -&gt; Int -&gt; ApplyPendingMaintenanceActionResponse)
+-&gt; Either String (Maybe ResourcePendingMaintenanceActions)
+-&gt; Either String (Int -&gt; ApplyPendingMaintenanceActionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679314234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe ResourcePendingMaintenanceActions)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourcePendingMaintenanceActions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ApplyPendingMaintenanceActionResponse)
+-&gt; Either String Int
+-&gt; Either String ApplyPendingMaintenanceActionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314236"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679314226"><span id="local-6989586621679314228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679314219"><span class="annot"><span class="annottext">toHeaders :: ApplyPendingMaintenanceAction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ApplyPendingMaintenanceAction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679314214"><span class="annot"><span class="annottext">toPath :: ApplyPendingMaintenanceAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ApplyPendingMaintenanceAction -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679314210"><span class="annot"><span class="annottext">toQuery :: ApplyPendingMaintenanceAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceAction%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314206"><span id="local-6989586621679314207"><span id="local-6989586621679314208"><span class="annot"><span class="annottext">Text
+optInType :: Text
+applyAction :: Text
+resourceIdentifier :: Text
+$sel:optInType:ApplyPendingMaintenanceAction' :: ApplyPendingMaintenanceAction -&gt; Text
+$sel:applyAction:ApplyPendingMaintenanceAction' :: ApplyPendingMaintenanceAction -&gt; Text
+$sel:resourceIdentifier:ApplyPendingMaintenanceAction' :: ApplyPendingMaintenanceAction -&gt; Text
+</span><a href="#local-6989586621679314206"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplyPendingMaintenanceAction&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-186"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314208"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplyAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314207"><span class="hs-identifier hs-var">applyAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OptInType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314206"><span class="hs-identifier hs-var">optInType</span></a></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newApplyPendingMaintenanceActionResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621679314203"><span id="local-6989586621679314204"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplyPendingMaintenanceActionResponse"><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-var">ApplyPendingMaintenanceActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplyPendingMaintenanceActionResponse%27"><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var">ApplyPendingMaintenanceActionResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AresourcePendingMaintenanceActions%3AApplyPendingMaintenanceActionResponse%27"><span class="annot"><span class="annottext">ApplyPendingMaintenanceActionResponse
+-&gt; Maybe ResourcePendingMaintenanceActions
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AresourcePendingMaintenanceActions%3AApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var hs-var">resourcePendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AApplyPendingMaintenanceActionResponse%27"><span class="annot"><span class="annottext">ApplyPendingMaintenanceActionResponse -&gt; Int
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AhttpStatus%3AApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314197"><span id="local-6989586621679314199"><span class="annot"><span class="annottext">ApplyPendingMaintenanceActionResponse
+-&gt; ApplyPendingMaintenanceActionResponse -&gt; Bool
+(ApplyPendingMaintenanceActionResponse
+ -&gt; ApplyPendingMaintenanceActionResponse -&gt; Bool)
+-&gt; (ApplyPendingMaintenanceActionResponse
+    -&gt; ApplyPendingMaintenanceActionResponse -&gt; Bool)
+-&gt; Eq ApplyPendingMaintenanceActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplyPendingMaintenanceActionResponse
+-&gt; ApplyPendingMaintenanceActionResponse -&gt; Bool
+$c/= :: ApplyPendingMaintenanceActionResponse
+-&gt; ApplyPendingMaintenanceActionResponse -&gt; Bool
+== :: ApplyPendingMaintenanceActionResponse
+-&gt; ApplyPendingMaintenanceActionResponse -&gt; Bool
+$c== :: ApplyPendingMaintenanceActionResponse
+-&gt; ApplyPendingMaintenanceActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314189"><span id="local-6989586621679314191"><span id="local-6989586621679314193"><span id="local-6989586621679314195"><span class="annot"><span class="annottext">ReadPrec [ApplyPendingMaintenanceActionResponse]
+ReadPrec ApplyPendingMaintenanceActionResponse
+Int -&gt; ReadS ApplyPendingMaintenanceActionResponse
+ReadS [ApplyPendingMaintenanceActionResponse]
+(Int -&gt; ReadS ApplyPendingMaintenanceActionResponse)
+-&gt; ReadS [ApplyPendingMaintenanceActionResponse]
+-&gt; ReadPrec ApplyPendingMaintenanceActionResponse
+-&gt; ReadPrec [ApplyPendingMaintenanceActionResponse]
+-&gt; Read ApplyPendingMaintenanceActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplyPendingMaintenanceActionResponse]
+$creadListPrec :: ReadPrec [ApplyPendingMaintenanceActionResponse]
+readPrec :: ReadPrec ApplyPendingMaintenanceActionResponse
+$creadPrec :: ReadPrec ApplyPendingMaintenanceActionResponse
+readList :: ReadS [ApplyPendingMaintenanceActionResponse]
+$creadList :: ReadS [ApplyPendingMaintenanceActionResponse]
+readsPrec :: Int -&gt; ReadS ApplyPendingMaintenanceActionResponse
+$creadsPrec :: Int -&gt; ReadS ApplyPendingMaintenanceActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314183"><span id="local-6989586621679314185"><span id="local-6989586621679314187"><span class="annot"><span class="annottext">Int -&gt; ApplyPendingMaintenanceActionResponse -&gt; ShowS
+[ApplyPendingMaintenanceActionResponse] -&gt; ShowS
+ApplyPendingMaintenanceActionResponse -&gt; String
+(Int -&gt; ApplyPendingMaintenanceActionResponse -&gt; ShowS)
+-&gt; (ApplyPendingMaintenanceActionResponse -&gt; String)
+-&gt; ([ApplyPendingMaintenanceActionResponse] -&gt; ShowS)
+-&gt; Show ApplyPendingMaintenanceActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplyPendingMaintenanceActionResponse] -&gt; ShowS
+$cshowList :: [ApplyPendingMaintenanceActionResponse] -&gt; ShowS
+show :: ApplyPendingMaintenanceActionResponse -&gt; String
+$cshow :: ApplyPendingMaintenanceActionResponse -&gt; String
+showsPrec :: Int -&gt; ApplyPendingMaintenanceActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplyPendingMaintenanceActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApplyPendingMaintenanceActionResponse
+ -&gt; Rep ApplyPendingMaintenanceActionResponse x)
+-&gt; (forall x.
+    Rep ApplyPendingMaintenanceActionResponse x
+    -&gt; ApplyPendingMaintenanceActionResponse)
+-&gt; Generic ApplyPendingMaintenanceActionResponse
+forall x.
+Rep ApplyPendingMaintenanceActionResponse x
+-&gt; ApplyPendingMaintenanceActionResponse
+forall x.
+ApplyPendingMaintenanceActionResponse
+-&gt; Rep ApplyPendingMaintenanceActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplyPendingMaintenanceActionResponse x
+-&gt; ApplyPendingMaintenanceActionResponse
+$cfrom :: forall x.
+ApplyPendingMaintenanceActionResponse
+-&gt; Rep ApplyPendingMaintenanceActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'ApplyPendingMaintenanceActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'resourcePendingMaintenanceActions', 'applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions' - Undocumented member.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'httpStatus', 'applyPendingMaintenanceActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#newApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">newApplyPendingMaintenanceActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse</span></a></span><span>
+</span><span id="line-217"></span><span id="newApplyPendingMaintenanceActionResponse"><span class="annot"><span class="annottext">newApplyPendingMaintenanceActionResponse :: Int -&gt; ApplyPendingMaintenanceActionResponse
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#newApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-var hs-var">newApplyPendingMaintenanceActionResponse</span></a></span></span><span> </span><span id="local-6989586621679314180"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314180"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">ApplyPendingMaintenanceActionResponse' :: Maybe ResourcePendingMaintenanceActions
+-&gt; Int -&gt; ApplyPendingMaintenanceActionResponse
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse'</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourcePendingMaintenanceActions:ApplyPendingMaintenanceActionResponse' :: Maybe ResourcePendingMaintenanceActions
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AresourcePendingMaintenanceActions%3AApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var">resourcePendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResourcePendingMaintenanceActions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ApplyPendingMaintenanceActionResponse' :: Int
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AhttpStatus%3AApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314180"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions"><span class="hs-identifier hs-type">applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions"><span class="annot"><span class="annottext">applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions :: (Maybe ResourcePendingMaintenanceActions
+ -&gt; f (Maybe ResourcePendingMaintenanceActions))
+-&gt; ApplyPendingMaintenanceActionResponse
+-&gt; f ApplyPendingMaintenanceActionResponse
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions"><span class="hs-identifier hs-var hs-var">applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyPendingMaintenanceActionResponse
+ -&gt; Maybe ResourcePendingMaintenanceActions)
+-&gt; (ApplyPendingMaintenanceActionResponse
+    -&gt; Maybe ResourcePendingMaintenanceActions
+    -&gt; ApplyPendingMaintenanceActionResponse)
+-&gt; Lens
+     ApplyPendingMaintenanceActionResponse
+     ApplyPendingMaintenanceActionResponse
+     (Maybe ResourcePendingMaintenanceActions)
+     (Maybe ResourcePendingMaintenanceActions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314179"><span class="annot"><span class="annottext">Maybe ResourcePendingMaintenanceActions
+resourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions
+$sel:resourcePendingMaintenanceActions:ApplyPendingMaintenanceActionResponse' :: ApplyPendingMaintenanceActionResponse
+-&gt; Maybe ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679314179"><span class="hs-identifier hs-var hs-var">resourcePendingMaintenanceActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679314179"><span class="hs-identifier hs-var">resourcePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314178"><span class="annot"><span class="annottext">s :: ApplyPendingMaintenanceActionResponse
+</span><a href="#local-6989586621679314178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314177"><span class="annot"><span class="annottext">Maybe ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679314177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyPendingMaintenanceActionResponse
+</span><a href="#local-6989586621679314178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcePendingMaintenanceActions:ApplyPendingMaintenanceActionResponse' :: Maybe ResourcePendingMaintenanceActions
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AresourcePendingMaintenanceActions%3AApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var">resourcePendingMaintenanceActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679314177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceActionResponse_httpStatus"><span class="hs-identifier hs-type">applyPendingMaintenanceActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span id="applyPendingMaintenanceActionResponse_httpStatus"><span class="annot"><span class="annottext">applyPendingMaintenanceActionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ApplyPendingMaintenanceActionResponse
+-&gt; f ApplyPendingMaintenanceActionResponse
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#applyPendingMaintenanceActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">applyPendingMaintenanceActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyPendingMaintenanceActionResponse -&gt; Int)
+-&gt; (ApplyPendingMaintenanceActionResponse
+    -&gt; Int -&gt; ApplyPendingMaintenanceActionResponse)
+-&gt; Lens
+     ApplyPendingMaintenanceActionResponse
+     ApplyPendingMaintenanceActionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314176"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ApplyPendingMaintenanceActionResponse' :: ApplyPendingMaintenanceActionResponse -&gt; Int
+</span><a href="#local-6989586621679314176"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314176"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314175"><span class="annot"><span class="annottext">s :: ApplyPendingMaintenanceActionResponse
+</span><a href="#local-6989586621679314175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314174"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyPendingMaintenanceActionResponse
+</span><a href="#local-6989586621679314175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ApplyPendingMaintenanceActionResponse' :: Int
+</span><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#%24sel%3AhttpStatus%3AApplyPendingMaintenanceActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679314172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.DocumentDB.ApplyPendingMaintenanceAction.html#ApplyPendingMaintenanceActionResponse"><span class="hs-identifier hs-type">ApplyPendingMaintenanceActionResponse</span></a></span></span><span>
+</span><span id="line-235"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- Filter configurations are part of a GameSessionQueue.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newFilterConfiguration' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679430334"><span id="local-6989586621679430335"></span></span><span class="hs-keyword">data</span><span> </span><span id="FilterConfiguration"><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-var">FilterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-var">FilterConfiguration'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679430343"><span id="local-6989586621679430344"></span></span><span class="hs-keyword">data</span><span> </span><span id="FilterConfiguration"><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-var">FilterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-var">FilterConfiguration'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of locations to allow game session placement in, in the form of</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- AWS Region codes such as @us-west-2@.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AallowedLocations%3AFilterConfiguration%27"><span class="annot"><span class="annottext">FilterConfiguration -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#%24sel%3AallowedLocations%3AFilterConfiguration%27"><span class="hs-identifier hs-var hs-var">allowedLocations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430328"><span id="local-6989586621679430330"><span class="annot"><span class="annottext">FilterConfiguration -&gt; FilterConfiguration -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430337"><span id="local-6989586621679430339"><span class="annot"><span class="annottext">FilterConfiguration -&gt; FilterConfiguration -&gt; Bool
 (FilterConfiguration -&gt; FilterConfiguration -&gt; Bool)
 -&gt; (FilterConfiguration -&gt; FilterConfiguration -&gt; Bool)
 -&gt; Eq FilterConfiguration
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FilterConfiguration -&gt; FilterConfiguration -&gt; Bool
 == :: FilterConfiguration -&gt; FilterConfiguration -&gt; Bool
 $c== :: FilterConfiguration -&gt; FilterConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430319"><span id="local-6989586621679430321"><span id="local-6989586621679430323"><span id="local-6989586621679430325"><span class="annot"><span class="annottext">ReadPrec [FilterConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430328"><span id="local-6989586621679430330"><span id="local-6989586621679430332"><span id="local-6989586621679430334"><span class="annot"><span class="annottext">ReadPrec [FilterConfiguration]
 ReadPrec FilterConfiguration
 Int -&gt; ReadS FilterConfiguration
 ReadS [FilterConfiguration]
@@ -67,7 +67,7 @@ readList :: ReadS [FilterConfiguration]
 $creadList :: ReadS [FilterConfiguration]
 readsPrec :: Int -&gt; ReadS FilterConfiguration
 $creadsPrec :: Int -&gt; ReadS FilterConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430312"><span id="local-6989586621679430314"><span id="local-6989586621679430316"><span class="annot"><span class="annottext">Int -&gt; FilterConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430321"><span id="local-6989586621679430323"><span id="local-6989586621679430325"><span class="annot"><span class="annottext">Int -&gt; FilterConfiguration -&gt; ShowS
 [FilterConfiguration] -&gt; ShowS
 FilterConfiguration -&gt; String
 (Int -&gt; FilterConfiguration -&gt; ShowS)
@@ -130,16 +130,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-type">FilterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430303"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-type">FilterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430312"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 allowedLocations :: Maybe (NonEmpty Text)
 $sel:allowedLocations:FilterConfiguration' :: FilterConfiguration -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679430303"><span class="hs-identifier hs-var hs-var">allowedLocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679430303"><span class="hs-identifier hs-var">allowedLocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430302"><span class="annot"><span class="annottext">s :: FilterConfiguration
-</span><a href="#local-6989586621679430302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-type">FilterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430301"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679430301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterConfiguration
-</span><a href="#local-6989586621679430302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedLocations:FilterConfiguration' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679430312"><span class="hs-identifier hs-var hs-var">allowedLocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679430312"><span class="hs-identifier hs-var">allowedLocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430311"><span class="annot"><span class="annottext">s :: FilterConfiguration
+</span><a href="#local-6989586621679430311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-type">FilterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430310"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679430310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterConfiguration
+</span><a href="#local-6989586621679430311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedLocations:FilterConfiguration' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#%24sel%3AallowedLocations%3AFilterConfiguration%27"><span class="hs-identifier hs-var">allowedLocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679430301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679430310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; FilterConfiguration -&gt; f FilterConfiguration)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -162,8 +162,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430295"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679430293"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FilterConfiguration
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679430302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FilterConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FilterConfiguration)
@@ -173,30 +173,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FilterConfiguration&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430290"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430290"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430299"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text) -&gt; FilterConfiguration
 </span><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-var">FilterConfiguration'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text) -&gt; FilterConfiguration)
 -&gt; Parser (Maybe (NonEmpty Text)) -&gt; Parser FilterConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679430299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedLocations&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430284"><span id="local-6989586621679430286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430293"><span id="local-6989586621679430295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430273"><span id="local-6989586621679430275"><span id="local-6989586621679430277"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679430271"><span class="annot"><span class="annottext">toJSON :: FilterConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-type">FilterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430269"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430282"><span id="local-6989586621679430284"><span id="local-6989586621679430286"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679430280"><span class="annot"><span class="annottext">toJSON :: FilterConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration%27"><span class="hs-identifier hs-type">FilterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430278"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 allowedLocations :: Maybe (NonEmpty Text)
 $sel:allowedLocations:FilterConfiguration' :: FilterConfiguration -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679430269"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679430278"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -209,7 +209,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-83"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679430269"><span class="hs-identifier hs-var">allowedLocations</span></a></span><span>
+</span><a href="#local-6989586621679430278"><span class="hs-identifier hs-var">allowedLocations</span></a></span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

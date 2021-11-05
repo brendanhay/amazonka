@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-comment">-- | Specifies the Auto-Tune state for the Elasticsearch domain. For valid</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- states see the</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide&gt;.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679293423"><span id="local-6989586621679293424"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoTuneState"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-var">AutoTuneState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneState%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-var">AutoTuneState'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679293432"><span id="local-6989586621679293433"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoTuneState"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-var">AutoTuneState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneState%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-var">AutoTuneState'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoTuneState"><span class="annot"><span class="annottext">AutoTuneState -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneState.html#fromAutoTuneState"><span class="hs-identifier hs-var hs-var">fromAutoTuneState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293415"><span id="local-6989586621679293417"><span id="local-6989586621679293419"><span class="annot"><span class="annottext">Int -&gt; AutoTuneState -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293424"><span id="local-6989586621679293426"><span id="local-6989586621679293428"><span class="annot"><span class="annottext">Int -&gt; AutoTuneState -&gt; ShowS
 [AutoTuneState] -&gt; ShowS
 AutoTuneState -&gt; String
 (Int -&gt; AutoTuneState -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: AutoTuneState -&gt; String
 showsPrec :: Int -&gt; AutoTuneState -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoTuneState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293406"><span id="local-6989586621679293408"><span id="local-6989586621679293410"><span id="local-6989586621679293412"><span class="annot"><span class="annottext">ReadPrec [AutoTuneState]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293415"><span id="local-6989586621679293417"><span id="local-6989586621679293419"><span id="local-6989586621679293421"><span class="annot"><span class="annottext">ReadPrec [AutoTuneState]
 ReadPrec AutoTuneState
 Int -&gt; ReadS AutoTuneState
 ReadS [AutoTuneState]
@@ -82,7 +82,7 @@ $creadList :: ReadS [AutoTuneState]
 readsPrec :: Int -&gt; ReadS AutoTuneState
 $creadsPrec :: Int -&gt; ReadS AutoTuneState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293401"><span id="local-6989586621679293403"><span class="annot"><span class="annottext">AutoTuneState -&gt; AutoTuneState -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293410"><span id="local-6989586621679293412"><span class="annot"><span class="annottext">AutoTuneState -&gt; AutoTuneState -&gt; Bool
 (AutoTuneState -&gt; AutoTuneState -&gt; Bool)
 -&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Bool) -&gt; Eq AutoTuneState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ $c/= :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
 == :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
 $c== :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293385"><span id="local-6989586621679293387"><span id="local-6989586621679293389"><span id="local-6989586621679293391"><span id="local-6989586621679293393"><span id="local-6989586621679293395"><span id="local-6989586621679293397"><span class="annot"><span class="annottext">Eq AutoTuneState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293394"><span id="local-6989586621679293396"><span id="local-6989586621679293398"><span id="local-6989586621679293400"><span id="local-6989586621679293402"><span id="local-6989586621679293404"><span id="local-6989586621679293406"><span class="annot"><span class="annottext">Eq AutoTuneState
 Eq AutoTuneState
 -&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Ordering)
 -&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. AutoTuneState -&gt; Rep AutoTuneState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293377"><span id="local-6989586621679293379"><span class="annot"><span class="annottext">Int -&gt; AutoTuneState -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293386"><span id="local-6989586621679293388"><span class="annot"><span class="annottext">Int -&gt; AutoTuneState -&gt; Int
 AutoTuneState -&gt; Int
 (Int -&gt; AutoTuneState -&gt; Int)
 -&gt; (AutoTuneState -&gt; Int) -&gt; Hashable AutoTuneState
@@ -152,49 +152,49 @@ $chash :: AutoTuneState -&gt; Int
 hashWithSalt :: Int -&gt; AutoTuneState -&gt; Int
 $chashWithSalt :: Int -&gt; AutoTuneState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293374"><span class="annot"><span class="annottext">AutoTuneState -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293383"><span class="annot"><span class="annottext">AutoTuneState -&gt; ()
 (AutoTuneState -&gt; ()) -&gt; NFData AutoTuneState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoTuneState -&gt; ()
 $crnf :: AutoTuneState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293371"><span class="annot"><span class="annottext">Text -&gt; Either String AutoTuneState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293380"><span class="annot"><span class="annottext">Text -&gt; Either String AutoTuneState
 (Text -&gt; Either String AutoTuneState) -&gt; FromText AutoTuneState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoTuneState
 $cfromText :: Text -&gt; Either String AutoTuneState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293368"><span class="annot"><span class="annottext">AutoTuneState -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293377"><span class="annot"><span class="annottext">AutoTuneState -&gt; Text
 (AutoTuneState -&gt; Text) -&gt; ToText AutoTuneState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoTuneState -&gt; Text
 $ctoText :: AutoTuneState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679293365"><span class="annot"><span class="annottext">AutoTuneState -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679293374"><span class="annot"><span class="annottext">AutoTuneState -&gt; ByteString
 (AutoTuneState -&gt; ByteString) -&gt; ToByteString AutoTuneState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoTuneState -&gt; ByteString
 $ctoBS :: AutoTuneState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679293362"><span class="annot"><span class="annottext">AutoTuneState -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679293371"><span class="annot"><span class="annottext">AutoTuneState -&gt; ByteStringBuilder
 (AutoTuneState -&gt; ByteStringBuilder) -&gt; ToLog AutoTuneState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoTuneState -&gt; ByteStringBuilder
 $cbuild :: AutoTuneState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679293359"><span class="annot"><span class="annottext">HeaderName -&gt; AutoTuneState -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679293368"><span class="annot"><span class="annottext">HeaderName -&gt; AutoTuneState -&gt; [Header]
 (HeaderName -&gt; AutoTuneState -&gt; [Header]) -&gt; ToHeader AutoTuneState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoTuneState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoTuneState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679293356"><span class="annot"><span class="annottext">AutoTuneState -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679293365"><span class="annot"><span class="annottext">AutoTuneState -&gt; QueryString
 (AutoTuneState -&gt; QueryString) -&gt; ToQuery AutoTuneState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoTuneState -&gt; QueryString
 $ctoQuery :: AutoTuneState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679293351"><span id="local-6989586621679293353"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoTuneState]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679293360"><span id="local-6989586621679293362"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoTuneState]
 Value -&gt; Parser AutoTuneState
 (Value -&gt; Parser AutoTuneState)
 -&gt; (Value -&gt; Parser [AutoTuneState]) -&gt; FromJSON AutoTuneState
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoTuneState]
 parseJSON :: Value -&gt; Parser AutoTuneState
 $cparseJSON :: Value -&gt; Parser AutoTuneState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679293346"><span id="local-6989586621679293348"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoTuneState]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679293355"><span id="local-6989586621679293357"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoTuneState]
 FromJSONKeyFunction AutoTuneState
 FromJSONKeyFunction AutoTuneState
 -&gt; FromJSONKeyFunction [AutoTuneState] -&gt; FromJSONKey AutoTuneState
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoTuneState]
 fromJSONKey :: FromJSONKeyFunction AutoTuneState
 $cfromJSONKey :: FromJSONKeyFunction AutoTuneState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679293337"><span id="local-6989586621679293339"><span id="local-6989586621679293341"><span id="local-6989586621679293343"><span class="annot"><span class="annottext">[AutoTuneState] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679293346"><span id="local-6989586621679293348"><span id="local-6989586621679293350"><span id="local-6989586621679293352"><span class="annot"><span class="annottext">[AutoTuneState] -&gt; Encoding
 [AutoTuneState] -&gt; Value
 AutoTuneState -&gt; Encoding
 AutoTuneState -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: AutoTuneState -&gt; Encoding
 toJSON :: AutoTuneState -&gt; Value
 $ctoJSON :: AutoTuneState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679293332"><span id="local-6989586621679293334"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoTuneState]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679293341"><span id="local-6989586621679293343"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoTuneState]
 ToJSONKeyFunction AutoTuneState
 ToJSONKeyFunction AutoTuneState
 -&gt; ToJSONKeyFunction [AutoTuneState] -&gt; ToJSONKey AutoTuneState
@@ -251,13 +251,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoTuneState]
 toJSONKey :: ToJSONKeyFunction AutoTuneState
 $ctoJSONKey :: ToJSONKeyFunction AutoTuneState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679293329"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoTuneState
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679293338"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoTuneState
 ([Node] -&gt; Either String AutoTuneState) -&gt; FromXML AutoTuneState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoTuneState
 $cparseXML :: [Node] -&gt; Either String AutoTuneState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679293326"><span class="annot"><span class="annottext">AutoTuneState -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679293335"><span class="annot"><span class="annottext">AutoTuneState -&gt; XML
 (AutoTuneState -&gt; XML) -&gt; ToXML AutoTuneState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoTuneState -&gt; XML

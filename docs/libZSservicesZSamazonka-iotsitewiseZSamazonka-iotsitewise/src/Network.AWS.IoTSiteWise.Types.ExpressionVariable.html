@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.ExpressionVariable</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.ExpressionVariable</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.VariableValue.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.VariableValue</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains expression variable information.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExpressionVariable' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679345612"><span id="local-6989586621679345613"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpressionVariable"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-var">ExpressionVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpressionVariable%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-var">ExpressionVariable'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The friendly name of the variable to be used in the expression.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3AExpressionVariable%27"><span class="annot"><span class="annottext">ExpressionVariable -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#%24sel%3Aname%3AExpressionVariable%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The variable that identifies an asset property from which to use values.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AExpressionVariable%27"><span class="annot"><span class="annottext">ExpressionVariable -&gt; VariableValue
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#%24sel%3Avalue%3AExpressionVariable%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.VariableValue.html#VariableValue"><span class="hs-identifier hs-type">VariableValue</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345605"><span id="local-6989586621679345607"><span class="annot"><span class="annottext">ExpressionVariable -&gt; ExpressionVariable -&gt; Bool
+(ExpressionVariable -&gt; ExpressionVariable -&gt; Bool)
+-&gt; (ExpressionVariable -&gt; ExpressionVariable -&gt; Bool)
+-&gt; Eq ExpressionVariable
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExpressionVariable -&gt; ExpressionVariable -&gt; Bool
+$c/= :: ExpressionVariable -&gt; ExpressionVariable -&gt; Bool
+== :: ExpressionVariable -&gt; ExpressionVariable -&gt; Bool
+$c== :: ExpressionVariable -&gt; ExpressionVariable -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345596"><span id="local-6989586621679345598"><span id="local-6989586621679345600"><span id="local-6989586621679345602"><span class="annot"><span class="annottext">ReadPrec [ExpressionVariable]
+ReadPrec ExpressionVariable
+Int -&gt; ReadS ExpressionVariable
+ReadS [ExpressionVariable]
+(Int -&gt; ReadS ExpressionVariable)
+-&gt; ReadS [ExpressionVariable]
+-&gt; ReadPrec ExpressionVariable
+-&gt; ReadPrec [ExpressionVariable]
+-&gt; Read ExpressionVariable
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExpressionVariable]
+$creadListPrec :: ReadPrec [ExpressionVariable]
+readPrec :: ReadPrec ExpressionVariable
+$creadPrec :: ReadPrec ExpressionVariable
+readList :: ReadS [ExpressionVariable]
+$creadList :: ReadS [ExpressionVariable]
+readsPrec :: Int -&gt; ReadS ExpressionVariable
+$creadsPrec :: Int -&gt; ReadS ExpressionVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345589"><span id="local-6989586621679345591"><span id="local-6989586621679345593"><span class="annot"><span class="annottext">Int -&gt; ExpressionVariable -&gt; ShowS
+[ExpressionVariable] -&gt; ShowS
+ExpressionVariable -&gt; String
+(Int -&gt; ExpressionVariable -&gt; ShowS)
+-&gt; (ExpressionVariable -&gt; String)
+-&gt; ([ExpressionVariable] -&gt; ShowS)
+-&gt; Show ExpressionVariable
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExpressionVariable] -&gt; ShowS
+$cshowList :: [ExpressionVariable] -&gt; ShowS
+show :: ExpressionVariable -&gt; String
+$cshow :: ExpressionVariable -&gt; String
+showsPrec :: Int -&gt; ExpressionVariable -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExpressionVariable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExpressionVariable -&gt; Rep ExpressionVariable x)
+-&gt; (forall x. Rep ExpressionVariable x -&gt; ExpressionVariable)
+-&gt; Generic ExpressionVariable
+forall x. Rep ExpressionVariable x -&gt; ExpressionVariable
+forall x. ExpressionVariable -&gt; Rep ExpressionVariable x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExpressionVariable x -&gt; ExpressionVariable
+$cfrom :: forall x. ExpressionVariable -&gt; Rep ExpressionVariable x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'ExpressionVariable' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'name', 'expressionVariable_name' - The friendly name of the variable to be used in the expression.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'expressionVariable_value' - The variable that identifies an asset property from which to use values.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#newExpressionVariable"><span class="hs-identifier hs-type">newExpressionVariable</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.VariableValue.html#VariableValue"><span class="hs-identifier hs-type">VariableValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span><span>
+</span><span id="line-55"></span><span id="newExpressionVariable"><span class="annot"><span class="annottext">newExpressionVariable :: Text -&gt; VariableValue -&gt; ExpressionVariable
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#newExpressionVariable"><span class="hs-identifier hs-var hs-var">newExpressionVariable</span></a></span></span><span> </span><span id="local-6989586621679345583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345583"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679345582"><span class="annot"><span class="annottext">VariableValue
+</span><a href="#local-6989586621679345582"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ExpressionVariable' :: Text -&gt; VariableValue -&gt; ExpressionVariable
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-type">ExpressionVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExpressionVariable' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#%24sel%3Aname%3AExpressionVariable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345583"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:ExpressionVariable' :: VariableValue
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#%24sel%3Avalue%3AExpressionVariable%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VariableValue
+</span><a href="#local-6989586621679345582"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The friendly name of the variable to be used in the expression.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#expressionVariable_name"><span class="hs-identifier hs-type">expressionVariable_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span id="expressionVariable_name"><span class="annot"><span class="annottext">expressionVariable_name :: (Text -&gt; f Text) -&gt; ExpressionVariable -&gt; f ExpressionVariable
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#expressionVariable_name"><span class="hs-identifier hs-var hs-var">expressionVariable_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpressionVariable -&gt; Text)
+-&gt; (ExpressionVariable -&gt; Text -&gt; ExpressionVariable)
+-&gt; Lens ExpressionVariable ExpressionVariable Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-type">ExpressionVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345578"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:ExpressionVariable' :: ExpressionVariable -&gt; Text
+</span><a href="#local-6989586621679345578"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345578"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345577"><span class="annot"><span class="annottext">s :: ExpressionVariable
+</span><a href="#local-6989586621679345577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-type">ExpressionVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpressionVariable
+</span><a href="#local-6989586621679345577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExpressionVariable' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#%24sel%3Aname%3AExpressionVariable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The variable that identifies an asset property from which to use values.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#expressionVariable_value"><span class="hs-identifier hs-type">expressionVariable_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.VariableValue.html#VariableValue"><span class="hs-identifier hs-type">VariableValue</span></a></span><span>
+</span><span id="line-64"></span><span id="expressionVariable_value"><span class="annot"><span class="annottext">expressionVariable_value :: (VariableValue -&gt; f VariableValue)
+-&gt; ExpressionVariable -&gt; f ExpressionVariable
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#expressionVariable_value"><span class="hs-identifier hs-var hs-var">expressionVariable_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpressionVariable -&gt; VariableValue)
+-&gt; (ExpressionVariable -&gt; VariableValue -&gt; ExpressionVariable)
+-&gt; Lens
+     ExpressionVariable ExpressionVariable VariableValue VariableValue
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-type">ExpressionVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345574"><span class="annot"><span class="annottext">VariableValue
+value :: VariableValue
+$sel:value:ExpressionVariable' :: ExpressionVariable -&gt; VariableValue
+</span><a href="#local-6989586621679345574"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VariableValue
+</span><a href="#local-6989586621679345574"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345573"><span class="annot"><span class="annottext">s :: ExpressionVariable
+</span><a href="#local-6989586621679345573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-type">ExpressionVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345572"><span class="annot"><span class="annottext">VariableValue
+</span><a href="#local-6989586621679345572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpressionVariable
+</span><a href="#local-6989586621679345573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ExpressionVariable' :: VariableValue
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#%24sel%3Avalue%3AExpressionVariable%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VariableValue
+</span><a href="#local-6989586621679345572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345569"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679345567"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExpressionVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ExpressionVariable)
+-&gt; Value
+-&gt; Parser ExpressionVariable
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExpressionVariable&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345564"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; VariableValue -&gt; ExpressionVariable
+</span><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-var">ExpressionVariable'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; VariableValue -&gt; ExpressionVariable)
+-&gt; Parser Text -&gt; Parser (VariableValue -&gt; ExpressionVariable)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (VariableValue -&gt; ExpressionVariable)
+-&gt; Parser VariableValue -&gt; Parser ExpressionVariable
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VariableValue
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345558"><span id="local-6989586621679345560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345547"><span id="local-6989586621679345549"><span id="local-6989586621679345551"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679345545"><span class="annot"><span class="annottext">toJSON :: ExpressionVariable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable%27"><span class="hs-identifier hs-type">ExpressionVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345542"><span id="local-6989586621679345543"><span class="annot"><span class="annottext">Text
+VariableValue
+value :: VariableValue
+name :: Text
+$sel:value:ExpressionVariable' :: ExpressionVariable -&gt; VariableValue
+$sel:name:ExpressionVariable' :: ExpressionVariable -&gt; Text
+</span><a href="#local-6989586621679345542"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345543"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VariableValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">VariableValue
+</span><a href="#local-6989586621679345542"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span></pre></body></html>

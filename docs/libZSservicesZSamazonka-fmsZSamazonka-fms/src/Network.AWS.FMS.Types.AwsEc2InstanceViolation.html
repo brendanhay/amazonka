@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Violation detail for an EC2 instance resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAwsEc2InstanceViolation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679244501"><span id="local-6989586621679244502"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEc2InstanceViolation"><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-var">AwsEc2InstanceViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEc2InstanceViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-var">AwsEc2InstanceViolation'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679244510"><span id="local-6989586621679244511"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEc2InstanceViolation"><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-var">AwsEc2InstanceViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEc2InstanceViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-var">AwsEc2InstanceViolation'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource ID of the EC2 instance.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AviolationTarget%3AAwsEc2InstanceViolation%27"><span class="annot"><span class="annottext">AwsEc2InstanceViolation -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#%24sel%3AviolationTarget%3AAwsEc2InstanceViolation%27"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AawsEc2NetworkInterfaceViolations%3AAwsEc2InstanceViolation%27"><span class="annot"><span class="annottext">AwsEc2InstanceViolation -&gt; Maybe [AwsEc2NetworkInterfaceViolation]
 </span><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#%24sel%3AawsEc2NetworkInterfaceViolations%3AAwsEc2InstanceViolation%27"><span class="hs-identifier hs-var hs-var">awsEc2NetworkInterfaceViolations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation.html#AwsEc2NetworkInterfaceViolation"><span class="hs-identifier hs-type">AwsEc2NetworkInterfaceViolation</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244494"><span id="local-6989586621679244496"><span class="annot"><span class="annottext">AwsEc2InstanceViolation -&gt; AwsEc2InstanceViolation -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244503"><span id="local-6989586621679244505"><span class="annot"><span class="annottext">AwsEc2InstanceViolation -&gt; AwsEc2InstanceViolation -&gt; Bool
 (AwsEc2InstanceViolation -&gt; AwsEc2InstanceViolation -&gt; Bool)
 -&gt; (AwsEc2InstanceViolation -&gt; AwsEc2InstanceViolation -&gt; Bool)
 -&gt; Eq AwsEc2InstanceViolation
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AwsEc2InstanceViolation -&gt; AwsEc2InstanceViolation -&gt; Bool
 == :: AwsEc2InstanceViolation -&gt; AwsEc2InstanceViolation -&gt; Bool
 $c== :: AwsEc2InstanceViolation -&gt; AwsEc2InstanceViolation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244485"><span id="local-6989586621679244487"><span id="local-6989586621679244489"><span id="local-6989586621679244491"><span class="annot"><span class="annottext">ReadPrec [AwsEc2InstanceViolation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244494"><span id="local-6989586621679244496"><span id="local-6989586621679244498"><span id="local-6989586621679244500"><span class="annot"><span class="annottext">ReadPrec [AwsEc2InstanceViolation]
 ReadPrec AwsEc2InstanceViolation
 Int -&gt; ReadS AwsEc2InstanceViolation
 ReadS [AwsEc2InstanceViolation]
@@ -65,7 +65,7 @@ readList :: ReadS [AwsEc2InstanceViolation]
 $creadList :: ReadS [AwsEc2InstanceViolation]
 readsPrec :: Int -&gt; ReadS AwsEc2InstanceViolation
 $creadsPrec :: Int -&gt; ReadS AwsEc2InstanceViolation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244478"><span id="local-6989586621679244480"><span id="local-6989586621679244482"><span class="annot"><span class="annottext">Int -&gt; AwsEc2InstanceViolation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244487"><span id="local-6989586621679244489"><span id="local-6989586621679244491"><span class="annot"><span class="annottext">Int -&gt; AwsEc2InstanceViolation -&gt; ShowS
 [AwsEc2InstanceViolation] -&gt; ShowS
 AwsEc2InstanceViolation -&gt; String
 (Int -&gt; AwsEc2InstanceViolation -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244469"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244478"><span class="annot"><span class="annottext">Maybe Text
 violationTarget :: Maybe Text
 $sel:violationTarget:AwsEc2InstanceViolation' :: AwsEc2InstanceViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679244469"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244469"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244468"><span class="annot"><span class="annottext">s :: AwsEc2InstanceViolation
-</span><a href="#local-6989586621679244468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244467"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2InstanceViolation
-</span><a href="#local-6989586621679244468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:AwsEc2InstanceViolation' :: Maybe Text
+</span><a href="#local-6989586621679244478"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244478"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244477"><span class="annot"><span class="annottext">s :: AwsEc2InstanceViolation
+</span><a href="#local-6989586621679244477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2InstanceViolation
+</span><a href="#local-6989586621679244477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:AwsEc2InstanceViolation' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#%24sel%3AviolationTarget%3AAwsEc2InstanceViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Violation detail for network interfaces associated with the EC2</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- instance.</span><span>
@@ -165,16 +165,16 @@ $sel:violationTarget:AwsEc2InstanceViolation' :: AwsEc2InstanceViolation -&gt; M
      (Maybe [AwsEc2NetworkInterfaceViolation])
      (Maybe [AwsEc2NetworkInterfaceViolation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244465"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkInterfaceViolation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244474"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkInterfaceViolation]
 awsEc2NetworkInterfaceViolations :: Maybe [AwsEc2NetworkInterfaceViolation]
 $sel:awsEc2NetworkInterfaceViolations:AwsEc2InstanceViolation' :: AwsEc2InstanceViolation -&gt; Maybe [AwsEc2NetworkInterfaceViolation]
-</span><a href="#local-6989586621679244465"><span class="hs-identifier hs-var hs-var">awsEc2NetworkInterfaceViolations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkInterfaceViolation]
-</span><a href="#local-6989586621679244465"><span class="hs-identifier hs-var">awsEc2NetworkInterfaceViolations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244464"><span class="annot"><span class="annottext">s :: AwsEc2InstanceViolation
-</span><a href="#local-6989586621679244464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244463"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkInterfaceViolation]
-</span><a href="#local-6989586621679244463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2InstanceViolation
-</span><a href="#local-6989586621679244464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsEc2NetworkInterfaceViolations:AwsEc2InstanceViolation' :: Maybe [AwsEc2NetworkInterfaceViolation]
+</span><a href="#local-6989586621679244474"><span class="hs-identifier hs-var hs-var">awsEc2NetworkInterfaceViolations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkInterfaceViolation]
+</span><a href="#local-6989586621679244474"><span class="hs-identifier hs-var">awsEc2NetworkInterfaceViolations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244473"><span class="annot"><span class="annottext">s :: AwsEc2InstanceViolation
+</span><a href="#local-6989586621679244473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation%27"><span class="hs-identifier hs-type">AwsEc2InstanceViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244472"><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkInterfaceViolation]
+</span><a href="#local-6989586621679244472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2InstanceViolation
+</span><a href="#local-6989586621679244473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsEc2NetworkInterfaceViolations:AwsEc2InstanceViolation' :: Maybe [AwsEc2NetworkInterfaceViolation]
 </span><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#%24sel%3AawsEc2NetworkInterfaceViolations%3AAwsEc2InstanceViolation%27"><span class="hs-identifier hs-var">awsEc2NetworkInterfaceViolations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsEc2NetworkInterfaceViolation]
-</span><a href="#local-6989586621679244463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2NetworkInterfaceViolation]
+</span><a href="#local-6989586621679244472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsEc2NetworkInterfaceViolation]
   -&gt; f (Maybe [AwsEc2NetworkInterfaceViolation]))
  -&gt; AwsEc2InstanceViolation -&gt; f AwsEc2InstanceViolation)
 -&gt; ((Maybe [AwsEc2NetworkInterfaceViolation]
@@ -207,8 +207,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244457"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679244455"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEc2InstanceViolation
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244466"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679244464"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEc2InstanceViolation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AwsEc2InstanceViolation)
@@ -218,8 +218,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AwsEc2InstanceViolation&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244452"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244452"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244461"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [AwsEc2NetworkInterfaceViolation]
 -&gt; AwsEc2InstanceViolation
@@ -233,7 +233,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AwsEc2InstanceViolation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679244461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ViolationTarget&quot;</span></span><span class="hs-special">)</span><span>
@@ -244,7 +244,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser AwsEc2InstanceViolation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [AwsEc2NetworkInterfaceViolation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -259,7 +259,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-78"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244445"><span id="local-6989586621679244447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244454"><span id="local-6989586621679244456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AwsEc2InstanceViolation.html#AwsEc2InstanceViolation"><span class="hs-identifier hs-type">AwsEc2InstanceViolation</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

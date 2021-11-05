@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- node group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRemoteAccessConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679268867"><span id="local-6989586621679268868"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoteAccessConfig"><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-var">RemoteAccessConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoteAccessConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-var">RemoteAccessConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679268876"><span id="local-6989586621679268877"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoteAccessConfig"><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-var">RemoteAccessConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoteAccessConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-var">RemoteAccessConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security groups that are allowed SSH access (port 22) to the nodes.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- If you specify an Amazon EC2 SSH key but do not specify a source</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- security group when you create a managed node group, then port 22 on the</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aec2SshKey%3ARemoteAccessConfig%27"><span class="annot"><span class="annottext">RemoteAccessConfig -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#%24sel%3Aec2SshKey%3ARemoteAccessConfig%27"><span class="hs-identifier hs-var hs-var">ec2SshKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268860"><span id="local-6989586621679268862"><span class="annot"><span class="annottext">RemoteAccessConfig -&gt; RemoteAccessConfig -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268869"><span id="local-6989586621679268871"><span class="annot"><span class="annottext">RemoteAccessConfig -&gt; RemoteAccessConfig -&gt; Bool
 (RemoteAccessConfig -&gt; RemoteAccessConfig -&gt; Bool)
 -&gt; (RemoteAccessConfig -&gt; RemoteAccessConfig -&gt; Bool)
 -&gt; Eq RemoteAccessConfig
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoteAccessConfig -&gt; RemoteAccessConfig -&gt; Bool
 == :: RemoteAccessConfig -&gt; RemoteAccessConfig -&gt; Bool
 $c== :: RemoteAccessConfig -&gt; RemoteAccessConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268851"><span id="local-6989586621679268853"><span id="local-6989586621679268855"><span id="local-6989586621679268857"><span class="annot"><span class="annottext">ReadPrec [RemoteAccessConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268860"><span id="local-6989586621679268862"><span id="local-6989586621679268864"><span id="local-6989586621679268866"><span class="annot"><span class="annottext">ReadPrec [RemoteAccessConfig]
 ReadPrec RemoteAccessConfig
 Int -&gt; ReadS RemoteAccessConfig
 ReadS [RemoteAccessConfig]
@@ -72,7 +72,7 @@ readList :: ReadS [RemoteAccessConfig]
 $creadList :: ReadS [RemoteAccessConfig]
 readsPrec :: Int -&gt; ReadS RemoteAccessConfig
 $creadsPrec :: Int -&gt; ReadS RemoteAccessConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268844"><span id="local-6989586621679268846"><span id="local-6989586621679268848"><span class="annot"><span class="annottext">Int -&gt; RemoteAccessConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268853"><span id="local-6989586621679268855"><span id="local-6989586621679268857"><span class="annot"><span class="annottext">Int -&gt; RemoteAccessConfig -&gt; ShowS
 [RemoteAccessConfig] -&gt; ShowS
 RemoteAccessConfig -&gt; String
 (Int -&gt; RemoteAccessConfig -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; Lens
      RemoteAccessConfig RemoteAccessConfig (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268835"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268844"><span class="annot"><span class="annottext">Maybe [Text]
 sourceSecurityGroups :: Maybe [Text]
 $sel:sourceSecurityGroups:RemoteAccessConfig' :: RemoteAccessConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679268835"><span class="hs-identifier hs-var hs-var">sourceSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268835"><span class="hs-identifier hs-var">sourceSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268834"><span class="annot"><span class="annottext">s :: RemoteAccessConfig
-</span><a href="#local-6989586621679268834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268833"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteAccessConfig
-</span><a href="#local-6989586621679268834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSecurityGroups:RemoteAccessConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679268844"><span class="hs-identifier hs-var hs-var">sourceSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679268844"><span class="hs-identifier hs-var">sourceSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268843"><span class="annot"><span class="annottext">s :: RemoteAccessConfig
+</span><a href="#local-6989586621679268843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268842"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679268842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteAccessConfig
+</span><a href="#local-6989586621679268843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSecurityGroups:RemoteAccessConfig' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#%24sel%3AsourceSecurityGroups%3ARemoteAccessConfig%27"><span class="hs-identifier hs-var">sourceSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679268842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RemoteAccessConfig -&gt; f RemoteAccessConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -186,19 +186,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      RemoteAccessConfig RemoteAccessConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268828"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268837"><span class="annot"><span class="annottext">Maybe Text
 ec2SshKey :: Maybe Text
 $sel:ec2SshKey:RemoteAccessConfig' :: RemoteAccessConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679268828"><span class="hs-identifier hs-var hs-var">ec2SshKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268828"><span class="hs-identifier hs-var">ec2SshKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268827"><span class="annot"><span class="annottext">s :: RemoteAccessConfig
-</span><a href="#local-6989586621679268827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268826"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteAccessConfig
-</span><a href="#local-6989586621679268827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2SshKey:RemoteAccessConfig' :: Maybe Text
+</span><a href="#local-6989586621679268837"><span class="hs-identifier hs-var hs-var">ec2SshKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268837"><span class="hs-identifier hs-var">ec2SshKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268836"><span class="annot"><span class="annottext">s :: RemoteAccessConfig
+</span><a href="#local-6989586621679268836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteAccessConfig
+</span><a href="#local-6989586621679268836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2SshKey:RemoteAccessConfig' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#%24sel%3Aec2SshKey%3ARemoteAccessConfig%27"><span class="hs-identifier hs-var">ec2SshKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679268821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemoteAccessConfig
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268832"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679268830"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemoteAccessConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RemoteAccessConfig)
@@ -208,8 +208,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RemoteAccessConfig&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268818"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268827"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; RemoteAccessConfig
 </span><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-var">RemoteAccessConfig'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; RemoteAccessConfig)
@@ -217,7 +217,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; RemoteAccessConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679268827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceSecurityGroups&quot;</span></span><span>
@@ -232,25 +232,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser RemoteAccessConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679268827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ec2SshKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268811"><span id="local-6989586621679268813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268820"><span id="local-6989586621679268822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268800"><span id="local-6989586621679268802"><span id="local-6989586621679268804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679268798"><span class="annot"><span class="annottext">toJSON :: RemoteAccessConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268795"><span id="local-6989586621679268796"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268809"><span id="local-6989586621679268811"><span id="local-6989586621679268813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig"><span class="hs-identifier hs-type">RemoteAccessConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679268807"><span class="annot"><span class="annottext">toJSON :: RemoteAccessConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.RemoteAccessConfig.html#RemoteAccessConfig%27"><span class="hs-identifier hs-type">RemoteAccessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268804"><span id="local-6989586621679268805"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 ec2SshKey :: Maybe Text
 sourceSecurityGroups :: Maybe [Text]
 $sel:ec2SshKey:RemoteAccessConfig' :: RemoteAccessConfig -&gt; Maybe Text
 $sel:sourceSecurityGroups:RemoteAccessConfig' :: RemoteAccessConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679268795"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679268804"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,14 +263,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268796"><span class="hs-identifier hs-var">sourceSecurityGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679268805"><span class="hs-identifier hs-var">sourceSecurityGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ec2SshKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268795"><span class="hs-identifier hs-var">ec2SshKey</span></a></span><span>
+</span><a href="#local-6989586621679268804"><span class="hs-identifier hs-var">ec2SshKey</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

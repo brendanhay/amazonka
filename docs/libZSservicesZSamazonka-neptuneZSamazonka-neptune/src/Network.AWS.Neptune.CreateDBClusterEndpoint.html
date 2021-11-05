@@ -1,0 +1,1427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Neptune.CreateDBClusterEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new custom endpoint and associates it with an Amazon Neptune</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- DB cluster.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Neptune.CreateDBClusterEndpoint</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#newCreateDBClusterEndpoint"><span class="hs-identifier">newCreateDBClusterEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_staticMembers"><span class="hs-identifier">createDBClusterEndpoint_staticMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_excludedMembers"><span class="hs-identifier">createDBClusterEndpoint_excludedMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_tags"><span class="hs-identifier">createDBClusterEndpoint_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_dbClusterIdentifier"><span class="hs-identifier">createDBClusterEndpoint_dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="hs-identifier">createDBClusterEndpoint_dbClusterEndpointIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_endpointType"><span class="hs-identifier">createDBClusterEndpoint_endpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#newCreateDBClusterEndpointResponse"><span class="hs-identifier">newCreateDBClusterEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_status"><span class="hs-identifier">createDBClusterEndpointResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterIdentifier"><span class="hs-identifier">createDBClusterEndpointResponse_dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointArn"><span class="hs-identifier">createDBClusterEndpointResponse_dbClusterEndpointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_customEndpointType"><span class="hs-identifier">createDBClusterEndpointResponse_customEndpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_staticMembers"><span class="hs-identifier">createDBClusterEndpointResponse_staticMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_endpointType"><span class="hs-identifier">createDBClusterEndpointResponse_endpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointIdentifier"><span class="hs-identifier">createDBClusterEndpointResponse_dbClusterEndpointIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_endpoint"><span class="hs-identifier">createDBClusterEndpointResponse_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier"><span class="hs-identifier">createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_excludedMembers"><span class="hs-identifier">createDBClusterEndpointResponse_excludedMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_httpStatus"><span class="hs-identifier">createDBClusterEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.html"><span class="hs-identifier">Network.AWS.Neptune.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCreateDBClusterEndpoint' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679414673"><span id="local-6989586621679414674"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBClusterEndpoint"><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-var">CreateDBClusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBClusterEndpoint%27"><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">CreateDBClusterEndpoint'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of DB instance identifiers that are part of the custom endpoint</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstaticMembers%3ACreateDBClusterEndpoint%27"><span class="annot"><span class="annottext">CreateDBClusterEndpoint -&gt; Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AstaticMembers%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var hs-var">staticMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | List of DB instance identifiers that aren\'t part of the custom endpoint</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- group. All other eligible instances are reachable through the custom</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- endpoint. Only relevant if the list of static members is empty.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AexcludedMembers%3ACreateDBClusterEndpoint%27"><span class="annot"><span class="annottext">CreateDBClusterEndpoint -&gt; Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AexcludedMembers%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var hs-var">excludedMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The tags to be assigned to the Amazon Neptune resource.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Atags%3ACreateDBClusterEndpoint%27"><span class="annot"><span class="annottext">CreateDBClusterEndpoint -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Atags%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Neptune.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The DB cluster identifier of the DB cluster associated with the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- endpoint. This parameter is stored as a lowercase string.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpoint%27"><span class="annot"><span class="annottext">CreateDBClusterEndpoint -&gt; Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The identifier to use for the new endpoint. This parameter is stored as</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- a lowercase string.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpoint%27"><span class="annot"><span class="annottext">CreateDBClusterEndpoint -&gt; Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AendpointType%3ACreateDBClusterEndpoint%27"><span class="annot"><span class="annottext">CreateDBClusterEndpoint -&gt; Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AendpointType%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414662"><span id="local-6989586621679414664"><span class="annot"><span class="annottext">CreateDBClusterEndpoint -&gt; CreateDBClusterEndpoint -&gt; Bool
+(CreateDBClusterEndpoint -&gt; CreateDBClusterEndpoint -&gt; Bool)
+-&gt; (CreateDBClusterEndpoint -&gt; CreateDBClusterEndpoint -&gt; Bool)
+-&gt; Eq CreateDBClusterEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDBClusterEndpoint -&gt; CreateDBClusterEndpoint -&gt; Bool
+$c/= :: CreateDBClusterEndpoint -&gt; CreateDBClusterEndpoint -&gt; Bool
+== :: CreateDBClusterEndpoint -&gt; CreateDBClusterEndpoint -&gt; Bool
+$c== :: CreateDBClusterEndpoint -&gt; CreateDBClusterEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414653"><span id="local-6989586621679414655"><span id="local-6989586621679414657"><span id="local-6989586621679414659"><span class="annot"><span class="annottext">ReadPrec [CreateDBClusterEndpoint]
+ReadPrec CreateDBClusterEndpoint
+Int -&gt; ReadS CreateDBClusterEndpoint
+ReadS [CreateDBClusterEndpoint]
+(Int -&gt; ReadS CreateDBClusterEndpoint)
+-&gt; ReadS [CreateDBClusterEndpoint]
+-&gt; ReadPrec CreateDBClusterEndpoint
+-&gt; ReadPrec [CreateDBClusterEndpoint]
+-&gt; Read CreateDBClusterEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDBClusterEndpoint]
+$creadListPrec :: ReadPrec [CreateDBClusterEndpoint]
+readPrec :: ReadPrec CreateDBClusterEndpoint
+$creadPrec :: ReadPrec CreateDBClusterEndpoint
+readList :: ReadS [CreateDBClusterEndpoint]
+$creadList :: ReadS [CreateDBClusterEndpoint]
+readsPrec :: Int -&gt; ReadS CreateDBClusterEndpoint
+$creadsPrec :: Int -&gt; ReadS CreateDBClusterEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414646"><span id="local-6989586621679414648"><span id="local-6989586621679414650"><span class="annot"><span class="annottext">Int -&gt; CreateDBClusterEndpoint -&gt; ShowS
+[CreateDBClusterEndpoint] -&gt; ShowS
+CreateDBClusterEndpoint -&gt; String
+(Int -&gt; CreateDBClusterEndpoint -&gt; ShowS)
+-&gt; (CreateDBClusterEndpoint -&gt; String)
+-&gt; ([CreateDBClusterEndpoint] -&gt; ShowS)
+-&gt; Show CreateDBClusterEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDBClusterEndpoint] -&gt; ShowS
+$cshowList :: [CreateDBClusterEndpoint] -&gt; ShowS
+show :: CreateDBClusterEndpoint -&gt; String
+$cshow :: CreateDBClusterEndpoint -&gt; String
+showsPrec :: Int -&gt; CreateDBClusterEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDBClusterEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDBClusterEndpoint -&gt; Rep CreateDBClusterEndpoint x)
+-&gt; (forall x.
+    Rep CreateDBClusterEndpoint x -&gt; CreateDBClusterEndpoint)
+-&gt; Generic CreateDBClusterEndpoint
+forall x. Rep CreateDBClusterEndpoint x -&gt; CreateDBClusterEndpoint
+forall x. CreateDBClusterEndpoint -&gt; Rep CreateDBClusterEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDBClusterEndpoint x -&gt; CreateDBClusterEndpoint
+$cfrom :: forall x. CreateDBClusterEndpoint -&gt; Rep CreateDBClusterEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'CreateDBClusterEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'staticMembers', 'createDBClusterEndpoint_staticMembers' - List of DB instance identifiers that are part of the custom endpoint</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'excludedMembers', 'createDBClusterEndpoint_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- group. All other eligible instances are reachable through the custom</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- endpoint. Only relevant if the list of static members is empty.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'tags', 'createDBClusterEndpoint_tags' - The tags to be assigned to the Amazon Neptune resource.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'dbClusterIdentifier', 'createDBClusterEndpoint_dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- endpoint. This parameter is stored as a lowercase string.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'dbClusterEndpointIdentifier', 'createDBClusterEndpoint_dbClusterEndpointIdentifier' - The identifier to use for the new endpoint. This parameter is stored as</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- a lowercase string.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'endpointType', 'createDBClusterEndpoint_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#newCreateDBClusterEndpoint"><span class="hs-identifier hs-type">newCreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'dbClusterIdentifier'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'dbClusterEndpointIdentifier'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'endpointType'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span>
+</span><span id="line-118"></span><span id="newCreateDBClusterEndpoint"><span class="annot"><span class="annottext">newCreateDBClusterEndpoint :: Text -&gt; Text -&gt; Text -&gt; CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#newCreateDBClusterEndpoint"><span class="hs-identifier hs-var hs-var">newCreateDBClusterEndpoint</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679414641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414641"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679414640"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414640"><span class="hs-identifier hs-var">pDBClusterEndpointIdentifier_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679414639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414639"><span class="hs-identifier hs-var">pEndpointType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">CreateDBClusterEndpoint' :: Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:staticMembers:CreateDBClusterEndpoint' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AstaticMembers%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">staticMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:excludedMembers:CreateDBClusterEndpoint' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AexcludedMembers%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">excludedMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDBClusterEndpoint' :: Maybe [Tag]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Atags%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:CreateDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414641"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:CreateDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414640"><span class="hs-identifier hs-var">pDBClusterEndpointIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointType:CreateDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AendpointType%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414639"><span class="hs-identifier hs-var">pEndpointType_</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | List of DB instance identifiers that are part of the custom endpoint</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_staticMembers"><span class="hs-identifier hs-type">createDBClusterEndpoint_staticMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="createDBClusterEndpoint_staticMembers"><span class="annot"><span class="annottext">createDBClusterEndpoint_staticMembers :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_staticMembers"><span class="hs-identifier hs-var hs-var">createDBClusterEndpoint_staticMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpoint -&gt; Maybe [Text])
+-&gt; (CreateDBClusterEndpoint
+    -&gt; Maybe [Text] -&gt; CreateDBClusterEndpoint)
+-&gt; Lens
+     CreateDBClusterEndpoint
+     CreateDBClusterEndpoint
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414636"><span class="annot"><span class="annottext">Maybe [Text]
+staticMembers :: Maybe [Text]
+$sel:staticMembers:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Maybe [Text]
+</span><a href="#local-6989586621679414636"><span class="hs-identifier hs-var hs-var">staticMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414636"><span class="hs-identifier hs-var">staticMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414635"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414634"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticMembers:CreateDBClusterEndpoint' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AstaticMembers%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">staticMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpoint
+-&gt; f CreateDBClusterEndpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | List of DB instance identifiers that aren\'t part of the custom endpoint</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- group. All other eligible instances are reachable through the custom</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- endpoint. Only relevant if the list of static members is empty.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_excludedMembers"><span class="hs-identifier hs-type">createDBClusterEndpoint_excludedMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="createDBClusterEndpoint_excludedMembers"><span class="annot"><span class="annottext">createDBClusterEndpoint_excludedMembers :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_excludedMembers"><span class="hs-identifier hs-var hs-var">createDBClusterEndpoint_excludedMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpoint -&gt; Maybe [Text])
+-&gt; (CreateDBClusterEndpoint
+    -&gt; Maybe [Text] -&gt; CreateDBClusterEndpoint)
+-&gt; Lens
+     CreateDBClusterEndpoint
+     CreateDBClusterEndpoint
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414630"><span class="annot"><span class="annottext">Maybe [Text]
+excludedMembers :: Maybe [Text]
+$sel:excludedMembers:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Maybe [Text]
+</span><a href="#local-6989586621679414630"><span class="hs-identifier hs-var hs-var">excludedMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414630"><span class="hs-identifier hs-var">excludedMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414629"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414628"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludedMembers:CreateDBClusterEndpoint' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AexcludedMembers%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">excludedMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpoint
+-&gt; f CreateDBClusterEndpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The tags to be assigned to the Amazon Neptune resource.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_tags"><span class="hs-identifier hs-type">createDBClusterEndpoint_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Neptune.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="createDBClusterEndpoint_tags"><span class="annot"><span class="annottext">createDBClusterEndpoint_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_tags"><span class="hs-identifier hs-var hs-var">createDBClusterEndpoint_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpoint -&gt; Maybe [Tag])
+-&gt; (CreateDBClusterEndpoint
+    -&gt; Maybe [Tag] -&gt; CreateDBClusterEndpoint)
+-&gt; Lens
+     CreateDBClusterEndpoint
+     CreateDBClusterEndpoint
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414627"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679414627"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679414627"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414626"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414625"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679414625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBClusterEndpoint' :: Maybe [Tag]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Atags%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679414625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDBClusterEndpoint
+-&gt; f CreateDBClusterEndpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The DB cluster identifier of the DB cluster associated with the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- endpoint. This parameter is stored as a lowercase string.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_dbClusterIdentifier"><span class="hs-identifier hs-type">createDBClusterEndpoint_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="createDBClusterEndpoint_dbClusterIdentifier"><span class="annot"><span class="annottext">createDBClusterEndpoint_dbClusterIdentifier :: (Text -&gt; f Text)
+-&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_dbClusterIdentifier"><span class="hs-identifier hs-var hs-var">createDBClusterEndpoint_dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpoint -&gt; Text)
+-&gt; (CreateDBClusterEndpoint -&gt; Text -&gt; CreateDBClusterEndpoint)
+-&gt; Lens CreateDBClusterEndpoint CreateDBClusterEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414624"><span class="annot"><span class="annottext">Text
+dbClusterIdentifier :: Text
+$sel:dbClusterIdentifier:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Text
+</span><a href="#local-6989586621679414624"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414624"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414623"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:CreateDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The identifier to use for the new endpoint. This parameter is stored as</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- a lowercase string.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="hs-identifier hs-type">createDBClusterEndpoint_dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="createDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="annot"><span class="annottext">createDBClusterEndpoint_dbClusterEndpointIdentifier :: (Text -&gt; f Text)
+-&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_dbClusterEndpointIdentifier"><span class="hs-identifier hs-var hs-var">createDBClusterEndpoint_dbClusterEndpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpoint -&gt; Text)
+-&gt; (CreateDBClusterEndpoint -&gt; Text -&gt; CreateDBClusterEndpoint)
+-&gt; Lens CreateDBClusterEndpoint CreateDBClusterEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414621"><span class="annot"><span class="annottext">Text
+dbClusterEndpointIdentifier :: Text
+$sel:dbClusterEndpointIdentifier:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Text
+</span><a href="#local-6989586621679414621"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414621"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414620"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414619"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:CreateDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_endpointType"><span class="hs-identifier hs-type">createDBClusterEndpoint_endpointType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span id="createDBClusterEndpoint_endpointType"><span class="annot"><span class="annottext">createDBClusterEndpoint_endpointType :: (Text -&gt; f Text)
+-&gt; CreateDBClusterEndpoint -&gt; f CreateDBClusterEndpoint
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpoint_endpointType"><span class="hs-identifier hs-var hs-var">createDBClusterEndpoint_endpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpoint -&gt; Text)
+-&gt; (CreateDBClusterEndpoint -&gt; Text -&gt; CreateDBClusterEndpoint)
+-&gt; Lens CreateDBClusterEndpoint CreateDBClusterEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414618"><span class="annot"><span class="annottext">Text
+endpointType :: Text
+$sel:endpointType:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Text
+</span><a href="#local-6989586621679414618"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414618"><span class="hs-identifier hs-var">endpointType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414617"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpoint
+</span><a href="#local-6989586621679414617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointType:CreateDBClusterEndpoint' :: Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AendpointType%3ACreateDBClusterEndpoint%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679414612"><span class="annot"><span class="annottext">request :: CreateDBClusterEndpoint -&gt; Request CreateDBClusterEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateDBClusterEndpoint -&gt; Request CreateDBClusterEndpoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Neptune.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679414608"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDBClusterEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDBClusterEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateDBClusterEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDBClusterEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDBClusterEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDBClusterEndpointResult&quot;</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414605"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414605"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414604"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679414604"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414603"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Int
+-&gt; CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">CreateDBClusterEndpointResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Int
+ -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterEndpointArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomEndpointType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StaticMembers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterEndpointIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text] -&gt; Int -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text] -&gt; Int -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Text] -&gt; Int -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterEndpointResourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Text] -&gt; Int -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; CreateDBClusterEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExcludedMembers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDBClusterEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String CreateDBClusterEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414605"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414592"><span id="local-6989586621679414594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679414585"><span class="annot"><span class="annottext">toHeaders :: CreateDBClusterEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDBClusterEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679414580"><span class="annot"><span class="annottext">toPath :: CreateDBClusterEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDBClusterEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint"><span class="hs-identifier hs-type">CreateDBClusterEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679414576"><span class="annot"><span class="annottext">toQuery :: CreateDBClusterEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpoint%27"><span class="hs-identifier hs-type">CreateDBClusterEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414569"><span id="local-6989586621679414570"><span id="local-6989586621679414571"><span id="local-6989586621679414572"><span id="local-6989586621679414573"><span id="local-6989586621679414574"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [Tag]
+Text
+endpointType :: Text
+dbClusterEndpointIdentifier :: Text
+dbClusterIdentifier :: Text
+tags :: Maybe [Tag]
+excludedMembers :: Maybe [Text]
+staticMembers :: Maybe [Text]
+$sel:endpointType:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Text
+$sel:dbClusterEndpointIdentifier:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Text
+$sel:dbClusterIdentifier:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Text
+$sel:tags:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Maybe [Tag]
+$sel:excludedMembers:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Maybe [Text]
+$sel:staticMembers:CreateDBClusterEndpoint' :: CreateDBClusterEndpoint -&gt; Maybe [Text]
+</span><a href="#local-6989586621679414569"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateDBClusterEndpoint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StaticMembers&quot;</span></span><span>
+</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-209"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414574"><span class="hs-identifier hs-var">staticMembers</span></a></span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExcludedMembers&quot;</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-214"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414573"><span class="hs-identifier hs-var">excludedMembers</span></a></span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679414572"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414571"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterEndpointIdentifier&quot;</span></span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414570"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EndpointType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414569"><span class="hs-identifier hs-var">endpointType</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | This data type represents the information you need to connect to an</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Amazon Neptune DB cluster. This data type is used as a response element</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- in the following actions:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   @CreateDBClusterEndpoint@</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   @DescribeDBClusterEndpoints@</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   @ModifyDBClusterEndpoint@</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   @DeleteDBClusterEndpoint@</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- For the data structure that represents Amazon Neptune DB instance</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- endpoints, see @Endpoint@.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- /See:/ 'newCreateDBClusterEndpointResponse' smart constructor.</span><span>
+</span><span id="line-241"></span><span id="local-6989586621679414565"><span id="local-6989586621679414566"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBClusterEndpointResponse"><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-var">CreateDBClusterEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBClusterEndpointResponse%27"><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">CreateDBClusterEndpointResponse'</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the endpoint. One of: @creating@, @available@,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- endpoint that cannot be used for a certain kind of cluster, such as a</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- @writer@ endpoint for a read-only secondary cluster in a global</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3Astatus%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Astatus%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | The DB cluster identifier of the DB cluster associated with the</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- endpoint. This parameter is stored as a lowercase string.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the endpoint.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AdbClusterEndpointArn%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointArn%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">dbClusterEndpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- | The type associated with a custom endpoint. One of: @READER@, @WRITER@,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- @ANY@.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AcustomEndpointType%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AcustomEndpointType%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">customEndpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- | List of DB instance identifiers that are part of the custom endpoint</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-258"></span><span>    </span><span id="%24sel%3AstaticMembers%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AstaticMembers%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">staticMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- | The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.</span><span>
+</span><span id="line-260"></span><span>    </span><span id="%24sel%3AendpointType%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AendpointType%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- | The identifier associated with the endpoint. This parameter is stored as</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- a lowercase string.</span><span>
+</span><span id="line-263"></span><span>    </span><span id="%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- | The DNS address of the endpoint.</span><span>
+</span><span id="line-265"></span><span>    </span><span id="%24sel%3Aendpoint%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Aendpoint%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- | A unique system-generated identifier for an endpoint. It remains the</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- same for the whole life of the endpoint.</span><span>
+</span><span id="line-268"></span><span>    </span><span id="%24sel%3AdbClusterEndpointResourceIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointResourceIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">dbClusterEndpointResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- | List of DB instance identifiers that aren\'t part of the custom endpoint</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- group. All other eligible instances are reachable through the custom</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- endpoint. Only relevant if the list of static members is empty.</span><span>
+</span><span id="line-272"></span><span>    </span><span id="%24sel%3AexcludedMembers%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AexcludedMembers%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">excludedMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-274"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDBClusterEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse -&gt; Int
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AhttpStatus%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-276"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414550"><span id="local-6989586621679414552"><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+-&gt; CreateDBClusterEndpointResponse -&gt; Bool
+(CreateDBClusterEndpointResponse
+ -&gt; CreateDBClusterEndpointResponse -&gt; Bool)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; CreateDBClusterEndpointResponse -&gt; Bool)
+-&gt; Eq CreateDBClusterEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDBClusterEndpointResponse
+-&gt; CreateDBClusterEndpointResponse -&gt; Bool
+$c/= :: CreateDBClusterEndpointResponse
+-&gt; CreateDBClusterEndpointResponse -&gt; Bool
+== :: CreateDBClusterEndpointResponse
+-&gt; CreateDBClusterEndpointResponse -&gt; Bool
+$c== :: CreateDBClusterEndpointResponse
+-&gt; CreateDBClusterEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414542"><span id="local-6989586621679414544"><span id="local-6989586621679414546"><span id="local-6989586621679414548"><span class="annot"><span class="annottext">ReadPrec [CreateDBClusterEndpointResponse]
+ReadPrec CreateDBClusterEndpointResponse
+Int -&gt; ReadS CreateDBClusterEndpointResponse
+ReadS [CreateDBClusterEndpointResponse]
+(Int -&gt; ReadS CreateDBClusterEndpointResponse)
+-&gt; ReadS [CreateDBClusterEndpointResponse]
+-&gt; ReadPrec CreateDBClusterEndpointResponse
+-&gt; ReadPrec [CreateDBClusterEndpointResponse]
+-&gt; Read CreateDBClusterEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDBClusterEndpointResponse]
+$creadListPrec :: ReadPrec [CreateDBClusterEndpointResponse]
+readPrec :: ReadPrec CreateDBClusterEndpointResponse
+$creadPrec :: ReadPrec CreateDBClusterEndpointResponse
+readList :: ReadS [CreateDBClusterEndpointResponse]
+$creadList :: ReadS [CreateDBClusterEndpointResponse]
+readsPrec :: Int -&gt; ReadS CreateDBClusterEndpointResponse
+$creadsPrec :: Int -&gt; ReadS CreateDBClusterEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414536"><span id="local-6989586621679414538"><span id="local-6989586621679414540"><span class="annot"><span class="annottext">Int -&gt; CreateDBClusterEndpointResponse -&gt; ShowS
+[CreateDBClusterEndpointResponse] -&gt; ShowS
+CreateDBClusterEndpointResponse -&gt; String
+(Int -&gt; CreateDBClusterEndpointResponse -&gt; ShowS)
+-&gt; (CreateDBClusterEndpointResponse -&gt; String)
+-&gt; ([CreateDBClusterEndpointResponse] -&gt; ShowS)
+-&gt; Show CreateDBClusterEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDBClusterEndpointResponse] -&gt; ShowS
+$cshowList :: [CreateDBClusterEndpointResponse] -&gt; ShowS
+show :: CreateDBClusterEndpointResponse -&gt; String
+$cshow :: CreateDBClusterEndpointResponse -&gt; String
+showsPrec :: Int -&gt; CreateDBClusterEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDBClusterEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDBClusterEndpointResponse
+ -&gt; Rep CreateDBClusterEndpointResponse x)
+-&gt; (forall x.
+    Rep CreateDBClusterEndpointResponse x
+    -&gt; CreateDBClusterEndpointResponse)
+-&gt; Generic CreateDBClusterEndpointResponse
+forall x.
+Rep CreateDBClusterEndpointResponse x
+-&gt; CreateDBClusterEndpointResponse
+forall x.
+CreateDBClusterEndpointResponse
+-&gt; Rep CreateDBClusterEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDBClusterEndpointResponse x
+-&gt; CreateDBClusterEndpointResponse
+$cfrom :: forall x.
+CreateDBClusterEndpointResponse
+-&gt; Rep CreateDBClusterEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- Create a value of 'CreateDBClusterEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- 'status', 'createDBClusterEndpointResponse_status' - The current status of the endpoint. One of: @creating@, @available@,</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- endpoint that cannot be used for a certain kind of cluster, such as a</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- @writer@ endpoint for a read-only secondary cluster in a global</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- 'dbClusterIdentifier', 'createDBClusterEndpointResponse_dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- endpoint. This parameter is stored as a lowercase string.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'dbClusterEndpointArn', 'createDBClusterEndpointResponse_dbClusterEndpointArn' - The Amazon Resource Name (ARN) for the endpoint.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- 'customEndpointType', 'createDBClusterEndpointResponse_customEndpointType' - The type associated with a custom endpoint. One of: @READER@, @WRITER@,</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- @ANY@.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- 'staticMembers', 'createDBClusterEndpointResponse_staticMembers' - List of DB instance identifiers that are part of the custom endpoint</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'endpointType', 'createDBClusterEndpointResponse_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- 'dbClusterEndpointIdentifier', 'createDBClusterEndpointResponse_dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- a lowercase string.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- 'endpoint', 'createDBClusterEndpointResponse_endpoint' - The DNS address of the endpoint.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- 'dbClusterEndpointResourceIdentifier', 'createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier' - A unique system-generated identifier for an endpoint. It remains the</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- same for the whole life of the endpoint.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- 'excludedMembers', 'createDBClusterEndpointResponse_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- group. All other eligible instances are reachable through the custom</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- endpoint. Only relevant if the list of static members is empty.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'httpStatus', 'createDBClusterEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-318"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#newCreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">newCreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-319"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-320"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-321"></span><span>  </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span>
+</span><span id="line-322"></span><span id="newCreateDBClusterEndpointResponse"><span class="annot"><span class="annottext">newCreateDBClusterEndpointResponse :: Int -&gt; CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#newCreateDBClusterEndpointResponse"><span class="hs-identifier hs-var hs-var">newCreateDBClusterEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679414533"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Int
+-&gt; CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Astatus%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterEndpointArn:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointArn%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterEndpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:customEndpointType:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AcustomEndpointType%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">customEndpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:staticMembers:CreateDBClusterEndpointResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AstaticMembers%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">staticMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointType:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AendpointType%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoint:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Aendpoint%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterEndpointResourceIdentifier:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointResourceIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterEndpointResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-335"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>      </span><span class="annot"><span class="annottext">$sel:excludedMembers:CreateDBClusterEndpointResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AexcludedMembers%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">excludedMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBClusterEndpointResponse' :: Int
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AhttpStatus%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-338"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- | The current status of the endpoint. One of: @creating@, @available@,</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- endpoint that cannot be used for a certain kind of cluster, such as a</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- @writer@ endpoint for a read-only secondary cluster in a global</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_status"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span id="createDBClusterEndpointResponse_status"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_status"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414532"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414532"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414532"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414531"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Astatus%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | The DB cluster identifier of the DB cluster associated with the</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- endpoint. This parameter is stored as a lowercase string.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterIdentifier"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span id="createDBClusterEndpointResponse_dbClusterIdentifier"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_dbClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterIdentifier"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414529"><span class="annot"><span class="annottext">Maybe Text
+dbClusterIdentifier :: Maybe Text
+$sel:dbClusterIdentifier:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414529"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414529"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414528"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the endpoint.</span><span>
+</span><span id="line-354"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointArn"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_dbClusterEndpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span id="createDBClusterEndpointResponse_dbClusterEndpointArn"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_dbClusterEndpointArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointArn"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_dbClusterEndpointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414526"><span class="annot"><span class="annottext">Maybe Text
+dbClusterEndpointArn :: Maybe Text
+$sel:dbClusterEndpointArn:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414526"><span class="hs-identifier hs-var hs-var">dbClusterEndpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414526"><span class="hs-identifier hs-var">dbClusterEndpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414525"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414524"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpointArn:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointArn%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterEndpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- | The type associated with a custom endpoint. One of: @READER@, @WRITER@,</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- @ANY@.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_customEndpointType"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_customEndpointType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span id="createDBClusterEndpointResponse_customEndpointType"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_customEndpointType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_customEndpointType"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_customEndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414523"><span class="annot"><span class="annottext">Maybe Text
+customEndpointType :: Maybe Text
+$sel:customEndpointType:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414523"><span class="hs-identifier hs-var hs-var">customEndpointType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414523"><span class="hs-identifier hs-var">customEndpointType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414522"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEndpointType:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AcustomEndpointType%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">customEndpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | List of DB instance identifiers that are part of the custom endpoint</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-364"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_staticMembers"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_staticMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span id="createDBClusterEndpointResponse_staticMembers"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_staticMembers :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_staticMembers"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_staticMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe [Text])
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe [Text] -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414520"><span class="annot"><span class="annottext">Maybe [Text]
+staticMembers :: Maybe [Text]
+$sel:staticMembers:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679414520"><span class="hs-identifier hs-var hs-var">staticMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414520"><span class="hs-identifier hs-var">staticMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414519"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414518"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticMembers:CreateDBClusterEndpointResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AstaticMembers%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">staticMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateDBClusterEndpointResponse
+ -&gt; f CreateDBClusterEndpointResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- | The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.</span><span>
+</span><span id="line-368"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_endpointType"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_endpointType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span id="createDBClusterEndpointResponse_endpointType"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_endpointType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_endpointType"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_endpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414517"><span class="annot"><span class="annottext">Maybe Text
+endpointType :: Maybe Text
+$sel:endpointType:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414517"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414517"><span class="hs-identifier hs-var">endpointType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414516"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointType:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AendpointType%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- | The identifier associated with the endpoint. This parameter is stored as</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- a lowercase string.</span><span>
+</span><span id="line-373"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointIdentifier"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span id="createDBClusterEndpointResponse_dbClusterEndpointIdentifier"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_dbClusterEndpointIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointIdentifier"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_dbClusterEndpointIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414514"><span class="annot"><span class="annottext">Maybe Text
+dbClusterEndpointIdentifier :: Maybe Text
+$sel:dbClusterEndpointIdentifier:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414514"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414514"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414513"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | The DNS address of the endpoint.</span><span>
+</span><span id="line-377"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_endpoint"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span id="createDBClusterEndpointResponse_endpoint"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_endpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_endpoint"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414511"><span class="annot"><span class="annottext">Maybe Text
+endpoint :: Maybe Text
+$sel:endpoint:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414511"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414511"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414510"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3Aendpoint%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- | A unique system-generated identifier for an endpoint. It remains the</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- same for the whole life of the endpoint.</span><span>
+</span><span id="line-382"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span id="createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe Text)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe Text -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414508"><span class="annot"><span class="annottext">Maybe Text
+dbClusterEndpointResourceIdentifier :: Maybe Text
+$sel:dbClusterEndpointResourceIdentifier:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679414508"><span class="hs-identifier hs-var hs-var">dbClusterEndpointResourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414508"><span class="hs-identifier hs-var">dbClusterEndpointResourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414507"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpointResourceIdentifier:CreateDBClusterEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AdbClusterEndpointResourceIdentifier%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">dbClusterEndpointResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- | List of DB instance identifiers that aren\'t part of the custom endpoint</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- group. All other eligible instances are reachable through the custom</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- endpoint. Only relevant if the list of static members is empty.</span><span>
+</span><span id="line-388"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_excludedMembers"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_excludedMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span id="createDBClusterEndpointResponse_excludedMembers"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_excludedMembers :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_excludedMembers"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_excludedMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Maybe [Text])
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Maybe [Text] -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414505"><span class="annot"><span class="annottext">Maybe [Text]
+excludedMembers :: Maybe [Text]
+$sel:excludedMembers:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679414505"><span class="hs-identifier hs-var hs-var">excludedMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414505"><span class="hs-identifier hs-var">excludedMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414504"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414503"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludedMembers:CreateDBClusterEndpointResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AexcludedMembers%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">excludedMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateDBClusterEndpointResponse
+ -&gt; f CreateDBClusterEndpointResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-392"></span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_httpStatus"><span class="hs-identifier hs-type">createDBClusterEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-393"></span><span id="createDBClusterEndpointResponse_httpStatus"><span class="annot"><span class="annottext">createDBClusterEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDBClusterEndpointResponse
+-&gt; f CreateDBClusterEndpointResponse
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#createDBClusterEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDBClusterEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBClusterEndpointResponse -&gt; Int)
+-&gt; (CreateDBClusterEndpointResponse
+    -&gt; Int -&gt; CreateDBClusterEndpointResponse)
+-&gt; Lens
+     CreateDBClusterEndpointResponse
+     CreateDBClusterEndpointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414502"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDBClusterEndpointResponse' :: CreateDBClusterEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679414502"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414502"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414501"><span class="annot"><span class="annottext">s :: CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBClusterEndpointResponse
+</span><a href="#local-6989586621679414501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBClusterEndpointResponse' :: Int
+</span><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#%24sel%3AhttpStatus%3ACreateDBClusterEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-396"></span><span>  </span><span id="local-6989586621679414498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.CreateDBClusterEndpoint.html#CreateDBClusterEndpointResponse"><span class="hs-identifier hs-type">CreateDBClusterEndpointResponse</span></a></span></span><span>
+</span><span id="line-398"></span></pre></body></html>

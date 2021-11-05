@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.AnalysisFilterAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.AnalysisFilterAttribute</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute"><span class="hs-identifier">AnalysisFilterAttribute</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute_QUICKSIGHT_USER"><span class="hs-identifier">AnalysisFilterAttribute_QUICKSIGHT_USER</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679548957"><span id="local-6989586621679548958"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalysisFilterAttribute"><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute"><span class="hs-identifier hs-var">AnalysisFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisFilterAttribute%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute%27"><span class="hs-identifier hs-var">AnalysisFilterAttribute'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnalysisFilterAttribute"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#fromAnalysisFilterAttribute"><span class="hs-identifier hs-var hs-var">fromAnalysisFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679548949"><span id="local-6989586621679548951"><span id="local-6989586621679548953"><span class="annot"><span class="annottext">Int -&gt; AnalysisFilterAttribute -&gt; ShowS
+[AnalysisFilterAttribute] -&gt; ShowS
+AnalysisFilterAttribute -&gt; String
+(Int -&gt; AnalysisFilterAttribute -&gt; ShowS)
+-&gt; (AnalysisFilterAttribute -&gt; String)
+-&gt; ([AnalysisFilterAttribute] -&gt; ShowS)
+-&gt; Show AnalysisFilterAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalysisFilterAttribute] -&gt; ShowS
+$cshowList :: [AnalysisFilterAttribute] -&gt; ShowS
+show :: AnalysisFilterAttribute -&gt; String
+$cshow :: AnalysisFilterAttribute -&gt; String
+showsPrec :: Int -&gt; AnalysisFilterAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalysisFilterAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679548940"><span id="local-6989586621679548942"><span id="local-6989586621679548944"><span id="local-6989586621679548946"><span class="annot"><span class="annottext">ReadPrec [AnalysisFilterAttribute]
+ReadPrec AnalysisFilterAttribute
+Int -&gt; ReadS AnalysisFilterAttribute
+ReadS [AnalysisFilterAttribute]
+(Int -&gt; ReadS AnalysisFilterAttribute)
+-&gt; ReadS [AnalysisFilterAttribute]
+-&gt; ReadPrec AnalysisFilterAttribute
+-&gt; ReadPrec [AnalysisFilterAttribute]
+-&gt; Read AnalysisFilterAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalysisFilterAttribute]
+$creadListPrec :: ReadPrec [AnalysisFilterAttribute]
+readPrec :: ReadPrec AnalysisFilterAttribute
+$creadPrec :: ReadPrec AnalysisFilterAttribute
+readList :: ReadS [AnalysisFilterAttribute]
+$creadList :: ReadS [AnalysisFilterAttribute]
+readsPrec :: Int -&gt; ReadS AnalysisFilterAttribute
+$creadsPrec :: Int -&gt; ReadS AnalysisFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679548935"><span id="local-6989586621679548937"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+(AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool)
+-&gt; (AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool)
+-&gt; Eq AnalysisFilterAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+$c/= :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+== :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+$c== :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679548919"><span id="local-6989586621679548921"><span id="local-6989586621679548923"><span id="local-6989586621679548925"><span id="local-6989586621679548927"><span id="local-6989586621679548929"><span id="local-6989586621679548931"><span class="annot"><span class="annottext">Eq AnalysisFilterAttribute
+Eq AnalysisFilterAttribute
+-&gt; (AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Ordering)
+-&gt; (AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool)
+-&gt; (AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool)
+-&gt; (AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool)
+-&gt; (AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool)
+-&gt; (AnalysisFilterAttribute
+    -&gt; AnalysisFilterAttribute -&gt; AnalysisFilterAttribute)
+-&gt; (AnalysisFilterAttribute
+    -&gt; AnalysisFilterAttribute -&gt; AnalysisFilterAttribute)
+-&gt; Ord AnalysisFilterAttribute
+AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Ordering
+AnalysisFilterAttribute
+-&gt; AnalysisFilterAttribute -&gt; AnalysisFilterAttribute
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AnalysisFilterAttribute
+-&gt; AnalysisFilterAttribute -&gt; AnalysisFilterAttribute
+$cmin :: AnalysisFilterAttribute
+-&gt; AnalysisFilterAttribute -&gt; AnalysisFilterAttribute
+max :: AnalysisFilterAttribute
+-&gt; AnalysisFilterAttribute -&gt; AnalysisFilterAttribute
+$cmax :: AnalysisFilterAttribute
+-&gt; AnalysisFilterAttribute -&gt; AnalysisFilterAttribute
+&gt;= :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+$c&gt;= :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+&gt; :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+$c&gt; :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+&lt;= :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+$c&lt;= :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+&lt; :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+$c&lt; :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Bool
+compare :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Ordering
+$ccompare :: AnalysisFilterAttribute -&gt; AnalysisFilterAttribute -&gt; Ordering
+$cp1Ord :: Eq AnalysisFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AnalysisFilterAttribute -&gt; Rep AnalysisFilterAttribute x)
+-&gt; (forall x.
+    Rep AnalysisFilterAttribute x -&gt; AnalysisFilterAttribute)
+-&gt; Generic AnalysisFilterAttribute
+forall x. Rep AnalysisFilterAttribute x -&gt; AnalysisFilterAttribute
+forall x. AnalysisFilterAttribute -&gt; Rep AnalysisFilterAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalysisFilterAttribute x -&gt; AnalysisFilterAttribute
+$cfrom :: forall x. AnalysisFilterAttribute -&gt; Rep AnalysisFilterAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679548911"><span id="local-6989586621679548913"><span class="annot"><span class="annottext">Int -&gt; AnalysisFilterAttribute -&gt; Int
+AnalysisFilterAttribute -&gt; Int
+(Int -&gt; AnalysisFilterAttribute -&gt; Int)
+-&gt; (AnalysisFilterAttribute -&gt; Int)
+-&gt; Hashable AnalysisFilterAttribute
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AnalysisFilterAttribute -&gt; Int
+$chash :: AnalysisFilterAttribute -&gt; Int
+hashWithSalt :: Int -&gt; AnalysisFilterAttribute -&gt; Int
+$chashWithSalt :: Int -&gt; AnalysisFilterAttribute -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679548908"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; ()
+(AnalysisFilterAttribute -&gt; ()) -&gt; NFData AnalysisFilterAttribute
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AnalysisFilterAttribute -&gt; ()
+$crnf :: AnalysisFilterAttribute -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679548905"><span class="annot"><span class="annottext">Text -&gt; Either String AnalysisFilterAttribute
+(Text -&gt; Either String AnalysisFilterAttribute)
+-&gt; FromText AnalysisFilterAttribute
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AnalysisFilterAttribute
+$cfromText :: Text -&gt; Either String AnalysisFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679548902"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; Text
+(AnalysisFilterAttribute -&gt; Text) -&gt; ToText AnalysisFilterAttribute
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AnalysisFilterAttribute -&gt; Text
+$ctoText :: AnalysisFilterAttribute -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679548899"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; ByteString
+(AnalysisFilterAttribute -&gt; ByteString)
+-&gt; ToByteString AnalysisFilterAttribute
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AnalysisFilterAttribute -&gt; ByteString
+$ctoBS :: AnalysisFilterAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679548896"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; ByteStringBuilder
+(AnalysisFilterAttribute -&gt; ByteStringBuilder)
+-&gt; ToLog AnalysisFilterAttribute
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AnalysisFilterAttribute -&gt; ByteStringBuilder
+$cbuild :: AnalysisFilterAttribute -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679548893"><span class="annot"><span class="annottext">HeaderName -&gt; AnalysisFilterAttribute -&gt; [Header]
+(HeaderName -&gt; AnalysisFilterAttribute -&gt; [Header])
+-&gt; ToHeader AnalysisFilterAttribute
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AnalysisFilterAttribute -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AnalysisFilterAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679548890"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; QueryString
+(AnalysisFilterAttribute -&gt; QueryString)
+-&gt; ToQuery AnalysisFilterAttribute
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AnalysisFilterAttribute -&gt; QueryString
+$ctoQuery :: AnalysisFilterAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679548885"><span id="local-6989586621679548887"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalysisFilterAttribute]
+Value -&gt; Parser AnalysisFilterAttribute
+(Value -&gt; Parser AnalysisFilterAttribute)
+-&gt; (Value -&gt; Parser [AnalysisFilterAttribute])
+-&gt; FromJSON AnalysisFilterAttribute
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AnalysisFilterAttribute]
+$cparseJSONList :: Value -&gt; Parser [AnalysisFilterAttribute]
+parseJSON :: Value -&gt; Parser AnalysisFilterAttribute
+$cparseJSON :: Value -&gt; Parser AnalysisFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679548880"><span id="local-6989586621679548882"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalysisFilterAttribute]
+FromJSONKeyFunction AnalysisFilterAttribute
+FromJSONKeyFunction AnalysisFilterAttribute
+-&gt; FromJSONKeyFunction [AnalysisFilterAttribute]
+-&gt; FromJSONKey AnalysisFilterAttribute
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AnalysisFilterAttribute]
+$cfromJSONKeyList :: FromJSONKeyFunction [AnalysisFilterAttribute]
+fromJSONKey :: FromJSONKeyFunction AnalysisFilterAttribute
+$cfromJSONKey :: FromJSONKeyFunction AnalysisFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679548871"><span id="local-6989586621679548873"><span id="local-6989586621679548875"><span id="local-6989586621679548877"><span class="annot"><span class="annottext">[AnalysisFilterAttribute] -&gt; Encoding
+[AnalysisFilterAttribute] -&gt; Value
+AnalysisFilterAttribute -&gt; Encoding
+AnalysisFilterAttribute -&gt; Value
+(AnalysisFilterAttribute -&gt; Value)
+-&gt; (AnalysisFilterAttribute -&gt; Encoding)
+-&gt; ([AnalysisFilterAttribute] -&gt; Value)
+-&gt; ([AnalysisFilterAttribute] -&gt; Encoding)
+-&gt; ToJSON AnalysisFilterAttribute
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AnalysisFilterAttribute] -&gt; Encoding
+$ctoEncodingList :: [AnalysisFilterAttribute] -&gt; Encoding
+toJSONList :: [AnalysisFilterAttribute] -&gt; Value
+$ctoJSONList :: [AnalysisFilterAttribute] -&gt; Value
+toEncoding :: AnalysisFilterAttribute -&gt; Encoding
+$ctoEncoding :: AnalysisFilterAttribute -&gt; Encoding
+toJSON :: AnalysisFilterAttribute -&gt; Value
+$ctoJSON :: AnalysisFilterAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679548866"><span id="local-6989586621679548868"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalysisFilterAttribute]
+ToJSONKeyFunction AnalysisFilterAttribute
+ToJSONKeyFunction AnalysisFilterAttribute
+-&gt; ToJSONKeyFunction [AnalysisFilterAttribute]
+-&gt; ToJSONKey AnalysisFilterAttribute
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AnalysisFilterAttribute]
+$ctoJSONKeyList :: ToJSONKeyFunction [AnalysisFilterAttribute]
+toJSONKey :: ToJSONKeyFunction AnalysisFilterAttribute
+$ctoJSONKey :: ToJSONKeyFunction AnalysisFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679548863"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalysisFilterAttribute
+([Node] -&gt; Either String AnalysisFilterAttribute)
+-&gt; FromXML AnalysisFilterAttribute
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AnalysisFilterAttribute
+$cparseXML :: [Node] -&gt; Either String AnalysisFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679548860"><span class="annot"><span class="annottext">AnalysisFilterAttribute -&gt; XML
+(AnalysisFilterAttribute -&gt; XML) -&gt; ToXML AnalysisFilterAttribute
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AnalysisFilterAttribute -&gt; XML
+$ctoXML :: AnalysisFilterAttribute -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute_QUICKSIGHT_USER"><span class="hs-identifier hs-type">AnalysisFilterAttribute_QUICKSIGHT_USER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute"><span class="hs-identifier hs-type">AnalysisFilterAttribute</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisFilterAttribute_QUICKSIGHT_USER"><span id="%24mAnalysisFilterAttribute_QUICKSIGHT_USER"><span id="AnalysisFilterAttribute_QUICKSIGHT_USER"><span class="annot"><span class="annottext">$bAnalysisFilterAttribute_QUICKSIGHT_USER :: AnalysisFilterAttribute
+$mAnalysisFilterAttribute_QUICKSIGHT_USER :: forall r.
+AnalysisFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#%24bAnalysisFilterAttribute_QUICKSIGHT_USER"><span class="hs-identifier hs-var hs-var hs-var">AnalysisFilterAttribute_QUICKSIGHT_USER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute%27"><span class="hs-identifier hs-type">AnalysisFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUICKSIGHT_USER&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute_QUICKSIGHT_USER"><span class="hs-pragma hs-type">AnalysisFilterAttribute_QUICKSIGHT_USER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisFilterAttribute.html#AnalysisFilterAttribute%27"><span class="hs-pragma hs-type">AnalysisFilterAttribute'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

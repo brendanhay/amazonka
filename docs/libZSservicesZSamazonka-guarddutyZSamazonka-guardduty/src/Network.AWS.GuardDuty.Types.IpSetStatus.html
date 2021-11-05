@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679297312"><span id="local-6989586621679297313"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IpSetStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.IpSetStatus.html#IpSetStatus"><span class="hs-identifier hs-var">IpSetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpSetStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.IpSetStatus.html#IpSetStatus%27"><span class="hs-identifier hs-var">IpSetStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679297321"><span id="local-6989586621679297322"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IpSetStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.IpSetStatus.html#IpSetStatus"><span class="hs-identifier hs-var">IpSetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpSetStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.IpSetStatus.html#IpSetStatus%27"><span class="hs-identifier hs-var">IpSetStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIpSetStatus"><span class="annot"><span class="annottext">IpSetStatus -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.IpSetStatus.html#fromIpSetStatus"><span class="hs-identifier hs-var hs-var">fromIpSetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297304"><span id="local-6989586621679297306"><span id="local-6989586621679297308"><span class="annot"><span class="annottext">Int -&gt; IpSetStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297313"><span id="local-6989586621679297315"><span id="local-6989586621679297317"><span class="annot"><span class="annottext">Int -&gt; IpSetStatus -&gt; ShowS
 [IpSetStatus] -&gt; ShowS
 IpSetStatus -&gt; String
 (Int -&gt; IpSetStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: IpSetStatus -&gt; String
 showsPrec :: Int -&gt; IpSetStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; IpSetStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679297295"><span id="local-6989586621679297297"><span id="local-6989586621679297299"><span id="local-6989586621679297301"><span class="annot"><span class="annottext">ReadPrec [IpSetStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679297304"><span id="local-6989586621679297306"><span id="local-6989586621679297308"><span id="local-6989586621679297310"><span class="annot"><span class="annottext">ReadPrec [IpSetStatus]
 ReadPrec IpSetStatus
 Int -&gt; ReadS IpSetStatus
 ReadS [IpSetStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [IpSetStatus]
 readsPrec :: Int -&gt; ReadS IpSetStatus
 $creadsPrec :: Int -&gt; ReadS IpSetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679297290"><span id="local-6989586621679297292"><span class="annot"><span class="annottext">IpSetStatus -&gt; IpSetStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679297299"><span id="local-6989586621679297301"><span class="annot"><span class="annottext">IpSetStatus -&gt; IpSetStatus -&gt; Bool
 (IpSetStatus -&gt; IpSetStatus -&gt; Bool)
 -&gt; (IpSetStatus -&gt; IpSetStatus -&gt; Bool) -&gt; Eq IpSetStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: IpSetStatus -&gt; IpSetStatus -&gt; Bool
 == :: IpSetStatus -&gt; IpSetStatus -&gt; Bool
 $c== :: IpSetStatus -&gt; IpSetStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679297274"><span id="local-6989586621679297276"><span id="local-6989586621679297278"><span id="local-6989586621679297280"><span id="local-6989586621679297282"><span id="local-6989586621679297284"><span id="local-6989586621679297286"><span class="annot"><span class="annottext">Eq IpSetStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679297283"><span id="local-6989586621679297285"><span id="local-6989586621679297287"><span id="local-6989586621679297289"><span id="local-6989586621679297291"><span id="local-6989586621679297293"><span id="local-6989586621679297295"><span class="annot"><span class="annottext">Eq IpSetStatus
 Eq IpSetStatus
 -&gt; (IpSetStatus -&gt; IpSetStatus -&gt; Ordering)
 -&gt; (IpSetStatus -&gt; IpSetStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. IpSetStatus -&gt; Rep IpSetStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297266"><span id="local-6989586621679297268"><span class="annot"><span class="annottext">Int -&gt; IpSetStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297275"><span id="local-6989586621679297277"><span class="annot"><span class="annottext">Int -&gt; IpSetStatus -&gt; Int
 IpSetStatus -&gt; Int
 (Int -&gt; IpSetStatus -&gt; Int)
 -&gt; (IpSetStatus -&gt; Int) -&gt; Hashable IpSetStatus
@@ -147,49 +147,49 @@ $chash :: IpSetStatus -&gt; Int
 hashWithSalt :: Int -&gt; IpSetStatus -&gt; Int
 $chashWithSalt :: Int -&gt; IpSetStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297263"><span class="annot"><span class="annottext">IpSetStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297272"><span class="annot"><span class="annottext">IpSetStatus -&gt; ()
 (IpSetStatus -&gt; ()) -&gt; NFData IpSetStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: IpSetStatus -&gt; ()
 $crnf :: IpSetStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297260"><span class="annot"><span class="annottext">Text -&gt; Either String IpSetStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297269"><span class="annot"><span class="annottext">Text -&gt; Either String IpSetStatus
 (Text -&gt; Either String IpSetStatus) -&gt; FromText IpSetStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String IpSetStatus
 $cfromText :: Text -&gt; Either String IpSetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297257"><span class="annot"><span class="annottext">IpSetStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297266"><span class="annot"><span class="annottext">IpSetStatus -&gt; Text
 (IpSetStatus -&gt; Text) -&gt; ToText IpSetStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: IpSetStatus -&gt; Text
 $ctoText :: IpSetStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297254"><span class="annot"><span class="annottext">IpSetStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297263"><span class="annot"><span class="annottext">IpSetStatus -&gt; ByteString
 (IpSetStatus -&gt; ByteString) -&gt; ToByteString IpSetStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: IpSetStatus -&gt; ByteString
 $ctoBS :: IpSetStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297251"><span class="annot"><span class="annottext">IpSetStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297260"><span class="annot"><span class="annottext">IpSetStatus -&gt; ByteStringBuilder
 (IpSetStatus -&gt; ByteStringBuilder) -&gt; ToLog IpSetStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: IpSetStatus -&gt; ByteStringBuilder
 $cbuild :: IpSetStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297248"><span class="annot"><span class="annottext">HeaderName -&gt; IpSetStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297257"><span class="annot"><span class="annottext">HeaderName -&gt; IpSetStatus -&gt; [Header]
 (HeaderName -&gt; IpSetStatus -&gt; [Header]) -&gt; ToHeader IpSetStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; IpSetStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; IpSetStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297245"><span class="annot"><span class="annottext">IpSetStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297254"><span class="annot"><span class="annottext">IpSetStatus -&gt; QueryString
 (IpSetStatus -&gt; QueryString) -&gt; ToQuery IpSetStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: IpSetStatus -&gt; QueryString
 $ctoQuery :: IpSetStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297240"><span id="local-6989586621679297242"><span class="annot"><span class="annottext">Value -&gt; Parser [IpSetStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297249"><span id="local-6989586621679297251"><span class="annot"><span class="annottext">Value -&gt; Parser [IpSetStatus]
 Value -&gt; Parser IpSetStatus
 (Value -&gt; Parser IpSetStatus)
 -&gt; (Value -&gt; Parser [IpSetStatus]) -&gt; FromJSON IpSetStatus
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [IpSetStatus]
 parseJSON :: Value -&gt; Parser IpSetStatus
 $cparseJSON :: Value -&gt; Parser IpSetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297235"><span id="local-6989586621679297237"><span class="annot"><span class="annottext">FromJSONKeyFunction [IpSetStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297244"><span id="local-6989586621679297246"><span class="annot"><span class="annottext">FromJSONKeyFunction [IpSetStatus]
 FromJSONKeyFunction IpSetStatus
 FromJSONKeyFunction IpSetStatus
 -&gt; FromJSONKeyFunction [IpSetStatus] -&gt; FromJSONKey IpSetStatus
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [IpSetStatus]
 fromJSONKey :: FromJSONKeyFunction IpSetStatus
 $cfromJSONKey :: FromJSONKeyFunction IpSetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679297226"><span id="local-6989586621679297228"><span id="local-6989586621679297230"><span id="local-6989586621679297232"><span class="annot"><span class="annottext">[IpSetStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679297235"><span id="local-6989586621679297237"><span id="local-6989586621679297239"><span id="local-6989586621679297241"><span class="annot"><span class="annottext">[IpSetStatus] -&gt; Encoding
 [IpSetStatus] -&gt; Value
 IpSetStatus -&gt; Encoding
 IpSetStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: IpSetStatus -&gt; Encoding
 toJSON :: IpSetStatus -&gt; Value
 $ctoJSON :: IpSetStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679297221"><span id="local-6989586621679297223"><span class="annot"><span class="annottext">ToJSONKeyFunction [IpSetStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679297230"><span id="local-6989586621679297232"><span class="annot"><span class="annottext">ToJSONKeyFunction [IpSetStatus]
 ToJSONKeyFunction IpSetStatus
 ToJSONKeyFunction IpSetStatus
 -&gt; ToJSONKeyFunction [IpSetStatus] -&gt; ToJSONKey IpSetStatus
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [IpSetStatus]
 toJSONKey :: ToJSONKeyFunction IpSetStatus
 $ctoJSONKey :: ToJSONKeyFunction IpSetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679297218"><span class="annot"><span class="annottext">[Node] -&gt; Either String IpSetStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679297227"><span class="annot"><span class="annottext">[Node] -&gt; Either String IpSetStatus
 ([Node] -&gt; Either String IpSetStatus) -&gt; FromXML IpSetStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String IpSetStatus
 $cparseXML :: [Node] -&gt; Either String IpSetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679297215"><span class="annot"><span class="annottext">IpSetStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679297224"><span class="annot"><span class="annottext">IpSetStatus -&gt; XML
 (IpSetStatus -&gt; XML) -&gt; ToXML IpSetStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: IpSetStatus -&gt; XML

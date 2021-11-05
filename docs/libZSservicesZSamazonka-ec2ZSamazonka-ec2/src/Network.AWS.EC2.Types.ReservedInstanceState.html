@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621681144083"><span id="local-6989586621681144084"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservedInstanceState"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceState.html#ReservedInstanceState"><span class="hs-identifier hs-var">ReservedInstanceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedInstanceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceState.html#ReservedInstanceState%27"><span class="hs-identifier hs-var">ReservedInstanceState'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621681144092"><span id="local-6989586621681144093"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservedInstanceState"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceState.html#ReservedInstanceState"><span class="hs-identifier hs-var">ReservedInstanceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedInstanceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceState.html#ReservedInstanceState%27"><span class="hs-identifier hs-var">ReservedInstanceState'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservedInstanceState"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ReservedInstanceState.html#fromReservedInstanceState"><span class="hs-identifier hs-var hs-var">fromReservedInstanceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144075"><span id="local-6989586621681144077"><span id="local-6989586621681144079"><span class="annot"><span class="annottext">Int -&gt; ReservedInstanceState -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144084"><span id="local-6989586621681144086"><span id="local-6989586621681144088"><span class="annot"><span class="annottext">Int -&gt; ReservedInstanceState -&gt; ShowS
 [ReservedInstanceState] -&gt; ShowS
 ReservedInstanceState -&gt; String
 (Int -&gt; ReservedInstanceState -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: ReservedInstanceState -&gt; String
 showsPrec :: Int -&gt; ReservedInstanceState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReservedInstanceState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681144066"><span id="local-6989586621681144068"><span id="local-6989586621681144070"><span id="local-6989586621681144072"><span class="annot"><span class="annottext">ReadPrec [ReservedInstanceState]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681144075"><span id="local-6989586621681144077"><span id="local-6989586621681144079"><span id="local-6989586621681144081"><span class="annot"><span class="annottext">ReadPrec [ReservedInstanceState]
 ReadPrec ReservedInstanceState
 Int -&gt; ReadS ReservedInstanceState
 ReadS [ReservedInstanceState]
@@ -77,7 +77,7 @@ $creadList :: ReadS [ReservedInstanceState]
 readsPrec :: Int -&gt; ReadS ReservedInstanceState
 $creadsPrec :: Int -&gt; ReadS ReservedInstanceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681144061"><span id="local-6989586621681144063"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681144070"><span id="local-6989586621681144072"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool
 (ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool)
 -&gt; (ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool)
 -&gt; Eq ReservedInstanceState
@@ -87,7 +87,7 @@ $c/= :: ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool
 == :: ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool
 $c== :: ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681144045"><span id="local-6989586621681144047"><span id="local-6989586621681144049"><span id="local-6989586621681144051"><span id="local-6989586621681144053"><span id="local-6989586621681144055"><span id="local-6989586621681144057"><span class="annot"><span class="annottext">Eq ReservedInstanceState
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681144054"><span id="local-6989586621681144056"><span id="local-6989586621681144058"><span id="local-6989586621681144060"><span id="local-6989586621681144062"><span id="local-6989586621681144064"><span id="local-6989586621681144066"><span class="annot"><span class="annottext">Eq ReservedInstanceState
 Eq ReservedInstanceState
 -&gt; (ReservedInstanceState -&gt; ReservedInstanceState -&gt; Ordering)
 -&gt; (ReservedInstanceState -&gt; ReservedInstanceState -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. ReservedInstanceState -&gt; Rep ReservedInstanceState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144037"><span id="local-6989586621681144039"><span class="annot"><span class="annottext">Int -&gt; ReservedInstanceState -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144046"><span id="local-6989586621681144048"><span class="annot"><span class="annottext">Int -&gt; ReservedInstanceState -&gt; Int
 ReservedInstanceState -&gt; Int
 (Int -&gt; ReservedInstanceState -&gt; Int)
 -&gt; (ReservedInstanceState -&gt; Int) -&gt; Hashable ReservedInstanceState
@@ -155,54 +155,54 @@ $chash :: ReservedInstanceState -&gt; Int
 hashWithSalt :: Int -&gt; ReservedInstanceState -&gt; Int
 $chashWithSalt :: Int -&gt; ReservedInstanceState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681144034"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681144043"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ()
 (ReservedInstanceState -&gt; ()) -&gt; NFData ReservedInstanceState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReservedInstanceState -&gt; ()
 $crnf :: ReservedInstanceState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681144031"><span class="annot"><span class="annottext">Text -&gt; Either String ReservedInstanceState
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681144040"><span class="annot"><span class="annottext">Text -&gt; Either String ReservedInstanceState
 (Text -&gt; Either String ReservedInstanceState)
 -&gt; FromText ReservedInstanceState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReservedInstanceState
 $cfromText :: Text -&gt; Either String ReservedInstanceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681144028"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681144037"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; Text
 (ReservedInstanceState -&gt; Text) -&gt; ToText ReservedInstanceState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReservedInstanceState -&gt; Text
 $ctoText :: ReservedInstanceState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681144025"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681144034"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ByteString
 (ReservedInstanceState -&gt; ByteString)
 -&gt; ToByteString ReservedInstanceState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReservedInstanceState -&gt; ByteString
 $ctoBS :: ReservedInstanceState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681144022"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681144031"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; ByteStringBuilder
 (ReservedInstanceState -&gt; ByteStringBuilder)
 -&gt; ToLog ReservedInstanceState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReservedInstanceState -&gt; ByteStringBuilder
 $cbuild :: ReservedInstanceState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681144019"><span class="annot"><span class="annottext">HeaderName -&gt; ReservedInstanceState -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681144028"><span class="annot"><span class="annottext">HeaderName -&gt; ReservedInstanceState -&gt; [Header]
 (HeaderName -&gt; ReservedInstanceState -&gt; [Header])
 -&gt; ToHeader ReservedInstanceState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReservedInstanceState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReservedInstanceState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681144016"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681144025"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; QueryString
 (ReservedInstanceState -&gt; QueryString)
 -&gt; ToQuery ReservedInstanceState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReservedInstanceState -&gt; QueryString
 $ctoQuery :: ReservedInstanceState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681144011"><span id="local-6989586621681144013"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservedInstanceState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681144020"><span id="local-6989586621681144022"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservedInstanceState]
 Value -&gt; Parser ReservedInstanceState
 (Value -&gt; Parser ReservedInstanceState)
 -&gt; (Value -&gt; Parser [ReservedInstanceState])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [ReservedInstanceState]
 parseJSON :: Value -&gt; Parser ReservedInstanceState
 $cparseJSON :: Value -&gt; Parser ReservedInstanceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681144006"><span id="local-6989586621681144008"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservedInstanceState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681144015"><span id="local-6989586621681144017"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservedInstanceState]
 FromJSONKeyFunction ReservedInstanceState
 FromJSONKeyFunction ReservedInstanceState
 -&gt; FromJSONKeyFunction [ReservedInstanceState]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReservedInstanceState]
 fromJSONKey :: FromJSONKeyFunction ReservedInstanceState
 $cfromJSONKey :: FromJSONKeyFunction ReservedInstanceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681143997"><span id="local-6989586621681143999"><span id="local-6989586621681144001"><span id="local-6989586621681144003"><span class="annot"><span class="annottext">[ReservedInstanceState] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681144006"><span id="local-6989586621681144008"><span id="local-6989586621681144010"><span id="local-6989586621681144012"><span class="annot"><span class="annottext">[ReservedInstanceState] -&gt; Encoding
 [ReservedInstanceState] -&gt; Value
 ReservedInstanceState -&gt; Encoding
 ReservedInstanceState -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: ReservedInstanceState -&gt; Encoding
 toJSON :: ReservedInstanceState -&gt; Value
 $ctoJSON :: ReservedInstanceState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681143992"><span id="local-6989586621681143994"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservedInstanceState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681144001"><span id="local-6989586621681144003"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservedInstanceState]
 ToJSONKeyFunction ReservedInstanceState
 ToJSONKeyFunction ReservedInstanceState
 -&gt; ToJSONKeyFunction [ReservedInstanceState]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReservedInstanceState]
 toJSONKey :: ToJSONKeyFunction ReservedInstanceState
 $ctoJSONKey :: ToJSONKeyFunction ReservedInstanceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681143989"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservedInstanceState
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681143998"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservedInstanceState
 ([Node] -&gt; Either String ReservedInstanceState)
 -&gt; FromXML ReservedInstanceState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReservedInstanceState
 $cparseXML :: [Node] -&gt; Either String ReservedInstanceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681143986"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681143995"><span class="annot"><span class="annottext">ReservedInstanceState -&gt; XML
 (ReservedInstanceState -&gt; XML) -&gt; ToXML ReservedInstanceState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReservedInstanceState -&gt; XML

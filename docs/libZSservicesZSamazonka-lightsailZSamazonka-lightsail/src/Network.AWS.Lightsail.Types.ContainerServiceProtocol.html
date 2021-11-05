@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679608095"><span id="local-6989586621679608096"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerServiceProtocol"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-var">ContainerServiceProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceProtocol%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-identifier hs-var">ContainerServiceProtocol'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679608104"><span id="local-6989586621679608105"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerServiceProtocol"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-var">ContainerServiceProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceProtocol%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol%27"><span class="hs-identifier hs-var">ContainerServiceProtocol'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerServiceProtocol"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#fromContainerServiceProtocol"><span class="hs-identifier hs-var hs-var">fromContainerServiceProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679608087"><span id="local-6989586621679608089"><span id="local-6989586621679608091"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceProtocol -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679608096"><span id="local-6989586621679608098"><span id="local-6989586621679608100"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceProtocol -&gt; ShowS
 [ContainerServiceProtocol] -&gt; ShowS
 ContainerServiceProtocol -&gt; String
 (Int -&gt; ContainerServiceProtocol -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ContainerServiceProtocol -&gt; String
 showsPrec :: Int -&gt; ContainerServiceProtocol -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerServiceProtocol -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679608078"><span id="local-6989586621679608080"><span id="local-6989586621679608082"><span id="local-6989586621679608084"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceProtocol]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679608087"><span id="local-6989586621679608089"><span id="local-6989586621679608091"><span id="local-6989586621679608093"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceProtocol]
 ReadPrec ContainerServiceProtocol
 Int -&gt; ReadS ContainerServiceProtocol
 ReadS [ContainerServiceProtocol]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ContainerServiceProtocol]
 readsPrec :: Int -&gt; ReadS ContainerServiceProtocol
 $creadsPrec :: Int -&gt; ReadS ContainerServiceProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679608073"><span id="local-6989586621679608075"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679608082"><span id="local-6989586621679608084"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
 (ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
 -&gt; (ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool)
 -&gt; Eq ContainerServiceProtocol
@@ -84,7 +84,7 @@ $c/= :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
 == :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
 $c== :: ContainerServiceProtocol -&gt; ContainerServiceProtocol -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679608057"><span id="local-6989586621679608059"><span id="local-6989586621679608061"><span id="local-6989586621679608063"><span id="local-6989586621679608065"><span id="local-6989586621679608067"><span id="local-6989586621679608069"><span class="annot"><span class="annottext">Eq ContainerServiceProtocol
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679608066"><span id="local-6989586621679608068"><span id="local-6989586621679608070"><span id="local-6989586621679608072"><span id="local-6989586621679608074"><span id="local-6989586621679608076"><span id="local-6989586621679608078"><span class="annot"><span class="annottext">Eq ContainerServiceProtocol
 Eq ContainerServiceProtocol
 -&gt; (ContainerServiceProtocol
     -&gt; ContainerServiceProtocol -&gt; Ordering)
@@ -149,7 +149,7 @@ ContainerServiceProtocol -&gt; Rep ContainerServiceProtocol x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679608049"><span id="local-6989586621679608051"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceProtocol -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679608058"><span id="local-6989586621679608060"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceProtocol -&gt; Int
 ContainerServiceProtocol -&gt; Int
 (Int -&gt; ContainerServiceProtocol -&gt; Int)
 -&gt; (ContainerServiceProtocol -&gt; Int)
@@ -160,55 +160,55 @@ $chash :: ContainerServiceProtocol -&gt; Int
 hashWithSalt :: Int -&gt; ContainerServiceProtocol -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerServiceProtocol -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679608046"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679608055"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ()
 (ContainerServiceProtocol -&gt; ()) -&gt; NFData ContainerServiceProtocol
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerServiceProtocol -&gt; ()
 $crnf :: ContainerServiceProtocol -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679608043"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerServiceProtocol
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679608052"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerServiceProtocol
 (Text -&gt; Either String ContainerServiceProtocol)
 -&gt; FromText ContainerServiceProtocol
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerServiceProtocol
 $cfromText :: Text -&gt; Either String ContainerServiceProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679608040"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679608049"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; Text
 (ContainerServiceProtocol -&gt; Text)
 -&gt; ToText ContainerServiceProtocol
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerServiceProtocol -&gt; Text
 $ctoText :: ContainerServiceProtocol -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679608037"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679608046"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ByteString
 (ContainerServiceProtocol -&gt; ByteString)
 -&gt; ToByteString ContainerServiceProtocol
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerServiceProtocol -&gt; ByteString
 $ctoBS :: ContainerServiceProtocol -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679608034"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679608043"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; ByteStringBuilder
 (ContainerServiceProtocol -&gt; ByteStringBuilder)
 -&gt; ToLog ContainerServiceProtocol
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerServiceProtocol -&gt; ByteStringBuilder
 $cbuild :: ContainerServiceProtocol -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679608031"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerServiceProtocol -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679608040"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerServiceProtocol -&gt; [Header]
 (HeaderName -&gt; ContainerServiceProtocol -&gt; [Header])
 -&gt; ToHeader ContainerServiceProtocol
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerServiceProtocol -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerServiceProtocol -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679608028"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679608037"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; QueryString
 (ContainerServiceProtocol -&gt; QueryString)
 -&gt; ToQuery ContainerServiceProtocol
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerServiceProtocol -&gt; QueryString
 $ctoQuery :: ContainerServiceProtocol -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679608023"><span id="local-6989586621679608025"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerServiceProtocol]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679608032"><span id="local-6989586621679608034"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerServiceProtocol]
 Value -&gt; Parser ContainerServiceProtocol
 (Value -&gt; Parser ContainerServiceProtocol)
 -&gt; (Value -&gt; Parser [ContainerServiceProtocol])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerServiceProtocol]
 parseJSON :: Value -&gt; Parser ContainerServiceProtocol
 $cparseJSON :: Value -&gt; Parser ContainerServiceProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679608018"><span id="local-6989586621679608020"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerServiceProtocol]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679608027"><span id="local-6989586621679608029"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerServiceProtocol]
 FromJSONKeyFunction ContainerServiceProtocol
 FromJSONKeyFunction ContainerServiceProtocol
 -&gt; FromJSONKeyFunction [ContainerServiceProtocol]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerServiceProtocol]
 fromJSONKey :: FromJSONKeyFunction ContainerServiceProtocol
 $cfromJSONKey :: FromJSONKeyFunction ContainerServiceProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679608009"><span id="local-6989586621679608011"><span id="local-6989586621679608013"><span id="local-6989586621679608015"><span class="annot"><span class="annottext">[ContainerServiceProtocol] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679608018"><span id="local-6989586621679608020"><span id="local-6989586621679608022"><span id="local-6989586621679608024"><span class="annot"><span class="annottext">[ContainerServiceProtocol] -&gt; Encoding
 [ContainerServiceProtocol] -&gt; Value
 ContainerServiceProtocol -&gt; Encoding
 ContainerServiceProtocol -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: ContainerServiceProtocol -&gt; Encoding
 toJSON :: ContainerServiceProtocol -&gt; Value
 $ctoJSON :: ContainerServiceProtocol -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679608004"><span id="local-6989586621679608006"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerServiceProtocol]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679608013"><span id="local-6989586621679608015"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerServiceProtocol]
 ToJSONKeyFunction ContainerServiceProtocol
 ToJSONKeyFunction ContainerServiceProtocol
 -&gt; ToJSONKeyFunction [ContainerServiceProtocol]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerServiceProtocol]
 toJSONKey :: ToJSONKeyFunction ContainerServiceProtocol
 $ctoJSONKey :: ToJSONKeyFunction ContainerServiceProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679608001"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerServiceProtocol
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679608010"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerServiceProtocol
 ([Node] -&gt; Either String ContainerServiceProtocol)
 -&gt; FromXML ContainerServiceProtocol
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerServiceProtocol
 $cparseXML :: [Node] -&gt; Either String ContainerServiceProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679607998"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679608007"><span class="annot"><span class="annottext">ContainerServiceProtocol -&gt; XML
 (ContainerServiceProtocol -&gt; XML) -&gt; ToXML ContainerServiceProtocol
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContainerServiceProtocol -&gt; XML

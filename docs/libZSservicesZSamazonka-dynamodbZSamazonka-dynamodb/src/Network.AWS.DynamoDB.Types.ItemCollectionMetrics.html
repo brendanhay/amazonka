@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- information is not returned in the response.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newItemCollectionMetrics' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679373586"><span id="local-6989586621679373587"></span></span><span class="hs-keyword">data</span><span> </span><span id="ItemCollectionMetrics"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-var">ItemCollectionMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ItemCollectionMetrics%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-var">ItemCollectionMetrics'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679373595"><span id="local-6989586621679373596"></span></span><span class="hs-keyword">data</span><span> </span><span id="ItemCollectionMetrics"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-var">ItemCollectionMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ItemCollectionMetrics%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-var">ItemCollectionMetrics'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The partition key value of the item collection. This value is the same</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- as the partition key value of the item.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AitemCollectionKey%3AItemCollectionMetrics%27"><span class="annot"><span class="annottext">ItemCollectionMetrics -&gt; Maybe (HashMap Text AttributeValue)
@@ -47,7 +47,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AsizeEstimateRangeGB%3AItemCollectionMetrics%27"><span class="annot"><span class="annottext">ItemCollectionMetrics -&gt; Maybe [Double]
 </span><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#%24sel%3AsizeEstimateRangeGB%3AItemCollectionMetrics%27"><span class="hs-identifier hs-var hs-var">sizeEstimateRangeGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373579"><span id="local-6989586621679373581"><span class="annot"><span class="annottext">ItemCollectionMetrics -&gt; ItemCollectionMetrics -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373588"><span id="local-6989586621679373590"><span class="annot"><span class="annottext">ItemCollectionMetrics -&gt; ItemCollectionMetrics -&gt; Bool
 (ItemCollectionMetrics -&gt; ItemCollectionMetrics -&gt; Bool)
 -&gt; (ItemCollectionMetrics -&gt; ItemCollectionMetrics -&gt; Bool)
 -&gt; Eq ItemCollectionMetrics
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ItemCollectionMetrics -&gt; ItemCollectionMetrics -&gt; Bool
 == :: ItemCollectionMetrics -&gt; ItemCollectionMetrics -&gt; Bool
 $c== :: ItemCollectionMetrics -&gt; ItemCollectionMetrics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373570"><span id="local-6989586621679373572"><span id="local-6989586621679373574"><span id="local-6989586621679373576"><span class="annot"><span class="annottext">ReadPrec [ItemCollectionMetrics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373579"><span id="local-6989586621679373581"><span id="local-6989586621679373583"><span id="local-6989586621679373585"><span class="annot"><span class="annottext">ReadPrec [ItemCollectionMetrics]
 ReadPrec ItemCollectionMetrics
 Int -&gt; ReadS ItemCollectionMetrics
 ReadS [ItemCollectionMetrics]
@@ -76,7 +76,7 @@ readList :: ReadS [ItemCollectionMetrics]
 $creadList :: ReadS [ItemCollectionMetrics]
 readsPrec :: Int -&gt; ReadS ItemCollectionMetrics
 $creadsPrec :: Int -&gt; ReadS ItemCollectionMetrics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373563"><span id="local-6989586621679373565"><span id="local-6989586621679373567"><span class="annot"><span class="annottext">Int -&gt; ItemCollectionMetrics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373572"><span id="local-6989586621679373574"><span id="local-6989586621679373576"><span class="annot"><span class="annottext">Int -&gt; ItemCollectionMetrics -&gt; ShowS
 [ItemCollectionMetrics] -&gt; ShowS
 ItemCollectionMetrics -&gt; String
 (Int -&gt; ItemCollectionMetrics -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Maybe a
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373554"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373563"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 itemCollectionKey :: Maybe (HashMap Text AttributeValue)
 $sel:itemCollectionKey:ItemCollectionMetrics' :: ItemCollectionMetrics -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679373554"><span class="hs-identifier hs-var hs-var">itemCollectionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679373554"><span class="hs-identifier hs-var">itemCollectionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373553"><span class="annot"><span class="annottext">s :: ItemCollectionMetrics
-</span><a href="#local-6989586621679373553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373552"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679373552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ItemCollectionMetrics
-</span><a href="#local-6989586621679373553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionKey:ItemCollectionMetrics' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679373563"><span class="hs-identifier hs-var hs-var">itemCollectionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679373563"><span class="hs-identifier hs-var">itemCollectionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373562"><span class="annot"><span class="annottext">s :: ItemCollectionMetrics
+</span><a href="#local-6989586621679373562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373561"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679373561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ItemCollectionMetrics
+</span><a href="#local-6989586621679373562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionKey:ItemCollectionMetrics' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#%24sel%3AitemCollectionKey%3AItemCollectionMetrics%27"><span class="hs-identifier hs-var">itemCollectionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679373552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679373561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; ItemCollectionMetrics -&gt; f ItemCollectionMetrics)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -218,16 +218,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Double])
      (Maybe [Double])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373547"><span class="annot"><span class="annottext">Maybe [Double]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373556"><span class="annot"><span class="annottext">Maybe [Double]
 sizeEstimateRangeGB :: Maybe [Double]
 $sel:sizeEstimateRangeGB:ItemCollectionMetrics' :: ItemCollectionMetrics -&gt; Maybe [Double]
-</span><a href="#local-6989586621679373547"><span class="hs-identifier hs-var hs-var">sizeEstimateRangeGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679373547"><span class="hs-identifier hs-var">sizeEstimateRangeGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373546"><span class="annot"><span class="annottext">s :: ItemCollectionMetrics
-</span><a href="#local-6989586621679373546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373545"><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679373545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ItemCollectionMetrics
-</span><a href="#local-6989586621679373546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeEstimateRangeGB:ItemCollectionMetrics' :: Maybe [Double]
+</span><a href="#local-6989586621679373556"><span class="hs-identifier hs-var hs-var">sizeEstimateRangeGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679373556"><span class="hs-identifier hs-var">sizeEstimateRangeGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373555"><span class="annot"><span class="annottext">s :: ItemCollectionMetrics
+</span><a href="#local-6989586621679373555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-type">ItemCollectionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373554"><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679373554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ItemCollectionMetrics
+</span><a href="#local-6989586621679373555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeEstimateRangeGB:ItemCollectionMetrics' :: Maybe [Double]
 </span><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#%24sel%3AsizeEstimateRangeGB%3AItemCollectionMetrics%27"><span class="hs-identifier hs-var">sizeEstimateRangeGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679373545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
+</span><a href="#local-6989586621679373554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
  -&gt; ItemCollectionMetrics -&gt; f ItemCollectionMetrics)
 -&gt; ((Maybe [Double] -&gt; f (Maybe [Double]))
     -&gt; Maybe [Double] -&gt; f (Maybe [Double]))
@@ -245,8 +245,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373542"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679373540"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ItemCollectionMetrics
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373551"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679373549"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ItemCollectionMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ItemCollectionMetrics)
@@ -256,8 +256,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ItemCollectionMetrics&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373537"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373546"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373546"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 -&gt; Maybe [Double] -&gt; ItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics%27"><span class="hs-identifier hs-var">ItemCollectionMetrics'</span></a></span><span>
@@ -267,7 +267,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Double] -&gt; ItemCollectionMetrics)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -284,7 +284,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Double]) -&gt; Parser ItemCollectionMetrics
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
+</span><a href="#local-6989586621679373546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizeEstimateRangeGB&quot;</span></span><span>
@@ -297,7 +297,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-107"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373530"><span id="local-6989586621679373532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373539"><span id="local-6989586621679373541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemCollectionMetrics.html#ItemCollectionMetrics"><span class="hs-identifier hs-type">ItemCollectionMetrics</span></a></span></span><span>
 </span><span id="line-113"></span></pre></body></html>

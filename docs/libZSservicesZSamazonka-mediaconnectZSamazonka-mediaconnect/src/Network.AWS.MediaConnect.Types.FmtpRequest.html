@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.FmtpRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.FmtpRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Colorimetry</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Range.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Range</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.ScanMode</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Tcs.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Tcs</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The settings that you want to use to define the media stream.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFmtpRequest' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679271254"><span id="local-6989586621679271255"></span></span><span class="hs-keyword">data</span><span> </span><span id="FmtpRequest"><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-var">FmtpRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FmtpRequest%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-var">FmtpRequest'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The transfer characteristic system (TCS) that is used in the video.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atcs%3AFmtpRequest%27"><span class="annot"><span class="annottext">FmtpRequest -&gt; Maybe Tcs
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Atcs%3AFmtpRequest%27"><span class="hs-identifier hs-var hs-var">tcs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Tcs.html#Tcs"><span class="hs-identifier hs-type">Tcs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The frame rate for the video stream, in frames\/second. For example:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- 60000\/1001. If you specify a whole number, MediaConnect uses a ratio of</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- N\/1. For example, if you specify 60, MediaConnect uses 60\/1 as the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- exactFramerate.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AexactFramerate%3AFmtpRequest%27"><span class="annot"><span class="annottext">FmtpRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AexactFramerate%3AFmtpRequest%27"><span class="hs-identifier hs-var hs-var">exactFramerate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The pixel aspect ratio (PAR) of the video.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Apar%3AFmtpRequest%27"><span class="annot"><span class="annottext">FmtpRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Apar%3AFmtpRequest%27"><span class="hs-identifier hs-var hs-var">par</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The type of compression that was used to smooth the video&#8217;s appearance.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AscanMode%3AFmtpRequest%27"><span class="annot"><span class="annottext">FmtpRequest -&gt; Maybe ScanMode
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AscanMode%3AFmtpRequest%27"><span class="hs-identifier hs-var hs-var">scanMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode"><span class="hs-identifier hs-type">ScanMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The encoding range of the video.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Arange%3AFmtpRequest%27"><span class="annot"><span class="annottext">FmtpRequest -&gt; Maybe Range
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Arange%3AFmtpRequest%27"><span class="hs-identifier hs-var hs-var">range</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Range.html#Range"><span class="hs-identifier hs-type">Range</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The format of the audio channel.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AchannelOrder%3AFmtpRequest%27"><span class="annot"><span class="annottext">FmtpRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AchannelOrder%3AFmtpRequest%27"><span class="hs-identifier hs-var hs-var">channelOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The format that is used for the representation of color.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Acolorimetry%3AFmtpRequest%27"><span class="annot"><span class="annottext">FmtpRequest -&gt; Maybe Colorimetry
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Acolorimetry%3AFmtpRequest%27"><span class="hs-identifier hs-var hs-var">colorimetry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271242"><span id="local-6989586621679271244"><span class="annot"><span class="annottext">FmtpRequest -&gt; FmtpRequest -&gt; Bool
+(FmtpRequest -&gt; FmtpRequest -&gt; Bool)
+-&gt; (FmtpRequest -&gt; FmtpRequest -&gt; Bool) -&gt; Eq FmtpRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FmtpRequest -&gt; FmtpRequest -&gt; Bool
+$c/= :: FmtpRequest -&gt; FmtpRequest -&gt; Bool
+== :: FmtpRequest -&gt; FmtpRequest -&gt; Bool
+$c== :: FmtpRequest -&gt; FmtpRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271233"><span id="local-6989586621679271235"><span id="local-6989586621679271237"><span id="local-6989586621679271239"><span class="annot"><span class="annottext">ReadPrec [FmtpRequest]
+ReadPrec FmtpRequest
+Int -&gt; ReadS FmtpRequest
+ReadS [FmtpRequest]
+(Int -&gt; ReadS FmtpRequest)
+-&gt; ReadS [FmtpRequest]
+-&gt; ReadPrec FmtpRequest
+-&gt; ReadPrec [FmtpRequest]
+-&gt; Read FmtpRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FmtpRequest]
+$creadListPrec :: ReadPrec [FmtpRequest]
+readPrec :: ReadPrec FmtpRequest
+$creadPrec :: ReadPrec FmtpRequest
+readList :: ReadS [FmtpRequest]
+$creadList :: ReadS [FmtpRequest]
+readsPrec :: Int -&gt; ReadS FmtpRequest
+$creadsPrec :: Int -&gt; ReadS FmtpRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271226"><span id="local-6989586621679271228"><span id="local-6989586621679271230"><span class="annot"><span class="annottext">Int -&gt; FmtpRequest -&gt; ShowS
+[FmtpRequest] -&gt; ShowS
+FmtpRequest -&gt; String
+(Int -&gt; FmtpRequest -&gt; ShowS)
+-&gt; (FmtpRequest -&gt; String)
+-&gt; ([FmtpRequest] -&gt; ShowS)
+-&gt; Show FmtpRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FmtpRequest] -&gt; ShowS
+$cshowList :: [FmtpRequest] -&gt; ShowS
+show :: FmtpRequest -&gt; String
+$cshow :: FmtpRequest -&gt; String
+showsPrec :: Int -&gt; FmtpRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; FmtpRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FmtpRequest -&gt; Rep FmtpRequest x)
+-&gt; (forall x. Rep FmtpRequest x -&gt; FmtpRequest)
+-&gt; Generic FmtpRequest
+forall x. Rep FmtpRequest x -&gt; FmtpRequest
+forall x. FmtpRequest -&gt; Rep FmtpRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FmtpRequest x -&gt; FmtpRequest
+$cfrom :: forall x. FmtpRequest -&gt; Rep FmtpRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'FmtpRequest' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'tcs', 'fmtpRequest_tcs' - The transfer characteristic system (TCS) that is used in the video.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'exactFramerate', 'fmtpRequest_exactFramerate' - The frame rate for the video stream, in frames\/second. For example:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 60000\/1001. If you specify a whole number, MediaConnect uses a ratio of</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- N\/1. For example, if you specify 60, MediaConnect uses 60\/1 as the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- exactFramerate.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'par', 'fmtpRequest_par' - The pixel aspect ratio (PAR) of the video.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'scanMode', 'fmtpRequest_scanMode' - The type of compression that was used to smooth the video&#8217;s appearance.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'range', 'fmtpRequest_range' - The encoding range of the video.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'channelOrder', 'fmtpRequest_channelOrder' - The format of the audio channel.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'colorimetry', 'fmtpRequest_colorimetry' - The format that is used for the representation of color.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#newFmtpRequest"><span class="hs-identifier hs-type">newFmtpRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span>
+</span><span id="line-80"></span><span id="newFmtpRequest"><span class="annot"><span class="annottext">newFmtpRequest :: FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#newFmtpRequest"><span class="hs-identifier hs-var hs-var">newFmtpRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">FmtpRequest' :: Maybe Tcs
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ScanMode
+-&gt; Maybe Range
+-&gt; Maybe Text
+-&gt; Maybe Colorimetry
+-&gt; FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tcs:FmtpRequest' :: Maybe Tcs
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Atcs%3AFmtpRequest%27"><span class="hs-identifier hs-var">tcs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tcs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:exactFramerate:FmtpRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AexactFramerate%3AFmtpRequest%27"><span class="hs-identifier hs-var">exactFramerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:par:FmtpRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Apar%3AFmtpRequest%27"><span class="hs-identifier hs-var">par</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:scanMode:FmtpRequest' :: Maybe ScanMode
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AscanMode%3AFmtpRequest%27"><span class="hs-identifier hs-var">scanMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:range:FmtpRequest' :: Maybe Range
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Arange%3AFmtpRequest%27"><span class="hs-identifier hs-var">range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Range
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelOrder:FmtpRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AchannelOrder%3AFmtpRequest%27"><span class="hs-identifier hs-var">channelOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:colorimetry:FmtpRequest' :: Maybe Colorimetry
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Acolorimetry%3AFmtpRequest%27"><span class="hs-identifier hs-var">colorimetry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Colorimetry
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The transfer characteristic system (TCS) that is used in the video.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_tcs"><span class="hs-identifier hs-type">fmtpRequest_tcs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Tcs.html#Tcs"><span class="hs-identifier hs-type">Tcs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="fmtpRequest_tcs"><span class="annot"><span class="annottext">fmtpRequest_tcs :: (Maybe Tcs -&gt; f (Maybe Tcs)) -&gt; FmtpRequest -&gt; f FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_tcs"><span class="hs-identifier hs-var hs-var">fmtpRequest_tcs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FmtpRequest -&gt; Maybe Tcs)
+-&gt; (FmtpRequest -&gt; Maybe Tcs -&gt; FmtpRequest)
+-&gt; Lens FmtpRequest FmtpRequest (Maybe Tcs) (Maybe Tcs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271217"><span class="annot"><span class="annottext">Maybe Tcs
+tcs :: Maybe Tcs
+$sel:tcs:FmtpRequest' :: FmtpRequest -&gt; Maybe Tcs
+</span><a href="#local-6989586621679271217"><span class="hs-identifier hs-var hs-var">tcs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tcs
+</span><a href="#local-6989586621679271217"><span class="hs-identifier hs-var">tcs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271216"><span class="annot"><span class="annottext">s :: FmtpRequest
+</span><a href="#local-6989586621679271216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271215"><span class="annot"><span class="annottext">Maybe Tcs
+</span><a href="#local-6989586621679271215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FmtpRequest
+</span><a href="#local-6989586621679271216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tcs:FmtpRequest' :: Maybe Tcs
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Atcs%3AFmtpRequest%27"><span class="hs-identifier hs-var">tcs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tcs
+</span><a href="#local-6989586621679271215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The frame rate for the video stream, in frames\/second. For example:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 60000\/1001. If you specify a whole number, MediaConnect uses a ratio of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- N\/1. For example, if you specify 60, MediaConnect uses 60\/1 as the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- exactFramerate.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_exactFramerate"><span class="hs-identifier hs-type">fmtpRequest_exactFramerate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="fmtpRequest_exactFramerate"><span class="annot"><span class="annottext">fmtpRequest_exactFramerate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FmtpRequest -&gt; f FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_exactFramerate"><span class="hs-identifier hs-var hs-var">fmtpRequest_exactFramerate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FmtpRequest -&gt; Maybe Text)
+-&gt; (FmtpRequest -&gt; Maybe Text -&gt; FmtpRequest)
+-&gt; Lens FmtpRequest FmtpRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271213"><span class="annot"><span class="annottext">Maybe Text
+exactFramerate :: Maybe Text
+$sel:exactFramerate:FmtpRequest' :: FmtpRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679271213"><span class="hs-identifier hs-var hs-var">exactFramerate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271213"><span class="hs-identifier hs-var">exactFramerate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271212"><span class="annot"><span class="annottext">s :: FmtpRequest
+</span><a href="#local-6989586621679271212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271211"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FmtpRequest
+</span><a href="#local-6989586621679271212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exactFramerate:FmtpRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AexactFramerate%3AFmtpRequest%27"><span class="hs-identifier hs-var">exactFramerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The pixel aspect ratio (PAR) of the video.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_par"><span class="hs-identifier hs-type">fmtpRequest_par</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="fmtpRequest_par"><span class="annot"><span class="annottext">fmtpRequest_par :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FmtpRequest -&gt; f FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_par"><span class="hs-identifier hs-var hs-var">fmtpRequest_par</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FmtpRequest -&gt; Maybe Text)
+-&gt; (FmtpRequest -&gt; Maybe Text -&gt; FmtpRequest)
+-&gt; Lens FmtpRequest FmtpRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271209"><span class="annot"><span class="annottext">Maybe Text
+par :: Maybe Text
+$sel:par:FmtpRequest' :: FmtpRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679271209"><span class="hs-identifier hs-var hs-var">par</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271209"><span class="hs-identifier hs-var">par</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271208"><span class="annot"><span class="annottext">s :: FmtpRequest
+</span><a href="#local-6989586621679271208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271207"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FmtpRequest
+</span><a href="#local-6989586621679271208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:par:FmtpRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Apar%3AFmtpRequest%27"><span class="hs-identifier hs-var">par</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The type of compression that was used to smooth the video&#8217;s appearance.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_scanMode"><span class="hs-identifier hs-type">fmtpRequest_scanMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode"><span class="hs-identifier hs-type">ScanMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="fmtpRequest_scanMode"><span class="annot"><span class="annottext">fmtpRequest_scanMode :: (Maybe ScanMode -&gt; f (Maybe ScanMode))
+-&gt; FmtpRequest -&gt; f FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_scanMode"><span class="hs-identifier hs-var hs-var">fmtpRequest_scanMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FmtpRequest -&gt; Maybe ScanMode)
+-&gt; (FmtpRequest -&gt; Maybe ScanMode -&gt; FmtpRequest)
+-&gt; Lens FmtpRequest FmtpRequest (Maybe ScanMode) (Maybe ScanMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271205"><span class="annot"><span class="annottext">Maybe ScanMode
+scanMode :: Maybe ScanMode
+$sel:scanMode:FmtpRequest' :: FmtpRequest -&gt; Maybe ScanMode
+</span><a href="#local-6989586621679271205"><span class="hs-identifier hs-var hs-var">scanMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScanMode
+</span><a href="#local-6989586621679271205"><span class="hs-identifier hs-var">scanMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271204"><span class="annot"><span class="annottext">s :: FmtpRequest
+</span><a href="#local-6989586621679271204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271203"><span class="annot"><span class="annottext">Maybe ScanMode
+</span><a href="#local-6989586621679271203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FmtpRequest
+</span><a href="#local-6989586621679271204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanMode:FmtpRequest' :: Maybe ScanMode
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AscanMode%3AFmtpRequest%27"><span class="hs-identifier hs-var">scanMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanMode
+</span><a href="#local-6989586621679271203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The encoding range of the video.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_range"><span class="hs-identifier hs-type">fmtpRequest_range</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Range.html#Range"><span class="hs-identifier hs-type">Range</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="fmtpRequest_range"><span class="annot"><span class="annottext">fmtpRequest_range :: (Maybe Range -&gt; f (Maybe Range)) -&gt; FmtpRequest -&gt; f FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_range"><span class="hs-identifier hs-var hs-var">fmtpRequest_range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FmtpRequest -&gt; Maybe Range)
+-&gt; (FmtpRequest -&gt; Maybe Range -&gt; FmtpRequest)
+-&gt; Lens FmtpRequest FmtpRequest (Maybe Range) (Maybe Range)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271201"><span class="annot"><span class="annottext">Maybe Range
+range :: Maybe Range
+$sel:range:FmtpRequest' :: FmtpRequest -&gt; Maybe Range
+</span><a href="#local-6989586621679271201"><span class="hs-identifier hs-var hs-var">range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Range
+</span><a href="#local-6989586621679271201"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271200"><span class="annot"><span class="annottext">s :: FmtpRequest
+</span><a href="#local-6989586621679271200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271199"><span class="annot"><span class="annottext">Maybe Range
+</span><a href="#local-6989586621679271199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FmtpRequest
+</span><a href="#local-6989586621679271200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:range:FmtpRequest' :: Maybe Range
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Arange%3AFmtpRequest%27"><span class="hs-identifier hs-var">range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Range
+</span><a href="#local-6989586621679271199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The format of the audio channel.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_channelOrder"><span class="hs-identifier hs-type">fmtpRequest_channelOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="fmtpRequest_channelOrder"><span class="annot"><span class="annottext">fmtpRequest_channelOrder :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FmtpRequest -&gt; f FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_channelOrder"><span class="hs-identifier hs-var hs-var">fmtpRequest_channelOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FmtpRequest -&gt; Maybe Text)
+-&gt; (FmtpRequest -&gt; Maybe Text -&gt; FmtpRequest)
+-&gt; Lens FmtpRequest FmtpRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271197"><span class="annot"><span class="annottext">Maybe Text
+channelOrder :: Maybe Text
+$sel:channelOrder:FmtpRequest' :: FmtpRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679271197"><span class="hs-identifier hs-var hs-var">channelOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271197"><span class="hs-identifier hs-var">channelOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271196"><span class="annot"><span class="annottext">s :: FmtpRequest
+</span><a href="#local-6989586621679271196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FmtpRequest
+</span><a href="#local-6989586621679271196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelOrder:FmtpRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3AchannelOrder%3AFmtpRequest%27"><span class="hs-identifier hs-var">channelOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The format that is used for the representation of color.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_colorimetry"><span class="hs-identifier hs-type">fmtpRequest_colorimetry</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="fmtpRequest_colorimetry"><span class="annot"><span class="annottext">fmtpRequest_colorimetry :: (Maybe Colorimetry -&gt; f (Maybe Colorimetry))
+-&gt; FmtpRequest -&gt; f FmtpRequest
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#fmtpRequest_colorimetry"><span class="hs-identifier hs-var hs-var">fmtpRequest_colorimetry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FmtpRequest -&gt; Maybe Colorimetry)
+-&gt; (FmtpRequest -&gt; Maybe Colorimetry -&gt; FmtpRequest)
+-&gt; Lens
+     FmtpRequest FmtpRequest (Maybe Colorimetry) (Maybe Colorimetry)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271193"><span class="annot"><span class="annottext">Maybe Colorimetry
+colorimetry :: Maybe Colorimetry
+$sel:colorimetry:FmtpRequest' :: FmtpRequest -&gt; Maybe Colorimetry
+</span><a href="#local-6989586621679271193"><span class="hs-identifier hs-var hs-var">colorimetry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Colorimetry
+</span><a href="#local-6989586621679271193"><span class="hs-identifier hs-var">colorimetry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271192"><span class="annot"><span class="annottext">s :: FmtpRequest
+</span><a href="#local-6989586621679271192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271191"><span class="annot"><span class="annottext">Maybe Colorimetry
+</span><a href="#local-6989586621679271191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FmtpRequest
+</span><a href="#local-6989586621679271192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorimetry:FmtpRequest' :: Maybe Colorimetry
+</span><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#%24sel%3Acolorimetry%3AFmtpRequest%27"><span class="hs-identifier hs-var">colorimetry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Colorimetry
+</span><a href="#local-6989586621679271191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271187"><span id="local-6989586621679271189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271176"><span id="local-6989586621679271178"><span id="local-6989586621679271180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest"><span class="hs-identifier hs-type">FmtpRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679271174"><span class="annot"><span class="annottext">toJSON :: FmtpRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.FmtpRequest.html#FmtpRequest%27"><span class="hs-identifier hs-type">FmtpRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271166"><span id="local-6989586621679271167"><span id="local-6989586621679271168"><span id="local-6989586621679271169"><span id="local-6989586621679271170"><span id="local-6989586621679271171"><span id="local-6989586621679271172"><span class="annot"><span class="annottext">Maybe Text
+Maybe Colorimetry
+Maybe Range
+Maybe ScanMode
+Maybe Tcs
+colorimetry :: Maybe Colorimetry
+channelOrder :: Maybe Text
+range :: Maybe Range
+scanMode :: Maybe ScanMode
+par :: Maybe Text
+exactFramerate :: Maybe Text
+tcs :: Maybe Tcs
+$sel:colorimetry:FmtpRequest' :: FmtpRequest -&gt; Maybe Colorimetry
+$sel:channelOrder:FmtpRequest' :: FmtpRequest -&gt; Maybe Text
+$sel:range:FmtpRequest' :: FmtpRequest -&gt; Maybe Range
+$sel:scanMode:FmtpRequest' :: FmtpRequest -&gt; Maybe ScanMode
+$sel:par:FmtpRequest' :: FmtpRequest -&gt; Maybe Text
+$sel:exactFramerate:FmtpRequest' :: FmtpRequest -&gt; Maybe Text
+$sel:tcs:FmtpRequest' :: FmtpRequest -&gt; Maybe Tcs
+</span><a href="#local-6989586621679271166"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tcs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Tcs -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Tcs -&gt; Pair) -&gt; Maybe Tcs -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tcs
+</span><a href="#local-6989586621679271172"><span class="hs-identifier hs-var">tcs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;exactFramerate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271171"><span class="hs-identifier hs-var">exactFramerate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;par&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271170"><span class="hs-identifier hs-var">par</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scanMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScanMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ScanMode -&gt; Pair) -&gt; Maybe ScanMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScanMode
+</span><a href="#local-6989586621679271169"><span class="hs-identifier hs-var">scanMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;range&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Range -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Range -&gt; Pair) -&gt; Maybe Range -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Range
+</span><a href="#local-6989586621679271168"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channelOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271167"><span class="hs-identifier hs-var">channelOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorimetry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Colorimetry -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Colorimetry -&gt; Pair) -&gt; Maybe Colorimetry -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Colorimetry
+</span><a href="#local-6989586621679271166"><span class="hs-identifier hs-var">colorimetry</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span></pre></body></html>

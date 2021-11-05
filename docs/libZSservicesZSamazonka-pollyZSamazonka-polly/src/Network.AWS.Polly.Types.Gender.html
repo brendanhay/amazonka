@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679170806"><span id="local-6989586621679170807"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Gender"><span class="annot"><a href="Network.AWS.Polly.Types.Gender.html#Gender"><span class="hs-identifier hs-var">Gender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Gender%27"><span class="annot"><a href="Network.AWS.Polly.Types.Gender.html#Gender%27"><span class="hs-identifier hs-var">Gender'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromGender"><span class="annot"><span class="annottext">Gender -&gt; Text
+</span><span id="line-32"></span><span id="local-6989586621679170815"><span id="local-6989586621679170816"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Gender"><span class="annot"><a href="Network.AWS.Polly.Types.Gender.html#Gender"><span class="hs-identifier hs-var">Gender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Gender%27"><span class="annot"><a href="Network.AWS.Polly.Types.Gender.html#Gender%27"><span class="hs-identifier hs-var">Gender'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromGender"><span class="annot"><span class="annottext">Gender -&gt; Text
 </span><a href="Network.AWS.Polly.Types.Gender.html#fromGender"><span class="hs-identifier hs-var hs-var">fromGender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170798"><span id="local-6989586621679170800"><span id="local-6989586621679170802"><span class="annot"><span class="annottext">Int -&gt; Gender -&gt; ShowS
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170807"><span id="local-6989586621679170809"><span id="local-6989586621679170811"><span class="annot"><span class="annottext">Int -&gt; Gender -&gt; ShowS
 [Gender] -&gt; ShowS
 Gender -&gt; String
 (Int -&gt; Gender -&gt; ShowS)
@@ -46,7 +46,7 @@ $cshow :: Gender -&gt; String
 showsPrec :: Int -&gt; Gender -&gt; ShowS
 $cshowsPrec :: Int -&gt; Gender -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>      </span><span id="local-6989586621679170789"><span id="local-6989586621679170791"><span id="local-6989586621679170793"><span id="local-6989586621679170795"><span class="annot"><span class="annottext">ReadPrec [Gender]
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679170798"><span id="local-6989586621679170800"><span id="local-6989586621679170802"><span id="local-6989586621679170804"><span class="annot"><span class="annottext">ReadPrec [Gender]
 ReadPrec Gender
 Int -&gt; ReadS Gender
 ReadS [Gender]
@@ -67,7 +67,7 @@ $creadList :: ReadS [Gender]
 readsPrec :: Int -&gt; ReadS Gender
 $creadsPrec :: Int -&gt; ReadS Gender
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679170784"><span id="local-6989586621679170786"><span class="annot"><span class="annottext">Gender -&gt; Gender -&gt; Bool
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679170793"><span id="local-6989586621679170795"><span class="annot"><span class="annottext">Gender -&gt; Gender -&gt; Bool
 (Gender -&gt; Gender -&gt; Bool)
 -&gt; (Gender -&gt; Gender -&gt; Bool) -&gt; Eq Gender
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ $c/= :: Gender -&gt; Gender -&gt; Bool
 == :: Gender -&gt; Gender -&gt; Bool
 $c== :: Gender -&gt; Gender -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679170768"><span id="local-6989586621679170770"><span id="local-6989586621679170772"><span id="local-6989586621679170774"><span id="local-6989586621679170776"><span id="local-6989586621679170778"><span id="local-6989586621679170780"><span class="annot"><span class="annottext">Eq Gender
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679170777"><span id="local-6989586621679170779"><span id="local-6989586621679170781"><span id="local-6989586621679170783"><span id="local-6989586621679170785"><span id="local-6989586621679170787"><span id="local-6989586621679170789"><span class="annot"><span class="annottext">Eq Gender
 Eq Gender
 -&gt; (Gender -&gt; Gender -&gt; Ordering)
 -&gt; (Gender -&gt; Gender -&gt; Bool)
@@ -126,7 +126,7 @@ $cfrom :: forall x. Gender -&gt; Rep Gender x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170760"><span id="local-6989586621679170762"><span class="annot"><span class="annottext">Int -&gt; Gender -&gt; Int
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170769"><span id="local-6989586621679170771"><span class="annot"><span class="annottext">Int -&gt; Gender -&gt; Int
 Gender -&gt; Int
 (Int -&gt; Gender -&gt; Int) -&gt; (Gender -&gt; Int) -&gt; Hashable Gender
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -135,49 +135,49 @@ $chash :: Gender -&gt; Int
 hashWithSalt :: Int -&gt; Gender -&gt; Int
 $chashWithSalt :: Int -&gt; Gender -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679170757"><span class="annot"><span class="annottext">Gender -&gt; ()
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679170766"><span class="annot"><span class="annottext">Gender -&gt; ()
 (Gender -&gt; ()) -&gt; NFData Gender
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Gender -&gt; ()
 $crnf :: Gender -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679170754"><span class="annot"><span class="annottext">Text -&gt; Either String Gender
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679170763"><span class="annot"><span class="annottext">Text -&gt; Either String Gender
 (Text -&gt; Either String Gender) -&gt; FromText Gender
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Gender
 $cfromText :: Text -&gt; Either String Gender
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679170751"><span class="annot"><span class="annottext">Gender -&gt; Text
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679170760"><span class="annot"><span class="annottext">Gender -&gt; Text
 (Gender -&gt; Text) -&gt; ToText Gender
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Gender -&gt; Text
 $ctoText :: Gender -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679170748"><span class="annot"><span class="annottext">Gender -&gt; ByteString
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679170757"><span class="annot"><span class="annottext">Gender -&gt; ByteString
 (Gender -&gt; ByteString) -&gt; ToByteString Gender
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Gender -&gt; ByteString
 $ctoBS :: Gender -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679170745"><span class="annot"><span class="annottext">Gender -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679170754"><span class="annot"><span class="annottext">Gender -&gt; ByteStringBuilder
 (Gender -&gt; ByteStringBuilder) -&gt; ToLog Gender
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Gender -&gt; ByteStringBuilder
 $cbuild :: Gender -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679170742"><span class="annot"><span class="annottext">HeaderName -&gt; Gender -&gt; [Header]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679170751"><span class="annot"><span class="annottext">HeaderName -&gt; Gender -&gt; [Header]
 (HeaderName -&gt; Gender -&gt; [Header]) -&gt; ToHeader Gender
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Gender -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Gender -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679170739"><span class="annot"><span class="annottext">Gender -&gt; QueryString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679170748"><span class="annot"><span class="annottext">Gender -&gt; QueryString
 (Gender -&gt; QueryString) -&gt; ToQuery Gender
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Gender -&gt; QueryString
 $ctoQuery :: Gender -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679170734"><span id="local-6989586621679170736"><span class="annot"><span class="annottext">Value -&gt; Parser [Gender]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679170743"><span id="local-6989586621679170745"><span class="annot"><span class="annottext">Value -&gt; Parser [Gender]
 Value -&gt; Parser Gender
 (Value -&gt; Parser Gender)
 -&gt; (Value -&gt; Parser [Gender]) -&gt; FromJSON Gender
@@ -188,7 +188,7 @@ $cparseJSONList :: Value -&gt; Parser [Gender]
 parseJSON :: Value -&gt; Parser Gender
 $cparseJSON :: Value -&gt; Parser Gender
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679170729"><span id="local-6989586621679170731"><span class="annot"><span class="annottext">FromJSONKeyFunction [Gender]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679170738"><span id="local-6989586621679170740"><span class="annot"><span class="annottext">FromJSONKeyFunction [Gender]
 FromJSONKeyFunction Gender
 FromJSONKeyFunction Gender
 -&gt; FromJSONKeyFunction [Gender] -&gt; FromJSONKey Gender
@@ -199,7 +199,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Gender]
 fromJSONKey :: FromJSONKeyFunction Gender
 $cfromJSONKey :: FromJSONKeyFunction Gender
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679170720"><span id="local-6989586621679170722"><span id="local-6989586621679170724"><span id="local-6989586621679170726"><span class="annot"><span class="annottext">[Gender] -&gt; Encoding
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679170729"><span id="local-6989586621679170731"><span id="local-6989586621679170733"><span id="local-6989586621679170735"><span class="annot"><span class="annottext">[Gender] -&gt; Encoding
 [Gender] -&gt; Value
 Gender -&gt; Encoding
 Gender -&gt; Value
@@ -223,7 +223,7 @@ $ctoEncoding :: Gender -&gt; Encoding
 toJSON :: Gender -&gt; Value
 $ctoJSON :: Gender -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679170715"><span id="local-6989586621679170717"><span class="annot"><span class="annottext">ToJSONKeyFunction [Gender]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679170724"><span id="local-6989586621679170726"><span class="annot"><span class="annottext">ToJSONKeyFunction [Gender]
 ToJSONKeyFunction Gender
 ToJSONKeyFunction Gender
 -&gt; ToJSONKeyFunction [Gender] -&gt; ToJSONKey Gender
@@ -234,13 +234,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Gender]
 toJSONKey :: ToJSONKeyFunction Gender
 $ctoJSONKey :: ToJSONKeyFunction Gender
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679170712"><span class="annot"><span class="annottext">[Node] -&gt; Either String Gender
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679170721"><span class="annot"><span class="annottext">[Node] -&gt; Either String Gender
 ([Node] -&gt; Either String Gender) -&gt; FromXML Gender
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Gender
 $cparseXML :: [Node] -&gt; Either String Gender
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679170709"><span class="annot"><span class="annottext">Gender -&gt; XML
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679170718"><span class="annot"><span class="annottext">Gender -&gt; XML
 (Gender -&gt; XML) -&gt; ToXML Gender
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Gender -&gt; XML

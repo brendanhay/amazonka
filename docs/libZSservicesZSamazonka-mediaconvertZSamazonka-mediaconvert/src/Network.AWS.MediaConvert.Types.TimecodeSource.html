@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- the timecode of the initial frame to a value other than zero. You use</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- Start timecode (Start) to provide this value.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621680009658"><span id="local-6989586621680009659"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimecodeSource"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeSource.html#TimecodeSource"><span class="hs-identifier hs-var">TimecodeSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeSource%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeSource.html#TimecodeSource%27"><span class="hs-identifier hs-var">TimecodeSource'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621680009667"><span id="local-6989586621680009668"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimecodeSource"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeSource.html#TimecodeSource"><span class="hs-identifier hs-var">TimecodeSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeSource%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeSource.html#TimecodeSource%27"><span class="hs-identifier hs-var">TimecodeSource'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimecodeSource"><span class="annot"><span class="annottext">TimecodeSource -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeSource.html#fromTimecodeSource"><span class="hs-identifier hs-var hs-var">fromTimecodeSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009650"><span id="local-6989586621680009652"><span id="local-6989586621680009654"><span class="annot"><span class="annottext">Int -&gt; TimecodeSource -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009659"><span id="local-6989586621680009661"><span id="local-6989586621680009663"><span class="annot"><span class="annottext">Int -&gt; TimecodeSource -&gt; ShowS
 [TimecodeSource] -&gt; ShowS
 TimecodeSource -&gt; String
 (Int -&gt; TimecodeSource -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: TimecodeSource -&gt; String
 showsPrec :: Int -&gt; TimecodeSource -&gt; ShowS
 $cshowsPrec :: Int -&gt; TimecodeSource -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680009641"><span id="local-6989586621680009643"><span id="local-6989586621680009645"><span id="local-6989586621680009647"><span class="annot"><span class="annottext">ReadPrec [TimecodeSource]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680009650"><span id="local-6989586621680009652"><span id="local-6989586621680009654"><span id="local-6989586621680009656"><span class="annot"><span class="annottext">ReadPrec [TimecodeSource]
 ReadPrec TimecodeSource
 Int -&gt; ReadS TimecodeSource
 ReadS [TimecodeSource]
@@ -84,7 +84,7 @@ $creadList :: ReadS [TimecodeSource]
 readsPrec :: Int -&gt; ReadS TimecodeSource
 $creadsPrec :: Int -&gt; ReadS TimecodeSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680009636"><span id="local-6989586621680009638"><span class="annot"><span class="annottext">TimecodeSource -&gt; TimecodeSource -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680009645"><span id="local-6989586621680009647"><span class="annot"><span class="annottext">TimecodeSource -&gt; TimecodeSource -&gt; Bool
 (TimecodeSource -&gt; TimecodeSource -&gt; Bool)
 -&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Bool) -&gt; Eq TimecodeSource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ $c/= :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
 == :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
 $c== :: TimecodeSource -&gt; TimecodeSource -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680009620"><span id="local-6989586621680009622"><span id="local-6989586621680009624"><span id="local-6989586621680009626"><span id="local-6989586621680009628"><span id="local-6989586621680009630"><span id="local-6989586621680009632"><span class="annot"><span class="annottext">Eq TimecodeSource
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680009629"><span id="local-6989586621680009631"><span id="local-6989586621680009633"><span id="local-6989586621680009635"><span id="local-6989586621680009637"><span id="local-6989586621680009639"><span id="local-6989586621680009641"><span class="annot"><span class="annottext">Eq TimecodeSource
 Eq TimecodeSource
 -&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Ordering)
 -&gt; (TimecodeSource -&gt; TimecodeSource -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. TimecodeSource -&gt; Rep TimecodeSource x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009612"><span id="local-6989586621680009614"><span class="annot"><span class="annottext">Int -&gt; TimecodeSource -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680009621"><span id="local-6989586621680009623"><span class="annot"><span class="annottext">Int -&gt; TimecodeSource -&gt; Int
 TimecodeSource -&gt; Int
 (Int -&gt; TimecodeSource -&gt; Int)
 -&gt; (TimecodeSource -&gt; Int) -&gt; Hashable TimecodeSource
@@ -154,50 +154,50 @@ $chash :: TimecodeSource -&gt; Int
 hashWithSalt :: Int -&gt; TimecodeSource -&gt; Int
 $chashWithSalt :: Int -&gt; TimecodeSource -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680009609"><span class="annot"><span class="annottext">TimecodeSource -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680009618"><span class="annot"><span class="annottext">TimecodeSource -&gt; ()
 (TimecodeSource -&gt; ()) -&gt; NFData TimecodeSource
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TimecodeSource -&gt; ()
 $crnf :: TimecodeSource -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680009606"><span class="annot"><span class="annottext">Text -&gt; Either String TimecodeSource
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680009615"><span class="annot"><span class="annottext">Text -&gt; Either String TimecodeSource
 (Text -&gt; Either String TimecodeSource) -&gt; FromText TimecodeSource
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TimecodeSource
 $cfromText :: Text -&gt; Either String TimecodeSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680009603"><span class="annot"><span class="annottext">TimecodeSource -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680009612"><span class="annot"><span class="annottext">TimecodeSource -&gt; Text
 (TimecodeSource -&gt; Text) -&gt; ToText TimecodeSource
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TimecodeSource -&gt; Text
 $ctoText :: TimecodeSource -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680009600"><span class="annot"><span class="annottext">TimecodeSource -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680009609"><span class="annot"><span class="annottext">TimecodeSource -&gt; ByteString
 (TimecodeSource -&gt; ByteString) -&gt; ToByteString TimecodeSource
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TimecodeSource -&gt; ByteString
 $ctoBS :: TimecodeSource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680009597"><span class="annot"><span class="annottext">TimecodeSource -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680009606"><span class="annot"><span class="annottext">TimecodeSource -&gt; ByteStringBuilder
 (TimecodeSource -&gt; ByteStringBuilder) -&gt; ToLog TimecodeSource
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TimecodeSource -&gt; ByteStringBuilder
 $cbuild :: TimecodeSource -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680009594"><span class="annot"><span class="annottext">HeaderName -&gt; TimecodeSource -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680009603"><span class="annot"><span class="annottext">HeaderName -&gt; TimecodeSource -&gt; [Header]
 (HeaderName -&gt; TimecodeSource -&gt; [Header])
 -&gt; ToHeader TimecodeSource
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TimecodeSource -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TimecodeSource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680009591"><span class="annot"><span class="annottext">TimecodeSource -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680009600"><span class="annot"><span class="annottext">TimecodeSource -&gt; QueryString
 (TimecodeSource -&gt; QueryString) -&gt; ToQuery TimecodeSource
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TimecodeSource -&gt; QueryString
 $ctoQuery :: TimecodeSource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680009586"><span id="local-6989586621680009588"><span class="annot"><span class="annottext">Value -&gt; Parser [TimecodeSource]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680009595"><span id="local-6989586621680009597"><span class="annot"><span class="annottext">Value -&gt; Parser [TimecodeSource]
 Value -&gt; Parser TimecodeSource
 (Value -&gt; Parser TimecodeSource)
 -&gt; (Value -&gt; Parser [TimecodeSource]) -&gt; FromJSON TimecodeSource
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [TimecodeSource]
 parseJSON :: Value -&gt; Parser TimecodeSource
 $cparseJSON :: Value -&gt; Parser TimecodeSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680009581"><span id="local-6989586621680009583"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimecodeSource]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680009590"><span id="local-6989586621680009592"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimecodeSource]
 FromJSONKeyFunction TimecodeSource
 FromJSONKeyFunction TimecodeSource
 -&gt; FromJSONKeyFunction [TimecodeSource]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TimecodeSource]
 fromJSONKey :: FromJSONKeyFunction TimecodeSource
 $cfromJSONKey :: FromJSONKeyFunction TimecodeSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680009572"><span id="local-6989586621680009574"><span id="local-6989586621680009576"><span id="local-6989586621680009578"><span class="annot"><span class="annottext">[TimecodeSource] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680009581"><span id="local-6989586621680009583"><span id="local-6989586621680009585"><span id="local-6989586621680009587"><span class="annot"><span class="annottext">[TimecodeSource] -&gt; Encoding
 [TimecodeSource] -&gt; Value
 TimecodeSource -&gt; Encoding
 TimecodeSource -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: TimecodeSource -&gt; Encoding
 toJSON :: TimecodeSource -&gt; Value
 $ctoJSON :: TimecodeSource -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680009567"><span id="local-6989586621680009569"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimecodeSource]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680009576"><span id="local-6989586621680009578"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimecodeSource]
 ToJSONKeyFunction TimecodeSource
 ToJSONKeyFunction TimecodeSource
 -&gt; ToJSONKeyFunction [TimecodeSource] -&gt; ToJSONKey TimecodeSource
@@ -255,13 +255,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TimecodeSource]
 toJSONKey :: ToJSONKeyFunction TimecodeSource
 $ctoJSONKey :: ToJSONKeyFunction TimecodeSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680009564"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimecodeSource
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680009573"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimecodeSource
 ([Node] -&gt; Either String TimecodeSource) -&gt; FromXML TimecodeSource
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TimecodeSource
 $cparseXML :: [Node] -&gt; Either String TimecodeSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680009561"><span class="annot"><span class="annottext">TimecodeSource -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680009570"><span class="annot"><span class="annottext">TimecodeSource -&gt; XML
 (TimecodeSource -&gt; XML) -&gt; ToXML TimecodeSource
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TimecodeSource -&gt; XML

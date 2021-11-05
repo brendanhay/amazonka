@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newPutParameter' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679828119"><span id="local-6989586621679828120"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutParameter"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-var">PutParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutParameter%27"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-var">PutParameter'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679828128"><span id="local-6989586621679828129"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutParameter"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-var">PutParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutParameter%27"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-var">PutParameter'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Key Management Service (KMS) ID that you want to use to encrypt a</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- parameter. Either the default KMS key automatically assigned to your</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Amazon Web Services account or a custom key. Required for parameters</span><span>
@@ -283,7 +283,7 @@
 </span><span id="line-273"></span><span>    </span><span id="%24sel%3Avalue%3APutParameter%27"><span class="annot"><span class="annottext">PutParameter -&gt; Sensitive Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Avalue%3APutParameter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-274"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-275"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828103"><span id="local-6989586621679828105"><span class="annot"><span class="annottext">PutParameter -&gt; PutParameter -&gt; Bool
+</span><span id="line-275"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828112"><span id="local-6989586621679828114"><span class="annot"><span class="annottext">PutParameter -&gt; PutParameter -&gt; Bool
 (PutParameter -&gt; PutParameter -&gt; Bool)
 -&gt; (PutParameter -&gt; PutParameter -&gt; Bool) -&gt; Eq PutParameter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -291,7 +291,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutParameter -&gt; PutParameter -&gt; Bool
 == :: PutParameter -&gt; PutParameter -&gt; Bool
 $c== :: PutParameter -&gt; PutParameter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828096"><span id="local-6989586621679828098"><span id="local-6989586621679828100"><span class="annot"><span class="annottext">Int -&gt; PutParameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828105"><span id="local-6989586621679828107"><span id="local-6989586621679828109"><span class="annot"><span class="annottext">Int -&gt; PutParameter -&gt; ShowS
 [PutParameter] -&gt; ShowS
 PutParameter -&gt; String
 (Int -&gt; PutParameter -&gt; ShowS)
@@ -543,9 +543,9 @@ $cfrom :: forall x. PutParameter -&gt; Rep PutParameter x
 </span><span id="line-500"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-501"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span>
 </span><span id="line-502"></span><span id="newPutParameter"><span class="annot"><span class="annottext">newPutParameter :: Text -&gt; Text -&gt; PutParameter
-</span><a href="Network.AWS.SSM.PutParameter.html#newPutParameter"><span class="hs-identifier hs-var hs-var">newPutParameter</span></a></span></span><span> </span><span id="local-6989586621679828091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828091"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679828090"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828090"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.PutParameter.html#newPutParameter"><span class="hs-identifier hs-var hs-var">newPutParameter</span></a></span></span><span> </span><span id="local-6989586621679828100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828100"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679828099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828099"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-503"></span><span>  </span><span class="annot"><span class="annottext">PutParameter' :: Maybe Text
 -&gt; Maybe ParameterTier
 -&gt; Maybe Text
@@ -597,7 +597,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-513"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PutParameter' :: Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Aname%3APutParameter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828091"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828100"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-514"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:PutParameter' :: Sensitive Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Avalue%3APutParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -607,7 +607,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828090"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679828099"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-515"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-516"></span><span>
 </span><span id="line-517"></span><span class="hs-comment">-- | The Key Management Service (KMS) ID that you want to use to encrypt a</span><span>
@@ -630,16 +630,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (PutParameter -&gt; Maybe Text -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828085"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828094"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:PutParameter' :: PutParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679828085"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828085"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828084"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828083"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:PutParameter' :: Maybe Text
+</span><a href="#local-6989586621679828094"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828094"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828093"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:PutParameter' :: Maybe Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3AkeyId%3APutParameter%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-533"></span><span>
 </span><span id="line-534"></span><span class="hs-comment">-- | The parameter tier to assign to a parameter.</span><span>
 </span><span id="line-535"></span><span class="hs-comment">--</span><span>
@@ -720,16 +720,16 @@ $sel:keyId:PutParameter' :: PutParameter -&gt; Maybe Text
      (Maybe ParameterTier)
      (Maybe ParameterTier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828082"><span class="annot"><span class="annottext">Maybe ParameterTier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828091"><span class="annot"><span class="annottext">Maybe ParameterTier
 tier :: Maybe ParameterTier
 $sel:tier:PutParameter' :: PutParameter -&gt; Maybe ParameterTier
-</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterTier
-</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828081"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828080"><span class="annot"><span class="annottext">Maybe ParameterTier
-</span><a href="#local-6989586621679828080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tier:PutParameter' :: Maybe ParameterTier
+</span><a href="#local-6989586621679828091"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterTier
+</span><a href="#local-6989586621679828091"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828090"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828089"><span class="annot"><span class="annottext">Maybe ParameterTier
+</span><a href="#local-6989586621679828089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tier:PutParameter' :: Maybe ParameterTier
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Atier%3APutParameter%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterTier
-</span><a href="#local-6989586621679828080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-604"></span><span>
 </span><span id="line-605"></span><span class="hs-comment">-- | A regular expression used to validate the parameter value. For example,</span><span>
 </span><span id="line-606"></span><span class="hs-comment">-- for String types with values restricted to numbers, you can specify the</span><span>
@@ -740,16 +740,16 @@ $sel:tier:PutParameter' :: PutParameter -&gt; Maybe ParameterTier
 -&gt; (PutParameter -&gt; Maybe Text -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828079"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828088"><span class="annot"><span class="annottext">Maybe Text
 allowedPattern :: Maybe Text
 $sel:allowedPattern:PutParameter' :: PutParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679828079"><span class="hs-identifier hs-var hs-var">allowedPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828079"><span class="hs-identifier hs-var">allowedPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828078"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828077"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedPattern:PutParameter' :: Maybe Text
+</span><a href="#local-6989586621679828088"><span class="hs-identifier hs-var hs-var">allowedPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828088"><span class="hs-identifier hs-var">allowedPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828087"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828086"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedPattern:PutParameter' :: Maybe Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3AallowedPattern%3APutParameter%27"><span class="hs-identifier hs-var">allowedPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-610"></span><span>
 </span><span id="line-611"></span><span class="hs-comment">-- | The type of parameter that you want to add to the system.</span><span>
 </span><span id="line-612"></span><span class="hs-comment">--</span><span>
@@ -773,16 +773,16 @@ $sel:allowedPattern:PutParameter' :: PutParameter -&gt; Maybe Text
      (Maybe ParameterType)
      (Maybe ParameterType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828076"><span class="annot"><span class="annottext">Maybe ParameterType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828085"><span class="annot"><span class="annottext">Maybe ParameterType
 type' :: Maybe ParameterType
 $sel:type':PutParameter' :: PutParameter -&gt; Maybe ParameterType
-</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterType
-</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828075"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828074"><span class="annot"><span class="annottext">Maybe ParameterType
-</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PutParameter' :: Maybe ParameterType
+</span><a href="#local-6989586621679828085"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterType
+</span><a href="#local-6989586621679828085"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828084"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828083"><span class="annot"><span class="annottext">Maybe ParameterType
+</span><a href="#local-6989586621679828083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PutParameter' :: Maybe ParameterType
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Atype%27%3APutParameter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterType
-</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-624"></span><span>
 </span><span id="line-625"></span><span class="hs-comment">-- | The data type for a @String@ parameter. Supported data types include</span><span>
 </span><span id="line-626"></span><span class="hs-comment">-- plain text and Amazon Machine Image (AMI) IDs.</span><span>
@@ -806,16 +806,16 @@ $sel:type':PutParameter' :: PutParameter -&gt; Maybe ParameterType
 -&gt; (PutParameter -&gt; Maybe Text -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828073"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828082"><span class="annot"><span class="annottext">Maybe Text
 dataType :: Maybe Text
 $sel:dataType:PutParameter' :: PutParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828072"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828071"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:PutParameter' :: Maybe Text
+</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828081"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:PutParameter' :: Maybe Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3AdataType%3APutParameter%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-643"></span><span>
 </span><span id="line-644"></span><span class="hs-comment">-- | Overwrite an existing parameter. The default value is @false@.</span><span>
 </span><span id="line-645"></span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#putParameter_overwrite"><span class="hs-identifier hs-type">putParameter_overwrite</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -824,16 +824,16 @@ $sel:dataType:PutParameter' :: PutParameter -&gt; Maybe Text
 -&gt; (PutParameter -&gt; Maybe Bool -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828070"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828079"><span class="annot"><span class="annottext">Maybe Bool
 overwrite :: Maybe Bool
 $sel:overwrite:PutParameter' :: PutParameter -&gt; Maybe Bool
-</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var hs-var">overwrite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var">overwrite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828069"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828068"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overwrite:PutParameter' :: Maybe Bool
+</span><a href="#local-6989586621679828079"><span class="hs-identifier hs-var hs-var">overwrite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679828079"><span class="hs-identifier hs-var">overwrite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828078"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828077"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overwrite:PutParameter' :: Maybe Bool
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Aoverwrite%3APutParameter%27"><span class="hs-identifier hs-var">overwrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-647"></span><span>
 </span><span id="line-648"></span><span class="hs-comment">-- | Information about the parameter that you want to add to the system.</span><span>
 </span><span id="line-649"></span><span class="hs-comment">-- Optional but recommended.</span><span>
@@ -845,16 +845,16 @@ $sel:overwrite:PutParameter' :: PutParameter -&gt; Maybe Bool
 -&gt; (PutParameter -&gt; Maybe Text -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828067"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828076"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:PutParameter' :: PutParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679828067"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828067"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828066"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828065"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PutParameter' :: Maybe Text
+</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828075"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PutParameter' :: Maybe Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Adescription%3APutParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-654"></span><span>
 </span><span id="line-655"></span><span class="hs-comment">-- | One or more policies to apply to a parameter. This operation takes a</span><span>
 </span><span id="line-656"></span><span class="hs-comment">-- JSON array. Parameter Store, a capability of Amazon Web Services Systems</span><span>
@@ -885,16 +885,16 @@ $sel:description:PutParameter' :: PutParameter -&gt; Maybe Text
 -&gt; (PutParameter -&gt; Maybe Text -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828064"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828073"><span class="annot"><span class="annottext">Maybe Text
 policies :: Maybe Text
 $sel:policies:PutParameter' :: PutParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679828064"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828064"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828063"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828062"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:PutParameter' :: Maybe Text
+</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828072"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828071"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:PutParameter' :: Maybe Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Apolicies%3APutParameter%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-680"></span><span>
 </span><span id="line-681"></span><span class="hs-comment">-- | Optional metadata that you assign to a resource. Tags enable you to</span><span>
 </span><span id="line-682"></span><span class="hs-comment">-- categorize a resource in different ways, such as by purpose, owner, or</span><span>
@@ -918,16 +918,16 @@ $sel:policies:PutParameter' :: PutParameter -&gt; Maybe Text
 -&gt; (PutParameter -&gt; Maybe [Tag] -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828061"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828070"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:PutParameter' :: PutParameter -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828060"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828059"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679828059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutParameter' :: Maybe [Tag]
+</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828069"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828068"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutParameter' :: Maybe [Tag]
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Atags%3APutParameter%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679828059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; PutParameter -&gt; f PutParameter)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -988,16 +988,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutParameter -&gt; Text -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828055"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828064"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:PutParameter' :: PutParameter -&gt; Text
-</span><a href="#local-6989586621679828055"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828055"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828054"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828053"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutParameter' :: Text
+</span><a href="#local-6989586621679828064"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828064"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828063"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828062"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutParameter' :: Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Aname%3APutParameter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-740"></span><span>
 </span><span id="line-741"></span><span class="hs-comment">-- | The parameter value that you want to add to the system. Standard</span><span>
 </span><span id="line-742"></span><span class="hs-comment">-- parameters have a value limit of 4 KB. Advanced parameters have a value</span><span>
@@ -1012,16 +1012,16 @@ $sel:name:PutParameter' :: PutParameter -&gt; Text
 -&gt; (PutParameter -&gt; Sensitive Text -&gt; PutParameter)
 -&gt; Lens PutParameter PutParameter (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828052"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828061"><span class="annot"><span class="annottext">Sensitive Text
 value :: Sensitive Text
 $sel:value:PutParameter' :: PutParameter -&gt; Sensitive Text
-</span><a href="#local-6989586621679828052"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679828052"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828051"><span class="annot"><span class="annottext">s :: PutParameter
-</span><a href="#local-6989586621679828051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828050"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679828050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
-</span><a href="#local-6989586621679828051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PutParameter' :: Sensitive Text
+</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828060"><span class="annot"><span class="annottext">s :: PutParameter
+</span><a href="#local-6989586621679828060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828059"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679828059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameter
+</span><a href="#local-6989586621679828060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PutParameter' :: Sensitive Text
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Avalue%3APutParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679828050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679828059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; PutParameter -&gt; f PutParameter)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -1034,12 +1034,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-750"></span><span>
 </span><span id="line-751"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-752"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span>
-</span><span id="line-753"></span><span>  </span><span id="local-6989586621679828046"><span class="annot"><span class="annottext">request :: PutParameter -&gt; Request PutParameter
+</span><span id="line-753"></span><span>  </span><span id="local-6989586621679828055"><span class="annot"><span class="annottext">request :: PutParameter -&gt; Request PutParameter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutParameter -&gt; Request PutParameter
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-754"></span><span>  </span><span id="local-6989586621679828042"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-754"></span><span>  </span><span id="local-6989586621679828051"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutParameter
 -&gt; ClientResponse ClientBody
@@ -1063,10 +1063,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-756"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828039"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828039"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828038"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679828038"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828037"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-756"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828048"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828048"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828047"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679828047"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828046"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679828046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-757"></span><span>          </span><span class="annot"><span class="annottext">Maybe ParameterTier -&gt; Maybe Integer -&gt; Int -&gt; PutParameterResponse
 </span><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-var">PutParameterResponse'</span></a></span><span>
 </span><span id="line-758"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ParameterTier
@@ -1075,7 +1075,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Integer -&gt; Int -&gt; PutParameterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ParameterTier)
+</span><a href="#local-6989586621679828046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ParameterTier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tier&quot;</span></span><span class="hs-special">)</span><span>
@@ -1084,7 +1084,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; PutParameterResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679828046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
@@ -1096,15 +1096,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828039"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828048"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-761"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-762"></span><span>
-</span><span id="line-763"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828029"><span id="local-6989586621679828031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span></span></span><span>
+</span><span id="line-763"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828038"><span id="local-6989586621679828040"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span></span></span><span>
 </span><span id="line-764"></span><span>
-</span><span id="line-765"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span></span><span>
+</span><span id="line-765"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span></span><span>
 </span><span id="line-766"></span><span>
 </span><span id="line-767"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-768"></span><span>  </span><span id="local-6989586621679828022"><span class="annot"><span class="annottext">toHeaders :: PutParameter -&gt; ResponseHeaders
+</span><span id="line-768"></span><span>  </span><span id="local-6989586621679828031"><span class="annot"><span class="annottext">toHeaders :: PutParameter -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-769"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutParameter -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1129,9 +1129,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-777"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-778"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-779"></span><span>
-</span><span id="line-780"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828012"><span id="local-6989586621679828014"><span id="local-6989586621679828016"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-781"></span><span>  </span><span id="local-6989586621679828010"><span class="annot"><span class="annottext">toJSON :: PutParameter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827998"><span id="local-6989586621679827999"><span id="local-6989586621679828000"><span id="local-6989586621679828001"><span id="local-6989586621679828002"><span id="local-6989586621679828003"><span id="local-6989586621679828004"><span id="local-6989586621679828005"><span id="local-6989586621679828006"><span id="local-6989586621679828007"><span id="local-6989586621679828008"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-780"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828021"><span id="local-6989586621679828023"><span id="local-6989586621679828025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-781"></span><span>  </span><span id="local-6989586621679828019"><span class="annot"><span class="annottext">toJSON :: PutParameter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter%27"><span class="hs-identifier hs-type">PutParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828007"><span id="local-6989586621679828008"><span id="local-6989586621679828009"><span id="local-6989586621679828010"><span id="local-6989586621679828011"><span id="local-6989586621679828012"><span id="local-6989586621679828013"><span id="local-6989586621679828014"><span id="local-6989586621679828015"><span id="local-6989586621679828016"><span id="local-6989586621679828017"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Tag]
 Maybe Text
 Maybe ParameterTier
@@ -1160,7 +1160,7 @@ $sel:type':PutParameter' :: PutParameter -&gt; Maybe ParameterType
 $sel:allowedPattern:PutParameter' :: PutParameter -&gt; Maybe Text
 $sel:tier:PutParameter' :: PutParameter -&gt; Maybe ParameterTier
 $sel:keyId:PutParameter' :: PutParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679827998"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679828007"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-782"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-783"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1172,14 +1172,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828008"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828017"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-785"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParameterTier -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ParameterTier -&gt; Pair) -&gt; Maybe ParameterTier -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParameterTier
-</span><a href="#local-6989586621679828007"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828016"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-786"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1187,75 +1187,75 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-787"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828006"><span class="hs-identifier hs-var">allowedPattern</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828015"><span class="hs-identifier hs-var">allowedPattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-788"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParameterType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ParameterType -&gt; Pair) -&gt; Maybe ParameterType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParameterType
-</span><a href="#local-6989586621679828005"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828014"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-789"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828004"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828013"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-790"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Overwrite&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679828003"><span class="hs-identifier hs-var">overwrite</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828012"><span class="hs-identifier hs-var">overwrite</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-791"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828002"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828011"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-792"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828001"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828010"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-793"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679828000"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828009"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-794"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827999"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828008"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-795"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679827998"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828007"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-796"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-797"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-798"></span><span>
 </span><span id="line-799"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-800"></span><span>  </span><span id="local-6989586621679827992"><span class="annot"><span class="annottext">toPath :: PutParameter -&gt; ByteString
+</span><span id="line-800"></span><span>  </span><span id="local-6989586621679828001"><span class="annot"><span class="annottext">toPath :: PutParameter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutParameter -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-801"></span><span>
 </span><span id="line-802"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameter"><span class="hs-identifier hs-type">PutParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-803"></span><span>  </span><span id="local-6989586621679827988"><span class="annot"><span class="annottext">toQuery :: PutParameter -&gt; QueryString
+</span><span id="line-803"></span><span>  </span><span id="local-6989586621679827997"><span class="annot"><span class="annottext">toQuery :: PutParameter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutParameter -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1263,7 +1263,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-804"></span><span>
 </span><span id="line-805"></span><span class="hs-comment">-- | /See:/ 'newPutParameterResponse' smart constructor.</span><span>
-</span><span id="line-806"></span><span id="local-6989586621679827985"><span id="local-6989586621679827986"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutParameterResponse"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-var">PutParameterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutParameterResponse%27"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-var">PutParameterResponse'</span></a></span></span><span>
+</span><span id="line-806"></span><span id="local-6989586621679827994"><span id="local-6989586621679827995"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutParameterResponse"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-var">PutParameterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutParameterResponse%27"><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-var">PutParameterResponse'</span></a></span></span><span>
 </span><span id="line-807"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tier assigned to the parameter.</span><span>
 </span><span id="line-808"></span><span>    </span><span id="%24sel%3Atier%3APutParameterResponse%27"><span class="annot"><span class="annottext">PutParameterResponse -&gt; Maybe ParameterTier
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Atier%3APutParameterResponse%27"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterTier.html#ParameterTier"><span class="hs-identifier hs-type">ParameterTier</span></a></span><span class="hs-special">,</span><span>
@@ -1279,7 +1279,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-817"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutParameterResponse%27"><span class="annot"><span class="annottext">PutParameterResponse -&gt; Int
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3AhttpStatus%3APutParameterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-818"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-819"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827978"><span id="local-6989586621679827980"><span class="annot"><span class="annottext">PutParameterResponse -&gt; PutParameterResponse -&gt; Bool
+</span><span id="line-819"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827987"><span id="local-6989586621679827989"><span class="annot"><span class="annottext">PutParameterResponse -&gt; PutParameterResponse -&gt; Bool
 (PutParameterResponse -&gt; PutParameterResponse -&gt; Bool)
 -&gt; (PutParameterResponse -&gt; PutParameterResponse -&gt; Bool)
 -&gt; Eq PutParameterResponse
@@ -1288,7 +1288,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutParameterResponse -&gt; PutParameterResponse -&gt; Bool
 == :: PutParameterResponse -&gt; PutParameterResponse -&gt; Bool
 $c== :: PutParameterResponse -&gt; PutParameterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827970"><span id="local-6989586621679827972"><span id="local-6989586621679827974"><span id="local-6989586621679827976"><span class="annot"><span class="annottext">ReadPrec [PutParameterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827979"><span id="local-6989586621679827981"><span id="local-6989586621679827983"><span id="local-6989586621679827985"><span class="annot"><span class="annottext">ReadPrec [PutParameterResponse]
 ReadPrec PutParameterResponse
 Int -&gt; ReadS PutParameterResponse
 ReadS [PutParameterResponse]
@@ -1308,7 +1308,7 @@ readList :: ReadS [PutParameterResponse]
 $creadList :: ReadS [PutParameterResponse]
 readsPrec :: Int -&gt; ReadS PutParameterResponse
 $creadsPrec :: Int -&gt; ReadS PutParameterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827963"><span id="local-6989586621679827965"><span id="local-6989586621679827967"><span class="annot"><span class="annottext">Int -&gt; PutParameterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827972"><span id="local-6989586621679827974"><span id="local-6989586621679827976"><span class="annot"><span class="annottext">Int -&gt; PutParameterResponse -&gt; ShowS
 [PutParameterResponse] -&gt; ShowS
 PutParameterResponse -&gt; String
 (Int -&gt; PutParameterResponse -&gt; ShowS)
@@ -1357,8 +1357,8 @@ $cfrom :: forall x. PutParameterResponse -&gt; Rep PutParameterResponse x
 </span><span id="line-841"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-842"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span>
 </span><span id="line-843"></span><span id="newPutParameterResponse"><span class="annot"><span class="annottext">newPutParameterResponse :: Int -&gt; PutParameterResponse
-</span><a href="Network.AWS.SSM.PutParameter.html#newPutParameterResponse"><span class="hs-identifier hs-var hs-var">newPutParameterResponse</span></a></span></span><span> </span><span id="local-6989586621679827960"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.PutParameter.html#newPutParameterResponse"><span class="hs-identifier hs-var hs-var">newPutParameterResponse</span></a></span></span><span> </span><span id="local-6989586621679827969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827969"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-844"></span><span>  </span><span class="annot"><span class="annottext">PutParameterResponse' :: Maybe ParameterTier -&gt; Maybe Integer -&gt; Int -&gt; PutParameterResponse
 </span><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span>
 </span><span id="line-845"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tier:PutParameterResponse' :: Maybe ParameterTier
@@ -1371,7 +1371,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-847"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutParameterResponse' :: Int
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3AhttpStatus%3APutParameterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679827969"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-848"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-849"></span><span>
 </span><span id="line-850"></span><span class="hs-comment">-- | The tier assigned to the parameter.</span><span>
@@ -1387,16 +1387,16 @@ forall a. Maybe a
      (Maybe ParameterTier)
      (Maybe ParameterTier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827959"><span class="annot"><span class="annottext">Maybe ParameterTier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827968"><span class="annot"><span class="annottext">Maybe ParameterTier
 tier :: Maybe ParameterTier
 $sel:tier:PutParameterResponse' :: PutParameterResponse -&gt; Maybe ParameterTier
-</span><a href="#local-6989586621679827959"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterTier
-</span><a href="#local-6989586621679827959"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827958"><span class="annot"><span class="annottext">s :: PutParameterResponse
-</span><a href="#local-6989586621679827958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827957"><span class="annot"><span class="annottext">Maybe ParameterTier
-</span><a href="#local-6989586621679827957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameterResponse
-</span><a href="#local-6989586621679827958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tier:PutParameterResponse' :: Maybe ParameterTier
+</span><a href="#local-6989586621679827968"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterTier
+</span><a href="#local-6989586621679827968"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827967"><span class="annot"><span class="annottext">s :: PutParameterResponse
+</span><a href="#local-6989586621679827967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827966"><span class="annot"><span class="annottext">Maybe ParameterTier
+</span><a href="#local-6989586621679827966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameterResponse
+</span><a href="#local-6989586621679827967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tier:PutParameterResponse' :: Maybe ParameterTier
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Atier%3APutParameterResponse%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterTier
-</span><a href="#local-6989586621679827957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-853"></span><span>
 </span><span id="line-854"></span><span class="hs-comment">-- | The new version number of a parameter. If you edit a parameter value,</span><span>
 </span><span id="line-855"></span><span class="hs-comment">-- Parameter Store automatically creates a new version and assigns this new</span><span>
@@ -1415,16 +1415,16 @@ $sel:tier:PutParameterResponse' :: PutParameterResponse -&gt; Maybe ParameterTie
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827956"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827965"><span class="annot"><span class="annottext">Maybe Integer
 version :: Maybe Integer
 $sel:version:PutParameterResponse' :: PutParameterResponse -&gt; Maybe Integer
-</span><a href="#local-6989586621679827956"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679827956"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827955"><span class="annot"><span class="annottext">s :: PutParameterResponse
-</span><a href="#local-6989586621679827955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827954"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679827954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameterResponse
-</span><a href="#local-6989586621679827955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:PutParameterResponse' :: Maybe Integer
+</span><a href="#local-6989586621679827965"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679827965"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827964"><span class="annot"><span class="annottext">s :: PutParameterResponse
+</span><a href="#local-6989586621679827964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827963"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679827963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameterResponse
+</span><a href="#local-6989586621679827964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:PutParameterResponse' :: Maybe Integer
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3Aversion%3APutParameterResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679827954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-862"></span><span>
 </span><span id="line-863"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-864"></span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#putParameterResponse_httpStatus"><span class="hs-identifier hs-type">putParameterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1433,16 +1433,16 @@ $sel:version:PutParameterResponse' :: PutParameterResponse -&gt; Maybe Integer
 -&gt; (PutParameterResponse -&gt; Int -&gt; PutParameterResponse)
 -&gt; Lens PutParameterResponse PutParameterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827953"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827962"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutParameterResponse' :: PutParameterResponse -&gt; Int
-</span><a href="#local-6989586621679827953"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827953"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827952"><span class="annot"><span class="annottext">s :: PutParameterResponse
-</span><a href="#local-6989586621679827952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827951"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameterResponse
-</span><a href="#local-6989586621679827952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutParameterResponse' :: Int
+</span><a href="#local-6989586621679827962"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827962"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827961"><span class="annot"><span class="annottext">s :: PutParameterResponse
+</span><a href="#local-6989586621679827961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse%27"><span class="hs-identifier hs-type">PutParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827960"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutParameterResponse
+</span><a href="#local-6989586621679827961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutParameterResponse' :: Int
 </span><a href="Network.AWS.SSM.PutParameter.html#%24sel%3AhttpStatus%3APutParameterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-866"></span><span>
-</span><span id="line-867"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span></span><span>
+</span><span id="line-867"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutParameter.html#PutParameterResponse"><span class="hs-identifier hs-type">PutParameterResponse</span></a></span></span><span>
 </span><span id="line-868"></span></pre></body></html>

@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newResetJobBookmark' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679714437"><span id="local-6989586621679714438"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetJobBookmark"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-var">ResetJobBookmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetJobBookmark%27"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-var">ResetJobBookmark'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679714446"><span id="local-6989586621679714447"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetJobBookmark"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-var">ResetJobBookmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetJobBookmark%27"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-var">ResetJobBookmark'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique run identifier associated with this job run.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3ArunId%3AResetJobBookmark%27"><span class="annot"><span class="annottext">ResetJobBookmark -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3ArunId%3AResetJobBookmark%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AjobName%3AResetJobBookmark%27"><span class="annot"><span class="annottext">ResetJobBookmark -&gt; Text
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AjobName%3AResetJobBookmark%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679714430"><span id="local-6989586621679714432"><span class="annot"><span class="annottext">ResetJobBookmark -&gt; ResetJobBookmark -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679714439"><span id="local-6989586621679714441"><span class="annot"><span class="annottext">ResetJobBookmark -&gt; ResetJobBookmark -&gt; Bool
 (ResetJobBookmark -&gt; ResetJobBookmark -&gt; Bool)
 -&gt; (ResetJobBookmark -&gt; ResetJobBookmark -&gt; Bool)
 -&gt; Eq ResetJobBookmark
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResetJobBookmark -&gt; ResetJobBookmark -&gt; Bool
 == :: ResetJobBookmark -&gt; ResetJobBookmark -&gt; Bool
 $c== :: ResetJobBookmark -&gt; ResetJobBookmark -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714421"><span id="local-6989586621679714423"><span id="local-6989586621679714425"><span id="local-6989586621679714427"><span class="annot"><span class="annottext">ReadPrec [ResetJobBookmark]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714430"><span id="local-6989586621679714432"><span id="local-6989586621679714434"><span id="local-6989586621679714436"><span class="annot"><span class="annottext">ReadPrec [ResetJobBookmark]
 ReadPrec ResetJobBookmark
 Int -&gt; ReadS ResetJobBookmark
 ReadS [ResetJobBookmark]
@@ -85,7 +85,7 @@ readList :: ReadS [ResetJobBookmark]
 $creadList :: ReadS [ResetJobBookmark]
 readsPrec :: Int -&gt; ReadS ResetJobBookmark
 $creadsPrec :: Int -&gt; ReadS ResetJobBookmark
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714414"><span id="local-6989586621679714416"><span id="local-6989586621679714418"><span class="annot"><span class="annottext">Int -&gt; ResetJobBookmark -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714423"><span id="local-6989586621679714425"><span id="local-6989586621679714427"><span class="annot"><span class="annottext">Int -&gt; ResetJobBookmark -&gt; ShowS
 [ResetJobBookmark] -&gt; ShowS
 ResetJobBookmark -&gt; String
 (Int -&gt; ResetJobBookmark -&gt; ShowS)
@@ -127,8 +127,8 @@ $cfrom :: forall x. ResetJobBookmark -&gt; Rep ResetJobBookmark x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span>
 </span><span id="line-74"></span><span id="newResetJobBookmark"><span class="annot"><span class="annottext">newResetJobBookmark :: Text -&gt; ResetJobBookmark
-</span><a href="Network.AWS.Glue.ResetJobBookmark.html#newResetJobBookmark"><span class="hs-identifier hs-var hs-var">newResetJobBookmark</span></a></span></span><span> </span><span id="local-6989586621679714409"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679714409"><span class="hs-identifier hs-var">pJobName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.ResetJobBookmark.html#newResetJobBookmark"><span class="hs-identifier hs-var hs-var">newResetJobBookmark</span></a></span></span><span> </span><span id="local-6989586621679714418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679714418"><span class="hs-identifier hs-var">pJobName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ResetJobBookmark' :: Maybe Text -&gt; Text -&gt; ResetJobBookmark
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runId:ResetJobBookmark' :: Maybe Text
@@ -137,7 +137,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:ResetJobBookmark' :: Text
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AjobName%3AResetJobBookmark%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679714409"><span class="hs-identifier hs-var">pJobName_</span></a></span><span>
+</span><a href="#local-6989586621679714418"><span class="hs-identifier hs-var">pJobName_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The unique run identifier associated with this job run.</span><span>
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; (ResetJobBookmark -&gt; Maybe Text -&gt; ResetJobBookmark)
 -&gt; Lens ResetJobBookmark ResetJobBookmark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714406"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714415"><span class="annot"><span class="annottext">Maybe Text
 runId :: Maybe Text
 $sel:runId:ResetJobBookmark' :: ResetJobBookmark -&gt; Maybe Text
-</span><a href="#local-6989586621679714406"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714406"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714405"><span class="annot"><span class="annottext">s :: ResetJobBookmark
-</span><a href="#local-6989586621679714405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714404"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmark
-</span><a href="#local-6989586621679714405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:ResetJobBookmark' :: Maybe Text
+</span><a href="#local-6989586621679714415"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679714415"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714414"><span class="annot"><span class="annottext">s :: ResetJobBookmark
+</span><a href="#local-6989586621679714414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679714413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmark
+</span><a href="#local-6989586621679714414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:ResetJobBookmark' :: Maybe Text
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3ArunId%3AResetJobBookmark%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679714413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The name of the job in question.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#resetJobBookmark_jobName"><span class="hs-identifier hs-type">resetJobBookmark_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -166,27 +166,27 @@ $sel:runId:ResetJobBookmark' :: ResetJobBookmark -&gt; Maybe Text
 -&gt; (ResetJobBookmark -&gt; Text -&gt; ResetJobBookmark)
 -&gt; Lens ResetJobBookmark ResetJobBookmark Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714403"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714412"><span class="annot"><span class="annottext">Text
 jobName :: Text
 $sel:jobName:ResetJobBookmark' :: ResetJobBookmark -&gt; Text
-</span><a href="#local-6989586621679714403"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679714403"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714402"><span class="annot"><span class="annottext">s :: ResetJobBookmark
-</span><a href="#local-6989586621679714402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714401"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679714401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmark
-</span><a href="#local-6989586621679714402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:ResetJobBookmark' :: Text
+</span><a href="#local-6989586621679714412"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679714412"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714411"><span class="annot"><span class="annottext">s :: ResetJobBookmark
+</span><a href="#local-6989586621679714411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679714410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmark
+</span><a href="#local-6989586621679714411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:ResetJobBookmark' :: Text
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AjobName%3AResetJobBookmark%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679714401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679714410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679714397"><span class="annot"><span class="annottext">request :: ResetJobBookmark -&gt; Request ResetJobBookmark
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679714406"><span class="annot"><span class="annottext">request :: ResetJobBookmark -&gt; Request ResetJobBookmark
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResetJobBookmark -&gt; Request ResetJobBookmark
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679714393"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679714402"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResetJobBookmark
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679714390"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714390"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679714389"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679714389"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679714388"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679714388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679714399"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679714399"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679714398"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679714398"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679714397"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679714397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobBookmarkEntry -&gt; Int -&gt; ResetJobBookmarkResponse
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-var">ResetJobBookmarkResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobBookmarkEntry -&gt; Int -&gt; ResetJobBookmarkResponse)
@@ -221,7 +221,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ResetJobBookmarkResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679714388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobBookmarkEntry)
+</span><a href="#local-6989586621679714397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobBookmarkEntry)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobBookmarkEntry&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,15 +233,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714390"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679714399"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714380"><span id="local-6989586621679714382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714389"><span id="local-6989586621679714391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679714373"><span class="annot"><span class="annottext">toHeaders :: ResetJobBookmark -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679714382"><span class="annot"><span class="annottext">toHeaders :: ResetJobBookmark -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResetJobBookmark -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -266,15 +266,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714363"><span id="local-6989586621679714365"><span id="local-6989586621679714367"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679714361"><span class="annot"><span class="annottext">toJSON :: ResetJobBookmark -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714358"><span id="local-6989586621679714359"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714372"><span id="local-6989586621679714374"><span id="local-6989586621679714376"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679714370"><span class="annot"><span class="annottext">toJSON :: ResetJobBookmark -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark%27"><span class="hs-identifier hs-type">ResetJobBookmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714367"><span id="local-6989586621679714368"><span class="annot"><span class="annottext">Maybe Text
 Text
 jobName :: Text
 runId :: Maybe Text
 $sel:jobName:ResetJobBookmark' :: ResetJobBookmark -&gt; Text
 $sel:runId:ResetJobBookmark' :: ResetJobBookmark -&gt; Maybe Text
-</span><a href="#local-6989586621679714358"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679714367"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -286,26 +286,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714359"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679714368"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679714358"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679714367"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679714352"><span class="annot"><span class="annottext">toPath :: ResetJobBookmark -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679714361"><span class="annot"><span class="annottext">toPath :: ResetJobBookmark -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResetJobBookmark -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmark"><span class="hs-identifier hs-type">ResetJobBookmark</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679714348"><span class="annot"><span class="annottext">toQuery :: ResetJobBookmark -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679714357"><span class="annot"><span class="annottext">toQuery :: ResetJobBookmark -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ResetJobBookmark -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -313,7 +313,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newResetJobBookmarkResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679714345"><span id="local-6989586621679714346"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetJobBookmarkResponse"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-var">ResetJobBookmarkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetJobBookmarkResponse%27"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-var">ResetJobBookmarkResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679714354"><span id="local-6989586621679714355"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetJobBookmarkResponse"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-var">ResetJobBookmarkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetJobBookmarkResponse%27"><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-var">ResetJobBookmarkResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reset bookmark entry.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AjobBookmarkEntry%3AResetJobBookmarkResponse%27"><span class="annot"><span class="annottext">ResetJobBookmarkResponse -&gt; Maybe JobBookmarkEntry
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AjobBookmarkEntry%3AResetJobBookmarkResponse%27"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">,</span><span>
@@ -321,7 +321,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResetJobBookmarkResponse%27"><span class="annot"><span class="annottext">ResetJobBookmarkResponse -&gt; Int
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AhttpStatus%3AResetJobBookmarkResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679714339"><span id="local-6989586621679714341"><span class="annot"><span class="annottext">ResetJobBookmarkResponse -&gt; ResetJobBookmarkResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679714348"><span id="local-6989586621679714350"><span class="annot"><span class="annottext">ResetJobBookmarkResponse -&gt; ResetJobBookmarkResponse -&gt; Bool
 (ResetJobBookmarkResponse -&gt; ResetJobBookmarkResponse -&gt; Bool)
 -&gt; (ResetJobBookmarkResponse -&gt; ResetJobBookmarkResponse -&gt; Bool)
 -&gt; Eq ResetJobBookmarkResponse
@@ -330,7 +330,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResetJobBookmarkResponse -&gt; ResetJobBookmarkResponse -&gt; Bool
 == :: ResetJobBookmarkResponse -&gt; ResetJobBookmarkResponse -&gt; Bool
 $c== :: ResetJobBookmarkResponse -&gt; ResetJobBookmarkResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714331"><span id="local-6989586621679714333"><span id="local-6989586621679714335"><span id="local-6989586621679714337"><span class="annot"><span class="annottext">ReadPrec [ResetJobBookmarkResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714340"><span id="local-6989586621679714342"><span id="local-6989586621679714344"><span id="local-6989586621679714346"><span class="annot"><span class="annottext">ReadPrec [ResetJobBookmarkResponse]
 ReadPrec ResetJobBookmarkResponse
 Int -&gt; ReadS ResetJobBookmarkResponse
 ReadS [ResetJobBookmarkResponse]
@@ -350,7 +350,7 @@ readList :: ReadS [ResetJobBookmarkResponse]
 $creadList :: ReadS [ResetJobBookmarkResponse]
 readsPrec :: Int -&gt; ReadS ResetJobBookmarkResponse
 $creadsPrec :: Int -&gt; ReadS ResetJobBookmarkResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714325"><span id="local-6989586621679714327"><span id="local-6989586621679714329"><span class="annot"><span class="annottext">Int -&gt; ResetJobBookmarkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714334"><span id="local-6989586621679714336"><span id="local-6989586621679714338"><span class="annot"><span class="annottext">Int -&gt; ResetJobBookmarkResponse -&gt; ShowS
 [ResetJobBookmarkResponse] -&gt; ShowS
 ResetJobBookmarkResponse -&gt; String
 (Int -&gt; ResetJobBookmarkResponse -&gt; ShowS)
@@ -398,8 +398,8 @@ ResetJobBookmarkResponse -&gt; Rep ResetJobBookmarkResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newResetJobBookmarkResponse"><span class="annot"><span class="annottext">newResetJobBookmarkResponse :: Int -&gt; ResetJobBookmarkResponse
-</span><a href="Network.AWS.Glue.ResetJobBookmark.html#newResetJobBookmarkResponse"><span class="hs-identifier hs-var hs-var">newResetJobBookmarkResponse</span></a></span></span><span> </span><span id="local-6989586621679714322"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714322"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.ResetJobBookmark.html#newResetJobBookmarkResponse"><span class="hs-identifier hs-var hs-var">newResetJobBookmarkResponse</span></a></span></span><span> </span><span id="local-6989586621679714331"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679714331"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">ResetJobBookmarkResponse' :: Maybe JobBookmarkEntry -&gt; Int -&gt; ResetJobBookmarkResponse
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobBookmarkEntry:ResetJobBookmarkResponse' :: Maybe JobBookmarkEntry
@@ -409,7 +409,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ResetJobBookmarkResponse' :: Int
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AhttpStatus%3AResetJobBookmarkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714322"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679714331"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The reset bookmark entry.</span><span>
@@ -425,16 +425,16 @@ forall a. Maybe a
      (Maybe JobBookmarkEntry)
      (Maybe JobBookmarkEntry)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714321"><span class="annot"><span class="annottext">Maybe JobBookmarkEntry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714330"><span class="annot"><span class="annottext">Maybe JobBookmarkEntry
 jobBookmarkEntry :: Maybe JobBookmarkEntry
 $sel:jobBookmarkEntry:ResetJobBookmarkResponse' :: ResetJobBookmarkResponse -&gt; Maybe JobBookmarkEntry
-</span><a href="#local-6989586621679714321"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobBookmarkEntry
-</span><a href="#local-6989586621679714321"><span class="hs-identifier hs-var">jobBookmarkEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714320"><span class="annot"><span class="annottext">s :: ResetJobBookmarkResponse
-</span><a href="#local-6989586621679714320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714319"><span class="annot"><span class="annottext">Maybe JobBookmarkEntry
-</span><a href="#local-6989586621679714319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmarkResponse
-</span><a href="#local-6989586621679714320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobBookmarkEntry:ResetJobBookmarkResponse' :: Maybe JobBookmarkEntry
+</span><a href="#local-6989586621679714330"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobBookmarkEntry
+</span><a href="#local-6989586621679714330"><span class="hs-identifier hs-var">jobBookmarkEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714329"><span class="annot"><span class="annottext">s :: ResetJobBookmarkResponse
+</span><a href="#local-6989586621679714329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714328"><span class="annot"><span class="annottext">Maybe JobBookmarkEntry
+</span><a href="#local-6989586621679714328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmarkResponse
+</span><a href="#local-6989586621679714329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobBookmarkEntry:ResetJobBookmarkResponse' :: Maybe JobBookmarkEntry
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AjobBookmarkEntry%3AResetJobBookmarkResponse%27"><span class="hs-identifier hs-var">jobBookmarkEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobBookmarkEntry
-</span><a href="#local-6989586621679714319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679714328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#resetJobBookmarkResponse_httpStatus"><span class="hs-identifier hs-type">resetJobBookmarkResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -444,16 +444,16 @@ $sel:jobBookmarkEntry:ResetJobBookmarkResponse' :: ResetJobBookmarkResponse -&gt
 -&gt; (ResetJobBookmarkResponse -&gt; Int -&gt; ResetJobBookmarkResponse)
 -&gt; Lens ResetJobBookmarkResponse ResetJobBookmarkResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714318"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714327"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ResetJobBookmarkResponse' :: ResetJobBookmarkResponse -&gt; Int
-</span><a href="#local-6989586621679714318"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714318"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714317"><span class="annot"><span class="annottext">s :: ResetJobBookmarkResponse
-</span><a href="#local-6989586621679714317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmarkResponse
-</span><a href="#local-6989586621679714317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResetJobBookmarkResponse' :: Int
+</span><a href="#local-6989586621679714327"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679714327"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714326"><span class="annot"><span class="annottext">s :: ResetJobBookmarkResponse
+</span><a href="#local-6989586621679714326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse%27"><span class="hs-identifier hs-type">ResetJobBookmarkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679714325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetJobBookmarkResponse
+</span><a href="#local-6989586621679714326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResetJobBookmarkResponse' :: Int
 </span><a href="Network.AWS.Glue.ResetJobBookmark.html#%24sel%3AhttpStatus%3AResetJobBookmarkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679714325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ResetJobBookmark.html#ResetJobBookmarkResponse"><span class="hs-identifier hs-type">ResetJobBookmarkResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

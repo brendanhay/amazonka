@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.GetModels</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the Models for an API.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.GetModels</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier">GetModels</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#newGetModels"><span class="hs-identifier">newGetModels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_nextToken"><span class="hs-identifier">getModels_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_maxResults"><span class="hs-identifier">getModels_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_apiId"><span class="hs-identifier">getModels_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier">GetModelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#newGetModelsResponse"><span class="hs-identifier">newGetModelsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_items"><span class="hs-identifier">getModelsResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_nextToken"><span class="hs-identifier">getModelsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_httpStatus"><span class="hs-identifier">getModelsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetModels' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679415228"><span id="local-6989586621679415229"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetModels"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-var">GetModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetModels%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-var">GetModels'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next page of elements from this collection. Not valid for the last</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- element of the collection.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AGetModels%27"><span class="annot"><span class="annottext">GetModels -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AnextToken%3AGetModels%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of elements to be returned for this resource.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetModels%27"><span class="annot"><span class="annottext">GetModels -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AmaxResults%3AGetModels%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AapiId%3AGetModels%27"><span class="annot"><span class="annottext">GetModels -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AapiId%3AGetModels%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415220"><span id="local-6989586621679415222"><span class="annot"><span class="annottext">GetModels -&gt; GetModels -&gt; Bool
+(GetModels -&gt; GetModels -&gt; Bool)
+-&gt; (GetModels -&gt; GetModels -&gt; Bool) -&gt; Eq GetModels
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetModels -&gt; GetModels -&gt; Bool
+$c/= :: GetModels -&gt; GetModels -&gt; Bool
+== :: GetModels -&gt; GetModels -&gt; Bool
+$c== :: GetModels -&gt; GetModels -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415211"><span id="local-6989586621679415213"><span id="local-6989586621679415215"><span id="local-6989586621679415217"><span class="annot"><span class="annottext">ReadPrec [GetModels]
+ReadPrec GetModels
+Int -&gt; ReadS GetModels
+ReadS [GetModels]
+(Int -&gt; ReadS GetModels)
+-&gt; ReadS [GetModels]
+-&gt; ReadPrec GetModels
+-&gt; ReadPrec [GetModels]
+-&gt; Read GetModels
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetModels]
+$creadListPrec :: ReadPrec [GetModels]
+readPrec :: ReadPrec GetModels
+$creadPrec :: ReadPrec GetModels
+readList :: ReadS [GetModels]
+$creadList :: ReadS [GetModels]
+readsPrec :: Int -&gt; ReadS GetModels
+$creadsPrec :: Int -&gt; ReadS GetModels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415204"><span id="local-6989586621679415206"><span id="local-6989586621679415208"><span class="annot"><span class="annottext">Int -&gt; GetModels -&gt; ShowS
+[GetModels] -&gt; ShowS
+GetModels -&gt; String
+(Int -&gt; GetModels -&gt; ShowS)
+-&gt; (GetModels -&gt; String)
+-&gt; ([GetModels] -&gt; ShowS)
+-&gt; Show GetModels
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetModels] -&gt; ShowS
+$cshowList :: [GetModels] -&gt; ShowS
+show :: GetModels -&gt; String
+$cshow :: GetModels -&gt; String
+showsPrec :: Int -&gt; GetModels -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetModels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetModels -&gt; Rep GetModels x)
+-&gt; (forall x. Rep GetModels x -&gt; GetModels) -&gt; Generic GetModels
+forall x. Rep GetModels x -&gt; GetModels
+forall x. GetModels -&gt; Rep GetModels x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetModels x -&gt; GetModels
+$cfrom :: forall x. GetModels -&gt; Rep GetModels x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'GetModels' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'getModels_nextToken' - The next page of elements from this collection. Not valid for the last</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- element of the collection.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'maxResults', 'getModels_maxResults' - The maximum number of elements to be returned for this resource.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'apiId', 'getModels_apiId' - The API identifier.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#newGetModels"><span class="hs-identifier hs-type">newGetModels</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span>
+</span><span id="line-84"></span><span id="newGetModels"><span class="annot"><span class="annottext">newGetModels :: Text -&gt; GetModels
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#newGetModels"><span class="hs-identifier hs-var hs-var">newGetModels</span></a></span></span><span> </span><span id="local-6989586621679415199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415199"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetModels' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; GetModels
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetModels' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AnextToken%3AGetModels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetModels' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AmaxResults%3AGetModels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:GetModels' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AapiId%3AGetModels%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415199"><span class="hs-identifier hs-var">pApiId_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The next page of elements from this collection. Not valid for the last</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- element of the collection.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_nextToken"><span class="hs-identifier hs-type">getModels_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="getModels_nextToken"><span class="annot"><span class="annottext">getModels_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetModels -&gt; f GetModels
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_nextToken"><span class="hs-identifier hs-var hs-var">getModels_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModels -&gt; Maybe Text)
+-&gt; (GetModels -&gt; Maybe Text -&gt; GetModels)
+-&gt; Lens GetModels GetModels (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415197"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetModels' :: GetModels -&gt; Maybe Text
+</span><a href="#local-6989586621679415197"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415197"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415196"><span class="annot"><span class="annottext">s :: GetModels
+</span><a href="#local-6989586621679415196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModels
+</span><a href="#local-6989586621679415196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetModels' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AnextToken%3AGetModels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of elements to be returned for this resource.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_maxResults"><span class="hs-identifier hs-type">getModels_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="getModels_maxResults"><span class="annot"><span class="annottext">getModels_maxResults :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetModels -&gt; f GetModels
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_maxResults"><span class="hs-identifier hs-var hs-var">getModels_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModels -&gt; Maybe Text)
+-&gt; (GetModels -&gt; Maybe Text -&gt; GetModels)
+-&gt; Lens GetModels GetModels (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415194"><span class="annot"><span class="annottext">Maybe Text
+maxResults :: Maybe Text
+$sel:maxResults:GetModels' :: GetModels -&gt; Maybe Text
+</span><a href="#local-6989586621679415194"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415194"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415193"><span class="annot"><span class="annottext">s :: GetModels
+</span><a href="#local-6989586621679415193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415192"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModels
+</span><a href="#local-6989586621679415193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetModels' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AmaxResults%3AGetModels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_apiId"><span class="hs-identifier hs-type">getModels_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="getModels_apiId"><span class="annot"><span class="annottext">getModels_apiId :: (Text -&gt; f Text) -&gt; GetModels -&gt; f GetModels
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_apiId"><span class="hs-identifier hs-var hs-var">getModels_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModels -&gt; Text)
+-&gt; (GetModels -&gt; Text -&gt; GetModels)
+-&gt; Lens GetModels GetModels Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415191"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:GetModels' :: GetModels -&gt; Text
+</span><a href="#local-6989586621679415191"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415191"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415190"><span class="annot"><span class="annottext">s :: GetModels
+</span><a href="#local-6989586621679415190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModels
+</span><a href="#local-6989586621679415190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:GetModels' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AapiId%3AGetModels%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679415185"><span class="annot"><span class="annottext">page :: GetModels -&gt; AWSResponse GetModels -&gt; Maybe GetModels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679415183"><span class="annot"><span class="annottext">GetModels
+</span><a href="#local-6989586621679415183"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679415182"><span class="annot"><span class="annottext">AWSResponse GetModels
+</span><a href="#local-6989586621679415182"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetModels
+GetModelsResponse
+</span><a href="#local-6989586621679415182"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">GetModelsResponse
+-&gt; Getting (First Text) GetModelsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetModelsResponse -&gt; Const (First Text) GetModelsResponse
+Lens' GetModelsResponse (Maybe Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_nextToken"><span class="hs-identifier hs-var">getModelsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetModelsResponse -&gt; Const (First Text) GetModelsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetModelsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetModels
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Model] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetModels
+GetModelsResponse
+</span><a href="#local-6989586621679415182"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">GetModelsResponse
+-&gt; Getting (First [Model]) GetModelsResponse [Model]
+-&gt; Maybe [Model]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Model] -&gt; Const (First [Model]) (Maybe [Model]))
+-&gt; GetModelsResponse -&gt; Const (First [Model]) GetModelsResponse
+Lens' GetModelsResponse (Maybe [Model])
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_items"><span class="hs-identifier hs-var">getModelsResponse_items</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Model] -&gt; Const (First [Model]) (Maybe [Model]))
+ -&gt; GetModelsResponse -&gt; Const (First [Model]) GetModelsResponse)
+-&gt; (([Model] -&gt; Const (First [Model]) [Model])
+    -&gt; Maybe [Model] -&gt; Const (First [Model]) (Maybe [Model]))
+-&gt; Getting (First [Model]) GetModelsResponse [Model]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Model] -&gt; Const (First [Model]) [Model])
+-&gt; Maybe [Model] -&gt; Const (First [Model]) (Maybe [Model])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetModels
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">GetModels -&gt; Maybe GetModels
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetModels -&gt; Maybe GetModels) -&gt; GetModels -&gt; Maybe GetModels
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">GetModels
+</span><a href="#local-6989586621679415183"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">GetModels -&gt; (GetModels -&gt; GetModels) -&gt; GetModels
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetModels -&gt; Identity GetModels
+Lens GetModels GetModels (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModels_nextToken"><span class="hs-identifier hs-var">getModels_nextToken</span></a></span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetModels -&gt; Identity GetModels)
+-&gt; Maybe Text -&gt; GetModels -&gt; GetModels
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetModels
+GetModelsResponse
+</span><a href="#local-6989586621679415182"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">GetModelsResponse
+-&gt; Getting (First Text) GetModelsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetModelsResponse -&gt; Const (First Text) GetModelsResponse
+Lens' GetModelsResponse (Maybe Text)
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_nextToken"><span class="hs-identifier hs-var">getModelsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetModelsResponse -&gt; Const (First Text) GetModelsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetModelsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679415172"><span class="annot"><span class="annottext">request :: GetModels -&gt; Request GetModels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetModels -&gt; Request GetModels
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679415168"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetModels
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetModels)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetModels))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetModels
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetModels)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415165"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415164"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415164"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415163"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415163"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Model] -&gt; Maybe Text -&gt; Int -&gt; GetModelsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-var">GetModelsResponse'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Model] -&gt; Maybe Text -&gt; Int -&gt; GetModelsResponse)
+-&gt; Either String (Maybe [Model])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetModelsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Model]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Model]))
+-&gt; Maybe [Model] -&gt; Either String (Maybe [Model])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Model]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetModelsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetModelsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetModelsResponse)
+-&gt; Either String Int -&gt; Either String GetModelsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415165"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415154"><span id="local-6989586621679415156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679415147"><span class="annot"><span class="annottext">toHeaders :: GetModels -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetModels -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-146"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679415141"><span class="annot"><span class="annottext">toPath :: GetModels -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415137"><span id="local-6989586621679415138"><span id="local-6989586621679415139"><span class="annot"><span class="annottext">Maybe Text
+Text
+apiId :: Text
+maxResults :: Maybe Text
+nextToken :: Maybe Text
+$sel:apiId:GetModels' :: GetModels -&gt; Text
+$sel:maxResults:GetModels' :: GetModels -&gt; Maybe Text
+$sel:nextToken:GetModels' :: GetModels -&gt; Maybe Text
+</span><a href="#local-6989586621679415137"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/apis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415137"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/models&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels"><span class="hs-identifier hs-type">GetModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679415133"><span class="annot"><span class="annottext">toQuery :: GetModels -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModels%27"><span class="hs-identifier hs-type">GetModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415129"><span id="local-6989586621679415130"><span id="local-6989586621679415131"><span class="annot"><span class="annottext">Maybe Text
+Text
+apiId :: Text
+maxResults :: Maybe Text
+nextToken :: Maybe Text
+$sel:apiId:GetModels' :: GetModels -&gt; Text
+$sel:maxResults:GetModels' :: GetModels -&gt; Maybe Text
+$sel:nextToken:GetModels' :: GetModels -&gt; Maybe Text
+</span><a href="#local-6989586621679415129"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415131"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415130"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newGetModelsResponse' smart constructor.</span><span>
+</span><span id="line-163"></span><span id="local-6989586621679415126"><span id="local-6989586621679415127"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetModelsResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-var">GetModelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetModelsResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-var">GetModelsResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The elements from this collection.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3Aitems%3AGetModelsResponse%27"><span class="annot"><span class="annottext">GetModelsResponse -&gt; Maybe [Model]
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3Aitems%3AGetModelsResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The next page of elements from this collection. Not valid for the last</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- element of the collection.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AnextToken%3AGetModelsResponse%27"><span class="annot"><span class="annottext">GetModelsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AnextToken%3AGetModelsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetModelsResponse%27"><span class="annot"><span class="annottext">GetModelsResponse -&gt; Int
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AhttpStatus%3AGetModelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415119"><span id="local-6989586621679415121"><span class="annot"><span class="annottext">GetModelsResponse -&gt; GetModelsResponse -&gt; Bool
+(GetModelsResponse -&gt; GetModelsResponse -&gt; Bool)
+-&gt; (GetModelsResponse -&gt; GetModelsResponse -&gt; Bool)
+-&gt; Eq GetModelsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetModelsResponse -&gt; GetModelsResponse -&gt; Bool
+$c/= :: GetModelsResponse -&gt; GetModelsResponse -&gt; Bool
+== :: GetModelsResponse -&gt; GetModelsResponse -&gt; Bool
+$c== :: GetModelsResponse -&gt; GetModelsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415111"><span id="local-6989586621679415113"><span id="local-6989586621679415115"><span id="local-6989586621679415117"><span class="annot"><span class="annottext">ReadPrec [GetModelsResponse]
+ReadPrec GetModelsResponse
+Int -&gt; ReadS GetModelsResponse
+ReadS [GetModelsResponse]
+(Int -&gt; ReadS GetModelsResponse)
+-&gt; ReadS [GetModelsResponse]
+-&gt; ReadPrec GetModelsResponse
+-&gt; ReadPrec [GetModelsResponse]
+-&gt; Read GetModelsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetModelsResponse]
+$creadListPrec :: ReadPrec [GetModelsResponse]
+readPrec :: ReadPrec GetModelsResponse
+$creadPrec :: ReadPrec GetModelsResponse
+readList :: ReadS [GetModelsResponse]
+$creadList :: ReadS [GetModelsResponse]
+readsPrec :: Int -&gt; ReadS GetModelsResponse
+$creadsPrec :: Int -&gt; ReadS GetModelsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415105"><span id="local-6989586621679415107"><span id="local-6989586621679415109"><span class="annot"><span class="annottext">Int -&gt; GetModelsResponse -&gt; ShowS
+[GetModelsResponse] -&gt; ShowS
+GetModelsResponse -&gt; String
+(Int -&gt; GetModelsResponse -&gt; ShowS)
+-&gt; (GetModelsResponse -&gt; String)
+-&gt; ([GetModelsResponse] -&gt; ShowS)
+-&gt; Show GetModelsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetModelsResponse] -&gt; ShowS
+$cshowList :: [GetModelsResponse] -&gt; ShowS
+show :: GetModelsResponse -&gt; String
+$cshow :: GetModelsResponse -&gt; String
+showsPrec :: Int -&gt; GetModelsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetModelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetModelsResponse -&gt; Rep GetModelsResponse x)
+-&gt; (forall x. Rep GetModelsResponse x -&gt; GetModelsResponse)
+-&gt; Generic GetModelsResponse
+forall x. Rep GetModelsResponse x -&gt; GetModelsResponse
+forall x. GetModelsResponse -&gt; Rep GetModelsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetModelsResponse x -&gt; GetModelsResponse
+$cfrom :: forall x. GetModelsResponse -&gt; Rep GetModelsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'GetModelsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'items', 'getModelsResponse_items' - The elements from this collection.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'nextToken', 'getModelsResponse_nextToken' - The next page of elements from this collection. Not valid for the last</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- element of the collection.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'httpStatus', 'getModelsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#newGetModelsResponse"><span class="hs-identifier hs-type">newGetModelsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newGetModelsResponse"><span class="annot"><span class="annottext">newGetModelsResponse :: Int -&gt; GetModelsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#newGetModelsResponse"><span class="hs-identifier hs-var hs-var">newGetModelsResponse</span></a></span></span><span> </span><span id="local-6989586621679415102"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415102"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">GetModelsResponse' :: Maybe [Model] -&gt; Maybe Text -&gt; Int -&gt; GetModelsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-type">GetModelsResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:GetModelsResponse' :: Maybe [Model]
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3Aitems%3AGetModelsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Model]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetModelsResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AnextToken%3AGetModelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetModelsResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AhttpStatus%3AGetModelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415102"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The elements from this collection.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_items"><span class="hs-identifier hs-type">getModelsResponse_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="getModelsResponse_items"><span class="annot"><span class="annottext">getModelsResponse_items :: (Maybe [Model] -&gt; f (Maybe [Model]))
+-&gt; GetModelsResponse -&gt; f GetModelsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_items"><span class="hs-identifier hs-var hs-var">getModelsResponse_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModelsResponse -&gt; Maybe [Model])
+-&gt; (GetModelsResponse -&gt; Maybe [Model] -&gt; GetModelsResponse)
+-&gt; Lens' GetModelsResponse (Maybe [Model])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-type">GetModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415101"><span class="annot"><span class="annottext">Maybe [Model]
+items :: Maybe [Model]
+$sel:items:GetModelsResponse' :: GetModelsResponse -&gt; Maybe [Model]
+</span><a href="#local-6989586621679415101"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Model]
+</span><a href="#local-6989586621679415101"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415100"><span class="annot"><span class="annottext">s :: GetModelsResponse
+</span><a href="#local-6989586621679415100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-type">GetModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415099"><span class="annot"><span class="annottext">Maybe [Model]
+</span><a href="#local-6989586621679415099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModelsResponse
+</span><a href="#local-6989586621679415100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:GetModelsResponse' :: Maybe [Model]
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3Aitems%3AGetModelsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Model]
+</span><a href="#local-6989586621679415099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Model] -&gt; f (Maybe [Model]))
+ -&gt; GetModelsResponse -&gt; f GetModelsResponse)
+-&gt; ((Maybe [Model] -&gt; f (Maybe [Model]))
+    -&gt; Maybe [Model] -&gt; f (Maybe [Model]))
+-&gt; (Maybe [Model] -&gt; f (Maybe [Model]))
+-&gt; GetModelsResponse
+-&gt; f GetModelsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Model] [Model] [Model] [Model]
+-&gt; Iso
+     (Maybe [Model]) (Maybe [Model]) (Maybe [Model]) (Maybe [Model])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Model] [Model] [Model] [Model]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The next page of elements from this collection. Not valid for the last</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- element of the collection.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_nextToken"><span class="hs-identifier hs-type">getModelsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="getModelsResponse_nextToken"><span class="annot"><span class="annottext">getModelsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetModelsResponse -&gt; f GetModelsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getModelsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModelsResponse -&gt; Maybe Text)
+-&gt; (GetModelsResponse -&gt; Maybe Text -&gt; GetModelsResponse)
+-&gt; Lens' GetModelsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-type">GetModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415096"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetModelsResponse' :: GetModelsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679415096"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415096"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415095"><span class="annot"><span class="annottext">s :: GetModelsResponse
+</span><a href="#local-6989586621679415095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-type">GetModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415094"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModelsResponse
+</span><a href="#local-6989586621679415095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetModelsResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AnextToken%3AGetModelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_httpStatus"><span class="hs-identifier hs-type">getModelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span id="getModelsResponse_httpStatus"><span class="annot"><span class="annottext">getModelsResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetModelsResponse -&gt; f GetModelsResponse
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#getModelsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getModelsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModelsResponse -&gt; Int)
+-&gt; (GetModelsResponse -&gt; Int -&gt; GetModelsResponse)
+-&gt; Lens GetModelsResponse GetModelsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-type">GetModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415093"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetModelsResponse' :: GetModelsResponse -&gt; Int
+</span><a href="#local-6989586621679415093"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415093"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415092"><span class="annot"><span class="annottext">s :: GetModelsResponse
+</span><a href="#local-6989586621679415092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse%27"><span class="hs-identifier hs-type">GetModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415091"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModelsResponse
+</span><a href="#local-6989586621679415092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetModelsResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.GetModels.html#%24sel%3AhttpStatus%3AGetModelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.GetModels.html#GetModelsResponse"><span class="hs-identifier hs-type">GetModelsResponse</span></a></span></span><span>
+</span><span id="line-213"></span></pre></body></html>

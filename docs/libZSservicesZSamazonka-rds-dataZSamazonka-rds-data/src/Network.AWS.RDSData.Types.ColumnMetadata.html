@@ -1,0 +1,857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RDSData.Types.ColumnMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDSData.Types.ColumnMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains the metadata for a column.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newColumnMetadata' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679155731"><span id="local-6989586621679155732"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColumnMetadata"><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-var">ColumnMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColumnMetadata%27"><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-var">ColumnMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The database-specific data type of the column.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AtypeName%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AtypeName%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the column is case-sensitive.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AisCaseSensitive%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisCaseSensitive%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">isCaseSensitive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the column contains currency values.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AisCurrency%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisCurrency%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">isCurrency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The scale value of a decimal number column.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Ascale%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Ascale%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The precision value of a decimal number column.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aprecision%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Aprecision%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">precision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the schema that owns the table that includes the column.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AschemaName%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AschemaName%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the column increments automatically.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AisAutoIncrement%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisAutoIncrement%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">isAutoIncrement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the column.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Aname%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The type of the column.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AarrayBaseColumnType%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AarrayBaseColumnType%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">arrayBaseColumnType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The type of the column.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atype%27%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Atype%27%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether an integer column is signed.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AisSigned%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisSigned%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">isSigned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The label for the column.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Alabel%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Alabel%3AColumnMetadata%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the column is nullable.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Anullable%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Anullable%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">nullable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name of the table that includes the column.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AtableName%3AColumnMetadata%27"><span class="annot"><span class="annottext">ColumnMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AtableName%3AColumnMetadata%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155712"><span id="local-6989586621679155714"><span class="annot"><span class="annottext">ColumnMetadata -&gt; ColumnMetadata -&gt; Bool
+(ColumnMetadata -&gt; ColumnMetadata -&gt; Bool)
+-&gt; (ColumnMetadata -&gt; ColumnMetadata -&gt; Bool) -&gt; Eq ColumnMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ColumnMetadata -&gt; ColumnMetadata -&gt; Bool
+$c/= :: ColumnMetadata -&gt; ColumnMetadata -&gt; Bool
+== :: ColumnMetadata -&gt; ColumnMetadata -&gt; Bool
+$c== :: ColumnMetadata -&gt; ColumnMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155703"><span id="local-6989586621679155705"><span id="local-6989586621679155707"><span id="local-6989586621679155709"><span class="annot"><span class="annottext">ReadPrec [ColumnMetadata]
+ReadPrec ColumnMetadata
+Int -&gt; ReadS ColumnMetadata
+ReadS [ColumnMetadata]
+(Int -&gt; ReadS ColumnMetadata)
+-&gt; ReadS [ColumnMetadata]
+-&gt; ReadPrec ColumnMetadata
+-&gt; ReadPrec [ColumnMetadata]
+-&gt; Read ColumnMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ColumnMetadata]
+$creadListPrec :: ReadPrec [ColumnMetadata]
+readPrec :: ReadPrec ColumnMetadata
+$creadPrec :: ReadPrec ColumnMetadata
+readList :: ReadS [ColumnMetadata]
+$creadList :: ReadS [ColumnMetadata]
+readsPrec :: Int -&gt; ReadS ColumnMetadata
+$creadsPrec :: Int -&gt; ReadS ColumnMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155696"><span id="local-6989586621679155698"><span id="local-6989586621679155700"><span class="annot"><span class="annottext">Int -&gt; ColumnMetadata -&gt; ShowS
+[ColumnMetadata] -&gt; ShowS
+ColumnMetadata -&gt; String
+(Int -&gt; ColumnMetadata -&gt; ShowS)
+-&gt; (ColumnMetadata -&gt; String)
+-&gt; ([ColumnMetadata] -&gt; ShowS)
+-&gt; Show ColumnMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ColumnMetadata] -&gt; ShowS
+$cshowList :: [ColumnMetadata] -&gt; ShowS
+show :: ColumnMetadata -&gt; String
+$cshow :: ColumnMetadata -&gt; String
+showsPrec :: Int -&gt; ColumnMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; ColumnMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ColumnMetadata -&gt; Rep ColumnMetadata x)
+-&gt; (forall x. Rep ColumnMetadata x -&gt; ColumnMetadata)
+-&gt; Generic ColumnMetadata
+forall x. Rep ColumnMetadata x -&gt; ColumnMetadata
+forall x. ColumnMetadata -&gt; Rep ColumnMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ColumnMetadata x -&gt; ColumnMetadata
+$cfrom :: forall x. ColumnMetadata -&gt; Rep ColumnMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ColumnMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'typeName', 'columnMetadata_typeName' - The database-specific data type of the column.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'isCaseSensitive', 'columnMetadata_isCaseSensitive' - A value that indicates whether the column is case-sensitive.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'isCurrency', 'columnMetadata_isCurrency' - A value that indicates whether the column contains currency values.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'scale', 'columnMetadata_scale' - The scale value of a decimal number column.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'precision', 'columnMetadata_precision' - The precision value of a decimal number column.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'schemaName', 'columnMetadata_schemaName' - The name of the schema that owns the table that includes the column.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'isAutoIncrement', 'columnMetadata_isAutoIncrement' - A value that indicates whether the column increments automatically.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'name', 'columnMetadata_name' - The name of the column.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'arrayBaseColumnType', 'columnMetadata_arrayBaseColumnType' - The type of the column.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'type'', 'columnMetadata_type' - The type of the column.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'isSigned', 'columnMetadata_isSigned' - A value that indicates whether an integer column is signed.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'label', 'columnMetadata_label' - The label for the column.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'nullable', 'columnMetadata_nullable' - A value that indicates whether the column is nullable.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'tableName', 'columnMetadata_tableName' - The name of the table that includes the column.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#newColumnMetadata"><span class="hs-identifier hs-type">newColumnMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span>
+</span><span id="line-98"></span><span id="newColumnMetadata"><span class="annot"><span class="annottext">newColumnMetadata :: ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#newColumnMetadata"><span class="hs-identifier hs-var hs-var">newColumnMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">ColumnMetadata' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AtypeName%3AColumnMetadata%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:isCaseSensitive:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisCaseSensitive%3AColumnMetadata%27"><span class="hs-identifier hs-var">isCaseSensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:isCurrency:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisCurrency%3AColumnMetadata%27"><span class="hs-identifier hs-var">isCurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:scale:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Ascale%3AColumnMetadata%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:precision:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Aprecision%3AColumnMetadata%27"><span class="hs-identifier hs-var">precision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaName:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AschemaName%3AColumnMetadata%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:isAutoIncrement:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisAutoIncrement%3AColumnMetadata%27"><span class="hs-identifier hs-var">isAutoIncrement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Aname%3AColumnMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:arrayBaseColumnType:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AarrayBaseColumnType%3AColumnMetadata%27"><span class="hs-identifier hs-var">arrayBaseColumnType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Atype%27%3AColumnMetadata%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:isSigned:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisSigned%3AColumnMetadata%27"><span class="hs-identifier hs-var">isSigned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:label:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Alabel%3AColumnMetadata%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:nullable:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Anullable%3AColumnMetadata%27"><span class="hs-identifier hs-var">nullable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AtableName%3AColumnMetadata%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The database-specific data type of the column.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_typeName"><span class="hs-identifier hs-type">columnMetadata_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="columnMetadata_typeName"><span class="annot"><span class="annottext">columnMetadata_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_typeName"><span class="hs-identifier hs-var hs-var">columnMetadata_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Text)
+-&gt; (ColumnMetadata -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155687"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679155687"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155687"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155686"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155685"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AtypeName%3AColumnMetadata%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A value that indicates whether the column is case-sensitive.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isCaseSensitive"><span class="hs-identifier hs-type">columnMetadata_isCaseSensitive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="columnMetadata_isCaseSensitive"><span class="annot"><span class="annottext">columnMetadata_isCaseSensitive :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isCaseSensitive"><span class="hs-identifier hs-var hs-var">columnMetadata_isCaseSensitive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Bool)
+-&gt; (ColumnMetadata -&gt; Maybe Bool -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155683"><span class="annot"><span class="annottext">Maybe Bool
+isCaseSensitive :: Maybe Bool
+$sel:isCaseSensitive:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Bool
+</span><a href="#local-6989586621679155683"><span class="hs-identifier hs-var hs-var">isCaseSensitive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155683"><span class="hs-identifier hs-var">isCaseSensitive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155682"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155681"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isCaseSensitive:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisCaseSensitive%3AColumnMetadata%27"><span class="hs-identifier hs-var">isCaseSensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A value that indicates whether the column contains currency values.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isCurrency"><span class="hs-identifier hs-type">columnMetadata_isCurrency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="columnMetadata_isCurrency"><span class="annot"><span class="annottext">columnMetadata_isCurrency :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isCurrency"><span class="hs-identifier hs-var hs-var">columnMetadata_isCurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Bool)
+-&gt; (ColumnMetadata -&gt; Maybe Bool -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155679"><span class="annot"><span class="annottext">Maybe Bool
+isCurrency :: Maybe Bool
+$sel:isCurrency:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Bool
+</span><a href="#local-6989586621679155679"><span class="hs-identifier hs-var hs-var">isCurrency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155679"><span class="hs-identifier hs-var">isCurrency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155678"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155677"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isCurrency:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisCurrency%3AColumnMetadata%27"><span class="hs-identifier hs-var">isCurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The scale value of a decimal number column.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_scale"><span class="hs-identifier hs-type">columnMetadata_scale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="columnMetadata_scale"><span class="annot"><span class="annottext">columnMetadata_scale :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_scale"><span class="hs-identifier hs-var hs-var">columnMetadata_scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Int)
+-&gt; (ColumnMetadata -&gt; Maybe Int -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155675"><span class="annot"><span class="annottext">Maybe Int
+scale :: Maybe Int
+$sel:scale:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679155675"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155675"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155674"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155673"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Ascale%3AColumnMetadata%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The precision value of a decimal number column.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_precision"><span class="hs-identifier hs-type">columnMetadata_precision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="columnMetadata_precision"><span class="annot"><span class="annottext">columnMetadata_precision :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_precision"><span class="hs-identifier hs-var hs-var">columnMetadata_precision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Int)
+-&gt; (ColumnMetadata -&gt; Maybe Int -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155671"><span class="annot"><span class="annottext">Maybe Int
+precision :: Maybe Int
+$sel:precision:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679155671"><span class="hs-identifier hs-var hs-var">precision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155671"><span class="hs-identifier hs-var">precision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155670"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155669"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:precision:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Aprecision%3AColumnMetadata%27"><span class="hs-identifier hs-var">precision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the schema that owns the table that includes the column.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_schemaName"><span class="hs-identifier hs-type">columnMetadata_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="columnMetadata_schemaName"><span class="annot"><span class="annottext">columnMetadata_schemaName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_schemaName"><span class="hs-identifier hs-var hs-var">columnMetadata_schemaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Text)
+-&gt; (ColumnMetadata -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155667"><span class="annot"><span class="annottext">Maybe Text
+schemaName :: Maybe Text
+$sel:schemaName:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679155667"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155667"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155666"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155665"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AschemaName%3AColumnMetadata%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | A value that indicates whether the column increments automatically.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isAutoIncrement"><span class="hs-identifier hs-type">columnMetadata_isAutoIncrement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="columnMetadata_isAutoIncrement"><span class="annot"><span class="annottext">columnMetadata_isAutoIncrement :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isAutoIncrement"><span class="hs-identifier hs-var hs-var">columnMetadata_isAutoIncrement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Bool)
+-&gt; (ColumnMetadata -&gt; Maybe Bool -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155663"><span class="annot"><span class="annottext">Maybe Bool
+isAutoIncrement :: Maybe Bool
+$sel:isAutoIncrement:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Bool
+</span><a href="#local-6989586621679155663"><span class="hs-identifier hs-var hs-var">isAutoIncrement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155663"><span class="hs-identifier hs-var">isAutoIncrement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155662"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155661"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isAutoIncrement:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisAutoIncrement%3AColumnMetadata%27"><span class="hs-identifier hs-var">isAutoIncrement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The name of the column.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_name"><span class="hs-identifier hs-type">columnMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="columnMetadata_name"><span class="annot"><span class="annottext">columnMetadata_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_name"><span class="hs-identifier hs-var hs-var">columnMetadata_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Text)
+-&gt; (ColumnMetadata -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155659"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679155659"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155659"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155658"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Aname%3AColumnMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The type of the column.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_arrayBaseColumnType"><span class="hs-identifier hs-type">columnMetadata_arrayBaseColumnType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="columnMetadata_arrayBaseColumnType"><span class="annot"><span class="annottext">columnMetadata_arrayBaseColumnType :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_arrayBaseColumnType"><span class="hs-identifier hs-var hs-var">columnMetadata_arrayBaseColumnType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Int)
+-&gt; (ColumnMetadata -&gt; Maybe Int -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155655"><span class="annot"><span class="annottext">Maybe Int
+arrayBaseColumnType :: Maybe Int
+$sel:arrayBaseColumnType:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679155655"><span class="hs-identifier hs-var hs-var">arrayBaseColumnType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155655"><span class="hs-identifier hs-var">arrayBaseColumnType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155654"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155653"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arrayBaseColumnType:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AarrayBaseColumnType%3AColumnMetadata%27"><span class="hs-identifier hs-var">arrayBaseColumnType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The type of the column.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_type"><span class="hs-identifier hs-type">columnMetadata_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="columnMetadata_type"><span class="annot"><span class="annottext">columnMetadata_type :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_type"><span class="hs-identifier hs-var hs-var">columnMetadata_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Int)
+-&gt; (ColumnMetadata -&gt; Maybe Int -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155651"><span class="annot"><span class="annottext">Maybe Int
+type' :: Maybe Int
+$sel:type':ColumnMetadata' :: ColumnMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679155651"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155651"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155650"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155649"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Atype%27%3AColumnMetadata%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | A value that indicates whether an integer column is signed.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isSigned"><span class="hs-identifier hs-type">columnMetadata_isSigned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="columnMetadata_isSigned"><span class="annot"><span class="annottext">columnMetadata_isSigned :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_isSigned"><span class="hs-identifier hs-var hs-var">columnMetadata_isSigned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Bool)
+-&gt; (ColumnMetadata -&gt; Maybe Bool -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155647"><span class="annot"><span class="annottext">Maybe Bool
+isSigned :: Maybe Bool
+$sel:isSigned:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Bool
+</span><a href="#local-6989586621679155647"><span class="hs-identifier hs-var hs-var">isSigned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155647"><span class="hs-identifier hs-var">isSigned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155646"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155645"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isSigned:ColumnMetadata' :: Maybe Bool
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AisSigned%3AColumnMetadata%27"><span class="hs-identifier hs-var">isSigned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679155645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The label for the column.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_label"><span class="hs-identifier hs-type">columnMetadata_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="columnMetadata_label"><span class="annot"><span class="annottext">columnMetadata_label :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_label"><span class="hs-identifier hs-var hs-var">columnMetadata_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Text)
+-&gt; (ColumnMetadata -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155643"><span class="annot"><span class="annottext">Maybe Text
+label :: Maybe Text
+$sel:label:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679155643"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155643"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155642"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155641"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Alabel%3AColumnMetadata%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | A value that indicates whether the column is nullable.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_nullable"><span class="hs-identifier hs-type">columnMetadata_nullable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="columnMetadata_nullable"><span class="annot"><span class="annottext">columnMetadata_nullable :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_nullable"><span class="hs-identifier hs-var hs-var">columnMetadata_nullable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Int)
+-&gt; (ColumnMetadata -&gt; Maybe Int -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155639"><span class="annot"><span class="annottext">Maybe Int
+nullable :: Maybe Int
+$sel:nullable:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679155639"><span class="hs-identifier hs-var hs-var">nullable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155639"><span class="hs-identifier hs-var">nullable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155638"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155637"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nullable:ColumnMetadata' :: Maybe Int
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3Anullable%3AColumnMetadata%27"><span class="hs-identifier hs-var">nullable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The name of the table that includes the column.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_tableName"><span class="hs-identifier hs-type">columnMetadata_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="columnMetadata_tableName"><span class="annot"><span class="annottext">columnMetadata_tableName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ColumnMetadata -&gt; f ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#columnMetadata_tableName"><span class="hs-identifier hs-var hs-var">columnMetadata_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnMetadata -&gt; Maybe Text)
+-&gt; (ColumnMetadata -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Lens ColumnMetadata ColumnMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155635"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:ColumnMetadata' :: ColumnMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679155635"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155635"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155634"><span class="annot"><span class="annottext">s :: ColumnMetadata
+</span><a href="#local-6989586621679155634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-type">ColumnMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnMetadata
+</span><a href="#local-6989586621679155634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ColumnMetadata' :: Maybe Text
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#%24sel%3AtableName%3AColumnMetadata%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679155628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColumnMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ColumnMetadata)
+-&gt; Value
+-&gt; Parser ColumnMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ColumnMetadata&quot;</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155625"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; ColumnMetadata
+</span><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata%27"><span class="hs-identifier hs-var">ColumnMetadata'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;typeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isCaseSensitive&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isCurrency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scale&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;precision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;schemaName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isAutoIncrement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arrayBaseColumnType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isSigned&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;label&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Text -&gt; ColumnMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nullable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ColumnMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser ColumnMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155619"><span id="local-6989586621679155621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.ColumnMetadata.html#ColumnMetadata"><span class="hs-identifier hs-type">ColumnMetadata</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

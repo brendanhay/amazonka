@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describe a custom routing accelerator.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier">DescribeCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#newDescribeCustomRoutingAccelerator"><span class="hs-identifier">newDescribeCustomRoutingAccelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAccelerator_acceleratorArn"><span class="hs-identifier">describeCustomRoutingAccelerator_acceleratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier">DescribeCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#newDescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier">newDescribeCustomRoutingAcceleratorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAcceleratorResponse_accelerator"><span class="hs-identifier">describeCustomRoutingAcceleratorResponse_accelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAcceleratorResponse_httpStatus"><span class="hs-identifier">describeCustomRoutingAcceleratorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeCustomRoutingAccelerator' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679244555"><span id="local-6989586621679244556"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomRoutingAccelerator"><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-var">DescribeCustomRoutingAccelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomRoutingAccelerator%27"><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">DescribeCustomRoutingAccelerator'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the accelerator to describe.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AacceleratorArn%3ADescribeCustomRoutingAccelerator%27"><span class="annot"><span class="annottext">DescribeCustomRoutingAccelerator -&gt; Text
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3AacceleratorArn%3ADescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-var hs-var">acceleratorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244549"><span id="local-6989586621679244551"><span class="annot"><span class="annottext">DescribeCustomRoutingAccelerator
+-&gt; DescribeCustomRoutingAccelerator -&gt; Bool
+(DescribeCustomRoutingAccelerator
+ -&gt; DescribeCustomRoutingAccelerator -&gt; Bool)
+-&gt; (DescribeCustomRoutingAccelerator
+    -&gt; DescribeCustomRoutingAccelerator -&gt; Bool)
+-&gt; Eq DescribeCustomRoutingAccelerator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCustomRoutingAccelerator
+-&gt; DescribeCustomRoutingAccelerator -&gt; Bool
+$c/= :: DescribeCustomRoutingAccelerator
+-&gt; DescribeCustomRoutingAccelerator -&gt; Bool
+== :: DescribeCustomRoutingAccelerator
+-&gt; DescribeCustomRoutingAccelerator -&gt; Bool
+$c== :: DescribeCustomRoutingAccelerator
+-&gt; DescribeCustomRoutingAccelerator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244540"><span id="local-6989586621679244542"><span id="local-6989586621679244544"><span id="local-6989586621679244546"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomRoutingAccelerator]
+ReadPrec DescribeCustomRoutingAccelerator
+Int -&gt; ReadS DescribeCustomRoutingAccelerator
+ReadS [DescribeCustomRoutingAccelerator]
+(Int -&gt; ReadS DescribeCustomRoutingAccelerator)
+-&gt; ReadS [DescribeCustomRoutingAccelerator]
+-&gt; ReadPrec DescribeCustomRoutingAccelerator
+-&gt; ReadPrec [DescribeCustomRoutingAccelerator]
+-&gt; Read DescribeCustomRoutingAccelerator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCustomRoutingAccelerator]
+$creadListPrec :: ReadPrec [DescribeCustomRoutingAccelerator]
+readPrec :: ReadPrec DescribeCustomRoutingAccelerator
+$creadPrec :: ReadPrec DescribeCustomRoutingAccelerator
+readList :: ReadS [DescribeCustomRoutingAccelerator]
+$creadList :: ReadS [DescribeCustomRoutingAccelerator]
+readsPrec :: Int -&gt; ReadS DescribeCustomRoutingAccelerator
+$creadsPrec :: Int -&gt; ReadS DescribeCustomRoutingAccelerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244533"><span id="local-6989586621679244535"><span id="local-6989586621679244537"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomRoutingAccelerator -&gt; ShowS
+[DescribeCustomRoutingAccelerator] -&gt; ShowS
+DescribeCustomRoutingAccelerator -&gt; String
+(Int -&gt; DescribeCustomRoutingAccelerator -&gt; ShowS)
+-&gt; (DescribeCustomRoutingAccelerator -&gt; String)
+-&gt; ([DescribeCustomRoutingAccelerator] -&gt; ShowS)
+-&gt; Show DescribeCustomRoutingAccelerator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCustomRoutingAccelerator] -&gt; ShowS
+$cshowList :: [DescribeCustomRoutingAccelerator] -&gt; ShowS
+show :: DescribeCustomRoutingAccelerator -&gt; String
+$cshow :: DescribeCustomRoutingAccelerator -&gt; String
+showsPrec :: Int -&gt; DescribeCustomRoutingAccelerator -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCustomRoutingAccelerator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeCustomRoutingAccelerator
+ -&gt; Rep DescribeCustomRoutingAccelerator x)
+-&gt; (forall x.
+    Rep DescribeCustomRoutingAccelerator x
+    -&gt; DescribeCustomRoutingAccelerator)
+-&gt; Generic DescribeCustomRoutingAccelerator
+forall x.
+Rep DescribeCustomRoutingAccelerator x
+-&gt; DescribeCustomRoutingAccelerator
+forall x.
+DescribeCustomRoutingAccelerator
+-&gt; Rep DescribeCustomRoutingAccelerator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeCustomRoutingAccelerator x
+-&gt; DescribeCustomRoutingAccelerator
+$cfrom :: forall x.
+DescribeCustomRoutingAccelerator
+-&gt; Rep DescribeCustomRoutingAccelerator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DescribeCustomRoutingAccelerator' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'acceleratorArn', 'describeCustomRoutingAccelerator_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator to describe.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#newDescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">newDescribeCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'acceleratorArn'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-69"></span><span id="newDescribeCustomRoutingAccelerator"><span class="annot"><span class="annottext">newDescribeCustomRoutingAccelerator :: Text -&gt; DescribeCustomRoutingAccelerator
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#newDescribeCustomRoutingAccelerator"><span class="hs-identifier hs-var hs-var">newDescribeCustomRoutingAccelerator</span></a></span></span><span> </span><span id="local-6989586621679244528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244528"><span class="hs-identifier hs-var">pAcceleratorArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DescribeCustomRoutingAccelerator' :: Text -&gt; DescribeCustomRoutingAccelerator
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceleratorArn:DescribeCustomRoutingAccelerator' :: Text
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3AacceleratorArn%3ADescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244528"><span class="hs-identifier hs-var">pAcceleratorArn_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the accelerator to describe.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAccelerator_acceleratorArn"><span class="hs-identifier hs-type">describeCustomRoutingAccelerator_acceleratorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="describeCustomRoutingAccelerator_acceleratorArn"><span class="annot"><span class="annottext">describeCustomRoutingAccelerator_acceleratorArn :: (Text -&gt; f Text)
+-&gt; DescribeCustomRoutingAccelerator
+-&gt; f DescribeCustomRoutingAccelerator
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAccelerator_acceleratorArn"><span class="hs-identifier hs-var hs-var">describeCustomRoutingAccelerator_acceleratorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomRoutingAccelerator -&gt; Text)
+-&gt; (DescribeCustomRoutingAccelerator
+    -&gt; Text -&gt; DescribeCustomRoutingAccelerator)
+-&gt; Lens
+     DescribeCustomRoutingAccelerator
+     DescribeCustomRoutingAccelerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244525"><span class="annot"><span class="annottext">Text
+acceleratorArn :: Text
+$sel:acceleratorArn:DescribeCustomRoutingAccelerator' :: DescribeCustomRoutingAccelerator -&gt; Text
+</span><a href="#local-6989586621679244525"><span class="hs-identifier hs-var hs-var">acceleratorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244525"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244524"><span class="annot"><span class="annottext">s :: DescribeCustomRoutingAccelerator
+</span><a href="#local-6989586621679244524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244523"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomRoutingAccelerator
+</span><a href="#local-6989586621679244524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorArn:DescribeCustomRoutingAccelerator' :: Text
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3AacceleratorArn%3ADescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679244519"><span class="annot"><span class="annottext">request :: DescribeCustomRoutingAccelerator
+-&gt; Request DescribeCustomRoutingAccelerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeCustomRoutingAccelerator
+-&gt; Request DescribeCustomRoutingAccelerator
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679244515"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeCustomRoutingAccelerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeCustomRoutingAccelerator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeCustomRoutingAccelerator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeCustomRoutingAccelerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeCustomRoutingAccelerator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244512"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244511"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679244511"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244510"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+-&gt; Int -&gt; DescribeCustomRoutingAcceleratorResponse
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">DescribeCustomRoutingAcceleratorResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomRoutingAccelerator
+ -&gt; Int -&gt; DescribeCustomRoutingAcceleratorResponse)
+-&gt; Either String (Maybe CustomRoutingAccelerator)
+-&gt; Either String (Int -&gt; DescribeCustomRoutingAcceleratorResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CustomRoutingAccelerator)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accelerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeCustomRoutingAcceleratorResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeCustomRoutingAcceleratorResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244512"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679244502"><span id="local-6989586621679244504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679244499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679244495"><span class="annot"><span class="annottext">toHeaders :: DescribeCustomRoutingAccelerator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeCustomRoutingAccelerator -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalAccelerator_V20180706.DescribeCustomRoutingAccelerator&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244485"><span id="local-6989586621679244487"><span id="local-6989586621679244489"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679244483"><span class="annot"><span class="annottext">toJSON :: DescribeCustomRoutingAccelerator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244481"><span class="annot"><span class="annottext">Text
+acceleratorArn :: Text
+$sel:acceleratorArn:DescribeCustomRoutingAccelerator' :: DescribeCustomRoutingAccelerator -&gt; Text
+</span><a href="#local-6989586621679244481"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceleratorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244481"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679244475"><span class="annot"><span class="annottext">toPath :: DescribeCustomRoutingAccelerator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCustomRoutingAccelerator -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAccelerator"><span class="hs-identifier hs-type">DescribeCustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679244471"><span class="annot"><span class="annottext">toQuery :: DescribeCustomRoutingAccelerator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCustomRoutingAccelerator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newDescribeCustomRoutingAcceleratorResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679244468"><span id="local-6989586621679244469"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomRoutingAcceleratorResponse"><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-var">DescribeCustomRoutingAcceleratorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomRoutingAcceleratorResponse%27"><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">DescribeCustomRoutingAcceleratorResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the custom routing accelerator.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aaccelerator%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="annot"><span class="annottext">DescribeCustomRoutingAcceleratorResponse
+-&gt; Maybe CustomRoutingAccelerator
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3Aaccelerator%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var hs-var">accelerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#CustomRoutingAccelerator"><span class="hs-identifier hs-type">CustomRoutingAccelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="annot"><span class="annottext">DescribeCustomRoutingAcceleratorResponse -&gt; Int
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3AhttpStatus%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244462"><span id="local-6989586621679244464"><span class="annot"><span class="annottext">DescribeCustomRoutingAcceleratorResponse
+-&gt; DescribeCustomRoutingAcceleratorResponse -&gt; Bool
+(DescribeCustomRoutingAcceleratorResponse
+ -&gt; DescribeCustomRoutingAcceleratorResponse -&gt; Bool)
+-&gt; (DescribeCustomRoutingAcceleratorResponse
+    -&gt; DescribeCustomRoutingAcceleratorResponse -&gt; Bool)
+-&gt; Eq DescribeCustomRoutingAcceleratorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCustomRoutingAcceleratorResponse
+-&gt; DescribeCustomRoutingAcceleratorResponse -&gt; Bool
+$c/= :: DescribeCustomRoutingAcceleratorResponse
+-&gt; DescribeCustomRoutingAcceleratorResponse -&gt; Bool
+== :: DescribeCustomRoutingAcceleratorResponse
+-&gt; DescribeCustomRoutingAcceleratorResponse -&gt; Bool
+$c== :: DescribeCustomRoutingAcceleratorResponse
+-&gt; DescribeCustomRoutingAcceleratorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244454"><span id="local-6989586621679244456"><span id="local-6989586621679244458"><span id="local-6989586621679244460"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomRoutingAcceleratorResponse]
+ReadPrec DescribeCustomRoutingAcceleratorResponse
+Int -&gt; ReadS DescribeCustomRoutingAcceleratorResponse
+ReadS [DescribeCustomRoutingAcceleratorResponse]
+(Int -&gt; ReadS DescribeCustomRoutingAcceleratorResponse)
+-&gt; ReadS [DescribeCustomRoutingAcceleratorResponse]
+-&gt; ReadPrec DescribeCustomRoutingAcceleratorResponse
+-&gt; ReadPrec [DescribeCustomRoutingAcceleratorResponse]
+-&gt; Read DescribeCustomRoutingAcceleratorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCustomRoutingAcceleratorResponse]
+$creadListPrec :: ReadPrec [DescribeCustomRoutingAcceleratorResponse]
+readPrec :: ReadPrec DescribeCustomRoutingAcceleratorResponse
+$creadPrec :: ReadPrec DescribeCustomRoutingAcceleratorResponse
+readList :: ReadS [DescribeCustomRoutingAcceleratorResponse]
+$creadList :: ReadS [DescribeCustomRoutingAcceleratorResponse]
+readsPrec :: Int -&gt; ReadS DescribeCustomRoutingAcceleratorResponse
+$creadsPrec :: Int -&gt; ReadS DescribeCustomRoutingAcceleratorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244448"><span id="local-6989586621679244450"><span id="local-6989586621679244452"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomRoutingAcceleratorResponse -&gt; ShowS
+[DescribeCustomRoutingAcceleratorResponse] -&gt; ShowS
+DescribeCustomRoutingAcceleratorResponse -&gt; String
+(Int -&gt; DescribeCustomRoutingAcceleratorResponse -&gt; ShowS)
+-&gt; (DescribeCustomRoutingAcceleratorResponse -&gt; String)
+-&gt; ([DescribeCustomRoutingAcceleratorResponse] -&gt; ShowS)
+-&gt; Show DescribeCustomRoutingAcceleratorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCustomRoutingAcceleratorResponse] -&gt; ShowS
+$cshowList :: [DescribeCustomRoutingAcceleratorResponse] -&gt; ShowS
+show :: DescribeCustomRoutingAcceleratorResponse -&gt; String
+$cshow :: DescribeCustomRoutingAcceleratorResponse -&gt; String
+showsPrec :: Int -&gt; DescribeCustomRoutingAcceleratorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCustomRoutingAcceleratorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeCustomRoutingAcceleratorResponse
+ -&gt; Rep DescribeCustomRoutingAcceleratorResponse x)
+-&gt; (forall x.
+    Rep DescribeCustomRoutingAcceleratorResponse x
+    -&gt; DescribeCustomRoutingAcceleratorResponse)
+-&gt; Generic DescribeCustomRoutingAcceleratorResponse
+forall x.
+Rep DescribeCustomRoutingAcceleratorResponse x
+-&gt; DescribeCustomRoutingAcceleratorResponse
+forall x.
+DescribeCustomRoutingAcceleratorResponse
+-&gt; Rep DescribeCustomRoutingAcceleratorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeCustomRoutingAcceleratorResponse x
+-&gt; DescribeCustomRoutingAcceleratorResponse
+$cfrom :: forall x.
+DescribeCustomRoutingAcceleratorResponse
+-&gt; Rep DescribeCustomRoutingAcceleratorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'DescribeCustomRoutingAcceleratorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'accelerator', 'describeCustomRoutingAcceleratorResponse_accelerator' - The description of the custom routing accelerator.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'describeCustomRoutingAcceleratorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#newDescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">newDescribeCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newDescribeCustomRoutingAcceleratorResponse"><span class="annot"><span class="annottext">newDescribeCustomRoutingAcceleratorResponse :: Int -&gt; DescribeCustomRoutingAcceleratorResponse
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#newDescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-var hs-var">newDescribeCustomRoutingAcceleratorResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679244445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">DescribeCustomRoutingAcceleratorResponse' :: Maybe CustomRoutingAccelerator
+-&gt; Int -&gt; DescribeCustomRoutingAcceleratorResponse
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accelerator:DescribeCustomRoutingAcceleratorResponse' :: Maybe CustomRoutingAccelerator
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3Aaccelerator%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">accelerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCustomRoutingAcceleratorResponse' :: Int
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3AhttpStatus%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The description of the custom routing accelerator.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAcceleratorResponse_accelerator"><span class="hs-identifier hs-type">describeCustomRoutingAcceleratorResponse_accelerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#CustomRoutingAccelerator"><span class="hs-identifier hs-type">CustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeCustomRoutingAcceleratorResponse_accelerator"><span class="annot"><span class="annottext">describeCustomRoutingAcceleratorResponse_accelerator :: (Maybe CustomRoutingAccelerator
+ -&gt; f (Maybe CustomRoutingAccelerator))
+-&gt; DescribeCustomRoutingAcceleratorResponse
+-&gt; f DescribeCustomRoutingAcceleratorResponse
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAcceleratorResponse_accelerator"><span class="hs-identifier hs-var hs-var">describeCustomRoutingAcceleratorResponse_accelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomRoutingAcceleratorResponse
+ -&gt; Maybe CustomRoutingAccelerator)
+-&gt; (DescribeCustomRoutingAcceleratorResponse
+    -&gt; Maybe CustomRoutingAccelerator
+    -&gt; DescribeCustomRoutingAcceleratorResponse)
+-&gt; Lens
+     DescribeCustomRoutingAcceleratorResponse
+     DescribeCustomRoutingAcceleratorResponse
+     (Maybe CustomRoutingAccelerator)
+     (Maybe CustomRoutingAccelerator)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244444"><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+accelerator :: Maybe CustomRoutingAccelerator
+$sel:accelerator:DescribeCustomRoutingAcceleratorResponse' :: DescribeCustomRoutingAcceleratorResponse
+-&gt; Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679244444"><span class="hs-identifier hs-var hs-var">accelerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679244444"><span class="hs-identifier hs-var">accelerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244443"><span class="annot"><span class="annottext">s :: DescribeCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679244443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244442"><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679244442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679244443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerator:DescribeCustomRoutingAcceleratorResponse' :: Maybe CustomRoutingAccelerator
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3Aaccelerator%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">accelerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679244442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAcceleratorResponse_httpStatus"><span class="hs-identifier hs-type">describeCustomRoutingAcceleratorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span id="describeCustomRoutingAcceleratorResponse_httpStatus"><span class="annot"><span class="annottext">describeCustomRoutingAcceleratorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeCustomRoutingAcceleratorResponse
+-&gt; f DescribeCustomRoutingAcceleratorResponse
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#describeCustomRoutingAcceleratorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeCustomRoutingAcceleratorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomRoutingAcceleratorResponse -&gt; Int)
+-&gt; (DescribeCustomRoutingAcceleratorResponse
+    -&gt; Int -&gt; DescribeCustomRoutingAcceleratorResponse)
+-&gt; Lens
+     DescribeCustomRoutingAcceleratorResponse
+     DescribeCustomRoutingAcceleratorResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244441"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeCustomRoutingAcceleratorResponse' :: DescribeCustomRoutingAcceleratorResponse -&gt; Int
+</span><a href="#local-6989586621679244441"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244441"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244440"><span class="annot"><span class="annottext">s :: DescribeCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679244440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679244440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCustomRoutingAcceleratorResponse' :: Int
+</span><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#%24sel%3AhttpStatus%3ADescribeCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679244437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator.html#DescribeCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">DescribeCustomRoutingAcceleratorResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

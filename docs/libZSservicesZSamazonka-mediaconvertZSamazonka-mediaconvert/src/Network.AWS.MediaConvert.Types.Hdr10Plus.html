@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Setting for HDR10+ metadata insertion</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHdr10Plus' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679976283"><span id="local-6989586621679976284"></span></span><span class="hs-keyword">data</span><span> </span><span id="Hdr10Plus"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-var">Hdr10Plus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Hdr10Plus%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-var">Hdr10Plus'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679976292"><span id="local-6989586621679976293"></span></span><span class="hs-keyword">data</span><span> </span><span id="Hdr10Plus"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-var">Hdr10Plus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Hdr10Plus%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-var">Hdr10Plus'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the HDR10+ mastering display normalized peak luminance, in nits.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- This is the normalized actual peak luminance of the mastering display,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- as defined by ST 2094-40.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AtargetMonitorNits%3AHdr10Plus%27"><span class="annot"><span class="annottext">Hdr10Plus -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#%24sel%3AtargetMonitorNits%3AHdr10Plus%27"><span class="hs-identifier hs-var hs-var">targetMonitorNits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679976276"><span id="local-6989586621679976278"><span class="annot"><span class="annottext">Hdr10Plus -&gt; Hdr10Plus -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679976285"><span id="local-6989586621679976287"><span class="annot"><span class="annottext">Hdr10Plus -&gt; Hdr10Plus -&gt; Bool
 (Hdr10Plus -&gt; Hdr10Plus -&gt; Bool)
 -&gt; (Hdr10Plus -&gt; Hdr10Plus -&gt; Bool) -&gt; Eq Hdr10Plus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Hdr10Plus -&gt; Hdr10Plus -&gt; Bool
 == :: Hdr10Plus -&gt; Hdr10Plus -&gt; Bool
 $c== :: Hdr10Plus -&gt; Hdr10Plus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679976267"><span id="local-6989586621679976269"><span id="local-6989586621679976271"><span id="local-6989586621679976273"><span class="annot"><span class="annottext">ReadPrec [Hdr10Plus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679976276"><span id="local-6989586621679976278"><span id="local-6989586621679976280"><span id="local-6989586621679976282"><span class="annot"><span class="annottext">ReadPrec [Hdr10Plus]
 ReadPrec Hdr10Plus
 Int -&gt; ReadS Hdr10Plus
 ReadS [Hdr10Plus]
@@ -66,7 +66,7 @@ readList :: ReadS [Hdr10Plus]
 $creadList :: ReadS [Hdr10Plus]
 readsPrec :: Int -&gt; ReadS Hdr10Plus
 $creadsPrec :: Int -&gt; ReadS Hdr10Plus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679976260"><span id="local-6989586621679976262"><span id="local-6989586621679976264"><span class="annot"><span class="annottext">Int -&gt; Hdr10Plus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679976269"><span id="local-6989586621679976271"><span id="local-6989586621679976273"><span class="annot"><span class="annottext">Int -&gt; Hdr10Plus -&gt; ShowS
 [Hdr10Plus] -&gt; ShowS
 Hdr10Plus -&gt; String
 (Int -&gt; Hdr10Plus -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (Hdr10Plus -&gt; Maybe Natural -&gt; Hdr10Plus)
 -&gt; Lens Hdr10Plus Hdr10Plus (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976251"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976260"><span class="annot"><span class="annottext">Maybe Natural
 masteringMonitorNits :: Maybe Natural
 $sel:masteringMonitorNits:Hdr10Plus' :: Hdr10Plus -&gt; Maybe Natural
-</span><a href="#local-6989586621679976251"><span class="hs-identifier hs-var hs-var">masteringMonitorNits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976251"><span class="hs-identifier hs-var">masteringMonitorNits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976250"><span class="annot"><span class="annottext">s :: Hdr10Plus
-</span><a href="#local-6989586621679976250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976249"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Plus
-</span><a href="#local-6989586621679976250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masteringMonitorNits:Hdr10Plus' :: Maybe Natural
+</span><a href="#local-6989586621679976260"><span class="hs-identifier hs-var hs-var">masteringMonitorNits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679976260"><span class="hs-identifier hs-var">masteringMonitorNits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976259"><span class="annot"><span class="annottext">s :: Hdr10Plus
+</span><a href="#local-6989586621679976259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976258"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679976258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Plus
+</span><a href="#local-6989586621679976259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masteringMonitorNits:Hdr10Plus' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#%24sel%3AmasteringMonitorNits%3AHdr10Plus%27"><span class="hs-identifier hs-var">masteringMonitorNits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679976258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Specify the HDR10+ target display nominal peak luminance, in nits. This</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- is the nominal maximum luminance of the target display as defined by ST</span><span>
@@ -151,34 +151,34 @@ $sel:masteringMonitorNits:Hdr10Plus' :: Hdr10Plus -&gt; Maybe Natural
 -&gt; (Hdr10Plus -&gt; Maybe Natural -&gt; Hdr10Plus)
 -&gt; Lens Hdr10Plus Hdr10Plus (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976247"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976256"><span class="annot"><span class="annottext">Maybe Natural
 targetMonitorNits :: Maybe Natural
 $sel:targetMonitorNits:Hdr10Plus' :: Hdr10Plus -&gt; Maybe Natural
-</span><a href="#local-6989586621679976247"><span class="hs-identifier hs-var hs-var">targetMonitorNits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976247"><span class="hs-identifier hs-var">targetMonitorNits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976246"><span class="annot"><span class="annottext">s :: Hdr10Plus
-</span><a href="#local-6989586621679976246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976245"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Plus
-</span><a href="#local-6989586621679976246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetMonitorNits:Hdr10Plus' :: Maybe Natural
+</span><a href="#local-6989586621679976256"><span class="hs-identifier hs-var hs-var">targetMonitorNits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679976256"><span class="hs-identifier hs-var">targetMonitorNits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679976255"><span class="annot"><span class="annottext">s :: Hdr10Plus
+</span><a href="#local-6989586621679976255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679976254"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679976254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Plus
+</span><a href="#local-6989586621679976255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetMonitorNits:Hdr10Plus' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#%24sel%3AtargetMonitorNits%3AHdr10Plus%27"><span class="hs-identifier hs-var">targetMonitorNits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679976254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679976240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Hdr10Plus
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976251"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679976249"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Hdr10Plus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Hdr10Plus) -&gt; Value -&gt; Parser Hdr10Plus
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Hdr10Plus&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679976237"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679976237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679976246"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679976246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; Hdr10Plus
 </span><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-var">Hdr10Plus'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; Hdr10Plus)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; Hdr10Plus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679976237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679976246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;masteringMonitorNits&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,24 +186,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser Hdr10Plus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679976237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679976246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetMonitorNits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976231"><span id="local-6989586621679976233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976240"><span id="local-6989586621679976242"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976220"><span id="local-6989586621679976222"><span id="local-6989586621679976224"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679976218"><span class="annot"><span class="annottext">toJSON :: Hdr10Plus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976215"><span id="local-6989586621679976216"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679976229"><span id="local-6989586621679976231"><span id="local-6989586621679976233"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus"><span class="hs-identifier hs-type">Hdr10Plus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679976227"><span class="annot"><span class="annottext">toJSON :: Hdr10Plus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Plus.html#Hdr10Plus%27"><span class="hs-identifier hs-type">Hdr10Plus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679976224"><span id="local-6989586621679976225"><span class="annot"><span class="annottext">Maybe Natural
 targetMonitorNits :: Maybe Natural
 masteringMonitorNits :: Maybe Natural
 $sel:targetMonitorNits:Hdr10Plus' :: Hdr10Plus -&gt; Maybe Natural
 $sel:masteringMonitorNits:Hdr10Plus' :: Hdr10Plus -&gt; Maybe Natural
-</span><a href="#local-6989586621679976215"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679976224"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -216,7 +216,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976216"><span class="hs-identifier hs-var">masteringMonitorNits</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679976225"><span class="hs-identifier hs-var">masteringMonitorNits</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetMonitorNits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -224,7 +224,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679976215"><span class="hs-identifier hs-var">targetMonitorNits</span></a></span><span>
+</span><a href="#local-6989586621679976224"><span class="hs-identifier hs-var">targetMonitorNits</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Information about the build input source code for the build project.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProjectSource' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679378427"><span id="local-6989586621679378428"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSource"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-var">ProjectSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSource%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-var">ProjectSource'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679378436"><span id="local-6989586621679378437"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSource"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-var">ProjectSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSource%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-var">ProjectSource'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to true to report the status of a build\'s start and finish to your</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- source provider. This option is valid only when your source provider is</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a</span><span>
@@ -166,7 +166,7 @@
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3Atype%27%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; SourceType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3Atype%27%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378412"><span id="local-6989586621679378414"><span class="annot"><span class="annottext">ProjectSource -&gt; ProjectSource -&gt; Bool
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378421"><span id="local-6989586621679378423"><span class="annot"><span class="annottext">ProjectSource -&gt; ProjectSource -&gt; Bool
 (ProjectSource -&gt; ProjectSource -&gt; Bool)
 -&gt; (ProjectSource -&gt; ProjectSource -&gt; Bool) -&gt; Eq ProjectSource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -174,7 +174,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectSource -&gt; ProjectSource -&gt; Bool
 == :: ProjectSource -&gt; ProjectSource -&gt; Bool
 $c== :: ProjectSource -&gt; ProjectSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378403"><span id="local-6989586621679378405"><span id="local-6989586621679378407"><span id="local-6989586621679378409"><span class="annot"><span class="annottext">ReadPrec [ProjectSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378412"><span id="local-6989586621679378414"><span id="local-6989586621679378416"><span id="local-6989586621679378418"><span class="annot"><span class="annottext">ReadPrec [ProjectSource]
 ReadPrec ProjectSource
 Int -&gt; ReadS ProjectSource
 ReadS [ProjectSource]
@@ -194,7 +194,7 @@ readList :: ReadS [ProjectSource]
 $creadList :: ReadS [ProjectSource]
 readsPrec :: Int -&gt; ReadS ProjectSource
 $creadsPrec :: Int -&gt; ReadS ProjectSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378396"><span id="local-6989586621679378398"><span id="local-6989586621679378400"><span class="annot"><span class="annottext">Int -&gt; ProjectSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378405"><span id="local-6989586621679378407"><span id="local-6989586621679378409"><span class="annot"><span class="annottext">Int -&gt; ProjectSource -&gt; ShowS
 [ProjectSource] -&gt; ShowS
 ProjectSource -&gt; String
 (Int -&gt; ProjectSource -&gt; ShowS)
@@ -356,8 +356,8 @@ $cfrom :: forall x. ProjectSource -&gt; Rep ProjectSource x
 </span><span id="line-294"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-295"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span>
 </span><span id="line-296"></span><span id="newProjectSource"><span class="annot"><span class="annottext">newProjectSource :: SourceType -&gt; ProjectSource
-</span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#newProjectSource"><span class="hs-identifier hs-var hs-var">newProjectSource</span></a></span></span><span> </span><span id="local-6989586621679378390"><span class="annot"><span class="annottext">SourceType
-</span><a href="#local-6989586621679378390"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#newProjectSource"><span class="hs-identifier hs-var hs-var">newProjectSource</span></a></span></span><span> </span><span id="local-6989586621679378399"><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378399"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-297"></span><span>  </span><span class="annot"><span class="annottext">ProjectSource' :: Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -408,7 +408,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProjectSource' :: SourceType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3Atype%27%3AProjectSource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceType
-</span><a href="#local-6989586621679378390"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679378399"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-308"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-309"></span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- | Set to true to report the status of a build\'s start and finish to your</span><span>
@@ -434,16 +434,16 @@ forall a. Maybe a
 -&gt; (ProjectSource -&gt; Maybe Bool -&gt; ProjectSource)
 -&gt; Lens ProjectSource ProjectSource (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378386"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378395"><span class="annot"><span class="annottext">Maybe Bool
 reportBuildStatus :: Maybe Bool
 $sel:reportBuildStatus:ProjectSource' :: ProjectSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679378386"><span class="hs-identifier hs-var hs-var">reportBuildStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378386"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378385"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378384"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportBuildStatus:ProjectSource' :: Maybe Bool
+</span><a href="#local-6989586621679378395"><span class="hs-identifier hs-var hs-var">reportBuildStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378395"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378394"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378393"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportBuildStatus:ProjectSource' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3AreportBuildStatus%3AProjectSource%27"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | Enable this flag to ignore SSL warnings while connecting to the project</span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- source code.</span><span>
@@ -453,16 +453,16 @@ $sel:reportBuildStatus:ProjectSource' :: ProjectSource -&gt; Maybe Bool
 -&gt; (ProjectSource -&gt; Maybe Bool -&gt; ProjectSource)
 -&gt; Lens ProjectSource ProjectSource (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378382"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378391"><span class="annot"><span class="annottext">Maybe Bool
 insecureSsl :: Maybe Bool
 $sel:insecureSsl:ProjectSource' :: ProjectSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679378382"><span class="hs-identifier hs-var hs-var">insecureSsl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378382"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378381"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378380"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insecureSsl:ProjectSource' :: Maybe Bool
+</span><a href="#local-6989586621679378391"><span class="hs-identifier hs-var hs-var">insecureSsl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378391"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378390"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378389"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insecureSsl:ProjectSource' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3AinsecureSsl%3AProjectSource%27"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | Information about the location of the source code to be built. Valid</span><span>
 </span><span id="line-336"></span><span class="hs-comment">-- values include:</span><span>
@@ -520,16 +520,16 @@ $sel:insecureSsl:ProjectSource' :: ProjectSource -&gt; Maybe Bool
 -&gt; (ProjectSource -&gt; Maybe Text -&gt; ProjectSource)
 -&gt; Lens ProjectSource ProjectSource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378378"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378387"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:ProjectSource' :: ProjectSource -&gt; Maybe Text
-</span><a href="#local-6989586621679378378"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378378"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378377"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378376"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectSource' :: Maybe Text
+</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378386"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378385"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectSource' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3Alocation%3AProjectSource%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-387"></span><span>
 </span><span id="line-388"></span><span class="hs-comment">-- | Information about the authorization settings for CodeBuild to access the</span><span>
 </span><span id="line-389"></span><span class="hs-comment">-- source code to be built.</span><span>
@@ -544,16 +544,16 @@ $sel:location:ProjectSource' :: ProjectSource -&gt; Maybe Text
 -&gt; Lens
      ProjectSource ProjectSource (Maybe SourceAuth) (Maybe SourceAuth)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378374"><span class="annot"><span class="annottext">Maybe SourceAuth
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378383"><span class="annot"><span class="annottext">Maybe SourceAuth
 auth :: Maybe SourceAuth
 $sel:auth:ProjectSource' :: ProjectSource -&gt; Maybe SourceAuth
-</span><a href="#local-6989586621679378374"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
-</span><a href="#local-6989586621679378374"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378373"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378372"><span class="annot"><span class="annottext">Maybe SourceAuth
-</span><a href="#local-6989586621679378372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auth:ProjectSource' :: Maybe SourceAuth
+</span><a href="#local-6989586621679378383"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
+</span><a href="#local-6989586621679378383"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378382"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378381"><span class="annot"><span class="annottext">Maybe SourceAuth
+</span><a href="#local-6989586621679378381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auth:ProjectSource' :: Maybe SourceAuth
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3Aauth%3AProjectSource%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
-</span><a href="#local-6989586621679378372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-395"></span><span>
 </span><span id="line-396"></span><span class="hs-comment">-- | The buildspec file declaration to use for the builds in this build</span><span>
 </span><span id="line-397"></span><span class="hs-comment">-- project.</span><span>
@@ -573,16 +573,16 @@ $sel:auth:ProjectSource' :: ProjectSource -&gt; Maybe SourceAuth
 -&gt; (ProjectSource -&gt; Maybe Text -&gt; ProjectSource)
 -&gt; Lens ProjectSource ProjectSource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378370"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378379"><span class="annot"><span class="annottext">Maybe Text
 buildspec :: Maybe Text
 $sel:buildspec:ProjectSource' :: ProjectSource -&gt; Maybe Text
-</span><a href="#local-6989586621679378370"><span class="hs-identifier hs-var hs-var">buildspec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378370"><span class="hs-identifier hs-var">buildspec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378369"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378368"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildspec:ProjectSource' :: Maybe Text
+</span><a href="#local-6989586621679378379"><span class="hs-identifier hs-var hs-var">buildspec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378379"><span class="hs-identifier hs-var">buildspec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378378"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildspec:ProjectSource' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3Abuildspec%3AProjectSource%27"><span class="hs-identifier hs-var">buildspec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-410"></span><span>
 </span><span id="line-411"></span><span class="hs-comment">-- | An identifier for this project source. The identifier can only contain</span><span>
 </span><span id="line-412"></span><span class="hs-comment">-- alphanumeric characters and underscores, and must be less than 128</span><span>
@@ -593,16 +593,16 @@ $sel:buildspec:ProjectSource' :: ProjectSource -&gt; Maybe Text
 -&gt; (ProjectSource -&gt; Maybe Text -&gt; ProjectSource)
 -&gt; Lens ProjectSource ProjectSource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378366"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378375"><span class="annot"><span class="annottext">Maybe Text
 sourceIdentifier :: Maybe Text
 $sel:sourceIdentifier:ProjectSource' :: ProjectSource -&gt; Maybe Text
-</span><a href="#local-6989586621679378366"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378366"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378365"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378364"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSource' :: Maybe Text
+</span><a href="#local-6989586621679378375"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378375"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378374"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSource' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3AsourceIdentifier%3AProjectSource%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-416"></span><span>
 </span><span id="line-417"></span><span class="hs-comment">-- | Information about the Git clone depth for the build project.</span><span>
 </span><span id="line-418"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#projectSource_gitCloneDepth"><span class="hs-identifier hs-type">projectSource_gitCloneDepth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -612,16 +612,16 @@ $sel:sourceIdentifier:ProjectSource' :: ProjectSource -&gt; Maybe Text
 -&gt; (ProjectSource -&gt; Maybe Natural -&gt; ProjectSource)
 -&gt; Lens ProjectSource ProjectSource (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378362"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378371"><span class="annot"><span class="annottext">Maybe Natural
 gitCloneDepth :: Maybe Natural
 $sel:gitCloneDepth:ProjectSource' :: ProjectSource -&gt; Maybe Natural
-</span><a href="#local-6989586621679378362"><span class="hs-identifier hs-var hs-var">gitCloneDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378362"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378361"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378360"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitCloneDepth:ProjectSource' :: Maybe Natural
+</span><a href="#local-6989586621679378371"><span class="hs-identifier hs-var hs-var">gitCloneDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378371"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378370"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378369"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitCloneDepth:ProjectSource' :: Maybe Natural
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3AgitCloneDepth%3AProjectSource%27"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-420"></span><span>
 </span><span id="line-421"></span><span class="hs-comment">-- | Information about the Git submodules configuration for the build</span><span>
 </span><span id="line-422"></span><span class="hs-comment">-- project.</span><span>
@@ -636,16 +636,16 @@ $sel:gitCloneDepth:ProjectSource' :: ProjectSource -&gt; Maybe Natural
      (Maybe GitSubmodulesConfig)
      (Maybe GitSubmodulesConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378358"><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378367"><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
 gitSubmodulesConfig :: Maybe GitSubmodulesConfig
 $sel:gitSubmodulesConfig:ProjectSource' :: ProjectSource -&gt; Maybe GitSubmodulesConfig
-</span><a href="#local-6989586621679378358"><span class="hs-identifier hs-var hs-var">gitSubmodulesConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
-</span><a href="#local-6989586621679378358"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378357"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378356"><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
-</span><a href="#local-6989586621679378356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitSubmodulesConfig:ProjectSource' :: Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378367"><span class="hs-identifier hs-var hs-var">gitSubmodulesConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378367"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378366"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378365"><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitSubmodulesConfig:ProjectSource' :: Maybe GitSubmodulesConfig
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3AgitSubmodulesConfig%3AProjectSource%27"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
-</span><a href="#local-6989586621679378356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-425"></span><span>
 </span><span id="line-426"></span><span class="hs-comment">-- | Contains information that defines how the build project reports the</span><span>
 </span><span id="line-427"></span><span class="hs-comment">-- build status to the source provider. This option is only used when the</span><span>
@@ -661,16 +661,16 @@ $sel:gitSubmodulesConfig:ProjectSource' :: ProjectSource -&gt; Maybe GitSubmodul
      (Maybe BuildStatusConfig)
      (Maybe BuildStatusConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378354"><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378363"><span class="annot"><span class="annottext">Maybe BuildStatusConfig
 buildStatusConfig :: Maybe BuildStatusConfig
 $sel:buildStatusConfig:ProjectSource' :: ProjectSource -&gt; Maybe BuildStatusConfig
-</span><a href="#local-6989586621679378354"><span class="hs-identifier hs-var hs-var">buildStatusConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
-</span><a href="#local-6989586621679378354"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378353"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378352"><span class="annot"><span class="annottext">Maybe BuildStatusConfig
-</span><a href="#local-6989586621679378352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildStatusConfig:ProjectSource' :: Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378363"><span class="hs-identifier hs-var hs-var">buildStatusConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378363"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378362"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378361"><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildStatusConfig:ProjectSource' :: Maybe BuildStatusConfig
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3AbuildStatusConfig%3AProjectSource%27"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
-</span><a href="#local-6989586621679378352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-431"></span><span>
 </span><span id="line-432"></span><span class="hs-comment">-- | The type of repository that contains the source code to be built. Valid</span><span>
 </span><span id="line-433"></span><span class="hs-comment">-- values include:</span><span>
@@ -697,19 +697,19 @@ $sel:buildStatusConfig:ProjectSource' :: ProjectSource -&gt; Maybe BuildStatusCo
 -&gt; (ProjectSource -&gt; SourceType -&gt; ProjectSource)
 -&gt; Lens ProjectSource ProjectSource SourceType SourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378350"><span class="annot"><span class="annottext">SourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378359"><span class="annot"><span class="annottext">SourceType
 type' :: SourceType
 $sel:type':ProjectSource' :: ProjectSource -&gt; SourceType
-</span><a href="#local-6989586621679378350"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceType
-</span><a href="#local-6989586621679378350"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378349"><span class="annot"><span class="annottext">s :: ProjectSource
-</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378348"><span class="annot"><span class="annottext">SourceType
-</span><a href="#local-6989586621679378348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
-</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectSource' :: SourceType
+</span><a href="#local-6989586621679378359"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378359"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378358"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378357"><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectSource' :: SourceType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#%24sel%3Atype%27%3AProjectSource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceType
-</span><a href="#local-6989586621679378348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-453"></span><span>
-</span><span id="line-454"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378345"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-455"></span><span>  </span><span id="local-6989586621679378343"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSource
+</span><span id="line-454"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378354"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-455"></span><span>  </span><span id="local-6989586621679378352"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-456"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectSource)
@@ -719,8 +719,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-457"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectSource&quot;</span></span><span>
-</span><span id="line-458"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378340"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-458"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378349"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-459"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -758,7 +758,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reportBuildStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -786,7 +786,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;insecureSsl&quot;</span></span><span class="hs-special">)</span><span>
@@ -812,7 +812,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
@@ -836,7 +836,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceAuth)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceAuth)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;auth&quot;</span></span><span class="hs-special">)</span><span>
@@ -858,7 +858,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildspec&quot;</span></span><span class="hs-special">)</span><span>
@@ -878,7 +878,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -894,7 +894,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe BuildStatusConfig -&gt; SourceType -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gitCloneDepth&quot;</span></span><span class="hs-special">)</span><span>
@@ -905,7 +905,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe BuildStatusConfig -&gt; SourceType -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GitSubmodulesConfig)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GitSubmodulesConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gitSubmodulesConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -914,7 +914,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (SourceType -&gt; ProjectSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildStatusConfig)
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildStatusConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildStatusConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -922,19 +922,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SourceType -&gt; Parser ProjectSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SourceType
+</span><a href="#local-6989586621679378349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SourceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-470"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-471"></span><span>
-</span><span id="line-472"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378333"><span id="local-6989586621679378335"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span></span><span>
+</span><span id="line-472"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378342"><span id="local-6989586621679378344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span></span><span>
 </span><span id="line-473"></span><span>
-</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span><span>
 </span><span id="line-475"></span><span>
-</span><span id="line-476"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378322"><span id="local-6989586621679378324"><span id="local-6989586621679378326"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-477"></span><span>  </span><span id="local-6989586621679378320"><span class="annot"><span class="annottext">toJSON :: ProjectSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378309"><span id="local-6989586621679378310"><span id="local-6989586621679378311"><span id="local-6989586621679378312"><span id="local-6989586621679378313"><span id="local-6989586621679378314"><span id="local-6989586621679378315"><span id="local-6989586621679378316"><span id="local-6989586621679378317"><span id="local-6989586621679378318"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-476"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378331"><span id="local-6989586621679378333"><span id="local-6989586621679378335"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-477"></span><span>  </span><span id="local-6989586621679378329"><span class="annot"><span class="annottext">toJSON :: ProjectSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378318"><span id="local-6989586621679378319"><span id="local-6989586621679378320"><span id="local-6989586621679378321"><span id="local-6989586621679378322"><span id="local-6989586621679378323"><span id="local-6989586621679378324"><span id="local-6989586621679378325"><span id="local-6989586621679378326"><span id="local-6989586621679378327"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 Maybe BuildStatusConfig
@@ -961,7 +961,7 @@ $sel:auth:ProjectSource' :: ProjectSource -&gt; Maybe SourceAuth
 $sel:location:ProjectSource' :: ProjectSource -&gt; Maybe Text
 $sel:insecureSsl:ProjectSource' :: ProjectSource -&gt; Maybe Bool
 $sel:reportBuildStatus:ProjectSource' :: ProjectSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679378309"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679378318"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-479"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -974,35 +974,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-481"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378318"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378327"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-482"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;insecureSsl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378317"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378326"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-483"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378316"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378325"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-484"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;auth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceAuth -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SourceAuth -&gt; Pair) -&gt; Maybe SourceAuth -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
-</span><a href="#local-6989586621679378315"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378324"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-485"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildspec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378314"><span class="hs-identifier hs-var">buildspec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378323"><span class="hs-identifier hs-var">buildspec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-486"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1010,14 +1010,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-487"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378313"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378322"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-488"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gitCloneDepth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378312"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378321"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-489"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gitSubmodulesConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GitSubmodulesConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1026,7 +1026,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe GitSubmodulesConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
-</span><a href="#local-6989586621679378311"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378320"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-491"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildStatusConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BuildStatusConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1035,14 +1035,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe BuildStatusConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
-</span><a href="#local-6989586621679378310"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378319"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-493"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SourceType
-</span><a href="#local-6989586621679378309"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378318"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-494"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-495"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-496"></span></pre></body></html>

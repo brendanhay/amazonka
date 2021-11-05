@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetTableVersions' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679721658"><span id="local-6989586621679721659"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTableVersions"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-var">GetTableVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTableVersions%27"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-var">GetTableVersions'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679721667"><span id="local-6989586621679721668"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTableVersions"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-var">GetTableVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTableVersions%27"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-var">GetTableVersions'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the tables reside. If none is provided,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetTableVersions%27"><span class="annot"><span class="annottext">GetTableVersions -&gt; Maybe Text
@@ -75,7 +75,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AtableName%3AGetTableVersions%27"><span class="annot"><span class="annottext">GetTableVersions -&gt; Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AtableName%3AGetTableVersions%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721648"><span id="local-6989586621679721650"><span class="annot"><span class="annottext">GetTableVersions -&gt; GetTableVersions -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721657"><span id="local-6989586621679721659"><span class="annot"><span class="annottext">GetTableVersions -&gt; GetTableVersions -&gt; Bool
 (GetTableVersions -&gt; GetTableVersions -&gt; Bool)
 -&gt; (GetTableVersions -&gt; GetTableVersions -&gt; Bool)
 -&gt; Eq GetTableVersions
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTableVersions -&gt; GetTableVersions -&gt; Bool
 == :: GetTableVersions -&gt; GetTableVersions -&gt; Bool
 $c== :: GetTableVersions -&gt; GetTableVersions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721639"><span id="local-6989586621679721641"><span id="local-6989586621679721643"><span id="local-6989586621679721645"><span class="annot"><span class="annottext">ReadPrec [GetTableVersions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721648"><span id="local-6989586621679721650"><span id="local-6989586621679721652"><span id="local-6989586621679721654"><span class="annot"><span class="annottext">ReadPrec [GetTableVersions]
 ReadPrec GetTableVersions
 Int -&gt; ReadS GetTableVersions
 ReadS [GetTableVersions]
@@ -104,7 +104,7 @@ readList :: ReadS [GetTableVersions]
 $creadList :: ReadS [GetTableVersions]
 readsPrec :: Int -&gt; ReadS GetTableVersions
 $creadsPrec :: Int -&gt; ReadS GetTableVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721632"><span id="local-6989586621679721634"><span id="local-6989586621679721636"><span class="annot"><span class="annottext">Int -&gt; GetTableVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721641"><span id="local-6989586621679721643"><span id="local-6989586621679721645"><span class="annot"><span class="annottext">Int -&gt; GetTableVersions -&gt; ShowS
 [GetTableVersions] -&gt; ShowS
 GetTableVersions -&gt; String
 (Int -&gt; GetTableVersions -&gt; ShowS)
@@ -157,9 +157,9 @@ $cfrom :: forall x. GetTableVersions -&gt; Rep GetTableVersions x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span>
 </span><span id="line-101"></span><span id="newGetTableVersions"><span class="annot"><span class="annottext">newGetTableVersions :: Text -&gt; Text -&gt; GetTableVersions
-</span><a href="Network.AWS.Glue.GetTableVersions.html#newGetTableVersions"><span class="hs-identifier hs-var hs-var">newGetTableVersions</span></a></span></span><span> </span><span id="local-6989586621679721627"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721627"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679721626"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721626"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetTableVersions.html#newGetTableVersions"><span class="hs-identifier hs-var hs-var">newGetTableVersions</span></a></span></span><span> </span><span id="local-6989586621679721636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721636"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679721635"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721635"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">GetTableVersions' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; GetTableVersions
 </span><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span>
@@ -177,10 +177,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GetTableVersions' :: Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AdatabaseName%3AGetTableVersions%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721627"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721636"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:GetTableVersions' :: Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AtableName%3AGetTableVersions%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721626"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><a href="#local-6989586621679721635"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The ID of the Data Catalog where the tables reside. If none is provided,</span><span>
@@ -192,16 +192,16 @@ forall a. Maybe a
 -&gt; (GetTableVersions -&gt; Maybe Text -&gt; GetTableVersions)
 -&gt; Lens GetTableVersions GetTableVersions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721624"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721633"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetTableVersions' :: GetTableVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679721624"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721624"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721623"><span class="annot"><span class="annottext">s :: GetTableVersions
-</span><a href="#local-6989586621679721623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721622"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
-</span><a href="#local-6989586621679721623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetTableVersions' :: Maybe Text
+</span><a href="#local-6989586621679721633"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721633"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721632"><span class="annot"><span class="annottext">s :: GetTableVersions
+</span><a href="#local-6989586621679721632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
+</span><a href="#local-6989586621679721632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetTableVersions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AcatalogId%3AGetTableVersions%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | A continuation token, if this is not the first call.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#getTableVersions_nextToken"><span class="hs-identifier hs-type">getTableVersions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -211,16 +211,16 @@ $sel:catalogId:GetTableVersions' :: GetTableVersions -&gt; Maybe Text
 -&gt; (GetTableVersions -&gt; Maybe Text -&gt; GetTableVersions)
 -&gt; Lens GetTableVersions GetTableVersions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721621"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721630"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetTableVersions' :: GetTableVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679721621"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721621"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721620"><span class="annot"><span class="annottext">s :: GetTableVersions
-</span><a href="#local-6989586621679721620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721619"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
-</span><a href="#local-6989586621679721620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTableVersions' :: Maybe Text
+</span><a href="#local-6989586621679721630"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721630"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721629"><span class="annot"><span class="annottext">s :: GetTableVersions
+</span><a href="#local-6989586621679721629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721628"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
+</span><a href="#local-6989586621679721629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTableVersions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AnextToken%3AGetTableVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The maximum number of table versions to return in one response.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#getTableVersions_maxResults"><span class="hs-identifier hs-type">getTableVersions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -231,16 +231,16 @@ $sel:nextToken:GetTableVersions' :: GetTableVersions -&gt; Maybe Text
 -&gt; Lens
      GetTableVersions GetTableVersions (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721618"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721627"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetTableVersions' :: GetTableVersions -&gt; Maybe Natural
-</span><a href="#local-6989586621679721618"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721618"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721617"><span class="annot"><span class="annottext">s :: GetTableVersions
-</span><a href="#local-6989586621679721617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721616"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
-</span><a href="#local-6989586621679721617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetTableVersions' :: Maybe Natural
+</span><a href="#local-6989586621679721627"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679721627"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721626"><span class="annot"><span class="annottext">s :: GetTableVersions
+</span><a href="#local-6989586621679721626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721625"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679721625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
+</span><a href="#local-6989586621679721626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetTableVersions' :: Maybe Natural
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AmaxResults%3AGetTableVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The database in the catalog in which the table resides. For Hive</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
@@ -250,16 +250,16 @@ $sel:maxResults:GetTableVersions' :: GetTableVersions -&gt; Maybe Natural
 -&gt; (GetTableVersions -&gt; Text -&gt; GetTableVersions)
 -&gt; Lens GetTableVersions GetTableVersions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721615"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721624"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:GetTableVersions' :: GetTableVersions -&gt; Text
-</span><a href="#local-6989586621679721615"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721615"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721614"><span class="annot"><span class="annottext">s :: GetTableVersions
-</span><a href="#local-6989586621679721614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
-</span><a href="#local-6989586621679721614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetTableVersions' :: Text
+</span><a href="#local-6989586621679721624"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721624"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721623"><span class="annot"><span class="annottext">s :: GetTableVersions
+</span><a href="#local-6989586621679721623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
+</span><a href="#local-6989586621679721623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetTableVersions' :: Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AdatabaseName%3AGetTableVersions%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The name of the table. For Hive compatibility, this name is entirely</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- lowercase.</span><span>
@@ -269,29 +269,29 @@ $sel:databaseName:GetTableVersions' :: GetTableVersions -&gt; Text
 -&gt; (GetTableVersions -&gt; Text -&gt; GetTableVersions)
 -&gt; Lens GetTableVersions GetTableVersions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721612"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721621"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:GetTableVersions' :: GetTableVersions -&gt; Text
-</span><a href="#local-6989586621679721612"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721612"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721611"><span class="annot"><span class="annottext">s :: GetTableVersions
-</span><a href="#local-6989586621679721611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721610"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
-</span><a href="#local-6989586621679721611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GetTableVersions' :: Text
+</span><a href="#local-6989586621679721621"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721621"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721620"><span class="annot"><span class="annottext">s :: GetTableVersions
+</span><a href="#local-6989586621679721620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721619"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersions
+</span><a href="#local-6989586621679721620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GetTableVersions' :: Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AtableName%3AGetTableVersions%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679721606"><span class="annot"><span class="annottext">page :: GetTableVersions
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679721615"><span class="annot"><span class="annottext">page :: GetTableVersions
 -&gt; AWSResponse GetTableVersions -&gt; Maybe GetTableVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679721604"><span class="annot"><span class="annottext">GetTableVersions
-</span><a href="#local-6989586621679721604"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679721603"><span class="annot"><span class="annottext">AWSResponse GetTableVersions
-</span><a href="#local-6989586621679721603"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679721613"><span class="annot"><span class="annottext">GetTableVersions
+</span><a href="#local-6989586621679721613"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679721612"><span class="annot"><span class="annottext">AWSResponse GetTableVersions
+</span><a href="#local-6989586621679721612"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTableVersions
 GetTableVersionsResponse
-</span><a href="#local-6989586621679721603"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679721612"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">GetTableVersionsResponse
 -&gt; Getting (First Text) GetTableVersionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -320,7 +320,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTableVersions
 GetTableVersionsResponse
-</span><a href="#local-6989586621679721603"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679721612"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">GetTableVersionsResponse
 -&gt; Getting
      (First [TableVersion]) GetTableVersionsResponse [TableVersion]
@@ -360,7 +360,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">GetTableVersions
-</span><a href="#local-6989586621679721604"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679721613"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">GetTableVersions
 -&gt; (GetTableVersions -&gt; GetTableVersions) -&gt; GetTableVersions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -374,7 +374,7 @@ Lens GetTableVersions GetTableVersions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTableVersions
 GetTableVersionsResponse
-</span><a href="#local-6989586621679721603"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679721612"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">GetTableVersionsResponse
 -&gt; Getting (First Text) GetTableVersionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -399,12 +399,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679721593"><span class="annot"><span class="annottext">request :: GetTableVersions -&gt; Request GetTableVersions
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679721602"><span class="annot"><span class="annottext">request :: GetTableVersions -&gt; Request GetTableVersions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTableVersions -&gt; Request GetTableVersions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679721589"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679721598"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTableVersions
 -&gt; ClientResponse ClientBody
@@ -428,10 +428,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679721586"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721586"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679721585"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679721585"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679721584"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721584"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679721595"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721595"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679721594"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679721594"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679721593"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679721593"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TableVersion]
 -&gt; Maybe Text -&gt; Int -&gt; GetTableVersionsResponse
 </span><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-var">GetTableVersionsResponse'</span></a></span><span>
@@ -441,7 +441,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetTableVersionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TableVersion]))
+</span><a href="#local-6989586621679721593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TableVersion]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TableVersion]))
@@ -455,7 +455,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetTableVersionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679721593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -467,15 +467,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721586"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721595"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721575"><span id="local-6989586621679721577"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721584"><span id="local-6989586621679721586"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679721568"><span class="annot"><span class="annottext">toHeaders :: GetTableVersions -&gt; ResponseHeaders
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679721577"><span class="annot"><span class="annottext">toHeaders :: GetTableVersions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTableVersions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -500,9 +500,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721558"><span id="local-6989586621679721560"><span id="local-6989586621679721562"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679721556"><span class="annot"><span class="annottext">toJSON :: GetTableVersions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721550"><span id="local-6989586621679721551"><span id="local-6989586621679721552"><span id="local-6989586621679721553"><span id="local-6989586621679721554"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721567"><span id="local-6989586621679721569"><span id="local-6989586621679721571"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679721565"><span class="annot"><span class="annottext">toJSON :: GetTableVersions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions%27"><span class="hs-identifier hs-type">GetTableVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721559"><span id="local-6989586621679721560"><span id="local-6989586621679721561"><span id="local-6989586621679721562"><span id="local-6989586621679721563"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 tableName :: Text
@@ -515,7 +515,7 @@ $sel:databaseName:GetTableVersions' :: GetTableVersions -&gt; Text
 $sel:maxResults:GetTableVersions' :: GetTableVersions -&gt; Maybe Natural
 $sel:nextToken:GetTableVersions' :: GetTableVersions -&gt; Maybe Text
 $sel:catalogId:GetTableVersions' :: GetTableVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679721550"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679721559"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -527,47 +527,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721554"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721563"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721553"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721562"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721552"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721561"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721551"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721560"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721550"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721559"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679721544"><span class="annot"><span class="annottext">toPath :: GetTableVersions -&gt; ByteString
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679721553"><span class="annot"><span class="annottext">toPath :: GetTableVersions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTableVersions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersions"><span class="hs-identifier hs-type">GetTableVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679721540"><span class="annot"><span class="annottext">toQuery :: GetTableVersions -&gt; QueryString
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679721549"><span class="annot"><span class="annottext">toQuery :: GetTableVersions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTableVersions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -575,7 +575,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newGetTableVersionsResponse' smart constructor.</span><span>
-</span><span id="line-205"></span><span id="local-6989586621679721537"><span id="local-6989586621679721538"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTableVersionsResponse"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-var">GetTableVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTableVersionsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-var">GetTableVersionsResponse'</span></a></span></span><span>
+</span><span id="line-205"></span><span id="local-6989586621679721546"><span id="local-6989586621679721547"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTableVersionsResponse"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-var">GetTableVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTableVersionsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-var">GetTableVersionsResponse'</span></a></span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of strings identifying available versions of the specified table.</span><span>
 </span><span id="line-207"></span><span>    </span><span id="%24sel%3AtableVersions%3AGetTableVersionsResponse%27"><span class="annot"><span class="annottext">GetTableVersionsResponse -&gt; Maybe [TableVersion]
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AtableVersions%3AGetTableVersionsResponse%27"><span class="hs-identifier hs-var hs-var">tableVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -587,7 +587,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-212"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTableVersionsResponse%27"><span class="annot"><span class="annottext">GetTableVersionsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AhttpStatus%3AGetTableVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-213"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721530"><span id="local-6989586621679721532"><span class="annot"><span class="annottext">GetTableVersionsResponse -&gt; GetTableVersionsResponse -&gt; Bool
+</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721539"><span id="local-6989586621679721541"><span class="annot"><span class="annottext">GetTableVersionsResponse -&gt; GetTableVersionsResponse -&gt; Bool
 (GetTableVersionsResponse -&gt; GetTableVersionsResponse -&gt; Bool)
 -&gt; (GetTableVersionsResponse -&gt; GetTableVersionsResponse -&gt; Bool)
 -&gt; Eq GetTableVersionsResponse
@@ -596,7 +596,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTableVersionsResponse -&gt; GetTableVersionsResponse -&gt; Bool
 == :: GetTableVersionsResponse -&gt; GetTableVersionsResponse -&gt; Bool
 $c== :: GetTableVersionsResponse -&gt; GetTableVersionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721522"><span id="local-6989586621679721524"><span id="local-6989586621679721526"><span id="local-6989586621679721528"><span class="annot"><span class="annottext">ReadPrec [GetTableVersionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721531"><span id="local-6989586621679721533"><span id="local-6989586621679721535"><span id="local-6989586621679721537"><span class="annot"><span class="annottext">ReadPrec [GetTableVersionsResponse]
 ReadPrec GetTableVersionsResponse
 Int -&gt; ReadS GetTableVersionsResponse
 ReadS [GetTableVersionsResponse]
@@ -616,7 +616,7 @@ readList :: ReadS [GetTableVersionsResponse]
 $creadList :: ReadS [GetTableVersionsResponse]
 readsPrec :: Int -&gt; ReadS GetTableVersionsResponse
 $creadsPrec :: Int -&gt; ReadS GetTableVersionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721516"><span id="local-6989586621679721518"><span id="local-6989586621679721520"><span class="annot"><span class="annottext">Int -&gt; GetTableVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721525"><span id="local-6989586621679721527"><span id="local-6989586621679721529"><span class="annot"><span class="annottext">Int -&gt; GetTableVersionsResponse -&gt; ShowS
 [GetTableVersionsResponse] -&gt; ShowS
 GetTableVersionsResponse -&gt; String
 (Int -&gt; GetTableVersionsResponse -&gt; ShowS)
@@ -667,8 +667,8 @@ GetTableVersionsResponse -&gt; Rep GetTableVersionsResponse x
 </span><span id="line-232"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-233"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span>
 </span><span id="line-234"></span><span id="newGetTableVersionsResponse"><span class="annot"><span class="annottext">newGetTableVersionsResponse :: Int -&gt; GetTableVersionsResponse
-</span><a href="Network.AWS.Glue.GetTableVersions.html#newGetTableVersionsResponse"><span class="hs-identifier hs-var hs-var">newGetTableVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679721513"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetTableVersions.html#newGetTableVersionsResponse"><span class="hs-identifier hs-var hs-var">newGetTableVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679721522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="annottext">GetTableVersionsResponse' :: Maybe [TableVersion]
 -&gt; Maybe Text -&gt; Int -&gt; GetTableVersionsResponse
 </span><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span>
@@ -683,7 +683,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTableVersionsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AhttpStatus%3AGetTableVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679721522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-240"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | A list of strings identifying available versions of the specified table.</span><span>
@@ -695,16 +695,16 @@ forall a. Maybe a
     -&gt; Maybe [TableVersion] -&gt; GetTableVersionsResponse)
 -&gt; Lens' GetTableVersionsResponse (Maybe [TableVersion])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721512"><span class="annot"><span class="annottext">Maybe [TableVersion]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721521"><span class="annot"><span class="annottext">Maybe [TableVersion]
 tableVersions :: Maybe [TableVersion]
 $sel:tableVersions:GetTableVersionsResponse' :: GetTableVersionsResponse -&gt; Maybe [TableVersion]
-</span><a href="#local-6989586621679721512"><span class="hs-identifier hs-var hs-var">tableVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TableVersion]
-</span><a href="#local-6989586621679721512"><span class="hs-identifier hs-var">tableVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721511"><span class="annot"><span class="annottext">s :: GetTableVersionsResponse
-</span><a href="#local-6989586621679721511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721510"><span class="annot"><span class="annottext">Maybe [TableVersion]
-</span><a href="#local-6989586621679721510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersionsResponse
-</span><a href="#local-6989586621679721511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableVersions:GetTableVersionsResponse' :: Maybe [TableVersion]
+</span><a href="#local-6989586621679721521"><span class="hs-identifier hs-var hs-var">tableVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TableVersion]
+</span><a href="#local-6989586621679721521"><span class="hs-identifier hs-var">tableVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721520"><span class="annot"><span class="annottext">s :: GetTableVersionsResponse
+</span><a href="#local-6989586621679721520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721519"><span class="annot"><span class="annottext">Maybe [TableVersion]
+</span><a href="#local-6989586621679721519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersionsResponse
+</span><a href="#local-6989586621679721520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableVersions:GetTableVersionsResponse' :: Maybe [TableVersion]
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AtableVersions%3AGetTableVersionsResponse%27"><span class="hs-identifier hs-var">tableVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TableVersion]
-</span><a href="#local-6989586621679721510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TableVersion] -&gt; f (Maybe [TableVersion]))
+</span><a href="#local-6989586621679721519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TableVersion] -&gt; f (Maybe [TableVersion]))
  -&gt; GetTableVersionsResponse -&gt; f GetTableVersionsResponse)
 -&gt; ((Maybe [TableVersion] -&gt; f (Maybe [TableVersion]))
     -&gt; Maybe [TableVersion] -&gt; f (Maybe [TableVersion]))
@@ -735,16 +735,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; GetTableVersionsResponse)
 -&gt; Lens' GetTableVersionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721507"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721516"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetTableVersionsResponse' :: GetTableVersionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679721507"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721507"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721506"><span class="annot"><span class="annottext">s :: GetTableVersionsResponse
-</span><a href="#local-6989586621679721506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721505"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersionsResponse
-</span><a href="#local-6989586621679721506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTableVersionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679721516"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721516"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721515"><span class="annot"><span class="annottext">s :: GetTableVersionsResponse
+</span><a href="#local-6989586621679721515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersionsResponse
+</span><a href="#local-6989586621679721515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTableVersionsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AnextToken%3AGetTableVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-252"></span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#getTableVersionsResponse_httpStatus"><span class="hs-identifier hs-type">getTableVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -754,16 +754,16 @@ $sel:nextToken:GetTableVersionsResponse' :: GetTableVersionsResponse -&gt; Maybe
 -&gt; (GetTableVersionsResponse -&gt; Int -&gt; GetTableVersionsResponse)
 -&gt; Lens GetTableVersionsResponse GetTableVersionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721504"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721513"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTableVersionsResponse' :: GetTableVersionsResponse -&gt; Int
-</span><a href="#local-6989586621679721504"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721504"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721503"><span class="annot"><span class="annottext">s :: GetTableVersionsResponse
-</span><a href="#local-6989586621679721503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721502"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersionsResponse
-</span><a href="#local-6989586621679721503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTableVersionsResponse' :: Int
+</span><a href="#local-6989586621679721513"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721513"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721512"><span class="annot"><span class="annottext">s :: GetTableVersionsResponse
+</span><a href="#local-6989586621679721512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse%27"><span class="hs-identifier hs-type">GetTableVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTableVersionsResponse
+</span><a href="#local-6989586621679721512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTableVersionsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetTableVersions.html#%24sel%3AhttpStatus%3AGetTableVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTableVersions.html#GetTableVersionsResponse"><span class="hs-identifier hs-type">GetTableVersionsResponse</span></a></span></span><span>
 </span><span id="line-256"></span></pre></body></html>

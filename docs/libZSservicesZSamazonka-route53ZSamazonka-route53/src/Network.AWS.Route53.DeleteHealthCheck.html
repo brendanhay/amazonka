@@ -64,12 +64,12 @@
 </span><span id="line-64"></span><span class="hs-comment">-- | This action deletes a health check.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- /See:/ 'newDeleteHealthCheck' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679309921"><span id="local-6989586621679309922"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHealthCheck"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-var">DeleteHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHealthCheck%27"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-var">DeleteHealthCheck'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679309930"><span id="local-6989586621679309931"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHealthCheck"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-var">DeleteHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHealthCheck%27"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-var">DeleteHealthCheck'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the health check that you want to delete.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AhealthCheckId%3ADeleteHealthCheck%27"><span class="annot"><span class="annottext">DeleteHealthCheck -&gt; Text
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#%24sel%3AhealthCheckId%3ADeleteHealthCheck%27"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309915"><span id="local-6989586621679309917"><span class="annot"><span class="annottext">DeleteHealthCheck -&gt; DeleteHealthCheck -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309924"><span id="local-6989586621679309926"><span class="annot"><span class="annottext">DeleteHealthCheck -&gt; DeleteHealthCheck -&gt; Bool
 (DeleteHealthCheck -&gt; DeleteHealthCheck -&gt; Bool)
 -&gt; (DeleteHealthCheck -&gt; DeleteHealthCheck -&gt; Bool)
 -&gt; Eq DeleteHealthCheck
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteHealthCheck -&gt; DeleteHealthCheck -&gt; Bool
 == :: DeleteHealthCheck -&gt; DeleteHealthCheck -&gt; Bool
 $c== :: DeleteHealthCheck -&gt; DeleteHealthCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309906"><span id="local-6989586621679309908"><span id="local-6989586621679309910"><span id="local-6989586621679309912"><span class="annot"><span class="annottext">ReadPrec [DeleteHealthCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309915"><span id="local-6989586621679309917"><span id="local-6989586621679309919"><span id="local-6989586621679309921"><span class="annot"><span class="annottext">ReadPrec [DeleteHealthCheck]
 ReadPrec DeleteHealthCheck
 Int -&gt; ReadS DeleteHealthCheck
 ReadS [DeleteHealthCheck]
@@ -98,7 +98,7 @@ readList :: ReadS [DeleteHealthCheck]
 $creadList :: ReadS [DeleteHealthCheck]
 readsPrec :: Int -&gt; ReadS DeleteHealthCheck
 $creadsPrec :: Int -&gt; ReadS DeleteHealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309899"><span id="local-6989586621679309901"><span id="local-6989586621679309903"><span class="annot"><span class="annottext">Int -&gt; DeleteHealthCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309908"><span id="local-6989586621679309910"><span id="local-6989586621679309912"><span class="annot"><span class="annottext">Int -&gt; DeleteHealthCheck -&gt; ShowS
 [DeleteHealthCheck] -&gt; ShowS
 DeleteHealthCheck -&gt; String
 (Int -&gt; DeleteHealthCheck -&gt; ShowS)
@@ -138,12 +138,12 @@ $cfrom :: forall x. DeleteHealthCheck -&gt; Rep DeleteHealthCheck x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span>
 </span><span id="line-86"></span><span id="newDeleteHealthCheck"><span class="annot"><span class="annottext">newDeleteHealthCheck :: Text -&gt; DeleteHealthCheck
-</span><a href="Network.AWS.Route53.DeleteHealthCheck.html#newDeleteHealthCheck"><span class="hs-identifier hs-var hs-var">newDeleteHealthCheck</span></a></span></span><span> </span><span id="local-6989586621679309894"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309894"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.DeleteHealthCheck.html#newDeleteHealthCheck"><span class="hs-identifier hs-var hs-var">newDeleteHealthCheck</span></a></span></span><span> </span><span id="local-6989586621679309903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309903"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">DeleteHealthCheck' :: Text -&gt; DeleteHealthCheck
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-type">DeleteHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:DeleteHealthCheck' :: Text
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#%24sel%3AhealthCheckId%3ADeleteHealthCheck%27"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309894"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679309903"><span class="hs-identifier hs-var">pHealthCheckId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ID of the health check that you want to delete.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#deleteHealthCheck_healthCheckId"><span class="hs-identifier hs-type">deleteHealthCheck_healthCheckId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -152,27 +152,27 @@ $cfrom :: forall x. DeleteHealthCheck -&gt; Rep DeleteHealthCheck x
 -&gt; (DeleteHealthCheck -&gt; Text -&gt; DeleteHealthCheck)
 -&gt; Lens DeleteHealthCheck DeleteHealthCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-type">DeleteHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309891"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-type">DeleteHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309900"><span class="annot"><span class="annottext">Text
 healthCheckId :: Text
 $sel:healthCheckId:DeleteHealthCheck' :: DeleteHealthCheck -&gt; Text
-</span><a href="#local-6989586621679309891"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309891"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309890"><span class="annot"><span class="annottext">s :: DeleteHealthCheck
-</span><a href="#local-6989586621679309890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-type">DeleteHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309889"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHealthCheck
-</span><a href="#local-6989586621679309890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:DeleteHealthCheck' :: Text
+</span><a href="#local-6989586621679309900"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309900"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309899"><span class="annot"><span class="annottext">s :: DeleteHealthCheck
+</span><a href="#local-6989586621679309899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-type">DeleteHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHealthCheck
+</span><a href="#local-6989586621679309899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:DeleteHealthCheck' :: Text
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#%24sel%3AhealthCheckId%3ADeleteHealthCheck%27"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-type">DeleteHealthCheckResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679309885"><span class="annot"><span class="annottext">request :: DeleteHealthCheck -&gt; Request DeleteHealthCheck
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679309894"><span class="annot"><span class="annottext">request :: DeleteHealthCheck -&gt; Request DeleteHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteHealthCheck -&gt; Request DeleteHealthCheck
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679309881"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679309890"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteHealthCheck
 -&gt; ClientResponse ClientBody
@@ -198,10 +198,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309878"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309878"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309877"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679309877"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309876"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679309876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309887"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309887"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309886"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309886"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309885"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679309885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteHealthCheckResponse
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-var">DeleteHealthCheckResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteHealthCheckResponse)
@@ -212,15 +212,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309878"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309887"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309869"><span id="local-6989586621679309871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309878"><span id="local-6989586621679309880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679309862"><span class="annot"><span class="annottext">toHeaders :: DeleteHealthCheck -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679309871"><span class="annot"><span class="annottext">toHeaders :: DeleteHealthCheck -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteHealthCheck -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -228,11 +228,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679309857"><span class="annot"><span class="annottext">toPath :: DeleteHealthCheck -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-type">DeleteHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309855"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679309866"><span class="annot"><span class="annottext">toPath :: DeleteHealthCheck -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck%27"><span class="hs-identifier hs-type">DeleteHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309864"><span class="annot"><span class="annottext">Text
 healthCheckId :: Text
 $sel:healthCheckId:DeleteHealthCheck' :: DeleteHealthCheck -&gt; Text
-</span><a href="#local-6989586621679309855"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309864"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -240,10 +240,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2013-04-01/healthcheck/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309855"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679309864"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheck"><span class="hs-identifier hs-type">DeleteHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679309851"><span class="annot"><span class="annottext">toQuery :: DeleteHealthCheck -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679309860"><span class="annot"><span class="annottext">toQuery :: DeleteHealthCheck -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteHealthCheck -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -253,12 +253,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span class="hs-comment">-- | An empty element.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- /See:/ 'newDeleteHealthCheckResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679309848"><span id="local-6989586621679309849"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHealthCheckResponse"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-var">DeleteHealthCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHealthCheckResponse%27"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-var">DeleteHealthCheckResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679309857"><span id="local-6989586621679309858"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteHealthCheckResponse"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-var">DeleteHealthCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteHealthCheckResponse%27"><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-var">DeleteHealthCheckResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteHealthCheckResponse%27"><span class="annot"><span class="annottext">DeleteHealthCheckResponse -&gt; Int
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#%24sel%3AhttpStatus%3ADeleteHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309843"><span id="local-6989586621679309845"><span class="annot"><span class="annottext">DeleteHealthCheckResponse -&gt; DeleteHealthCheckResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309852"><span id="local-6989586621679309854"><span class="annot"><span class="annottext">DeleteHealthCheckResponse -&gt; DeleteHealthCheckResponse -&gt; Bool
 (DeleteHealthCheckResponse -&gt; DeleteHealthCheckResponse -&gt; Bool)
 -&gt; (DeleteHealthCheckResponse -&gt; DeleteHealthCheckResponse -&gt; Bool)
 -&gt; Eq DeleteHealthCheckResponse
@@ -267,7 +267,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteHealthCheckResponse -&gt; DeleteHealthCheckResponse -&gt; Bool
 == :: DeleteHealthCheckResponse -&gt; DeleteHealthCheckResponse -&gt; Bool
 $c== :: DeleteHealthCheckResponse -&gt; DeleteHealthCheckResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309835"><span id="local-6989586621679309837"><span id="local-6989586621679309839"><span id="local-6989586621679309841"><span class="annot"><span class="annottext">ReadPrec [DeleteHealthCheckResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309844"><span id="local-6989586621679309846"><span id="local-6989586621679309848"><span id="local-6989586621679309850"><span class="annot"><span class="annottext">ReadPrec [DeleteHealthCheckResponse]
 ReadPrec DeleteHealthCheckResponse
 Int -&gt; ReadS DeleteHealthCheckResponse
 ReadS [DeleteHealthCheckResponse]
@@ -287,7 +287,7 @@ readList :: ReadS [DeleteHealthCheckResponse]
 $creadList :: ReadS [DeleteHealthCheckResponse]
 readsPrec :: Int -&gt; ReadS DeleteHealthCheckResponse
 $creadsPrec :: Int -&gt; ReadS DeleteHealthCheckResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309829"><span id="local-6989586621679309831"><span id="local-6989586621679309833"><span class="annot"><span class="annottext">Int -&gt; DeleteHealthCheckResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309838"><span id="local-6989586621679309840"><span id="local-6989586621679309842"><span class="annot"><span class="annottext">Int -&gt; DeleteHealthCheckResponse -&gt; ShowS
 [DeleteHealthCheckResponse] -&gt; ShowS
 DeleteHealthCheckResponse -&gt; String
 (Int -&gt; DeleteHealthCheckResponse -&gt; ShowS)
@@ -333,14 +333,14 @@ DeleteHealthCheckResponse -&gt; Rep DeleteHealthCheckResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-type">DeleteHealthCheckResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newDeleteHealthCheckResponse"><span class="annot"><span class="annottext">newDeleteHealthCheckResponse :: Int -&gt; DeleteHealthCheckResponse
-</span><a href="Network.AWS.Route53.DeleteHealthCheck.html#newDeleteHealthCheckResponse"><span class="hs-identifier hs-var hs-var">newDeleteHealthCheckResponse</span></a></span></span><span> </span><span id="local-6989586621679309826"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.DeleteHealthCheck.html#newDeleteHealthCheckResponse"><span class="hs-identifier hs-var hs-var">newDeleteHealthCheckResponse</span></a></span></span><span> </span><span id="local-6989586621679309835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DeleteHealthCheckResponse' :: Int -&gt; DeleteHealthCheckResponse
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-type">DeleteHealthCheckResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteHealthCheckResponse' :: Int
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#%24sel%3AhttpStatus%3ADeleteHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679309835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -351,16 +351,16 @@ DeleteHealthCheckResponse -&gt; Rep DeleteHealthCheckResponse x
 -&gt; (DeleteHealthCheckResponse -&gt; Int -&gt; DeleteHealthCheckResponse)
 -&gt; Lens DeleteHealthCheckResponse DeleteHealthCheckResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-type">DeleteHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309825"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-type">DeleteHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309834"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteHealthCheckResponse' :: DeleteHealthCheckResponse -&gt; Int
-</span><a href="#local-6989586621679309825"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309825"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309824"><span class="annot"><span class="annottext">s :: DeleteHealthCheckResponse
-</span><a href="#local-6989586621679309824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-type">DeleteHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309823"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHealthCheckResponse
-</span><a href="#local-6989586621679309824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteHealthCheckResponse' :: Int
+</span><a href="#local-6989586621679309834"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309834"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309833"><span class="annot"><span class="annottext">s :: DeleteHealthCheckResponse
+</span><a href="#local-6989586621679309833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse%27"><span class="hs-identifier hs-type">DeleteHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309832"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteHealthCheckResponse
+</span><a href="#local-6989586621679309833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteHealthCheckResponse' :: Int
 </span><a href="Network.AWS.Route53.DeleteHealthCheck.html#%24sel%3AhttpStatus%3ADeleteHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-type">DeleteHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-type">DeleteHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-type">DeleteHealthCheckResponse</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteHealthCheck.html#DeleteHealthCheckResponse"><span class="hs-identifier hs-type">DeleteHealthCheckResponse</span></a></span></span><span>
 </span><span id="line-153"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Udp Output Settings</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUdpOutputSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679927996"><span id="local-6989586621679927997"></span></span><span class="hs-keyword">data</span><span> </span><span id="UdpOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-var">UdpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UdpOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-var">UdpOutputSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679928005"><span id="local-6989586621679928006"></span></span><span class="hs-keyword">data</span><span> </span><span id="UdpOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-var">UdpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UdpOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-var">UdpOutputSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings for enabling and adjusting Forward Error Correction on UDP</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- outputs.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AfecOutputSettings%3AUdpOutputSettings%27"><span class="annot"><span class="annottext">UdpOutputSettings -&gt; Maybe FecOutputSettings
@@ -49,7 +49,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AcontainerSettings%3AUdpOutputSettings%27"><span class="annot"><span class="annottext">UdpOutputSettings -&gt; UdpContainerSettings
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#%24sel%3AcontainerSettings%3AUdpOutputSettings%27"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpContainerSettings.html#UdpContainerSettings"><span class="hs-identifier hs-type">UdpContainerSettings</span></a></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679927987"><span id="local-6989586621679927989"><span class="annot"><span class="annottext">UdpOutputSettings -&gt; UdpOutputSettings -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679927996"><span id="local-6989586621679927998"><span class="annot"><span class="annottext">UdpOutputSettings -&gt; UdpOutputSettings -&gt; Bool
 (UdpOutputSettings -&gt; UdpOutputSettings -&gt; Bool)
 -&gt; (UdpOutputSettings -&gt; UdpOutputSettings -&gt; Bool)
 -&gt; Eq UdpOutputSettings
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UdpOutputSettings -&gt; UdpOutputSettings -&gt; Bool
 == :: UdpOutputSettings -&gt; UdpOutputSettings -&gt; Bool
 $c== :: UdpOutputSettings -&gt; UdpOutputSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927978"><span id="local-6989586621679927980"><span id="local-6989586621679927982"><span id="local-6989586621679927984"><span class="annot"><span class="annottext">ReadPrec [UdpOutputSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927987"><span id="local-6989586621679927989"><span id="local-6989586621679927991"><span id="local-6989586621679927993"><span class="annot"><span class="annottext">ReadPrec [UdpOutputSettings]
 ReadPrec UdpOutputSettings
 Int -&gt; ReadS UdpOutputSettings
 ReadS [UdpOutputSettings]
@@ -78,7 +78,7 @@ readList :: ReadS [UdpOutputSettings]
 $creadList :: ReadS [UdpOutputSettings]
 readsPrec :: Int -&gt; ReadS UdpOutputSettings
 $creadsPrec :: Int -&gt; ReadS UdpOutputSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927971"><span id="local-6989586621679927973"><span id="local-6989586621679927975"><span class="annot"><span class="annottext">Int -&gt; UdpOutputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927980"><span id="local-6989586621679927982"><span id="local-6989586621679927984"><span class="annot"><span class="annottext">Int -&gt; UdpOutputSettings -&gt; ShowS
 [UdpOutputSettings] -&gt; ShowS
 UdpOutputSettings -&gt; String
 (Int -&gt; UdpOutputSettings -&gt; ShowS)
@@ -134,10 +134,10 @@ $cfrom :: forall x. UdpOutputSettings -&gt; Rep UdpOutputSettings x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span>
 </span><span id="line-78"></span><span id="newUdpOutputSettings"><span class="annot"><span class="annottext">newUdpOutputSettings :: OutputLocationRef -&gt; UdpContainerSettings -&gt; UdpOutputSettings
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#newUdpOutputSettings"><span class="hs-identifier hs-var hs-var">newUdpOutputSettings</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679927965"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679927965"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679927964"><span class="annot"><span class="annottext">UdpContainerSettings
-</span><a href="#local-6989586621679927964"><span class="hs-identifier hs-var">pContainerSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679927974"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679927974"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679927973"><span class="annot"><span class="annottext">UdpContainerSettings
+</span><a href="#local-6989586621679927973"><span class="hs-identifier hs-var">pContainerSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">UdpOutputSettings' :: Maybe FecOutputSettings
 -&gt; Maybe Natural
 -&gt; OutputLocationRef
@@ -155,10 +155,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:destination:UdpOutputSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#%24sel%3Adestination%3AUdpOutputSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679927965"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679927974"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:containerSettings:UdpOutputSettings' :: UdpContainerSettings
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#%24sel%3AcontainerSettings%3AUdpOutputSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UdpContainerSettings
-</span><a href="#local-6989586621679927964"><span class="hs-identifier hs-var">pContainerSettings_</span></a></span><span>
+</span><a href="#local-6989586621679927973"><span class="hs-identifier hs-var">pContainerSettings_</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Settings for enabling and adjusting Forward Error Correction on UDP</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe FecOutputSettings)
      (Maybe FecOutputSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927960"><span class="annot"><span class="annottext">Maybe FecOutputSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927969"><span class="annot"><span class="annottext">Maybe FecOutputSettings
 fecOutputSettings :: Maybe FecOutputSettings
 $sel:fecOutputSettings:UdpOutputSettings' :: UdpOutputSettings -&gt; Maybe FecOutputSettings
-</span><a href="#local-6989586621679927960"><span class="hs-identifier hs-var hs-var">fecOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FecOutputSettings
-</span><a href="#local-6989586621679927960"><span class="hs-identifier hs-var">fecOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927959"><span class="annot"><span class="annottext">s :: UdpOutputSettings
-</span><a href="#local-6989586621679927959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927958"><span class="annot"><span class="annottext">Maybe FecOutputSettings
-</span><a href="#local-6989586621679927958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
-</span><a href="#local-6989586621679927959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fecOutputSettings:UdpOutputSettings' :: Maybe FecOutputSettings
+</span><a href="#local-6989586621679927969"><span class="hs-identifier hs-var hs-var">fecOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FecOutputSettings
+</span><a href="#local-6989586621679927969"><span class="hs-identifier hs-var">fecOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927968"><span class="annot"><span class="annottext">s :: UdpOutputSettings
+</span><a href="#local-6989586621679927968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927967"><span class="annot"><span class="annottext">Maybe FecOutputSettings
+</span><a href="#local-6989586621679927967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
+</span><a href="#local-6989586621679927968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fecOutputSettings:UdpOutputSettings' :: Maybe FecOutputSettings
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#%24sel%3AfecOutputSettings%3AUdpOutputSettings%27"><span class="hs-identifier hs-var">fecOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FecOutputSettings
-</span><a href="#local-6989586621679927958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | UDP output buffering in milliseconds. Larger values increase latency</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- through the transcoder but simultaneously assist the transcoder in</span><span>
@@ -199,16 +199,16 @@ $sel:fecOutputSettings:UdpOutputSettings' :: UdpOutputSettings -&gt; Maybe FecOu
 -&gt; Lens
      UdpOutputSettings UdpOutputSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927956"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927965"><span class="annot"><span class="annottext">Maybe Natural
 bufferMsec :: Maybe Natural
 $sel:bufferMsec:UdpOutputSettings' :: UdpOutputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679927956"><span class="hs-identifier hs-var hs-var">bufferMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679927956"><span class="hs-identifier hs-var">bufferMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927955"><span class="annot"><span class="annottext">s :: UdpOutputSettings
-</span><a href="#local-6989586621679927955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927954"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679927954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
-</span><a href="#local-6989586621679927955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferMsec:UdpOutputSettings' :: Maybe Natural
+</span><a href="#local-6989586621679927965"><span class="hs-identifier hs-var hs-var">bufferMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679927965"><span class="hs-identifier hs-var">bufferMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927964"><span class="annot"><span class="annottext">s :: UdpOutputSettings
+</span><a href="#local-6989586621679927964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927963"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679927963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
+</span><a href="#local-6989586621679927964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferMsec:UdpOutputSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#%24sel%3AbufferMsec%3AUdpOutputSettings%27"><span class="hs-identifier hs-var">bufferMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679927954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | Destination address and port number for RTP or UDP packets. Can be</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- unicast or multicast RTP or UDP (eg. rtp:\/\/239.10.10.10:5001 or</span><span>
@@ -224,16 +224,16 @@ $sel:bufferMsec:UdpOutputSettings' :: UdpOutputSettings -&gt; Maybe Natural
      OutputLocationRef
      OutputLocationRef
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927952"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927961"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:UdpOutputSettings' :: UdpOutputSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679927952"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679927952"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927951"><span class="annot"><span class="annottext">s :: UdpOutputSettings
-</span><a href="#local-6989586621679927951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927950"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679927950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
-</span><a href="#local-6989586621679927951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:UdpOutputSettings' :: OutputLocationRef
+</span><a href="#local-6989586621679927961"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679927961"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927960"><span class="annot"><span class="annottext">s :: UdpOutputSettings
+</span><a href="#local-6989586621679927960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927959"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679927959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
+</span><a href="#local-6989586621679927960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:UdpOutputSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#%24sel%3Adestination%3AUdpOutputSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679927950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#udpOutputSettings_containerSettings"><span class="hs-identifier hs-type">udpOutputSettings_containerSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpContainerSettings.html#UdpContainerSettings"><span class="hs-identifier hs-type">UdpContainerSettings</span></a></span><span>
@@ -247,19 +247,19 @@ $sel:destination:UdpOutputSettings' :: UdpOutputSettings -&gt; OutputLocationRef
      UdpContainerSettings
      UdpContainerSettings
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927948"><span class="annot"><span class="annottext">UdpContainerSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927957"><span class="annot"><span class="annottext">UdpContainerSettings
 containerSettings :: UdpContainerSettings
 $sel:containerSettings:UdpOutputSettings' :: UdpOutputSettings -&gt; UdpContainerSettings
-</span><a href="#local-6989586621679927948"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpContainerSettings
-</span><a href="#local-6989586621679927948"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927947"><span class="annot"><span class="annottext">s :: UdpOutputSettings
-</span><a href="#local-6989586621679927947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927946"><span class="annot"><span class="annottext">UdpContainerSettings
-</span><a href="#local-6989586621679927946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
-</span><a href="#local-6989586621679927947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerSettings:UdpOutputSettings' :: UdpContainerSettings
+</span><a href="#local-6989586621679927957"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpContainerSettings
+</span><a href="#local-6989586621679927957"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927956"><span class="annot"><span class="annottext">s :: UdpOutputSettings
+</span><a href="#local-6989586621679927956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927955"><span class="annot"><span class="annottext">UdpContainerSettings
+</span><a href="#local-6989586621679927955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpOutputSettings
+</span><a href="#local-6989586621679927956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerSettings:UdpOutputSettings' :: UdpContainerSettings
 </span><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#%24sel%3AcontainerSettings%3AUdpOutputSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UdpContainerSettings
-</span><a href="#local-6989586621679927946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927943"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679927941"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UdpOutputSettings
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927952"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679927950"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UdpOutputSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UdpOutputSettings)
@@ -269,8 +269,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UdpOutputSettings&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679927938"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679927938"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679927947"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679927947"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe FecOutputSettings
 -&gt; Maybe Natural
 -&gt; OutputLocationRef
@@ -288,7 +288,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; OutputLocationRef -&gt; UdpContainerSettings -&gt; UdpOutputSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679927938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FecOutputSettings)
+</span><a href="#local-6989586621679927947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FecOutputSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fecOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,7 +300,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (OutputLocationRef -&gt; UdpContainerSettings -&gt; UdpOutputSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679927938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679927947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bufferMsec&quot;</span></span><span class="hs-special">)</span><span>
@@ -310,7 +310,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (UdpContainerSettings -&gt; UdpOutputSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679927938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
+</span><a href="#local-6989586621679927947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,19 +318,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser UdpContainerSettings -&gt; Parser UdpOutputSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679927938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UdpContainerSettings
+</span><a href="#local-6989586621679927947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UdpContainerSettings
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927931"><span id="local-6989586621679927933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927940"><span id="local-6989586621679927942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927920"><span id="local-6989586621679927922"><span id="local-6989586621679927924"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679927918"><span class="annot"><span class="annottext">toJSON :: UdpOutputSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927913"><span id="local-6989586621679927914"><span id="local-6989586621679927915"><span id="local-6989586621679927916"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927929"><span id="local-6989586621679927931"><span id="local-6989586621679927933"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679927927"><span class="annot"><span class="annottext">toJSON :: UdpOutputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings%27"><span class="hs-identifier hs-type">UdpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927922"><span id="local-6989586621679927923"><span id="local-6989586621679927924"><span id="local-6989586621679927925"><span class="annot"><span class="annottext">Maybe Natural
 Maybe FecOutputSettings
 OutputLocationRef
 UdpContainerSettings
@@ -342,7 +342,7 @@ $sel:containerSettings:UdpOutputSettings' :: UdpOutputSettings -&gt; UdpContaine
 $sel:destination:UdpOutputSettings' :: UdpOutputSettings -&gt; OutputLocationRef
 $sel:bufferMsec:UdpOutputSettings' :: UdpOutputSettings -&gt; Maybe Natural
 $sel:fecOutputSettings:UdpOutputSettings' :: UdpOutputSettings -&gt; Maybe FecOutputSettings
-</span><a href="#local-6989586621679927913"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679927922"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -356,21 +356,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FecOutputSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FecOutputSettings
-</span><a href="#local-6989586621679927916"><span class="hs-identifier hs-var">fecOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679927925"><span class="hs-identifier hs-var">fecOutputSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bufferMsec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679927915"><span class="hs-identifier hs-var">bufferMsec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679927924"><span class="hs-identifier hs-var">bufferMsec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputLocationRef -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679927914"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679927923"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -378,7 +378,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;containerSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UdpContainerSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UdpContainerSettings
-</span><a href="#local-6989586621679927913"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927922"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span></pre></body></html>

@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- output is closer to the target bitrate defined in the specification.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- When you choose Single-pass (SINGLE_PASS), your encoding time is faster.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- The default behavior is Single-pass (SINGLE_PASS).</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679945675"><span id="local-6989586621679945676"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraUhdQualityTuningLevel"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel.html#AvcIntraUhdQualityTuningLevel"><span class="hs-identifier hs-var">AvcIntraUhdQualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraUhdQualityTuningLevel%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel.html#AvcIntraUhdQualityTuningLevel%27"><span class="hs-identifier hs-var">AvcIntraUhdQualityTuningLevel'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679945684"><span id="local-6989586621679945685"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraUhdQualityTuningLevel"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel.html#AvcIntraUhdQualityTuningLevel"><span class="hs-identifier hs-var">AvcIntraUhdQualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraUhdQualityTuningLevel%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel.html#AvcIntraUhdQualityTuningLevel%27"><span class="hs-identifier hs-var">AvcIntraUhdQualityTuningLevel'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvcIntraUhdQualityTuningLevel"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel.html#fromAvcIntraUhdQualityTuningLevel"><span class="hs-identifier hs-var hs-var">fromAvcIntraUhdQualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945667"><span id="local-6989586621679945669"><span id="local-6989586621679945671"><span class="annot"><span class="annottext">Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945676"><span id="local-6989586621679945678"><span id="local-6989586621679945680"><span class="annot"><span class="annottext">Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; ShowS
 [AvcIntraUhdQualityTuningLevel] -&gt; ShowS
 AvcIntraUhdQualityTuningLevel -&gt; String
 (Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: AvcIntraUhdQualityTuningLevel -&gt; String
 showsPrec :: Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679945658"><span id="local-6989586621679945660"><span id="local-6989586621679945662"><span id="local-6989586621679945664"><span class="annot"><span class="annottext">ReadPrec [AvcIntraUhdQualityTuningLevel]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679945667"><span id="local-6989586621679945669"><span id="local-6989586621679945671"><span id="local-6989586621679945673"><span class="annot"><span class="annottext">ReadPrec [AvcIntraUhdQualityTuningLevel]
 ReadPrec AvcIntraUhdQualityTuningLevel
 Int -&gt; ReadS AvcIntraUhdQualityTuningLevel
 ReadS [AvcIntraUhdQualityTuningLevel]
@@ -79,7 +79,7 @@ $creadList :: ReadS [AvcIntraUhdQualityTuningLevel]
 readsPrec :: Int -&gt; ReadS AvcIntraUhdQualityTuningLevel
 $creadsPrec :: Int -&gt; ReadS AvcIntraUhdQualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679945653"><span id="local-6989586621679945655"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679945662"><span id="local-6989586621679945664"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel
 -&gt; AvcIntraUhdQualityTuningLevel -&gt; Bool
 (AvcIntraUhdQualityTuningLevel
  -&gt; AvcIntraUhdQualityTuningLevel -&gt; Bool)
@@ -96,7 +96,7 @@ $c/= :: AvcIntraUhdQualityTuningLevel
 $c== :: AvcIntraUhdQualityTuningLevel
 -&gt; AvcIntraUhdQualityTuningLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679945637"><span id="local-6989586621679945639"><span id="local-6989586621679945641"><span id="local-6989586621679945643"><span id="local-6989586621679945645"><span id="local-6989586621679945647"><span id="local-6989586621679945649"><span class="annot"><span class="annottext">Eq AvcIntraUhdQualityTuningLevel
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679945646"><span id="local-6989586621679945648"><span id="local-6989586621679945650"><span id="local-6989586621679945652"><span id="local-6989586621679945654"><span id="local-6989586621679945656"><span id="local-6989586621679945658"><span class="annot"><span class="annottext">Eq AvcIntraUhdQualityTuningLevel
 Eq AvcIntraUhdQualityTuningLevel
 -&gt; (AvcIntraUhdQualityTuningLevel
     -&gt; AvcIntraUhdQualityTuningLevel -&gt; Ordering)
@@ -183,7 +183,7 @@ AvcIntraUhdQualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945629"><span id="local-6989586621679945631"><span class="annot"><span class="annottext">Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945638"><span id="local-6989586621679945640"><span class="annot"><span class="annottext">Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; Int
 AvcIntraUhdQualityTuningLevel -&gt; Int
 (Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; Int)
 -&gt; (AvcIntraUhdQualityTuningLevel -&gt; Int)
@@ -194,56 +194,56 @@ $chash :: AvcIntraUhdQualityTuningLevel -&gt; Int
 hashWithSalt :: Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; Int
 $chashWithSalt :: Int -&gt; AvcIntraUhdQualityTuningLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679945626"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679945635"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; ()
 (AvcIntraUhdQualityTuningLevel -&gt; ())
 -&gt; NFData AvcIntraUhdQualityTuningLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvcIntraUhdQualityTuningLevel -&gt; ()
 $crnf :: AvcIntraUhdQualityTuningLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679945623"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraUhdQualityTuningLevel
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679945632"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraUhdQualityTuningLevel
 (Text -&gt; Either String AvcIntraUhdQualityTuningLevel)
 -&gt; FromText AvcIntraUhdQualityTuningLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvcIntraUhdQualityTuningLevel
 $cfromText :: Text -&gt; Either String AvcIntraUhdQualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679945620"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679945629"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; Text
 (AvcIntraUhdQualityTuningLevel -&gt; Text)
 -&gt; ToText AvcIntraUhdQualityTuningLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvcIntraUhdQualityTuningLevel -&gt; Text
 $ctoText :: AvcIntraUhdQualityTuningLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679945617"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679945626"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; ByteString
 (AvcIntraUhdQualityTuningLevel -&gt; ByteString)
 -&gt; ToByteString AvcIntraUhdQualityTuningLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvcIntraUhdQualityTuningLevel -&gt; ByteString
 $ctoBS :: AvcIntraUhdQualityTuningLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679945614"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679945623"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; ByteStringBuilder
 (AvcIntraUhdQualityTuningLevel -&gt; ByteStringBuilder)
 -&gt; ToLog AvcIntraUhdQualityTuningLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvcIntraUhdQualityTuningLevel -&gt; ByteStringBuilder
 $cbuild :: AvcIntraUhdQualityTuningLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945611"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraUhdQualityTuningLevel -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945620"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraUhdQualityTuningLevel -&gt; [Header]
 (HeaderName -&gt; AvcIntraUhdQualityTuningLevel -&gt; [Header])
 -&gt; ToHeader AvcIntraUhdQualityTuningLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvcIntraUhdQualityTuningLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvcIntraUhdQualityTuningLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945608"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945617"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; QueryString
 (AvcIntraUhdQualityTuningLevel -&gt; QueryString)
 -&gt; ToQuery AvcIntraUhdQualityTuningLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvcIntraUhdQualityTuningLevel -&gt; QueryString
 $ctoQuery :: AvcIntraUhdQualityTuningLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679945603"><span id="local-6989586621679945605"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraUhdQualityTuningLevel]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679945612"><span id="local-6989586621679945614"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraUhdQualityTuningLevel]
 Value -&gt; Parser AvcIntraUhdQualityTuningLevel
 (Value -&gt; Parser AvcIntraUhdQualityTuningLevel)
 -&gt; (Value -&gt; Parser [AvcIntraUhdQualityTuningLevel])
@@ -255,7 +255,7 @@ $cparseJSONList :: Value -&gt; Parser [AvcIntraUhdQualityTuningLevel]
 parseJSON :: Value -&gt; Parser AvcIntraUhdQualityTuningLevel
 $cparseJSON :: Value -&gt; Parser AvcIntraUhdQualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679945598"><span id="local-6989586621679945600"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679945607"><span id="local-6989586621679945609"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
 FromJSONKeyFunction AvcIntraUhdQualityTuningLevel
 FromJSONKeyFunction AvcIntraUhdQualityTuningLevel
 -&gt; FromJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
@@ -267,7 +267,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
 fromJSONKey :: FromJSONKeyFunction AvcIntraUhdQualityTuningLevel
 $cfromJSONKey :: FromJSONKeyFunction AvcIntraUhdQualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679945589"><span id="local-6989586621679945591"><span id="local-6989586621679945593"><span id="local-6989586621679945595"><span class="annot"><span class="annottext">[AvcIntraUhdQualityTuningLevel] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679945598"><span id="local-6989586621679945600"><span id="local-6989586621679945602"><span id="local-6989586621679945604"><span class="annot"><span class="annottext">[AvcIntraUhdQualityTuningLevel] -&gt; Encoding
 [AvcIntraUhdQualityTuningLevel] -&gt; Value
 AvcIntraUhdQualityTuningLevel -&gt; Encoding
 AvcIntraUhdQualityTuningLevel -&gt; Value
@@ -291,7 +291,7 @@ $ctoEncoding :: AvcIntraUhdQualityTuningLevel -&gt; Encoding
 toJSON :: AvcIntraUhdQualityTuningLevel -&gt; Value
 $ctoJSON :: AvcIntraUhdQualityTuningLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679945584"><span id="local-6989586621679945586"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679945593"><span id="local-6989586621679945595"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
 ToJSONKeyFunction AvcIntraUhdQualityTuningLevel
 ToJSONKeyFunction AvcIntraUhdQualityTuningLevel
 -&gt; ToJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
@@ -303,14 +303,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvcIntraUhdQualityTuningLevel]
 toJSONKey :: ToJSONKeyFunction AvcIntraUhdQualityTuningLevel
 $ctoJSONKey :: ToJSONKeyFunction AvcIntraUhdQualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679945581"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraUhdQualityTuningLevel
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679945590"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraUhdQualityTuningLevel
 ([Node] -&gt; Either String AvcIntraUhdQualityTuningLevel)
 -&gt; FromXML AvcIntraUhdQualityTuningLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvcIntraUhdQualityTuningLevel
 $cparseXML :: [Node] -&gt; Either String AvcIntraUhdQualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679945578"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679945587"><span class="annot"><span class="annottext">AvcIntraUhdQualityTuningLevel -&gt; XML
 (AvcIntraUhdQualityTuningLevel -&gt; XML)
 -&gt; ToXML AvcIntraUhdQualityTuningLevel
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about the approval status of a patch.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPatchStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679810337"><span id="local-6989586621679810338"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchStatus"><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-var">PatchStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-var">PatchStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679810346"><span id="local-6989586621679810347"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchStatus"><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-var">PatchStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-var">PatchStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the patch was approved (or will be approved if the status is</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @PENDING_APPROVAL@).</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AapprovalDate%3APatchStatus%27"><span class="annot"><span class="annottext">PatchStatus -&gt; Maybe POSIX
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcomplianceLevel%3APatchStatus%27"><span class="annot"><span class="annottext">PatchStatus -&gt; Maybe PatchComplianceLevel
 </span><a href="Network.AWS.SSM.Types.PatchStatus.html#%24sel%3AcomplianceLevel%3APatchStatus%27"><span class="hs-identifier hs-var hs-var">complianceLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810329"><span id="local-6989586621679810331"><span class="annot"><span class="annottext">PatchStatus -&gt; PatchStatus -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810338"><span id="local-6989586621679810340"><span class="annot"><span class="annottext">PatchStatus -&gt; PatchStatus -&gt; Bool
 (PatchStatus -&gt; PatchStatus -&gt; Bool)
 -&gt; (PatchStatus -&gt; PatchStatus -&gt; Bool) -&gt; Eq PatchStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PatchStatus -&gt; PatchStatus -&gt; Bool
 == :: PatchStatus -&gt; PatchStatus -&gt; Bool
 $c== :: PatchStatus -&gt; PatchStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810320"><span id="local-6989586621679810322"><span id="local-6989586621679810324"><span id="local-6989586621679810326"><span class="annot"><span class="annottext">ReadPrec [PatchStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810329"><span id="local-6989586621679810331"><span id="local-6989586621679810333"><span id="local-6989586621679810335"><span class="annot"><span class="annottext">ReadPrec [PatchStatus]
 ReadPrec PatchStatus
 Int -&gt; ReadS PatchStatus
 ReadS [PatchStatus]
@@ -68,7 +68,7 @@ readList :: ReadS [PatchStatus]
 $creadList :: ReadS [PatchStatus]
 readsPrec :: Int -&gt; ReadS PatchStatus
 $creadsPrec :: Int -&gt; ReadS PatchStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810313"><span id="local-6989586621679810315"><span id="local-6989586621679810317"><span class="annot"><span class="annottext">Int -&gt; PatchStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810322"><span id="local-6989586621679810324"><span id="local-6989586621679810326"><span class="annot"><span class="annottext">Int -&gt; PatchStatus -&gt; ShowS
 [PatchStatus] -&gt; ShowS
 PatchStatus -&gt; String
 (Int -&gt; PatchStatus -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (PatchStatus -&gt; Maybe POSIX -&gt; PatchStatus)
 -&gt; Lens PatchStatus PatchStatus (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810304"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810313"><span class="annot"><span class="annottext">Maybe POSIX
 approvalDate :: Maybe POSIX
 $sel:approvalDate:PatchStatus' :: PatchStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679810304"><span class="hs-identifier hs-var hs-var">approvalDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679810304"><span class="hs-identifier hs-var">approvalDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810303"><span class="annot"><span class="annottext">s :: PatchStatus
-</span><a href="#local-6989586621679810303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810302"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679810302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchStatus
-</span><a href="#local-6989586621679810303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalDate:PatchStatus' :: Maybe POSIX
+</span><a href="#local-6989586621679810313"><span class="hs-identifier hs-var hs-var">approvalDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679810313"><span class="hs-identifier hs-var">approvalDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810312"><span class="annot"><span class="annottext">s :: PatchStatus
+</span><a href="#local-6989586621679810312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810311"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679810311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchStatus
+</span><a href="#local-6989586621679810312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalDate:PatchStatus' :: Maybe POSIX
 </span><a href="Network.AWS.SSM.Types.PatchStatus.html#%24sel%3AapprovalDate%3APatchStatus%27"><span class="hs-identifier hs-var">approvalDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679810302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; PatchStatus -&gt; f PatchStatus)
+</span><a href="#local-6989586621679810311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; PatchStatus -&gt; f PatchStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -177,16 +177,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe PatchDeploymentStatus)
      (Maybe PatchDeploymentStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810297"><span class="annot"><span class="annottext">Maybe PatchDeploymentStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810306"><span class="annot"><span class="annottext">Maybe PatchDeploymentStatus
 deploymentStatus :: Maybe PatchDeploymentStatus
 $sel:deploymentStatus:PatchStatus' :: PatchStatus -&gt; Maybe PatchDeploymentStatus
-</span><a href="#local-6989586621679810297"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PatchDeploymentStatus
-</span><a href="#local-6989586621679810297"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810296"><span class="annot"><span class="annottext">s :: PatchStatus
-</span><a href="#local-6989586621679810296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810295"><span class="annot"><span class="annottext">Maybe PatchDeploymentStatus
-</span><a href="#local-6989586621679810295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchStatus
-</span><a href="#local-6989586621679810296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatus:PatchStatus' :: Maybe PatchDeploymentStatus
+</span><a href="#local-6989586621679810306"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PatchDeploymentStatus
+</span><a href="#local-6989586621679810306"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810305"><span class="annot"><span class="annottext">s :: PatchStatus
+</span><a href="#local-6989586621679810305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810304"><span class="annot"><span class="annottext">Maybe PatchDeploymentStatus
+</span><a href="#local-6989586621679810304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchStatus
+</span><a href="#local-6989586621679810305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatus:PatchStatus' :: Maybe PatchDeploymentStatus
 </span><a href="Network.AWS.SSM.Types.PatchStatus.html#%24sel%3AdeploymentStatus%3APatchStatus%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PatchDeploymentStatus
-</span><a href="#local-6989586621679810295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The compliance severity level for a patch.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#patchStatus_complianceLevel"><span class="hs-identifier hs-type">patchStatus_complianceLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span class="hs-special">)</span><span>
@@ -200,19 +200,19 @@ $sel:deploymentStatus:PatchStatus' :: PatchStatus -&gt; Maybe PatchDeploymentSta
      (Maybe PatchComplianceLevel)
      (Maybe PatchComplianceLevel)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810293"><span class="annot"><span class="annottext">Maybe PatchComplianceLevel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810302"><span class="annot"><span class="annottext">Maybe PatchComplianceLevel
 complianceLevel :: Maybe PatchComplianceLevel
 $sel:complianceLevel:PatchStatus' :: PatchStatus -&gt; Maybe PatchComplianceLevel
-</span><a href="#local-6989586621679810293"><span class="hs-identifier hs-var hs-var">complianceLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PatchComplianceLevel
-</span><a href="#local-6989586621679810293"><span class="hs-identifier hs-var">complianceLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810292"><span class="annot"><span class="annottext">s :: PatchStatus
-</span><a href="#local-6989586621679810292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810291"><span class="annot"><span class="annottext">Maybe PatchComplianceLevel
-</span><a href="#local-6989586621679810291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchStatus
-</span><a href="#local-6989586621679810292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceLevel:PatchStatus' :: Maybe PatchComplianceLevel
+</span><a href="#local-6989586621679810302"><span class="hs-identifier hs-var hs-var">complianceLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PatchComplianceLevel
+</span><a href="#local-6989586621679810302"><span class="hs-identifier hs-var">complianceLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810301"><span class="annot"><span class="annottext">s :: PatchStatus
+</span><a href="#local-6989586621679810301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus%27"><span class="hs-identifier hs-type">PatchStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810300"><span class="annot"><span class="annottext">Maybe PatchComplianceLevel
+</span><a href="#local-6989586621679810300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchStatus
+</span><a href="#local-6989586621679810301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceLevel:PatchStatus' :: Maybe PatchComplianceLevel
 </span><a href="Network.AWS.SSM.Types.PatchStatus.html#%24sel%3AcomplianceLevel%3APatchStatus%27"><span class="hs-identifier hs-var">complianceLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PatchComplianceLevel
-</span><a href="#local-6989586621679810291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810288"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679810286"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchStatus
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810297"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679810295"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PatchStatus) -&gt; Value -&gt; Parser PatchStatus
@@ -220,8 +220,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PatchStatus&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810283"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810292"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679810292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe PatchDeploymentStatus
 -&gt; Maybe PatchComplianceLevel
@@ -237,7 +237,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe PatchComplianceLevel -&gt; PatchStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679810292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApprovalDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,7 +248,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe PatchComplianceLevel -&gt; PatchStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PatchDeploymentStatus)
+</span><a href="#local-6989586621679810292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PatchDeploymentStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeploymentStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,13 +256,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe PatchComplianceLevel) -&gt; Parser PatchStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PatchComplianceLevel)
+</span><a href="#local-6989586621679810292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PatchComplianceLevel)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceLevel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810277"><span id="local-6989586621679810279"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810286"><span id="local-6989586621679810288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span></span><span>
 </span><span id="line-92"></span></pre></body></html>

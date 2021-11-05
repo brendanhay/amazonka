@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateStudio' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679394853"><span id="local-6989586621679394854"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStudio"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-var">UpdateStudio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStudio%27"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-var">UpdateStudio'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679394862"><span id="local-6989586621679394863"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStudio"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-var">UpdateStudio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStudio%27"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-var">UpdateStudio'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of subnet IDs to associate with the Amazon EMR Studio. The list</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- can include new subnet IDs, but must also include all of the subnet IDs</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- previously associated with the Studio. The list order does not matter. A</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AstudioId%3AUpdateStudio%27"><span class="annot"><span class="annottext">UpdateStudio -&gt; Text
 </span><a href="Network.AWS.EMR.UpdateStudio.html#%24sel%3AstudioId%3AUpdateStudio%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394843"><span id="local-6989586621679394845"><span class="annot"><span class="annottext">UpdateStudio -&gt; UpdateStudio -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394852"><span id="local-6989586621679394854"><span class="annot"><span class="annottext">UpdateStudio -&gt; UpdateStudio -&gt; Bool
 (UpdateStudio -&gt; UpdateStudio -&gt; Bool)
 -&gt; (UpdateStudio -&gt; UpdateStudio -&gt; Bool) -&gt; Eq UpdateStudio
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateStudio -&gt; UpdateStudio -&gt; Bool
 == :: UpdateStudio -&gt; UpdateStudio -&gt; Bool
 $c== :: UpdateStudio -&gt; UpdateStudio -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394834"><span id="local-6989586621679394836"><span id="local-6989586621679394838"><span id="local-6989586621679394840"><span class="annot"><span class="annottext">ReadPrec [UpdateStudio]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394843"><span id="local-6989586621679394845"><span id="local-6989586621679394847"><span id="local-6989586621679394849"><span class="annot"><span class="annottext">ReadPrec [UpdateStudio]
 ReadPrec UpdateStudio
 Int -&gt; ReadS UpdateStudio
 ReadS [UpdateStudio]
@@ -98,7 +98,7 @@ readList :: ReadS [UpdateStudio]
 $creadList :: ReadS [UpdateStudio]
 readsPrec :: Int -&gt; ReadS UpdateStudio
 $creadsPrec :: Int -&gt; ReadS UpdateStudio
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394827"><span id="local-6989586621679394829"><span id="local-6989586621679394831"><span class="annot"><span class="annottext">Int -&gt; UpdateStudio -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394836"><span id="local-6989586621679394838"><span id="local-6989586621679394840"><span class="annot"><span class="annottext">Int -&gt; UpdateStudio -&gt; ShowS
 [UpdateStudio] -&gt; ShowS
 UpdateStudio -&gt; String
 (Int -&gt; UpdateStudio -&gt; ShowS)
@@ -151,8 +151,8 @@ $cfrom :: forall x. UpdateStudio -&gt; Rep UpdateStudio x
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span>
 </span><span id="line-96"></span><span id="newUpdateStudio"><span class="annot"><span class="annottext">newUpdateStudio :: Text -&gt; UpdateStudio
-</span><a href="Network.AWS.EMR.UpdateStudio.html#newUpdateStudio"><span class="hs-identifier hs-var hs-var">newUpdateStudio</span></a></span></span><span> </span><span id="local-6989586621679394822"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394822"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.UpdateStudio.html#newUpdateStudio"><span class="hs-identifier hs-var hs-var">newUpdateStudio</span></a></span></span><span> </span><span id="local-6989586621679394831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394831"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">UpdateStudio' :: Maybe [Text]
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateStudio
 </span><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span>
@@ -174,7 +174,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioId:UpdateStudio' :: Text
 </span><a href="Network.AWS.EMR.UpdateStudio.html#%24sel%3AstudioId%3AUpdateStudio%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394822"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span>
+</span><a href="#local-6989586621679394831"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A list of subnet IDs to associate with the Amazon EMR Studio. The list</span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
 -&gt; (UpdateStudio -&gt; Maybe [Text] -&gt; UpdateStudio)
 -&gt; Lens UpdateStudio UpdateStudio (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394819"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394828"><span class="annot"><span class="annottext">Maybe [Text]
 subnetIds :: Maybe [Text]
 $sel:subnetIds:UpdateStudio' :: UpdateStudio -&gt; Maybe [Text]
-</span><a href="#local-6989586621679394819"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679394819"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394818"><span class="annot"><span class="annottext">s :: UpdateStudio
-</span><a href="#local-6989586621679394818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394817"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679394817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
-</span><a href="#local-6989586621679394818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:UpdateStudio' :: Maybe [Text]
+</span><a href="#local-6989586621679394828"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394828"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394827"><span class="annot"><span class="annottext">s :: UpdateStudio
+</span><a href="#local-6989586621679394827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394826"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
+</span><a href="#local-6989586621679394827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:UpdateStudio' :: Maybe [Text]
 </span><a href="Network.AWS.EMR.UpdateStudio.html#%24sel%3AsubnetIds%3AUpdateStudio%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679394817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679394826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateStudio -&gt; f UpdateStudio)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -223,16 +223,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateStudio -&gt; Maybe Text -&gt; UpdateStudio)
 -&gt; Lens UpdateStudio UpdateStudio (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394813"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394822"><span class="annot"><span class="annottext">Maybe Text
 defaultS3Location :: Maybe Text
 $sel:defaultS3Location:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
-</span><a href="#local-6989586621679394813"><span class="hs-identifier hs-var hs-var">defaultS3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394813"><span class="hs-identifier hs-var">defaultS3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394812"><span class="annot"><span class="annottext">s :: UpdateStudio
-</span><a href="#local-6989586621679394812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394811"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
-</span><a href="#local-6989586621679394812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultS3Location:UpdateStudio' :: Maybe Text
+</span><a href="#local-6989586621679394822"><span class="hs-identifier hs-var hs-var">defaultS3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394822"><span class="hs-identifier hs-var">defaultS3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394821"><span class="annot"><span class="annottext">s :: UpdateStudio
+</span><a href="#local-6989586621679394821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
+</span><a href="#local-6989586621679394821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultS3Location:UpdateStudio' :: Maybe Text
 </span><a href="Network.AWS.EMR.UpdateStudio.html#%24sel%3AdefaultS3Location%3AUpdateStudio%27"><span class="hs-identifier hs-var">defaultS3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A descriptive name for the Amazon EMR Studio.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#updateStudio_name"><span class="hs-identifier hs-type">updateStudio_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -241,16 +241,16 @@ $sel:defaultS3Location:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
 -&gt; (UpdateStudio -&gt; Maybe Text -&gt; UpdateStudio)
 -&gt; Lens UpdateStudio UpdateStudio (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394810"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394819"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
-</span><a href="#local-6989586621679394810"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394810"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394809"><span class="annot"><span class="annottext">s :: UpdateStudio
-</span><a href="#local-6989586621679394809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394808"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
-</span><a href="#local-6989586621679394809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateStudio' :: Maybe Text
+</span><a href="#local-6989586621679394819"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394819"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394818"><span class="annot"><span class="annottext">s :: UpdateStudio
+</span><a href="#local-6989586621679394818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
+</span><a href="#local-6989586621679394818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateStudio' :: Maybe Text
 </span><a href="Network.AWS.EMR.UpdateStudio.html#%24sel%3Aname%3AUpdateStudio%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | A detailed description to assign to the Amazon EMR Studio.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#updateStudio_description"><span class="hs-identifier hs-type">updateStudio_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -259,16 +259,16 @@ $sel:name:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
 -&gt; (UpdateStudio -&gt; Maybe Text -&gt; UpdateStudio)
 -&gt; Lens UpdateStudio UpdateStudio (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394807"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394816"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
-</span><a href="#local-6989586621679394807"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394807"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394806"><span class="annot"><span class="annottext">s :: UpdateStudio
-</span><a href="#local-6989586621679394806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394805"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
-</span><a href="#local-6989586621679394806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateStudio' :: Maybe Text
+</span><a href="#local-6989586621679394816"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394816"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394815"><span class="annot"><span class="annottext">s :: UpdateStudio
+</span><a href="#local-6989586621679394815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394814"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
+</span><a href="#local-6989586621679394815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateStudio' :: Maybe Text
 </span><a href="Network.AWS.EMR.UpdateStudio.html#%24sel%3Adescription%3AUpdateStudio%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The ID of the Amazon EMR Studio to update.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#updateStudio_studioId"><span class="hs-identifier hs-type">updateStudio_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -277,25 +277,25 @@ $sel:description:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
 -&gt; (UpdateStudio -&gt; Text -&gt; UpdateStudio)
 -&gt; Lens UpdateStudio UpdateStudio Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394804"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394813"><span class="annot"><span class="annottext">Text
 studioId :: Text
 $sel:studioId:UpdateStudio' :: UpdateStudio -&gt; Text
-</span><a href="#local-6989586621679394804"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394804"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394803"><span class="annot"><span class="annottext">s :: UpdateStudio
-</span><a href="#local-6989586621679394803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394802"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
-</span><a href="#local-6989586621679394803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:UpdateStudio' :: Text
+</span><a href="#local-6989586621679394813"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394813"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394812"><span class="annot"><span class="annottext">s :: UpdateStudio
+</span><a href="#local-6989586621679394812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394811"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStudio
+</span><a href="#local-6989586621679394812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:UpdateStudio' :: Text
 </span><a href="Network.AWS.EMR.UpdateStudio.html#%24sel%3AstudioId%3AUpdateStudio%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse"><span class="hs-identifier hs-type">UpdateStudioResponse</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679394798"><span class="annot"><span class="annottext">request :: UpdateStudio -&gt; Request UpdateStudio
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679394807"><span class="annot"><span class="annottext">request :: UpdateStudio -&gt; Request UpdateStudio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateStudio -&gt; Request UpdateStudio
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679394794"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679394803"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateStudio
 -&gt; ClientResponse ClientBody
@@ -318,12 +318,12 @@ AWSResponse a
 UpdateStudioResponse
 </span><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse%27"><span class="hs-identifier hs-var">UpdateStudioResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394787"><span id="local-6989586621679394789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394796"><span id="local-6989586621679394798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679394780"><span class="annot"><span class="annottext">toHeaders :: UpdateStudio -&gt; [Header]
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679394789"><span class="annot"><span class="annottext">toHeaders :: UpdateStudio -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateStudio -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -350,9 +350,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394770"><span id="local-6989586621679394772"><span id="local-6989586621679394774"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679394768"><span class="annot"><span class="annottext">toJSON :: UpdateStudio -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394762"><span id="local-6989586621679394763"><span id="local-6989586621679394764"><span id="local-6989586621679394765"><span id="local-6989586621679394766"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394779"><span id="local-6989586621679394781"><span id="local-6989586621679394783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679394777"><span class="annot"><span class="annottext">toJSON :: UpdateStudio -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio%27"><span class="hs-identifier hs-type">UpdateStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394771"><span id="local-6989586621679394772"><span id="local-6989586621679394773"><span id="local-6989586621679394774"><span id="local-6989586621679394775"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 studioId :: Text
@@ -365,7 +365,7 @@ $sel:description:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
 $sel:name:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
 $sel:defaultS3Location:UpdateStudio' :: UpdateStudio -&gt; Maybe Text
 $sel:subnetIds:UpdateStudio' :: UpdateStudio -&gt; Maybe [Text]
-</span><a href="#local-6989586621679394762"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394771"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -377,7 +377,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679394766"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394775"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultS3Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -385,40 +385,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394765"><span class="hs-identifier hs-var">defaultS3Location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394774"><span class="hs-identifier hs-var">defaultS3Location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394764"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394773"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394763"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394772"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StudioId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394762"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394771"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679394755"><span class="annot"><span class="annottext">toPath :: UpdateStudio -&gt; ByteString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679394764"><span class="annot"><span class="annottext">toPath :: UpdateStudio -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateStudio -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudio"><span class="hs-identifier hs-type">UpdateStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679394751"><span class="annot"><span class="annottext">toQuery :: UpdateStudio -&gt; QueryString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679394760"><span class="annot"><span class="annottext">toQuery :: UpdateStudio -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateStudio -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -426,10 +426,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newUpdateStudioResponse' smart constructor.</span><span>
-</span><span id="line-174"></span><span id="local-6989586621679394748"><span id="local-6989586621679394749"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStudioResponse"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse"><span class="hs-identifier hs-var">UpdateStudioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStudioResponse%27"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse%27"><span class="hs-identifier hs-var">UpdateStudioResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span id="local-6989586621679394757"><span id="local-6989586621679394758"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStudioResponse"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse"><span class="hs-identifier hs-var">UpdateStudioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStudioResponse%27"><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse%27"><span class="hs-identifier hs-var">UpdateStudioResponse'</span></a></span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394744"><span id="local-6989586621679394746"><span class="annot"><span class="annottext">UpdateStudioResponse -&gt; UpdateStudioResponse -&gt; Bool
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394753"><span id="local-6989586621679394755"><span class="annot"><span class="annottext">UpdateStudioResponse -&gt; UpdateStudioResponse -&gt; Bool
 (UpdateStudioResponse -&gt; UpdateStudioResponse -&gt; Bool)
 -&gt; (UpdateStudioResponse -&gt; UpdateStudioResponse -&gt; Bool)
 -&gt; Eq UpdateStudioResponse
@@ -438,7 +438,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateStudioResponse -&gt; UpdateStudioResponse -&gt; Bool
 == :: UpdateStudioResponse -&gt; UpdateStudioResponse -&gt; Bool
 $c== :: UpdateStudioResponse -&gt; UpdateStudioResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394736"><span id="local-6989586621679394738"><span id="local-6989586621679394740"><span id="local-6989586621679394742"><span class="annot"><span class="annottext">ReadPrec [UpdateStudioResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394745"><span id="local-6989586621679394747"><span id="local-6989586621679394749"><span id="local-6989586621679394751"><span class="annot"><span class="annottext">ReadPrec [UpdateStudioResponse]
 ReadPrec UpdateStudioResponse
 Int -&gt; ReadS UpdateStudioResponse
 ReadS [UpdateStudioResponse]
@@ -458,7 +458,7 @@ readList :: ReadS [UpdateStudioResponse]
 $creadList :: ReadS [UpdateStudioResponse]
 readsPrec :: Int -&gt; ReadS UpdateStudioResponse
 $creadsPrec :: Int -&gt; ReadS UpdateStudioResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394730"><span id="local-6989586621679394732"><span id="local-6989586621679394734"><span class="annot"><span class="annottext">Int -&gt; UpdateStudioResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394739"><span id="local-6989586621679394741"><span id="local-6989586621679394743"><span class="annot"><span class="annottext">Int -&gt; UpdateStudioResponse -&gt; ShowS
 [UpdateStudioResponse] -&gt; ShowS
 UpdateStudioResponse -&gt; String
 (Int -&gt; UpdateStudioResponse -&gt; ShowS)
@@ -494,5 +494,5 @@ $cfrom :: forall x. UpdateStudioResponse -&gt; Rep UpdateStudioResponse x
 </span><a href="Network.AWS.EMR.UpdateStudio.html#newUpdateStudioResponse"><span class="hs-identifier hs-var hs-var">newUpdateStudioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateStudioResponse
 </span><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse%27"><span class="hs-identifier hs-var">UpdateStudioResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse"><span class="hs-identifier hs-type">UpdateStudioResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.UpdateStudio.html#UpdateStudioResponse"><span class="hs-identifier hs-type">UpdateStudioResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents the progress of an online resharding operation.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSlotMigration' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679405925"><span id="local-6989586621679405926"></span></span><span class="hs-keyword">data</span><span> </span><span id="SlotMigration"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-var">SlotMigration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlotMigration%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration%27"><span class="hs-identifier hs-var">SlotMigration'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679405934"><span id="local-6989586621679405935"></span></span><span class="hs-keyword">data</span><span> </span><span id="SlotMigration"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-var">SlotMigration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlotMigration%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration%27"><span class="hs-identifier hs-var">SlotMigration'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of the slot migration that is complete.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AprogressPercentage%3ASlotMigration%27"><span class="annot"><span class="annottext">SlotMigration -&gt; Maybe Double
 </span><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#%24sel%3AprogressPercentage%3ASlotMigration%27"><span class="hs-identifier hs-var hs-var">progressPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405919"><span id="local-6989586621679405921"><span class="annot"><span class="annottext">SlotMigration -&gt; SlotMigration -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405928"><span id="local-6989586621679405930"><span class="annot"><span class="annottext">SlotMigration -&gt; SlotMigration -&gt; Bool
 (SlotMigration -&gt; SlotMigration -&gt; Bool)
 -&gt; (SlotMigration -&gt; SlotMigration -&gt; Bool) -&gt; Eq SlotMigration
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SlotMigration -&gt; SlotMigration -&gt; Bool
 == :: SlotMigration -&gt; SlotMigration -&gt; Bool
 $c== :: SlotMigration -&gt; SlotMigration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405910"><span id="local-6989586621679405912"><span id="local-6989586621679405914"><span id="local-6989586621679405916"><span class="annot"><span class="annottext">ReadPrec [SlotMigration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405919"><span id="local-6989586621679405921"><span id="local-6989586621679405923"><span id="local-6989586621679405925"><span class="annot"><span class="annottext">ReadPrec [SlotMigration]
 ReadPrec SlotMigration
 Int -&gt; ReadS SlotMigration
 ReadS [SlotMigration]
@@ -59,7 +59,7 @@ readList :: ReadS [SlotMigration]
 $creadList :: ReadS [SlotMigration]
 readsPrec :: Int -&gt; ReadS SlotMigration
 $creadsPrec :: Int -&gt; ReadS SlotMigration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405903"><span id="local-6989586621679405905"><span id="local-6989586621679405907"><span class="annot"><span class="annottext">Int -&gt; SlotMigration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405912"><span id="local-6989586621679405914"><span id="local-6989586621679405916"><span class="annot"><span class="annottext">Int -&gt; SlotMigration -&gt; ShowS
 [SlotMigration] -&gt; ShowS
 SlotMigration -&gt; String
 (Int -&gt; SlotMigration -&gt; ShowS)
@@ -115,33 +115,33 @@ forall a. Maybe a
 -&gt; (SlotMigration -&gt; Maybe Double -&gt; SlotMigration)
 -&gt; Lens SlotMigration SlotMigration (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration%27"><span class="hs-identifier hs-type">SlotMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405894"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration%27"><span class="hs-identifier hs-type">SlotMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405903"><span class="annot"><span class="annottext">Maybe Double
 progressPercentage :: Maybe Double
 $sel:progressPercentage:SlotMigration' :: SlotMigration -&gt; Maybe Double
-</span><a href="#local-6989586621679405894"><span class="hs-identifier hs-var hs-var">progressPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679405894"><span class="hs-identifier hs-var">progressPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405893"><span class="annot"><span class="annottext">s :: SlotMigration
-</span><a href="#local-6989586621679405893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration%27"><span class="hs-identifier hs-type">SlotMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405892"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679405892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotMigration
-</span><a href="#local-6989586621679405893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressPercentage:SlotMigration' :: Maybe Double
+</span><a href="#local-6989586621679405903"><span class="hs-identifier hs-var hs-var">progressPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679405903"><span class="hs-identifier hs-var">progressPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405902"><span class="annot"><span class="annottext">s :: SlotMigration
+</span><a href="#local-6989586621679405902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration%27"><span class="hs-identifier hs-type">SlotMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405901"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679405901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotMigration
+</span><a href="#local-6989586621679405902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressPercentage:SlotMigration' :: Maybe Double
 </span><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#%24sel%3AprogressPercentage%3ASlotMigration%27"><span class="hs-identifier hs-var">progressPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679405892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679405889"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SlotMigration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405887"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679405898"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SlotMigration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405896"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">Maybe Double -&gt; SlotMigration
 </span><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration%27"><span class="hs-identifier hs-var">SlotMigration'</span></a></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Double -&gt; SlotMigration)
 -&gt; Either String (Maybe Double) -&gt; Either String SlotMigration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679405896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProgressPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405881"><span id="local-6989586621679405883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405890"><span id="local-6989586621679405892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

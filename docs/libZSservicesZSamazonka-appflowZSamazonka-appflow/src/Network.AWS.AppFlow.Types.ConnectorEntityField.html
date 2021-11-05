@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.ConnectorEntityField</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.ConnectorEntityField</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DestinationFieldProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.DestinationFieldProperties</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceFieldProperties.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SourceFieldProperties</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SupportedFieldTypeDetails.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.SupportedFieldTypeDetails</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes the data model of a connector field. For example, for an</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /account/ entity, the fields would be /account name/, /account ID/, and</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- so on.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newConnectorEntityField' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679328730"><span id="local-6989586621679328731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectorEntityField"><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-var">ConnectorEntityField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorEntityField%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-var">ConnectorEntityField'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The properties that can be applied to a field when the connector is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- being used as a source.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsourceProperties%3AConnectorEntityField%27"><span class="annot"><span class="annottext">ConnectorEntityField -&gt; Maybe SourceFieldProperties
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AsourceProperties%3AConnectorEntityField%27"><span class="hs-identifier hs-var hs-var">sourceProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceFieldProperties.html#SourceFieldProperties"><span class="hs-identifier hs-type">SourceFieldProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Contains details regarding the supported @FieldType@, including the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- corresponding @filterOperators@ and @supportedValues@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsupportedFieldTypeDetails%3AConnectorEntityField%27"><span class="annot"><span class="annottext">ConnectorEntityField -&gt; Maybe SupportedFieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AsupportedFieldTypeDetails%3AConnectorEntityField%27"><span class="hs-identifier hs-var hs-var">supportedFieldTypeDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SupportedFieldTypeDetails.html#SupportedFieldTypeDetails"><span class="hs-identifier hs-type">SupportedFieldTypeDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The properties applied to a field when the connector is being used as a</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdestinationProperties%3AConnectorEntityField%27"><span class="annot"><span class="annottext">ConnectorEntityField -&gt; Maybe DestinationFieldProperties
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AdestinationProperties%3AConnectorEntityField%27"><span class="hs-identifier hs-var hs-var">destinationProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DestinationFieldProperties.html#DestinationFieldProperties"><span class="hs-identifier hs-type">DestinationFieldProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A description of the connector entity field.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Adescription%3AConnectorEntityField%27"><span class="annot"><span class="annottext">ConnectorEntityField -&gt; Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Adescription%3AConnectorEntityField%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The label applied to a connector entity field.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Alabel%3AConnectorEntityField%27"><span class="annot"><span class="annottext">ConnectorEntityField -&gt; Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Alabel%3AConnectorEntityField%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the connector field.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aidentifier%3AConnectorEntityField%27"><span class="annot"><span class="annottext">ConnectorEntityField -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Aidentifier%3AConnectorEntityField%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328719"><span id="local-6989586621679328721"><span class="annot"><span class="annottext">ConnectorEntityField -&gt; ConnectorEntityField -&gt; Bool
+(ConnectorEntityField -&gt; ConnectorEntityField -&gt; Bool)
+-&gt; (ConnectorEntityField -&gt; ConnectorEntityField -&gt; Bool)
+-&gt; Eq ConnectorEntityField
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectorEntityField -&gt; ConnectorEntityField -&gt; Bool
+$c/= :: ConnectorEntityField -&gt; ConnectorEntityField -&gt; Bool
+== :: ConnectorEntityField -&gt; ConnectorEntityField -&gt; Bool
+$c== :: ConnectorEntityField -&gt; ConnectorEntityField -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328710"><span id="local-6989586621679328712"><span id="local-6989586621679328714"><span id="local-6989586621679328716"><span class="annot"><span class="annottext">ReadPrec [ConnectorEntityField]
+ReadPrec ConnectorEntityField
+Int -&gt; ReadS ConnectorEntityField
+ReadS [ConnectorEntityField]
+(Int -&gt; ReadS ConnectorEntityField)
+-&gt; ReadS [ConnectorEntityField]
+-&gt; ReadPrec ConnectorEntityField
+-&gt; ReadPrec [ConnectorEntityField]
+-&gt; Read ConnectorEntityField
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectorEntityField]
+$creadListPrec :: ReadPrec [ConnectorEntityField]
+readPrec :: ReadPrec ConnectorEntityField
+$creadPrec :: ReadPrec ConnectorEntityField
+readList :: ReadS [ConnectorEntityField]
+$creadList :: ReadS [ConnectorEntityField]
+readsPrec :: Int -&gt; ReadS ConnectorEntityField
+$creadsPrec :: Int -&gt; ReadS ConnectorEntityField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328703"><span id="local-6989586621679328705"><span id="local-6989586621679328707"><span class="annot"><span class="annottext">Int -&gt; ConnectorEntityField -&gt; ShowS
+[ConnectorEntityField] -&gt; ShowS
+ConnectorEntityField -&gt; String
+(Int -&gt; ConnectorEntityField -&gt; ShowS)
+-&gt; (ConnectorEntityField -&gt; String)
+-&gt; ([ConnectorEntityField] -&gt; ShowS)
+-&gt; Show ConnectorEntityField
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectorEntityField] -&gt; ShowS
+$cshowList :: [ConnectorEntityField] -&gt; ShowS
+show :: ConnectorEntityField -&gt; String
+$cshow :: ConnectorEntityField -&gt; String
+showsPrec :: Int -&gt; ConnectorEntityField -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectorEntityField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConnectorEntityField -&gt; Rep ConnectorEntityField x)
+-&gt; (forall x. Rep ConnectorEntityField x -&gt; ConnectorEntityField)
+-&gt; Generic ConnectorEntityField
+forall x. Rep ConnectorEntityField x -&gt; ConnectorEntityField
+forall x. ConnectorEntityField -&gt; Rep ConnectorEntityField x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectorEntityField x -&gt; ConnectorEntityField
+$cfrom :: forall x. ConnectorEntityField -&gt; Rep ConnectorEntityField x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'ConnectorEntityField' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'sourceProperties', 'connectorEntityField_sourceProperties' - The properties that can be applied to a field when the connector is</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- being used as a source.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'supportedFieldTypeDetails', 'connectorEntityField_supportedFieldTypeDetails' - Contains details regarding the supported @FieldType@, including the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- corresponding @filterOperators@ and @supportedValues@.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'destinationProperties', 'connectorEntityField_destinationProperties' - The properties applied to a field when the connector is being used as a</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'description', 'connectorEntityField_description' - A description of the connector entity field.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'label', 'connectorEntityField_label' - The label applied to a connector entity field.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'identifier', 'connectorEntityField_identifier' - The unique identifier of the connector field.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#newConnectorEntityField"><span class="hs-identifier hs-type">newConnectorEntityField</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'identifier'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span>
+</span><span id="line-79"></span><span id="newConnectorEntityField"><span class="annot"><span class="annottext">newConnectorEntityField :: Text -&gt; ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#newConnectorEntityField"><span class="hs-identifier hs-var hs-var">newConnectorEntityField</span></a></span></span><span> </span><span id="local-6989586621679328697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328697"><span class="hs-identifier hs-var">pIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ConnectorEntityField' :: Maybe SourceFieldProperties
+-&gt; Maybe SupportedFieldTypeDetails
+-&gt; Maybe DestinationFieldProperties
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceProperties:ConnectorEntityField' :: Maybe SourceFieldProperties
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AsourceProperties%3AConnectorEntityField%27"><span class="hs-identifier hs-var">sourceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe SourceFieldProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedFieldTypeDetails:ConnectorEntityField' :: Maybe SupportedFieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AsupportedFieldTypeDetails%3AConnectorEntityField%27"><span class="hs-identifier hs-var">supportedFieldTypeDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SupportedFieldTypeDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationProperties:ConnectorEntityField' :: Maybe DestinationFieldProperties
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AdestinationProperties%3AConnectorEntityField%27"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationFieldProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ConnectorEntityField' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Adescription%3AConnectorEntityField%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:label:ConnectorEntityField' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Alabel%3AConnectorEntityField%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:identifier:ConnectorEntityField' :: Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Aidentifier%3AConnectorEntityField%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328697"><span class="hs-identifier hs-var">pIdentifier_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The properties that can be applied to a field when the connector is</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- being used as a source.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_sourceProperties"><span class="hs-identifier hs-type">connectorEntityField_sourceProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SourceFieldProperties.html#SourceFieldProperties"><span class="hs-identifier hs-type">SourceFieldProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="connectorEntityField_sourceProperties"><span class="annot"><span class="annottext">connectorEntityField_sourceProperties :: (Maybe SourceFieldProperties -&gt; f (Maybe SourceFieldProperties))
+-&gt; ConnectorEntityField -&gt; f ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_sourceProperties"><span class="hs-identifier hs-var hs-var">connectorEntityField_sourceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorEntityField -&gt; Maybe SourceFieldProperties)
+-&gt; (ConnectorEntityField
+    -&gt; Maybe SourceFieldProperties -&gt; ConnectorEntityField)
+-&gt; Lens
+     ConnectorEntityField
+     ConnectorEntityField
+     (Maybe SourceFieldProperties)
+     (Maybe SourceFieldProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328693"><span class="annot"><span class="annottext">Maybe SourceFieldProperties
+sourceProperties :: Maybe SourceFieldProperties
+$sel:sourceProperties:ConnectorEntityField' :: ConnectorEntityField -&gt; Maybe SourceFieldProperties
+</span><a href="#local-6989586621679328693"><span class="hs-identifier hs-var hs-var">sourceProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceFieldProperties
+</span><a href="#local-6989586621679328693"><span class="hs-identifier hs-var">sourceProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328692"><span class="annot"><span class="annottext">s :: ConnectorEntityField
+</span><a href="#local-6989586621679328692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328691"><span class="annot"><span class="annottext">Maybe SourceFieldProperties
+</span><a href="#local-6989586621679328691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorEntityField
+</span><a href="#local-6989586621679328692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceProperties:ConnectorEntityField' :: Maybe SourceFieldProperties
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AsourceProperties%3AConnectorEntityField%27"><span class="hs-identifier hs-var">sourceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceFieldProperties
+</span><a href="#local-6989586621679328691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Contains details regarding the supported @FieldType@, including the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- corresponding @filterOperators@ and @supportedValues@.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_supportedFieldTypeDetails"><span class="hs-identifier hs-type">connectorEntityField_supportedFieldTypeDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SupportedFieldTypeDetails.html#SupportedFieldTypeDetails"><span class="hs-identifier hs-type">SupportedFieldTypeDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="connectorEntityField_supportedFieldTypeDetails"><span class="annot"><span class="annottext">connectorEntityField_supportedFieldTypeDetails :: (Maybe SupportedFieldTypeDetails
+ -&gt; f (Maybe SupportedFieldTypeDetails))
+-&gt; ConnectorEntityField -&gt; f ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_supportedFieldTypeDetails"><span class="hs-identifier hs-var hs-var">connectorEntityField_supportedFieldTypeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorEntityField -&gt; Maybe SupportedFieldTypeDetails)
+-&gt; (ConnectorEntityField
+    -&gt; Maybe SupportedFieldTypeDetails -&gt; ConnectorEntityField)
+-&gt; Lens
+     ConnectorEntityField
+     ConnectorEntityField
+     (Maybe SupportedFieldTypeDetails)
+     (Maybe SupportedFieldTypeDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328689"><span class="annot"><span class="annottext">Maybe SupportedFieldTypeDetails
+supportedFieldTypeDetails :: Maybe SupportedFieldTypeDetails
+$sel:supportedFieldTypeDetails:ConnectorEntityField' :: ConnectorEntityField -&gt; Maybe SupportedFieldTypeDetails
+</span><a href="#local-6989586621679328689"><span class="hs-identifier hs-var hs-var">supportedFieldTypeDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SupportedFieldTypeDetails
+</span><a href="#local-6989586621679328689"><span class="hs-identifier hs-var">supportedFieldTypeDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328688"><span class="annot"><span class="annottext">s :: ConnectorEntityField
+</span><a href="#local-6989586621679328688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328687"><span class="annot"><span class="annottext">Maybe SupportedFieldTypeDetails
+</span><a href="#local-6989586621679328687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorEntityField
+</span><a href="#local-6989586621679328688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedFieldTypeDetails:ConnectorEntityField' :: Maybe SupportedFieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AsupportedFieldTypeDetails%3AConnectorEntityField%27"><span class="hs-identifier hs-var">supportedFieldTypeDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SupportedFieldTypeDetails
+</span><a href="#local-6989586621679328687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The properties applied to a field when the connector is being used as a</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_destinationProperties"><span class="hs-identifier hs-type">connectorEntityField_destinationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DestinationFieldProperties.html#DestinationFieldProperties"><span class="hs-identifier hs-type">DestinationFieldProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="connectorEntityField_destinationProperties"><span class="annot"><span class="annottext">connectorEntityField_destinationProperties :: (Maybe DestinationFieldProperties
+ -&gt; f (Maybe DestinationFieldProperties))
+-&gt; ConnectorEntityField -&gt; f ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_destinationProperties"><span class="hs-identifier hs-var hs-var">connectorEntityField_destinationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorEntityField -&gt; Maybe DestinationFieldProperties)
+-&gt; (ConnectorEntityField
+    -&gt; Maybe DestinationFieldProperties -&gt; ConnectorEntityField)
+-&gt; Lens
+     ConnectorEntityField
+     ConnectorEntityField
+     (Maybe DestinationFieldProperties)
+     (Maybe DestinationFieldProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328685"><span class="annot"><span class="annottext">Maybe DestinationFieldProperties
+destinationProperties :: Maybe DestinationFieldProperties
+$sel:destinationProperties:ConnectorEntityField' :: ConnectorEntityField -&gt; Maybe DestinationFieldProperties
+</span><a href="#local-6989586621679328685"><span class="hs-identifier hs-var hs-var">destinationProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationFieldProperties
+</span><a href="#local-6989586621679328685"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328684"><span class="annot"><span class="annottext">s :: ConnectorEntityField
+</span><a href="#local-6989586621679328684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328683"><span class="annot"><span class="annottext">Maybe DestinationFieldProperties
+</span><a href="#local-6989586621679328683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorEntityField
+</span><a href="#local-6989586621679328684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationProperties:ConnectorEntityField' :: Maybe DestinationFieldProperties
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3AdestinationProperties%3AConnectorEntityField%27"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationFieldProperties
+</span><a href="#local-6989586621679328683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A description of the connector entity field.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_description"><span class="hs-identifier hs-type">connectorEntityField_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="connectorEntityField_description"><span class="annot"><span class="annottext">connectorEntityField_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectorEntityField -&gt; f ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_description"><span class="hs-identifier hs-var hs-var">connectorEntityField_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorEntityField -&gt; Maybe Text)
+-&gt; (ConnectorEntityField -&gt; Maybe Text -&gt; ConnectorEntityField)
+-&gt; Lens
+     ConnectorEntityField ConnectorEntityField (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328681"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ConnectorEntityField' :: ConnectorEntityField -&gt; Maybe Text
+</span><a href="#local-6989586621679328681"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328681"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328680"><span class="annot"><span class="annottext">s :: ConnectorEntityField
+</span><a href="#local-6989586621679328680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328679"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorEntityField
+</span><a href="#local-6989586621679328680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ConnectorEntityField' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Adescription%3AConnectorEntityField%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The label applied to a connector entity field.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_label"><span class="hs-identifier hs-type">connectorEntityField_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="connectorEntityField_label"><span class="annot"><span class="annottext">connectorEntityField_label :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectorEntityField -&gt; f ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_label"><span class="hs-identifier hs-var hs-var">connectorEntityField_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorEntityField -&gt; Maybe Text)
+-&gt; (ConnectorEntityField -&gt; Maybe Text -&gt; ConnectorEntityField)
+-&gt; Lens
+     ConnectorEntityField ConnectorEntityField (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328677"><span class="annot"><span class="annottext">Maybe Text
+label :: Maybe Text
+$sel:label:ConnectorEntityField' :: ConnectorEntityField -&gt; Maybe Text
+</span><a href="#local-6989586621679328677"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328677"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328676"><span class="annot"><span class="annottext">s :: ConnectorEntityField
+</span><a href="#local-6989586621679328676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328675"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorEntityField
+</span><a href="#local-6989586621679328676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:ConnectorEntityField' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Alabel%3AConnectorEntityField%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The unique identifier of the connector field.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_identifier"><span class="hs-identifier hs-type">connectorEntityField_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="connectorEntityField_identifier"><span class="annot"><span class="annottext">connectorEntityField_identifier :: (Text -&gt; f Text) -&gt; ConnectorEntityField -&gt; f ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#connectorEntityField_identifier"><span class="hs-identifier hs-var hs-var">connectorEntityField_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorEntityField -&gt; Text)
+-&gt; (ConnectorEntityField -&gt; Text -&gt; ConnectorEntityField)
+-&gt; Lens ConnectorEntityField ConnectorEntityField Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328673"><span class="annot"><span class="annottext">Text
+identifier :: Text
+$sel:identifier:ConnectorEntityField' :: ConnectorEntityField -&gt; Text
+</span><a href="#local-6989586621679328673"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328673"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328672"><span class="annot"><span class="annottext">s :: ConnectorEntityField
+</span><a href="#local-6989586621679328672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-type">ConnectorEntityField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorEntityField
+</span><a href="#local-6989586621679328672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:ConnectorEntityField' :: Text
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#%24sel%3Aidentifier%3AConnectorEntityField%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328668"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679328666"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectorEntityField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConnectorEntityField)
+-&gt; Value
+-&gt; Parser ConnectorEntityField
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConnectorEntityField&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe SourceFieldProperties
+-&gt; Maybe SupportedFieldTypeDetails
+-&gt; Maybe DestinationFieldProperties
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ConnectorEntityField
+</span><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField%27"><span class="hs-identifier hs-var">ConnectorEntityField'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SourceFieldProperties
+ -&gt; Maybe SupportedFieldTypeDetails
+ -&gt; Maybe DestinationFieldProperties
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; ConnectorEntityField)
+-&gt; Parser (Maybe SourceFieldProperties)
+-&gt; Parser
+     (Maybe SupportedFieldTypeDetails
+      -&gt; Maybe DestinationFieldProperties
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ConnectorEntityField)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceFieldProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SupportedFieldTypeDetails
+   -&gt; Maybe DestinationFieldProperties
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ConnectorEntityField)
+-&gt; Parser (Maybe SupportedFieldTypeDetails)
+-&gt; Parser
+     (Maybe DestinationFieldProperties
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ConnectorEntityField)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SupportedFieldTypeDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedFieldTypeDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DestinationFieldProperties
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ConnectorEntityField)
+-&gt; Parser (Maybe DestinationFieldProperties)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ConnectorEntityField)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationFieldProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ConnectorEntityField)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; ConnectorEntityField)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; ConnectorEntityField)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; ConnectorEntityField)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;label&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ConnectorEntityField)
+-&gt; Parser Text -&gt; Parser ConnectorEntityField
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328656"><span id="local-6989586621679328658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.ConnectorEntityField.html#ConnectorEntityField"><span class="hs-identifier hs-type">ConnectorEntityField</span></a></span></span><span>
+</span><span id="line-134"></span></pre></body></html>

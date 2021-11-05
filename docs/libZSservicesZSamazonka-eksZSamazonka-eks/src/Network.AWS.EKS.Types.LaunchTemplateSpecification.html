@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-comment">-- Specify either @name@ or @id@, but not both.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateSpecification' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679266442"><span id="local-6989586621679266443"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateSpecification"><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-var">LaunchTemplateSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateSpecification%27"><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-var">LaunchTemplateSpecification'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679266451"><span id="local-6989586621679266452"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateSpecification"><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-var">LaunchTemplateSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateSpecification%27"><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-var">LaunchTemplateSpecification'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the launch template.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#%24sel%3Aname%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#%24sel%3Aid%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266434"><span id="local-6989586621679266436"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266443"><span id="local-6989586621679266445"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
 (LaunchTemplateSpecification
  -&gt; LaunchTemplateSpecification -&gt; Bool)
 -&gt; (LaunchTemplateSpecification
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
 == :: LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
 $c== :: LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266425"><span id="local-6989586621679266427"><span id="local-6989586621679266429"><span id="local-6989586621679266431"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266434"><span id="local-6989586621679266436"><span id="local-6989586621679266438"><span id="local-6989586621679266440"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateSpecification]
 ReadPrec LaunchTemplateSpecification
 Int -&gt; ReadS LaunchTemplateSpecification
 ReadS [LaunchTemplateSpecification]
@@ -88,7 +88,7 @@ readList :: ReadS [LaunchTemplateSpecification]
 $creadList :: ReadS [LaunchTemplateSpecification]
 readsPrec :: Int -&gt; ReadS LaunchTemplateSpecification
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266418"><span id="local-6989586621679266420"><span id="local-6989586621679266422"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266427"><span id="local-6989586621679266429"><span id="local-6989586621679266431"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateSpecification -&gt; ShowS
 [LaunchTemplateSpecification] -&gt; ShowS
 LaunchTemplateSpecification -&gt; String
 (Int -&gt; LaunchTemplateSpecification -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266409"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266418"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679266409"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266409"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266408"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
-</span><a href="#local-6989586621679266408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266407"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
-</span><a href="#local-6989586621679266408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="#local-6989586621679266418"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266418"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266417"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
+</span><a href="#local-6989586621679266417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266416"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679266417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LaunchTemplateSpecification' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#%24sel%3Aname%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The version of the launch template to use. If no version is specified,</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- then the template\'s default version is used.</span><span>
@@ -194,16 +194,16 @@ $sel:name:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266405"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266414"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679266405"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266405"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266404"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
-</span><a href="#local-6989586621679266404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266403"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
-</span><a href="#local-6989586621679266404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="#local-6989586621679266414"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266414"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266413"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
+</span><a href="#local-6989586621679266413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679266413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:LaunchTemplateSpecification' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The ID of the launch template.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_id"><span class="hs-identifier hs-type">launchTemplateSpecification_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -218,19 +218,19 @@ $sel:version:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266401"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266410"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679266401"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266401"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266400"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
-</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266399"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
-</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="#local-6989586621679266410"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266410"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266409"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
+</span><a href="#local-6989586621679266409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679266409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchTemplateSpecification' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#%24sel%3Aid%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266396"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679266394"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchTemplateSpecification
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266405"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679266403"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchTemplateSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LaunchTemplateSpecification)
@@ -240,8 +240,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LaunchTemplateSpecification&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266391"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266400"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; LaunchTemplateSpecification
 </span><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-var">LaunchTemplateSpecification'</span></a></span><span>
@@ -251,7 +251,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LaunchTemplateSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -260,7 +260,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; LaunchTemplateSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,26 +268,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser LaunchTemplateSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266385"><span id="local-6989586621679266387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266394"><span id="local-6989586621679266396"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266374"><span id="local-6989586621679266376"><span id="local-6989586621679266378"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679266372"><span class="annot"><span class="annottext">toJSON :: LaunchTemplateSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266368"><span id="local-6989586621679266369"><span id="local-6989586621679266370"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266383"><span id="local-6989586621679266385"><span id="local-6989586621679266387"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679266381"><span class="annot"><span class="annottext">toJSON :: LaunchTemplateSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266377"><span id="local-6989586621679266378"><span id="local-6989586621679266379"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 version :: Maybe Text
 name :: Maybe Text
 $sel:id:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
 $sel:version:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
 $sel:name:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679266368"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679266377"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,21 +299,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266370"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679266379"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266369"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679266378"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266368"><span class="hs-identifier hs-var">id</span></a></span><span>
+</span><a href="#local-6989586621679266377"><span class="hs-identifier hs-var">id</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span></pre></body></html>

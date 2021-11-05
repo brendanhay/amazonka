@@ -282,7 +282,7 @@
 </span><span id="line-282"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | /See:/ 'newRestoreObject' smart constructor.</span><span>
-</span><span id="line-285"></span><span id="local-6989586621679562034"><span id="local-6989586621679562035"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreObject"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-var">RestoreObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreObject%27"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-var">RestoreObject'</span></a></span></span><span>
+</span><span id="line-285"></span><span id="local-6989586621679562043"><span id="local-6989586621679562044"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreObject"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-var">RestoreObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreObject%27"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-var">RestoreObject'</span></a></span></span><span>
 </span><span id="line-286"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | VersionId used to reference a specific version of the object.</span><span>
 </span><span id="line-287"></span><span>    </span><span id="%24sel%3AversionId%3ARestoreObject%27"><span class="annot"><span class="annottext">RestoreObject -&gt; Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3AversionId%3ARestoreObject%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
@@ -321,7 +321,7 @@
 </span><span id="line-316"></span><span>    </span><span id="%24sel%3Akey%3ARestoreObject%27"><span class="annot"><span class="annottext">RestoreObject -&gt; ObjectKey
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3Akey%3ARestoreObject%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
 </span><span id="line-317"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-318"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679562023"><span id="local-6989586621679562025"><span class="annot"><span class="annottext">RestoreObject -&gt; RestoreObject -&gt; Bool
+</span><span id="line-318"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679562032"><span id="local-6989586621679562034"><span class="annot"><span class="annottext">RestoreObject -&gt; RestoreObject -&gt; Bool
 (RestoreObject -&gt; RestoreObject -&gt; Bool)
 -&gt; (RestoreObject -&gt; RestoreObject -&gt; Bool) -&gt; Eq RestoreObject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -329,7 +329,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreObject -&gt; RestoreObject -&gt; Bool
 == :: RestoreObject -&gt; RestoreObject -&gt; Bool
 $c== :: RestoreObject -&gt; RestoreObject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679562016"><span id="local-6989586621679562018"><span id="local-6989586621679562020"><span class="annot"><span class="annottext">Int -&gt; RestoreObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679562025"><span id="local-6989586621679562027"><span id="local-6989586621679562029"><span class="annot"><span class="annottext">Int -&gt; RestoreObject -&gt; ShowS
 [RestoreObject] -&gt; ShowS
 RestoreObject -&gt; String
 (Int -&gt; RestoreObject -&gt; ShowS)
@@ -402,9 +402,9 @@ $cfrom :: forall x. RestoreObject -&gt; Rep RestoreObject x
 </span><span id="line-364"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-365"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span>
 </span><span id="line-366"></span><span id="newRestoreObject"><span class="annot"><span class="annottext">newRestoreObject :: BucketName -&gt; ObjectKey -&gt; RestoreObject
-</span><a href="Network.AWS.S3.RestoreObject.html#newRestoreObject"><span class="hs-identifier hs-var hs-var">newRestoreObject</span></a></span></span><span> </span><span id="local-6989586621679562011"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679562011"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679562010"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679562010"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.RestoreObject.html#newRestoreObject"><span class="hs-identifier hs-var hs-var">newRestoreObject</span></a></span></span><span> </span><span id="local-6989586621679562020"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679562020"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679562019"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679562019"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-367"></span><span>  </span><span class="annot"><span class="annottext">RestoreObject' :: Maybe ObjectVersionId
 -&gt; Maybe RequestPayer
 -&gt; Maybe Text
@@ -431,10 +431,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-372"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:RestoreObject' :: BucketName
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3Abucket%3ARestoreObject%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679562011"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679562020"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-373"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:RestoreObject' :: ObjectKey
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3Akey%3ARestoreObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679562010"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><a href="#local-6989586621679562019"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
 </span><span id="line-374"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-375"></span><span>
 </span><span id="line-376"></span><span class="hs-comment">-- | VersionId used to reference a specific version of the object.</span><span>
@@ -449,16 +449,16 @@ forall a. Maybe a
      (Maybe ObjectVersionId)
      (Maybe ObjectVersionId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562007"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562016"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 versionId :: Maybe ObjectVersionId
 $sel:versionId:RestoreObject' :: RestoreObject -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679562007"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679562007"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562006"><span class="annot"><span class="annottext">s :: RestoreObject
-</span><a href="#local-6989586621679562006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562005"><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679562005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
-</span><a href="#local-6989586621679562006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:RestoreObject' :: Maybe ObjectVersionId
+</span><a href="#local-6989586621679562016"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679562016"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562015"><span class="annot"><span class="annottext">s :: RestoreObject
+</span><a href="#local-6989586621679562015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562014"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679562014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
+</span><a href="#local-6989586621679562015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:RestoreObject' :: Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3AversionId%3ARestoreObject%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679562005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679562014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-379"></span><span>
 </span><span id="line-380"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-381"></span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#restoreObject_requestPayer"><span class="hs-identifier hs-type">restoreObject_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
@@ -472,16 +472,16 @@ $sel:versionId:RestoreObject' :: RestoreObject -&gt; Maybe ObjectVersionId
      (Maybe RequestPayer)
      (Maybe RequestPayer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562004"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562013"><span class="annot"><span class="annottext">Maybe RequestPayer
 requestPayer :: Maybe RequestPayer
 $sel:requestPayer:RestoreObject' :: RestoreObject -&gt; Maybe RequestPayer
-</span><a href="#local-6989586621679562004"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679562004"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562003"><span class="annot"><span class="annottext">s :: RestoreObject
-</span><a href="#local-6989586621679562003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562002"><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679562002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
-</span><a href="#local-6989586621679562003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:RestoreObject' :: Maybe RequestPayer
+</span><a href="#local-6989586621679562013"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679562013"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562012"><span class="annot"><span class="annottext">s :: RestoreObject
+</span><a href="#local-6989586621679562012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562011"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679562011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
+</span><a href="#local-6989586621679562012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:RestoreObject' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3ArequestPayer%3ARestoreObject%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679562002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679562011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-383"></span><span>
 </span><span id="line-384"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-385"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -492,16 +492,16 @@ $sel:requestPayer:RestoreObject' :: RestoreObject -&gt; Maybe RequestPayer
 -&gt; (RestoreObject -&gt; Maybe Text -&gt; RestoreObject)
 -&gt; Lens RestoreObject RestoreObject (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562001"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562010"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:RestoreObject' :: RestoreObject -&gt; Maybe Text
-</span><a href="#local-6989586621679562001"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679562001"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562000"><span class="annot"><span class="annottext">s :: RestoreObject
-</span><a href="#local-6989586621679562000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561999"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679561999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
-</span><a href="#local-6989586621679562000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:RestoreObject' :: Maybe Text
+</span><a href="#local-6989586621679562010"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679562010"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562009"><span class="annot"><span class="annottext">s :: RestoreObject
+</span><a href="#local-6989586621679562009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562008"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679562008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
+</span><a href="#local-6989586621679562009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:RestoreObject' :: Maybe Text
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3AexpectedBucketOwner%3ARestoreObject%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679561999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679562008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-389"></span><span>
 </span><span id="line-390"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-391"></span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#restoreObject_restoreRequest"><span class="hs-identifier hs-type">restoreObject_restoreRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
@@ -515,16 +515,16 @@ $sel:expectedBucketOwner:RestoreObject' :: RestoreObject -&gt; Maybe Text
      (Maybe RestoreRequest)
      (Maybe RestoreRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561998"><span class="annot"><span class="annottext">Maybe RestoreRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562007"><span class="annot"><span class="annottext">Maybe RestoreRequest
 restoreRequest :: Maybe RestoreRequest
 $sel:restoreRequest:RestoreObject' :: RestoreObject -&gt; Maybe RestoreRequest
-</span><a href="#local-6989586621679561998"><span class="hs-identifier hs-var hs-var">restoreRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequest
-</span><a href="#local-6989586621679561998"><span class="hs-identifier hs-var">restoreRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561997"><span class="annot"><span class="annottext">s :: RestoreObject
-</span><a href="#local-6989586621679561997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561996"><span class="annot"><span class="annottext">Maybe RestoreRequest
-</span><a href="#local-6989586621679561996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
-</span><a href="#local-6989586621679561997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreRequest:RestoreObject' :: Maybe RestoreRequest
+</span><a href="#local-6989586621679562007"><span class="hs-identifier hs-var hs-var">restoreRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequest
+</span><a href="#local-6989586621679562007"><span class="hs-identifier hs-var">restoreRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562006"><span class="annot"><span class="annottext">s :: RestoreObject
+</span><a href="#local-6989586621679562006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562005"><span class="annot"><span class="annottext">Maybe RestoreRequest
+</span><a href="#local-6989586621679562005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
+</span><a href="#local-6989586621679562006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreRequest:RestoreObject' :: Maybe RestoreRequest
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3ArestoreRequest%3ARestoreObject%27"><span class="hs-identifier hs-var">restoreRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequest
-</span><a href="#local-6989586621679561996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679562005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-393"></span><span>
 </span><span id="line-394"></span><span class="hs-comment">-- | The bucket name containing the object to restore.</span><span>
 </span><span id="line-395"></span><span class="hs-comment">--</span><span>
@@ -552,16 +552,16 @@ $sel:restoreRequest:RestoreObject' :: RestoreObject -&gt; Maybe RestoreRequest
 -&gt; (RestoreObject -&gt; BucketName -&gt; RestoreObject)
 -&gt; Lens RestoreObject RestoreObject BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561995"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562004"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:RestoreObject' :: RestoreObject -&gt; BucketName
-</span><a href="#local-6989586621679561995"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679561995"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561994"><span class="annot"><span class="annottext">s :: RestoreObject
-</span><a href="#local-6989586621679561994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561993"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679561993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
-</span><a href="#local-6989586621679561994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:RestoreObject' :: BucketName
+</span><a href="#local-6989586621679562004"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679562004"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562003"><span class="annot"><span class="annottext">s :: RestoreObject
+</span><a href="#local-6989586621679562003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562002"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679562002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
+</span><a href="#local-6989586621679562003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:RestoreObject' :: BucketName
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3Abucket%3ARestoreObject%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679561993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679562002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-416"></span><span>
 </span><span id="line-417"></span><span class="hs-comment">-- | Object key for which the action was initiated.</span><span>
 </span><span id="line-418"></span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#restoreObject_key"><span class="hs-identifier hs-type">restoreObject_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
@@ -570,22 +570,22 @@ $sel:bucket:RestoreObject' :: RestoreObject -&gt; BucketName
 -&gt; (RestoreObject -&gt; ObjectKey -&gt; RestoreObject)
 -&gt; Lens RestoreObject RestoreObject ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561992"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562001"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:RestoreObject' :: RestoreObject -&gt; ObjectKey
-</span><a href="#local-6989586621679561992"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679561992"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561991"><span class="annot"><span class="annottext">s :: RestoreObject
-</span><a href="#local-6989586621679561991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561990"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679561990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
-</span><a href="#local-6989586621679561991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:RestoreObject' :: ObjectKey
+</span><a href="#local-6989586621679562001"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679562001"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562000"><span class="annot"><span class="annottext">s :: RestoreObject
+</span><a href="#local-6989586621679562000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561999"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679561999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObject
+</span><a href="#local-6989586621679562000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:RestoreObject' :: ObjectKey
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3Akey%3ARestoreObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679561990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679561999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-420"></span><span>
 </span><span id="line-421"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-422"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-423"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-424"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span>
-</span><span id="line-425"></span><span>  </span><span id="local-6989586621679561986"><span class="annot"><span class="annottext">request :: RestoreObject -&gt; Request RestoreObject
+</span><span id="line-425"></span><span>  </span><span id="local-6989586621679561995"><span class="annot"><span class="annottext">request :: RestoreObject -&gt; Request RestoreObject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-426"></span><span>    </span><span class="annot"><span class="annottext">Request RestoreObject -&gt; Request RestoreObject
 forall a. Request a -&gt; Request a
@@ -599,7 +599,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-428"></span><span>  </span><span id="local-6989586621679561980"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-428"></span><span>  </span><span id="local-6989586621679561989"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RestoreObject
 -&gt; ClientResponse ClientBody
@@ -623,10 +623,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-430"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679561977"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679561977"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679561976"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679561976"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679561975"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679561975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-430"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679561986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679561986"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679561985"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679561985"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679561984"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679561984"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-431"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestCharged -&gt; Maybe Text -&gt; Int -&gt; RestoreObjectResponse
 </span><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-var">RestoreObjectResponse'</span></a></span><span>
 </span><span id="line-432"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestCharged
@@ -635,7 +635,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; RestoreObjectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679561976"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679561985"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; HeaderName -&gt; Either String (Maybe RequestCharged)
 forall a.
 FromText a =&gt;
@@ -647,7 +647,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; RestoreObjectResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679561976"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679561985"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -661,16 +661,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679561977"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679561986"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-435"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-436"></span><span>
-</span><span id="line-437"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561967"><span id="local-6989586621679561969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span></span></span><span>
+</span><span id="line-437"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561976"><span id="local-6989586621679561978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span></span></span><span>
 </span><span id="line-438"></span><span>
-</span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span></span><span>
+</span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span></span><span>
 </span><span id="line-440"></span><span>
 </span><span id="line-441"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-442"></span><span>  </span><span id="local-6989586621679561960"><span class="annot"><span class="annottext">toElement :: RestoreObject -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561953"><span id="local-6989586621679561954"><span id="local-6989586621679561955"><span id="local-6989586621679561956"><span id="local-6989586621679561957"><span id="local-6989586621679561958"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-442"></span><span>  </span><span id="local-6989586621679561969"><span class="annot"><span class="annottext">toElement :: RestoreObject -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561962"><span id="local-6989586621679561963"><span id="local-6989586621679561964"><span id="local-6989586621679561965"><span id="local-6989586621679561966"><span id="local-6989586621679561967"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 Maybe RestoreRequest
@@ -688,18 +688,18 @@ $sel:restoreRequest:RestoreObject' :: RestoreObject -&gt; Maybe RestoreRequest
 $sel:expectedBucketOwner:RestoreObject' :: RestoreObject -&gt; Maybe Text
 $sel:requestPayer:RestoreObject' :: RestoreObject -&gt; Maybe RequestPayer
 $sel:versionId:RestoreObject' :: RestoreObject -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679561953"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679561962"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-443"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; Maybe RestoreRequest -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
 </span><span id="line-444"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}RestoreRequest&quot;</span></span><span>
 </span><span id="line-445"></span><span>      </span><span class="annot"><span class="annottext">Maybe RestoreRequest
-</span><a href="#local-6989586621679561955"><span class="hs-identifier hs-var">restoreRequest</span></a></span><span>
+</span><a href="#local-6989586621679561964"><span class="hs-identifier hs-var">restoreRequest</span></a></span><span>
 </span><span id="line-446"></span><span>
 </span><span id="line-447"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-448"></span><span>  </span><span id="local-6989586621679561949"><span class="annot"><span class="annottext">toHeaders :: RestoreObject -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561942"><span id="local-6989586621679561943"><span id="local-6989586621679561944"><span id="local-6989586621679561945"><span id="local-6989586621679561946"><span id="local-6989586621679561947"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-448"></span><span>  </span><span id="local-6989586621679561958"><span class="annot"><span class="annottext">toHeaders :: RestoreObject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561951"><span id="local-6989586621679561952"><span id="local-6989586621679561953"><span id="local-6989586621679561954"><span id="local-6989586621679561955"><span id="local-6989586621679561956"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 Maybe RestoreRequest
@@ -717,7 +717,7 @@ $sel:restoreRequest:RestoreObject' :: RestoreObject -&gt; Maybe RestoreRequest
 $sel:expectedBucketOwner:RestoreObject' :: RestoreObject -&gt; Maybe Text
 $sel:requestPayer:RestoreObject' :: RestoreObject -&gt; Maybe RequestPayer
 $sel:versionId:RestoreObject' :: RestoreObject -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679561942"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679561951"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-449"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -725,18 +725,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679561946"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679561955"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-451"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
 </span><span id="line-452"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679561945"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679561954"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-453"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-454"></span><span>
 </span><span id="line-455"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-456"></span><span>  </span><span id="local-6989586621679561938"><span class="annot"><span class="annottext">toPath :: RestoreObject -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561931"><span id="local-6989586621679561932"><span id="local-6989586621679561933"><span id="local-6989586621679561934"><span id="local-6989586621679561935"><span id="local-6989586621679561936"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-456"></span><span>  </span><span id="local-6989586621679561947"><span class="annot"><span class="annottext">toPath :: RestoreObject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561940"><span id="local-6989586621679561941"><span id="local-6989586621679561942"><span id="local-6989586621679561943"><span id="local-6989586621679561944"><span id="local-6989586621679561945"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 Maybe RestoreRequest
@@ -754,7 +754,7 @@ $sel:restoreRequest:RestoreObject' :: RestoreObject -&gt; Maybe RestoreRequest
 $sel:expectedBucketOwner:RestoreObject' :: RestoreObject -&gt; Maybe Text
 $sel:requestPayer:RestoreObject' :: RestoreObject -&gt; Maybe RequestPayer
 $sel:versionId:RestoreObject' :: RestoreObject -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679561931"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679561940"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-457"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -762,15 +762,15 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679561932"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679561941"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679561931"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679561940"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-459"></span><span>
 </span><span id="line-460"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject"><span class="hs-identifier hs-type">RestoreObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-461"></span><span>  </span><span id="local-6989586621679561927"><span class="annot"><span class="annottext">toQuery :: RestoreObject -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561920"><span id="local-6989586621679561921"><span id="local-6989586621679561922"><span id="local-6989586621679561923"><span id="local-6989586621679561924"><span id="local-6989586621679561925"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-461"></span><span>  </span><span id="local-6989586621679561936"><span class="annot"><span class="annottext">toQuery :: RestoreObject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObject%27"><span class="hs-identifier hs-type">RestoreObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561929"><span id="local-6989586621679561930"><span id="local-6989586621679561931"><span id="local-6989586621679561932"><span id="local-6989586621679561933"><span id="local-6989586621679561934"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 Maybe RestoreRequest
@@ -788,7 +788,7 @@ $sel:restoreRequest:RestoreObject' :: RestoreObject -&gt; Maybe RestoreRequest
 $sel:expectedBucketOwner:RestoreObject' :: RestoreObject -&gt; Maybe Text
 $sel:requestPayer:RestoreObject' :: RestoreObject -&gt; Maybe RequestPayer
 $sel:versionId:RestoreObject' :: RestoreObject -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679561920"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679561929"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-462"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -796,11 +796,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ObjectVersionId -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679561925"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679561934"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;restore&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-464"></span><span>
 </span><span id="line-465"></span><span class="hs-comment">-- | /See:/ 'newRestoreObjectResponse' smart constructor.</span><span>
-</span><span id="line-466"></span><span id="local-6989586621679561917"><span id="local-6989586621679561918"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreObjectResponse"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-var">RestoreObjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreObjectResponse%27"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-var">RestoreObjectResponse'</span></a></span></span><span>
+</span><span id="line-466"></span><span id="local-6989586621679561926"><span id="local-6989586621679561927"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreObjectResponse"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-var">RestoreObjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreObjectResponse%27"><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-var">RestoreObjectResponse'</span></a></span></span><span>
 </span><span id="line-467"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestCharged%3ARestoreObjectResponse%27"><span class="annot"><span class="annottext">RestoreObjectResponse -&gt; Maybe RequestCharged
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3ArequestCharged%3ARestoreObjectResponse%27"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-468"></span><span>    </span><span class="hs-comment">-- | Indicates the path in the provided S3 output location where Select</span><span>
@@ -811,7 +811,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-472"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARestoreObjectResponse%27"><span class="annot"><span class="annottext">RestoreObjectResponse -&gt; Int
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3AhttpStatus%3ARestoreObjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-473"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-474"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679561910"><span id="local-6989586621679561912"><span class="annot"><span class="annottext">RestoreObjectResponse -&gt; RestoreObjectResponse -&gt; Bool
+</span><span id="line-474"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679561919"><span id="local-6989586621679561921"><span class="annot"><span class="annottext">RestoreObjectResponse -&gt; RestoreObjectResponse -&gt; Bool
 (RestoreObjectResponse -&gt; RestoreObjectResponse -&gt; Bool)
 -&gt; (RestoreObjectResponse -&gt; RestoreObjectResponse -&gt; Bool)
 -&gt; Eq RestoreObjectResponse
@@ -820,7 +820,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreObjectResponse -&gt; RestoreObjectResponse -&gt; Bool
 == :: RestoreObjectResponse -&gt; RestoreObjectResponse -&gt; Bool
 $c== :: RestoreObjectResponse -&gt; RestoreObjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679561902"><span id="local-6989586621679561904"><span id="local-6989586621679561906"><span id="local-6989586621679561908"><span class="annot"><span class="annottext">ReadPrec [RestoreObjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679561911"><span id="local-6989586621679561913"><span id="local-6989586621679561915"><span id="local-6989586621679561917"><span class="annot"><span class="annottext">ReadPrec [RestoreObjectResponse]
 ReadPrec RestoreObjectResponse
 Int -&gt; ReadS RestoreObjectResponse
 ReadS [RestoreObjectResponse]
@@ -840,7 +840,7 @@ readList :: ReadS [RestoreObjectResponse]
 $creadList :: ReadS [RestoreObjectResponse]
 readsPrec :: Int -&gt; ReadS RestoreObjectResponse
 $creadsPrec :: Int -&gt; ReadS RestoreObjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679561895"><span id="local-6989586621679561897"><span id="local-6989586621679561899"><span class="annot"><span class="annottext">Int -&gt; RestoreObjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679561904"><span id="local-6989586621679561906"><span id="local-6989586621679561908"><span class="annot"><span class="annottext">Int -&gt; RestoreObjectResponse -&gt; ShowS
 [RestoreObjectResponse] -&gt; ShowS
 RestoreObjectResponse -&gt; String
 (Int -&gt; RestoreObjectResponse -&gt; ShowS)
@@ -885,8 +885,8 @@ $cfrom :: forall x. RestoreObjectResponse -&gt; Rep RestoreObjectResponse x
 </span><span id="line-492"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-493"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span>
 </span><span id="line-494"></span><span id="newRestoreObjectResponse"><span class="annot"><span class="annottext">newRestoreObjectResponse :: Int -&gt; RestoreObjectResponse
-</span><a href="Network.AWS.S3.RestoreObject.html#newRestoreObjectResponse"><span class="hs-identifier hs-var hs-var">newRestoreObjectResponse</span></a></span></span><span> </span><span id="local-6989586621679561892"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679561892"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.RestoreObject.html#newRestoreObjectResponse"><span class="hs-identifier hs-var hs-var">newRestoreObjectResponse</span></a></span></span><span> </span><span id="local-6989586621679561901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679561901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-495"></span><span>  </span><span class="annot"><span class="annottext">RestoreObjectResponse' :: Maybe RequestCharged -&gt; Maybe Text -&gt; Int -&gt; RestoreObjectResponse
 </span><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span>
 </span><span id="line-496"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestCharged:RestoreObjectResponse' :: Maybe RequestCharged
@@ -900,7 +900,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-499"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreObjectResponse' :: Int
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3AhttpStatus%3ARestoreObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679561892"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679561901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-500"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-501"></span><span>
 </span><span id="line-502"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -916,16 +916,16 @@ forall a. Maybe a
      (Maybe RequestCharged)
      (Maybe RequestCharged)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561891"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561900"><span class="annot"><span class="annottext">Maybe RequestCharged
 requestCharged :: Maybe RequestCharged
 $sel:requestCharged:RestoreObjectResponse' :: RestoreObjectResponse -&gt; Maybe RequestCharged
-</span><a href="#local-6989586621679561891"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679561891"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561890"><span class="annot"><span class="annottext">s :: RestoreObjectResponse
-</span><a href="#local-6989586621679561890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561889"><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679561889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObjectResponse
-</span><a href="#local-6989586621679561890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:RestoreObjectResponse' :: Maybe RequestCharged
+</span><a href="#local-6989586621679561900"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679561900"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561899"><span class="annot"><span class="annottext">s :: RestoreObjectResponse
+</span><a href="#local-6989586621679561899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561898"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679561898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObjectResponse
+</span><a href="#local-6989586621679561899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:RestoreObjectResponse' :: Maybe RequestCharged
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3ArequestCharged%3ARestoreObjectResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679561889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679561898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-505"></span><span>
 </span><span id="line-506"></span><span class="hs-comment">-- | Indicates the path in the provided S3 output location where Select</span><span>
 </span><span id="line-507"></span><span class="hs-comment">-- results will be restored to.</span><span>
@@ -940,16 +940,16 @@ $sel:requestCharged:RestoreObjectResponse' :: RestoreObjectResponse -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561888"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561897"><span class="annot"><span class="annottext">Maybe Text
 restoreOutputPath :: Maybe Text
 $sel:restoreOutputPath:RestoreObjectResponse' :: RestoreObjectResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679561888"><span class="hs-identifier hs-var hs-var">restoreOutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679561888"><span class="hs-identifier hs-var">restoreOutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561887"><span class="annot"><span class="annottext">s :: RestoreObjectResponse
-</span><a href="#local-6989586621679561887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561886"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679561886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObjectResponse
-</span><a href="#local-6989586621679561887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreOutputPath:RestoreObjectResponse' :: Maybe Text
+</span><a href="#local-6989586621679561897"><span class="hs-identifier hs-var hs-var">restoreOutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561897"><span class="hs-identifier hs-var">restoreOutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561896"><span class="annot"><span class="annottext">s :: RestoreObjectResponse
+</span><a href="#local-6989586621679561896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObjectResponse
+</span><a href="#local-6989586621679561896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreOutputPath:RestoreObjectResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3ArestoreOutputPath%3ARestoreObjectResponse%27"><span class="hs-identifier hs-var">restoreOutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679561886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679561895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-510"></span><span>
 </span><span id="line-511"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-512"></span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#restoreObjectResponse_httpStatus"><span class="hs-identifier hs-type">restoreObjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -958,16 +958,16 @@ $sel:restoreOutputPath:RestoreObjectResponse' :: RestoreObjectResponse -&gt; May
 -&gt; (RestoreObjectResponse -&gt; Int -&gt; RestoreObjectResponse)
 -&gt; Lens RestoreObjectResponse RestoreObjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561885"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561894"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RestoreObjectResponse' :: RestoreObjectResponse -&gt; Int
-</span><a href="#local-6989586621679561885"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679561885"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561884"><span class="annot"><span class="annottext">s :: RestoreObjectResponse
-</span><a href="#local-6989586621679561884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561883"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679561883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObjectResponse
-</span><a href="#local-6989586621679561884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreObjectResponse' :: Int
+</span><a href="#local-6989586621679561894"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679561894"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561893"><span class="annot"><span class="annottext">s :: RestoreObjectResponse
+</span><a href="#local-6989586621679561893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse%27"><span class="hs-identifier hs-type">RestoreObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679561892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreObjectResponse
+</span><a href="#local-6989586621679561893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreObjectResponse' :: Int
 </span><a href="Network.AWS.S3.RestoreObject.html#%24sel%3AhttpStatus%3ARestoreObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679561883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679561892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-514"></span><span>
-</span><span id="line-515"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span></span><span>
+</span><span id="line-515"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.RestoreObject.html#RestoreObjectResponse"><span class="hs-identifier hs-type">RestoreObjectResponse</span></a></span></span><span>
 </span><span id="line-516"></span></pre></body></html>

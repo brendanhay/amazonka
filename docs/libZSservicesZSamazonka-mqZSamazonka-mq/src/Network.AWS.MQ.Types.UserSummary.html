@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Returns a list of all broker users. Does not apply to RabbitMQ brokers.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUserSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679225191"><span id="local-6989586621679225192"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserSummary"><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-var">UserSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserSummary%27"><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-var">UserSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679225200"><span id="local-6989586621679225201"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserSummary"><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-var">UserSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserSummary%27"><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-var">UserSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of change pending for the broker user.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApendingChange%3AUserSummary%27"><span class="annot"><span class="annottext">UserSummary -&gt; Maybe ChangeType
 </span><a href="Network.AWS.MQ.Types.UserSummary.html#%24sel%3ApendingChange%3AUserSummary%27"><span class="hs-identifier hs-var hs-var">pendingChange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Ausername%3AUserSummary%27"><span class="annot"><span class="annottext">UserSummary -&gt; Text
 </span><a href="Network.AWS.MQ.Types.UserSummary.html#%24sel%3Ausername%3AUserSummary%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225184"><span id="local-6989586621679225186"><span class="annot"><span class="annottext">UserSummary -&gt; UserSummary -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225193"><span id="local-6989586621679225195"><span class="annot"><span class="annottext">UserSummary -&gt; UserSummary -&gt; Bool
 (UserSummary -&gt; UserSummary -&gt; Bool)
 -&gt; (UserSummary -&gt; UserSummary -&gt; Bool) -&gt; Eq UserSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserSummary -&gt; UserSummary -&gt; Bool
 == :: UserSummary -&gt; UserSummary -&gt; Bool
 $c== :: UserSummary -&gt; UserSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225175"><span id="local-6989586621679225177"><span id="local-6989586621679225179"><span id="local-6989586621679225181"><span class="annot"><span class="annottext">ReadPrec [UserSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225184"><span id="local-6989586621679225186"><span id="local-6989586621679225188"><span id="local-6989586621679225190"><span class="annot"><span class="annottext">ReadPrec [UserSummary]
 ReadPrec UserSummary
 Int -&gt; ReadS UserSummary
 ReadS [UserSummary]
@@ -65,7 +65,7 @@ readList :: ReadS [UserSummary]
 $creadList :: ReadS [UserSummary]
 readsPrec :: Int -&gt; ReadS UserSummary
 $creadsPrec :: Int -&gt; ReadS UserSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225168"><span id="local-6989586621679225170"><span id="local-6989586621679225172"><span class="annot"><span class="annottext">Int -&gt; UserSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225177"><span id="local-6989586621679225179"><span id="local-6989586621679225181"><span class="annot"><span class="annottext">Int -&gt; UserSummary -&gt; ShowS
 [UserSummary] -&gt; ShowS
 UserSummary -&gt; String
 (Int -&gt; UserSummary -&gt; ShowS)
@@ -109,8 +109,8 @@ $cfrom :: forall x. UserSummary -&gt; Rep UserSummary x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span>
 </span><span id="line-57"></span><span id="newUserSummary"><span class="annot"><span class="annottext">newUserSummary :: Text -&gt; UserSummary
-</span><a href="Network.AWS.MQ.Types.UserSummary.html#newUserSummary"><span class="hs-identifier hs-var hs-var">newUserSummary</span></a></span></span><span> </span><span id="local-6989586621679225162"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225162"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.Types.UserSummary.html#newUserSummary"><span class="hs-identifier hs-var hs-var">newUserSummary</span></a></span></span><span> </span><span id="local-6989586621679225171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225171"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">UserSummary' :: Maybe ChangeType -&gt; Text -&gt; UserSummary
 </span><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pendingChange:UserSummary' :: Maybe ChangeType
@@ -119,7 +119,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:UserSummary' :: Text
 </span><a href="Network.AWS.MQ.Types.UserSummary.html#%24sel%3Ausername%3AUserSummary%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225162"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
+</span><a href="#local-6989586621679225171"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The type of change pending for the broker user.</span><span>
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; Lens
      UserSummary UserSummary (Maybe ChangeType) (Maybe ChangeType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225158"><span class="annot"><span class="annottext">Maybe ChangeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225167"><span class="annot"><span class="annottext">Maybe ChangeType
 pendingChange :: Maybe ChangeType
 $sel:pendingChange:UserSummary' :: UserSummary -&gt; Maybe ChangeType
-</span><a href="#local-6989586621679225158"><span class="hs-identifier hs-var hs-var">pendingChange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
-</span><a href="#local-6989586621679225158"><span class="hs-identifier hs-var">pendingChange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225157"><span class="annot"><span class="annottext">s :: UserSummary
-</span><a href="#local-6989586621679225157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225156"><span class="annot"><span class="annottext">Maybe ChangeType
-</span><a href="#local-6989586621679225156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSummary
-</span><a href="#local-6989586621679225157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingChange:UserSummary' :: Maybe ChangeType
+</span><a href="#local-6989586621679225167"><span class="hs-identifier hs-var hs-var">pendingChange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679225167"><span class="hs-identifier hs-var">pendingChange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225166"><span class="annot"><span class="annottext">s :: UserSummary
+</span><a href="#local-6989586621679225166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225165"><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679225165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSummary
+</span><a href="#local-6989586621679225166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingChange:UserSummary' :: Maybe ChangeType
 </span><a href="Network.AWS.MQ.Types.UserSummary.html#%24sel%3ApendingChange%3AUserSummary%27"><span class="hs-identifier hs-var">pendingChange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
-</span><a href="#local-6989586621679225156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Required. The username of the broker user. This value can contain only</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
@@ -151,19 +151,19 @@ $sel:pendingChange:UserSummary' :: UserSummary -&gt; Maybe ChangeType
 -&gt; (UserSummary -&gt; Text -&gt; UserSummary)
 -&gt; Lens UserSummary UserSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225154"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225163"><span class="annot"><span class="annottext">Text
 username :: Text
 $sel:username:UserSummary' :: UserSummary -&gt; Text
-</span><a href="#local-6989586621679225154"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225154"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225153"><span class="annot"><span class="annottext">s :: UserSummary
-</span><a href="#local-6989586621679225153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225152"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSummary
-</span><a href="#local-6989586621679225153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:UserSummary' :: Text
+</span><a href="#local-6989586621679225163"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225163"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225162"><span class="annot"><span class="annottext">s :: UserSummary
+</span><a href="#local-6989586621679225162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-type">UserSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225161"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSummary
+</span><a href="#local-6989586621679225162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:UserSummary' :: Text
 </span><a href="Network.AWS.MQ.Types.UserSummary.html#%24sel%3Ausername%3AUserSummary%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225149"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679225147"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserSummary
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225158"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679225156"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserSummary) -&gt; Value -&gt; Parser UserSummary
@@ -171,28 +171,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserSummary&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225144"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225153"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChangeType -&gt; Text -&gt; UserSummary
 </span><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary%27"><span class="hs-identifier hs-var">UserSummary'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChangeType -&gt; Text -&gt; UserSummary)
 -&gt; Parser (Maybe ChangeType) -&gt; Parser (Text -&gt; UserSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeType)
+</span><a href="#local-6989586621679225153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pendingChange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; UserSummary) -&gt; Parser Text -&gt; Parser UserSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679225153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;username&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225137"><span id="local-6989586621679225139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225146"><span id="local-6989586621679225148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

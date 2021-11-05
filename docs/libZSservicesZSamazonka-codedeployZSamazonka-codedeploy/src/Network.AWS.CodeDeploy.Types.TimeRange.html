@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a time range.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTimeRange' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679315098"><span id="local-6989586621679315099"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeRange"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-var">TimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeRange%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-var">TimeRange'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679315107"><span id="local-6989586621679315108"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeRange"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-var">TimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeRange%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-var">TimeRange'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time of the time range.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Specify null to leave the start time open-ended.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aend%3ATimeRange%27"><span class="annot"><span class="annottext">TimeRange -&gt; Maybe POSIX
 </span><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#%24sel%3Aend%3ATimeRange%27"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315091"><span id="local-6989586621679315093"><span class="annot"><span class="annottext">TimeRange -&gt; TimeRange -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315100"><span id="local-6989586621679315102"><span class="annot"><span class="annottext">TimeRange -&gt; TimeRange -&gt; Bool
 (TimeRange -&gt; TimeRange -&gt; Bool)
 -&gt; (TimeRange -&gt; TimeRange -&gt; Bool) -&gt; Eq TimeRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimeRange -&gt; TimeRange -&gt; Bool
 == :: TimeRange -&gt; TimeRange -&gt; Bool
 $c== :: TimeRange -&gt; TimeRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315082"><span id="local-6989586621679315084"><span id="local-6989586621679315086"><span id="local-6989586621679315088"><span class="annot"><span class="annottext">ReadPrec [TimeRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315091"><span id="local-6989586621679315093"><span id="local-6989586621679315095"><span id="local-6989586621679315097"><span class="annot"><span class="annottext">ReadPrec [TimeRange]
 ReadPrec TimeRange
 Int -&gt; ReadS TimeRange
 ReadS [TimeRange]
@@ -66,7 +66,7 @@ readList :: ReadS [TimeRange]
 $creadList :: ReadS [TimeRange]
 readsPrec :: Int -&gt; ReadS TimeRange
 $creadsPrec :: Int -&gt; ReadS TimeRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315075"><span id="local-6989586621679315077"><span id="local-6989586621679315079"><span class="annot"><span class="annottext">Int -&gt; TimeRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315084"><span id="local-6989586621679315086"><span id="local-6989586621679315088"><span class="annot"><span class="annottext">Int -&gt; TimeRange -&gt; ShowS
 [TimeRange] -&gt; ShowS
 TimeRange -&gt; String
 (Int -&gt; TimeRange -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (TimeRange -&gt; Maybe POSIX -&gt; TimeRange)
 -&gt; Lens TimeRange TimeRange (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315066"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315075"><span class="annot"><span class="annottext">Maybe POSIX
 start :: Maybe POSIX
 $sel:start:TimeRange' :: TimeRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679315066"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315066"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315065"><span class="annot"><span class="annottext">s :: TimeRange
-</span><a href="#local-6989586621679315065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315064"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
-</span><a href="#local-6989586621679315065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:TimeRange' :: Maybe POSIX
+</span><a href="#local-6989586621679315075"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679315075"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315074"><span class="annot"><span class="annottext">s :: TimeRange
+</span><a href="#local-6989586621679315074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315073"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679315073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679315074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:TimeRange' :: Maybe POSIX
 </span><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#%24sel%3Astart%3ATimeRange%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
+</span><a href="#local-6989586621679315073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -165,16 +165,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TimeRange -&gt; Maybe POSIX -&gt; TimeRange)
 -&gt; Lens TimeRange TimeRange (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315059"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315068"><span class="annot"><span class="annottext">Maybe POSIX
 end :: Maybe POSIX
 $sel:end:TimeRange' :: TimeRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679315059"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315059"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315058"><span class="annot"><span class="annottext">s :: TimeRange
-</span><a href="#local-6989586621679315058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315057"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
-</span><a href="#local-6989586621679315058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:TimeRange' :: Maybe POSIX
+</span><a href="#local-6989586621679315068"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679315068"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315067"><span class="annot"><span class="annottext">s :: TimeRange
+</span><a href="#local-6989586621679315067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315066"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679315066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679315067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:TimeRange' :: Maybe POSIX
 </span><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#%24sel%3Aend%3ATimeRange%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
+</span><a href="#local-6989586621679315066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -190,18 +190,18 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315053"><span id="local-6989586621679315055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315062"><span id="local-6989586621679315064"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315042"><span id="local-6989586621679315044"><span id="local-6989586621679315046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679315040"><span class="annot"><span class="annottext">toJSON :: TimeRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315037"><span id="local-6989586621679315038"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315051"><span id="local-6989586621679315053"><span id="local-6989586621679315055"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679315049"><span class="annot"><span class="annottext">toJSON :: TimeRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315046"><span id="local-6989586621679315047"><span class="annot"><span class="annottext">Maybe POSIX
 end :: Maybe POSIX
 start :: Maybe POSIX
 $sel:end:TimeRange' :: TimeRange -&gt; Maybe POSIX
 $sel:start:TimeRange' :: TimeRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679315037"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315046"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -213,14 +213,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315038"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315047"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;end&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679315037"><span class="hs-identifier hs-var">end</span></a></span><span>
+</span><a href="#local-6989586621679315046"><span class="hs-identifier hs-var">end</span></a></span><span>
 </span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span></pre></body></html>

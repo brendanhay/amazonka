@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FIS.CreateExperimentTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an experiment template.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- To create a template, specify the following information:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   __Targets__: A target can be a specific resource in your AWS</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--     environment, or one or more resources that match criteria that you</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     specify, for example, resources that have specific tags.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   __Actions__: The actions to carry out on the target. You can specify</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     multiple actions, the duration of each action, and when to start</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     each action during an experiment.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   __Stop conditions__: If a stop condition is triggered while an</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     experiment is running, the experiment is automatically stopped. You</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     can define a stop condition as a CloudWatch alarm.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/fis/latest/userguide/ AWS Fault Injection Simulator User Guide&gt;.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FIS.CreateExperimentTemplate</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#newCreateExperimentTemplate"><span class="hs-identifier">newCreateExperimentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_targets"><span class="hs-identifier">createExperimentTemplate_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_tags"><span class="hs-identifier">createExperimentTemplate_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_clientToken"><span class="hs-identifier">createExperimentTemplate_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_description"><span class="hs-identifier">createExperimentTemplate_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_stopConditions"><span class="hs-identifier">createExperimentTemplate_stopConditions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_actions"><span class="hs-identifier">createExperimentTemplate_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_roleArn"><span class="hs-identifier">createExperimentTemplate_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier">CreateExperimentTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#newCreateExperimentTemplateResponse"><span class="hs-identifier">newCreateExperimentTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplateResponse_experimentTemplate"><span class="hs-identifier">createExperimentTemplateResponse_experimentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplateResponse_httpStatus"><span class="hs-identifier">createExperimentTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.html"><span class="hs-identifier">Network.AWS.FIS.Types</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newCreateExperimentTemplate' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621679189169"><span id="local-6989586621679189170"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateExperimentTemplate"><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-var">CreateExperimentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateExperimentTemplate%27"><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-var">CreateExperimentTemplate'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The targets for the experiment.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atargets%3ACreateExperimentTemplate%27"><span class="annot"><span class="annottext">CreateExperimentTemplate
+-&gt; Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Atargets%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.html#CreateExperimentTemplateTargetInput"><span class="hs-identifier hs-type">CreateExperimentTemplateTargetInput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the experiment template.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Atags%3ACreateExperimentTemplate%27"><span class="annot"><span class="annottext">CreateExperimentTemplate -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Atags%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateExperimentTemplate%27"><span class="annot"><span class="annottext">CreateExperimentTemplate -&gt; Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AclientToken%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | A description for the experiment template. Can contain up to 64 letters</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- (A-Z and a-z).</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adescription%3ACreateExperimentTemplate%27"><span class="annot"><span class="annottext">CreateExperimentTemplate -&gt; Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Adescription%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The stop conditions.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AstopConditions%3ACreateExperimentTemplate%27"><span class="annot"><span class="annottext">CreateExperimentTemplate
+-&gt; [CreateExperimentTemplateStopConditionInput]
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AstopConditions%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">stopConditions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.html#CreateExperimentTemplateStopConditionInput"><span class="hs-identifier hs-type">CreateExperimentTemplateStopConditionInput</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The actions for the experiment.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aactions%3ACreateExperimentTemplate%27"><span class="annot"><span class="annottext">CreateExperimentTemplate
+-&gt; HashMap Text CreateExperimentTemplateActionInput
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Aactions%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.html#CreateExperimentTemplateActionInput"><span class="hs-identifier hs-type">CreateExperimentTemplateActionInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- service permission to perform service actions on your behalf.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateExperimentTemplate%27"><span class="annot"><span class="annottext">CreateExperimentTemplate -&gt; Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AroleArn%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189157"><span id="local-6989586621679189159"><span class="annot"><span class="annottext">CreateExperimentTemplate -&gt; CreateExperimentTemplate -&gt; Bool
+(CreateExperimentTemplate -&gt; CreateExperimentTemplate -&gt; Bool)
+-&gt; (CreateExperimentTemplate -&gt; CreateExperimentTemplate -&gt; Bool)
+-&gt; Eq CreateExperimentTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateExperimentTemplate -&gt; CreateExperimentTemplate -&gt; Bool
+$c/= :: CreateExperimentTemplate -&gt; CreateExperimentTemplate -&gt; Bool
+== :: CreateExperimentTemplate -&gt; CreateExperimentTemplate -&gt; Bool
+$c== :: CreateExperimentTemplate -&gt; CreateExperimentTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189148"><span id="local-6989586621679189150"><span id="local-6989586621679189152"><span id="local-6989586621679189154"><span class="annot"><span class="annottext">ReadPrec [CreateExperimentTemplate]
+ReadPrec CreateExperimentTemplate
+Int -&gt; ReadS CreateExperimentTemplate
+ReadS [CreateExperimentTemplate]
+(Int -&gt; ReadS CreateExperimentTemplate)
+-&gt; ReadS [CreateExperimentTemplate]
+-&gt; ReadPrec CreateExperimentTemplate
+-&gt; ReadPrec [CreateExperimentTemplate]
+-&gt; Read CreateExperimentTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateExperimentTemplate]
+$creadListPrec :: ReadPrec [CreateExperimentTemplate]
+readPrec :: ReadPrec CreateExperimentTemplate
+$creadPrec :: ReadPrec CreateExperimentTemplate
+readList :: ReadS [CreateExperimentTemplate]
+$creadList :: ReadS [CreateExperimentTemplate]
+readsPrec :: Int -&gt; ReadS CreateExperimentTemplate
+$creadsPrec :: Int -&gt; ReadS CreateExperimentTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189141"><span id="local-6989586621679189143"><span id="local-6989586621679189145"><span class="annot"><span class="annottext">Int -&gt; CreateExperimentTemplate -&gt; ShowS
+[CreateExperimentTemplate] -&gt; ShowS
+CreateExperimentTemplate -&gt; String
+(Int -&gt; CreateExperimentTemplate -&gt; ShowS)
+-&gt; (CreateExperimentTemplate -&gt; String)
+-&gt; ([CreateExperimentTemplate] -&gt; ShowS)
+-&gt; Show CreateExperimentTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateExperimentTemplate] -&gt; ShowS
+$cshowList :: [CreateExperimentTemplate] -&gt; ShowS
+show :: CreateExperimentTemplate -&gt; String
+$cshow :: CreateExperimentTemplate -&gt; String
+showsPrec :: Int -&gt; CreateExperimentTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateExperimentTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateExperimentTemplate -&gt; Rep CreateExperimentTemplate x)
+-&gt; (forall x.
+    Rep CreateExperimentTemplate x -&gt; CreateExperimentTemplate)
+-&gt; Generic CreateExperimentTemplate
+forall x.
+Rep CreateExperimentTemplate x -&gt; CreateExperimentTemplate
+forall x.
+CreateExperimentTemplate -&gt; Rep CreateExperimentTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateExperimentTemplate x -&gt; CreateExperimentTemplate
+$cfrom :: forall x.
+CreateExperimentTemplate -&gt; Rep CreateExperimentTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'CreateExperimentTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'targets', 'createExperimentTemplate_targets' - The targets for the experiment.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'tags', 'createExperimentTemplate_tags' - The tags to apply to the experiment template.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'clientToken', 'createExperimentTemplate_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'description', 'createExperimentTemplate_description' - A description for the experiment template. Can contain up to 64 letters</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- (A-Z and a-z).</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'stopConditions', 'createExperimentTemplate_stopConditions' - The stop conditions.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'actions', 'createExperimentTemplate_actions' - The actions for the experiment.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'roleArn', 'createExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- service permission to perform service actions on your behalf.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#newCreateExperimentTemplate"><span class="hs-identifier hs-type">newCreateExperimentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span>
+</span><span id="line-126"></span><span id="newCreateExperimentTemplate"><span class="annot"><span class="annottext">newCreateExperimentTemplate :: Text -&gt; Text -&gt; Text -&gt; CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#newCreateExperimentTemplate"><span class="hs-identifier hs-var hs-var">newCreateExperimentTemplate</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679189136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189136"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679189135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189135"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679189134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189134"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">CreateExperimentTemplate' :: Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; [CreateExperimentTemplateStopConditionInput]
+-&gt; HashMap Text CreateExperimentTemplateActionInput
+-&gt; Text
+-&gt; CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targets:CreateExperimentTemplate' :: Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Atargets%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateExperimentTemplate' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Atags%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateExperimentTemplate' :: Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AclientToken%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189136"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateExperimentTemplate' :: Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Adescription%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189135"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:stopConditions:CreateExperimentTemplate' :: [CreateExperimentTemplateStopConditionInput]
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AstopConditions%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">stopConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CreateExperimentTemplateStopConditionInput]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:actions:CreateExperimentTemplate' :: HashMap Text CreateExperimentTemplateActionInput
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Aactions%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text CreateExperimentTemplateActionInput
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateExperimentTemplate' :: Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AroleArn%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189134"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The targets for the experiment.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_targets"><span class="hs-identifier hs-type">createExperimentTemplate_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.html#CreateExperimentTemplateTargetInput"><span class="hs-identifier hs-type">CreateExperimentTemplateTargetInput</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="createExperimentTemplate_targets"><span class="annot"><span class="annottext">createExperimentTemplate_targets :: (Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+ -&gt; f (Maybe (HashMap Text CreateExperimentTemplateTargetInput)))
+-&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_targets"><span class="hs-identifier hs-var hs-var">createExperimentTemplate_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplate
+ -&gt; Maybe (HashMap Text CreateExperimentTemplateTargetInput))
+-&gt; (CreateExperimentTemplate
+    -&gt; Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+    -&gt; CreateExperimentTemplate)
+-&gt; Lens
+     CreateExperimentTemplate
+     CreateExperimentTemplate
+     (Maybe (HashMap Text CreateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text CreateExperimentTemplateTargetInput))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189131"><span class="annot"><span class="annottext">Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+targets :: Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+$sel:targets:CreateExperimentTemplate' :: CreateExperimentTemplate
+-&gt; Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189131"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189131"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189130"><span class="annot"><span class="annottext">s :: CreateExperimentTemplate
+</span><a href="#local-6989586621679189130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189129"><span class="annot"><span class="annottext">Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplate
+</span><a href="#local-6989586621679189130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:CreateExperimentTemplate' :: Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Atargets%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+  -&gt; f (Maybe (HashMap Text CreateExperimentTemplateTargetInput)))
+ -&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate)
+-&gt; ((Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+     -&gt; f (Maybe (HashMap Text CreateExperimentTemplateTargetInput)))
+    -&gt; Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+    -&gt; f (Maybe (HashMap Text CreateExperimentTemplateTargetInput)))
+-&gt; (Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+    -&gt; f (Maybe (HashMap Text CreateExperimentTemplateTargetInput)))
+-&gt; CreateExperimentTemplate
+-&gt; f CreateExperimentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text CreateExperimentTemplateTargetInput)
+  (HashMap Text CreateExperimentTemplateTargetInput)
+  (HashMap Text CreateExperimentTemplateTargetInput)
+  (HashMap Text CreateExperimentTemplateTargetInput)
+-&gt; Iso
+     (Maybe (HashMap Text CreateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text CreateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text CreateExperimentTemplateTargetInput))
+     (Maybe (HashMap Text CreateExperimentTemplateTargetInput))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text CreateExperimentTemplateTargetInput)
+  (HashMap Text CreateExperimentTemplateTargetInput)
+  (HashMap Text CreateExperimentTemplateTargetInput)
+  (HashMap Text CreateExperimentTemplateTargetInput)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The tags to apply to the experiment template.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_tags"><span class="hs-identifier hs-type">createExperimentTemplate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="createExperimentTemplate_tags"><span class="annot"><span class="annottext">createExperimentTemplate_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_tags"><span class="hs-identifier hs-var hs-var">createExperimentTemplate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplate -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateExperimentTemplate
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateExperimentTemplate)
+-&gt; Lens
+     CreateExperimentTemplate
+     CreateExperimentTemplate
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189125"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679189125"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679189125"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189124"><span class="annot"><span class="annottext">s :: CreateExperimentTemplate
+</span><a href="#local-6989586621679189124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189123"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679189123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplate
+</span><a href="#local-6989586621679189124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateExperimentTemplate' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Atags%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679189123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateExperimentTemplate
+-&gt; f CreateExperimentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_clientToken"><span class="hs-identifier hs-type">createExperimentTemplate_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="createExperimentTemplate_clientToken"><span class="annot"><span class="annottext">createExperimentTemplate_clientToken :: (Text -&gt; f Text)
+-&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_clientToken"><span class="hs-identifier hs-var hs-var">createExperimentTemplate_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplate -&gt; Text)
+-&gt; (CreateExperimentTemplate -&gt; Text -&gt; CreateExperimentTemplate)
+-&gt; Lens CreateExperimentTemplate CreateExperimentTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189122"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Text
+</span><a href="#local-6989586621679189122"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189122"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189121"><span class="annot"><span class="annottext">s :: CreateExperimentTemplate
+</span><a href="#local-6989586621679189121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplate
+</span><a href="#local-6989586621679189121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateExperimentTemplate' :: Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AclientToken%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | A description for the experiment template. Can contain up to 64 letters</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- (A-Z and a-z).</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_description"><span class="hs-identifier hs-type">createExperimentTemplate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="createExperimentTemplate_description"><span class="annot"><span class="annottext">createExperimentTemplate_description :: (Text -&gt; f Text)
+-&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_description"><span class="hs-identifier hs-var hs-var">createExperimentTemplate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplate -&gt; Text)
+-&gt; (CreateExperimentTemplate -&gt; Text -&gt; CreateExperimentTemplate)
+-&gt; Lens CreateExperimentTemplate CreateExperimentTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189119"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Text
+</span><a href="#local-6989586621679189119"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189119"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189118"><span class="annot"><span class="annottext">s :: CreateExperimentTemplate
+</span><a href="#local-6989586621679189118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189117"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplate
+</span><a href="#local-6989586621679189118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateExperimentTemplate' :: Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Adescription%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The stop conditions.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_stopConditions"><span class="hs-identifier hs-type">createExperimentTemplate_stopConditions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.html#CreateExperimentTemplateStopConditionInput"><span class="hs-identifier hs-type">CreateExperimentTemplateStopConditionInput</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span id="createExperimentTemplate_stopConditions"><span class="annot"><span class="annottext">createExperimentTemplate_stopConditions :: ([CreateExperimentTemplateStopConditionInput]
+ -&gt; f [CreateExperimentTemplateStopConditionInput])
+-&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_stopConditions"><span class="hs-identifier hs-var hs-var">createExperimentTemplate_stopConditions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplate
+ -&gt; [CreateExperimentTemplateStopConditionInput])
+-&gt; (CreateExperimentTemplate
+    -&gt; [CreateExperimentTemplateStopConditionInput]
+    -&gt; CreateExperimentTemplate)
+-&gt; Lens
+     CreateExperimentTemplate
+     CreateExperimentTemplate
+     [CreateExperimentTemplateStopConditionInput]
+     [CreateExperimentTemplateStopConditionInput]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189116"><span class="annot"><span class="annottext">[CreateExperimentTemplateStopConditionInput]
+stopConditions :: [CreateExperimentTemplateStopConditionInput]
+$sel:stopConditions:CreateExperimentTemplate' :: CreateExperimentTemplate
+-&gt; [CreateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189116"><span class="hs-identifier hs-var hs-var">stopConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CreateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189116"><span class="hs-identifier hs-var">stopConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189115"><span class="annot"><span class="annottext">s :: CreateExperimentTemplate
+</span><a href="#local-6989586621679189115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189114"><span class="annot"><span class="annottext">[CreateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplate
+</span><a href="#local-6989586621679189115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopConditions:CreateExperimentTemplate' :: [CreateExperimentTemplateStopConditionInput]
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AstopConditions%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">stopConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CreateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CreateExperimentTemplateStopConditionInput]
+  -&gt; f [CreateExperimentTemplateStopConditionInput])
+ -&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate)
+-&gt; (([CreateExperimentTemplateStopConditionInput]
+     -&gt; f [CreateExperimentTemplateStopConditionInput])
+    -&gt; [CreateExperimentTemplateStopConditionInput]
+    -&gt; f [CreateExperimentTemplateStopConditionInput])
+-&gt; ([CreateExperimentTemplateStopConditionInput]
+    -&gt; f [CreateExperimentTemplateStopConditionInput])
+-&gt; CreateExperimentTemplate
+-&gt; f CreateExperimentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([CreateExperimentTemplateStopConditionInput]
+ -&gt; f [CreateExperimentTemplateStopConditionInput])
+-&gt; [CreateExperimentTemplateStopConditionInput]
+-&gt; f [CreateExperimentTemplateStopConditionInput]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The actions for the experiment.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_actions"><span class="hs-identifier hs-type">createExperimentTemplate_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.html#CreateExperimentTemplateActionInput"><span class="hs-identifier hs-type">CreateExperimentTemplateActionInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="createExperimentTemplate_actions"><span class="annot"><span class="annottext">createExperimentTemplate_actions :: (HashMap Text CreateExperimentTemplateActionInput
+ -&gt; f (HashMap Text CreateExperimentTemplateActionInput))
+-&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_actions"><span class="hs-identifier hs-var hs-var">createExperimentTemplate_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplate
+ -&gt; HashMap Text CreateExperimentTemplateActionInput)
+-&gt; (CreateExperimentTemplate
+    -&gt; HashMap Text CreateExperimentTemplateActionInput
+    -&gt; CreateExperimentTemplate)
+-&gt; Lens
+     CreateExperimentTemplate
+     CreateExperimentTemplate
+     (HashMap Text CreateExperimentTemplateActionInput)
+     (HashMap Text CreateExperimentTemplateActionInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189113"><span class="annot"><span class="annottext">HashMap Text CreateExperimentTemplateActionInput
+actions :: HashMap Text CreateExperimentTemplateActionInput
+$sel:actions:CreateExperimentTemplate' :: CreateExperimentTemplate
+-&gt; HashMap Text CreateExperimentTemplateActionInput
+</span><a href="#local-6989586621679189113"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text CreateExperimentTemplateActionInput
+</span><a href="#local-6989586621679189113"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189112"><span class="annot"><span class="annottext">s :: CreateExperimentTemplate
+</span><a href="#local-6989586621679189112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189111"><span class="annot"><span class="annottext">HashMap Text CreateExperimentTemplateActionInput
+</span><a href="#local-6989586621679189111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplate
+</span><a href="#local-6989586621679189112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:CreateExperimentTemplate' :: HashMap Text CreateExperimentTemplateActionInput
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3Aactions%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text CreateExperimentTemplateActionInput
+</span><a href="#local-6989586621679189111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text CreateExperimentTemplateActionInput
+  -&gt; f (HashMap Text CreateExperimentTemplateActionInput))
+ -&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate)
+-&gt; ((HashMap Text CreateExperimentTemplateActionInput
+     -&gt; f (HashMap Text CreateExperimentTemplateActionInput))
+    -&gt; HashMap Text CreateExperimentTemplateActionInput
+    -&gt; f (HashMap Text CreateExperimentTemplateActionInput))
+-&gt; (HashMap Text CreateExperimentTemplateActionInput
+    -&gt; f (HashMap Text CreateExperimentTemplateActionInput))
+-&gt; CreateExperimentTemplate
+-&gt; f CreateExperimentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text CreateExperimentTemplateActionInput
+ -&gt; f (HashMap Text CreateExperimentTemplateActionInput))
+-&gt; HashMap Text CreateExperimentTemplateActionInput
+-&gt; f (HashMap Text CreateExperimentTemplateActionInput)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- service permission to perform service actions on your behalf.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_roleArn"><span class="hs-identifier hs-type">createExperimentTemplate_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="createExperimentTemplate_roleArn"><span class="annot"><span class="annottext">createExperimentTemplate_roleArn :: (Text -&gt; f Text)
+-&gt; CreateExperimentTemplate -&gt; f CreateExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplate_roleArn"><span class="hs-identifier hs-var hs-var">createExperimentTemplate_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplate -&gt; Text)
+-&gt; (CreateExperimentTemplate -&gt; Text -&gt; CreateExperimentTemplate)
+-&gt; Lens CreateExperimentTemplate CreateExperimentTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189110"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Text
+</span><a href="#local-6989586621679189110"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189110"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189109"><span class="annot"><span class="annottext">s :: CreateExperimentTemplate
+</span><a href="#local-6989586621679189109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplate
+</span><a href="#local-6989586621679189109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateExperimentTemplate' :: Text
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AroleArn%3ACreateExperimentTemplate%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-174"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679189104"><span class="annot"><span class="annottext">request :: CreateExperimentTemplate -&gt; Request CreateExperimentTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateExperimentTemplate -&gt; Request CreateExperimentTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FIS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679189100"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateExperimentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateExperimentTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateExperimentTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateExperimentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateExperimentTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189097"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189097"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189096"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189096"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189095"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate -&gt; Int -&gt; CreateExperimentTemplateResponse
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">CreateExperimentTemplateResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExperimentTemplate
+ -&gt; Int -&gt; CreateExperimentTemplateResponse)
+-&gt; Either String (Maybe ExperimentTemplate)
+-&gt; Either String (Int -&gt; CreateExperimentTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ExperimentTemplate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;experimentTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateExperimentTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String CreateExperimentTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189097"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189087"><span id="local-6989586621679189089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679189080"><span class="annot"><span class="annottext">toHeaders :: CreateExperimentTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateExperimentTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-196"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189070"><span id="local-6989586621679189072"><span id="local-6989586621679189074"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679189068"><span class="annot"><span class="annottext">toJSON :: CreateExperimentTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate%27"><span class="hs-identifier hs-type">CreateExperimentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189060"><span id="local-6989586621679189061"><span id="local-6989586621679189062"><span id="local-6989586621679189063"><span id="local-6989586621679189064"><span id="local-6989586621679189065"><span id="local-6989586621679189066"><span class="annot"><span class="annottext">[CreateExperimentTemplateStopConditionInput]
+Maybe (HashMap Text Text)
+Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+Text
+HashMap Text CreateExperimentTemplateActionInput
+roleArn :: Text
+actions :: HashMap Text CreateExperimentTemplateActionInput
+stopConditions :: [CreateExperimentTemplateStopConditionInput]
+description :: Text
+clientToken :: Text
+tags :: Maybe (HashMap Text Text)
+targets :: Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+$sel:roleArn:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Text
+$sel:actions:CreateExperimentTemplate' :: CreateExperimentTemplate
+-&gt; HashMap Text CreateExperimentTemplateActionInput
+$sel:stopConditions:CreateExperimentTemplate' :: CreateExperimentTemplate
+-&gt; [CreateExperimentTemplateStopConditionInput]
+$sel:description:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Text
+$sel:clientToken:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Text
+$sel:tags:CreateExperimentTemplate' :: CreateExperimentTemplate -&gt; Maybe (HashMap Text Text)
+$sel:targets:CreateExperimentTemplate' :: CreateExperimentTemplate
+-&gt; Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189060"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text CreateExperimentTemplateTargetInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text CreateExperimentTemplateTargetInput -&gt; Pair)
+-&gt; Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text CreateExperimentTemplateTargetInput)
+</span><a href="#local-6989586621679189066"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679189065"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189064"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189063"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-209"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stopConditions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CreateExperimentTemplateStopConditionInput] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[CreateExperimentTemplateStopConditionInput]
+</span><a href="#local-6989586621679189062"><span class="hs-identifier hs-var">stopConditions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text CreateExperimentTemplateActionInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text CreateExperimentTemplateActionInput
+</span><a href="#local-6989586621679189061"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189060"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679189054"><span class="annot"><span class="annottext">toPath :: CreateExperimentTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateExperimentTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/experimentTemplates&quot;</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplate"><span class="hs-identifier hs-type">CreateExperimentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679189050"><span class="annot"><span class="annottext">toQuery :: CreateExperimentTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateExperimentTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | /See:/ 'newCreateExperimentTemplateResponse' smart constructor.</span><span>
+</span><span id="line-222"></span><span id="local-6989586621679189047"><span id="local-6989586621679189048"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateExperimentTemplateResponse"><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-var">CreateExperimentTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateExperimentTemplateResponse%27"><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">CreateExperimentTemplateResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the experiment template.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AexperimentTemplate%3ACreateExperimentTemplateResponse%27"><span class="annot"><span class="annottext">CreateExperimentTemplateResponse -&gt; Maybe ExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AexperimentTemplate%3ACreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">experimentTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTemplate.html#ExperimentTemplate"><span class="hs-identifier hs-type">ExperimentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateExperimentTemplateResponse%27"><span class="annot"><span class="annottext">CreateExperimentTemplateResponse -&gt; Int
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AhttpStatus%3ACreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189041"><span id="local-6989586621679189043"><span class="annot"><span class="annottext">CreateExperimentTemplateResponse
+-&gt; CreateExperimentTemplateResponse -&gt; Bool
+(CreateExperimentTemplateResponse
+ -&gt; CreateExperimentTemplateResponse -&gt; Bool)
+-&gt; (CreateExperimentTemplateResponse
+    -&gt; CreateExperimentTemplateResponse -&gt; Bool)
+-&gt; Eq CreateExperimentTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateExperimentTemplateResponse
+-&gt; CreateExperimentTemplateResponse -&gt; Bool
+$c/= :: CreateExperimentTemplateResponse
+-&gt; CreateExperimentTemplateResponse -&gt; Bool
+== :: CreateExperimentTemplateResponse
+-&gt; CreateExperimentTemplateResponse -&gt; Bool
+$c== :: CreateExperimentTemplateResponse
+-&gt; CreateExperimentTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189033"><span id="local-6989586621679189035"><span id="local-6989586621679189037"><span id="local-6989586621679189039"><span class="annot"><span class="annottext">ReadPrec [CreateExperimentTemplateResponse]
+ReadPrec CreateExperimentTemplateResponse
+Int -&gt; ReadS CreateExperimentTemplateResponse
+ReadS [CreateExperimentTemplateResponse]
+(Int -&gt; ReadS CreateExperimentTemplateResponse)
+-&gt; ReadS [CreateExperimentTemplateResponse]
+-&gt; ReadPrec CreateExperimentTemplateResponse
+-&gt; ReadPrec [CreateExperimentTemplateResponse]
+-&gt; Read CreateExperimentTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateExperimentTemplateResponse]
+$creadListPrec :: ReadPrec [CreateExperimentTemplateResponse]
+readPrec :: ReadPrec CreateExperimentTemplateResponse
+$creadPrec :: ReadPrec CreateExperimentTemplateResponse
+readList :: ReadS [CreateExperimentTemplateResponse]
+$creadList :: ReadS [CreateExperimentTemplateResponse]
+readsPrec :: Int -&gt; ReadS CreateExperimentTemplateResponse
+$creadsPrec :: Int -&gt; ReadS CreateExperimentTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189027"><span id="local-6989586621679189029"><span id="local-6989586621679189031"><span class="annot"><span class="annottext">Int -&gt; CreateExperimentTemplateResponse -&gt; ShowS
+[CreateExperimentTemplateResponse] -&gt; ShowS
+CreateExperimentTemplateResponse -&gt; String
+(Int -&gt; CreateExperimentTemplateResponse -&gt; ShowS)
+-&gt; (CreateExperimentTemplateResponse -&gt; String)
+-&gt; ([CreateExperimentTemplateResponse] -&gt; ShowS)
+-&gt; Show CreateExperimentTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateExperimentTemplateResponse] -&gt; ShowS
+$cshowList :: [CreateExperimentTemplateResponse] -&gt; ShowS
+show :: CreateExperimentTemplateResponse -&gt; String
+$cshow :: CreateExperimentTemplateResponse -&gt; String
+showsPrec :: Int -&gt; CreateExperimentTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateExperimentTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateExperimentTemplateResponse
+ -&gt; Rep CreateExperimentTemplateResponse x)
+-&gt; (forall x.
+    Rep CreateExperimentTemplateResponse x
+    -&gt; CreateExperimentTemplateResponse)
+-&gt; Generic CreateExperimentTemplateResponse
+forall x.
+Rep CreateExperimentTemplateResponse x
+-&gt; CreateExperimentTemplateResponse
+forall x.
+CreateExperimentTemplateResponse
+-&gt; Rep CreateExperimentTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateExperimentTemplateResponse x
+-&gt; CreateExperimentTemplateResponse
+$cfrom :: forall x.
+CreateExperimentTemplateResponse
+-&gt; Rep CreateExperimentTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Create a value of 'CreateExperimentTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'experimentTemplate', 'createExperimentTemplateResponse_experimentTemplate' - Information about the experiment template.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'httpStatus', 'createExperimentTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#newCreateExperimentTemplateResponse"><span class="hs-identifier hs-type">newCreateExperimentTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse</span></a></span><span>
+</span><span id="line-245"></span><span id="newCreateExperimentTemplateResponse"><span class="annot"><span class="annottext">newCreateExperimentTemplateResponse :: Int -&gt; CreateExperimentTemplateResponse
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#newCreateExperimentTemplateResponse"><span class="hs-identifier hs-var hs-var">newCreateExperimentTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679189024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">CreateExperimentTemplateResponse' :: Maybe ExperimentTemplate -&gt; Int -&gt; CreateExperimentTemplateResponse
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse'</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:experimentTemplate:CreateExperimentTemplateResponse' :: Maybe ExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AexperimentTemplate%3ACreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">experimentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateExperimentTemplateResponse' :: Int
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AhttpStatus%3ACreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Information about the experiment template.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplateResponse_experimentTemplate"><span class="hs-identifier hs-type">createExperimentTemplateResponse_experimentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTemplate.html#ExperimentTemplate"><span class="hs-identifier hs-type">ExperimentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="createExperimentTemplateResponse_experimentTemplate"><span class="annot"><span class="annottext">createExperimentTemplateResponse_experimentTemplate :: (Maybe ExperimentTemplate -&gt; f (Maybe ExperimentTemplate))
+-&gt; CreateExperimentTemplateResponse
+-&gt; f CreateExperimentTemplateResponse
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplateResponse_experimentTemplate"><span class="hs-identifier hs-var hs-var">createExperimentTemplateResponse_experimentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplateResponse -&gt; Maybe ExperimentTemplate)
+-&gt; (CreateExperimentTemplateResponse
+    -&gt; Maybe ExperimentTemplate -&gt; CreateExperimentTemplateResponse)
+-&gt; Lens
+     CreateExperimentTemplateResponse
+     CreateExperimentTemplateResponse
+     (Maybe ExperimentTemplate)
+     (Maybe ExperimentTemplate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189023"><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+experimentTemplate :: Maybe ExperimentTemplate
+$sel:experimentTemplate:CreateExperimentTemplateResponse' :: CreateExperimentTemplateResponse -&gt; Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189023"><span class="hs-identifier hs-var hs-var">experimentTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189023"><span class="hs-identifier hs-var">experimentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189022"><span class="annot"><span class="annottext">s :: CreateExperimentTemplateResponse
+</span><a href="#local-6989586621679189022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189021"><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplateResponse
+</span><a href="#local-6989586621679189022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentTemplate:CreateExperimentTemplateResponse' :: Maybe ExperimentTemplate
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AexperimentTemplate%3ACreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">experimentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentTemplate
+</span><a href="#local-6989586621679189021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplateResponse_httpStatus"><span class="hs-identifier hs-type">createExperimentTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span id="createExperimentTemplateResponse_httpStatus"><span class="annot"><span class="annottext">createExperimentTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateExperimentTemplateResponse
+-&gt; f CreateExperimentTemplateResponse
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#createExperimentTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createExperimentTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExperimentTemplateResponse -&gt; Int)
+-&gt; (CreateExperimentTemplateResponse
+    -&gt; Int -&gt; CreateExperimentTemplateResponse)
+-&gt; Lens
+     CreateExperimentTemplateResponse
+     CreateExperimentTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189020"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateExperimentTemplateResponse' :: CreateExperimentTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679189020"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189020"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189019"><span class="annot"><span class="annottext">s :: CreateExperimentTemplateResponse
+</span><a href="#local-6989586621679189019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse%27"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189018"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExperimentTemplateResponse
+</span><a href="#local-6989586621679189019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateExperimentTemplateResponse' :: Int
+</span><a href="Network.AWS.FIS.CreateExperimentTemplate.html#%24sel%3AhttpStatus%3ACreateExperimentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679189016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.FIS.CreateExperimentTemplate.html#CreateExperimentTemplateResponse"><span class="hs-identifier hs-type">CreateExperimentTemplateResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

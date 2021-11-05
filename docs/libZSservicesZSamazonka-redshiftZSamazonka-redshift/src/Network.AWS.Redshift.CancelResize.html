@@ -61,13 +61,13 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCancelResize' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679528533"><span id="local-6989586621679528534"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelResize"><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-var">CancelResize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelResize%27"><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-var">CancelResize'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679528542"><span id="local-6989586621679528543"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelResize"><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-var">CancelResize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelResize%27"><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-var">CancelResize'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the cluster that you want to cancel a resize</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- operation for.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ACancelResize%27"><span class="annot"><span class="annottext">CancelResize -&gt; Text
 </span><a href="Network.AWS.Redshift.CancelResize.html#%24sel%3AclusterIdentifier%3ACancelResize%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528527"><span id="local-6989586621679528529"><span class="annot"><span class="annottext">CancelResize -&gt; CancelResize -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528536"><span id="local-6989586621679528538"><span class="annot"><span class="annottext">CancelResize -&gt; CancelResize -&gt; Bool
 (CancelResize -&gt; CancelResize -&gt; Bool)
 -&gt; (CancelResize -&gt; CancelResize -&gt; Bool) -&gt; Eq CancelResize
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelResize -&gt; CancelResize -&gt; Bool
 == :: CancelResize -&gt; CancelResize -&gt; Bool
 $c== :: CancelResize -&gt; CancelResize -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528518"><span id="local-6989586621679528520"><span id="local-6989586621679528522"><span id="local-6989586621679528524"><span class="annot"><span class="annottext">ReadPrec [CancelResize]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528527"><span id="local-6989586621679528529"><span id="local-6989586621679528531"><span id="local-6989586621679528533"><span class="annot"><span class="annottext">ReadPrec [CancelResize]
 ReadPrec CancelResize
 Int -&gt; ReadS CancelResize
 ReadS [CancelResize]
@@ -95,7 +95,7 @@ readList :: ReadS [CancelResize]
 $creadList :: ReadS [CancelResize]
 readsPrec :: Int -&gt; ReadS CancelResize
 $creadsPrec :: Int -&gt; ReadS CancelResize
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528511"><span id="local-6989586621679528513"><span id="local-6989586621679528515"><span class="annot"><span class="annottext">Int -&gt; CancelResize -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528520"><span id="local-6989586621679528522"><span id="local-6989586621679528524"><span class="annot"><span class="annottext">Int -&gt; CancelResize -&gt; ShowS
 [CancelResize] -&gt; ShowS
 CancelResize -&gt; String
 (Int -&gt; CancelResize -&gt; ShowS)
@@ -136,14 +136,14 @@ $cfrom :: forall x. CancelResize -&gt; Rep CancelResize x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span>
 </span><span id="line-85"></span><span id="newCancelResize"><span class="annot"><span class="annottext">newCancelResize :: Text -&gt; CancelResize
-</span><a href="Network.AWS.Redshift.CancelResize.html#newCancelResize"><span class="hs-identifier hs-var hs-var">newCancelResize</span></a></span></span><span> </span><span id="local-6989586621679528506"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679528506"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.CancelResize.html#newCancelResize"><span class="hs-identifier hs-var hs-var">newCancelResize</span></a></span></span><span> </span><span id="local-6989586621679528515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528515"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">CancelResize' :: Text -&gt; CancelResize
 </span><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-type">CancelResize'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:CancelResize' :: Text
 </span><a href="Network.AWS.Redshift.CancelResize.html#%24sel%3AclusterIdentifier%3ACancelResize%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679528506"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679528515"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The unique identifier for the cluster that you want to cancel a resize</span><span>
@@ -154,25 +154,25 @@ $cfrom :: forall x. CancelResize -&gt; Rep CancelResize x
 -&gt; (CancelResize -&gt; Text -&gt; CancelResize)
 -&gt; Lens CancelResize CancelResize Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-type">CancelResize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528503"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-type">CancelResize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528512"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:CancelResize' :: CancelResize -&gt; Text
-</span><a href="#local-6989586621679528503"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679528503"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528502"><span class="annot"><span class="annottext">s :: CancelResize
-</span><a href="#local-6989586621679528502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-type">CancelResize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528501"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679528501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelResize
-</span><a href="#local-6989586621679528502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:CancelResize' :: Text
+</span><a href="#local-6989586621679528512"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528512"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528511"><span class="annot"><span class="annottext">s :: CancelResize
+</span><a href="#local-6989586621679528511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-type">CancelResize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528510"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelResize
+</span><a href="#local-6989586621679528511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:CancelResize' :: Text
 </span><a href="Network.AWS.Redshift.CancelResize.html#%24sel%3AclusterIdentifier%3ACancelResize%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679528501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679528510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResizeProgressMessage.html#ResizeProgressMessage"><span class="hs-identifier hs-type">ResizeProgressMessage</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679528497"><span class="annot"><span class="annottext">request :: CancelResize -&gt; Request CancelResize
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679528506"><span class="annot"><span class="annottext">request :: CancelResize -&gt; Request CancelResize
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelResize -&gt; Request CancelResize
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679528493"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679528502"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CancelResize
 -&gt; ClientResponse ClientBody
@@ -201,20 +201,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CancelResizeResult&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528490"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679528490"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679528489"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679528489"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679528488"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679528488"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ResizeProgressMessage
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679528498"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679528498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679528497"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679528497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ResizeProgressMessage
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679528488"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679528497"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528483"><span id="local-6989586621679528485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528492"><span id="local-6989586621679528494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679528476"><span class="annot"><span class="annottext">toHeaders :: CancelResize -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679528485"><span class="annot"><span class="annottext">toHeaders :: CancelResize -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelResize -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -222,18 +222,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679528471"><span class="annot"><span class="annottext">toPath :: CancelResize -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679528480"><span class="annot"><span class="annottext">toPath :: CancelResize -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelResize -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize"><span class="hs-identifier hs-type">CancelResize</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679528467"><span class="annot"><span class="annottext">toQuery :: CancelResize -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-type">CancelResize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528465"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679528476"><span class="annot"><span class="annottext">toQuery :: CancelResize -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CancelResize.html#CancelResize%27"><span class="hs-identifier hs-type">CancelResize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528474"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:CancelResize' :: CancelResize -&gt; Text
-</span><a href="#local-6989586621679528465"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679528474"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -253,6 +253,6 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679528465"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679528474"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span></pre></body></html>

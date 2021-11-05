@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | DescribeEndpointsRequest</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newDescribeEndpoints' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621680033380"><span id="local-6989586621680033381"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpoints"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-var">DescribeEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpoints%27"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-var">DescribeEndpoints'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621680033389"><span id="local-6989586621680033390"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpoints"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-var">DescribeEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpoints%27"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-var">DescribeEndpoints'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to return your endpoints if any exist, or to create an endpoint for you</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- and return it if one doesn\'t already exist. Specify GET_ONLY to return</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeEndpoints%27"><span class="annot"><span class="annottext">DescribeEndpoints -&gt; Maybe Int
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AmaxResults%3ADescribeEndpoints%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033372"><span id="local-6989586621680033374"><span class="annot"><span class="annottext">DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033381"><span id="local-6989586621680033383"><span class="annot"><span class="annottext">DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
 (DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool)
 -&gt; (DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool)
 -&gt; Eq DescribeEndpoints
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
 == :: DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
 $c== :: DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033363"><span id="local-6989586621680033365"><span id="local-6989586621680033367"><span id="local-6989586621680033369"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpoints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033372"><span id="local-6989586621680033374"><span id="local-6989586621680033376"><span id="local-6989586621680033378"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpoints]
 ReadPrec DescribeEndpoints
 Int -&gt; ReadS DescribeEndpoints
 ReadS [DescribeEndpoints]
@@ -100,7 +100,7 @@ readList :: ReadS [DescribeEndpoints]
 $creadList :: ReadS [DescribeEndpoints]
 readsPrec :: Int -&gt; ReadS DescribeEndpoints
 $creadsPrec :: Int -&gt; ReadS DescribeEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033356"><span id="local-6989586621680033358"><span id="local-6989586621680033360"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033365"><span id="local-6989586621680033367"><span id="local-6989586621680033369"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpoints -&gt; ShowS
 [DescribeEndpoints] -&gt; ShowS
 DescribeEndpoints -&gt; String
 (Int -&gt; DescribeEndpoints -&gt; ShowS)
@@ -181,16 +181,16 @@ forall a. Maybe a
      (Maybe DescribeEndpointsMode)
      (Maybe DescribeEndpointsMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033350"><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033359"><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
 mode :: Maybe DescribeEndpointsMode
 $sel:mode:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe DescribeEndpointsMode
-</span><a href="#local-6989586621680033350"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
-</span><a href="#local-6989586621680033350"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033349"><span class="annot"><span class="annottext">s :: DescribeEndpoints
-</span><a href="#local-6989586621680033349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033348"><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
-</span><a href="#local-6989586621680033348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpoints
-</span><a href="#local-6989586621680033349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:DescribeEndpoints' :: Maybe DescribeEndpointsMode
+</span><a href="#local-6989586621680033359"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
+</span><a href="#local-6989586621680033359"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033358"><span class="annot"><span class="annottext">s :: DescribeEndpoints
+</span><a href="#local-6989586621680033358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033357"><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
+</span><a href="#local-6989586621680033357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpoints
+</span><a href="#local-6989586621680033358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:DescribeEndpoints' :: Maybe DescribeEndpointsMode
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3Amode%3ADescribeEndpoints%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
-</span><a href="#local-6989586621680033348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Use this string, provided with the response to a previous request, to</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- request the next batch of endpoints.</span><span>
@@ -202,16 +202,16 @@ $sel:mode:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe DescribeEndpointsM
 -&gt; Lens
      DescribeEndpoints DescribeEndpoints (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033347"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033356"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621680033347"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680033347"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033346"><span class="annot"><span class="annottext">s :: DescribeEndpoints
-</span><a href="#local-6989586621680033346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033345"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680033345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpoints
-</span><a href="#local-6989586621680033346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEndpoints' :: Maybe Text
+</span><a href="#local-6989586621680033356"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680033356"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033355"><span class="annot"><span class="annottext">s :: DescribeEndpoints
+</span><a href="#local-6989586621680033355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680033354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpoints
+</span><a href="#local-6989586621680033355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEndpoints' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AnextToken%3ADescribeEndpoints%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680033345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Optional. Max number of endpoints, up to twenty, that will be returned</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- at one time.</span><span>
@@ -222,29 +222,29 @@ $sel:nextToken:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe Text
 -&gt; (DescribeEndpoints -&gt; Maybe Int -&gt; DescribeEndpoints)
 -&gt; Lens DescribeEndpoints DescribeEndpoints (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033344"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033353"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe Int
-</span><a href="#local-6989586621680033344"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680033344"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033343"><span class="annot"><span class="annottext">s :: DescribeEndpoints
-</span><a href="#local-6989586621680033343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033342"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680033342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpoints
-</span><a href="#local-6989586621680033343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEndpoints' :: Maybe Int
+</span><a href="#local-6989586621680033353"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680033353"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033352"><span class="annot"><span class="annottext">s :: DescribeEndpoints
+</span><a href="#local-6989586621680033352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033351"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680033351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpoints
+</span><a href="#local-6989586621680033352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEndpoints' :: Maybe Int
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AmaxResults%3ADescribeEndpoints%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680033342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621680033338"><span class="annot"><span class="annottext">page :: DescribeEndpoints
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621680033347"><span class="annot"><span class="annottext">page :: DescribeEndpoints
 -&gt; AWSResponse DescribeEndpoints -&gt; Maybe DescribeEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680033336"><span class="annot"><span class="annottext">DescribeEndpoints
-</span><a href="#local-6989586621680033336"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680033335"><span class="annot"><span class="annottext">AWSResponse DescribeEndpoints
-</span><a href="#local-6989586621680033335"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680033345"><span class="annot"><span class="annottext">DescribeEndpoints
+</span><a href="#local-6989586621680033345"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680033344"><span class="annot"><span class="annottext">AWSResponse DescribeEndpoints
+</span><a href="#local-6989586621680033344"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEndpoints
 DescribeEndpointsResponse
-</span><a href="#local-6989586621680033335"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680033344"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
 -&gt; Getting (First Text) DescribeEndpointsResponse Text
 -&gt; Maybe Text
@@ -274,7 +274,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEndpoints
 DescribeEndpointsResponse
-</span><a href="#local-6989586621680033335"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680033344"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
 -&gt; Getting (First [Endpoint]) DescribeEndpointsResponse [Endpoint]
 -&gt; Maybe [Endpoint]
@@ -308,7 +308,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">DescribeEndpoints
-</span><a href="#local-6989586621680033336"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680033345"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">DescribeEndpoints
 -&gt; (DescribeEndpoints -&gt; DescribeEndpoints) -&gt; DescribeEndpoints
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -322,7 +322,7 @@ Lens DescribeEndpoints DescribeEndpoints (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEndpoints
 DescribeEndpointsResponse
-</span><a href="#local-6989586621680033335"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680033344"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
 -&gt; Getting (First Text) DescribeEndpointsResponse Text
 -&gt; Maybe Text
@@ -348,12 +348,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621680033325"><span class="annot"><span class="annottext">request :: DescribeEndpoints -&gt; Request DescribeEndpoints
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621680033334"><span class="annot"><span class="annottext">request :: DescribeEndpoints -&gt; Request DescribeEndpoints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeEndpoints -&gt; Request DescribeEndpoints
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621680033321"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621680033330"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEndpoints
 -&gt; ClientResponse ClientBody
@@ -379,10 +379,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680033318"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680033318"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680033317"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680033317"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680033316"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680033316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680033327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033327"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680033326"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680033326"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680033325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680033325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Endpoint] -&gt; Int -&gt; DescribeEndpointsResponse
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointsResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -392,7 +392,7 @@ MonadResource m =&gt;
      String (Maybe [Endpoint] -&gt; Int -&gt; DescribeEndpointsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680033316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680033325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -402,7 +402,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeEndpointsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680033316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Endpoint]))
+</span><a href="#local-6989586621680033325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Endpoint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Endpoint]))
@@ -419,15 +419,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680033318"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033327"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033307"><span id="local-6989586621680033309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033316"><span id="local-6989586621680033318"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033313"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621680033300"><span class="annot"><span class="annottext">toHeaders :: DescribeEndpoints -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621680033309"><span class="annot"><span class="annottext">toHeaders :: DescribeEndpoints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEndpoints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -446,9 +446,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033290"><span id="local-6989586621680033292"><span id="local-6989586621680033294"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621680033288"><span class="annot"><span class="annottext">toJSON :: DescribeEndpoints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033284"><span id="local-6989586621680033285"><span id="local-6989586621680033286"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033299"><span id="local-6989586621680033301"><span id="local-6989586621680033303"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621680033297"><span class="annot"><span class="annottext">toJSON :: DescribeEndpoints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-type">DescribeEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033293"><span id="local-6989586621680033294"><span id="local-6989586621680033295"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe DescribeEndpointsMode
 maxResults :: Maybe Int
@@ -457,7 +457,7 @@ mode :: Maybe DescribeEndpointsMode
 $sel:maxResults:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe Int
 $sel:nextToken:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe Text
 $sel:mode:DescribeEndpoints' :: DescribeEndpoints -&gt; Maybe DescribeEndpointsMode
-</span><a href="#local-6989586621680033284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680033293"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -470,33 +470,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DescribeEndpointsMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DescribeEndpointsMode
-</span><a href="#local-6989586621680033286"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680033295"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680033285"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680033294"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680033284"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621680033293"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621680033278"><span class="annot"><span class="annottext">toPath :: DescribeEndpoints -&gt; ByteString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621680033287"><span class="annot"><span class="annottext">toPath :: DescribeEndpoints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEndpoints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2017-08-29/endpoints&quot;</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621680033274"><span class="annot"><span class="annottext">toQuery :: DescribeEndpoints -&gt; QueryString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621680033283"><span class="annot"><span class="annottext">toQuery :: DescribeEndpoints -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEndpoints -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -504,7 +504,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newDescribeEndpointsResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621680033271"><span id="local-6989586621680033272"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointsResponse"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-var">DescribeEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointsResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621680033280"><span id="local-6989586621680033281"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointsResponse"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-var">DescribeEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointsResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointsResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this string to request the next batch of endpoints.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEndpointsResponse%27"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AnextToken%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -515,7 +515,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033264"><span id="local-6989586621680033266"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033273"><span id="local-6989586621680033275"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
 (DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool)
 -&gt; (DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool)
 -&gt; Eq DescribeEndpointsResponse
@@ -524,7 +524,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
 == :: DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
 $c== :: DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033256"><span id="local-6989586621680033258"><span id="local-6989586621680033260"><span id="local-6989586621680033262"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033265"><span id="local-6989586621680033267"><span id="local-6989586621680033269"><span id="local-6989586621680033271"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointsResponse]
 ReadPrec DescribeEndpointsResponse
 Int -&gt; ReadS DescribeEndpointsResponse
 ReadS [DescribeEndpointsResponse]
@@ -544,7 +544,7 @@ readList :: ReadS [DescribeEndpointsResponse]
 $creadList :: ReadS [DescribeEndpointsResponse]
 readsPrec :: Int -&gt; ReadS DescribeEndpointsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEndpointsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033250"><span id="local-6989586621680033252"><span id="local-6989586621680033254"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033259"><span id="local-6989586621680033261"><span id="local-6989586621680033263"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsResponse -&gt; ShowS
 [DescribeEndpointsResponse] -&gt; ShowS
 DescribeEndpointsResponse -&gt; String
 (Int -&gt; DescribeEndpointsResponse -&gt; ShowS)
@@ -594,8 +594,8 @@ DescribeEndpointsResponse -&gt; Rep DescribeEndpointsResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newDescribeEndpointsResponse"><span class="annot"><span class="annottext">newDescribeEndpointsResponse :: Int -&gt; DescribeEndpointsResponse
-</span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#newDescribeEndpointsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621680033247"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680033247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#newDescribeEndpointsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621680033256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">DescribeEndpointsResponse' :: Maybe Text -&gt; Maybe [Endpoint] -&gt; Int -&gt; DescribeEndpointsResponse
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEndpointsResponse' :: Maybe Text
@@ -609,7 +609,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointsResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680033247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680033256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | Use this string to request the next batch of endpoints.</span><span>
@@ -621,16 +621,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeEndpointsResponse)
 -&gt; Lens' DescribeEndpointsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033246"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033255"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeEndpointsResponse' :: DescribeEndpointsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680033246"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680033246"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033245"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
-</span><a href="#local-6989586621680033245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033244"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680033244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
-</span><a href="#local-6989586621680033245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEndpointsResponse' :: Maybe Text
+</span><a href="#local-6989586621680033255"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680033255"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033254"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
+</span><a href="#local-6989586621680033254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033253"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680033253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
+</span><a href="#local-6989586621680033254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEndpointsResponse' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AnextToken%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680033244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | List of endpoints</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#describeEndpointsResponse_endpoints"><span class="hs-identifier hs-type">describeEndpointsResponse_endpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -641,16 +641,16 @@ $sel:nextToken:DescribeEndpointsResponse' :: DescribeEndpointsResponse -&gt; May
     -&gt; Maybe [Endpoint] -&gt; DescribeEndpointsResponse)
 -&gt; Lens' DescribeEndpointsResponse (Maybe [Endpoint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033243"><span class="annot"><span class="annottext">Maybe [Endpoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033252"><span class="annot"><span class="annottext">Maybe [Endpoint]
 endpoints :: Maybe [Endpoint]
 $sel:endpoints:DescribeEndpointsResponse' :: DescribeEndpointsResponse -&gt; Maybe [Endpoint]
-</span><a href="#local-6989586621680033243"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Endpoint]
-</span><a href="#local-6989586621680033243"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033242"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
-</span><a href="#local-6989586621680033242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033241"><span class="annot"><span class="annottext">Maybe [Endpoint]
-</span><a href="#local-6989586621680033241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
-</span><a href="#local-6989586621680033242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:DescribeEndpointsResponse' :: Maybe [Endpoint]
+</span><a href="#local-6989586621680033252"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Endpoint]
+</span><a href="#local-6989586621680033252"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033251"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
+</span><a href="#local-6989586621680033251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033250"><span class="annot"><span class="annottext">Maybe [Endpoint]
+</span><a href="#local-6989586621680033250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
+</span><a href="#local-6989586621680033251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:DescribeEndpointsResponse' :: Maybe [Endpoint]
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3Aendpoints%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">endpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Endpoint]
-</span><a href="#local-6989586621680033241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Endpoint] -&gt; f (Maybe [Endpoint]))
+</span><a href="#local-6989586621680033250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Endpoint] -&gt; f (Maybe [Endpoint]))
  -&gt; DescribeEndpointsResponse -&gt; f DescribeEndpointsResponse)
 -&gt; ((Maybe [Endpoint] -&gt; f (Maybe [Endpoint]))
     -&gt; Maybe [Endpoint] -&gt; f (Maybe [Endpoint]))
@@ -679,16 +679,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeEndpointsResponse -&gt; Int -&gt; DescribeEndpointsResponse)
 -&gt; Lens DescribeEndpointsResponse DescribeEndpointsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033238"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033247"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEndpointsResponse' :: DescribeEndpointsResponse -&gt; Int
-</span><a href="#local-6989586621680033238"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680033238"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033237"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
-</span><a href="#local-6989586621680033237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033236"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680033236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
-</span><a href="#local-6989586621680033237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointsResponse' :: Int
+</span><a href="#local-6989586621680033247"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033247"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033246"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
+</span><a href="#local-6989586621680033246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033245"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
+</span><a href="#local-6989586621680033246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointsResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680033236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span></span><span>
 </span><span id="line-233"></span></pre></body></html>

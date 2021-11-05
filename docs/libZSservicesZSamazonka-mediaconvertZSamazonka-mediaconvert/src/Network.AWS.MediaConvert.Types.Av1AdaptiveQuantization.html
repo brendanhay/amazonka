@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- | Specify the strength of any adaptive quantization filters that you</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- enable. The value that you choose here applies to Spatial adaptive</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- quantization (spatialAdaptiveQuantization).</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679943271"><span id="local-6989586621679943272"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1AdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization.html#Av1AdaptiveQuantization"><span class="hs-identifier hs-var">Av1AdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1AdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization.html#Av1AdaptiveQuantization%27"><span class="hs-identifier hs-var">Av1AdaptiveQuantization'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679943280"><span id="local-6989586621679943281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1AdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization.html#Av1AdaptiveQuantization"><span class="hs-identifier hs-var">Av1AdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1AdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization.html#Av1AdaptiveQuantization%27"><span class="hs-identifier hs-var">Av1AdaptiveQuantization'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAv1AdaptiveQuantization"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization.html#fromAv1AdaptiveQuantization"><span class="hs-identifier hs-var hs-var">fromAv1AdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943263"><span id="local-6989586621679943265"><span id="local-6989586621679943267"><span class="annot"><span class="annottext">Int -&gt; Av1AdaptiveQuantization -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943272"><span id="local-6989586621679943274"><span id="local-6989586621679943276"><span class="annot"><span class="annottext">Int -&gt; Av1AdaptiveQuantization -&gt; ShowS
 [Av1AdaptiveQuantization] -&gt; ShowS
 Av1AdaptiveQuantization -&gt; String
 (Int -&gt; Av1AdaptiveQuantization -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: Av1AdaptiveQuantization -&gt; String
 showsPrec :: Int -&gt; Av1AdaptiveQuantization -&gt; ShowS
 $cshowsPrec :: Int -&gt; Av1AdaptiveQuantization -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679943254"><span id="local-6989586621679943256"><span id="local-6989586621679943258"><span id="local-6989586621679943260"><span class="annot"><span class="annottext">ReadPrec [Av1AdaptiveQuantization]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679943263"><span id="local-6989586621679943265"><span id="local-6989586621679943267"><span id="local-6989586621679943269"><span class="annot"><span class="annottext">ReadPrec [Av1AdaptiveQuantization]
 ReadPrec Av1AdaptiveQuantization
 Int -&gt; ReadS Av1AdaptiveQuantization
 ReadS [Av1AdaptiveQuantization]
@@ -79,7 +79,7 @@ $creadList :: ReadS [Av1AdaptiveQuantization]
 readsPrec :: Int -&gt; ReadS Av1AdaptiveQuantization
 $creadsPrec :: Int -&gt; ReadS Av1AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679943249"><span id="local-6989586621679943251"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679943258"><span id="local-6989586621679943260"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool
 (Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool)
 -&gt; (Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool)
 -&gt; Eq Av1AdaptiveQuantization
@@ -89,7 +89,7 @@ $c/= :: Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool
 == :: Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool
 $c== :: Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679943233"><span id="local-6989586621679943235"><span id="local-6989586621679943237"><span id="local-6989586621679943239"><span id="local-6989586621679943241"><span id="local-6989586621679943243"><span id="local-6989586621679943245"><span class="annot"><span class="annottext">Eq Av1AdaptiveQuantization
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679943242"><span id="local-6989586621679943244"><span id="local-6989586621679943246"><span id="local-6989586621679943248"><span id="local-6989586621679943250"><span id="local-6989586621679943252"><span id="local-6989586621679943254"><span class="annot"><span class="annottext">Eq Av1AdaptiveQuantization
 Eq Av1AdaptiveQuantization
 -&gt; (Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Ordering)
 -&gt; (Av1AdaptiveQuantization -&gt; Av1AdaptiveQuantization -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. Av1AdaptiveQuantization -&gt; Rep Av1AdaptiveQuantization x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943225"><span id="local-6989586621679943227"><span class="annot"><span class="annottext">Int -&gt; Av1AdaptiveQuantization -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943234"><span id="local-6989586621679943236"><span class="annot"><span class="annottext">Int -&gt; Av1AdaptiveQuantization -&gt; Int
 Av1AdaptiveQuantization -&gt; Int
 (Int -&gt; Av1AdaptiveQuantization -&gt; Int)
 -&gt; (Av1AdaptiveQuantization -&gt; Int)
@@ -160,54 +160,54 @@ $chash :: Av1AdaptiveQuantization -&gt; Int
 hashWithSalt :: Int -&gt; Av1AdaptiveQuantization -&gt; Int
 $chashWithSalt :: Int -&gt; Av1AdaptiveQuantization -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943222"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943231"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; ()
 (Av1AdaptiveQuantization -&gt; ()) -&gt; NFData Av1AdaptiveQuantization
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Av1AdaptiveQuantization -&gt; ()
 $crnf :: Av1AdaptiveQuantization -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943219"><span class="annot"><span class="annottext">Text -&gt; Either String Av1AdaptiveQuantization
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943228"><span class="annot"><span class="annottext">Text -&gt; Either String Av1AdaptiveQuantization
 (Text -&gt; Either String Av1AdaptiveQuantization)
 -&gt; FromText Av1AdaptiveQuantization
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Av1AdaptiveQuantization
 $cfromText :: Text -&gt; Either String Av1AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943216"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943225"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; Text
 (Av1AdaptiveQuantization -&gt; Text) -&gt; ToText Av1AdaptiveQuantization
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Av1AdaptiveQuantization -&gt; Text
 $ctoText :: Av1AdaptiveQuantization -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943213"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943222"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; ByteString
 (Av1AdaptiveQuantization -&gt; ByteString)
 -&gt; ToByteString Av1AdaptiveQuantization
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Av1AdaptiveQuantization -&gt; ByteString
 $ctoBS :: Av1AdaptiveQuantization -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943210"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943219"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; ByteStringBuilder
 (Av1AdaptiveQuantization -&gt; ByteStringBuilder)
 -&gt; ToLog Av1AdaptiveQuantization
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Av1AdaptiveQuantization -&gt; ByteStringBuilder
 $cbuild :: Av1AdaptiveQuantization -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943207"><span class="annot"><span class="annottext">HeaderName -&gt; Av1AdaptiveQuantization -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943216"><span class="annot"><span class="annottext">HeaderName -&gt; Av1AdaptiveQuantization -&gt; [Header]
 (HeaderName -&gt; Av1AdaptiveQuantization -&gt; [Header])
 -&gt; ToHeader Av1AdaptiveQuantization
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Av1AdaptiveQuantization -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Av1AdaptiveQuantization -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943204"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943213"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; QueryString
 (Av1AdaptiveQuantization -&gt; QueryString)
 -&gt; ToQuery Av1AdaptiveQuantization
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Av1AdaptiveQuantization -&gt; QueryString
 $ctoQuery :: Av1AdaptiveQuantization -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943199"><span id="local-6989586621679943201"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1AdaptiveQuantization]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943208"><span id="local-6989586621679943210"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1AdaptiveQuantization]
 Value -&gt; Parser Av1AdaptiveQuantization
 (Value -&gt; Parser Av1AdaptiveQuantization)
 -&gt; (Value -&gt; Parser [Av1AdaptiveQuantization])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [Av1AdaptiveQuantization]
 parseJSON :: Value -&gt; Parser Av1AdaptiveQuantization
 $cparseJSON :: Value -&gt; Parser Av1AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943194"><span id="local-6989586621679943196"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1AdaptiveQuantization]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943203"><span id="local-6989586621679943205"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1AdaptiveQuantization]
 FromJSONKeyFunction Av1AdaptiveQuantization
 FromJSONKeyFunction Av1AdaptiveQuantization
 -&gt; FromJSONKeyFunction [Av1AdaptiveQuantization]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Av1AdaptiveQuantization]
 fromJSONKey :: FromJSONKeyFunction Av1AdaptiveQuantization
 $cfromJSONKey :: FromJSONKeyFunction Av1AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943185"><span id="local-6989586621679943187"><span id="local-6989586621679943189"><span id="local-6989586621679943191"><span class="annot"><span class="annottext">[Av1AdaptiveQuantization] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943194"><span id="local-6989586621679943196"><span id="local-6989586621679943198"><span id="local-6989586621679943200"><span class="annot"><span class="annottext">[Av1AdaptiveQuantization] -&gt; Encoding
 [Av1AdaptiveQuantization] -&gt; Value
 Av1AdaptiveQuantization -&gt; Encoding
 Av1AdaptiveQuantization -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: Av1AdaptiveQuantization -&gt; Encoding
 toJSON :: Av1AdaptiveQuantization -&gt; Value
 $ctoJSON :: Av1AdaptiveQuantization -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943180"><span id="local-6989586621679943182"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1AdaptiveQuantization]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943189"><span id="local-6989586621679943191"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1AdaptiveQuantization]
 ToJSONKeyFunction Av1AdaptiveQuantization
 ToJSONKeyFunction Av1AdaptiveQuantization
 -&gt; ToJSONKeyFunction [Av1AdaptiveQuantization]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Av1AdaptiveQuantization]
 toJSONKey :: ToJSONKeyFunction Av1AdaptiveQuantization
 $ctoJSONKey :: ToJSONKeyFunction Av1AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679943177"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1AdaptiveQuantization
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679943186"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1AdaptiveQuantization
 ([Node] -&gt; Either String Av1AdaptiveQuantization)
 -&gt; FromXML Av1AdaptiveQuantization
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Av1AdaptiveQuantization
 $cparseXML :: [Node] -&gt; Either String Av1AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679943174"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679943183"><span class="annot"><span class="annottext">Av1AdaptiveQuantization -&gt; XML
 (Av1AdaptiveQuantization -&gt; XML) -&gt; ToXML Av1AdaptiveQuantization
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Av1AdaptiveQuantization -&gt; XML

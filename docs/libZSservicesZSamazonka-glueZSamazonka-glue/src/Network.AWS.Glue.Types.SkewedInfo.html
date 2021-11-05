@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- with very high frequency.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSkewedInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679698623"><span id="local-6989586621679698624"></span></span><span class="hs-keyword">data</span><span> </span><span id="SkewedInfo"><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-var">SkewedInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SkewedInfo%27"><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-var">SkewedInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679698632"><span id="local-6989586621679698633"></span></span><span class="hs-keyword">data</span><span> </span><span id="SkewedInfo"><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-var">SkewedInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SkewedInfo%27"><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-var">SkewedInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A mapping of skewed values to the columns that contain them.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AskewedColumnValueLocationMaps%3ASkewedInfo%27"><span class="annot"><span class="annottext">SkewedInfo -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.Types.SkewedInfo.html#%24sel%3AskewedColumnValueLocationMaps%3ASkewedInfo%27"><span class="hs-identifier hs-var hs-var">skewedColumnValueLocationMaps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AskewedColumnNames%3ASkewedInfo%27"><span class="annot"><span class="annottext">SkewedInfo -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.SkewedInfo.html#%24sel%3AskewedColumnNames%3ASkewedInfo%27"><span class="hs-identifier hs-var hs-var">skewedColumnNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679698615"><span id="local-6989586621679698617"><span class="annot"><span class="annottext">SkewedInfo -&gt; SkewedInfo -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679698624"><span id="local-6989586621679698626"><span class="annot"><span class="annottext">SkewedInfo -&gt; SkewedInfo -&gt; Bool
 (SkewedInfo -&gt; SkewedInfo -&gt; Bool)
 -&gt; (SkewedInfo -&gt; SkewedInfo -&gt; Bool) -&gt; Eq SkewedInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SkewedInfo -&gt; SkewedInfo -&gt; Bool
 == :: SkewedInfo -&gt; SkewedInfo -&gt; Bool
 $c== :: SkewedInfo -&gt; SkewedInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698606"><span id="local-6989586621679698608"><span id="local-6989586621679698610"><span id="local-6989586621679698612"><span class="annot"><span class="annottext">ReadPrec [SkewedInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698615"><span id="local-6989586621679698617"><span id="local-6989586621679698619"><span id="local-6989586621679698621"><span class="annot"><span class="annottext">ReadPrec [SkewedInfo]
 ReadPrec SkewedInfo
 Int -&gt; ReadS SkewedInfo
 ReadS [SkewedInfo]
@@ -66,7 +66,7 @@ readList :: ReadS [SkewedInfo]
 $creadList :: ReadS [SkewedInfo]
 readsPrec :: Int -&gt; ReadS SkewedInfo
 $creadsPrec :: Int -&gt; ReadS SkewedInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698599"><span id="local-6989586621679698601"><span id="local-6989586621679698603"><span class="annot"><span class="annottext">Int -&gt; SkewedInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698608"><span id="local-6989586621679698610"><span id="local-6989586621679698612"><span class="annot"><span class="annottext">Int -&gt; SkewedInfo -&gt; ShowS
 [SkewedInfo] -&gt; ShowS
 SkewedInfo -&gt; String
 (Int -&gt; SkewedInfo -&gt; ShowS)
@@ -138,16 +138,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698590"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698599"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 skewedColumnValueLocationMaps :: Maybe (HashMap Text Text)
 $sel:skewedColumnValueLocationMaps:SkewedInfo' :: SkewedInfo -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679698590"><span class="hs-identifier hs-var hs-var">skewedColumnValueLocationMaps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679698590"><span class="hs-identifier hs-var">skewedColumnValueLocationMaps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698589"><span class="annot"><span class="annottext">s :: SkewedInfo
-</span><a href="#local-6989586621679698589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698588"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679698588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SkewedInfo
-</span><a href="#local-6989586621679698589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedColumnValueLocationMaps:SkewedInfo' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679698599"><span class="hs-identifier hs-var hs-var">skewedColumnValueLocationMaps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679698599"><span class="hs-identifier hs-var">skewedColumnValueLocationMaps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698598"><span class="annot"><span class="annottext">s :: SkewedInfo
+</span><a href="#local-6989586621679698598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698597"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679698597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SkewedInfo
+</span><a href="#local-6989586621679698598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedColumnValueLocationMaps:SkewedInfo' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.Types.SkewedInfo.html#%24sel%3AskewedColumnValueLocationMaps%3ASkewedInfo%27"><span class="hs-identifier hs-var">skewedColumnValueLocationMaps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679698588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679698597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; SkewedInfo -&gt; f SkewedInfo)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -183,16 +183,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SkewedInfo -&gt; Maybe [Text] -&gt; SkewedInfo)
 -&gt; Lens SkewedInfo SkewedInfo (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698583"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698592"><span class="annot"><span class="annottext">Maybe [Text]
 skewedColumnValues :: Maybe [Text]
 $sel:skewedColumnValues:SkewedInfo' :: SkewedInfo -&gt; Maybe [Text]
-</span><a href="#local-6989586621679698583"><span class="hs-identifier hs-var hs-var">skewedColumnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698583"><span class="hs-identifier hs-var">skewedColumnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698582"><span class="annot"><span class="annottext">s :: SkewedInfo
-</span><a href="#local-6989586621679698582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698581"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SkewedInfo
-</span><a href="#local-6989586621679698582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedColumnValues:SkewedInfo' :: Maybe [Text]
+</span><a href="#local-6989586621679698592"><span class="hs-identifier hs-var hs-var">skewedColumnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679698592"><span class="hs-identifier hs-var">skewedColumnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698591"><span class="annot"><span class="annottext">s :: SkewedInfo
+</span><a href="#local-6989586621679698591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698590"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679698590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SkewedInfo
+</span><a href="#local-6989586621679698591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedColumnValues:SkewedInfo' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.SkewedInfo.html#%24sel%3AskewedColumnValues%3ASkewedInfo%27"><span class="hs-identifier hs-var">skewedColumnValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SkewedInfo -&gt; f SkewedInfo)
+</span><a href="#local-6989586621679698590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SkewedInfo -&gt; f SkewedInfo)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -215,16 +215,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SkewedInfo -&gt; Maybe [Text] -&gt; SkewedInfo)
 -&gt; Lens SkewedInfo SkewedInfo (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698579"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698588"><span class="annot"><span class="annottext">Maybe [Text]
 skewedColumnNames :: Maybe [Text]
 $sel:skewedColumnNames:SkewedInfo' :: SkewedInfo -&gt; Maybe [Text]
-</span><a href="#local-6989586621679698579"><span class="hs-identifier hs-var hs-var">skewedColumnNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698579"><span class="hs-identifier hs-var">skewedColumnNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698578"><span class="annot"><span class="annottext">s :: SkewedInfo
-</span><a href="#local-6989586621679698578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698577"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SkewedInfo
-</span><a href="#local-6989586621679698578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedColumnNames:SkewedInfo' :: Maybe [Text]
+</span><a href="#local-6989586621679698588"><span class="hs-identifier hs-var hs-var">skewedColumnNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679698588"><span class="hs-identifier hs-var">skewedColumnNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698587"><span class="annot"><span class="annottext">s :: SkewedInfo
+</span><a href="#local-6989586621679698587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698586"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679698586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SkewedInfo
+</span><a href="#local-6989586621679698587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skewedColumnNames:SkewedInfo' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.SkewedInfo.html#%24sel%3AskewedColumnNames%3ASkewedInfo%27"><span class="hs-identifier hs-var">skewedColumnNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SkewedInfo -&gt; f SkewedInfo)
+</span><a href="#local-6989586621679698586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SkewedInfo -&gt; f SkewedInfo)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -240,8 +240,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698574"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679698572"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SkewedInfo
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698583"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679698581"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SkewedInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SkewedInfo) -&gt; Value -&gt; Parser SkewedInfo
@@ -249,8 +249,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SkewedInfo&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679698569"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679698578"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679698578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; SkewedInfo
 </span><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-var">SkewedInfo'</span></a></span><span>
@@ -260,7 +260,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; Maybe [Text] -&gt; SkewedInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679698578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkewedColumnValueLocationMaps&quot;</span></span><span>
@@ -275,7 +275,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe [Text] -&gt; SkewedInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679698578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkewedColumnValues&quot;</span></span><span>
@@ -290,7 +290,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser SkewedInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679698578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkewedColumnNames&quot;</span></span><span>
@@ -303,13 +303,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-89"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698562"><span id="local-6989586621679698564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698571"><span id="local-6989586621679698573"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698551"><span id="local-6989586621679698553"><span id="local-6989586621679698555"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679698549"><span class="annot"><span class="annottext">toJSON :: SkewedInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698545"><span id="local-6989586621679698546"><span id="local-6989586621679698547"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698560"><span id="local-6989586621679698562"><span id="local-6989586621679698564"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo"><span class="hs-identifier hs-type">SkewedInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679698558"><span class="annot"><span class="annottext">toJSON :: SkewedInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SkewedInfo.html#SkewedInfo%27"><span class="hs-identifier hs-type">SkewedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698554"><span id="local-6989586621679698555"><span id="local-6989586621679698556"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe (HashMap Text Text)
 skewedColumnNames :: Maybe [Text]
 skewedColumnValues :: Maybe [Text]
@@ -317,7 +317,7 @@ skewedColumnValueLocationMaps :: Maybe (HashMap Text Text)
 $sel:skewedColumnNames:SkewedInfo' :: SkewedInfo -&gt; Maybe [Text]
 $sel:skewedColumnValues:SkewedInfo' :: SkewedInfo -&gt; Maybe [Text]
 $sel:skewedColumnValueLocationMaps:SkewedInfo' :: SkewedInfo -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679698545"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679698554"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -331,7 +331,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679698547"><span class="hs-identifier hs-var">skewedColumnValueLocationMaps</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679698556"><span class="hs-identifier hs-var">skewedColumnValueLocationMaps</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkewedColumnValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -339,7 +339,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698546"><span class="hs-identifier hs-var">skewedColumnValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679698555"><span class="hs-identifier hs-var">skewedColumnValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkewedColumnNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -347,7 +347,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679698545"><span class="hs-identifier hs-var">skewedColumnNames</span></a></span><span>
+</span><a href="#local-6989586621679698554"><span class="hs-identifier hs-var">skewedColumnNames</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

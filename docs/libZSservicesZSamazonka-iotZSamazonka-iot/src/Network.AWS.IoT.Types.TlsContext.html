@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the TLS context to use for the test authorizer request.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTlsContext' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679804707"><span id="local-6989586621679804708"></span></span><span class="hs-keyword">data</span><span> </span><span id="TlsContext"><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-var">TlsContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TlsContext%27"><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-var">TlsContext'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679804716"><span id="local-6989586621679804717"></span></span><span class="hs-keyword">data</span><span> </span><span id="TlsContext"><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-var">TlsContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TlsContext%27"><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-var">TlsContext'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the @serverName@ key in a TLS authorization request.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AserverName%3ATlsContext%27"><span class="annot"><span class="annottext">TlsContext -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.TlsContext.html#%24sel%3AserverName%3ATlsContext%27"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804701"><span id="local-6989586621679804703"><span class="annot"><span class="annottext">TlsContext -&gt; TlsContext -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804710"><span id="local-6989586621679804712"><span class="annot"><span class="annottext">TlsContext -&gt; TlsContext -&gt; Bool
 (TlsContext -&gt; TlsContext -&gt; Bool)
 -&gt; (TlsContext -&gt; TlsContext -&gt; Bool) -&gt; Eq TlsContext
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TlsContext -&gt; TlsContext -&gt; Bool
 == :: TlsContext -&gt; TlsContext -&gt; Bool
 $c== :: TlsContext -&gt; TlsContext -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804692"><span id="local-6989586621679804694"><span id="local-6989586621679804696"><span id="local-6989586621679804698"><span class="annot"><span class="annottext">ReadPrec [TlsContext]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804701"><span id="local-6989586621679804703"><span id="local-6989586621679804705"><span id="local-6989586621679804707"><span class="annot"><span class="annottext">ReadPrec [TlsContext]
 ReadPrec TlsContext
 Int -&gt; ReadS TlsContext
 ReadS [TlsContext]
@@ -59,7 +59,7 @@ readList :: ReadS [TlsContext]
 $creadList :: ReadS [TlsContext]
 readsPrec :: Int -&gt; ReadS TlsContext
 $creadsPrec :: Int -&gt; ReadS TlsContext
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804685"><span id="local-6989586621679804687"><span id="local-6989586621679804689"><span class="annot"><span class="annottext">Int -&gt; TlsContext -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804694"><span id="local-6989586621679804696"><span id="local-6989586621679804698"><span class="annot"><span class="annottext">Int -&gt; TlsContext -&gt; ShowS
 [TlsContext] -&gt; ShowS
 TlsContext -&gt; String
 (Int -&gt; TlsContext -&gt; ShowS)
@@ -110,27 +110,27 @@ forall a. Maybe a
 -&gt; (TlsContext -&gt; Maybe Text -&gt; TlsContext)
 -&gt; Lens TlsContext TlsContext (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-type">TlsContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804676"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-type">TlsContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804685"><span class="annot"><span class="annottext">Maybe Text
 serverName :: Maybe Text
 $sel:serverName:TlsContext' :: TlsContext -&gt; Maybe Text
-</span><a href="#local-6989586621679804676"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804676"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804675"><span class="annot"><span class="annottext">s :: TlsContext
-</span><a href="#local-6989586621679804675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-type">TlsContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804674"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TlsContext
-</span><a href="#local-6989586621679804675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:TlsContext' :: Maybe Text
+</span><a href="#local-6989586621679804685"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679804685"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804684"><span class="annot"><span class="annottext">s :: TlsContext
+</span><a href="#local-6989586621679804684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-type">TlsContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804683"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679804683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TlsContext
+</span><a href="#local-6989586621679804684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:TlsContext' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.TlsContext.html#%24sel%3AserverName%3ATlsContext%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804670"><span id="local-6989586621679804672"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span></span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804679"><span id="local-6989586621679804681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span></span></span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804659"><span id="local-6989586621679804661"><span id="local-6989586621679804663"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679804657"><span class="annot"><span class="annottext">toJSON :: TlsContext -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-type">TlsContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804655"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804668"><span id="local-6989586621679804670"><span id="local-6989586621679804672"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext"><span class="hs-identifier hs-type">TlsContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679804666"><span class="annot"><span class="annottext">toJSON :: TlsContext -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TlsContext.html#TlsContext%27"><span class="hs-identifier hs-type">TlsContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804664"><span class="annot"><span class="annottext">Maybe Text
 serverName :: Maybe Text
 $sel:serverName:TlsContext' :: TlsContext -&gt; Maybe Text
-</span><a href="#local-6989586621679804655"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679804664"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -142,6 +142,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804655"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679804664"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span></pre></body></html>

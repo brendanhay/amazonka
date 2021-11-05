@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- as the number of availability zones.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newZoneAwarenessConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679305117"><span id="local-6989586621679305118"></span></span><span class="hs-keyword">data</span><span> </span><span id="ZoneAwarenessConfig"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-var">ZoneAwarenessConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ZoneAwarenessConfig%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-var">ZoneAwarenessConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679305126"><span id="local-6989586621679305127"></span></span><span class="hs-keyword">data</span><span> </span><span id="ZoneAwarenessConfig"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-var">ZoneAwarenessConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ZoneAwarenessConfig%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-var">ZoneAwarenessConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An integer value to indicate the number of availability zones for a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- domain when zone awareness is enabled. This should be equal to number of</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- subnets if VPC endpoints is enabled</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AavailabilityZoneCount%3AZoneAwarenessConfig%27"><span class="annot"><span class="annottext">ZoneAwarenessConfig -&gt; Maybe Int
 </span><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#%24sel%3AavailabilityZoneCount%3AZoneAwarenessConfig%27"><span class="hs-identifier hs-var hs-var">availabilityZoneCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305111"><span id="local-6989586621679305113"><span class="annot"><span class="annottext">ZoneAwarenessConfig -&gt; ZoneAwarenessConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305120"><span id="local-6989586621679305122"><span class="annot"><span class="annottext">ZoneAwarenessConfig -&gt; ZoneAwarenessConfig -&gt; Bool
 (ZoneAwarenessConfig -&gt; ZoneAwarenessConfig -&gt; Bool)
 -&gt; (ZoneAwarenessConfig -&gt; ZoneAwarenessConfig -&gt; Bool)
 -&gt; Eq ZoneAwarenessConfig
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ZoneAwarenessConfig -&gt; ZoneAwarenessConfig -&gt; Bool
 == :: ZoneAwarenessConfig -&gt; ZoneAwarenessConfig -&gt; Bool
 $c== :: ZoneAwarenessConfig -&gt; ZoneAwarenessConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305102"><span id="local-6989586621679305104"><span id="local-6989586621679305106"><span id="local-6989586621679305108"><span class="annot"><span class="annottext">ReadPrec [ZoneAwarenessConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305111"><span id="local-6989586621679305113"><span id="local-6989586621679305115"><span id="local-6989586621679305117"><span class="annot"><span class="annottext">ReadPrec [ZoneAwarenessConfig]
 ReadPrec ZoneAwarenessConfig
 Int -&gt; ReadS ZoneAwarenessConfig
 ReadS [ZoneAwarenessConfig]
@@ -63,7 +63,7 @@ readList :: ReadS [ZoneAwarenessConfig]
 $creadList :: ReadS [ZoneAwarenessConfig]
 readsPrec :: Int -&gt; ReadS ZoneAwarenessConfig
 $creadsPrec :: Int -&gt; ReadS ZoneAwarenessConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305095"><span id="local-6989586621679305097"><span id="local-6989586621679305099"><span class="annot"><span class="annottext">Int -&gt; ZoneAwarenessConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305104"><span id="local-6989586621679305106"><span id="local-6989586621679305108"><span class="annot"><span class="annottext">Int -&gt; ZoneAwarenessConfig -&gt; ShowS
 [ZoneAwarenessConfig] -&gt; ShowS
 ZoneAwarenessConfig -&gt; String
 (Int -&gt; ZoneAwarenessConfig -&gt; ShowS)
@@ -124,19 +124,19 @@ forall a. Maybe a
 -&gt; Lens
      ZoneAwarenessConfig ZoneAwarenessConfig (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-type">ZoneAwarenessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305086"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-type">ZoneAwarenessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305095"><span class="annot"><span class="annottext">Maybe Int
 availabilityZoneCount :: Maybe Int
 $sel:availabilityZoneCount:ZoneAwarenessConfig' :: ZoneAwarenessConfig -&gt; Maybe Int
-</span><a href="#local-6989586621679305086"><span class="hs-identifier hs-var hs-var">availabilityZoneCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679305086"><span class="hs-identifier hs-var">availabilityZoneCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305085"><span class="annot"><span class="annottext">s :: ZoneAwarenessConfig
-</span><a href="#local-6989586621679305085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-type">ZoneAwarenessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305084"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679305084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZoneAwarenessConfig
-</span><a href="#local-6989586621679305085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZoneCount:ZoneAwarenessConfig' :: Maybe Int
+</span><a href="#local-6989586621679305095"><span class="hs-identifier hs-var hs-var">availabilityZoneCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679305095"><span class="hs-identifier hs-var">availabilityZoneCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305094"><span class="annot"><span class="annottext">s :: ZoneAwarenessConfig
+</span><a href="#local-6989586621679305094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-type">ZoneAwarenessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305093"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679305093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZoneAwarenessConfig
+</span><a href="#local-6989586621679305094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZoneCount:ZoneAwarenessConfig' :: Maybe Int
 </span><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#%24sel%3AavailabilityZoneCount%3AZoneAwarenessConfig%27"><span class="hs-identifier hs-var">availabilityZoneCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679305084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305081"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679305079"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ZoneAwarenessConfig
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305090"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679305088"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ZoneAwarenessConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ZoneAwarenessConfig)
@@ -146,30 +146,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ZoneAwarenessConfig&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305076"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305085"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; ZoneAwarenessConfig
 </span><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-var">ZoneAwarenessConfig'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; ZoneAwarenessConfig)
 -&gt; Parser (Maybe Int) -&gt; Parser ZoneAwarenessConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679305085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AvailabilityZoneCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305070"><span id="local-6989586621679305072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305079"><span id="local-6989586621679305081"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305076"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305059"><span id="local-6989586621679305061"><span id="local-6989586621679305063"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679305057"><span class="annot"><span class="annottext">toJSON :: ZoneAwarenessConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-type">ZoneAwarenessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305055"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305068"><span id="local-6989586621679305070"><span id="local-6989586621679305072"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig"><span class="hs-identifier hs-type">ZoneAwarenessConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679305066"><span class="annot"><span class="annottext">toJSON :: ZoneAwarenessConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig.html#ZoneAwarenessConfig%27"><span class="hs-identifier hs-type">ZoneAwarenessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305064"><span class="annot"><span class="annottext">Maybe Int
 availabilityZoneCount :: Maybe Int
 $sel:availabilityZoneCount:ZoneAwarenessConfig' :: ZoneAwarenessConfig -&gt; Maybe Int
-</span><a href="#local-6989586621679305055"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305064"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -182,7 +182,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-81"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679305055"><span class="hs-identifier hs-var">availabilityZoneCount</span></a></span><span>
+</span><a href="#local-6989586621679305064"><span class="hs-identifier hs-var">availabilityZoneCount</span></a></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

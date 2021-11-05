@@ -110,10 +110,10 @@
 </span><span id="line-110"></span><span class="hs-comment">-- | Represents the input of a @DescribeLimits@ operation. Has no content.</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- /See:/ 'newDescribeLimits' smart constructor.</span><span>
-</span><span id="line-113"></span><span id="local-6989586621679392029"><span id="local-6989586621679392030"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimits"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-var">DescribeLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimits%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits%27"><span class="hs-identifier hs-var">DescribeLimits'</span></a></span></span><span>
+</span><span id="line-113"></span><span id="local-6989586621679392038"><span id="local-6989586621679392039"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimits"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-var">DescribeLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimits%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits%27"><span class="hs-identifier hs-var">DescribeLimits'</span></a></span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392024"><span id="local-6989586621679392026"><span class="annot"><span class="annottext">DescribeLimits -&gt; DescribeLimits -&gt; Bool
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392033"><span id="local-6989586621679392035"><span class="annot"><span class="annottext">DescribeLimits -&gt; DescribeLimits -&gt; Bool
 (DescribeLimits -&gt; DescribeLimits -&gt; Bool)
 -&gt; (DescribeLimits -&gt; DescribeLimits -&gt; Bool) -&gt; Eq DescribeLimits
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -121,7 +121,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLimits -&gt; DescribeLimits -&gt; Bool
 == :: DescribeLimits -&gt; DescribeLimits -&gt; Bool
 $c== :: DescribeLimits -&gt; DescribeLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392015"><span id="local-6989586621679392017"><span id="local-6989586621679392019"><span id="local-6989586621679392021"><span class="annot"><span class="annottext">ReadPrec [DescribeLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392024"><span id="local-6989586621679392026"><span id="local-6989586621679392028"><span id="local-6989586621679392030"><span class="annot"><span class="annottext">ReadPrec [DescribeLimits]
 ReadPrec DescribeLimits
 Int -&gt; ReadS DescribeLimits
 ReadS [DescribeLimits]
@@ -141,7 +141,7 @@ readList :: ReadS [DescribeLimits]
 $creadList :: ReadS [DescribeLimits]
 readsPrec :: Int -&gt; ReadS DescribeLimits
 $creadsPrec :: Int -&gt; ReadS DescribeLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392008"><span id="local-6989586621679392010"><span id="local-6989586621679392012"><span class="annot"><span class="annottext">Int -&gt; DescribeLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392017"><span id="local-6989586621679392019"><span id="local-6989586621679392021"><span class="annot"><span class="annottext">Int -&gt; DescribeLimits -&gt; ShowS
 [DescribeLimits] -&gt; ShowS
 DescribeLimits -&gt; String
 (Int -&gt; DescribeLimits -&gt; ShowS)
@@ -181,12 +181,12 @@ $cfrom :: forall x. DescribeLimits -&gt; Rep DescribeLimits x
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679392000"><span class="annot"><span class="annottext">request :: DescribeLimits -&gt; Request DescribeLimits
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679392009"><span class="annot"><span class="annottext">request :: DescribeLimits -&gt; Request DescribeLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLimits -&gt; Request DescribeLimits
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679391996"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679392005"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLimits
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391993"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391993"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391992"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679391992"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391991"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392002"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392002"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392001"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392001"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392000"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -234,7 +234,7 @@ MonadResource m =&gt;
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Int -&gt; DescribeLimitsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679392000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableMaxWriteCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,7 +248,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Natural -&gt; Maybe Natural -&gt; Int -&gt; DescribeLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679392000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableMaxReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,7 +259,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Natural -&gt; Int -&gt; DescribeLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679392000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountMaxWriteCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,7 +268,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679392000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountMaxReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,15 +280,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391993"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392002"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391983"><span id="local-6989586621679391985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391992"><span id="local-6989586621679391994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679391976"><span class="annot"><span class="annottext">toHeaders :: DescribeLimits -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679391985"><span class="annot"><span class="annottext">toHeaders :: DescribeLimits -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLimits -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -315,8 +315,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391966"><span id="local-6989586621679391968"><span id="local-6989586621679391970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679391964"><span class="annot"><span class="annottext">toJSON :: DescribeLimits -&gt; Value
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391975"><span id="local-6989586621679391977"><span id="local-6989586621679391979"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679391973"><span class="annot"><span class="annottext">toJSON :: DescribeLimits -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeLimits -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -325,14 +325,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679391959"><span class="annot"><span class="annottext">toPath :: DescribeLimits -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679391968"><span class="annot"><span class="annottext">toPath :: DescribeLimits -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLimits -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679391955"><span class="annot"><span class="annottext">toQuery :: DescribeLimits -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679391964"><span class="annot"><span class="annottext">toQuery :: DescribeLimits -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLimits -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,7 +342,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-170"></span><span class="hs-comment">-- | Represents the output of a @DescribeLimits@ operation.</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- /See:/ 'newDescribeLimitsResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679391952"><span id="local-6989586621679391953"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimitsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-var">DescribeLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimitsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-var">DescribeLimitsResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679391961"><span id="local-6989586621679391962"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimitsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-var">DescribeLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimitsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-var">DescribeLimitsResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum write capacity units that your account allows you to</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- provision for a new table that you are creating in this Region,</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">-- including the write capacity units provisioned for its global secondary</span><span>
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="annot"><span class="annottext">DescribeLimitsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DescribeLimits.html#%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391943"><span id="local-6989586621679391945"><span class="annot"><span class="annottext">DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391952"><span id="local-6989586621679391954"><span class="annot"><span class="annottext">DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
 (DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool)
 -&gt; (DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool)
 -&gt; Eq DescribeLimitsResponse
@@ -376,7 +376,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
 == :: DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
 $c== :: DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391935"><span id="local-6989586621679391937"><span id="local-6989586621679391939"><span id="local-6989586621679391941"><span class="annot"><span class="annottext">ReadPrec [DescribeLimitsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391944"><span id="local-6989586621679391946"><span id="local-6989586621679391948"><span id="local-6989586621679391950"><span class="annot"><span class="annottext">ReadPrec [DescribeLimitsResponse]
 ReadPrec DescribeLimitsResponse
 Int -&gt; ReadS DescribeLimitsResponse
 ReadS [DescribeLimitsResponse]
@@ -396,7 +396,7 @@ readList :: ReadS [DescribeLimitsResponse]
 $creadList :: ReadS [DescribeLimitsResponse]
 readsPrec :: Int -&gt; ReadS DescribeLimitsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLimitsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391929"><span id="local-6989586621679391931"><span id="local-6989586621679391933"><span class="annot"><span class="annottext">Int -&gt; DescribeLimitsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391938"><span id="local-6989586621679391940"><span id="local-6989586621679391942"><span class="annot"><span class="annottext">Int -&gt; DescribeLimitsResponse -&gt; ShowS
 [DescribeLimitsResponse] -&gt; ShowS
 DescribeLimitsResponse -&gt; String
 (Int -&gt; DescribeLimitsResponse -&gt; ShowS)
@@ -453,8 +453,8 @@ $cfrom :: forall x. DescribeLimitsResponse -&gt; Rep DescribeLimitsResponse x
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span>
 </span><span id="line-224"></span><span id="newDescribeLimitsResponse"><span class="annot"><span class="annottext">newDescribeLimitsResponse :: Int -&gt; DescribeLimitsResponse
-</span><a href="Network.AWS.DynamoDB.DescribeLimits.html#newDescribeLimitsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLimitsResponse</span></a></span></span><span> </span><span id="local-6989586621679391926"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391926"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeLimits.html#newDescribeLimitsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLimitsResponse</span></a></span></span><span> </span><span id="local-6989586621679391935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">DescribeLimitsResponse' :: Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -481,7 +481,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLimitsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeLimits.html#%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391926"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679391935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The maximum write capacity units that your account allows you to</span><span>
@@ -500,16 +500,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391923"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391932"><span class="annot"><span class="annottext">Maybe Natural
 tableMaxWriteCapacityUnits :: Maybe Natural
 $sel:tableMaxWriteCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679391923"><span class="hs-identifier hs-var hs-var">tableMaxWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391923"><span class="hs-identifier hs-var">tableMaxWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391922"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679391922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391921"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679391922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableMaxWriteCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
+</span><a href="#local-6989586621679391932"><span class="hs-identifier hs-var hs-var">tableMaxWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391932"><span class="hs-identifier hs-var">tableMaxWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391931"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679391931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391930"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679391931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableMaxWriteCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.DescribeLimits.html#%24sel%3AtableMaxWriteCapacityUnits%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">tableMaxWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The maximum read capacity units that your account allows you to</span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- provision for a new table that you are creating in this Region,</span><span>
@@ -527,16 +527,16 @@ $sel:tableMaxWriteCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsRespons
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391920"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391929"><span class="annot"><span class="annottext">Maybe Natural
 tableMaxReadCapacityUnits :: Maybe Natural
 $sel:tableMaxReadCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679391920"><span class="hs-identifier hs-var hs-var">tableMaxReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391920"><span class="hs-identifier hs-var">tableMaxReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391919"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679391919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391918"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679391919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableMaxReadCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
+</span><a href="#local-6989586621679391929"><span class="hs-identifier hs-var hs-var">tableMaxReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391929"><span class="hs-identifier hs-var">tableMaxReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391928"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679391928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391927"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679391928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableMaxReadCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.DescribeLimits.html#%24sel%3AtableMaxReadCapacityUnits%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">tableMaxReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The maximum total write capacity units that your account allows you to</span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- provision across all of your tables in this Region.</span><span>
@@ -552,16 +552,16 @@ $sel:tableMaxReadCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsResponse
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391917"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391926"><span class="annot"><span class="annottext">Maybe Natural
 accountMaxWriteCapacityUnits :: Maybe Natural
 $sel:accountMaxWriteCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679391917"><span class="hs-identifier hs-var hs-var">accountMaxWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391917"><span class="hs-identifier hs-var">accountMaxWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391916"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679391916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391915"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679391916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountMaxWriteCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
+</span><a href="#local-6989586621679391926"><span class="hs-identifier hs-var hs-var">accountMaxWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391926"><span class="hs-identifier hs-var">accountMaxWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391925"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679391925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391924"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679391925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountMaxWriteCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.DescribeLimits.html#%24sel%3AaccountMaxWriteCapacityUnits%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">accountMaxWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The maximum total read capacity units that your account allows you to</span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- provision across all of your tables in this Region.</span><span>
@@ -577,16 +577,16 @@ $sel:accountMaxWriteCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsRespo
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391914"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391923"><span class="annot"><span class="annottext">Maybe Natural
 accountMaxReadCapacityUnits :: Maybe Natural
 $sel:accountMaxReadCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679391914"><span class="hs-identifier hs-var hs-var">accountMaxReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391914"><span class="hs-identifier hs-var">accountMaxReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391913"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679391913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391912"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679391913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountMaxReadCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
+</span><a href="#local-6989586621679391923"><span class="hs-identifier hs-var hs-var">accountMaxReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391923"><span class="hs-identifier hs-var">accountMaxReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391922"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679391922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391921"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679391921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679391922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountMaxReadCapacityUnits:DescribeLimitsResponse' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.DescribeLimits.html#%24sel%3AaccountMaxReadCapacityUnits%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">accountMaxReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679391912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-259"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#describeLimitsResponse_httpStatus"><span class="hs-identifier hs-type">describeLimitsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -596,16 +596,16 @@ $sel:accountMaxReadCapacityUnits:DescribeLimitsResponse' :: DescribeLimitsRespon
 -&gt; (DescribeLimitsResponse -&gt; Int -&gt; DescribeLimitsResponse)
 -&gt; Lens DescribeLimitsResponse DescribeLimitsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391911"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391920"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Int
-</span><a href="#local-6989586621679391911"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391911"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391910"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679391910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391909"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679391910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLimitsResponse' :: Int
+</span><a href="#local-6989586621679391920"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391920"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391919"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679391919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391918"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679391919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLimitsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeLimits.html#%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
-</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span></span><span>
 </span><span id="line-263"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Request structure to request all available bundles.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListBundles' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679154817"><span id="local-6989586621679154818"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBundles"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-var">ListBundles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBundles%27"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-var">ListBundles'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679154826"><span id="local-6989586621679154827"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBundles"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-var">ListBundles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBundles%27"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-var">ListBundles'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token. Set to null to start listing bundles from start. If</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- non-null pagination token is returned in a result, then pass its value</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- in here in another request to list more bundles.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBundles%27"><span class="annot"><span class="annottext">ListBundles -&gt; Maybe Int
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AmaxResults%3AListBundles%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154810"><span id="local-6989586621679154812"><span class="annot"><span class="annottext">ListBundles -&gt; ListBundles -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154819"><span id="local-6989586621679154821"><span class="annot"><span class="annottext">ListBundles -&gt; ListBundles -&gt; Bool
 (ListBundles -&gt; ListBundles -&gt; Bool)
 -&gt; (ListBundles -&gt; ListBundles -&gt; Bool) -&gt; Eq ListBundles
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBundles -&gt; ListBundles -&gt; Bool
 == :: ListBundles -&gt; ListBundles -&gt; Bool
 $c== :: ListBundles -&gt; ListBundles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154801"><span id="local-6989586621679154803"><span id="local-6989586621679154805"><span id="local-6989586621679154807"><span class="annot"><span class="annottext">ReadPrec [ListBundles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154810"><span id="local-6989586621679154812"><span id="local-6989586621679154814"><span id="local-6989586621679154816"><span class="annot"><span class="annottext">ReadPrec [ListBundles]
 ReadPrec ListBundles
 Int -&gt; ReadS ListBundles
 ReadS [ListBundles]
@@ -91,7 +91,7 @@ readList :: ReadS [ListBundles]
 $creadList :: ReadS [ListBundles]
 readsPrec :: Int -&gt; ReadS ListBundles
 $creadsPrec :: Int -&gt; ReadS ListBundles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154794"><span id="local-6989586621679154796"><span id="local-6989586621679154798"><span class="annot"><span class="annottext">Int -&gt; ListBundles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154803"><span id="local-6989586621679154805"><span id="local-6989586621679154807"><span class="annot"><span class="annottext">Int -&gt; ListBundles -&gt; ShowS
 [ListBundles] -&gt; ShowS
 ListBundles -&gt; String
 (Int -&gt; ListBundles -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Maybe a
 -&gt; (ListBundles -&gt; Maybe Text -&gt; ListBundles)
 -&gt; Lens ListBundles ListBundles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154788"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154797"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBundles' :: ListBundles -&gt; Maybe Text
-</span><a href="#local-6989586621679154788"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154788"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154787"><span class="annot"><span class="annottext">s :: ListBundles
-</span><a href="#local-6989586621679154787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154786"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundles
-</span><a href="#local-6989586621679154787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBundles' :: Maybe Text
+</span><a href="#local-6989586621679154797"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154797"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154796"><span class="annot"><span class="annottext">s :: ListBundles
+</span><a href="#local-6989586621679154796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154795"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundles
+</span><a href="#local-6989586621679154796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBundles' :: Maybe Text
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AnextToken%3AListBundles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Maximum number of records to list in a single response.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#listBundles_maxResults"><span class="hs-identifier hs-type">listBundles_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -173,28 +173,28 @@ $sel:nextToken:ListBundles' :: ListBundles -&gt; Maybe Text
 -&gt; (ListBundles -&gt; Maybe Int -&gt; ListBundles)
 -&gt; Lens ListBundles ListBundles (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154785"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154794"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListBundles' :: ListBundles -&gt; Maybe Int
-</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154784"><span class="annot"><span class="annottext">s :: ListBundles
-</span><a href="#local-6989586621679154784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154783"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679154783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundles
-</span><a href="#local-6989586621679154784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBundles' :: Maybe Int
+</span><a href="#local-6989586621679154794"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679154794"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154793"><span class="annot"><span class="annottext">s :: ListBundles
+</span><a href="#local-6989586621679154793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154792"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679154792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundles
+</span><a href="#local-6989586621679154793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBundles' :: Maybe Int
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AmaxResults%3AListBundles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679154783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679154779"><span class="annot"><span class="annottext">page :: ListBundles -&gt; AWSResponse ListBundles -&gt; Maybe ListBundles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679154777"><span class="annot"><span class="annottext">ListBundles
-</span><a href="#local-6989586621679154777"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679154776"><span class="annot"><span class="annottext">AWSResponse ListBundles
-</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679154788"><span class="annot"><span class="annottext">page :: ListBundles -&gt; AWSResponse ListBundles -&gt; Maybe ListBundles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679154786"><span class="annot"><span class="annottext">ListBundles
+</span><a href="#local-6989586621679154786"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679154785"><span class="annot"><span class="annottext">AWSResponse ListBundles
+</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-100"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBundles
 ListBundlesResponse
-</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">ListBundlesResponse
 -&gt; Getting (First Text) ListBundlesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -220,7 +220,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBundles
 ListBundlesResponse
-</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">ListBundlesResponse
 -&gt; Getting
      (First [BundleDetails]) ListBundlesResponse [BundleDetails]
@@ -260,7 +260,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListBundles
-</span><a href="#local-6989586621679154777"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679154786"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListBundles -&gt; (ListBundles -&gt; ListBundles) -&gt; ListBundles
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -273,7 +273,7 @@ Lens ListBundles ListBundles (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBundles
 ListBundlesResponse
-</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListBundlesResponse
 -&gt; Getting (First Text) ListBundlesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -293,12 +293,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679154766"><span class="annot"><span class="annottext">request :: ListBundles -&gt; Request ListBundles
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679154775"><span class="annot"><span class="annottext">request :: ListBundles -&gt; Request ListBundles
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBundles -&gt; Request ListBundles
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Mobile.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679154762"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679154771"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBundles
 -&gt; ClientResponse ClientBody
@@ -322,10 +322,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679154759"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154759"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679154758"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679154758"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679154757"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679154757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679154768"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679154767"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679154767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679154766"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BundleDetails] -&gt; Maybe Text -&gt; Int -&gt; ListBundlesResponse
 </span><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-var">ListBundlesResponse'</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BundleDetails] -&gt; Maybe Text -&gt; Int -&gt; ListBundlesResponse)
@@ -333,7 +333,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListBundlesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679154757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BundleDetails]))
+</span><a href="#local-6989586621679154766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BundleDetails]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bundleList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BundleDetails]))
@@ -347,7 +347,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListBundlesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679154757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679154766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -359,15 +359,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154759"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154748"><span id="local-6989586621679154750"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154757"><span id="local-6989586621679154759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679154741"><span class="annot"><span class="annottext">toHeaders :: ListBundles -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679154750"><span class="annot"><span class="annottext">toHeaders :: ListBundles -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBundles -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -387,21 +387,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679154735"><span class="annot"><span class="annottext">toPath :: ListBundles -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679154744"><span class="annot"><span class="annottext">toPath :: ListBundles -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBundles -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/bundles&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles"><span class="hs-identifier hs-type">ListBundles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679154731"><span class="annot"><span class="annottext">toQuery :: ListBundles -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154728"><span id="local-6989586621679154729"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679154740"><span class="annot"><span class="annottext">toQuery :: ListBundles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundles%27"><span class="hs-identifier hs-type">ListBundles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154737"><span id="local-6989586621679154738"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 maxResults :: Maybe Int
 nextToken :: Maybe Text
 $sel:maxResults:ListBundles' :: ListBundles -&gt; Maybe Int
 $sel:nextToken:ListBundles' :: ListBundles -&gt; Maybe Text
-</span><a href="#local-6989586621679154728"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679154737"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -409,18 +409,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154729"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679154738"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679154728"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679154737"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | Result structure contains a list of all available bundles with details.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- /See:/ 'newListBundlesResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679154725"><span id="local-6989586621679154726"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBundlesResponse"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-var">ListBundlesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBundlesResponse%27"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-var">ListBundlesResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679154734"><span id="local-6989586621679154735"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBundlesResponse"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-var">ListBundlesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBundlesResponse%27"><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-var">ListBundlesResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of bundles.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AbundleList%3AListBundlesResponse%27"><span class="annot"><span class="annottext">ListBundlesResponse -&gt; Maybe [BundleDetails]
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AbundleList%3AListBundlesResponse%27"><span class="hs-identifier hs-var hs-var">bundleList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Mobile.Types.BundleDetails.html#BundleDetails"><span class="hs-identifier hs-type">BundleDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -432,7 +432,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBundlesResponse%27"><span class="annot"><span class="annottext">ListBundlesResponse -&gt; Int
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AhttpStatus%3AListBundlesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154718"><span id="local-6989586621679154720"><span class="annot"><span class="annottext">ListBundlesResponse -&gt; ListBundlesResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154727"><span id="local-6989586621679154729"><span class="annot"><span class="annottext">ListBundlesResponse -&gt; ListBundlesResponse -&gt; Bool
 (ListBundlesResponse -&gt; ListBundlesResponse -&gt; Bool)
 -&gt; (ListBundlesResponse -&gt; ListBundlesResponse -&gt; Bool)
 -&gt; Eq ListBundlesResponse
@@ -441,7 +441,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBundlesResponse -&gt; ListBundlesResponse -&gt; Bool
 == :: ListBundlesResponse -&gt; ListBundlesResponse -&gt; Bool
 $c== :: ListBundlesResponse -&gt; ListBundlesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154710"><span id="local-6989586621679154712"><span id="local-6989586621679154714"><span id="local-6989586621679154716"><span class="annot"><span class="annottext">ReadPrec [ListBundlesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154719"><span id="local-6989586621679154721"><span id="local-6989586621679154723"><span id="local-6989586621679154725"><span class="annot"><span class="annottext">ReadPrec [ListBundlesResponse]
 ReadPrec ListBundlesResponse
 Int -&gt; ReadS ListBundlesResponse
 ReadS [ListBundlesResponse]
@@ -461,7 +461,7 @@ readList :: ReadS [ListBundlesResponse]
 $creadList :: ReadS [ListBundlesResponse]
 readsPrec :: Int -&gt; ReadS ListBundlesResponse
 $creadsPrec :: Int -&gt; ReadS ListBundlesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154704"><span id="local-6989586621679154706"><span id="local-6989586621679154708"><span class="annot"><span class="annottext">Int -&gt; ListBundlesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154713"><span id="local-6989586621679154715"><span id="local-6989586621679154717"><span class="annot"><span class="annottext">Int -&gt; ListBundlesResponse -&gt; ShowS
 [ListBundlesResponse] -&gt; ShowS
 ListBundlesResponse -&gt; String
 (Int -&gt; ListBundlesResponse -&gt; ShowS)
@@ -506,8 +506,8 @@ $cfrom :: forall x. ListBundlesResponse -&gt; Rep ListBundlesResponse x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newListBundlesResponse"><span class="annot"><span class="annottext">newListBundlesResponse :: Int -&gt; ListBundlesResponse
-</span><a href="Network.AWS.Mobile.ListBundles.html#newListBundlesResponse"><span class="hs-identifier hs-var hs-var">newListBundlesResponse</span></a></span></span><span> </span><span id="local-6989586621679154701"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Mobile.ListBundles.html#newListBundlesResponse"><span class="hs-identifier hs-var hs-var">newListBundlesResponse</span></a></span></span><span> </span><span id="local-6989586621679154710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">ListBundlesResponse' :: Maybe [BundleDetails] -&gt; Maybe Text -&gt; Int -&gt; ListBundlesResponse
 </span><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bundleList:ListBundlesResponse' :: Maybe [BundleDetails]
@@ -520,7 +520,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBundlesResponse' :: Int
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AhttpStatus%3AListBundlesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679154710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | A list of bundles.</span><span>
@@ -532,16 +532,16 @@ forall a. Maybe a
     -&gt; Maybe [BundleDetails] -&gt; ListBundlesResponse)
 -&gt; Lens' ListBundlesResponse (Maybe [BundleDetails])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154700"><span class="annot"><span class="annottext">Maybe [BundleDetails]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154709"><span class="annot"><span class="annottext">Maybe [BundleDetails]
 bundleList :: Maybe [BundleDetails]
 $sel:bundleList:ListBundlesResponse' :: ListBundlesResponse -&gt; Maybe [BundleDetails]
-</span><a href="#local-6989586621679154700"><span class="hs-identifier hs-var hs-var">bundleList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BundleDetails]
-</span><a href="#local-6989586621679154700"><span class="hs-identifier hs-var">bundleList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154699"><span class="annot"><span class="annottext">s :: ListBundlesResponse
-</span><a href="#local-6989586621679154699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154698"><span class="annot"><span class="annottext">Maybe [BundleDetails]
-</span><a href="#local-6989586621679154698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundlesResponse
-</span><a href="#local-6989586621679154699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleList:ListBundlesResponse' :: Maybe [BundleDetails]
+</span><a href="#local-6989586621679154709"><span class="hs-identifier hs-var hs-var">bundleList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BundleDetails]
+</span><a href="#local-6989586621679154709"><span class="hs-identifier hs-var">bundleList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154708"><span class="annot"><span class="annottext">s :: ListBundlesResponse
+</span><a href="#local-6989586621679154708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154707"><span class="annot"><span class="annottext">Maybe [BundleDetails]
+</span><a href="#local-6989586621679154707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundlesResponse
+</span><a href="#local-6989586621679154708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleList:ListBundlesResponse' :: Maybe [BundleDetails]
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AbundleList%3AListBundlesResponse%27"><span class="hs-identifier hs-var">bundleList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BundleDetails]
-</span><a href="#local-6989586621679154698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BundleDetails] -&gt; f (Maybe [BundleDetails]))
+</span><a href="#local-6989586621679154707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BundleDetails] -&gt; f (Maybe [BundleDetails]))
  -&gt; ListBundlesResponse -&gt; f ListBundlesResponse)
 -&gt; ((Maybe [BundleDetails] -&gt; f (Maybe [BundleDetails]))
     -&gt; Maybe [BundleDetails] -&gt; f (Maybe [BundleDetails]))
@@ -573,16 +573,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListBundlesResponse -&gt; Maybe Text -&gt; ListBundlesResponse)
 -&gt; Lens' ListBundlesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154695"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154704"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBundlesResponse' :: ListBundlesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679154695"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154695"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154694"><span class="annot"><span class="annottext">s :: ListBundlesResponse
-</span><a href="#local-6989586621679154694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154693"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundlesResponse
-</span><a href="#local-6989586621679154694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBundlesResponse' :: Maybe Text
+</span><a href="#local-6989586621679154704"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154704"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154703"><span class="annot"><span class="annottext">s :: ListBundlesResponse
+</span><a href="#local-6989586621679154703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154702"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundlesResponse
+</span><a href="#local-6989586621679154703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBundlesResponse' :: Maybe Text
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AnextToken%3AListBundlesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#listBundlesResponse_httpStatus"><span class="hs-identifier hs-type">listBundlesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -591,16 +591,16 @@ $sel:nextToken:ListBundlesResponse' :: ListBundlesResponse -&gt; Maybe Text
 -&gt; (ListBundlesResponse -&gt; Int -&gt; ListBundlesResponse)
 -&gt; Lens ListBundlesResponse ListBundlesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154692"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154701"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBundlesResponse' :: ListBundlesResponse -&gt; Int
-</span><a href="#local-6989586621679154692"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154692"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154691"><span class="annot"><span class="annottext">s :: ListBundlesResponse
-</span><a href="#local-6989586621679154691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundlesResponse
-</span><a href="#local-6989586621679154691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBundlesResponse' :: Int
+</span><a href="#local-6989586621679154701"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154701"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154700"><span class="annot"><span class="annottext">s :: ListBundlesResponse
+</span><a href="#local-6989586621679154700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse%27"><span class="hs-identifier hs-type">ListBundlesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154699"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBundlesResponse
+</span><a href="#local-6989586621679154700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBundlesResponse' :: Int
 </span><a href="Network.AWS.Mobile.ListBundles.html#%24sel%3AhttpStatus%3AListBundlesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ListBundles.html#ListBundlesResponse"><span class="hs-identifier hs-type">ListBundlesResponse</span></a></span></span><span>
 </span><span id="line-206"></span></pre></body></html>

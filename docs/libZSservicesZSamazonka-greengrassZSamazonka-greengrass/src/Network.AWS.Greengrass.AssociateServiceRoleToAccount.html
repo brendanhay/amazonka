@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newAssociateServiceRoleToAccount' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679368045"><span id="local-6989586621679368046"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateServiceRoleToAccount"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-var">AssociateServiceRoleToAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateServiceRoleToAccount%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-var">AssociateServiceRoleToAccount'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679368054"><span id="local-6989586621679368055"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateServiceRoleToAccount"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-var">AssociateServiceRoleToAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateServiceRoleToAccount%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-var">AssociateServiceRoleToAccount'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the service role you wish to associate with your account.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AroleArn%3AAssociateServiceRoleToAccount%27"><span class="annot"><span class="annottext">AssociateServiceRoleToAccount -&gt; Text
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AroleArn%3AAssociateServiceRoleToAccount%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368039"><span id="local-6989586621679368041"><span class="annot"><span class="annottext">AssociateServiceRoleToAccount
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368048"><span id="local-6989586621679368050"><span class="annot"><span class="annottext">AssociateServiceRoleToAccount
 -&gt; AssociateServiceRoleToAccount -&gt; Bool
 (AssociateServiceRoleToAccount
  -&gt; AssociateServiceRoleToAccount -&gt; Bool)
@@ -72,7 +72,7 @@ $c/= :: AssociateServiceRoleToAccount
 -&gt; AssociateServiceRoleToAccount -&gt; Bool
 $c== :: AssociateServiceRoleToAccount
 -&gt; AssociateServiceRoleToAccount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368030"><span id="local-6989586621679368032"><span id="local-6989586621679368034"><span id="local-6989586621679368036"><span class="annot"><span class="annottext">ReadPrec [AssociateServiceRoleToAccount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368039"><span id="local-6989586621679368041"><span id="local-6989586621679368043"><span id="local-6989586621679368045"><span class="annot"><span class="annottext">ReadPrec [AssociateServiceRoleToAccount]
 ReadPrec AssociateServiceRoleToAccount
 Int -&gt; ReadS AssociateServiceRoleToAccount
 ReadS [AssociateServiceRoleToAccount]
@@ -92,7 +92,7 @@ readList :: ReadS [AssociateServiceRoleToAccount]
 $creadList :: ReadS [AssociateServiceRoleToAccount]
 readsPrec :: Int -&gt; ReadS AssociateServiceRoleToAccount
 $creadsPrec :: Int -&gt; ReadS AssociateServiceRoleToAccount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368023"><span id="local-6989586621679368025"><span id="local-6989586621679368027"><span class="annot"><span class="annottext">Int -&gt; AssociateServiceRoleToAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368032"><span id="local-6989586621679368034"><span id="local-6989586621679368036"><span class="annot"><span class="annottext">Int -&gt; AssociateServiceRoleToAccount -&gt; ShowS
 [AssociateServiceRoleToAccount] -&gt; ShowS
 AssociateServiceRoleToAccount -&gt; String
 (Int -&gt; AssociateServiceRoleToAccount -&gt; ShowS)
@@ -144,12 +144,12 @@ AssociateServiceRoleToAccount
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span>
 </span><span id="line-73"></span><span id="newAssociateServiceRoleToAccount"><span class="annot"><span class="annottext">newAssociateServiceRoleToAccount :: Text -&gt; AssociateServiceRoleToAccount
-</span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#newAssociateServiceRoleToAccount"><span class="hs-identifier hs-var hs-var">newAssociateServiceRoleToAccount</span></a></span></span><span> </span><span id="local-6989586621679368018"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368018"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#newAssociateServiceRoleToAccount"><span class="hs-identifier hs-var hs-var">newAssociateServiceRoleToAccount</span></a></span></span><span> </span><span id="local-6989586621679368027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368027"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccount' :: Text -&gt; AssociateServiceRoleToAccount
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AssociateServiceRoleToAccount' :: Text
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AroleArn%3AAssociateServiceRoleToAccount%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368018"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679368027"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The ARN of the service role you wish to associate with your account.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#associateServiceRoleToAccount_roleArn"><span class="hs-identifier hs-type">associateServiceRoleToAccount_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -164,16 +164,16 @@ AssociateServiceRoleToAccount
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368015"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368024"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:AssociateServiceRoleToAccount' :: AssociateServiceRoleToAccount -&gt; Text
-</span><a href="#local-6989586621679368015"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368015"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368014"><span class="annot"><span class="annottext">s :: AssociateServiceRoleToAccount
-</span><a href="#local-6989586621679368014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368013"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccount
-</span><a href="#local-6989586621679368014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AssociateServiceRoleToAccount' :: Text
+</span><a href="#local-6989586621679368024"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368024"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368023"><span class="annot"><span class="annottext">s :: AssociateServiceRoleToAccount
+</span><a href="#local-6989586621679368023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccount
+</span><a href="#local-6989586621679368023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AssociateServiceRoleToAccount' :: Text
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AroleArn%3AAssociateServiceRoleToAccount%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -182,7 +182,7 @@ $sel:roleArn:AssociateServiceRoleToAccount' :: AssociateServiceRoleToAccount -&g
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679368009"><span class="annot"><span class="annottext">request :: AssociateServiceRoleToAccount
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679368018"><span class="annot"><span class="annottext">request :: AssociateServiceRoleToAccount
 -&gt; Request AssociateServiceRoleToAccount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateServiceRoleToAccount
@@ -190,7 +190,7 @@ $sel:roleArn:AssociateServiceRoleToAccount' :: AssociateServiceRoleToAccount -&g
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679368005"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679368014"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateServiceRoleToAccount
 -&gt; ClientResponse ClientBody
@@ -216,10 +216,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368002"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368002"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368001"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679368001"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368000"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368011"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368011"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368010"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679368010"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368009"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; AssociateServiceRoleToAccountResponse
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var">AssociateServiceRoleToAccountResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; AssociateServiceRoleToAccountResponse)
@@ -227,7 +227,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AssociateServiceRoleToAccountResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679368009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssociatedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,17 +240,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368002"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368011"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679367992"><span id="local-6989586621679367994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679368001"><span id="local-6989586621679368003"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679367985"><span class="annot"><span class="annottext">toHeaders :: AssociateServiceRoleToAccount -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679367994"><span class="annot"><span class="annottext">toHeaders :: AssociateServiceRoleToAccount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateServiceRoleToAccount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -269,12 +269,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367975"><span id="local-6989586621679367977"><span id="local-6989586621679367979"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679367973"><span class="annot"><span class="annottext">toJSON :: AssociateServiceRoleToAccount -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367971"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367984"><span id="local-6989586621679367986"><span id="local-6989586621679367988"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679367982"><span class="annot"><span class="annottext">toJSON :: AssociateServiceRoleToAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367980"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:AssociateServiceRoleToAccount' :: AssociateServiceRoleToAccount -&gt; Text
-</span><a href="#local-6989586621679367971"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367980"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -286,18 +286,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679367971"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679367980"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679367965"><span class="annot"><span class="annottext">toPath :: AssociateServiceRoleToAccount -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679367974"><span class="annot"><span class="annottext">toPath :: AssociateServiceRoleToAccount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateServiceRoleToAccount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/greengrass/servicerole&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccount"><span class="hs-identifier hs-type">AssociateServiceRoleToAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679367961"><span class="annot"><span class="annottext">toQuery :: AssociateServiceRoleToAccount -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679367970"><span class="annot"><span class="annottext">toQuery :: AssociateServiceRoleToAccount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateServiceRoleToAccount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -305,7 +305,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newAssociateServiceRoleToAccountResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679367958"><span id="local-6989586621679367959"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateServiceRoleToAccountResponse"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-var">AssociateServiceRoleToAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateServiceRoleToAccountResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var">AssociateServiceRoleToAccountResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679367967"><span id="local-6989586621679367968"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateServiceRoleToAccountResponse"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-var">AssociateServiceRoleToAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateServiceRoleToAccountResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var">AssociateServiceRoleToAccountResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the service role was associated with the account.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AassociatedAt%3AAssociateServiceRoleToAccountResponse%27"><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AassociatedAt%3AAssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var hs-var">associatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -313,7 +313,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateServiceRoleToAccountResponse%27"><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AhttpStatus%3AAssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367952"><span id="local-6989586621679367954"><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367961"><span id="local-6989586621679367963"><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse
 -&gt; AssociateServiceRoleToAccountResponse -&gt; Bool
 (AssociateServiceRoleToAccountResponse
  -&gt; AssociateServiceRoleToAccountResponse -&gt; Bool)
@@ -329,7 +329,7 @@ $c/= :: AssociateServiceRoleToAccountResponse
 -&gt; AssociateServiceRoleToAccountResponse -&gt; Bool
 $c== :: AssociateServiceRoleToAccountResponse
 -&gt; AssociateServiceRoleToAccountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367944"><span id="local-6989586621679367946"><span id="local-6989586621679367948"><span id="local-6989586621679367950"><span class="annot"><span class="annottext">ReadPrec [AssociateServiceRoleToAccountResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367953"><span id="local-6989586621679367955"><span id="local-6989586621679367957"><span id="local-6989586621679367959"><span class="annot"><span class="annottext">ReadPrec [AssociateServiceRoleToAccountResponse]
 ReadPrec AssociateServiceRoleToAccountResponse
 Int -&gt; ReadS AssociateServiceRoleToAccountResponse
 ReadS [AssociateServiceRoleToAccountResponse]
@@ -349,7 +349,7 @@ readList :: ReadS [AssociateServiceRoleToAccountResponse]
 $creadList :: ReadS [AssociateServiceRoleToAccountResponse]
 readsPrec :: Int -&gt; ReadS AssociateServiceRoleToAccountResponse
 $creadsPrec :: Int -&gt; ReadS AssociateServiceRoleToAccountResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367938"><span id="local-6989586621679367940"><span id="local-6989586621679367942"><span class="annot"><span class="annottext">Int -&gt; AssociateServiceRoleToAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367947"><span id="local-6989586621679367949"><span id="local-6989586621679367951"><span class="annot"><span class="annottext">Int -&gt; AssociateServiceRoleToAccountResponse -&gt; ShowS
 [AssociateServiceRoleToAccountResponse] -&gt; ShowS
 AssociateServiceRoleToAccountResponse -&gt; String
 (Int -&gt; AssociateServiceRoleToAccountResponse -&gt; ShowS)
@@ -403,8 +403,8 @@ AssociateServiceRoleToAccountResponse
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newAssociateServiceRoleToAccountResponse"><span class="annot"><span class="annottext">newAssociateServiceRoleToAccountResponse :: Int -&gt; AssociateServiceRoleToAccountResponse
-</span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#newAssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-var hs-var">newAssociateServiceRoleToAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679367935"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#newAssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-var hs-var">newAssociateServiceRoleToAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679367944"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse' :: Maybe Text -&gt; Int -&gt; AssociateServiceRoleToAccountResponse
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associatedAt:AssociateServiceRoleToAccountResponse' :: Maybe Text
@@ -414,7 +414,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateServiceRoleToAccountResponse' :: Int
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AhttpStatus%3AAssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679367944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The time when the service role was associated with the account.</span><span>
@@ -431,16 +431,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367934"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367943"><span class="annot"><span class="annottext">Maybe Text
 associatedAt :: Maybe Text
 $sel:associatedAt:AssociateServiceRoleToAccountResponse' :: AssociateServiceRoleToAccountResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679367934"><span class="hs-identifier hs-var hs-var">associatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367934"><span class="hs-identifier hs-var">associatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367933"><span class="annot"><span class="annottext">s :: AssociateServiceRoleToAccountResponse
-</span><a href="#local-6989586621679367933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367932"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse
-</span><a href="#local-6989586621679367933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedAt:AssociateServiceRoleToAccountResponse' :: Maybe Text
+</span><a href="#local-6989586621679367943"><span class="hs-identifier hs-var hs-var">associatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367943"><span class="hs-identifier hs-var">associatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367942"><span class="annot"><span class="annottext">s :: AssociateServiceRoleToAccountResponse
+</span><a href="#local-6989586621679367942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse
+</span><a href="#local-6989586621679367942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedAt:AssociateServiceRoleToAccountResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AassociatedAt%3AAssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var">associatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#associateServiceRoleToAccountResponse_httpStatus"><span class="hs-identifier hs-type">associateServiceRoleToAccountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -456,18 +456,18 @@ $sel:associatedAt:AssociateServiceRoleToAccountResponse' :: AssociateServiceRole
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367931"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367940"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateServiceRoleToAccountResponse' :: AssociateServiceRoleToAccountResponse -&gt; Int
-</span><a href="#local-6989586621679367931"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367931"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367930"><span class="annot"><span class="annottext">s :: AssociateServiceRoleToAccountResponse
-</span><a href="#local-6989586621679367930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367929"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse
-</span><a href="#local-6989586621679367930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateServiceRoleToAccountResponse' :: Int
+</span><a href="#local-6989586621679367940"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367940"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367939"><span class="annot"><span class="annottext">s :: AssociateServiceRoleToAccountResponse
+</span><a href="#local-6989586621679367939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateServiceRoleToAccountResponse
+</span><a href="#local-6989586621679367939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateServiceRoleToAccountResponse' :: Int
 </span><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#%24sel%3AhttpStatus%3AAssociateServiceRoleToAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679367927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679367936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateServiceRoleToAccount.html#AssociateServiceRoleToAccountResponse"><span class="hs-identifier hs-type">AssociateServiceRoleToAccountResponse</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621681109210"><span id="local-6989586621681109211"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetStateCode"><span class="annot"><a href="Network.AWS.EC2.Types.FleetStateCode.html#FleetStateCode"><span class="hs-identifier hs-var">FleetStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetStateCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetStateCode.html#FleetStateCode%27"><span class="hs-identifier hs-var">FleetStateCode'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621681109219"><span id="local-6989586621681109220"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetStateCode"><span class="annot"><a href="Network.AWS.EC2.Types.FleetStateCode.html#FleetStateCode"><span class="hs-identifier hs-var">FleetStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetStateCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetStateCode.html#FleetStateCode%27"><span class="hs-identifier hs-var">FleetStateCode'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetStateCode"><span class="annot"><span class="annottext">FleetStateCode -&gt; Text
 </span><a href="Network.AWS.EC2.Types.FleetStateCode.html#fromFleetStateCode"><span class="hs-identifier hs-var hs-var">fromFleetStateCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109202"><span id="local-6989586621681109204"><span id="local-6989586621681109206"><span class="annot"><span class="annottext">Int -&gt; FleetStateCode -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109211"><span id="local-6989586621681109213"><span id="local-6989586621681109215"><span class="annot"><span class="annottext">Int -&gt; FleetStateCode -&gt; ShowS
 [FleetStateCode] -&gt; ShowS
 FleetStateCode -&gt; String
 (Int -&gt; FleetStateCode -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: FleetStateCode -&gt; String
 showsPrec :: Int -&gt; FleetStateCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; FleetStateCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681109193"><span id="local-6989586621681109195"><span id="local-6989586621681109197"><span id="local-6989586621681109199"><span class="annot"><span class="annottext">ReadPrec [FleetStateCode]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681109202"><span id="local-6989586621681109204"><span id="local-6989586621681109206"><span id="local-6989586621681109208"><span class="annot"><span class="annottext">ReadPrec [FleetStateCode]
 ReadPrec FleetStateCode
 Int -&gt; ReadS FleetStateCode
 ReadS [FleetStateCode]
@@ -78,7 +78,7 @@ $creadList :: ReadS [FleetStateCode]
 readsPrec :: Int -&gt; ReadS FleetStateCode
 $creadsPrec :: Int -&gt; ReadS FleetStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681109188"><span id="local-6989586621681109190"><span class="annot"><span class="annottext">FleetStateCode -&gt; FleetStateCode -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681109197"><span id="local-6989586621681109199"><span class="annot"><span class="annottext">FleetStateCode -&gt; FleetStateCode -&gt; Bool
 (FleetStateCode -&gt; FleetStateCode -&gt; Bool)
 -&gt; (FleetStateCode -&gt; FleetStateCode -&gt; Bool) -&gt; Eq FleetStateCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: FleetStateCode -&gt; FleetStateCode -&gt; Bool
 == :: FleetStateCode -&gt; FleetStateCode -&gt; Bool
 $c== :: FleetStateCode -&gt; FleetStateCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681109172"><span id="local-6989586621681109174"><span id="local-6989586621681109176"><span id="local-6989586621681109178"><span id="local-6989586621681109180"><span id="local-6989586621681109182"><span id="local-6989586621681109184"><span class="annot"><span class="annottext">Eq FleetStateCode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681109181"><span id="local-6989586621681109183"><span id="local-6989586621681109185"><span id="local-6989586621681109187"><span id="local-6989586621681109189"><span id="local-6989586621681109191"><span id="local-6989586621681109193"><span class="annot"><span class="annottext">Eq FleetStateCode
 Eq FleetStateCode
 -&gt; (FleetStateCode -&gt; FleetStateCode -&gt; Ordering)
 -&gt; (FleetStateCode -&gt; FleetStateCode -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. FleetStateCode -&gt; Rep FleetStateCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109164"><span id="local-6989586621681109166"><span class="annot"><span class="annottext">Int -&gt; FleetStateCode -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109173"><span id="local-6989586621681109175"><span class="annot"><span class="annottext">Int -&gt; FleetStateCode -&gt; Int
 FleetStateCode -&gt; Int
 (Int -&gt; FleetStateCode -&gt; Int)
 -&gt; (FleetStateCode -&gt; Int) -&gt; Hashable FleetStateCode
@@ -148,50 +148,50 @@ $chash :: FleetStateCode -&gt; Int
 hashWithSalt :: Int -&gt; FleetStateCode -&gt; Int
 $chashWithSalt :: Int -&gt; FleetStateCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681109161"><span class="annot"><span class="annottext">FleetStateCode -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681109170"><span class="annot"><span class="annottext">FleetStateCode -&gt; ()
 (FleetStateCode -&gt; ()) -&gt; NFData FleetStateCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FleetStateCode -&gt; ()
 $crnf :: FleetStateCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681109158"><span class="annot"><span class="annottext">Text -&gt; Either String FleetStateCode
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681109167"><span class="annot"><span class="annottext">Text -&gt; Either String FleetStateCode
 (Text -&gt; Either String FleetStateCode) -&gt; FromText FleetStateCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FleetStateCode
 $cfromText :: Text -&gt; Either String FleetStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681109155"><span class="annot"><span class="annottext">FleetStateCode -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681109164"><span class="annot"><span class="annottext">FleetStateCode -&gt; Text
 (FleetStateCode -&gt; Text) -&gt; ToText FleetStateCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FleetStateCode -&gt; Text
 $ctoText :: FleetStateCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681109152"><span class="annot"><span class="annottext">FleetStateCode -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681109161"><span class="annot"><span class="annottext">FleetStateCode -&gt; ByteString
 (FleetStateCode -&gt; ByteString) -&gt; ToByteString FleetStateCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FleetStateCode -&gt; ByteString
 $ctoBS :: FleetStateCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681109149"><span class="annot"><span class="annottext">FleetStateCode -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681109158"><span class="annot"><span class="annottext">FleetStateCode -&gt; ByteStringBuilder
 (FleetStateCode -&gt; ByteStringBuilder) -&gt; ToLog FleetStateCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FleetStateCode -&gt; ByteStringBuilder
 $cbuild :: FleetStateCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681109146"><span class="annot"><span class="annottext">HeaderName -&gt; FleetStateCode -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681109155"><span class="annot"><span class="annottext">HeaderName -&gt; FleetStateCode -&gt; [Header]
 (HeaderName -&gt; FleetStateCode -&gt; [Header])
 -&gt; ToHeader FleetStateCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FleetStateCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FleetStateCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681109143"><span class="annot"><span class="annottext">FleetStateCode -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681109152"><span class="annot"><span class="annottext">FleetStateCode -&gt; QueryString
 (FleetStateCode -&gt; QueryString) -&gt; ToQuery FleetStateCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FleetStateCode -&gt; QueryString
 $ctoQuery :: FleetStateCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681109138"><span id="local-6989586621681109140"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetStateCode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681109147"><span id="local-6989586621681109149"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetStateCode]
 Value -&gt; Parser FleetStateCode
 (Value -&gt; Parser FleetStateCode)
 -&gt; (Value -&gt; Parser [FleetStateCode]) -&gt; FromJSON FleetStateCode
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [FleetStateCode]
 parseJSON :: Value -&gt; Parser FleetStateCode
 $cparseJSON :: Value -&gt; Parser FleetStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681109133"><span id="local-6989586621681109135"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetStateCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681109142"><span id="local-6989586621681109144"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetStateCode]
 FromJSONKeyFunction FleetStateCode
 FromJSONKeyFunction FleetStateCode
 -&gt; FromJSONKeyFunction [FleetStateCode]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FleetStateCode]
 fromJSONKey :: FromJSONKeyFunction FleetStateCode
 $cfromJSONKey :: FromJSONKeyFunction FleetStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681109124"><span id="local-6989586621681109126"><span id="local-6989586621681109128"><span id="local-6989586621681109130"><span class="annot"><span class="annottext">[FleetStateCode] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681109133"><span id="local-6989586621681109135"><span id="local-6989586621681109137"><span id="local-6989586621681109139"><span class="annot"><span class="annottext">[FleetStateCode] -&gt; Encoding
 [FleetStateCode] -&gt; Value
 FleetStateCode -&gt; Encoding
 FleetStateCode -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: FleetStateCode -&gt; Encoding
 toJSON :: FleetStateCode -&gt; Value
 $ctoJSON :: FleetStateCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681109119"><span id="local-6989586621681109121"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetStateCode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681109128"><span id="local-6989586621681109130"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetStateCode]
 ToJSONKeyFunction FleetStateCode
 ToJSONKeyFunction FleetStateCode
 -&gt; ToJSONKeyFunction [FleetStateCode] -&gt; ToJSONKey FleetStateCode
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FleetStateCode]
 toJSONKey :: ToJSONKeyFunction FleetStateCode
 $ctoJSONKey :: ToJSONKeyFunction FleetStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681109116"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetStateCode
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681109125"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetStateCode
 ([Node] -&gt; Either String FleetStateCode) -&gt; FromXML FleetStateCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FleetStateCode
 $cparseXML :: [Node] -&gt; Either String FleetStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681109113"><span class="annot"><span class="annottext">FleetStateCode -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681109122"><span class="annot"><span class="annottext">FleetStateCode -&gt; XML
 (FleetStateCode -&gt; XML) -&gt; ToXML FleetStateCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FleetStateCode -&gt; XML

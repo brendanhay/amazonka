@@ -1,0 +1,839 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutEquipment.DescribeDataIngestionJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides information on a specific data ingestion job such as creation</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- time, dataset ARN, status, and so on.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutEquipment.DescribeDataIngestionJob</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier">DescribeDataIngestionJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#newDescribeDataIngestionJob"><span class="hs-identifier">newDescribeDataIngestionJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJob_jobId"><span class="hs-identifier">describeDataIngestionJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#newDescribeDataIngestionJobResponse"><span class="hs-identifier">newDescribeDataIngestionJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_ingestionInputConfiguration"><span class="hs-identifier">describeDataIngestionJobResponse_ingestionInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_status"><span class="hs-identifier">describeDataIngestionJobResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_datasetArn"><span class="hs-identifier">describeDataIngestionJobResponse_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_failedReason"><span class="hs-identifier">describeDataIngestionJobResponse_failedReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_jobId"><span class="hs-identifier">describeDataIngestionJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_createdAt"><span class="hs-identifier">describeDataIngestionJobResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_roleArn"><span class="hs-identifier">describeDataIngestionJobResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_httpStatus"><span class="hs-identifier">describeDataIngestionJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeDataIngestionJob' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679214488"><span id="local-6989586621679214489"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDataIngestionJob"><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-var">DescribeDataIngestionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDataIngestionJob%27"><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob%27"><span class="hs-identifier hs-var">DescribeDataIngestionJob'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job ID of the data ingestion job.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobId%3ADescribeDataIngestionJob%27"><span class="annot"><span class="annottext">DescribeDataIngestionJob -&gt; Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AjobId%3ADescribeDataIngestionJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214482"><span id="local-6989586621679214484"><span class="annot"><span class="annottext">DescribeDataIngestionJob -&gt; DescribeDataIngestionJob -&gt; Bool
+(DescribeDataIngestionJob -&gt; DescribeDataIngestionJob -&gt; Bool)
+-&gt; (DescribeDataIngestionJob -&gt; DescribeDataIngestionJob -&gt; Bool)
+-&gt; Eq DescribeDataIngestionJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDataIngestionJob -&gt; DescribeDataIngestionJob -&gt; Bool
+$c/= :: DescribeDataIngestionJob -&gt; DescribeDataIngestionJob -&gt; Bool
+== :: DescribeDataIngestionJob -&gt; DescribeDataIngestionJob -&gt; Bool
+$c== :: DescribeDataIngestionJob -&gt; DescribeDataIngestionJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214473"><span id="local-6989586621679214475"><span id="local-6989586621679214477"><span id="local-6989586621679214479"><span class="annot"><span class="annottext">ReadPrec [DescribeDataIngestionJob]
+ReadPrec DescribeDataIngestionJob
+Int -&gt; ReadS DescribeDataIngestionJob
+ReadS [DescribeDataIngestionJob]
+(Int -&gt; ReadS DescribeDataIngestionJob)
+-&gt; ReadS [DescribeDataIngestionJob]
+-&gt; ReadPrec DescribeDataIngestionJob
+-&gt; ReadPrec [DescribeDataIngestionJob]
+-&gt; Read DescribeDataIngestionJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDataIngestionJob]
+$creadListPrec :: ReadPrec [DescribeDataIngestionJob]
+readPrec :: ReadPrec DescribeDataIngestionJob
+$creadPrec :: ReadPrec DescribeDataIngestionJob
+readList :: ReadS [DescribeDataIngestionJob]
+$creadList :: ReadS [DescribeDataIngestionJob]
+readsPrec :: Int -&gt; ReadS DescribeDataIngestionJob
+$creadsPrec :: Int -&gt; ReadS DescribeDataIngestionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214466"><span id="local-6989586621679214468"><span id="local-6989586621679214470"><span class="annot"><span class="annottext">Int -&gt; DescribeDataIngestionJob -&gt; ShowS
+[DescribeDataIngestionJob] -&gt; ShowS
+DescribeDataIngestionJob -&gt; String
+(Int -&gt; DescribeDataIngestionJob -&gt; ShowS)
+-&gt; (DescribeDataIngestionJob -&gt; String)
+-&gt; ([DescribeDataIngestionJob] -&gt; ShowS)
+-&gt; Show DescribeDataIngestionJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDataIngestionJob] -&gt; ShowS
+$cshowList :: [DescribeDataIngestionJob] -&gt; ShowS
+show :: DescribeDataIngestionJob -&gt; String
+$cshow :: DescribeDataIngestionJob -&gt; String
+showsPrec :: Int -&gt; DescribeDataIngestionJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDataIngestionJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDataIngestionJob -&gt; Rep DescribeDataIngestionJob x)
+-&gt; (forall x.
+    Rep DescribeDataIngestionJob x -&gt; DescribeDataIngestionJob)
+-&gt; Generic DescribeDataIngestionJob
+forall x.
+Rep DescribeDataIngestionJob x -&gt; DescribeDataIngestionJob
+forall x.
+DescribeDataIngestionJob -&gt; Rep DescribeDataIngestionJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDataIngestionJob x -&gt; DescribeDataIngestionJob
+$cfrom :: forall x.
+DescribeDataIngestionJob -&gt; Rep DescribeDataIngestionJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeDataIngestionJob' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'jobId', 'describeDataIngestionJob_jobId' - The job ID of the data ingestion job.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#newDescribeDataIngestionJob"><span class="hs-identifier hs-type">newDescribeDataIngestionJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span>
+</span><span id="line-76"></span><span id="newDescribeDataIngestionJob"><span class="annot"><span class="annottext">newDescribeDataIngestionJob :: Text -&gt; DescribeDataIngestionJob
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#newDescribeDataIngestionJob"><span class="hs-identifier hs-var hs-var">newDescribeDataIngestionJob</span></a></span></span><span> </span><span id="local-6989586621679214461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214461"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DescribeDataIngestionJob' :: Text -&gt; DescribeDataIngestionJob
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob%27"><span class="hs-identifier hs-type">DescribeDataIngestionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeDataIngestionJob' :: Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AjobId%3ADescribeDataIngestionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214461"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The job ID of the data ingestion job.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJob_jobId"><span class="hs-identifier hs-type">describeDataIngestionJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="describeDataIngestionJob_jobId"><span class="annot"><span class="annottext">describeDataIngestionJob_jobId :: (Text -&gt; f Text)
+-&gt; DescribeDataIngestionJob -&gt; f DescribeDataIngestionJob
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJob_jobId"><span class="hs-identifier hs-var hs-var">describeDataIngestionJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJob -&gt; Text)
+-&gt; (DescribeDataIngestionJob -&gt; Text -&gt; DescribeDataIngestionJob)
+-&gt; Lens DescribeDataIngestionJob DescribeDataIngestionJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob%27"><span class="hs-identifier hs-type">DescribeDataIngestionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214458"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeDataIngestionJob' :: DescribeDataIngestionJob -&gt; Text
+</span><a href="#local-6989586621679214458"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214458"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214457"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJob
+</span><a href="#local-6989586621679214457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob%27"><span class="hs-identifier hs-type">DescribeDataIngestionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJob
+</span><a href="#local-6989586621679214457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeDataIngestionJob' :: Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AjobId%3ADescribeDataIngestionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679214452"><span class="annot"><span class="annottext">request :: DescribeDataIngestionJob -&gt; Request DescribeDataIngestionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeDataIngestionJob -&gt; Request DescribeDataIngestionJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679214448"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDataIngestionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDataIngestionJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDataIngestionJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDataIngestionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDataIngestionJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214445"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214444"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679214444"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe IngestionInputConfiguration
+-&gt; Maybe IngestionJobStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">DescribeDataIngestionJobResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IngestionInputConfiguration
+ -&gt; Maybe IngestionJobStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String (Maybe IngestionInputConfiguration)
+-&gt; Either
+     String
+     (Maybe IngestionJobStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeDataIngestionJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IngestionInputConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionInputConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe IngestionJobStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String (Maybe IngestionJobStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeDataIngestionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IngestionJobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeDataIngestionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatasetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeDataIngestionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailedReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeDataIngestionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeDataIngestionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeDataIngestionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDataIngestionJobResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeDataIngestionJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214445"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214435"><span id="local-6989586621679214437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679214428"><span class="annot"><span class="annottext">toHeaders :: DescribeDataIngestionJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDataIngestionJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLookoutEquipmentFrontendService.DescribeDataIngestionJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214418"><span id="local-6989586621679214420"><span id="local-6989586621679214422"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679214416"><span class="annot"><span class="annottext">toJSON :: DescribeDataIngestionJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob%27"><span class="hs-identifier hs-type">DescribeDataIngestionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214414"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeDataIngestionJob' :: DescribeDataIngestionJob -&gt; Text
+</span><a href="#local-6989586621679214414"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214414"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679214408"><span class="annot"><span class="annottext">toPath :: DescribeDataIngestionJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDataIngestionJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJob"><span class="hs-identifier hs-type">DescribeDataIngestionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679214404"><span class="annot"><span class="annottext">toQuery :: DescribeDataIngestionJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDataIngestionJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDescribeDataIngestionJobResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679214401"><span id="local-6989586621679214402"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDataIngestionJobResponse"><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-var">DescribeDataIngestionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDataIngestionJobResponse%27"><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">DescribeDataIngestionJobResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the S3 location configuration for the data input for the data</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- ingestion job.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AingestionInputConfiguration%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+-&gt; Maybe IngestionInputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AingestionInputConfiguration%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">ingestionInputConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.html#IngestionInputConfiguration"><span class="hs-identifier hs-type">IngestionInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | Indicates the status of the @DataIngestionJob@ operation.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse -&gt; Maybe IngestionJobStatus
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3Astatus%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionJobStatus.html#IngestionJobStatus"><span class="hs-identifier hs-type">IngestionJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset being used in the data</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- ingestion job.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AdatasetArn%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AdatasetArn%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | Specifies the reason for failure when a data ingestion job has failed.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AfailedReason%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AfailedReason%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">failedReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | Indicates the job ID of the data ingestion job.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AjobId%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AjobId%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The time at which the data ingestion job was created.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AcreatedAt%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AcreatedAt%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role with permission to access</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- the data source being ingested.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AroleArn%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AroleArn%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDataIngestionJobResponse%27"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse -&gt; Int
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AhttpStatus%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214389"><span id="local-6989586621679214391"><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+-&gt; DescribeDataIngestionJobResponse -&gt; Bool
+(DescribeDataIngestionJobResponse
+ -&gt; DescribeDataIngestionJobResponse -&gt; Bool)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; DescribeDataIngestionJobResponse -&gt; Bool)
+-&gt; Eq DescribeDataIngestionJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDataIngestionJobResponse
+-&gt; DescribeDataIngestionJobResponse -&gt; Bool
+$c/= :: DescribeDataIngestionJobResponse
+-&gt; DescribeDataIngestionJobResponse -&gt; Bool
+== :: DescribeDataIngestionJobResponse
+-&gt; DescribeDataIngestionJobResponse -&gt; Bool
+$c== :: DescribeDataIngestionJobResponse
+-&gt; DescribeDataIngestionJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214381"><span id="local-6989586621679214383"><span id="local-6989586621679214385"><span id="local-6989586621679214387"><span class="annot"><span class="annottext">ReadPrec [DescribeDataIngestionJobResponse]
+ReadPrec DescribeDataIngestionJobResponse
+Int -&gt; ReadS DescribeDataIngestionJobResponse
+ReadS [DescribeDataIngestionJobResponse]
+(Int -&gt; ReadS DescribeDataIngestionJobResponse)
+-&gt; ReadS [DescribeDataIngestionJobResponse]
+-&gt; ReadPrec DescribeDataIngestionJobResponse
+-&gt; ReadPrec [DescribeDataIngestionJobResponse]
+-&gt; Read DescribeDataIngestionJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDataIngestionJobResponse]
+$creadListPrec :: ReadPrec [DescribeDataIngestionJobResponse]
+readPrec :: ReadPrec DescribeDataIngestionJobResponse
+$creadPrec :: ReadPrec DescribeDataIngestionJobResponse
+readList :: ReadS [DescribeDataIngestionJobResponse]
+$creadList :: ReadS [DescribeDataIngestionJobResponse]
+readsPrec :: Int -&gt; ReadS DescribeDataIngestionJobResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDataIngestionJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214375"><span id="local-6989586621679214377"><span id="local-6989586621679214379"><span class="annot"><span class="annottext">Int -&gt; DescribeDataIngestionJobResponse -&gt; ShowS
+[DescribeDataIngestionJobResponse] -&gt; ShowS
+DescribeDataIngestionJobResponse -&gt; String
+(Int -&gt; DescribeDataIngestionJobResponse -&gt; ShowS)
+-&gt; (DescribeDataIngestionJobResponse -&gt; String)
+-&gt; ([DescribeDataIngestionJobResponse] -&gt; ShowS)
+-&gt; Show DescribeDataIngestionJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDataIngestionJobResponse] -&gt; ShowS
+$cshowList :: [DescribeDataIngestionJobResponse] -&gt; ShowS
+show :: DescribeDataIngestionJobResponse -&gt; String
+$cshow :: DescribeDataIngestionJobResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDataIngestionJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDataIngestionJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDataIngestionJobResponse
+ -&gt; Rep DescribeDataIngestionJobResponse x)
+-&gt; (forall x.
+    Rep DescribeDataIngestionJobResponse x
+    -&gt; DescribeDataIngestionJobResponse)
+-&gt; Generic DescribeDataIngestionJobResponse
+forall x.
+Rep DescribeDataIngestionJobResponse x
+-&gt; DescribeDataIngestionJobResponse
+forall x.
+DescribeDataIngestionJobResponse
+-&gt; Rep DescribeDataIngestionJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDataIngestionJobResponse x
+-&gt; DescribeDataIngestionJobResponse
+$cfrom :: forall x.
+DescribeDataIngestionJobResponse
+-&gt; Rep DescribeDataIngestionJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'DescribeDataIngestionJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'ingestionInputConfiguration', 'describeDataIngestionJobResponse_ingestionInputConfiguration' - Specifies the S3 location configuration for the data input for the data</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- ingestion job.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'status', 'describeDataIngestionJobResponse_status' - Indicates the status of the @DataIngestionJob@ operation.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'datasetArn', 'describeDataIngestionJobResponse_datasetArn' - The Amazon Resource Name (ARN) of the dataset being used in the data</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- ingestion job.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'failedReason', 'describeDataIngestionJobResponse_failedReason' - Specifies the reason for failure when a data ingestion job has failed.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'jobId', 'describeDataIngestionJobResponse_jobId' - Indicates the job ID of the data ingestion job.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'createdAt', 'describeDataIngestionJobResponse_createdAt' - The time at which the data ingestion job was created.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'roleArn', 'describeDataIngestionJobResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role with permission to access</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- the data source being ingested.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'describeDataIngestionJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#newDescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">newDescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newDescribeDataIngestionJobResponse"><span class="annot"><span class="annottext">newDescribeDataIngestionJobResponse :: Int -&gt; DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#newDescribeDataIngestionJobResponse"><span class="hs-identifier hs-var hs-var">newDescribeDataIngestionJobResponse</span></a></span></span><span> </span><span id="local-6989586621679214372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214372"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse' :: Maybe IngestionInputConfiguration
+-&gt; Maybe IngestionJobStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ingestionInputConfiguration:DescribeDataIngestionJobResponse' :: Maybe IngestionInputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AingestionInputConfiguration%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">ingestionInputConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe IngestionInputConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeDataIngestionJobResponse' :: Maybe IngestionJobStatus
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3Astatus%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionJobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetArn:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AdatasetArn%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedReason:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AfailedReason%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">failedReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AjobId%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:DescribeDataIngestionJobResponse' :: Maybe POSIX
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AcreatedAt%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AroleArn%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDataIngestionJobResponse' :: Int
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AhttpStatus%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214372"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Specifies the S3 location configuration for the data input for the data</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- ingestion job.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_ingestionInputConfiguration"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_ingestionInputConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.html#IngestionInputConfiguration"><span class="hs-identifier hs-type">IngestionInputConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="describeDataIngestionJobResponse_ingestionInputConfiguration"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_ingestionInputConfiguration :: (Maybe IngestionInputConfiguration
+ -&gt; f (Maybe IngestionInputConfiguration))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_ingestionInputConfiguration"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_ingestionInputConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse
+ -&gt; Maybe IngestionInputConfiguration)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Maybe IngestionInputConfiguration
+    -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     (Maybe IngestionInputConfiguration)
+     (Maybe IngestionInputConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214371"><span class="annot"><span class="annottext">Maybe IngestionInputConfiguration
+ingestionInputConfiguration :: Maybe IngestionInputConfiguration
+$sel:ingestionInputConfiguration:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse
+-&gt; Maybe IngestionInputConfiguration
+</span><a href="#local-6989586621679214371"><span class="hs-identifier hs-var hs-var">ingestionInputConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionInputConfiguration
+</span><a href="#local-6989586621679214371"><span class="hs-identifier hs-var">ingestionInputConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214370"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214369"><span class="annot"><span class="annottext">Maybe IngestionInputConfiguration
+</span><a href="#local-6989586621679214369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionInputConfiguration:DescribeDataIngestionJobResponse' :: Maybe IngestionInputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AingestionInputConfiguration%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">ingestionInputConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionInputConfiguration
+</span><a href="#local-6989586621679214369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | Indicates the status of the @DataIngestionJob@ operation.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_status"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionJobStatus.html#IngestionJobStatus"><span class="hs-identifier hs-type">IngestionJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="describeDataIngestionJobResponse_status"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_status :: (Maybe IngestionJobStatus -&gt; f (Maybe IngestionJobStatus))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_status"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse -&gt; Maybe IngestionJobStatus)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Maybe IngestionJobStatus -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     (Maybe IngestionJobStatus)
+     (Maybe IngestionJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214368"><span class="annot"><span class="annottext">Maybe IngestionJobStatus
+status :: Maybe IngestionJobStatus
+$sel:status:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse -&gt; Maybe IngestionJobStatus
+</span><a href="#local-6989586621679214368"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionJobStatus
+</span><a href="#local-6989586621679214368"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214367"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214366"><span class="annot"><span class="annottext">Maybe IngestionJobStatus
+</span><a href="#local-6989586621679214366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeDataIngestionJobResponse' :: Maybe IngestionJobStatus
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3Astatus%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionJobStatus
+</span><a href="#local-6989586621679214366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset being used in the data</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- ingestion job.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_datasetArn"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_datasetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="describeDataIngestionJobResponse_datasetArn"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_datasetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_datasetArn"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_datasetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse -&gt; Maybe Text)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Maybe Text -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214365"><span class="annot"><span class="annottext">Maybe Text
+datasetArn :: Maybe Text
+$sel:datasetArn:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679214365"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214365"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214364"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214363"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetArn:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AdatasetArn%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | Specifies the reason for failure when a data ingestion job has failed.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_failedReason"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_failedReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="describeDataIngestionJobResponse_failedReason"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_failedReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_failedReason"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_failedReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse -&gt; Maybe Text)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Maybe Text -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214362"><span class="annot"><span class="annottext">Maybe Text
+failedReason :: Maybe Text
+$sel:failedReason:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679214362"><span class="hs-identifier hs-var hs-var">failedReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214362"><span class="hs-identifier hs-var">failedReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214361"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedReason:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AfailedReason%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">failedReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | Indicates the job ID of the data ingestion job.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_jobId"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="describeDataIngestionJobResponse_jobId"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_jobId"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse -&gt; Maybe Text)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Maybe Text -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214359"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679214359"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214359"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214358"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214357"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AjobId%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The time at which the data ingestion job was created.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_createdAt"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="describeDataIngestionJobResponse_createdAt"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_createdAt"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse -&gt; Maybe POSIX)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Maybe POSIX -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214356"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679214356"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679214356"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214355"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214354"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679214354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:DescribeDataIngestionJobResponse' :: Maybe POSIX
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AcreatedAt%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679214354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeDataIngestionJobResponse
+ -&gt; f DescribeDataIngestionJobResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role with permission to access</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- the data source being ingested.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_roleArn"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="describeDataIngestionJobResponse_roleArn"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_roleArn"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse -&gt; Maybe Text)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Maybe Text -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214350"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679214350"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214350"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214349"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DescribeDataIngestionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AroleArn%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_httpStatus"><span class="hs-identifier hs-type">describeDataIngestionJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-234"></span><span id="describeDataIngestionJobResponse_httpStatus"><span class="annot"><span class="annottext">describeDataIngestionJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeDataIngestionJobResponse
+-&gt; f DescribeDataIngestionJobResponse
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#describeDataIngestionJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeDataIngestionJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDataIngestionJobResponse -&gt; Int)
+-&gt; (DescribeDataIngestionJobResponse
+    -&gt; Int -&gt; DescribeDataIngestionJobResponse)
+-&gt; Lens
+     DescribeDataIngestionJobResponse
+     DescribeDataIngestionJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214347"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeDataIngestionJobResponse' :: DescribeDataIngestionJobResponse -&gt; Int
+</span><a href="#local-6989586621679214347"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214347"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214346"><span class="annot"><span class="annottext">s :: DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214345"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDataIngestionJobResponse
+</span><a href="#local-6989586621679214346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDataIngestionJobResponse' :: Int
+</span><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#%24sel%3AhttpStatus%3ADescribeDataIngestionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679214343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.DescribeDataIngestionJob.html#DescribeDataIngestionJobResponse"><span class="hs-identifier hs-type">DescribeDataIngestionJobResponse</span></a></span></span><span>
+</span><span id="line-239"></span></pre></body></html>

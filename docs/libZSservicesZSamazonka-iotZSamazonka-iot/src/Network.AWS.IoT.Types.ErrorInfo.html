@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Error information.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newErrorInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679784833"><span id="local-6989586621679784834"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorInfo"><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-var">ErrorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorInfo%27"><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-var">ErrorInfo'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679784842"><span id="local-6989586621679784843"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorInfo"><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-var">ErrorInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorInfo%27"><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-var">ErrorInfo'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Acode%3AErrorInfo%27"><span class="annot"><span class="annottext">ErrorInfo -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.ErrorInfo.html#%24sel%3Acode%3AErrorInfo%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3AErrorInfo%27"><span class="annot"><span class="annottext">ErrorInfo -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.ErrorInfo.html#%24sel%3Amessage%3AErrorInfo%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784826"><span id="local-6989586621679784828"><span class="annot"><span class="annottext">ErrorInfo -&gt; ErrorInfo -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784835"><span id="local-6989586621679784837"><span class="annot"><span class="annottext">ErrorInfo -&gt; ErrorInfo -&gt; Bool
 (ErrorInfo -&gt; ErrorInfo -&gt; Bool)
 -&gt; (ErrorInfo -&gt; ErrorInfo -&gt; Bool) -&gt; Eq ErrorInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorInfo -&gt; ErrorInfo -&gt; Bool
 == :: ErrorInfo -&gt; ErrorInfo -&gt; Bool
 $c== :: ErrorInfo -&gt; ErrorInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784817"><span id="local-6989586621679784819"><span id="local-6989586621679784821"><span id="local-6989586621679784823"><span class="annot"><span class="annottext">ReadPrec [ErrorInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784826"><span id="local-6989586621679784828"><span id="local-6989586621679784830"><span id="local-6989586621679784832"><span class="annot"><span class="annottext">ReadPrec [ErrorInfo]
 ReadPrec ErrorInfo
 Int -&gt; ReadS ErrorInfo
 ReadS [ErrorInfo]
@@ -62,7 +62,7 @@ readList :: ReadS [ErrorInfo]
 $creadList :: ReadS [ErrorInfo]
 readsPrec :: Int -&gt; ReadS ErrorInfo
 $creadsPrec :: Int -&gt; ReadS ErrorInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784810"><span id="local-6989586621679784812"><span id="local-6989586621679784814"><span class="annot"><span class="annottext">Int -&gt; ErrorInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784819"><span id="local-6989586621679784821"><span id="local-6989586621679784823"><span class="annot"><span class="annottext">Int -&gt; ErrorInfo -&gt; ShowS
 [ErrorInfo] -&gt; ShowS
 ErrorInfo -&gt; String
 (Int -&gt; ErrorInfo -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (ErrorInfo -&gt; Maybe Text -&gt; ErrorInfo)
 -&gt; Lens ErrorInfo ErrorInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784801"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784810"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:ErrorInfo' :: ErrorInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679784801"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784801"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784800"><span class="annot"><span class="annottext">s :: ErrorInfo
-</span><a href="#local-6989586621679784800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784799"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInfo
-</span><a href="#local-6989586621679784800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ErrorInfo' :: Maybe Text
+</span><a href="#local-6989586621679784810"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679784810"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784809"><span class="annot"><span class="annottext">s :: ErrorInfo
+</span><a href="#local-6989586621679784809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784808"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679784808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInfo
+</span><a href="#local-6989586621679784809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ErrorInfo' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.ErrorInfo.html#%24sel%3Acode%3AErrorInfo%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The error message.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#errorInfo_message"><span class="hs-identifier hs-type">errorInfo_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -139,34 +139,34 @@ $sel:code:ErrorInfo' :: ErrorInfo -&gt; Maybe Text
 -&gt; (ErrorInfo -&gt; Maybe Text -&gt; ErrorInfo)
 -&gt; Lens ErrorInfo ErrorInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784797"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784806"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:ErrorInfo' :: ErrorInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679784797"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784797"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784796"><span class="annot"><span class="annottext">s :: ErrorInfo
-</span><a href="#local-6989586621679784796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784795"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInfo
-</span><a href="#local-6989586621679784796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ErrorInfo' :: Maybe Text
+</span><a href="#local-6989586621679784806"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679784806"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784805"><span class="annot"><span class="annottext">s :: ErrorInfo
+</span><a href="#local-6989586621679784805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-type">ErrorInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784804"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679784804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInfo
+</span><a href="#local-6989586621679784805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ErrorInfo' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.ErrorInfo.html#%24sel%3Amessage%3AErrorInfo%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784792"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679784790"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorInfo
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784801"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679784799"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser ErrorInfo) -&gt; Value -&gt; Parser ErrorInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ErrorInfo&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784787"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784796"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679784796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ErrorInfo
 </span><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo%27"><span class="hs-identifier hs-var">ErrorInfo'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ErrorInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ErrorInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679784796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
@@ -174,13 +174,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ErrorInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679784796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784781"><span id="local-6989586621679784783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784790"><span id="local-6989586621679784792"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784787"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ErrorInfo.html#ErrorInfo"><span class="hs-identifier hs-type">ErrorInfo</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

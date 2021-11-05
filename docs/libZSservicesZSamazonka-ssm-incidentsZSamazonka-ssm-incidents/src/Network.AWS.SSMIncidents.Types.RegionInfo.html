@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSMIncidents.Types.RegionInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMIncidents.Types.RegionInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionStatus.html"><span class="hs-identifier">Network.AWS.SSMIncidents.Types.RegionStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a Region in your replication set.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRegionInfo' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679215163"><span id="local-6989586621679215164"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegionInfo"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-var">RegionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionInfo%27"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-var">RegionInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information displayed about the status of the Region.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstatusMessage%3ARegionInfo%27"><span class="annot"><span class="annottext">RegionInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AstatusMessage%3ARegionInfo%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the KMS key used to encrypt the data in this Region.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsseKmsKeyId%3ARegionInfo%27"><span class="annot"><span class="annottext">RegionInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AsseKmsKeyId%3ARegionInfo%27"><span class="hs-identifier hs-var hs-var">sseKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the Region in the replication set.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ARegionInfo%27"><span class="annot"><span class="annottext">RegionInfo -&gt; RegionStatus
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3Astatus%3ARegionInfo%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionStatus.html#RegionStatus"><span class="hs-identifier hs-type">RegionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The most recent date and time that the Region\'s status was updated.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstatusUpdateDateTime%3ARegionInfo%27"><span class="annot"><span class="annottext">RegionInfo -&gt; POSIX
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AstatusUpdateDateTime%3ARegionInfo%27"><span class="hs-identifier hs-var hs-var">statusUpdateDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215154"><span id="local-6989586621679215156"><span class="annot"><span class="annottext">RegionInfo -&gt; RegionInfo -&gt; Bool
+(RegionInfo -&gt; RegionInfo -&gt; Bool)
+-&gt; (RegionInfo -&gt; RegionInfo -&gt; Bool) -&gt; Eq RegionInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegionInfo -&gt; RegionInfo -&gt; Bool
+$c/= :: RegionInfo -&gt; RegionInfo -&gt; Bool
+== :: RegionInfo -&gt; RegionInfo -&gt; Bool
+$c== :: RegionInfo -&gt; RegionInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215145"><span id="local-6989586621679215147"><span id="local-6989586621679215149"><span id="local-6989586621679215151"><span class="annot"><span class="annottext">ReadPrec [RegionInfo]
+ReadPrec RegionInfo
+Int -&gt; ReadS RegionInfo
+ReadS [RegionInfo]
+(Int -&gt; ReadS RegionInfo)
+-&gt; ReadS [RegionInfo]
+-&gt; ReadPrec RegionInfo
+-&gt; ReadPrec [RegionInfo]
+-&gt; Read RegionInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegionInfo]
+$creadListPrec :: ReadPrec [RegionInfo]
+readPrec :: ReadPrec RegionInfo
+$creadPrec :: ReadPrec RegionInfo
+readList :: ReadS [RegionInfo]
+$creadList :: ReadS [RegionInfo]
+readsPrec :: Int -&gt; ReadS RegionInfo
+$creadsPrec :: Int -&gt; ReadS RegionInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215138"><span id="local-6989586621679215140"><span id="local-6989586621679215142"><span class="annot"><span class="annottext">Int -&gt; RegionInfo -&gt; ShowS
+[RegionInfo] -&gt; ShowS
+RegionInfo -&gt; String
+(Int -&gt; RegionInfo -&gt; ShowS)
+-&gt; (RegionInfo -&gt; String)
+-&gt; ([RegionInfo] -&gt; ShowS)
+-&gt; Show RegionInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegionInfo] -&gt; ShowS
+$cshowList :: [RegionInfo] -&gt; ShowS
+show :: RegionInfo -&gt; String
+$cshow :: RegionInfo -&gt; String
+showsPrec :: Int -&gt; RegionInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegionInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegionInfo -&gt; Rep RegionInfo x)
+-&gt; (forall x. Rep RegionInfo x -&gt; RegionInfo) -&gt; Generic RegionInfo
+forall x. Rep RegionInfo x -&gt; RegionInfo
+forall x. RegionInfo -&gt; Rep RegionInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegionInfo x -&gt; RegionInfo
+$cfrom :: forall x. RegionInfo -&gt; Rep RegionInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'RegionInfo' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'statusMessage', 'regionInfo_statusMessage' - Information displayed about the status of the Region.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'sseKmsKeyId', 'regionInfo_sseKmsKeyId' - The ID of the KMS key used to encrypt the data in this Region.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'status', 'regionInfo_status' - The status of the Region in the replication set.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'statusUpdateDateTime', 'regionInfo_statusUpdateDateTime' - The most recent date and time that the Region\'s status was updated.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#newRegionInfo"><span class="hs-identifier hs-type">newRegionInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionStatus.html#RegionStatus"><span class="hs-identifier hs-type">RegionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'statusUpdateDateTime'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span>
+</span><span id="line-63"></span><span id="newRegionInfo"><span class="annot"><span class="annottext">newRegionInfo :: RegionStatus -&gt; UTCTime -&gt; RegionInfo
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#newRegionInfo"><span class="hs-identifier hs-var hs-var">newRegionInfo</span></a></span></span><span> </span><span id="local-6989586621679215132"><span class="annot"><span class="annottext">RegionStatus
+</span><a href="#local-6989586621679215132"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span id="local-6989586621679215131"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679215131"><span class="hs-identifier hs-var">pStatusUpdateDateTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">RegionInfo' :: Maybe Text -&gt; Maybe Text -&gt; RegionStatus -&gt; POSIX -&gt; RegionInfo
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:RegionInfo' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AstatusMessage%3ARegionInfo%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:sseKmsKeyId:RegionInfo' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AsseKmsKeyId%3ARegionInfo%27"><span class="hs-identifier hs-var">sseKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:RegionInfo' :: RegionStatus
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3Astatus%3ARegionInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegionStatus
+</span><a href="#local-6989586621679215132"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusUpdateDateTime:RegionInfo' :: POSIX
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AstatusUpdateDateTime%3ARegionInfo%27"><span class="hs-identifier hs-var">statusUpdateDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679215131"><span class="hs-identifier hs-var">pStatusUpdateDateTime_</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Information displayed about the status of the Region.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_statusMessage"><span class="hs-identifier hs-type">regionInfo_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="regionInfo_statusMessage"><span class="annot"><span class="annottext">regionInfo_statusMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RegionInfo -&gt; f RegionInfo
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_statusMessage"><span class="hs-identifier hs-var hs-var">regionInfo_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegionInfo -&gt; Maybe Text)
+-&gt; (RegionInfo -&gt; Maybe Text -&gt; RegionInfo)
+-&gt; Lens RegionInfo RegionInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215125"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:RegionInfo' :: RegionInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679215125"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215125"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215124"><span class="annot"><span class="annottext">s :: RegionInfo
+</span><a href="#local-6989586621679215124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
+</span><a href="#local-6989586621679215124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:RegionInfo' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AstatusMessage%3ARegionInfo%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The ID of the KMS key used to encrypt the data in this Region.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_sseKmsKeyId"><span class="hs-identifier hs-type">regionInfo_sseKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="regionInfo_sseKmsKeyId"><span class="annot"><span class="annottext">regionInfo_sseKmsKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RegionInfo -&gt; f RegionInfo
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_sseKmsKeyId"><span class="hs-identifier hs-var hs-var">regionInfo_sseKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegionInfo -&gt; Maybe Text)
+-&gt; (RegionInfo -&gt; Maybe Text -&gt; RegionInfo)
+-&gt; Lens RegionInfo RegionInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215121"><span class="annot"><span class="annottext">Maybe Text
+sseKmsKeyId :: Maybe Text
+$sel:sseKmsKeyId:RegionInfo' :: RegionInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679215121"><span class="hs-identifier hs-var hs-var">sseKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215121"><span class="hs-identifier hs-var">sseKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215120"><span class="annot"><span class="annottext">s :: RegionInfo
+</span><a href="#local-6989586621679215120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215119"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
+</span><a href="#local-6989586621679215120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sseKmsKeyId:RegionInfo' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AsseKmsKeyId%3ARegionInfo%27"><span class="hs-identifier hs-var">sseKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The status of the Region in the replication set.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_status"><span class="hs-identifier hs-type">regionInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionStatus.html#RegionStatus"><span class="hs-identifier hs-type">RegionStatus</span></a></span><span>
+</span><span id="line-82"></span><span id="regionInfo_status"><span class="annot"><span class="annottext">regionInfo_status :: (RegionStatus -&gt; f RegionStatus) -&gt; RegionInfo -&gt; f RegionInfo
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_status"><span class="hs-identifier hs-var hs-var">regionInfo_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegionInfo -&gt; RegionStatus)
+-&gt; (RegionInfo -&gt; RegionStatus -&gt; RegionInfo)
+-&gt; Lens RegionInfo RegionInfo RegionStatus RegionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215117"><span class="annot"><span class="annottext">RegionStatus
+status :: RegionStatus
+$sel:status:RegionInfo' :: RegionInfo -&gt; RegionStatus
+</span><a href="#local-6989586621679215117"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionStatus
+</span><a href="#local-6989586621679215117"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215116"><span class="annot"><span class="annottext">s :: RegionInfo
+</span><a href="#local-6989586621679215116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215115"><span class="annot"><span class="annottext">RegionStatus
+</span><a href="#local-6989586621679215115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
+</span><a href="#local-6989586621679215116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RegionInfo' :: RegionStatus
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3Astatus%3ARegionInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegionStatus
+</span><a href="#local-6989586621679215115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The most recent date and time that the Region\'s status was updated.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_statusUpdateDateTime"><span class="hs-identifier hs-type">regionInfo_statusUpdateDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-86"></span><span id="regionInfo_statusUpdateDateTime"><span class="annot"><span class="annottext">regionInfo_statusUpdateDateTime :: (UTCTime -&gt; f UTCTime) -&gt; RegionInfo -&gt; f RegionInfo
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#regionInfo_statusUpdateDateTime"><span class="hs-identifier hs-var hs-var">regionInfo_statusUpdateDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegionInfo -&gt; POSIX)
+-&gt; (RegionInfo -&gt; POSIX -&gt; RegionInfo)
+-&gt; Lens RegionInfo RegionInfo POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215113"><span class="annot"><span class="annottext">POSIX
+statusUpdateDateTime :: POSIX
+$sel:statusUpdateDateTime:RegionInfo' :: RegionInfo -&gt; POSIX
+</span><a href="#local-6989586621679215113"><span class="hs-identifier hs-var hs-var">statusUpdateDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679215113"><span class="hs-identifier hs-var">statusUpdateDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215112"><span class="annot"><span class="annottext">s :: RegionInfo
+</span><a href="#local-6989586621679215112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215111"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679215111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
+</span><a href="#local-6989586621679215112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusUpdateDateTime:RegionInfo' :: POSIX
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#%24sel%3AstatusUpdateDateTime%3ARegionInfo%27"><span class="hs-identifier hs-var">statusUpdateDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679215111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RegionInfo -&gt; f RegionInfo)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RegionInfo
+-&gt; f RegionInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215107"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679215105"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RegionInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RegionInfo) -&gt; Value -&gt; Parser RegionInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RegionInfo&quot;</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215102"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215102"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; RegionStatus -&gt; POSIX -&gt; RegionInfo
+</span><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-var">RegionInfo'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; RegionStatus -&gt; POSIX -&gt; RegionInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; RegionStatus -&gt; POSIX -&gt; RegionInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RegionStatus -&gt; POSIX -&gt; RegionInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (RegionStatus -&gt; POSIX -&gt; RegionInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sseKmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (RegionStatus -&gt; POSIX -&gt; RegionInfo)
+-&gt; Parser RegionStatus -&gt; Parser (POSIX -&gt; RegionInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RegionStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; RegionInfo) -&gt; Parser POSIX -&gt; Parser RegionInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusUpdateDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215095"><span id="local-6989586621679215097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span></span><span>
+</span><span id="line-103"></span></pre></body></html>

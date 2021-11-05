@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains the count of tasks in a task list.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPendingTaskCount' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679347155"><span id="local-6989586621679347156"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingTaskCount"><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-var">PendingTaskCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingTaskCount%27"><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-var">PendingTaskCount'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679347164"><span id="local-6989586621679347165"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingTaskCount"><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-var">PendingTaskCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingTaskCount%27"><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-var">PendingTaskCount'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to true, indicates that the actual count was more than the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- maximum supported by this API and the count returned is the truncated</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- value.</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acount%3APendingTaskCount%27"><span class="annot"><span class="annottext">PendingTaskCount -&gt; Natural
 </span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#%24sel%3Acount%3APendingTaskCount%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347148"><span id="local-6989586621679347150"><span class="annot"><span class="annottext">PendingTaskCount -&gt; PendingTaskCount -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347157"><span id="local-6989586621679347159"><span class="annot"><span class="annottext">PendingTaskCount -&gt; PendingTaskCount -&gt; Bool
 (PendingTaskCount -&gt; PendingTaskCount -&gt; Bool)
 -&gt; (PendingTaskCount -&gt; PendingTaskCount -&gt; Bool)
 -&gt; Eq PendingTaskCount
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PendingTaskCount -&gt; PendingTaskCount -&gt; Bool
 == :: PendingTaskCount -&gt; PendingTaskCount -&gt; Bool
 $c== :: PendingTaskCount -&gt; PendingTaskCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347139"><span id="local-6989586621679347141"><span id="local-6989586621679347143"><span id="local-6989586621679347145"><span class="annot"><span class="annottext">ReadPrec [PendingTaskCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347148"><span id="local-6989586621679347150"><span id="local-6989586621679347152"><span id="local-6989586621679347154"><span class="annot"><span class="annottext">ReadPrec [PendingTaskCount]
 ReadPrec PendingTaskCount
 Int -&gt; ReadS PendingTaskCount
 ReadS [PendingTaskCount]
@@ -65,7 +65,7 @@ readList :: ReadS [PendingTaskCount]
 $creadList :: ReadS [PendingTaskCount]
 readsPrec :: Int -&gt; ReadS PendingTaskCount
 $creadsPrec :: Int -&gt; ReadS PendingTaskCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347132"><span id="local-6989586621679347134"><span id="local-6989586621679347136"><span class="annot"><span class="annottext">Int -&gt; PendingTaskCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347141"><span id="local-6989586621679347143"><span id="local-6989586621679347145"><span class="annot"><span class="annottext">Int -&gt; PendingTaskCount -&gt; ShowS
 [PendingTaskCount] -&gt; ShowS
 PendingTaskCount -&gt; String
 (Int -&gt; PendingTaskCount -&gt; ShowS)
@@ -109,8 +109,8 @@ $cfrom :: forall x. PendingTaskCount -&gt; Rep PendingTaskCount x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span><span>
 </span><span id="line-56"></span><span id="newPendingTaskCount"><span class="annot"><span class="annottext">newPendingTaskCount :: Natural -&gt; PendingTaskCount
-</span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#newPendingTaskCount"><span class="hs-identifier hs-var hs-var">newPendingTaskCount</span></a></span></span><span> </span><span id="local-6989586621679347126"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679347126"><span class="hs-identifier hs-var">pCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#newPendingTaskCount"><span class="hs-identifier hs-var hs-var">newPendingTaskCount</span></a></span></span><span> </span><span id="local-6989586621679347135"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679347135"><span class="hs-identifier hs-var">pCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">PendingTaskCount' :: Maybe Bool -&gt; Natural -&gt; PendingTaskCount
 </span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:truncated:PendingTaskCount' :: Maybe Bool
@@ -119,7 +119,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:PendingTaskCount' :: Natural
 </span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#%24sel%3Acount%3APendingTaskCount%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679347126"><span class="hs-identifier hs-var">pCount_</span></a></span><span>
+</span><a href="#local-6989586621679347135"><span class="hs-identifier hs-var">pCount_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | If set to true, indicates that the actual count was more than the</span><span>
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (PendingTaskCount -&gt; Maybe Bool -&gt; PendingTaskCount)
 -&gt; Lens PendingTaskCount PendingTaskCount (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347122"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347131"><span class="annot"><span class="annottext">Maybe Bool
 truncated :: Maybe Bool
 $sel:truncated:PendingTaskCount' :: PendingTaskCount -&gt; Maybe Bool
-</span><a href="#local-6989586621679347122"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679347122"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347121"><span class="annot"><span class="annottext">s :: PendingTaskCount
-</span><a href="#local-6989586621679347121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347120"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679347120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingTaskCount
-</span><a href="#local-6989586621679347121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:PendingTaskCount' :: Maybe Bool
+</span><a href="#local-6989586621679347131"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679347131"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347130"><span class="annot"><span class="annottext">s :: PendingTaskCount
+</span><a href="#local-6989586621679347130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347129"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679347129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingTaskCount
+</span><a href="#local-6989586621679347130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:PendingTaskCount' :: Maybe Bool
 </span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#%24sel%3Atruncated%3APendingTaskCount%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679347120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The number of tasks in the task list.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#pendingTaskCount_count"><span class="hs-identifier hs-type">pendingTaskCount_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -150,19 +150,19 @@ $sel:truncated:PendingTaskCount' :: PendingTaskCount -&gt; Maybe Bool
 -&gt; (PendingTaskCount -&gt; Natural -&gt; PendingTaskCount)
 -&gt; Lens PendingTaskCount PendingTaskCount Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347118"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347127"><span class="annot"><span class="annottext">Natural
 count :: Natural
 $sel:count:PendingTaskCount' :: PendingTaskCount -&gt; Natural
-</span><a href="#local-6989586621679347118"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679347118"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347117"><span class="annot"><span class="annottext">s :: PendingTaskCount
-</span><a href="#local-6989586621679347117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347116"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679347116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingTaskCount
-</span><a href="#local-6989586621679347117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:PendingTaskCount' :: Natural
+</span><a href="#local-6989586621679347127"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679347127"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347126"><span class="annot"><span class="annottext">s :: PendingTaskCount
+</span><a href="#local-6989586621679347126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-type">PendingTaskCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347125"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679347125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingTaskCount
+</span><a href="#local-6989586621679347126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:PendingTaskCount' :: Natural
 </span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#%24sel%3Acount%3APendingTaskCount%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679347116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347113"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679347111"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PendingTaskCount
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347122"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679347120"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PendingTaskCount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PendingTaskCount)
@@ -172,15 +172,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PendingTaskCount&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347108"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347117"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Natural -&gt; PendingTaskCount
 </span><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount%27"><span class="hs-identifier hs-var">PendingTaskCount'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Natural -&gt; PendingTaskCount)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Natural -&gt; PendingTaskCount)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679347117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;truncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,13 +188,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser PendingTaskCount
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679347117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347101"><span id="local-6989586621679347103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347110"><span id="local-6989586621679347112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.PendingTaskCount.html#PendingTaskCount"><span class="hs-identifier hs-type">PendingTaskCount</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

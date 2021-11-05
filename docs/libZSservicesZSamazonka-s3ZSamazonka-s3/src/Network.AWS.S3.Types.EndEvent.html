@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-comment">-- the client receives an @EndEvent@.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEndEvent' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679540765"><span id="local-6989586621679540766"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndEvent"><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-var">EndEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent%27"><span class="hs-identifier hs-var">EndEvent'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679540774"><span id="local-6989586621679540775"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndEvent"><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-var">EndEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent%27"><span class="hs-identifier hs-var">EndEvent'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540760"><span id="local-6989586621679540762"><span class="annot"><span class="annottext">EndEvent -&gt; EndEvent -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540769"><span id="local-6989586621679540771"><span class="annot"><span class="annottext">EndEvent -&gt; EndEvent -&gt; Bool
 (EndEvent -&gt; EndEvent -&gt; Bool)
 -&gt; (EndEvent -&gt; EndEvent -&gt; Bool) -&gt; Eq EndEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EndEvent -&gt; EndEvent -&gt; Bool
 == :: EndEvent -&gt; EndEvent -&gt; Bool
 $c== :: EndEvent -&gt; EndEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540751"><span id="local-6989586621679540753"><span id="local-6989586621679540755"><span id="local-6989586621679540757"><span class="annot"><span class="annottext">ReadPrec [EndEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540760"><span id="local-6989586621679540762"><span id="local-6989586621679540764"><span id="local-6989586621679540766"><span class="annot"><span class="annottext">ReadPrec [EndEvent]
 ReadPrec EndEvent
 Int -&gt; ReadS EndEvent
 ReadS [EndEvent]
@@ -60,7 +60,7 @@ readList :: ReadS [EndEvent]
 $creadList :: ReadS [EndEvent]
 readsPrec :: Int -&gt; ReadS EndEvent
 $creadsPrec :: Int -&gt; ReadS EndEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540744"><span id="local-6989586621679540746"><span id="local-6989586621679540748"><span class="annot"><span class="annottext">Int -&gt; EndEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540753"><span id="local-6989586621679540755"><span id="local-6989586621679540757"><span class="annot"><span class="annottext">Int -&gt; EndEvent -&gt; ShowS
 [EndEvent] -&gt; ShowS
 EndEvent -&gt; String
 (Int -&gt; EndEvent -&gt; ShowS)
@@ -94,7 +94,7 @@ $cfrom :: forall x. EndEvent -&gt; Rep EndEvent x
 </span><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent%27"><span class="hs-identifier hs-var">EndEvent'</span></a></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-46"></span><span>  </span><span id="local-6989586621679540736"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EndEvent
+</span><span id="line-46"></span><span>  </span><span id="local-6989586621679540745"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EndEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Either String EndEvent -&gt; [Node] -&gt; Either String EndEvent
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">EndEvent -&gt; Either String EndEvent
@@ -102,7 +102,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">EndEvent
 </span><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent%27"><span class="hs-identifier hs-var">EndEvent'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540730"><span id="local-6989586621679540732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span></span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540739"><span id="local-6989586621679540741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span></span></span><span>
 </span><span id="line-49"></span><span>
-</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span></span><span>
 </span><span id="line-51"></span></pre></body></html>

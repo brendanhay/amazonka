@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679248601"><span id="local-6989586621679248602"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConflictDetectionType"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictDetectionType.html#ConflictDetectionType"><span class="hs-identifier hs-var">ConflictDetectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictDetectionType%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictDetectionType.html#ConflictDetectionType%27"><span class="hs-identifier hs-var">ConflictDetectionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679248610"><span id="local-6989586621679248611"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConflictDetectionType"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictDetectionType.html#ConflictDetectionType"><span class="hs-identifier hs-var">ConflictDetectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictDetectionType%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictDetectionType.html#ConflictDetectionType%27"><span class="hs-identifier hs-var">ConflictDetectionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConflictDetectionType"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.ConflictDetectionType.html#fromConflictDetectionType"><span class="hs-identifier hs-var hs-var">fromConflictDetectionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248593"><span id="local-6989586621679248595"><span id="local-6989586621679248597"><span class="annot"><span class="annottext">Int -&gt; ConflictDetectionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248602"><span id="local-6989586621679248604"><span id="local-6989586621679248606"><span class="annot"><span class="annottext">Int -&gt; ConflictDetectionType -&gt; ShowS
 [ConflictDetectionType] -&gt; ShowS
 ConflictDetectionType -&gt; String
 (Int -&gt; ConflictDetectionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ConflictDetectionType -&gt; String
 showsPrec :: Int -&gt; ConflictDetectionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConflictDetectionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679248584"><span id="local-6989586621679248586"><span id="local-6989586621679248588"><span id="local-6989586621679248590"><span class="annot"><span class="annottext">ReadPrec [ConflictDetectionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679248593"><span id="local-6989586621679248595"><span id="local-6989586621679248597"><span id="local-6989586621679248599"><span class="annot"><span class="annottext">ReadPrec [ConflictDetectionType]
 ReadPrec ConflictDetectionType
 Int -&gt; ReadS ConflictDetectionType
 ReadS [ConflictDetectionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ConflictDetectionType]
 readsPrec :: Int -&gt; ReadS ConflictDetectionType
 $creadsPrec :: Int -&gt; ReadS ConflictDetectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679248579"><span id="local-6989586621679248581"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679248588"><span id="local-6989586621679248590"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool
 (ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool)
 -&gt; (ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool)
 -&gt; Eq ConflictDetectionType
@@ -82,7 +82,7 @@ $c/= :: ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool
 == :: ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool
 $c== :: ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679248563"><span id="local-6989586621679248565"><span id="local-6989586621679248567"><span id="local-6989586621679248569"><span id="local-6989586621679248571"><span id="local-6989586621679248573"><span id="local-6989586621679248575"><span class="annot"><span class="annottext">Eq ConflictDetectionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679248572"><span id="local-6989586621679248574"><span id="local-6989586621679248576"><span id="local-6989586621679248578"><span id="local-6989586621679248580"><span id="local-6989586621679248582"><span id="local-6989586621679248584"><span class="annot"><span class="annottext">Eq ConflictDetectionType
 Eq ConflictDetectionType
 -&gt; (ConflictDetectionType -&gt; ConflictDetectionType -&gt; Ordering)
 -&gt; (ConflictDetectionType -&gt; ConflictDetectionType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ConflictDetectionType -&gt; Rep ConflictDetectionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248555"><span id="local-6989586621679248557"><span class="annot"><span class="annottext">Int -&gt; ConflictDetectionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248564"><span id="local-6989586621679248566"><span class="annot"><span class="annottext">Int -&gt; ConflictDetectionType -&gt; Int
 ConflictDetectionType -&gt; Int
 (Int -&gt; ConflictDetectionType -&gt; Int)
 -&gt; (ConflictDetectionType -&gt; Int) -&gt; Hashable ConflictDetectionType
@@ -150,54 +150,54 @@ $chash :: ConflictDetectionType -&gt; Int
 hashWithSalt :: Int -&gt; ConflictDetectionType -&gt; Int
 $chashWithSalt :: Int -&gt; ConflictDetectionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248552"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248561"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ()
 (ConflictDetectionType -&gt; ()) -&gt; NFData ConflictDetectionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConflictDetectionType -&gt; ()
 $crnf :: ConflictDetectionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248549"><span class="annot"><span class="annottext">Text -&gt; Either String ConflictDetectionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248558"><span class="annot"><span class="annottext">Text -&gt; Either String ConflictDetectionType
 (Text -&gt; Either String ConflictDetectionType)
 -&gt; FromText ConflictDetectionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConflictDetectionType
 $cfromText :: Text -&gt; Either String ConflictDetectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248546"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248555"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; Text
 (ConflictDetectionType -&gt; Text) -&gt; ToText ConflictDetectionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConflictDetectionType -&gt; Text
 $ctoText :: ConflictDetectionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248543"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248552"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ByteString
 (ConflictDetectionType -&gt; ByteString)
 -&gt; ToByteString ConflictDetectionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConflictDetectionType -&gt; ByteString
 $ctoBS :: ConflictDetectionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248540"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248549"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; ByteStringBuilder
 (ConflictDetectionType -&gt; ByteStringBuilder)
 -&gt; ToLog ConflictDetectionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConflictDetectionType -&gt; ByteStringBuilder
 $cbuild :: ConflictDetectionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248537"><span class="annot"><span class="annottext">HeaderName -&gt; ConflictDetectionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248546"><span class="annot"><span class="annottext">HeaderName -&gt; ConflictDetectionType -&gt; [Header]
 (HeaderName -&gt; ConflictDetectionType -&gt; [Header])
 -&gt; ToHeader ConflictDetectionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConflictDetectionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConflictDetectionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248534"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248543"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; QueryString
 (ConflictDetectionType -&gt; QueryString)
 -&gt; ToQuery ConflictDetectionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConflictDetectionType -&gt; QueryString
 $ctoQuery :: ConflictDetectionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248529"><span id="local-6989586621679248531"><span class="annot"><span class="annottext">Value -&gt; Parser [ConflictDetectionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248538"><span id="local-6989586621679248540"><span class="annot"><span class="annottext">Value -&gt; Parser [ConflictDetectionType]
 Value -&gt; Parser ConflictDetectionType
 (Value -&gt; Parser ConflictDetectionType)
 -&gt; (Value -&gt; Parser [ConflictDetectionType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ConflictDetectionType]
 parseJSON :: Value -&gt; Parser ConflictDetectionType
 $cparseJSON :: Value -&gt; Parser ConflictDetectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248524"><span id="local-6989586621679248526"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConflictDetectionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248533"><span id="local-6989586621679248535"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConflictDetectionType]
 FromJSONKeyFunction ConflictDetectionType
 FromJSONKeyFunction ConflictDetectionType
 -&gt; FromJSONKeyFunction [ConflictDetectionType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConflictDetectionType]
 fromJSONKey :: FromJSONKeyFunction ConflictDetectionType
 $cfromJSONKey :: FromJSONKeyFunction ConflictDetectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248515"><span id="local-6989586621679248517"><span id="local-6989586621679248519"><span id="local-6989586621679248521"><span class="annot"><span class="annottext">[ConflictDetectionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248524"><span id="local-6989586621679248526"><span id="local-6989586621679248528"><span id="local-6989586621679248530"><span class="annot"><span class="annottext">[ConflictDetectionType] -&gt; Encoding
 [ConflictDetectionType] -&gt; Value
 ConflictDetectionType -&gt; Encoding
 ConflictDetectionType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ConflictDetectionType -&gt; Encoding
 toJSON :: ConflictDetectionType -&gt; Value
 $ctoJSON :: ConflictDetectionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248510"><span id="local-6989586621679248512"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConflictDetectionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248519"><span id="local-6989586621679248521"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConflictDetectionType]
 ToJSONKeyFunction ConflictDetectionType
 ToJSONKeyFunction ConflictDetectionType
 -&gt; ToJSONKeyFunction [ConflictDetectionType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConflictDetectionType]
 toJSONKey :: ToJSONKeyFunction ConflictDetectionType
 $ctoJSONKey :: ToJSONKeyFunction ConflictDetectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248507"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConflictDetectionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248516"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConflictDetectionType
 ([Node] -&gt; Either String ConflictDetectionType)
 -&gt; FromXML ConflictDetectionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConflictDetectionType
 $cparseXML :: [Node] -&gt; Either String ConflictDetectionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248504"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248513"><span class="annot"><span class="annottext">ConflictDetectionType -&gt; XML
 (ConflictDetectionType -&gt; XML) -&gt; ToXML ConflictDetectionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConflictDetectionType -&gt; XML

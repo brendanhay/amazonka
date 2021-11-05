@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Specify whether your DVB subtitles are standard or for hearing impaired.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- Choose hearing impaired if your subtitles include audio descriptions and</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- dialogue. Choose standard if your subtitles include only dialogue.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679959289"><span id="local-6989586621679959290"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitlingType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitlingType.html#DvbSubtitlingType"><span class="hs-identifier hs-var">DvbSubtitlingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitlingType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitlingType.html#DvbSubtitlingType%27"><span class="hs-identifier hs-var">DvbSubtitlingType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679959298"><span id="local-6989586621679959299"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitlingType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitlingType.html#DvbSubtitlingType"><span class="hs-identifier hs-var">DvbSubtitlingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitlingType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitlingType.html#DvbSubtitlingType%27"><span class="hs-identifier hs-var">DvbSubtitlingType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbSubtitlingType"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubtitlingType.html#fromDvbSubtitlingType"><span class="hs-identifier hs-var hs-var">fromDvbSubtitlingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959281"><span id="local-6989586621679959283"><span id="local-6989586621679959285"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitlingType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959290"><span id="local-6989586621679959292"><span id="local-6989586621679959294"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitlingType -&gt; ShowS
 [DvbSubtitlingType] -&gt; ShowS
 DvbSubtitlingType -&gt; String
 (Int -&gt; DvbSubtitlingType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: DvbSubtitlingType -&gt; String
 showsPrec :: Int -&gt; DvbSubtitlingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DvbSubtitlingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679959272"><span id="local-6989586621679959274"><span id="local-6989586621679959276"><span id="local-6989586621679959278"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitlingType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679959281"><span id="local-6989586621679959283"><span id="local-6989586621679959285"><span id="local-6989586621679959287"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitlingType]
 ReadPrec DvbSubtitlingType
 Int -&gt; ReadS DvbSubtitlingType
 ReadS [DvbSubtitlingType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [DvbSubtitlingType]
 readsPrec :: Int -&gt; ReadS DvbSubtitlingType
 $creadsPrec :: Int -&gt; ReadS DvbSubtitlingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679959267"><span id="local-6989586621679959269"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679959276"><span id="local-6989586621679959278"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool
 (DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool)
 -&gt; (DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool)
 -&gt; Eq DvbSubtitlingType
@@ -85,7 +85,7 @@ $c/= :: DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool
 == :: DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool
 $c== :: DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679959251"><span id="local-6989586621679959253"><span id="local-6989586621679959255"><span id="local-6989586621679959257"><span id="local-6989586621679959259"><span id="local-6989586621679959261"><span id="local-6989586621679959263"><span class="annot"><span class="annottext">Eq DvbSubtitlingType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679959260"><span id="local-6989586621679959262"><span id="local-6989586621679959264"><span id="local-6989586621679959266"><span id="local-6989586621679959268"><span id="local-6989586621679959270"><span id="local-6989586621679959272"><span class="annot"><span class="annottext">Eq DvbSubtitlingType
 Eq DvbSubtitlingType
 -&gt; (DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Ordering)
 -&gt; (DvbSubtitlingType -&gt; DvbSubtitlingType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. DvbSubtitlingType -&gt; Rep DvbSubtitlingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959243"><span id="local-6989586621679959245"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitlingType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959252"><span id="local-6989586621679959254"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitlingType -&gt; Int
 DvbSubtitlingType -&gt; Int
 (Int -&gt; DvbSubtitlingType -&gt; Int)
 -&gt; (DvbSubtitlingType -&gt; Int) -&gt; Hashable DvbSubtitlingType
@@ -146,51 +146,51 @@ $chash :: DvbSubtitlingType -&gt; Int
 hashWithSalt :: Int -&gt; DvbSubtitlingType -&gt; Int
 $chashWithSalt :: Int -&gt; DvbSubtitlingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679959240"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679959249"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; ()
 (DvbSubtitlingType -&gt; ()) -&gt; NFData DvbSubtitlingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DvbSubtitlingType -&gt; ()
 $crnf :: DvbSubtitlingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679959237"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitlingType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679959246"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitlingType
 (Text -&gt; Either String DvbSubtitlingType)
 -&gt; FromText DvbSubtitlingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DvbSubtitlingType
 $cfromText :: Text -&gt; Either String DvbSubtitlingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679959234"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679959243"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; Text
 (DvbSubtitlingType -&gt; Text) -&gt; ToText DvbSubtitlingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DvbSubtitlingType -&gt; Text
 $ctoText :: DvbSubtitlingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679959231"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679959240"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; ByteString
 (DvbSubtitlingType -&gt; ByteString) -&gt; ToByteString DvbSubtitlingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DvbSubtitlingType -&gt; ByteString
 $ctoBS :: DvbSubtitlingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679959228"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679959237"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; ByteStringBuilder
 (DvbSubtitlingType -&gt; ByteStringBuilder) -&gt; ToLog DvbSubtitlingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DvbSubtitlingType -&gt; ByteStringBuilder
 $cbuild :: DvbSubtitlingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679959225"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitlingType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679959234"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitlingType -&gt; [Header]
 (HeaderName -&gt; DvbSubtitlingType -&gt; [Header])
 -&gt; ToHeader DvbSubtitlingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DvbSubtitlingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DvbSubtitlingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679959222"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679959231"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; QueryString
 (DvbSubtitlingType -&gt; QueryString) -&gt; ToQuery DvbSubtitlingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DvbSubtitlingType -&gt; QueryString
 $ctoQuery :: DvbSubtitlingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679959217"><span id="local-6989586621679959219"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitlingType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679959226"><span id="local-6989586621679959228"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitlingType]
 Value -&gt; Parser DvbSubtitlingType
 (Value -&gt; Parser DvbSubtitlingType)
 -&gt; (Value -&gt; Parser [DvbSubtitlingType])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [DvbSubtitlingType]
 parseJSON :: Value -&gt; Parser DvbSubtitlingType
 $cparseJSON :: Value -&gt; Parser DvbSubtitlingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679959212"><span id="local-6989586621679959214"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitlingType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679959221"><span id="local-6989586621679959223"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitlingType]
 FromJSONKeyFunction DvbSubtitlingType
 FromJSONKeyFunction DvbSubtitlingType
 -&gt; FromJSONKeyFunction [DvbSubtitlingType]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DvbSubtitlingType]
 fromJSONKey :: FromJSONKeyFunction DvbSubtitlingType
 $cfromJSONKey :: FromJSONKeyFunction DvbSubtitlingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679959203"><span id="local-6989586621679959205"><span id="local-6989586621679959207"><span id="local-6989586621679959209"><span class="annot"><span class="annottext">[DvbSubtitlingType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679959212"><span id="local-6989586621679959214"><span id="local-6989586621679959216"><span id="local-6989586621679959218"><span class="annot"><span class="annottext">[DvbSubtitlingType] -&gt; Encoding
 [DvbSubtitlingType] -&gt; Value
 DvbSubtitlingType -&gt; Encoding
 DvbSubtitlingType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: DvbSubtitlingType -&gt; Encoding
 toJSON :: DvbSubtitlingType -&gt; Value
 $ctoJSON :: DvbSubtitlingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679959198"><span id="local-6989586621679959200"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitlingType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679959207"><span id="local-6989586621679959209"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitlingType]
 ToJSONKeyFunction DvbSubtitlingType
 ToJSONKeyFunction DvbSubtitlingType
 -&gt; ToJSONKeyFunction [DvbSubtitlingType]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DvbSubtitlingType]
 toJSONKey :: ToJSONKeyFunction DvbSubtitlingType
 $ctoJSONKey :: ToJSONKeyFunction DvbSubtitlingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679959195"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitlingType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679959204"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitlingType
 ([Node] -&gt; Either String DvbSubtitlingType)
 -&gt; FromXML DvbSubtitlingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DvbSubtitlingType
 $cparseXML :: [Node] -&gt; Either String DvbSubtitlingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679959192"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679959201"><span class="annot"><span class="annottext">DvbSubtitlingType -&gt; XML
 (DvbSubtitlingType -&gt; XML) -&gt; ToXML DvbSubtitlingType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DvbSubtitlingType -&gt; XML

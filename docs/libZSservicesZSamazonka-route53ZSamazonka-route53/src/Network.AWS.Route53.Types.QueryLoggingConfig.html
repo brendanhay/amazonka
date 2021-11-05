@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- query logging.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newQueryLoggingConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679296114"><span id="local-6989586621679296115"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryLoggingConfig"><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-var">QueryLoggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryLoggingConfig%27"><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-var">QueryLoggingConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679296123"><span id="local-6989586621679296124"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryLoggingConfig"><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-var">QueryLoggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryLoggingConfig%27"><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-var">QueryLoggingConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for a configuration for DNS query logging.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3AQueryLoggingConfig%27"><span class="annot"><span class="annottext">QueryLoggingConfig -&gt; Text
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3Aid%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcloudWatchLogsLogGroupArn%3AQueryLoggingConfig%27"><span class="annot"><span class="annottext">QueryLoggingConfig -&gt; Text
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3AcloudWatchLogsLogGroupArn%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var hs-var">cloudWatchLogsLogGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296106"><span id="local-6989586621679296108"><span class="annot"><span class="annottext">QueryLoggingConfig -&gt; QueryLoggingConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296115"><span id="local-6989586621679296117"><span class="annot"><span class="annottext">QueryLoggingConfig -&gt; QueryLoggingConfig -&gt; Bool
 (QueryLoggingConfig -&gt; QueryLoggingConfig -&gt; Bool)
 -&gt; (QueryLoggingConfig -&gt; QueryLoggingConfig -&gt; Bool)
 -&gt; Eq QueryLoggingConfig
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueryLoggingConfig -&gt; QueryLoggingConfig -&gt; Bool
 == :: QueryLoggingConfig -&gt; QueryLoggingConfig -&gt; Bool
 $c== :: QueryLoggingConfig -&gt; QueryLoggingConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296097"><span id="local-6989586621679296099"><span id="local-6989586621679296101"><span id="local-6989586621679296103"><span class="annot"><span class="annottext">ReadPrec [QueryLoggingConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296106"><span id="local-6989586621679296108"><span id="local-6989586621679296110"><span id="local-6989586621679296112"><span class="annot"><span class="annottext">ReadPrec [QueryLoggingConfig]
 ReadPrec QueryLoggingConfig
 Int -&gt; ReadS QueryLoggingConfig
 ReadS [QueryLoggingConfig]
@@ -69,7 +69,7 @@ readList :: ReadS [QueryLoggingConfig]
 $creadList :: ReadS [QueryLoggingConfig]
 readsPrec :: Int -&gt; ReadS QueryLoggingConfig
 $creadsPrec :: Int -&gt; ReadS QueryLoggingConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296090"><span id="local-6989586621679296092"><span id="local-6989586621679296094"><span class="annot"><span class="annottext">Int -&gt; QueryLoggingConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296099"><span id="local-6989586621679296101"><span id="local-6989586621679296103"><span class="annot"><span class="annottext">Int -&gt; QueryLoggingConfig -&gt; ShowS
 [QueryLoggingConfig] -&gt; ShowS
 QueryLoggingConfig -&gt; String
 (Int -&gt; QueryLoggingConfig -&gt; ShowS)
@@ -119,24 +119,24 @@ $cfrom :: forall x. QueryLoggingConfig -&gt; Rep QueryLoggingConfig x
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span>
 </span><span id="line-64"></span><span id="newQueryLoggingConfig"><span class="annot"><span class="annottext">newQueryLoggingConfig :: Text -&gt; ResourceId -&gt; Text -&gt; QueryLoggingConfig
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#newQueryLoggingConfig"><span class="hs-identifier hs-var hs-var">newQueryLoggingConfig</span></a></span></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679296084"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296084"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679296083"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679296083"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679296082"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296082"><span class="hs-identifier hs-var">pCloudWatchLogsLogGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679296093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296093"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679296092"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679296092"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679296091"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296091"><span class="hs-identifier hs-var">pCloudWatchLogsLogGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">QueryLoggingConfig' :: Text -&gt; ResourceId -&gt; Text -&gt; QueryLoggingConfig
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:QueryLoggingConfig' :: Text
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3Aid%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296084"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296093"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:hostedZoneId:QueryLoggingConfig' :: ResourceId
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3AhostedZoneId%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679296083"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296092"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:cloudWatchLogsLogGroupArn:QueryLoggingConfig' :: Text
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3AcloudWatchLogsLogGroupArn%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var">cloudWatchLogsLogGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296082"><span class="hs-identifier hs-var">pCloudWatchLogsLogGroupArn_</span></a></span><span>
+</span><a href="#local-6989586621679296091"><span class="hs-identifier hs-var">pCloudWatchLogsLogGroupArn_</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ID for a configuration for DNS query logging.</span><span>
@@ -146,16 +146,16 @@ $cfrom :: forall x. QueryLoggingConfig -&gt; Rep QueryLoggingConfig x
 -&gt; (QueryLoggingConfig -&gt; Text -&gt; QueryLoggingConfig)
 -&gt; Lens QueryLoggingConfig QueryLoggingConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296078"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296087"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:QueryLoggingConfig' :: QueryLoggingConfig -&gt; Text
-</span><a href="#local-6989586621679296078"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296078"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296077"><span class="annot"><span class="annottext">s :: QueryLoggingConfig
-</span><a href="#local-6989586621679296077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296076"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryLoggingConfig
-</span><a href="#local-6989586621679296077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:QueryLoggingConfig' :: Text
+</span><a href="#local-6989586621679296087"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296087"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296086"><span class="annot"><span class="annottext">s :: QueryLoggingConfig
+</span><a href="#local-6989586621679296086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryLoggingConfig
+</span><a href="#local-6989586621679296086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:QueryLoggingConfig' :: Text
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3Aid%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The ID of the hosted zone that CloudWatch Logs is logging queries for.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#queryLoggingConfig_hostedZoneId"><span class="hs-identifier hs-type">queryLoggingConfig_hostedZoneId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
@@ -165,16 +165,16 @@ $sel:id:QueryLoggingConfig' :: QueryLoggingConfig -&gt; Text
 -&gt; (QueryLoggingConfig -&gt; ResourceId -&gt; QueryLoggingConfig)
 -&gt; Lens QueryLoggingConfig QueryLoggingConfig ResourceId ResourceId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296074"><span class="annot"><span class="annottext">ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296083"><span class="annot"><span class="annottext">ResourceId
 hostedZoneId :: ResourceId
 $sel:hostedZoneId:QueryLoggingConfig' :: QueryLoggingConfig -&gt; ResourceId
-</span><a href="#local-6989586621679296074"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679296074"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296073"><span class="annot"><span class="annottext">s :: QueryLoggingConfig
-</span><a href="#local-6989586621679296073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296072"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679296072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryLoggingConfig
-</span><a href="#local-6989586621679296073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:QueryLoggingConfig' :: ResourceId
+</span><a href="#local-6989586621679296083"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679296083"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296082"><span class="annot"><span class="annottext">s :: QueryLoggingConfig
+</span><a href="#local-6989586621679296082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296081"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679296081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryLoggingConfig
+</span><a href="#local-6989586621679296082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:QueryLoggingConfig' :: ResourceId
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3AhostedZoneId%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679296072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group that</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- Amazon Route 53 is publishing logs to.</span><span>
@@ -184,21 +184,21 @@ $sel:hostedZoneId:QueryLoggingConfig' :: QueryLoggingConfig -&gt; ResourceId
 -&gt; (QueryLoggingConfig -&gt; Text -&gt; QueryLoggingConfig)
 -&gt; Lens QueryLoggingConfig QueryLoggingConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296070"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296079"><span class="annot"><span class="annottext">Text
 cloudWatchLogsLogGroupArn :: Text
 $sel:cloudWatchLogsLogGroupArn:QueryLoggingConfig' :: QueryLoggingConfig -&gt; Text
-</span><a href="#local-6989586621679296070"><span class="hs-identifier hs-var hs-var">cloudWatchLogsLogGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296070"><span class="hs-identifier hs-var">cloudWatchLogsLogGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296069"><span class="annot"><span class="annottext">s :: QueryLoggingConfig
-</span><a href="#local-6989586621679296069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296068"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryLoggingConfig
-</span><a href="#local-6989586621679296069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogsLogGroupArn:QueryLoggingConfig' :: Text
+</span><a href="#local-6989586621679296079"><span class="hs-identifier hs-var hs-var">cloudWatchLogsLogGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296079"><span class="hs-identifier hs-var">cloudWatchLogsLogGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296078"><span class="annot"><span class="annottext">s :: QueryLoggingConfig
+</span><a href="#local-6989586621679296078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-type">QueryLoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryLoggingConfig
+</span><a href="#local-6989586621679296078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogsLogGroupArn:QueryLoggingConfig' :: Text
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#%24sel%3AcloudWatchLogsLogGroupArn%3AQueryLoggingConfig%27"><span class="hs-identifier hs-var">cloudWatchLogsLogGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679296065"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String QueryLoggingConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679296063"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679296074"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String QueryLoggingConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679296072"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679296072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ResourceId -&gt; Text -&gt; QueryLoggingConfig
 </span><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig%27"><span class="hs-identifier hs-var">QueryLoggingConfig'</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; ResourceId -&gt; Text -&gt; QueryLoggingConfig)
@@ -206,7 +206,7 @@ $sel:cloudWatchLogsLogGroupArn:QueryLoggingConfig' :: QueryLoggingConfig -&gt; T
 -&gt; Either String (ResourceId -&gt; Text -&gt; QueryLoggingConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679296072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,7 +215,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; QueryLoggingConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ResourceId
+</span><a href="#local-6989586621679296072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ResourceId
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostedZoneId&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,12 +223,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String QueryLoggingConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679296072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudWatchLogsLogGroupArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296057"><span id="local-6989586621679296059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296066"><span id="local-6989586621679296068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.QueryLoggingConfig.html#QueryLoggingConfig"><span class="hs-identifier hs-type">QueryLoggingConfig</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

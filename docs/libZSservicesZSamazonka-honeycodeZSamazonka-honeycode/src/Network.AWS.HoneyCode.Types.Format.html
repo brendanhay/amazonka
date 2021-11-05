@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.HoneyCode.Types.Format</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.HoneyCode.Types.Format</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier">Format</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_ACCOUNTING"><span class="hs-identifier">Format_ACCOUNTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_AUTO"><span class="hs-identifier">Format_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_CONTACT"><span class="hs-identifier">Format_CONTACT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_CURRENCY"><span class="hs-identifier">Format_CURRENCY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_DATE"><span class="hs-identifier">Format_DATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_DATE_TIME"><span class="hs-identifier">Format_DATE_TIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_NUMBER"><span class="hs-identifier">Format_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_PERCENTAGE"><span class="hs-identifier">Format_PERCENTAGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_ROWLINK"><span class="hs-identifier">Format_ROWLINK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_TEXT"><span class="hs-identifier">Format_TEXT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_TIME"><span class="hs-identifier">Format_TIME</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679178552"><span id="local-6989586621679178553"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Format"><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-var">Format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Format%27"><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-var">Format'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromFormat"><span class="annot"><span class="annottext">Format -&gt; Text
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#fromFormat"><span class="hs-identifier hs-var hs-var">fromFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679178544"><span id="local-6989586621679178546"><span id="local-6989586621679178548"><span class="annot"><span class="annottext">Int -&gt; Format -&gt; ShowS
+[Format] -&gt; ShowS
+Format -&gt; String
+(Int -&gt; Format -&gt; ShowS)
+-&gt; (Format -&gt; String) -&gt; ([Format] -&gt; ShowS) -&gt; Show Format
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Format] -&gt; ShowS
+$cshowList :: [Format] -&gt; ShowS
+show :: Format -&gt; String
+$cshow :: Format -&gt; String
+showsPrec :: Int -&gt; Format -&gt; ShowS
+$cshowsPrec :: Int -&gt; Format -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679178535"><span id="local-6989586621679178537"><span id="local-6989586621679178539"><span id="local-6989586621679178541"><span class="annot"><span class="annottext">ReadPrec [Format]
+ReadPrec Format
+Int -&gt; ReadS Format
+ReadS [Format]
+(Int -&gt; ReadS Format)
+-&gt; ReadS [Format]
+-&gt; ReadPrec Format
+-&gt; ReadPrec [Format]
+-&gt; Read Format
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Format]
+$creadListPrec :: ReadPrec [Format]
+readPrec :: ReadPrec Format
+$creadPrec :: ReadPrec Format
+readList :: ReadS [Format]
+$creadList :: ReadS [Format]
+readsPrec :: Int -&gt; ReadS Format
+$creadsPrec :: Int -&gt; ReadS Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679178530"><span id="local-6989586621679178532"><span class="annot"><span class="annottext">Format -&gt; Format -&gt; Bool
+(Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool) -&gt; Eq Format
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Format -&gt; Format -&gt; Bool
+$c/= :: Format -&gt; Format -&gt; Bool
+== :: Format -&gt; Format -&gt; Bool
+$c== :: Format -&gt; Format -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679178514"><span id="local-6989586621679178516"><span id="local-6989586621679178518"><span id="local-6989586621679178520"><span id="local-6989586621679178522"><span id="local-6989586621679178524"><span id="local-6989586621679178526"><span class="annot"><span class="annottext">Eq Format
+Eq Format
+-&gt; (Format -&gt; Format -&gt; Ordering)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Format)
+-&gt; (Format -&gt; Format -&gt; Format)
+-&gt; Ord Format
+Format -&gt; Format -&gt; Bool
+Format -&gt; Format -&gt; Ordering
+Format -&gt; Format -&gt; Format
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Format -&gt; Format -&gt; Format
+$cmin :: Format -&gt; Format -&gt; Format
+max :: Format -&gt; Format -&gt; Format
+$cmax :: Format -&gt; Format -&gt; Format
+&gt;= :: Format -&gt; Format -&gt; Bool
+$c&gt;= :: Format -&gt; Format -&gt; Bool
+&gt; :: Format -&gt; Format -&gt; Bool
+$c&gt; :: Format -&gt; Format -&gt; Bool
+&lt;= :: Format -&gt; Format -&gt; Bool
+$c&lt;= :: Format -&gt; Format -&gt; Bool
+&lt; :: Format -&gt; Format -&gt; Bool
+$c&lt; :: Format -&gt; Format -&gt; Bool
+compare :: Format -&gt; Format -&gt; Ordering
+$ccompare :: Format -&gt; Format -&gt; Ordering
+$cp1Ord :: Eq Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Format -&gt; Rep Format x)
+-&gt; (forall x. Rep Format x -&gt; Format) -&gt; Generic Format
+forall x. Rep Format x -&gt; Format
+forall x. Format -&gt; Rep Format x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Format x -&gt; Format
+$cfrom :: forall x. Format -&gt; Rep Format x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679178506"><span id="local-6989586621679178508"><span class="annot"><span class="annottext">Int -&gt; Format -&gt; Int
+Format -&gt; Int
+(Int -&gt; Format -&gt; Int) -&gt; (Format -&gt; Int) -&gt; Hashable Format
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Format -&gt; Int
+$chash :: Format -&gt; Int
+hashWithSalt :: Int -&gt; Format -&gt; Int
+$chashWithSalt :: Int -&gt; Format -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679178503"><span class="annot"><span class="annottext">Format -&gt; ()
+(Format -&gt; ()) -&gt; NFData Format
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Format -&gt; ()
+$crnf :: Format -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679178500"><span class="annot"><span class="annottext">Text -&gt; Either String Format
+(Text -&gt; Either String Format) -&gt; FromText Format
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Format
+$cfromText :: Text -&gt; Either String Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679178497"><span class="annot"><span class="annottext">Format -&gt; Text
+(Format -&gt; Text) -&gt; ToText Format
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Format -&gt; Text
+$ctoText :: Format -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679178494"><span class="annot"><span class="annottext">Format -&gt; ByteString
+(Format -&gt; ByteString) -&gt; ToByteString Format
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Format -&gt; ByteString
+$ctoBS :: Format -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679178491"><span class="annot"><span class="annottext">Format -&gt; ByteStringBuilder
+(Format -&gt; ByteStringBuilder) -&gt; ToLog Format
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Format -&gt; ByteStringBuilder
+$cbuild :: Format -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679178488"><span class="annot"><span class="annottext">HeaderName -&gt; Format -&gt; [Header]
+(HeaderName -&gt; Format -&gt; [Header]) -&gt; ToHeader Format
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Format -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Format -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679178485"><span class="annot"><span class="annottext">Format -&gt; QueryString
+(Format -&gt; QueryString) -&gt; ToQuery Format
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Format -&gt; QueryString
+$ctoQuery :: Format -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679178480"><span id="local-6989586621679178482"><span class="annot"><span class="annottext">Value -&gt; Parser [Format]
+Value -&gt; Parser Format
+(Value -&gt; Parser Format)
+-&gt; (Value -&gt; Parser [Format]) -&gt; FromJSON Format
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Format]
+$cparseJSONList :: Value -&gt; Parser [Format]
+parseJSON :: Value -&gt; Parser Format
+$cparseJSON :: Value -&gt; Parser Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679178475"><span id="local-6989586621679178477"><span class="annot"><span class="annottext">FromJSONKeyFunction [Format]
+FromJSONKeyFunction Format
+FromJSONKeyFunction Format
+-&gt; FromJSONKeyFunction [Format] -&gt; FromJSONKey Format
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Format]
+$cfromJSONKeyList :: FromJSONKeyFunction [Format]
+fromJSONKey :: FromJSONKeyFunction Format
+$cfromJSONKey :: FromJSONKeyFunction Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679178466"><span id="local-6989586621679178468"><span id="local-6989586621679178470"><span id="local-6989586621679178472"><span class="annot"><span class="annottext">[Format] -&gt; Encoding
+[Format] -&gt; Value
+Format -&gt; Encoding
+Format -&gt; Value
+(Format -&gt; Value)
+-&gt; (Format -&gt; Encoding)
+-&gt; ([Format] -&gt; Value)
+-&gt; ([Format] -&gt; Encoding)
+-&gt; ToJSON Format
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Format] -&gt; Encoding
+$ctoEncodingList :: [Format] -&gt; Encoding
+toJSONList :: [Format] -&gt; Value
+$ctoJSONList :: [Format] -&gt; Value
+toEncoding :: Format -&gt; Encoding
+$ctoEncoding :: Format -&gt; Encoding
+toJSON :: Format -&gt; Value
+$ctoJSON :: Format -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679178461"><span id="local-6989586621679178463"><span class="annot"><span class="annottext">ToJSONKeyFunction [Format]
+ToJSONKeyFunction Format
+ToJSONKeyFunction Format
+-&gt; ToJSONKeyFunction [Format] -&gt; ToJSONKey Format
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Format]
+$ctoJSONKeyList :: ToJSONKeyFunction [Format]
+toJSONKey :: ToJSONKeyFunction Format
+$ctoJSONKey :: ToJSONKeyFunction Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679178458"><span class="annot"><span class="annottext">[Node] -&gt; Either String Format
+([Node] -&gt; Either String Format) -&gt; FromXML Format
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Format
+$cparseXML :: [Node] -&gt; Either String Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679178455"><span class="annot"><span class="annottext">Format -&gt; XML
+(Format -&gt; XML) -&gt; ToXML Format
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Format -&gt; XML
+$ctoXML :: Format -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_ACCOUNTING"><span class="hs-identifier hs-type">Format_ACCOUNTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_ACCOUNTING"><span id="%24mFormat_ACCOUNTING"><span id="Format_ACCOUNTING"><span class="annot"><span class="annottext">$bFormat_ACCOUNTING :: Format
+$mFormat_ACCOUNTING :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_ACCOUNTING"><span class="hs-identifier hs-var hs-var hs-var">Format_ACCOUNTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCOUNTING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_AUTO"><span class="hs-identifier hs-type">Format_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_AUTO"><span id="%24mFormat_AUTO"><span id="Format_AUTO"><span class="annot"><span class="annottext">$bFormat_AUTO :: Format
+$mFormat_AUTO :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_AUTO"><span class="hs-identifier hs-var hs-var hs-var">Format_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_CONTACT"><span class="hs-identifier hs-type">Format_CONTACT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_CONTACT"><span id="%24mFormat_CONTACT"><span id="Format_CONTACT"><span class="annot"><span class="annottext">$bFormat_CONTACT :: Format
+$mFormat_CONTACT :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_CONTACT"><span class="hs-identifier hs-var hs-var hs-var">Format_CONTACT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACT&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_CURRENCY"><span class="hs-identifier hs-type">Format_CURRENCY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_CURRENCY"><span id="%24mFormat_CURRENCY"><span id="Format_CURRENCY"><span class="annot"><span class="annottext">$bFormat_CURRENCY :: Format
+$mFormat_CURRENCY :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_CURRENCY"><span class="hs-identifier hs-var hs-var hs-var">Format_CURRENCY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CURRENCY&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_DATE"><span class="hs-identifier hs-type">Format_DATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_DATE"><span id="%24mFormat_DATE"><span id="Format_DATE"><span class="annot"><span class="annottext">$bFormat_DATE :: Format
+$mFormat_DATE :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_DATE"><span class="hs-identifier hs-var hs-var hs-var">Format_DATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_DATE_TIME"><span class="hs-identifier hs-type">Format_DATE_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_DATE_TIME"><span id="%24mFormat_DATE_TIME"><span id="Format_DATE_TIME"><span class="annot"><span class="annottext">$bFormat_DATE_TIME :: Format
+$mFormat_DATE_TIME :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_DATE_TIME"><span class="hs-identifier hs-var hs-var hs-var">Format_DATE_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATE_TIME&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_NUMBER"><span class="hs-identifier hs-type">Format_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_NUMBER"><span id="%24mFormat_NUMBER"><span id="Format_NUMBER"><span class="annot"><span class="annottext">$bFormat_NUMBER :: Format
+$mFormat_NUMBER :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">Format_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NUMBER&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_PERCENTAGE"><span class="hs-identifier hs-type">Format_PERCENTAGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_PERCENTAGE"><span id="%24mFormat_PERCENTAGE"><span id="Format_PERCENTAGE"><span class="annot"><span class="annottext">$bFormat_PERCENTAGE :: Format
+$mFormat_PERCENTAGE :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_PERCENTAGE"><span class="hs-identifier hs-var hs-var hs-var">Format_PERCENTAGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERCENTAGE&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_ROWLINK"><span class="hs-identifier hs-type">Format_ROWLINK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_ROWLINK"><span id="%24mFormat_ROWLINK"><span id="Format_ROWLINK"><span class="annot"><span class="annottext">$bFormat_ROWLINK :: Format
+$mFormat_ROWLINK :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_ROWLINK"><span class="hs-identifier hs-var hs-var hs-var">Format_ROWLINK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROWLINK&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_TEXT"><span class="hs-identifier hs-type">Format_TEXT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_TEXT"><span id="%24mFormat_TEXT"><span id="Format_TEXT"><span class="annot"><span class="annottext">$bFormat_TEXT :: Format
+$mFormat_TEXT :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_TEXT"><span class="hs-identifier hs-var hs-var hs-var">Format_TEXT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEXT&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_TIME"><span class="hs-identifier hs-type">Format_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_TIME"><span id="%24mFormat_TIME"><span id="Format_TIME"><span class="annot"><span class="annottext">$bFormat_TIME :: Format
+$mFormat_TIME :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.HoneyCode.Types.Format.html#%24bFormat_TIME"><span class="hs-identifier hs-var hs-var hs-var">Format_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_ACCOUNTING"><span class="hs-pragma hs-type">Format_ACCOUNTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_AUTO"><span class="hs-pragma hs-type">Format_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_CONTACT"><span class="hs-pragma hs-type">Format_CONTACT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_CURRENCY"><span class="hs-pragma hs-type">Format_CURRENCY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_DATE"><span class="hs-pragma hs-type">Format_DATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_DATE_TIME"><span class="hs-pragma hs-type">Format_DATE_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_NUMBER"><span class="hs-pragma hs-type">Format_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_PERCENTAGE"><span class="hs-pragma hs-type">Format_PERCENTAGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_ROWLINK"><span class="hs-pragma hs-type">Format_ROWLINK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_TEXT"><span class="hs-pragma hs-type">Format_TEXT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format_TIME"><span class="hs-pragma hs-type">Format_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.Format.html#Format%27"><span class="hs-pragma hs-type">Format'</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-113"></span></pre></body></html>

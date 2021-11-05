@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679258070"><span id="local-6989586621679258071"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssignPublicIp"><span class="annot"><a href="Network.AWS.Batch.Types.AssignPublicIp.html#AssignPublicIp"><span class="hs-identifier hs-var">AssignPublicIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignPublicIp%27"><span class="annot"><a href="Network.AWS.Batch.Types.AssignPublicIp.html#AssignPublicIp%27"><span class="hs-identifier hs-var">AssignPublicIp'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679258079"><span id="local-6989586621679258080"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssignPublicIp"><span class="annot"><a href="Network.AWS.Batch.Types.AssignPublicIp.html#AssignPublicIp"><span class="hs-identifier hs-var">AssignPublicIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignPublicIp%27"><span class="annot"><a href="Network.AWS.Batch.Types.AssignPublicIp.html#AssignPublicIp%27"><span class="hs-identifier hs-var">AssignPublicIp'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssignPublicIp"><span class="annot"><span class="annottext">AssignPublicIp -&gt; Text
 </span><a href="Network.AWS.Batch.Types.AssignPublicIp.html#fromAssignPublicIp"><span class="hs-identifier hs-var hs-var">fromAssignPublicIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258062"><span id="local-6989586621679258064"><span id="local-6989586621679258066"><span class="annot"><span class="annottext">Int -&gt; AssignPublicIp -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258071"><span id="local-6989586621679258073"><span id="local-6989586621679258075"><span class="annot"><span class="annottext">Int -&gt; AssignPublicIp -&gt; ShowS
 [AssignPublicIp] -&gt; ShowS
 AssignPublicIp -&gt; String
 (Int -&gt; AssignPublicIp -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AssignPublicIp -&gt; String
 showsPrec :: Int -&gt; AssignPublicIp -&gt; ShowS
 $cshowsPrec :: Int -&gt; AssignPublicIp -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679258053"><span id="local-6989586621679258055"><span id="local-6989586621679258057"><span id="local-6989586621679258059"><span class="annot"><span class="annottext">ReadPrec [AssignPublicIp]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679258062"><span id="local-6989586621679258064"><span id="local-6989586621679258066"><span id="local-6989586621679258068"><span class="annot"><span class="annottext">ReadPrec [AssignPublicIp]
 ReadPrec AssignPublicIp
 Int -&gt; ReadS AssignPublicIp
 ReadS [AssignPublicIp]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AssignPublicIp]
 readsPrec :: Int -&gt; ReadS AssignPublicIp
 $creadsPrec :: Int -&gt; ReadS AssignPublicIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679258048"><span id="local-6989586621679258050"><span class="annot"><span class="annottext">AssignPublicIp -&gt; AssignPublicIp -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679258057"><span id="local-6989586621679258059"><span class="annot"><span class="annottext">AssignPublicIp -&gt; AssignPublicIp -&gt; Bool
 (AssignPublicIp -&gt; AssignPublicIp -&gt; Bool)
 -&gt; (AssignPublicIp -&gt; AssignPublicIp -&gt; Bool) -&gt; Eq AssignPublicIp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: AssignPublicIp -&gt; AssignPublicIp -&gt; Bool
 == :: AssignPublicIp -&gt; AssignPublicIp -&gt; Bool
 $c== :: AssignPublicIp -&gt; AssignPublicIp -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679258032"><span id="local-6989586621679258034"><span id="local-6989586621679258036"><span id="local-6989586621679258038"><span id="local-6989586621679258040"><span id="local-6989586621679258042"><span id="local-6989586621679258044"><span class="annot"><span class="annottext">Eq AssignPublicIp
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679258041"><span id="local-6989586621679258043"><span id="local-6989586621679258045"><span id="local-6989586621679258047"><span id="local-6989586621679258049"><span id="local-6989586621679258051"><span id="local-6989586621679258053"><span class="annot"><span class="annottext">Eq AssignPublicIp
 Eq AssignPublicIp
 -&gt; (AssignPublicIp -&gt; AssignPublicIp -&gt; Ordering)
 -&gt; (AssignPublicIp -&gt; AssignPublicIp -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. AssignPublicIp -&gt; Rep AssignPublicIp x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258024"><span id="local-6989586621679258026"><span class="annot"><span class="annottext">Int -&gt; AssignPublicIp -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258033"><span id="local-6989586621679258035"><span class="annot"><span class="annottext">Int -&gt; AssignPublicIp -&gt; Int
 AssignPublicIp -&gt; Int
 (Int -&gt; AssignPublicIp -&gt; Int)
 -&gt; (AssignPublicIp -&gt; Int) -&gt; Hashable AssignPublicIp
@@ -142,50 +142,50 @@ $chash :: AssignPublicIp -&gt; Int
 hashWithSalt :: Int -&gt; AssignPublicIp -&gt; Int
 $chashWithSalt :: Int -&gt; AssignPublicIp -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679258021"><span class="annot"><span class="annottext">AssignPublicIp -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679258030"><span class="annot"><span class="annottext">AssignPublicIp -&gt; ()
 (AssignPublicIp -&gt; ()) -&gt; NFData AssignPublicIp
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AssignPublicIp -&gt; ()
 $crnf :: AssignPublicIp -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679258018"><span class="annot"><span class="annottext">Text -&gt; Either String AssignPublicIp
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679258027"><span class="annot"><span class="annottext">Text -&gt; Either String AssignPublicIp
 (Text -&gt; Either String AssignPublicIp) -&gt; FromText AssignPublicIp
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AssignPublicIp
 $cfromText :: Text -&gt; Either String AssignPublicIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679258015"><span class="annot"><span class="annottext">AssignPublicIp -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679258024"><span class="annot"><span class="annottext">AssignPublicIp -&gt; Text
 (AssignPublicIp -&gt; Text) -&gt; ToText AssignPublicIp
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AssignPublicIp -&gt; Text
 $ctoText :: AssignPublicIp -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679258012"><span class="annot"><span class="annottext">AssignPublicIp -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679258021"><span class="annot"><span class="annottext">AssignPublicIp -&gt; ByteString
 (AssignPublicIp -&gt; ByteString) -&gt; ToByteString AssignPublicIp
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AssignPublicIp -&gt; ByteString
 $ctoBS :: AssignPublicIp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679258009"><span class="annot"><span class="annottext">AssignPublicIp -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679258018"><span class="annot"><span class="annottext">AssignPublicIp -&gt; ByteStringBuilder
 (AssignPublicIp -&gt; ByteStringBuilder) -&gt; ToLog AssignPublicIp
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AssignPublicIp -&gt; ByteStringBuilder
 $cbuild :: AssignPublicIp -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679258006"><span class="annot"><span class="annottext">HeaderName -&gt; AssignPublicIp -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679258015"><span class="annot"><span class="annottext">HeaderName -&gt; AssignPublicIp -&gt; [Header]
 (HeaderName -&gt; AssignPublicIp -&gt; [Header])
 -&gt; ToHeader AssignPublicIp
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AssignPublicIp -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AssignPublicIp -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679258003"><span class="annot"><span class="annottext">AssignPublicIp -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679258012"><span class="annot"><span class="annottext">AssignPublicIp -&gt; QueryString
 (AssignPublicIp -&gt; QueryString) -&gt; ToQuery AssignPublicIp
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AssignPublicIp -&gt; QueryString
 $ctoQuery :: AssignPublicIp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679257998"><span id="local-6989586621679258000"><span class="annot"><span class="annottext">Value -&gt; Parser [AssignPublicIp]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679258007"><span id="local-6989586621679258009"><span class="annot"><span class="annottext">Value -&gt; Parser [AssignPublicIp]
 Value -&gt; Parser AssignPublicIp
 (Value -&gt; Parser AssignPublicIp)
 -&gt; (Value -&gt; Parser [AssignPublicIp]) -&gt; FromJSON AssignPublicIp
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AssignPublicIp]
 parseJSON :: Value -&gt; Parser AssignPublicIp
 $cparseJSON :: Value -&gt; Parser AssignPublicIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679257993"><span id="local-6989586621679257995"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssignPublicIp]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679258002"><span id="local-6989586621679258004"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssignPublicIp]
 FromJSONKeyFunction AssignPublicIp
 FromJSONKeyFunction AssignPublicIp
 -&gt; FromJSONKeyFunction [AssignPublicIp]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AssignPublicIp]
 fromJSONKey :: FromJSONKeyFunction AssignPublicIp
 $cfromJSONKey :: FromJSONKeyFunction AssignPublicIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257984"><span id="local-6989586621679257986"><span id="local-6989586621679257988"><span id="local-6989586621679257990"><span class="annot"><span class="annottext">[AssignPublicIp] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257993"><span id="local-6989586621679257995"><span id="local-6989586621679257997"><span id="local-6989586621679257999"><span class="annot"><span class="annottext">[AssignPublicIp] -&gt; Encoding
 [AssignPublicIp] -&gt; Value
 AssignPublicIp -&gt; Encoding
 AssignPublicIp -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: AssignPublicIp -&gt; Encoding
 toJSON :: AssignPublicIp -&gt; Value
 $ctoJSON :: AssignPublicIp -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679257979"><span id="local-6989586621679257981"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssignPublicIp]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679257988"><span id="local-6989586621679257990"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssignPublicIp]
 ToJSONKeyFunction AssignPublicIp
 ToJSONKeyFunction AssignPublicIp
 -&gt; ToJSONKeyFunction [AssignPublicIp] -&gt; ToJSONKey AssignPublicIp
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AssignPublicIp]
 toJSONKey :: ToJSONKeyFunction AssignPublicIp
 $ctoJSONKey :: ToJSONKeyFunction AssignPublicIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679257976"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssignPublicIp
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679257985"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssignPublicIp
 ([Node] -&gt; Either String AssignPublicIp) -&gt; FromXML AssignPublicIp
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AssignPublicIp
 $cparseXML :: [Node] -&gt; Either String AssignPublicIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679257973"><span class="annot"><span class="annottext">AssignPublicIp -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679257982"><span class="annot"><span class="annottext">AssignPublicIp -&gt; XML
 (AssignPublicIp -&gt; XML) -&gt; ToXML AssignPublicIp
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AssignPublicIp -&gt; XML

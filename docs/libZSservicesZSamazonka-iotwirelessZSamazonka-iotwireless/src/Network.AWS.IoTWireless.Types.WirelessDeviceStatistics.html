@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.Types.WirelessDeviceStatistics</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceStatistics</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANListDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.LoRaWANListDevice</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkListDevice</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Information about a wireless device\'s operation.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newWirelessDeviceStatistics' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679279579"><span id="local-6989586621679279580"></span></span><span class="hs-keyword">data</span><span> </span><span id="WirelessDeviceStatistics"><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-var">WirelessDeviceStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WirelessDeviceStatistics%27"><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-var">WirelessDeviceStatistics'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Sidewalk account credentials.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Asidewalk%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe SidewalkListDevice
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Asidewalk%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">sidewalk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aarn%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | LoRaWAN device info.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AloRaWAN%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe LoRaWANListDevice
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AloRaWAN%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANListDevice.html#LoRaWANListDevice"><span class="hs-identifier hs-type">LoRaWANListDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the resource.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aname%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the wireless device reporting the data.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aid%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aid%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The date and time when the most recent uplink was received.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastUplinkReceivedAt%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AlastUplinkReceivedAt%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">lastUplinkReceivedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The wireless device type.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atype%27%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe WirelessDeviceType
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Atype%27%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceType.html#WirelessDeviceType"><span class="hs-identifier hs-type">WirelessDeviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the destination to which the device is assigned.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdestinationName%3AWirelessDeviceStatistics%27"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AdestinationName%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279566"><span id="local-6989586621679279568"><span class="annot"><span class="annottext">WirelessDeviceStatistics -&gt; WirelessDeviceStatistics -&gt; Bool
+(WirelessDeviceStatistics -&gt; WirelessDeviceStatistics -&gt; Bool)
+-&gt; (WirelessDeviceStatistics -&gt; WirelessDeviceStatistics -&gt; Bool)
+-&gt; Eq WirelessDeviceStatistics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WirelessDeviceStatistics -&gt; WirelessDeviceStatistics -&gt; Bool
+$c/= :: WirelessDeviceStatistics -&gt; WirelessDeviceStatistics -&gt; Bool
+== :: WirelessDeviceStatistics -&gt; WirelessDeviceStatistics -&gt; Bool
+$c== :: WirelessDeviceStatistics -&gt; WirelessDeviceStatistics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279557"><span id="local-6989586621679279559"><span id="local-6989586621679279561"><span id="local-6989586621679279563"><span class="annot"><span class="annottext">ReadPrec [WirelessDeviceStatistics]
+ReadPrec WirelessDeviceStatistics
+Int -&gt; ReadS WirelessDeviceStatistics
+ReadS [WirelessDeviceStatistics]
+(Int -&gt; ReadS WirelessDeviceStatistics)
+-&gt; ReadS [WirelessDeviceStatistics]
+-&gt; ReadPrec WirelessDeviceStatistics
+-&gt; ReadPrec [WirelessDeviceStatistics]
+-&gt; Read WirelessDeviceStatistics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WirelessDeviceStatistics]
+$creadListPrec :: ReadPrec [WirelessDeviceStatistics]
+readPrec :: ReadPrec WirelessDeviceStatistics
+$creadPrec :: ReadPrec WirelessDeviceStatistics
+readList :: ReadS [WirelessDeviceStatistics]
+$creadList :: ReadS [WirelessDeviceStatistics]
+readsPrec :: Int -&gt; ReadS WirelessDeviceStatistics
+$creadsPrec :: Int -&gt; ReadS WirelessDeviceStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279550"><span id="local-6989586621679279552"><span id="local-6989586621679279554"><span class="annot"><span class="annottext">Int -&gt; WirelessDeviceStatistics -&gt; ShowS
+[WirelessDeviceStatistics] -&gt; ShowS
+WirelessDeviceStatistics -&gt; String
+(Int -&gt; WirelessDeviceStatistics -&gt; ShowS)
+-&gt; (WirelessDeviceStatistics -&gt; String)
+-&gt; ([WirelessDeviceStatistics] -&gt; ShowS)
+-&gt; Show WirelessDeviceStatistics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WirelessDeviceStatistics] -&gt; ShowS
+$cshowList :: [WirelessDeviceStatistics] -&gt; ShowS
+show :: WirelessDeviceStatistics -&gt; String
+$cshow :: WirelessDeviceStatistics -&gt; String
+showsPrec :: Int -&gt; WirelessDeviceStatistics -&gt; ShowS
+$cshowsPrec :: Int -&gt; WirelessDeviceStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ WirelessDeviceStatistics -&gt; Rep WirelessDeviceStatistics x)
+-&gt; (forall x.
+    Rep WirelessDeviceStatistics x -&gt; WirelessDeviceStatistics)
+-&gt; Generic WirelessDeviceStatistics
+forall x.
+Rep WirelessDeviceStatistics x -&gt; WirelessDeviceStatistics
+forall x.
+WirelessDeviceStatistics -&gt; Rep WirelessDeviceStatistics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep WirelessDeviceStatistics x -&gt; WirelessDeviceStatistics
+$cfrom :: forall x.
+WirelessDeviceStatistics -&gt; Rep WirelessDeviceStatistics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'WirelessDeviceStatistics' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'sidewalk', 'wirelessDeviceStatistics_sidewalk' - The Sidewalk account credentials.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'arn', 'wirelessDeviceStatistics_arn' - The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'loRaWAN', 'wirelessDeviceStatistics_loRaWAN' - LoRaWAN device info.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'name', 'wirelessDeviceStatistics_name' - The name of the resource.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'id', 'wirelessDeviceStatistics_id' - The ID of the wireless device reporting the data.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'lastUplinkReceivedAt', 'wirelessDeviceStatistics_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'type'', 'wirelessDeviceStatistics_type' - The wireless device type.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'destinationName', 'wirelessDeviceStatistics_destinationName' - The name of the destination to which the device is assigned.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#newWirelessDeviceStatistics"><span class="hs-identifier hs-type">newWirelessDeviceStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span>
+</span><span id="line-77"></span><span id="newWirelessDeviceStatistics"><span class="annot"><span class="annottext">newWirelessDeviceStatistics :: WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#newWirelessDeviceStatistics"><span class="hs-identifier hs-var hs-var">newWirelessDeviceStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">WirelessDeviceStatistics' :: Maybe SidewalkListDevice
+-&gt; Maybe Text
+-&gt; Maybe LoRaWANListDevice
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WirelessDeviceType
+-&gt; Maybe Text
+-&gt; WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sidewalk:WirelessDeviceStatistics' :: Maybe SidewalkListDevice
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Asidewalk%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">sidewalk</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe SidewalkListDevice
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aarn%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:loRaWAN:WirelessDeviceStatistics' :: Maybe LoRaWANListDevice
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AloRaWAN%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANListDevice
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aname%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aid%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUplinkReceivedAt:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AlastUplinkReceivedAt%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">lastUplinkReceivedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':WirelessDeviceStatistics' :: Maybe WirelessDeviceType
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Atype%27%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessDeviceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationName:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AdestinationName%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The Sidewalk account credentials.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_sidewalk"><span class="hs-identifier hs-type">wirelessDeviceStatistics_sidewalk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkListDevice.html#SidewalkListDevice"><span class="hs-identifier hs-type">SidewalkListDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="wirelessDeviceStatistics_sidewalk"><span class="annot"><span class="annottext">wirelessDeviceStatistics_sidewalk :: (Maybe SidewalkListDevice -&gt; f (Maybe SidewalkListDevice))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_sidewalk"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_sidewalk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe SidewalkListDevice)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe SidewalkListDevice -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe SidewalkListDevice)
+     (Maybe SidewalkListDevice)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279541"><span class="annot"><span class="annottext">Maybe SidewalkListDevice
+sidewalk :: Maybe SidewalkListDevice
+$sel:sidewalk:WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe SidewalkListDevice
+</span><a href="#local-6989586621679279541"><span class="hs-identifier hs-var hs-var">sidewalk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SidewalkListDevice
+</span><a href="#local-6989586621679279541"><span class="hs-identifier hs-var">sidewalk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279540"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279539"><span class="annot"><span class="annottext">Maybe SidewalkListDevice
+</span><a href="#local-6989586621679279539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sidewalk:WirelessDeviceStatistics' :: Maybe SidewalkListDevice
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Asidewalk%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">sidewalk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SidewalkListDevice
+</span><a href="#local-6989586621679279539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_arn"><span class="hs-identifier hs-type">wirelessDeviceStatistics_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="wirelessDeviceStatistics_arn"><span class="annot"><span class="annottext">wirelessDeviceStatistics_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_arn"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe Text)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe Text -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279537"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="#local-6989586621679279537"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279537"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279536"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279535"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aarn%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | LoRaWAN device info.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_loRaWAN"><span class="hs-identifier hs-type">wirelessDeviceStatistics_loRaWAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANListDevice.html#LoRaWANListDevice"><span class="hs-identifier hs-type">LoRaWANListDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="wirelessDeviceStatistics_loRaWAN"><span class="annot"><span class="annottext">wirelessDeviceStatistics_loRaWAN :: (Maybe LoRaWANListDevice -&gt; f (Maybe LoRaWANListDevice))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_loRaWAN"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe LoRaWANListDevice)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe LoRaWANListDevice -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe LoRaWANListDevice)
+     (Maybe LoRaWANListDevice)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279533"><span class="annot"><span class="annottext">Maybe LoRaWANListDevice
+loRaWAN :: Maybe LoRaWANListDevice
+$sel:loRaWAN:WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe LoRaWANListDevice
+</span><a href="#local-6989586621679279533"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANListDevice
+</span><a href="#local-6989586621679279533"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279532"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279531"><span class="annot"><span class="annottext">Maybe LoRaWANListDevice
+</span><a href="#local-6989586621679279531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loRaWAN:WirelessDeviceStatistics' :: Maybe LoRaWANListDevice
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AloRaWAN%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANListDevice
+</span><a href="#local-6989586621679279531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the resource.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_name"><span class="hs-identifier hs-type">wirelessDeviceStatistics_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="wirelessDeviceStatistics_name"><span class="annot"><span class="annottext">wirelessDeviceStatistics_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_name"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe Text)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe Text -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279529"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="#local-6989586621679279529"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279529"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279528"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aname%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the wireless device reporting the data.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_id"><span class="hs-identifier hs-type">wirelessDeviceStatistics_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="wirelessDeviceStatistics_id"><span class="annot"><span class="annottext">wirelessDeviceStatistics_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_id"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe Text)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe Text -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279525"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="#local-6989586621679279525"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279525"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279524"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Aid%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The date and time when the most recent uplink was received.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_lastUplinkReceivedAt"><span class="hs-identifier hs-type">wirelessDeviceStatistics_lastUplinkReceivedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="wirelessDeviceStatistics_lastUplinkReceivedAt"><span class="annot"><span class="annottext">wirelessDeviceStatistics_lastUplinkReceivedAt :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_lastUplinkReceivedAt"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_lastUplinkReceivedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe Text)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe Text -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279521"><span class="annot"><span class="annottext">Maybe Text
+lastUplinkReceivedAt :: Maybe Text
+$sel:lastUplinkReceivedAt:WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="#local-6989586621679279521"><span class="hs-identifier hs-var hs-var">lastUplinkReceivedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279521"><span class="hs-identifier hs-var">lastUplinkReceivedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279520"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUplinkReceivedAt:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AlastUplinkReceivedAt%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">lastUplinkReceivedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The wireless device type.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_type"><span class="hs-identifier hs-type">wirelessDeviceStatistics_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceType.html#WirelessDeviceType"><span class="hs-identifier hs-type">WirelessDeviceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="wirelessDeviceStatistics_type"><span class="annot"><span class="annottext">wirelessDeviceStatistics_type :: (Maybe WirelessDeviceType -&gt; f (Maybe WirelessDeviceType))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_type"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe WirelessDeviceType)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe WirelessDeviceType -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe WirelessDeviceType)
+     (Maybe WirelessDeviceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279517"><span class="annot"><span class="annottext">Maybe WirelessDeviceType
+type' :: Maybe WirelessDeviceType
+$sel:type':WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe WirelessDeviceType
+</span><a href="#local-6989586621679279517"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessDeviceType
+</span><a href="#local-6989586621679279517"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279516"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279515"><span class="annot"><span class="annottext">Maybe WirelessDeviceType
+</span><a href="#local-6989586621679279515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':WirelessDeviceStatistics' :: Maybe WirelessDeviceType
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3Atype%27%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessDeviceType
+</span><a href="#local-6989586621679279515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of the destination to which the device is assigned.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_destinationName"><span class="hs-identifier hs-type">wirelessDeviceStatistics_destinationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="wirelessDeviceStatistics_destinationName"><span class="annot"><span class="annottext">wirelessDeviceStatistics_destinationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WirelessDeviceStatistics -&gt; f WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#wirelessDeviceStatistics_destinationName"><span class="hs-identifier hs-var hs-var">wirelessDeviceStatistics_destinationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WirelessDeviceStatistics -&gt; Maybe Text)
+-&gt; (WirelessDeviceStatistics
+    -&gt; Maybe Text -&gt; WirelessDeviceStatistics)
+-&gt; Lens
+     WirelessDeviceStatistics
+     WirelessDeviceStatistics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279513"><span class="annot"><span class="annottext">Maybe Text
+destinationName :: Maybe Text
+$sel:destinationName:WirelessDeviceStatistics' :: WirelessDeviceStatistics -&gt; Maybe Text
+</span><a href="#local-6989586621679279513"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279513"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279512"><span class="annot"><span class="annottext">s :: WirelessDeviceStatistics
+</span><a href="#local-6989586621679279512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-type">WirelessDeviceStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279511"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WirelessDeviceStatistics
+</span><a href="#local-6989586621679279512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationName:WirelessDeviceStatistics' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#%24sel%3AdestinationName%3AWirelessDeviceStatistics%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279508"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679279506"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WirelessDeviceStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WirelessDeviceStatistics)
+-&gt; Value
+-&gt; Parser WirelessDeviceStatistics
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WirelessDeviceStatistics&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279503"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe SidewalkListDevice
+-&gt; Maybe Text
+-&gt; Maybe LoRaWANListDevice
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WirelessDeviceType
+-&gt; Maybe Text
+-&gt; WirelessDeviceStatistics
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics%27"><span class="hs-identifier hs-var">WirelessDeviceStatistics'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SidewalkListDevice
+ -&gt; Maybe Text
+ -&gt; Maybe LoRaWANListDevice
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe WirelessDeviceType
+ -&gt; Maybe Text
+ -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe SidewalkListDevice)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe LoRaWANListDevice
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WirelessDeviceType
+      -&gt; Maybe Text
+      -&gt; WirelessDeviceStatistics)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SidewalkListDevice)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sidewalk&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe LoRaWANListDevice
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WirelessDeviceType
+   -&gt; Maybe Text
+   -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe LoRaWANListDevice
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WirelessDeviceType
+      -&gt; Maybe Text
+      -&gt; WirelessDeviceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LoRaWANListDevice
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WirelessDeviceType
+   -&gt; Maybe Text
+   -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe LoRaWANListDevice)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WirelessDeviceType
+      -&gt; Maybe Text
+      -&gt; WirelessDeviceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LoRaWANListDevice)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoRaWAN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WirelessDeviceType
+   -&gt; Maybe Text
+   -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WirelessDeviceType
+      -&gt; Maybe Text
+      -&gt; WirelessDeviceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WirelessDeviceType
+   -&gt; Maybe Text
+   -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe WirelessDeviceType
+      -&gt; Maybe Text
+      -&gt; WirelessDeviceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe WirelessDeviceType
+   -&gt; Maybe Text
+   -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe WirelessDeviceType
+      -&gt; Maybe Text -&gt; WirelessDeviceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUplinkReceivedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WirelessDeviceType
+   -&gt; Maybe Text -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe WirelessDeviceType)
+-&gt; Parser (Maybe Text -&gt; WirelessDeviceStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WirelessDeviceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; WirelessDeviceStatistics)
+-&gt; Parser (Maybe Text) -&gt; Parser WirelessDeviceStatistics
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279497"><span id="local-6989586621679279499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceStatistics.html#WirelessDeviceStatistics"><span class="hs-identifier hs-type">WirelessDeviceStatistics</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

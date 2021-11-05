@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetKeyPairs' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679640075"><span id="local-6989586621679640076"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKeyPairs"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-var">GetKeyPairs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKeyPairs%27"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-var">GetKeyPairs'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679640084"><span id="local-6989586621679640085"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKeyPairs"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-var">GetKeyPairs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKeyPairs%27"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-var">GetKeyPairs'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- To get a page token, perform an initial @GetKeyPairs@ request. If your</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ApageToken%3AGetKeyPairs%27"><span class="annot"><span class="annottext">GetKeyPairs -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#%24sel%3ApageToken%3AGetKeyPairs%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640069"><span id="local-6989586621679640071"><span class="annot"><span class="annottext">GetKeyPairs -&gt; GetKeyPairs -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640078"><span id="local-6989586621679640080"><span class="annot"><span class="annottext">GetKeyPairs -&gt; GetKeyPairs -&gt; Bool
 (GetKeyPairs -&gt; GetKeyPairs -&gt; Bool)
 -&gt; (GetKeyPairs -&gt; GetKeyPairs -&gt; Bool) -&gt; Eq GetKeyPairs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetKeyPairs -&gt; GetKeyPairs -&gt; Bool
 == :: GetKeyPairs -&gt; GetKeyPairs -&gt; Bool
 $c== :: GetKeyPairs -&gt; GetKeyPairs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640060"><span id="local-6989586621679640062"><span id="local-6989586621679640064"><span id="local-6989586621679640066"><span class="annot"><span class="annottext">ReadPrec [GetKeyPairs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640069"><span id="local-6989586621679640071"><span id="local-6989586621679640073"><span id="local-6989586621679640075"><span class="annot"><span class="annottext">ReadPrec [GetKeyPairs]
 ReadPrec GetKeyPairs
 Int -&gt; ReadS GetKeyPairs
 ReadS [GetKeyPairs]
@@ -87,7 +87,7 @@ readList :: ReadS [GetKeyPairs]
 $creadList :: ReadS [GetKeyPairs]
 readsPrec :: Int -&gt; ReadS GetKeyPairs
 $creadsPrec :: Int -&gt; ReadS GetKeyPairs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640053"><span id="local-6989586621679640055"><span id="local-6989586621679640057"><span class="annot"><span class="annottext">Int -&gt; GetKeyPairs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640062"><span id="local-6989586621679640064"><span id="local-6989586621679640066"><span class="annot"><span class="annottext">Int -&gt; GetKeyPairs -&gt; ShowS
 [GetKeyPairs] -&gt; ShowS
 GetKeyPairs -&gt; String
 (Int -&gt; GetKeyPairs -&gt; ShowS)
@@ -147,28 +147,28 @@ forall a. Maybe a
 -&gt; (GetKeyPairs -&gt; Maybe Text -&gt; GetKeyPairs)
 -&gt; Lens GetKeyPairs GetKeyPairs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-type">GetKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640047"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-type">GetKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640056"><span class="annot"><span class="annottext">Maybe Text
 pageToken :: Maybe Text
 $sel:pageToken:GetKeyPairs' :: GetKeyPairs -&gt; Maybe Text
-</span><a href="#local-6989586621679640047"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679640047"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640046"><span class="annot"><span class="annottext">s :: GetKeyPairs
-</span><a href="#local-6989586621679640046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-type">GetKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640045"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679640045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairs
-</span><a href="#local-6989586621679640046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetKeyPairs' :: Maybe Text
+</span><a href="#local-6989586621679640056"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679640056"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640055"><span class="annot"><span class="annottext">s :: GetKeyPairs
+</span><a href="#local-6989586621679640055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-type">GetKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679640054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairs
+</span><a href="#local-6989586621679640055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetKeyPairs' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#%24sel%3ApageToken%3AGetKeyPairs%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679640045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679640054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679640041"><span class="annot"><span class="annottext">page :: GetKeyPairs -&gt; AWSResponse GetKeyPairs -&gt; Maybe GetKeyPairs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679640039"><span class="annot"><span class="annottext">GetKeyPairs
-</span><a href="#local-6989586621679640039"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679640038"><span class="annot"><span class="annottext">AWSResponse GetKeyPairs
-</span><a href="#local-6989586621679640038"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679640050"><span class="annot"><span class="annottext">page :: GetKeyPairs -&gt; AWSResponse GetKeyPairs -&gt; Maybe GetKeyPairs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679640048"><span class="annot"><span class="annottext">GetKeyPairs
+</span><a href="#local-6989586621679640048"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679640047"><span class="annot"><span class="annottext">AWSResponse GetKeyPairs
+</span><a href="#local-6989586621679640047"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-92"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetKeyPairs
 GetKeyPairsResponse
-</span><a href="#local-6989586621679640038"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679640047"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">GetKeyPairsResponse
 -&gt; Getting (First Text) GetKeyPairsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -195,7 +195,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetKeyPairs
 GetKeyPairsResponse
-</span><a href="#local-6989586621679640038"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679640047"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">GetKeyPairsResponse
 -&gt; Getting (First [KeyPair]) GetKeyPairsResponse [KeyPair]
 -&gt; Maybe [KeyPair]
@@ -228,7 +228,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">GetKeyPairs
-</span><a href="#local-6989586621679640039"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679640048"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">GetKeyPairs -&gt; (GetKeyPairs -&gt; GetKeyPairs) -&gt; GetKeyPairs
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -241,7 +241,7 @@ Lens GetKeyPairs GetKeyPairs (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetKeyPairs
 GetKeyPairsResponse
-</span><a href="#local-6989586621679640038"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679640047"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">GetKeyPairsResponse
 -&gt; Getting (First Text) GetKeyPairsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -262,12 +262,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679640028"><span class="annot"><span class="annottext">request :: GetKeyPairs -&gt; Request GetKeyPairs
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679640037"><span class="annot"><span class="annottext">request :: GetKeyPairs -&gt; Request GetKeyPairs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetKeyPairs -&gt; Request GetKeyPairs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679640024"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679640033"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetKeyPairs
 -&gt; ClientResponse ClientBody
@@ -291,10 +291,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679640021"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640021"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679640020"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679640020"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679640019"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679640019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679640030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640030"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679640029"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679640029"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679640028"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679640028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [KeyPair] -&gt; Int -&gt; GetKeyPairsResponse
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-var">GetKeyPairsResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [KeyPair] -&gt; Int -&gt; GetKeyPairsResponse)
@@ -302,7 +302,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [KeyPair] -&gt; Int -&gt; GetKeyPairsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679640019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679640028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,7 +311,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetKeyPairsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679640019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [KeyPair]))
+</span><a href="#local-6989586621679640028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [KeyPair]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyPairs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [KeyPair]))
@@ -328,15 +328,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640021"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679640030"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640010"><span id="local-6989586621679640012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640019"><span id="local-6989586621679640021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679640003"><span class="annot"><span class="annottext">toHeaders :: GetKeyPairs -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679640012"><span class="annot"><span class="annottext">toHeaders :: GetKeyPairs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetKeyPairs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -363,12 +363,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679639993"><span id="local-6989586621679639995"><span id="local-6989586621679639997"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679639991"><span class="annot"><span class="annottext">toJSON :: GetKeyPairs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-type">GetKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639989"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640002"><span id="local-6989586621679640004"><span id="local-6989586621679640006"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679640000"><span class="annot"><span class="annottext">toJSON :: GetKeyPairs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs%27"><span class="hs-identifier hs-type">GetKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639998"><span class="annot"><span class="annottext">Maybe Text
 pageToken :: Maybe Text
 $sel:pageToken:GetKeyPairs' :: GetKeyPairs -&gt; Maybe Text
-</span><a href="#local-6989586621679639989"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679639998"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -380,18 +380,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679639989"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679639998"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679639983"><span class="annot"><span class="annottext">toPath :: GetKeyPairs -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679639992"><span class="annot"><span class="annottext">toPath :: GetKeyPairs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetKeyPairs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairs"><span class="hs-identifier hs-type">GetKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679639979"><span class="annot"><span class="annottext">toQuery :: GetKeyPairs -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679639988"><span class="annot"><span class="annottext">toQuery :: GetKeyPairs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetKeyPairs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newGetKeyPairsResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679639976"><span id="local-6989586621679639977"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKeyPairsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-var">GetKeyPairsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKeyPairsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-var">GetKeyPairsResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679639985"><span id="local-6989586621679639986"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKeyPairsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-var">GetKeyPairsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKeyPairsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-var">GetKeyPairsResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
@@ -416,7 +416,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetKeyPairsResponse%27"><span class="annot"><span class="annottext">GetKeyPairsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#%24sel%3AhttpStatus%3AGetKeyPairsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679639969"><span id="local-6989586621679639971"><span class="annot"><span class="annottext">GetKeyPairsResponse -&gt; GetKeyPairsResponse -&gt; Bool
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679639978"><span id="local-6989586621679639980"><span class="annot"><span class="annottext">GetKeyPairsResponse -&gt; GetKeyPairsResponse -&gt; Bool
 (GetKeyPairsResponse -&gt; GetKeyPairsResponse -&gt; Bool)
 -&gt; (GetKeyPairsResponse -&gt; GetKeyPairsResponse -&gt; Bool)
 -&gt; Eq GetKeyPairsResponse
@@ -425,7 +425,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetKeyPairsResponse -&gt; GetKeyPairsResponse -&gt; Bool
 == :: GetKeyPairsResponse -&gt; GetKeyPairsResponse -&gt; Bool
 $c== :: GetKeyPairsResponse -&gt; GetKeyPairsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639961"><span id="local-6989586621679639963"><span id="local-6989586621679639965"><span id="local-6989586621679639967"><span class="annot"><span class="annottext">ReadPrec [GetKeyPairsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639970"><span id="local-6989586621679639972"><span id="local-6989586621679639974"><span id="local-6989586621679639976"><span class="annot"><span class="annottext">ReadPrec [GetKeyPairsResponse]
 ReadPrec GetKeyPairsResponse
 Int -&gt; ReadS GetKeyPairsResponse
 ReadS [GetKeyPairsResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [GetKeyPairsResponse]
 $creadList :: ReadS [GetKeyPairsResponse]
 readsPrec :: Int -&gt; ReadS GetKeyPairsResponse
 $creadsPrec :: Int -&gt; ReadS GetKeyPairsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639955"><span id="local-6989586621679639957"><span id="local-6989586621679639959"><span class="annot"><span class="annottext">Int -&gt; GetKeyPairsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639964"><span id="local-6989586621679639966"><span id="local-6989586621679639968"><span class="annot"><span class="annottext">Int -&gt; GetKeyPairsResponse -&gt; ShowS
 [GetKeyPairsResponse] -&gt; ShowS
 GetKeyPairsResponse -&gt; String
 (Int -&gt; GetKeyPairsResponse -&gt; ShowS)
@@ -495,8 +495,8 @@ $cfrom :: forall x. GetKeyPairsResponse -&gt; Rep GetKeyPairsResponse x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newGetKeyPairsResponse"><span class="annot"><span class="annottext">newGetKeyPairsResponse :: Int -&gt; GetKeyPairsResponse
-</span><a href="Network.AWS.Lightsail.GetKeyPairs.html#newGetKeyPairsResponse"><span class="hs-identifier hs-var hs-var">newGetKeyPairsResponse</span></a></span></span><span> </span><span id="local-6989586621679639952"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetKeyPairs.html#newGetKeyPairsResponse"><span class="hs-identifier hs-var hs-var">newGetKeyPairsResponse</span></a></span></span><span> </span><span id="local-6989586621679639961"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679639961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">GetKeyPairsResponse' :: Maybe Text -&gt; Maybe [KeyPair] -&gt; Int -&gt; GetKeyPairsResponse
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:GetKeyPairsResponse' :: Maybe Text
@@ -510,7 +510,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetKeyPairsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#%24sel%3AhttpStatus%3AGetKeyPairsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679639961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
@@ -527,16 +527,16 @@ forall a. Maybe a
 -&gt; (GetKeyPairsResponse -&gt; Maybe Text -&gt; GetKeyPairsResponse)
 -&gt; Lens' GetKeyPairsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639951"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639960"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:GetKeyPairsResponse' :: GetKeyPairsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679639951"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679639951"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639950"><span class="annot"><span class="annottext">s :: GetKeyPairsResponse
-</span><a href="#local-6989586621679639950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639949"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679639949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairsResponse
-</span><a href="#local-6989586621679639950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetKeyPairsResponse' :: Maybe Text
+</span><a href="#local-6989586621679639960"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679639960"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639959"><span class="annot"><span class="annottext">s :: GetKeyPairsResponse
+</span><a href="#local-6989586621679639959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679639958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairsResponse
+</span><a href="#local-6989586621679639959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetKeyPairsResponse' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#%24sel%3AnextPageToken%3AGetKeyPairsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679639949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679639958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | An array of key-value pairs containing information about the key pairs.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#getKeyPairsResponse_keyPairs"><span class="hs-identifier hs-type">getKeyPairsResponse_keyPairs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -546,16 +546,16 @@ $sel:nextPageToken:GetKeyPairsResponse' :: GetKeyPairsResponse -&gt; Maybe Text
 -&gt; (GetKeyPairsResponse -&gt; Maybe [KeyPair] -&gt; GetKeyPairsResponse)
 -&gt; Lens' GetKeyPairsResponse (Maybe [KeyPair])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639948"><span class="annot"><span class="annottext">Maybe [KeyPair]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639957"><span class="annot"><span class="annottext">Maybe [KeyPair]
 keyPairs :: Maybe [KeyPair]
 $sel:keyPairs:GetKeyPairsResponse' :: GetKeyPairsResponse -&gt; Maybe [KeyPair]
-</span><a href="#local-6989586621679639948"><span class="hs-identifier hs-var hs-var">keyPairs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyPair]
-</span><a href="#local-6989586621679639948"><span class="hs-identifier hs-var">keyPairs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639947"><span class="annot"><span class="annottext">s :: GetKeyPairsResponse
-</span><a href="#local-6989586621679639947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639946"><span class="annot"><span class="annottext">Maybe [KeyPair]
-</span><a href="#local-6989586621679639946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairsResponse
-</span><a href="#local-6989586621679639947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairs:GetKeyPairsResponse' :: Maybe [KeyPair]
+</span><a href="#local-6989586621679639957"><span class="hs-identifier hs-var hs-var">keyPairs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyPair]
+</span><a href="#local-6989586621679639957"><span class="hs-identifier hs-var">keyPairs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639956"><span class="annot"><span class="annottext">s :: GetKeyPairsResponse
+</span><a href="#local-6989586621679639956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639955"><span class="annot"><span class="annottext">Maybe [KeyPair]
+</span><a href="#local-6989586621679639955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairsResponse
+</span><a href="#local-6989586621679639956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairs:GetKeyPairsResponse' :: Maybe [KeyPair]
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#%24sel%3AkeyPairs%3AGetKeyPairsResponse%27"><span class="hs-identifier hs-var">keyPairs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyPair]
-</span><a href="#local-6989586621679639946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyPair] -&gt; f (Maybe [KeyPair]))
+</span><a href="#local-6989586621679639955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyPair] -&gt; f (Maybe [KeyPair]))
  -&gt; GetKeyPairsResponse -&gt; f GetKeyPairsResponse)
 -&gt; ((Maybe [KeyPair] -&gt; f (Maybe [KeyPair]))
     -&gt; Maybe [KeyPair] -&gt; f (Maybe [KeyPair]))
@@ -583,16 +583,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetKeyPairsResponse -&gt; Int -&gt; GetKeyPairsResponse)
 -&gt; Lens GetKeyPairsResponse GetKeyPairsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639943"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639952"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetKeyPairsResponse' :: GetKeyPairsResponse -&gt; Int
-</span><a href="#local-6989586621679639943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639942"><span class="annot"><span class="annottext">s :: GetKeyPairsResponse
-</span><a href="#local-6989586621679639942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639941"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairsResponse
-</span><a href="#local-6989586621679639942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetKeyPairsResponse' :: Int
+</span><a href="#local-6989586621679639952"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679639952"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639951"><span class="annot"><span class="annottext">s :: GetKeyPairsResponse
+</span><a href="#local-6989586621679639951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse%27"><span class="hs-identifier hs-type">GetKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639950"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679639950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPairsResponse
+</span><a href="#local-6989586621679639951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetKeyPairsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetKeyPairs.html#%24sel%3AhttpStatus%3AGetKeyPairsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679639950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679639939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679639948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetKeyPairs.html#GetKeyPairsResponse"><span class="hs-identifier hs-type">GetKeyPairsResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

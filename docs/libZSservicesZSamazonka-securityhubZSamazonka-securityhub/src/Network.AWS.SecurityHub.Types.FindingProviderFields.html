@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.FindingProviderFields</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.FindingProviderFields</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderSeverity.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.FindingProviderSeverity</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.RelatedFinding.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.RelatedFinding</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | In a @BatchImportFindings@ request, finding providers use</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @FindingProviderFields@ to provide and update values for confidence,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- criticality, related findings, severity, and types.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFindingProviderFields' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679986467"><span id="local-6989586621679986468"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingProviderFields"><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-var">FindingProviderFields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingProviderFields%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-var">FindingProviderFields'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of importance assigned to the resources associated with the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- A score of 0 means that the underlying resources have no criticality,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- and a score of 100 is reserved for the most critical resources.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Acriticality%3AFindingProviderFields%27"><span class="annot"><span class="annottext">FindingProviderFields -&gt; Maybe Natural
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Acriticality%3AFindingProviderFields%27"><span class="hs-identifier hs-var hs-var">criticality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The severity of a finding.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aseverity%3AFindingProviderFields%27"><span class="annot"><span class="annottext">FindingProviderFields -&gt; Maybe FindingProviderSeverity
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Aseverity%3AFindingProviderFields%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderSeverity.html#FindingProviderSeverity"><span class="hs-identifier hs-type">FindingProviderSeverity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | One or more finding types in the format of</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @namespace\/category\/classifier@ that classify a finding.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Valid namespace values are: Software and Configuration Checks | TTPs |</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Effects | Unusual Behaviors | Sensitive Data Identifications</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atypes%3AFindingProviderFields%27"><span class="annot"><span class="annottext">FindingProviderFields -&gt; Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Atypes%3AFindingProviderFields%27"><span class="hs-identifier hs-var hs-var">types</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A list of findings that are related to the current finding.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ArelatedFindings%3AFindingProviderFields%27"><span class="annot"><span class="annottext">FindingProviderFields -&gt; Maybe [RelatedFinding]
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3ArelatedFindings%3AFindingProviderFields%27"><span class="hs-identifier hs-var hs-var">relatedFindings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.RelatedFinding.html#RelatedFinding"><span class="hs-identifier hs-type">RelatedFinding</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A finding\'s confidence. Confidence is defined as the likelihood that a</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- finding accurately identifies the behavior or issue that it was intended</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- to identify.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- zero percent confidence and 100 means 100 percent confidence.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aconfidence%3AFindingProviderFields%27"><span class="annot"><span class="annottext">FindingProviderFields -&gt; Maybe Natural
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Aconfidence%3AFindingProviderFields%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679986457"><span id="local-6989586621679986459"><span class="annot"><span class="annottext">FindingProviderFields -&gt; FindingProviderFields -&gt; Bool
+(FindingProviderFields -&gt; FindingProviderFields -&gt; Bool)
+-&gt; (FindingProviderFields -&gt; FindingProviderFields -&gt; Bool)
+-&gt; Eq FindingProviderFields
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingProviderFields -&gt; FindingProviderFields -&gt; Bool
+$c/= :: FindingProviderFields -&gt; FindingProviderFields -&gt; Bool
+== :: FindingProviderFields -&gt; FindingProviderFields -&gt; Bool
+$c== :: FindingProviderFields -&gt; FindingProviderFields -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679986448"><span id="local-6989586621679986450"><span id="local-6989586621679986452"><span id="local-6989586621679986454"><span class="annot"><span class="annottext">ReadPrec [FindingProviderFields]
+ReadPrec FindingProviderFields
+Int -&gt; ReadS FindingProviderFields
+ReadS [FindingProviderFields]
+(Int -&gt; ReadS FindingProviderFields)
+-&gt; ReadS [FindingProviderFields]
+-&gt; ReadPrec FindingProviderFields
+-&gt; ReadPrec [FindingProviderFields]
+-&gt; Read FindingProviderFields
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingProviderFields]
+$creadListPrec :: ReadPrec [FindingProviderFields]
+readPrec :: ReadPrec FindingProviderFields
+$creadPrec :: ReadPrec FindingProviderFields
+readList :: ReadS [FindingProviderFields]
+$creadList :: ReadS [FindingProviderFields]
+readsPrec :: Int -&gt; ReadS FindingProviderFields
+$creadsPrec :: Int -&gt; ReadS FindingProviderFields
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679986441"><span id="local-6989586621679986443"><span id="local-6989586621679986445"><span class="annot"><span class="annottext">Int -&gt; FindingProviderFields -&gt; ShowS
+[FindingProviderFields] -&gt; ShowS
+FindingProviderFields -&gt; String
+(Int -&gt; FindingProviderFields -&gt; ShowS)
+-&gt; (FindingProviderFields -&gt; String)
+-&gt; ([FindingProviderFields] -&gt; ShowS)
+-&gt; Show FindingProviderFields
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingProviderFields] -&gt; ShowS
+$cshowList :: [FindingProviderFields] -&gt; ShowS
+show :: FindingProviderFields -&gt; String
+$cshow :: FindingProviderFields -&gt; String
+showsPrec :: Int -&gt; FindingProviderFields -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingProviderFields -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FindingProviderFields -&gt; Rep FindingProviderFields x)
+-&gt; (forall x. Rep FindingProviderFields x -&gt; FindingProviderFields)
+-&gt; Generic FindingProviderFields
+forall x. Rep FindingProviderFields x -&gt; FindingProviderFields
+forall x. FindingProviderFields -&gt; Rep FindingProviderFields x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FindingProviderFields x -&gt; FindingProviderFields
+$cfrom :: forall x. FindingProviderFields -&gt; Rep FindingProviderFields x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'FindingProviderFields' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'criticality', 'findingProviderFields_criticality' - The level of importance assigned to the resources associated with the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- A score of 0 means that the underlying resources have no criticality,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- and a score of 100 is reserved for the most critical resources.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'severity', 'findingProviderFields_severity' - The severity of a finding.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'types', 'findingProviderFields_types' - One or more finding types in the format of</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- @namespace\/category\/classifier@ that classify a finding.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Valid namespace values are: Software and Configuration Checks | TTPs |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Effects | Unusual Behaviors | Sensitive Data Identifications</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'relatedFindings', 'findingProviderFields_relatedFindings' - A list of findings that are related to the current finding.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'confidence', 'findingProviderFields_confidence' - A finding\'s confidence. Confidence is defined as the likelihood that a</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- finding accurately identifies the behavior or issue that it was intended</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- to identify.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- zero percent confidence and 100 means 100 percent confidence.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#newFindingProviderFields"><span class="hs-identifier hs-type">newFindingProviderFields</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span>
+</span><span id="line-92"></span><span id="newFindingProviderFields"><span class="annot"><span class="annottext">newFindingProviderFields :: FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#newFindingProviderFields"><span class="hs-identifier hs-var hs-var">newFindingProviderFields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">FindingProviderFields' :: Maybe Natural
+-&gt; Maybe FindingProviderSeverity
+-&gt; Maybe [Text]
+-&gt; Maybe [RelatedFinding]
+-&gt; Maybe Natural
+-&gt; FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:criticality:FindingProviderFields' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Acriticality%3AFindingProviderFields%27"><span class="hs-identifier hs-var">criticality</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:FindingProviderFields' :: Maybe FindingProviderSeverity
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Aseverity%3AFindingProviderFields%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingProviderSeverity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:types:FindingProviderFields' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Atypes%3AFindingProviderFields%27"><span class="hs-identifier hs-var">types</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:relatedFindings:FindingProviderFields' :: Maybe [RelatedFinding]
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3ArelatedFindings%3AFindingProviderFields%27"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:confidence:FindingProviderFields' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Aconfidence%3AFindingProviderFields%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The level of importance assigned to the resources associated with the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- finding.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- A score of 0 means that the underlying resources have no criticality,</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- and a score of 100 is reserved for the most critical resources.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_criticality"><span class="hs-identifier hs-type">findingProviderFields_criticality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="findingProviderFields_criticality"><span class="annot"><span class="annottext">findingProviderFields_criticality :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FindingProviderFields -&gt; f FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_criticality"><span class="hs-identifier hs-var hs-var">findingProviderFields_criticality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingProviderFields -&gt; Maybe Natural)
+-&gt; (FindingProviderFields
+    -&gt; Maybe Natural -&gt; FindingProviderFields)
+-&gt; Lens
+     FindingProviderFields
+     FindingProviderFields
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679986432"><span class="annot"><span class="annottext">Maybe Natural
+criticality :: Maybe Natural
+$sel:criticality:FindingProviderFields' :: FindingProviderFields -&gt; Maybe Natural
+</span><a href="#local-6989586621679986432"><span class="hs-identifier hs-var hs-var">criticality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986432"><span class="hs-identifier hs-var">criticality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679986431"><span class="annot"><span class="annottext">s :: FindingProviderFields
+</span><a href="#local-6989586621679986431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679986430"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingProviderFields
+</span><a href="#local-6989586621679986431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criticality:FindingProviderFields' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Acriticality%3AFindingProviderFields%27"><span class="hs-identifier hs-var">criticality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The severity of a finding.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_severity"><span class="hs-identifier hs-type">findingProviderFields_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderSeverity.html#FindingProviderSeverity"><span class="hs-identifier hs-type">FindingProviderSeverity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="findingProviderFields_severity"><span class="annot"><span class="annottext">findingProviderFields_severity :: (Maybe FindingProviderSeverity
+ -&gt; f (Maybe FindingProviderSeverity))
+-&gt; FindingProviderFields -&gt; f FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_severity"><span class="hs-identifier hs-var hs-var">findingProviderFields_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingProviderFields -&gt; Maybe FindingProviderSeverity)
+-&gt; (FindingProviderFields
+    -&gt; Maybe FindingProviderSeverity -&gt; FindingProviderFields)
+-&gt; Lens
+     FindingProviderFields
+     FindingProviderFields
+     (Maybe FindingProviderSeverity)
+     (Maybe FindingProviderSeverity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679986428"><span class="annot"><span class="annottext">Maybe FindingProviderSeverity
+severity :: Maybe FindingProviderSeverity
+$sel:severity:FindingProviderFields' :: FindingProviderFields -&gt; Maybe FindingProviderSeverity
+</span><a href="#local-6989586621679986428"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingProviderSeverity
+</span><a href="#local-6989586621679986428"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679986427"><span class="annot"><span class="annottext">s :: FindingProviderFields
+</span><a href="#local-6989586621679986427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679986426"><span class="annot"><span class="annottext">Maybe FindingProviderSeverity
+</span><a href="#local-6989586621679986426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingProviderFields
+</span><a href="#local-6989586621679986427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:FindingProviderFields' :: Maybe FindingProviderSeverity
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Aseverity%3AFindingProviderFields%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingProviderSeverity
+</span><a href="#local-6989586621679986426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | One or more finding types in the format of</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- @namespace\/category\/classifier@ that classify a finding.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Valid namespace values are: Software and Configuration Checks | TTPs |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Effects | Unusual Behaviors | Sensitive Data Identifications</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_types"><span class="hs-identifier hs-type">findingProviderFields_types</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="findingProviderFields_types"><span class="annot"><span class="annottext">findingProviderFields_types :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingProviderFields -&gt; f FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_types"><span class="hs-identifier hs-var hs-var">findingProviderFields_types</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingProviderFields -&gt; Maybe [Text])
+-&gt; (FindingProviderFields -&gt; Maybe [Text] -&gt; FindingProviderFields)
+-&gt; Lens
+     FindingProviderFields
+     FindingProviderFields
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679986424"><span class="annot"><span class="annottext">Maybe [Text]
+types :: Maybe [Text]
+$sel:types:FindingProviderFields' :: FindingProviderFields -&gt; Maybe [Text]
+</span><a href="#local-6989586621679986424"><span class="hs-identifier hs-var hs-var">types</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679986424"><span class="hs-identifier hs-var">types</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679986423"><span class="annot"><span class="annottext">s :: FindingProviderFields
+</span><a href="#local-6989586621679986423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679986422"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679986422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingProviderFields
+</span><a href="#local-6989586621679986423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:types:FindingProviderFields' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Atypes%3AFindingProviderFields%27"><span class="hs-identifier hs-var">types</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679986422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; FindingProviderFields -&gt; f FindingProviderFields)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingProviderFields
+-&gt; f FindingProviderFields
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A list of findings that are related to the current finding.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_relatedFindings"><span class="hs-identifier hs-type">findingProviderFields_relatedFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.RelatedFinding.html#RelatedFinding"><span class="hs-identifier hs-type">RelatedFinding</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="findingProviderFields_relatedFindings"><span class="annot"><span class="annottext">findingProviderFields_relatedFindings :: (Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+-&gt; FindingProviderFields -&gt; f FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_relatedFindings"><span class="hs-identifier hs-var hs-var">findingProviderFields_relatedFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingProviderFields -&gt; Maybe [RelatedFinding])
+-&gt; (FindingProviderFields
+    -&gt; Maybe [RelatedFinding] -&gt; FindingProviderFields)
+-&gt; Lens
+     FindingProviderFields
+     FindingProviderFields
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679986417"><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+relatedFindings :: Maybe [RelatedFinding]
+$sel:relatedFindings:FindingProviderFields' :: FindingProviderFields -&gt; Maybe [RelatedFinding]
+</span><a href="#local-6989586621679986417"><span class="hs-identifier hs-var hs-var">relatedFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621679986417"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679986416"><span class="annot"><span class="annottext">s :: FindingProviderFields
+</span><a href="#local-6989586621679986416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679986415"><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621679986415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingProviderFields
+</span><a href="#local-6989586621679986416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relatedFindings:FindingProviderFields' :: Maybe [RelatedFinding]
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3ArelatedFindings%3AFindingProviderFields%27"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621679986415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+ -&gt; FindingProviderFields -&gt; f FindingProviderFields)
+-&gt; ((Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+    -&gt; Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+-&gt; (Maybe [RelatedFinding] -&gt; f (Maybe [RelatedFinding]))
+-&gt; FindingProviderFields
+-&gt; f FindingProviderFields
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RelatedFinding] [RelatedFinding] [RelatedFinding] [RelatedFinding]
+-&gt; Iso
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+     (Maybe [RelatedFinding])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RelatedFinding] [RelatedFinding] [RelatedFinding] [RelatedFinding]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | A finding\'s confidence. Confidence is defined as the likelihood that a</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- finding accurately identifies the behavior or issue that it was intended</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- to identify.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- zero percent confidence and 100 means 100 percent confidence.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_confidence"><span class="hs-identifier hs-type">findingProviderFields_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="findingProviderFields_confidence"><span class="annot"><span class="annottext">findingProviderFields_confidence :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FindingProviderFields -&gt; f FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#findingProviderFields_confidence"><span class="hs-identifier hs-var hs-var">findingProviderFields_confidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingProviderFields -&gt; Maybe Natural)
+-&gt; (FindingProviderFields
+    -&gt; Maybe Natural -&gt; FindingProviderFields)
+-&gt; Lens
+     FindingProviderFields
+     FindingProviderFields
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679986413"><span class="annot"><span class="annottext">Maybe Natural
+confidence :: Maybe Natural
+$sel:confidence:FindingProviderFields' :: FindingProviderFields -&gt; Maybe Natural
+</span><a href="#local-6989586621679986413"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986413"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679986412"><span class="annot"><span class="annottext">s :: FindingProviderFields
+</span><a href="#local-6989586621679986412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679986411"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingProviderFields
+</span><a href="#local-6989586621679986412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:FindingProviderFields' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#%24sel%3Aconfidence%3AFindingProviderFields%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679986408"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679986406"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingProviderFields
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FindingProviderFields)
+-&gt; Value
+-&gt; Parser FindingProviderFields
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FindingProviderFields&quot;</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679986403"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679986403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe FindingProviderSeverity
+-&gt; Maybe [Text]
+-&gt; Maybe [RelatedFinding]
+-&gt; Maybe Natural
+-&gt; FindingProviderFields
+</span><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-var">FindingProviderFields'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe FindingProviderSeverity
+ -&gt; Maybe [Text]
+ -&gt; Maybe [RelatedFinding]
+ -&gt; Maybe Natural
+ -&gt; FindingProviderFields)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe FindingProviderSeverity
+      -&gt; Maybe [Text]
+      -&gt; Maybe [RelatedFinding]
+      -&gt; Maybe Natural
+      -&gt; FindingProviderFields)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679986403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Criticality&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FindingProviderSeverity
+   -&gt; Maybe [Text]
+   -&gt; Maybe [RelatedFinding]
+   -&gt; Maybe Natural
+   -&gt; FindingProviderFields)
+-&gt; Parser (Maybe FindingProviderSeverity)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [RelatedFinding]
+      -&gt; Maybe Natural
+      -&gt; FindingProviderFields)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679986403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FindingProviderSeverity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [RelatedFinding]
+   -&gt; Maybe Natural
+   -&gt; FindingProviderFields)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [RelatedFinding] -&gt; Maybe Natural -&gt; FindingProviderFields)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679986403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Types&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RelatedFinding] -&gt; Maybe Natural -&gt; FindingProviderFields)
+-&gt; Parser (Maybe [RelatedFinding])
+-&gt; Parser (Maybe Natural -&gt; FindingProviderFields)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679986403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RelatedFinding]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelatedFindings&quot;</span></span><span>
+</span><span id="line-145"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RelatedFinding]))
+-&gt; Maybe [RelatedFinding] -&gt; Parser (Maybe [RelatedFinding])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; FindingProviderFields)
+-&gt; Parser (Maybe Natural) -&gt; Parser FindingProviderFields
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679986403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679986396"><span id="local-6989586621679986398"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679986393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679986385"><span id="local-6989586621679986387"><span id="local-6989586621679986389"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields"><span class="hs-identifier hs-type">FindingProviderFields</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679986383"><span class="annot"><span class="annottext">toJSON :: FindingProviderFields -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.FindingProviderFields.html#FindingProviderFields%27"><span class="hs-identifier hs-type">FindingProviderFields'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679986377"><span id="local-6989586621679986378"><span id="local-6989586621679986379"><span id="local-6989586621679986380"><span id="local-6989586621679986381"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe [RelatedFinding]
+Maybe FindingProviderSeverity
+confidence :: Maybe Natural
+relatedFindings :: Maybe [RelatedFinding]
+types :: Maybe [Text]
+severity :: Maybe FindingProviderSeverity
+criticality :: Maybe Natural
+$sel:confidence:FindingProviderFields' :: FindingProviderFields -&gt; Maybe Natural
+$sel:relatedFindings:FindingProviderFields' :: FindingProviderFields -&gt; Maybe [RelatedFinding]
+$sel:types:FindingProviderFields' :: FindingProviderFields -&gt; Maybe [Text]
+$sel:severity:FindingProviderFields' :: FindingProviderFields -&gt; Maybe FindingProviderSeverity
+$sel:criticality:FindingProviderFields' :: FindingProviderFields -&gt; Maybe Natural
+</span><a href="#local-6989586621679986377"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Criticality&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986381"><span class="hs-identifier hs-var">criticality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FindingProviderSeverity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FindingProviderSeverity -&gt; Pair)
+-&gt; Maybe FindingProviderSeverity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FindingProviderSeverity
+</span><a href="#local-6989586621679986380"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Types&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679986379"><span class="hs-identifier hs-var">types</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelatedFindings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RelatedFinding] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">([RelatedFinding] -&gt; Pair) -&gt; Maybe [RelatedFinding] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RelatedFinding]
+</span><a href="#local-6989586621679986378"><span class="hs-identifier hs-var">relatedFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Confidence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679986377"><span class="hs-identifier hs-var">confidence</span></a></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span></pre></body></html>

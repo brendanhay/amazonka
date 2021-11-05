@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-comment">-- time interval.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newGetUsage' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679377757"><span id="local-6989586621679377758"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUsage"><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-var">GetUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUsage%27"><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-var">GetUsage'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679377766"><span id="local-6989586621679377767"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUsage"><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-var">GetUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUsage%27"><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-var">GetUsage'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Id of the API key associated with the resultant usage data.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AkeyId%3AGetUsage%27"><span class="annot"><span class="annottext">GetUsage -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AkeyId%3AGetUsage%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AendDate%3AGetUsage%27"><span class="annot"><span class="annottext">GetUsage -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AendDate%3AGetUsage%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377746"><span id="local-6989586621679377748"><span class="annot"><span class="annottext">GetUsage -&gt; GetUsage -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377755"><span id="local-6989586621679377757"><span class="annot"><span class="annottext">GetUsage -&gt; GetUsage -&gt; Bool
 (GetUsage -&gt; GetUsage -&gt; Bool)
 -&gt; (GetUsage -&gt; GetUsage -&gt; Bool) -&gt; Eq GetUsage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUsage -&gt; GetUsage -&gt; Bool
 == :: GetUsage -&gt; GetUsage -&gt; Bool
 $c== :: GetUsage -&gt; GetUsage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377737"><span id="local-6989586621679377739"><span id="local-6989586621679377741"><span id="local-6989586621679377743"><span class="annot"><span class="annottext">ReadPrec [GetUsage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377746"><span id="local-6989586621679377748"><span id="local-6989586621679377750"><span id="local-6989586621679377752"><span class="annot"><span class="annottext">ReadPrec [GetUsage]
 ReadPrec GetUsage
 Int -&gt; ReadS GetUsage
 ReadS [GetUsage]
@@ -109,7 +109,7 @@ readList :: ReadS [GetUsage]
 $creadList :: ReadS [GetUsage]
 readsPrec :: Int -&gt; ReadS GetUsage
 $creadsPrec :: Int -&gt; ReadS GetUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377730"><span id="local-6989586621679377732"><span id="local-6989586621679377734"><span class="annot"><span class="annottext">Int -&gt; GetUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377739"><span id="local-6989586621679377741"><span id="local-6989586621679377743"><span class="annot"><span class="annottext">Int -&gt; GetUsage -&gt; ShowS
 [GetUsage] -&gt; ShowS
 GetUsage -&gt; String
 (Int -&gt; GetUsage -&gt; ShowS)
@@ -161,10 +161,10 @@ $cfrom :: forall x. GetUsage -&gt; Rep GetUsage x
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span>
 </span><span id="line-108"></span><span id="newGetUsage"><span class="annot"><span class="annottext">newGetUsage :: Text -&gt; Text -&gt; Text -&gt; GetUsage
-</span><a href="Network.AWS.APIGateway.GetUsage.html#newGetUsage"><span class="hs-identifier hs-var hs-var">newGetUsage</span></a></span></span><span> </span><span id="local-6989586621679377725"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377725"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span></span><span> </span><span id="local-6989586621679377724"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377724"><span class="hs-identifier hs-var">pStartDate_</span></a></span></span><span> </span><span id="local-6989586621679377723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377723"><span class="hs-identifier hs-var">pEndDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetUsage.html#newGetUsage"><span class="hs-identifier hs-var hs-var">newGetUsage</span></a></span></span><span> </span><span id="local-6989586621679377734"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377734"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span></span><span> </span><span id="local-6989586621679377733"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377733"><span class="hs-identifier hs-var">pStartDate_</span></a></span></span><span> </span><span id="local-6989586621679377732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377732"><span class="hs-identifier hs-var">pEndDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">GetUsage' :: Maybe Text
 -&gt; Maybe Int -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; GetUsage
 </span><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span>
@@ -182,13 +182,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:usagePlanId:GetUsage' :: Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AusagePlanId%3AGetUsage%27"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377725"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377734"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:GetUsage' :: Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AstartDate%3AGetUsage%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377724"><span class="hs-identifier hs-var">pStartDate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377733"><span class="hs-identifier hs-var">pStartDate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:GetUsage' :: Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AendDate%3AGetUsage%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377723"><span class="hs-identifier hs-var">pEndDate_</span></a></span><span>
+</span><a href="#local-6989586621679377732"><span class="hs-identifier hs-var">pEndDate_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The Id of the API key associated with the resultant usage data.</span><span>
@@ -198,16 +198,16 @@ forall a. Maybe a
 -&gt; (GetUsage -&gt; Maybe Text -&gt; GetUsage)
 -&gt; Lens GetUsage GetUsage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377721"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377730"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:GetUsage' :: GetUsage -&gt; Maybe Text
-</span><a href="#local-6989586621679377721"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377721"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377720"><span class="annot"><span class="annottext">s :: GetUsage
-</span><a href="#local-6989586621679377720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377719"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:GetUsage' :: Maybe Text
+</span><a href="#local-6989586621679377730"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377730"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377729"><span class="annot"><span class="annottext">s :: GetUsage
+</span><a href="#local-6989586621679377729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
+</span><a href="#local-6989586621679377729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:GetUsage' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AkeyId%3AGetUsage%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The maximum number of returned results per page. The default value is 25</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- and the maximum value is 500.</span><span>
@@ -217,16 +217,16 @@ $sel:keyId:GetUsage' :: GetUsage -&gt; Maybe Text
 -&gt; (GetUsage -&gt; Maybe Int -&gt; GetUsage)
 -&gt; Lens GetUsage GetUsage (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377718"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377727"><span class="annot"><span class="annottext">Maybe Int
 limit :: Maybe Int
 $sel:limit:GetUsage' :: GetUsage -&gt; Maybe Int
-</span><a href="#local-6989586621679377718"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679377718"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377717"><span class="annot"><span class="annottext">s :: GetUsage
-</span><a href="#local-6989586621679377717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377716"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679377716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetUsage' :: Maybe Int
+</span><a href="#local-6989586621679377727"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679377727"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377726"><span class="annot"><span class="annottext">s :: GetUsage
+</span><a href="#local-6989586621679377726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377725"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679377725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
+</span><a href="#local-6989586621679377726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetUsage' :: Maybe Int
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3Alimit%3AGetUsage%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679377716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The current pagination position in the paged result set.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#getUsage_position"><span class="hs-identifier hs-type">getUsage_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -235,16 +235,16 @@ $sel:limit:GetUsage' :: GetUsage -&gt; Maybe Int
 -&gt; (GetUsage -&gt; Maybe Text -&gt; GetUsage)
 -&gt; Lens GetUsage GetUsage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377715"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377724"><span class="annot"><span class="annottext">Maybe Text
 position :: Maybe Text
 $sel:position:GetUsage' :: GetUsage -&gt; Maybe Text
-</span><a href="#local-6989586621679377715"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377715"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377714"><span class="annot"><span class="annottext">s :: GetUsage
-</span><a href="#local-6989586621679377714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377713"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:GetUsage' :: Maybe Text
+</span><a href="#local-6989586621679377724"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377724"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377723"><span class="annot"><span class="annottext">s :: GetUsage
+</span><a href="#local-6989586621679377723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
+</span><a href="#local-6989586621679377723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:GetUsage' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3Aposition%3AGetUsage%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | [Required] The Id of the usage plan associated with the usage data.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#getUsage_usagePlanId"><span class="hs-identifier hs-type">getUsage_usagePlanId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -253,16 +253,16 @@ $sel:position:GetUsage' :: GetUsage -&gt; Maybe Text
 -&gt; (GetUsage -&gt; Text -&gt; GetUsage)
 -&gt; Lens GetUsage GetUsage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377712"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377721"><span class="annot"><span class="annottext">Text
 usagePlanId :: Text
 $sel:usagePlanId:GetUsage' :: GetUsage -&gt; Text
-</span><a href="#local-6989586621679377712"><span class="hs-identifier hs-var hs-var">usagePlanId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377712"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377711"><span class="annot"><span class="annottext">s :: GetUsage
-</span><a href="#local-6989586621679377711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377710"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePlanId:GetUsage' :: Text
+</span><a href="#local-6989586621679377721"><span class="hs-identifier hs-var hs-var">usagePlanId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377721"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377720"><span class="annot"><span class="annottext">s :: GetUsage
+</span><a href="#local-6989586621679377720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
+</span><a href="#local-6989586621679377720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePlanId:GetUsage' :: Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AusagePlanId%3AGetUsage%27"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | [Required] The starting date (e.g., 2016-01-01) of the usage data.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#getUsage_startDate"><span class="hs-identifier hs-type">getUsage_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -271,16 +271,16 @@ $sel:usagePlanId:GetUsage' :: GetUsage -&gt; Text
 -&gt; (GetUsage -&gt; Text -&gt; GetUsage)
 -&gt; Lens GetUsage GetUsage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377709"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377718"><span class="annot"><span class="annottext">Text
 startDate :: Text
 $sel:startDate:GetUsage' :: GetUsage -&gt; Text
-</span><a href="#local-6989586621679377709"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377709"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377708"><span class="annot"><span class="annottext">s :: GetUsage
-</span><a href="#local-6989586621679377708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377707"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:GetUsage' :: Text
+</span><a href="#local-6989586621679377718"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377718"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377717"><span class="annot"><span class="annottext">s :: GetUsage
+</span><a href="#local-6989586621679377717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
+</span><a href="#local-6989586621679377717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:GetUsage' :: Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AstartDate%3AGetUsage%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | [Required] The ending date (e.g., 2016-12-31) of the usage data.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#getUsage_endDate"><span class="hs-identifier hs-type">getUsage_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -289,28 +289,28 @@ $sel:startDate:GetUsage' :: GetUsage -&gt; Text
 -&gt; (GetUsage -&gt; Text -&gt; GetUsage)
 -&gt; Lens GetUsage GetUsage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377706"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377715"><span class="annot"><span class="annottext">Text
 endDate :: Text
 $sel:endDate:GetUsage' :: GetUsage -&gt; Text
-</span><a href="#local-6989586621679377706"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377706"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377705"><span class="annot"><span class="annottext">s :: GetUsage
-</span><a href="#local-6989586621679377705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377704"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:GetUsage' :: Text
+</span><a href="#local-6989586621679377715"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377715"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377714"><span class="annot"><span class="annottext">s :: GetUsage
+</span><a href="#local-6989586621679377714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377713"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsage
+</span><a href="#local-6989586621679377714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:GetUsage' :: Text
 </span><a href="Network.AWS.APIGateway.GetUsage.html#%24sel%3AendDate%3AGetUsage%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679377700"><span class="annot"><span class="annottext">page :: GetUsage -&gt; AWSResponse GetUsage -&gt; Maybe GetUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679377698"><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377698"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679377697"><span class="annot"><span class="annottext">AWSResponse GetUsage
-</span><a href="#local-6989586621679377697"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679377709"><span class="annot"><span class="annottext">page :: GetUsage -&gt; AWSResponse GetUsage -&gt; Maybe GetUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679377707"><span class="annot"><span class="annottext">GetUsage
+</span><a href="#local-6989586621679377707"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679377706"><span class="annot"><span class="annottext">AWSResponse GetUsage
+</span><a href="#local-6989586621679377706"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse GetUsage
 Usage
-</span><a href="#local-6989586621679377697"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">Usage -&gt; Getting (First Text) Usage Text -&gt; Maybe Text
+</span><a href="#local-6989586621679377706"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">Usage -&gt; Getting (First Text) Usage Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 </span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
 -&gt; Usage -&gt; Const (First Text) Usage
@@ -333,7 +333,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse GetUsage
 Usage
-</span><a href="#local-6989586621679377697"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">Usage
+</span><a href="#local-6989586621679377706"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">Usage
 -&gt; Getting
      (First (HashMap Text [[Integer]])) Usage (HashMap Text [[Integer]])
 -&gt; Maybe (HashMap Text [[Integer]])
@@ -379,7 +379,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">GetUsage
-</span><a href="#local-6989586621679377698"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679377707"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">GetUsage -&gt; (GetUsage -&gt; GetUsage) -&gt; GetUsage
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -392,7 +392,7 @@ Lens GetUsage GetUsage (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetUsage
 Usage
-</span><a href="#local-6989586621679377697"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">Usage -&gt; Getting (First Text) Usage Text -&gt; Maybe Text
+</span><a href="#local-6989586621679377706"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">Usage -&gt; Getting (First Text) Usage Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 </span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
 -&gt; Usage -&gt; Const (First Text) Usage
@@ -410,12 +410,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Usage.html#Usage"><span class="hs-identifier hs-type">Usage</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679377687"><span class="annot"><span class="annottext">request :: GetUsage -&gt; Request GetUsage
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679377696"><span class="annot"><span class="annottext">request :: GetUsage -&gt; Request GetUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUsage -&gt; Request GetUsage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679377683"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679377692"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetUsage
 -&gt; ClientResponse ClientBody
@@ -439,20 +439,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377680"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679377680"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679377679"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679377679"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679377678"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377678"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Usage
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377689"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377689"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679377688"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679377688"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679377687"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377687"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Usage
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377678"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377687"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377673"><span id="local-6989586621679377675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377682"><span id="local-6989586621679377684"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679377666"><span class="annot"><span class="annottext">toHeaders :: GetUsage -&gt; ResponseHeaders
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679377675"><span class="annot"><span class="annottext">toHeaders :: GetUsage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUsage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -470,8 +470,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679377660"><span class="annot"><span class="annottext">toPath :: GetUsage -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377653"><span id="local-6989586621679377654"><span id="local-6989586621679377655"><span id="local-6989586621679377656"><span id="local-6989586621679377657"><span id="local-6989586621679377658"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679377669"><span class="annot"><span class="annottext">toPath :: GetUsage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377662"><span id="local-6989586621679377663"><span id="local-6989586621679377664"><span id="local-6989586621679377665"><span id="local-6989586621679377666"><span id="local-6989586621679377667"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 endDate :: Text
@@ -486,7 +486,7 @@ $sel:usagePlanId:GetUsage' :: GetUsage -&gt; Text
 $sel:position:GetUsage' :: GetUsage -&gt; Maybe Text
 $sel:limit:GetUsage' :: GetUsage -&gt; Maybe Int
 $sel:keyId:GetUsage' :: GetUsage -&gt; Maybe Text
-</span><a href="#local-6989586621679377653"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377662"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -494,12 +494,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/usageplans/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377655"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679377664"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/usage&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage"><span class="hs-identifier hs-type">GetUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679377649"><span class="annot"><span class="annottext">toQuery :: GetUsage -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377642"><span id="local-6989586621679377643"><span id="local-6989586621679377644"><span id="local-6989586621679377645"><span id="local-6989586621679377646"><span id="local-6989586621679377647"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679377658"><span class="annot"><span class="annottext">toQuery :: GetUsage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetUsage.html#GetUsage%27"><span class="hs-identifier hs-type">GetUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377651"><span id="local-6989586621679377652"><span id="local-6989586621679377653"><span id="local-6989586621679377654"><span id="local-6989586621679377655"><span id="local-6989586621679377656"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 endDate :: Text
@@ -514,7 +514,7 @@ $sel:usagePlanId:GetUsage' :: GetUsage -&gt; Text
 $sel:position:GetUsage' :: GetUsage -&gt; Maybe Text
 $sel:limit:GetUsage' :: GetUsage -&gt; Maybe Int
 $sel:keyId:GetUsage' :: GetUsage -&gt; Maybe Text
-</span><a href="#local-6989586621679377642"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -522,26 +522,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;keyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377656"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679377646"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377655"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;position&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377645"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377654"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;startDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377643"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377652"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;endDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377642"><span class="hs-identifier hs-var">endDate</span></a></span><span>
+</span><a href="#local-6989586621679377651"><span class="hs-identifier hs-var">endDate</span></a></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span></pre></body></html>

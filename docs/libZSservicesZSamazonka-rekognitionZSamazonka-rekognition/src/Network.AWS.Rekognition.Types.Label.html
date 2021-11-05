@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- name, detected instances, parent labels, and level of confidence.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLabel' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679327026"><span id="local-6989586621679327027"></span></span><span class="hs-keyword">data</span><span> </span><span id="Label"><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-var">Label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Label%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-var">Label'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679327035"><span id="local-6989586621679327036"></span></span><span class="hs-keyword">data</span><span> </span><span id="Label"><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-var">Label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Label%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-var">Label'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Level of confidence.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aconfidence%3ALabel%27"><span class="annot"><span class="annottext">Label -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Label.html#%24sel%3Aconfidence%3ALabel%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -47,14 +47,14 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Ainstances%3ALabel%27"><span class="annot"><span class="annottext">Label -&gt; Maybe [Instance]
 </span><a href="Network.AWS.Rekognition.Types.Label.html#%24sel%3Ainstances%3ALabel%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327017"><span id="local-6989586621679327019"><span class="annot"><span class="annottext">Label -&gt; Label -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327026"><span id="local-6989586621679327028"><span class="annot"><span class="annottext">Label -&gt; Label -&gt; Bool
 (Label -&gt; Label -&gt; Bool) -&gt; (Label -&gt; Label -&gt; Bool) -&gt; Eq Label
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Label -&gt; Label -&gt; Bool
 $c/= :: Label -&gt; Label -&gt; Bool
 == :: Label -&gt; Label -&gt; Bool
 $c== :: Label -&gt; Label -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327008"><span id="local-6989586621679327010"><span id="local-6989586621679327012"><span id="local-6989586621679327014"><span class="annot"><span class="annottext">ReadPrec [Label]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327017"><span id="local-6989586621679327019"><span id="local-6989586621679327021"><span id="local-6989586621679327023"><span class="annot"><span class="annottext">ReadPrec [Label]
 ReadPrec Label
 Int -&gt; ReadS Label
 ReadS [Label]
@@ -74,7 +74,7 @@ readList :: ReadS [Label]
 $creadList :: ReadS [Label]
 readsPrec :: Int -&gt; ReadS Label
 $creadsPrec :: Int -&gt; ReadS Label
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327001"><span id="local-6989586621679327003"><span id="local-6989586621679327005"><span class="annot"><span class="annottext">Int -&gt; Label -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327010"><span id="local-6989586621679327012"><span id="local-6989586621679327014"><span class="annot"><span class="annottext">Int -&gt; Label -&gt; ShowS
 [Label] -&gt; ShowS
 Label -&gt; String
 (Int -&gt; Label -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; (Label -&gt; Maybe Double -&gt; Label)
 -&gt; Lens Label Label (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326992"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327001"><span class="annot"><span class="annottext">Maybe Double
 confidence :: Maybe Double
 $sel:confidence:Label' :: Label -&gt; Maybe Double
-</span><a href="#local-6989586621679326992"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326992"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326991"><span class="annot"><span class="annottext">s :: Label
-</span><a href="#local-6989586621679326991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326990"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
-</span><a href="#local-6989586621679326991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Label' :: Maybe Double
+</span><a href="#local-6989586621679327001"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679327001"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327000"><span class="annot"><span class="annottext">s :: Label
+</span><a href="#local-6989586621679327000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326999"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
+</span><a href="#local-6989586621679327000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Label' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Label.html#%24sel%3Aconfidence%3ALabel%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The parent labels for a label. The response includes all ancestor</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- labels.</span><span>
@@ -167,16 +167,16 @@ $sel:confidence:Label' :: Label -&gt; Maybe Double
 -&gt; (Label -&gt; Maybe [Parent] -&gt; Label)
 -&gt; Lens Label Label (Maybe [Parent]) (Maybe [Parent])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326988"><span class="annot"><span class="annottext">Maybe [Parent]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326997"><span class="annot"><span class="annottext">Maybe [Parent]
 parents :: Maybe [Parent]
 $sel:parents:Label' :: Label -&gt; Maybe [Parent]
-</span><a href="#local-6989586621679326988"><span class="hs-identifier hs-var hs-var">parents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parent]
-</span><a href="#local-6989586621679326988"><span class="hs-identifier hs-var">parents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326987"><span class="annot"><span class="annottext">s :: Label
-</span><a href="#local-6989586621679326987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326986"><span class="annot"><span class="annottext">Maybe [Parent]
-</span><a href="#local-6989586621679326986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
-</span><a href="#local-6989586621679326987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parents:Label' :: Maybe [Parent]
+</span><a href="#local-6989586621679326997"><span class="hs-identifier hs-var hs-var">parents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parent]
+</span><a href="#local-6989586621679326997"><span class="hs-identifier hs-var">parents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326996"><span class="annot"><span class="annottext">s :: Label
+</span><a href="#local-6989586621679326996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326995"><span class="annot"><span class="annottext">Maybe [Parent]
+</span><a href="#local-6989586621679326995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
+</span><a href="#local-6989586621679326996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parents:Label' :: Maybe [Parent]
 </span><a href="Network.AWS.Rekognition.Types.Label.html#%24sel%3Aparents%3ALabel%27"><span class="hs-identifier hs-var">parents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parent]
-</span><a href="#local-6989586621679326986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parent] -&gt; f (Maybe [Parent])) -&gt; Label -&gt; f Label)
+</span><a href="#local-6989586621679326995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parent] -&gt; f (Maybe [Parent])) -&gt; Label -&gt; f Label)
 -&gt; ((Maybe [Parent] -&gt; f (Maybe [Parent]))
     -&gt; Maybe [Parent] -&gt; f (Maybe [Parent]))
 -&gt; (Maybe [Parent] -&gt; f (Maybe [Parent]))
@@ -200,16 +200,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Label -&gt; Maybe Text -&gt; Label)
 -&gt; Lens Label Label (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326981"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326990"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Label' :: Label -&gt; Maybe Text
-</span><a href="#local-6989586621679326981"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326981"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326980"><span class="annot"><span class="annottext">s :: Label
-</span><a href="#local-6989586621679326980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326979"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
-</span><a href="#local-6989586621679326980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Label' :: Maybe Text
+</span><a href="#local-6989586621679326990"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326990"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326989"><span class="annot"><span class="annottext">s :: Label
+</span><a href="#local-6989586621679326989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
+</span><a href="#local-6989586621679326989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Label' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.Label.html#%24sel%3Aname%3ALabel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | If @Label@ represents an object, @Instances@ contains the bounding boxes</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- for each instance of the detected object. Bounding boxes are returned</span><span>
@@ -221,16 +221,16 @@ $sel:name:Label' :: Label -&gt; Maybe Text
 -&gt; (Label -&gt; Maybe [Instance] -&gt; Label)
 -&gt; Lens Label Label (Maybe [Instance]) (Maybe [Instance])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326977"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326986"><span class="annot"><span class="annottext">Maybe [Instance]
 instances :: Maybe [Instance]
 $sel:instances:Label' :: Label -&gt; Maybe [Instance]
-</span><a href="#local-6989586621679326977"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679326977"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326976"><span class="annot"><span class="annottext">s :: Label
-</span><a href="#local-6989586621679326976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326975"><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679326975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
-</span><a href="#local-6989586621679326976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:Label' :: Maybe [Instance]
+</span><a href="#local-6989586621679326986"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679326986"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326985"><span class="annot"><span class="annottext">s :: Label
+</span><a href="#local-6989586621679326985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-type">Label'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326984"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679326984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Label
+</span><a href="#local-6989586621679326985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:Label' :: Maybe [Instance]
 </span><a href="Network.AWS.Rekognition.Types.Label.html#%24sel%3Ainstances%3ALabel%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679326975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance])) -&gt; Label -&gt; f Label)
+</span><a href="#local-6989586621679326984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance])) -&gt; Label -&gt; f Label)
 -&gt; ((Maybe [Instance] -&gt; f (Maybe [Instance]))
     -&gt; Maybe [Instance] -&gt; f (Maybe [Instance]))
 -&gt; (Maybe [Instance] -&gt; f (Maybe [Instance]))
@@ -250,16 +250,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326972"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679326970"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Label
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326981"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679326979"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Label
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Label) -&gt; Value -&gt; Parser Label
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Label&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326967"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326976"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe [Parent] -&gt; Maybe Text -&gt; Maybe [Instance] -&gt; Label
 </span><a href="Network.AWS.Rekognition.Types.Label.html#Label%27"><span class="hs-identifier hs-var">Label'</span></a></span><span>
@@ -270,7 +270,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [Parent] -&gt; Maybe Text -&gt; Maybe [Instance] -&gt; Label)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679326976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe [Instance] -&gt; Label)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Parent]))
+</span><a href="#local-6989586621679326976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Parent]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Parent]))
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Instance] -&gt; Label)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679326976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,7 +300,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Instance]) -&gt; Parser Label
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Instance]))
+</span><a href="#local-6989586621679326976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Instance]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Instance]))
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326960"><span id="local-6989586621679326962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326969"><span id="local-6989586621679326971"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

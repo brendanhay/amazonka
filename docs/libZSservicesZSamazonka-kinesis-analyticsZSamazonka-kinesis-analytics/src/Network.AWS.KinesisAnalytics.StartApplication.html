@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- /See:/ 'newStartApplication' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679212215"><span id="local-6989586621679212216"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartApplication"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-var">StartApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartApplication%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-var">StartApplication'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679212224"><span id="local-6989586621679212225"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartApplication"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-var">StartApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartApplication%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-var">StartApplication'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the application.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AapplicationName%3AStartApplication%27"><span class="annot"><span class="annottext">StartApplication -&gt; Text
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AapplicationName%3AStartApplication%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AinputConfigurations%3AStartApplication%27"><span class="annot"><span class="annottext">StartApplication -&gt; [InputConfiguration]
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AinputConfigurations%3AStartApplication%27"><span class="hs-identifier hs-var hs-var">inputConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputConfiguration.html#InputConfiguration"><span class="hs-identifier hs-type">InputConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212208"><span id="local-6989586621679212210"><span class="annot"><span class="annottext">StartApplication -&gt; StartApplication -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212217"><span id="local-6989586621679212219"><span class="annot"><span class="annottext">StartApplication -&gt; StartApplication -&gt; Bool
 (StartApplication -&gt; StartApplication -&gt; Bool)
 -&gt; (StartApplication -&gt; StartApplication -&gt; Bool)
 -&gt; Eq StartApplication
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartApplication -&gt; StartApplication -&gt; Bool
 == :: StartApplication -&gt; StartApplication -&gt; Bool
 $c== :: StartApplication -&gt; StartApplication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212199"><span id="local-6989586621679212201"><span id="local-6989586621679212203"><span id="local-6989586621679212205"><span class="annot"><span class="annottext">ReadPrec [StartApplication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212208"><span id="local-6989586621679212210"><span id="local-6989586621679212212"><span id="local-6989586621679212214"><span class="annot"><span class="annottext">ReadPrec [StartApplication]
 ReadPrec StartApplication
 Int -&gt; ReadS StartApplication
 ReadS [StartApplication]
@@ -112,7 +112,7 @@ readList :: ReadS [StartApplication]
 $creadList :: ReadS [StartApplication]
 readsPrec :: Int -&gt; ReadS StartApplication
 $creadsPrec :: Int -&gt; ReadS StartApplication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212192"><span id="local-6989586621679212194"><span id="local-6989586621679212196"><span class="annot"><span class="annottext">Int -&gt; StartApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212201"><span id="local-6989586621679212203"><span id="local-6989586621679212205"><span class="annot"><span class="annottext">Int -&gt; StartApplication -&gt; ShowS
 [StartApplication] -&gt; ShowS
 StartApplication -&gt; String
 (Int -&gt; StartApplication -&gt; ShowS)
@@ -157,14 +157,14 @@ $cfrom :: forall x. StartApplication -&gt; Rep StartApplication x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span>
 </span><span id="line-104"></span><span id="newStartApplication"><span class="annot"><span class="annottext">newStartApplication :: Text -&gt; StartApplication
-</span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#newStartApplication"><span class="hs-identifier hs-var hs-var">newStartApplication</span></a></span></span><span> </span><span id="local-6989586621679212187"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679212187"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#newStartApplication"><span class="hs-identifier hs-var hs-var">newStartApplication</span></a></span></span><span> </span><span id="local-6989586621679212196"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212196"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">StartApplication' :: Text -&gt; [InputConfiguration] -&gt; StartApplication
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:StartApplication' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AapplicationName%3AStartApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679212187"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212196"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputConfigurations:StartApplication' :: [InputConfiguration]
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AinputConfigurations%3AStartApplication%27"><span class="hs-identifier hs-var">inputConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InputConfiguration]
 forall a. Monoid a =&gt; a
@@ -178,16 +178,16 @@ forall a. Monoid a =&gt; a
 -&gt; (StartApplication -&gt; Text -&gt; StartApplication)
 -&gt; Lens StartApplication StartApplication Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212184"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212193"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:StartApplication' :: StartApplication -&gt; Text
-</span><a href="#local-6989586621679212184"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679212184"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212183"><span class="annot"><span class="annottext">s :: StartApplication
-</span><a href="#local-6989586621679212183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212182"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679212182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartApplication
-</span><a href="#local-6989586621679212183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:StartApplication' :: Text
+</span><a href="#local-6989586621679212193"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212193"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212192"><span class="annot"><span class="annottext">s :: StartApplication
+</span><a href="#local-6989586621679212192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartApplication
+</span><a href="#local-6989586621679212192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:StartApplication' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AapplicationName%3AStartApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679212182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Identifies the specific input, by ID, that the application starts</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- consuming. Amazon Kinesis Analytics starts reading the streaming source</span><span>
@@ -204,16 +204,16 @@ $sel:applicationName:StartApplication' :: StartApplication -&gt; Text
      [InputConfiguration]
      [InputConfiguration]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212181"><span class="annot"><span class="annottext">[InputConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212190"><span class="annot"><span class="annottext">[InputConfiguration]
 inputConfigurations :: [InputConfiguration]
 $sel:inputConfigurations:StartApplication' :: StartApplication -&gt; [InputConfiguration]
-</span><a href="#local-6989586621679212181"><span class="hs-identifier hs-var hs-var">inputConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InputConfiguration]
-</span><a href="#local-6989586621679212181"><span class="hs-identifier hs-var">inputConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212180"><span class="annot"><span class="annottext">s :: StartApplication
-</span><a href="#local-6989586621679212180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212179"><span class="annot"><span class="annottext">[InputConfiguration]
-</span><a href="#local-6989586621679212179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartApplication
-</span><a href="#local-6989586621679212180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputConfigurations:StartApplication' :: [InputConfiguration]
+</span><a href="#local-6989586621679212190"><span class="hs-identifier hs-var hs-var">inputConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InputConfiguration]
+</span><a href="#local-6989586621679212190"><span class="hs-identifier hs-var">inputConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212189"><span class="annot"><span class="annottext">s :: StartApplication
+</span><a href="#local-6989586621679212189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212188"><span class="annot"><span class="annottext">[InputConfiguration]
+</span><a href="#local-6989586621679212188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartApplication
+</span><a href="#local-6989586621679212189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputConfigurations:StartApplication' :: [InputConfiguration]
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AinputConfigurations%3AStartApplication%27"><span class="hs-identifier hs-var">inputConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InputConfiguration]
-</span><a href="#local-6989586621679212179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InputConfiguration] -&gt; f [InputConfiguration])
+</span><a href="#local-6989586621679212188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InputConfiguration] -&gt; f [InputConfiguration])
  -&gt; StartApplication -&gt; f StartApplication)
 -&gt; (([InputConfiguration] -&gt; f [InputConfiguration])
     -&gt; [InputConfiguration] -&gt; f [InputConfiguration])
@@ -230,12 +230,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-type">StartApplicationResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679212173"><span class="annot"><span class="annottext">request :: StartApplication -&gt; Request StartApplication
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679212182"><span class="annot"><span class="annottext">request :: StartApplication -&gt; Request StartApplication
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartApplication -&gt; Request StartApplication
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679212169"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679212178"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartApplication
 -&gt; ClientResponse ClientBody
@@ -259,10 +259,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212166"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212166"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679212165"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679212165"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679212164"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679212164"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212175"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212175"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679212174"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679212174"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679212173"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679212173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartApplicationResponse
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-var">StartApplicationResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartApplicationResponse)
@@ -273,15 +273,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212166"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212175"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212157"><span id="local-6989586621679212159"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212166"><span id="local-6989586621679212168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679212150"><span class="annot"><span class="annottext">toHeaders :: StartApplication -&gt; ResponseHeaders
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679212159"><span class="annot"><span class="annottext">toHeaders :: StartApplication -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartApplication -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -308,15 +308,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212140"><span id="local-6989586621679212142"><span id="local-6989586621679212144"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679212138"><span class="annot"><span class="annottext">toJSON :: StartApplication -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212135"><span id="local-6989586621679212136"><span class="annot"><span class="annottext">[InputConfiguration]
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212149"><span id="local-6989586621679212151"><span id="local-6989586621679212153"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679212147"><span class="annot"><span class="annottext">toJSON :: StartApplication -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication%27"><span class="hs-identifier hs-type">StartApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212144"><span id="local-6989586621679212145"><span class="annot"><span class="annottext">[InputConfiguration]
 Text
 inputConfigurations :: [InputConfiguration]
 applicationName :: Text
 $sel:inputConfigurations:StartApplication' :: StartApplication -&gt; [InputConfiguration]
 $sel:applicationName:StartApplication' :: StartApplication -&gt; Text
-</span><a href="#local-6989586621679212135"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679212144"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -329,7 +329,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679212136"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212145"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -337,19 +337,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InputConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InputConfiguration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[InputConfiguration]
-</span><a href="#local-6989586621679212135"><span class="hs-identifier hs-var">inputConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212144"><span class="hs-identifier hs-var">inputConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679212129"><span class="annot"><span class="annottext">toPath :: StartApplication -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679212138"><span class="annot"><span class="annottext">toPath :: StartApplication -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartApplication -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplication"><span class="hs-identifier hs-type">StartApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679212125"><span class="annot"><span class="annottext">toQuery :: StartApplication -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679212134"><span class="annot"><span class="annottext">toQuery :: StartApplication -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartApplication -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -359,12 +359,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- /See:/ 'newStartApplicationResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679212122"><span id="local-6989586621679212123"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartApplicationResponse"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-var">StartApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartApplicationResponse%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-var">StartApplicationResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679212131"><span id="local-6989586621679212132"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartApplicationResponse"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-var">StartApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartApplicationResponse%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-var">StartApplicationResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartApplicationResponse%27"><span class="annot"><span class="annottext">StartApplicationResponse -&gt; Int
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AhttpStatus%3AStartApplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212117"><span id="local-6989586621679212119"><span class="annot"><span class="annottext">StartApplicationResponse -&gt; StartApplicationResponse -&gt; Bool
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212126"><span id="local-6989586621679212128"><span class="annot"><span class="annottext">StartApplicationResponse -&gt; StartApplicationResponse -&gt; Bool
 (StartApplicationResponse -&gt; StartApplicationResponse -&gt; Bool)
 -&gt; (StartApplicationResponse -&gt; StartApplicationResponse -&gt; Bool)
 -&gt; Eq StartApplicationResponse
@@ -373,7 +373,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartApplicationResponse -&gt; StartApplicationResponse -&gt; Bool
 == :: StartApplicationResponse -&gt; StartApplicationResponse -&gt; Bool
 $c== :: StartApplicationResponse -&gt; StartApplicationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212109"><span id="local-6989586621679212111"><span id="local-6989586621679212113"><span id="local-6989586621679212115"><span class="annot"><span class="annottext">ReadPrec [StartApplicationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212118"><span id="local-6989586621679212120"><span id="local-6989586621679212122"><span id="local-6989586621679212124"><span class="annot"><span class="annottext">ReadPrec [StartApplicationResponse]
 ReadPrec StartApplicationResponse
 Int -&gt; ReadS StartApplicationResponse
 ReadS [StartApplicationResponse]
@@ -393,7 +393,7 @@ readList :: ReadS [StartApplicationResponse]
 $creadList :: ReadS [StartApplicationResponse]
 readsPrec :: Int -&gt; ReadS StartApplicationResponse
 $creadsPrec :: Int -&gt; ReadS StartApplicationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212103"><span id="local-6989586621679212105"><span id="local-6989586621679212107"><span class="annot"><span class="annottext">Int -&gt; StartApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212112"><span id="local-6989586621679212114"><span id="local-6989586621679212116"><span class="annot"><span class="annottext">Int -&gt; StartApplicationResponse -&gt; ShowS
 [StartApplicationResponse] -&gt; ShowS
 StartApplicationResponse -&gt; String
 (Int -&gt; StartApplicationResponse -&gt; ShowS)
@@ -439,14 +439,14 @@ StartApplicationResponse -&gt; Rep StartApplicationResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-type">StartApplicationResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newStartApplicationResponse"><span class="annot"><span class="annottext">newStartApplicationResponse :: Int -&gt; StartApplicationResponse
-</span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#newStartApplicationResponse"><span class="hs-identifier hs-var hs-var">newStartApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679212100"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#newStartApplicationResponse"><span class="hs-identifier hs-var hs-var">newStartApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679212109"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212109"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">StartApplicationResponse' :: Int -&gt; StartApplicationResponse
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-type">StartApplicationResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartApplicationResponse' :: Int
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AhttpStatus%3AStartApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679212109"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -457,16 +457,16 @@ StartApplicationResponse -&gt; Rep StartApplicationResponse x
 -&gt; (StartApplicationResponse -&gt; Int -&gt; StartApplicationResponse)
 -&gt; Lens StartApplicationResponse StartApplicationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-type">StartApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212099"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-type">StartApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212108"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartApplicationResponse' :: StartApplicationResponse -&gt; Int
-</span><a href="#local-6989586621679212099"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212099"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212098"><span class="annot"><span class="annottext">s :: StartApplicationResponse
-</span><a href="#local-6989586621679212098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-type">StartApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212097"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartApplicationResponse
-</span><a href="#local-6989586621679212098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartApplicationResponse' :: Int
+</span><a href="#local-6989586621679212108"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212108"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212107"><span class="annot"><span class="annottext">s :: StartApplicationResponse
+</span><a href="#local-6989586621679212107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse%27"><span class="hs-identifier hs-type">StartApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartApplicationResponse
+</span><a href="#local-6989586621679212107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartApplicationResponse' :: Int
 </span><a href="Network.AWS.KinesisAnalytics.StartApplication.html#%24sel%3AhttpStatus%3AStartApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-type">StartApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-type">StartApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-type">StartApplicationResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.StartApplication.html#StartApplicationResponse"><span class="hs-identifier hs-type">StartApplicationResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

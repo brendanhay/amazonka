@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides the details of the @DecisionTaskCompleted@ event.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDecisionTaskCompletedEventAttributes' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679344620"><span id="local-6989586621679344621"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecisionTaskCompletedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-var">DecisionTaskCompletedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionTaskCompletedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">DecisionTaskCompletedEventAttributes'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679344629"><span id="local-6989586621679344630"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecisionTaskCompletedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-var">DecisionTaskCompletedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionTaskCompletedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">DecisionTaskCompletedEventAttributes'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | User defined context for the workflow execution.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AexecutionContext%3ADecisionTaskCompletedEventAttributes%27"><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes -&gt; Maybe Text
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#%24sel%3AexecutionContext%3ADecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var hs-var">executionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AstartedEventId%3ADecisionTaskCompletedEventAttributes%27"><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#%24sel%3AstartedEventId%3ADecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344612"><span id="local-6989586621679344614"><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344621"><span id="local-6989586621679344623"><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
 -&gt; DecisionTaskCompletedEventAttributes -&gt; Bool
 (DecisionTaskCompletedEventAttributes
  -&gt; DecisionTaskCompletedEventAttributes -&gt; Bool)
@@ -58,7 +58,7 @@ $c/= :: DecisionTaskCompletedEventAttributes
 -&gt; DecisionTaskCompletedEventAttributes -&gt; Bool
 $c== :: DecisionTaskCompletedEventAttributes
 -&gt; DecisionTaskCompletedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344603"><span id="local-6989586621679344605"><span id="local-6989586621679344607"><span id="local-6989586621679344609"><span class="annot"><span class="annottext">ReadPrec [DecisionTaskCompletedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344612"><span id="local-6989586621679344614"><span id="local-6989586621679344616"><span id="local-6989586621679344618"><span class="annot"><span class="annottext">ReadPrec [DecisionTaskCompletedEventAttributes]
 ReadPrec DecisionTaskCompletedEventAttributes
 Int -&gt; ReadS DecisionTaskCompletedEventAttributes
 ReadS [DecisionTaskCompletedEventAttributes]
@@ -78,7 +78,7 @@ readList :: ReadS [DecisionTaskCompletedEventAttributes]
 $creadList :: ReadS [DecisionTaskCompletedEventAttributes]
 readsPrec :: Int -&gt; ReadS DecisionTaskCompletedEventAttributes
 $creadsPrec :: Int -&gt; ReadS DecisionTaskCompletedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344596"><span id="local-6989586621679344598"><span id="local-6989586621679344600"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskCompletedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344605"><span id="local-6989586621679344607"><span id="local-6989586621679344609"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskCompletedEventAttributes -&gt; ShowS
 [DecisionTaskCompletedEventAttributes] -&gt; ShowS
 DecisionTaskCompletedEventAttributes -&gt; String
 (Int -&gt; DecisionTaskCompletedEventAttributes -&gt; ShowS)
@@ -142,10 +142,10 @@ DecisionTaskCompletedEventAttributes
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span><span>
 </span><span id="line-68"></span><span id="newDecisionTaskCompletedEventAttributes"><span class="annot"><span class="annottext">newDecisionTaskCompletedEventAttributes :: Integer -&gt; Integer -&gt; DecisionTaskCompletedEventAttributes
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#newDecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-var hs-var">newDecisionTaskCompletedEventAttributes</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679344590"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344590"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679344589"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344589"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679344599"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344599"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679344598"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344598"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes' :: Maybe Text
 -&gt; Integer -&gt; Integer -&gt; DecisionTaskCompletedEventAttributes
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span>
@@ -156,10 +156,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledEventId:DecisionTaskCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#%24sel%3AscheduledEventId%3ADecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344590"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344599"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:DecisionTaskCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#%24sel%3AstartedEventId%3ADecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344589"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679344598"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | User defined context for the workflow execution.</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344585"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344594"><span class="annot"><span class="annottext">Maybe Text
 executionContext :: Maybe Text
 $sel:executionContext:DecisionTaskCompletedEventAttributes' :: DecisionTaskCompletedEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679344585"><span class="hs-identifier hs-var hs-var">executionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344585"><span class="hs-identifier hs-var">executionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344584"><span class="annot"><span class="annottext">s :: DecisionTaskCompletedEventAttributes
-</span><a href="#local-6989586621679344584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344583"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
-</span><a href="#local-6989586621679344584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionContext:DecisionTaskCompletedEventAttributes' :: Maybe Text
+</span><a href="#local-6989586621679344594"><span class="hs-identifier hs-var hs-var">executionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344594"><span class="hs-identifier hs-var">executionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344593"><span class="annot"><span class="annottext">s :: DecisionTaskCompletedEventAttributes
+</span><a href="#local-6989586621679344593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
+</span><a href="#local-6989586621679344593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionContext:DecisionTaskCompletedEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#%24sel%3AexecutionContext%3ADecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">executionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- decision task was scheduled. This information can be useful for</span><span>
@@ -204,16 +204,16 @@ $sel:executionContext:DecisionTaskCompletedEventAttributes' :: DecisionTaskCompl
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344581"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344590"><span class="annot"><span class="annottext">Integer
 scheduledEventId :: Integer
 $sel:scheduledEventId:DecisionTaskCompletedEventAttributes' :: DecisionTaskCompletedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679344581"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344581"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344580"><span class="annot"><span class="annottext">s :: DecisionTaskCompletedEventAttributes
-</span><a href="#local-6989586621679344580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344579"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
-</span><a href="#local-6989586621679344580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:DecisionTaskCompletedEventAttributes' :: Integer
+</span><a href="#local-6989586621679344590"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344590"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344589"><span class="annot"><span class="annottext">s :: DecisionTaskCompletedEventAttributes
+</span><a href="#local-6989586621679344589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344588"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
+</span><a href="#local-6989586621679344589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:DecisionTaskCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#%24sel%3AscheduledEventId%3ADecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ID of the @DecisionTaskStarted@ event recorded when this decision</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- task was started. This information can be useful for diagnosing problems</span><span>
@@ -231,22 +231,22 @@ $sel:scheduledEventId:DecisionTaskCompletedEventAttributes' :: DecisionTaskCompl
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344577"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344586"><span class="annot"><span class="annottext">Integer
 startedEventId :: Integer
 $sel:startedEventId:DecisionTaskCompletedEventAttributes' :: DecisionTaskCompletedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679344577"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344577"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344576"><span class="annot"><span class="annottext">s :: DecisionTaskCompletedEventAttributes
-</span><a href="#local-6989586621679344576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344575"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
-</span><a href="#local-6989586621679344576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:DecisionTaskCompletedEventAttributes' :: Integer
+</span><a href="#local-6989586621679344586"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344586"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344585"><span class="annot"><span class="annottext">s :: DecisionTaskCompletedEventAttributes
+</span><a href="#local-6989586621679344585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344584"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskCompletedEventAttributes
+</span><a href="#local-6989586621679344585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:DecisionTaskCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#%24sel%3AstartedEventId%3ADecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679344572"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679344581"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679344570"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DecisionTaskCompletedEventAttributes
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679344579"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DecisionTaskCompletedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DecisionTaskCompletedEventAttributes)
@@ -256,8 +256,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DecisionTaskCompletedEventAttributes&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344567"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344576"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344576"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Integer -&gt; Integer -&gt; DecisionTaskCompletedEventAttributes
 </span><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes%27"><span class="hs-identifier hs-var">DecisionTaskCompletedEventAttributes'</span></a></span><span>
@@ -268,7 +268,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Integer -&gt; Integer -&gt; DecisionTaskCompletedEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679344576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionContext&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,7 +277,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Integer -&gt; DecisionTaskCompletedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679344576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,17 +285,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser DecisionTaskCompletedEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679344576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679344560"><span id="local-6989586621679344562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679344569"><span id="local-6989586621679344571"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679344557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679344566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes.html#DecisionTaskCompletedEventAttributes"><span class="hs-identifier hs-type">DecisionTaskCompletedEventAttributes</span></a></span></span><span>
 </span><span id="line-116"></span></pre></body></html>

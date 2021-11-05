@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- segment.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGPSPointDimension' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679599779"><span id="local-6989586621679599780"></span></span><span class="hs-keyword">data</span><span> </span><span id="GPSPointDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-var">GPSPointDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GPSPointDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-var">GPSPointDimension'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679599788"><span id="local-6989586621679599789"></span></span><span class="hs-keyword">data</span><span> </span><span id="GPSPointDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-var">GPSPointDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GPSPointDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-var">GPSPointDimension'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The range, in kilometers, from the GPS coordinates.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ArangeInKilometers%3AGPSPointDimension%27"><span class="annot"><span class="annottext">GPSPointDimension -&gt; Maybe Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#%24sel%3ArangeInKilometers%3AGPSPointDimension%27"><span class="hs-identifier hs-var hs-var">rangeInKilometers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acoordinates%3AGPSPointDimension%27"><span class="annot"><span class="annottext">GPSPointDimension -&gt; GPSCoordinates
 </span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#%24sel%3Acoordinates%3AGPSPointDimension%27"><span class="hs-identifier hs-var hs-var">coordinates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679599772"><span id="local-6989586621679599774"><span class="annot"><span class="annottext">GPSPointDimension -&gt; GPSPointDimension -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679599781"><span id="local-6989586621679599783"><span class="annot"><span class="annottext">GPSPointDimension -&gt; GPSPointDimension -&gt; Bool
 (GPSPointDimension -&gt; GPSPointDimension -&gt; Bool)
 -&gt; (GPSPointDimension -&gt; GPSPointDimension -&gt; Bool)
 -&gt; Eq GPSPointDimension
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GPSPointDimension -&gt; GPSPointDimension -&gt; Bool
 == :: GPSPointDimension -&gt; GPSPointDimension -&gt; Bool
 $c== :: GPSPointDimension -&gt; GPSPointDimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599763"><span id="local-6989586621679599765"><span id="local-6989586621679599767"><span id="local-6989586621679599769"><span class="annot"><span class="annottext">ReadPrec [GPSPointDimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599772"><span id="local-6989586621679599774"><span id="local-6989586621679599776"><span id="local-6989586621679599778"><span class="annot"><span class="annottext">ReadPrec [GPSPointDimension]
 ReadPrec GPSPointDimension
 Int -&gt; ReadS GPSPointDimension
 ReadS [GPSPointDimension]
@@ -65,7 +65,7 @@ readList :: ReadS [GPSPointDimension]
 $creadList :: ReadS [GPSPointDimension]
 readsPrec :: Int -&gt; ReadS GPSPointDimension
 $creadsPrec :: Int -&gt; ReadS GPSPointDimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599756"><span id="local-6989586621679599758"><span id="local-6989586621679599760"><span class="annot"><span class="annottext">Int -&gt; GPSPointDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599765"><span id="local-6989586621679599767"><span id="local-6989586621679599769"><span class="annot"><span class="annottext">Int -&gt; GPSPointDimension -&gt; ShowS
 [GPSPointDimension] -&gt; ShowS
 GPSPointDimension -&gt; String
 (Int -&gt; GPSPointDimension -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. GPSPointDimension -&gt; Rep GPSPointDimension x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span>
 </span><span id="line-54"></span><span id="newGPSPointDimension"><span class="annot"><span class="annottext">newGPSPointDimension :: GPSCoordinates -&gt; GPSPointDimension
-</span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#newGPSPointDimension"><span class="hs-identifier hs-var hs-var">newGPSPointDimension</span></a></span></span><span> </span><span id="local-6989586621679599750"><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599750"><span class="hs-identifier hs-var">pCoordinates_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#newGPSPointDimension"><span class="hs-identifier hs-var hs-var">newGPSPointDimension</span></a></span></span><span> </span><span id="local-6989586621679599759"><span class="annot"><span class="annottext">GPSCoordinates
+</span><a href="#local-6989586621679599759"><span class="hs-identifier hs-var">pCoordinates_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">GPSPointDimension' :: Maybe Double -&gt; GPSCoordinates -&gt; GPSPointDimension
 </span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rangeInKilometers:GPSPointDimension' :: Maybe Double
@@ -118,7 +118,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:coordinates:GPSPointDimension' :: GPSCoordinates
 </span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#%24sel%3Acoordinates%3AGPSPointDimension%27"><span class="hs-identifier hs-var">coordinates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599750"><span class="hs-identifier hs-var">pCoordinates_</span></a></span><span>
+</span><a href="#local-6989586621679599759"><span class="hs-identifier hs-var">pCoordinates_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The range, in kilometers, from the GPS coordinates.</span><span>
@@ -130,16 +130,16 @@ forall a. Maybe a
 -&gt; Lens
      GPSPointDimension GPSPointDimension (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599746"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599755"><span class="annot"><span class="annottext">Maybe Double
 rangeInKilometers :: Maybe Double
 $sel:rangeInKilometers:GPSPointDimension' :: GPSPointDimension -&gt; Maybe Double
-</span><a href="#local-6989586621679599746"><span class="hs-identifier hs-var hs-var">rangeInKilometers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679599746"><span class="hs-identifier hs-var">rangeInKilometers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599745"><span class="annot"><span class="annottext">s :: GPSPointDimension
-</span><a href="#local-6989586621679599745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599744"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679599744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSPointDimension
-</span><a href="#local-6989586621679599745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rangeInKilometers:GPSPointDimension' :: Maybe Double
+</span><a href="#local-6989586621679599755"><span class="hs-identifier hs-var hs-var">rangeInKilometers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679599755"><span class="hs-identifier hs-var">rangeInKilometers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599754"><span class="annot"><span class="annottext">s :: GPSPointDimension
+</span><a href="#local-6989586621679599754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599753"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679599753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSPointDimension
+</span><a href="#local-6989586621679599754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rangeInKilometers:GPSPointDimension' :: Maybe Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#%24sel%3ArangeInKilometers%3AGPSPointDimension%27"><span class="hs-identifier hs-var">rangeInKilometers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679599744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The GPS coordinates to measure distance from.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#gPSPointDimension_coordinates"><span class="hs-identifier hs-type">gPSPointDimension_coordinates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span>
@@ -150,19 +150,19 @@ $sel:rangeInKilometers:GPSPointDimension' :: GPSPointDimension -&gt; Maybe Doubl
 -&gt; Lens
      GPSPointDimension GPSPointDimension GPSCoordinates GPSCoordinates
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599742"><span class="annot"><span class="annottext">GPSCoordinates
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599751"><span class="annot"><span class="annottext">GPSCoordinates
 coordinates :: GPSCoordinates
 $sel:coordinates:GPSPointDimension' :: GPSPointDimension -&gt; GPSCoordinates
-</span><a href="#local-6989586621679599742"><span class="hs-identifier hs-var hs-var">coordinates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599742"><span class="hs-identifier hs-var">coordinates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599741"><span class="annot"><span class="annottext">s :: GPSPointDimension
-</span><a href="#local-6989586621679599741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599740"><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSPointDimension
-</span><a href="#local-6989586621679599741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coordinates:GPSPointDimension' :: GPSCoordinates
+</span><a href="#local-6989586621679599751"><span class="hs-identifier hs-var hs-var">coordinates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
+</span><a href="#local-6989586621679599751"><span class="hs-identifier hs-var">coordinates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599750"><span class="annot"><span class="annottext">s :: GPSPointDimension
+</span><a href="#local-6989586621679599750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599749"><span class="annot"><span class="annottext">GPSCoordinates
+</span><a href="#local-6989586621679599749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSPointDimension
+</span><a href="#local-6989586621679599750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coordinates:GPSPointDimension' :: GPSCoordinates
 </span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#%24sel%3Acoordinates%3AGPSPointDimension%27"><span class="hs-identifier hs-var">coordinates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599737"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679599735"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GPSPointDimension
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599746"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679599744"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GPSPointDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GPSPointDimension)
@@ -172,8 +172,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GPSPointDimension&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679599732"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679599732"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679599741"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679599741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; GPSCoordinates -&gt; GPSPointDimension
 </span><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-var">GPSPointDimension'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; GPSCoordinates -&gt; GPSPointDimension)
@@ -181,7 +181,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (GPSCoordinates -&gt; GPSPointDimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679599732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679599741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RangeInKilometers&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,25 +189,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser GPSCoordinates -&gt; Parser GPSPointDimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679599732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser GPSCoordinates
+</span><a href="#local-6989586621679599741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser GPSCoordinates
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Coordinates&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599725"><span id="local-6989586621679599727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599734"><span id="local-6989586621679599736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599714"><span id="local-6989586621679599716"><span id="local-6989586621679599718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679599712"><span class="annot"><span class="annottext">toJSON :: GPSPointDimension -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599709"><span id="local-6989586621679599710"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599723"><span id="local-6989586621679599725"><span id="local-6989586621679599727"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679599721"><span class="annot"><span class="annottext">toJSON :: GPSPointDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension%27"><span class="hs-identifier hs-type">GPSPointDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599718"><span id="local-6989586621679599719"><span class="annot"><span class="annottext">Maybe Double
 GPSCoordinates
 coordinates :: GPSCoordinates
 rangeInKilometers :: Maybe Double
 $sel:coordinates:GPSPointDimension' :: GPSPointDimension -&gt; GPSCoordinates
 $sel:rangeInKilometers:GPSPointDimension' :: GPSPointDimension -&gt; Maybe Double
-</span><a href="#local-6989586621679599709"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679599718"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,14 +220,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-88"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679599710"><span class="hs-identifier hs-var">rangeInKilometers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679599719"><span class="hs-identifier hs-var">rangeInKilometers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Coordinates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GPSCoordinates -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599709"><span class="hs-identifier hs-var">coordinates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599718"><span class="hs-identifier hs-var">coordinates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

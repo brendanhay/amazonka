@@ -49,11 +49,11 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetConnection' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679136965"><span id="local-6989586621679136966"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConnection"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-var">GetConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConnection%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-var">GetConnection'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679136974"><span id="local-6989586621679136975"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConnection"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-var">GetConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConnection%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-var">GetConnection'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AconnectionId%3AGetConnection%27"><span class="annot"><span class="annottext">GetConnection -&gt; Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AconnectionId%3AGetConnection%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136959"><span id="local-6989586621679136961"><span class="annot"><span class="annottext">GetConnection -&gt; GetConnection -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136968"><span id="local-6989586621679136970"><span class="annot"><span class="annottext">GetConnection -&gt; GetConnection -&gt; Bool
 (GetConnection -&gt; GetConnection -&gt; Bool)
 -&gt; (GetConnection -&gt; GetConnection -&gt; Bool) -&gt; Eq GetConnection
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetConnection -&gt; GetConnection -&gt; Bool
 == :: GetConnection -&gt; GetConnection -&gt; Bool
 $c== :: GetConnection -&gt; GetConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136950"><span id="local-6989586621679136952"><span id="local-6989586621679136954"><span id="local-6989586621679136956"><span class="annot"><span class="annottext">ReadPrec [GetConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136959"><span id="local-6989586621679136961"><span id="local-6989586621679136963"><span id="local-6989586621679136965"><span class="annot"><span class="annottext">ReadPrec [GetConnection]
 ReadPrec GetConnection
 Int -&gt; ReadS GetConnection
 ReadS [GetConnection]
@@ -81,7 +81,7 @@ readList :: ReadS [GetConnection]
 $creadList :: ReadS [GetConnection]
 readsPrec :: Int -&gt; ReadS GetConnection
 $creadsPrec :: Int -&gt; ReadS GetConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136943"><span id="local-6989586621679136945"><span id="local-6989586621679136947"><span class="annot"><span class="annottext">Int -&gt; GetConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136952"><span id="local-6989586621679136954"><span id="local-6989586621679136956"><span class="annot"><span class="annottext">Int -&gt; GetConnection -&gt; ShowS
 [GetConnection] -&gt; ShowS
 GetConnection -&gt; String
 (Int -&gt; GetConnection -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. GetConnection -&gt; Rep GetConnection x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span>
 </span><span id="line-70"></span><span id="newGetConnection"><span class="annot"><span class="annottext">newGetConnection :: Text -&gt; GetConnection
-</span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#newGetConnection"><span class="hs-identifier hs-var hs-var">newGetConnection</span></a></span></span><span> </span><span id="local-6989586621679136938"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136938"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#newGetConnection"><span class="hs-identifier hs-var hs-var">newGetConnection</span></a></span></span><span> </span><span id="local-6989586621679136947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136947"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GetConnection' :: Text -&gt; GetConnection
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-type">GetConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:GetConnection' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AconnectionId%3AGetConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136938"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679136947"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#getConnection_connectionId"><span class="hs-identifier hs-type">getConnection_connectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. GetConnection -&gt; Rep GetConnection x
 -&gt; (GetConnection -&gt; Text -&gt; GetConnection)
 -&gt; Lens GetConnection GetConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-type">GetConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136935"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-type">GetConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136944"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:GetConnection' :: GetConnection -&gt; Text
-</span><a href="#local-6989586621679136935"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136935"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136934"><span class="annot"><span class="annottext">s :: GetConnection
-</span><a href="#local-6989586621679136934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-type">GetConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136933"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnection
-</span><a href="#local-6989586621679136934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:GetConnection' :: Text
+</span><a href="#local-6989586621679136944"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136944"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136943"><span class="annot"><span class="annottext">s :: GetConnection
+</span><a href="#local-6989586621679136943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-type">GetConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136942"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnection
+</span><a href="#local-6989586621679136943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:GetConnection' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AconnectionId%3AGetConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679136929"><span class="annot"><span class="annottext">request :: GetConnection -&gt; Request GetConnection
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679136938"><span class="annot"><span class="annottext">request :: GetConnection -&gt; Request GetConnection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetConnection -&gt; Request GetConnection
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679136925"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679136934"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetConnection
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679136922"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679136922"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679136921"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679136921"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679136920"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679136920"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679136931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679136931"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679136930"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679136930"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679136929"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679136929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe POSIX -&gt; Maybe Identity -&gt; Int -&gt; GetConnectionResponse
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-var">GetConnectionResponse'</span></a></span><span>
@@ -194,7 +194,7 @@ MonadResource m =&gt;
      (Maybe POSIX -&gt; Maybe Identity -&gt; Int -&gt; GetConnectionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679136920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679136929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,7 +205,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Identity -&gt; Int -&gt; GetConnectionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679136920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679136929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastActiveAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,7 +214,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetConnectionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679136920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Identity)
+</span><a href="#local-6989586621679136929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Identity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;identity&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679136922"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136931"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136912"><span id="local-6989586621679136914"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136921"><span id="local-6989586621679136923"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679136905"><span class="annot"><span class="annottext">toHeaders :: GetConnection -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679136914"><span class="annot"><span class="annottext">toHeaders :: GetConnection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetConnection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -254,11 +254,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679136899"><span class="annot"><span class="annottext">toPath :: GetConnection -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-type">GetConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136897"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679136908"><span class="annot"><span class="annottext">toPath :: GetConnection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection%27"><span class="hs-identifier hs-type">GetConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136906"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:GetConnection' :: GetConnection -&gt; Text
-</span><a href="#local-6989586621679136897"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679136906"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -266,10 +266,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/@connections/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136897"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679136906"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnection"><span class="hs-identifier hs-type">GetConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679136893"><span class="annot"><span class="annottext">toQuery :: GetConnection -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679136902"><span class="annot"><span class="annottext">toQuery :: GetConnection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetConnection -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newGetConnectionResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679136890"><span id="local-6989586621679136891"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConnectionResponse"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-var">GetConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConnectionResponse%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-var">GetConnectionResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679136899"><span id="local-6989586621679136900"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConnectionResponse"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-var">GetConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConnectionResponse%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-var">GetConnectionResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time in ISO 8601 format for when the connection was established.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AconnectedAt%3AGetConnectionResponse%27"><span class="annot"><span class="annottext">GetConnectionResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AconnectedAt%3AGetConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -290,7 +290,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetConnectionResponse%27"><span class="annot"><span class="annottext">GetConnectionResponse -&gt; Int
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AhttpStatus%3AGetConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136882"><span id="local-6989586621679136884"><span class="annot"><span class="annottext">GetConnectionResponse -&gt; GetConnectionResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136891"><span id="local-6989586621679136893"><span class="annot"><span class="annottext">GetConnectionResponse -&gt; GetConnectionResponse -&gt; Bool
 (GetConnectionResponse -&gt; GetConnectionResponse -&gt; Bool)
 -&gt; (GetConnectionResponse -&gt; GetConnectionResponse -&gt; Bool)
 -&gt; Eq GetConnectionResponse
@@ -299,7 +299,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetConnectionResponse -&gt; GetConnectionResponse -&gt; Bool
 == :: GetConnectionResponse -&gt; GetConnectionResponse -&gt; Bool
 $c== :: GetConnectionResponse -&gt; GetConnectionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136874"><span id="local-6989586621679136876"><span id="local-6989586621679136878"><span id="local-6989586621679136880"><span class="annot"><span class="annottext">ReadPrec [GetConnectionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136883"><span id="local-6989586621679136885"><span id="local-6989586621679136887"><span id="local-6989586621679136889"><span class="annot"><span class="annottext">ReadPrec [GetConnectionResponse]
 ReadPrec GetConnectionResponse
 Int -&gt; ReadS GetConnectionResponse
 ReadS [GetConnectionResponse]
@@ -319,7 +319,7 @@ readList :: ReadS [GetConnectionResponse]
 $creadList :: ReadS [GetConnectionResponse]
 readsPrec :: Int -&gt; ReadS GetConnectionResponse
 $creadsPrec :: Int -&gt; ReadS GetConnectionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136868"><span id="local-6989586621679136870"><span id="local-6989586621679136872"><span class="annot"><span class="annottext">Int -&gt; GetConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136877"><span id="local-6989586621679136879"><span id="local-6989586621679136881"><span class="annot"><span class="annottext">Int -&gt; GetConnectionResponse -&gt; ShowS
 [GetConnectionResponse] -&gt; ShowS
 GetConnectionResponse -&gt; String
 (Int -&gt; GetConnectionResponse -&gt; ShowS)
@@ -365,8 +365,8 @@ $cfrom :: forall x. GetConnectionResponse -&gt; Rep GetConnectionResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newGetConnectionResponse"><span class="annot"><span class="annottext">newGetConnectionResponse :: Int -&gt; GetConnectionResponse
-</span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#newGetConnectionResponse"><span class="hs-identifier hs-var hs-var">newGetConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679136865"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679136865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#newGetConnectionResponse"><span class="hs-identifier hs-var hs-var">newGetConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679136874"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679136874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">GetConnectionResponse' :: Maybe POSIX
 -&gt; Maybe POSIX -&gt; Maybe Identity -&gt; Int -&gt; GetConnectionResponse
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span>
@@ -385,7 +385,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetConnectionResponse' :: Int
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AhttpStatus%3AGetConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679136865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679136874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The time in ISO 8601 format for when the connection was established.</span><span>
@@ -400,16 +400,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136864"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136873"><span class="annot"><span class="annottext">Maybe POSIX
 connectedAt :: Maybe POSIX
 $sel:connectedAt:GetConnectionResponse' :: GetConnectionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679136864"><span class="hs-identifier hs-var hs-var">connectedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679136864"><span class="hs-identifier hs-var">connectedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136863"><span class="annot"><span class="annottext">s :: GetConnectionResponse
-</span><a href="#local-6989586621679136863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136862"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679136862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
-</span><a href="#local-6989586621679136863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedAt:GetConnectionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679136873"><span class="hs-identifier hs-var hs-var">connectedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679136873"><span class="hs-identifier hs-var">connectedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136872"><span class="annot"><span class="annottext">s :: GetConnectionResponse
+</span><a href="#local-6989586621679136872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136871"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679136871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
+</span><a href="#local-6989586621679136872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedAt:GetConnectionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AconnectedAt%3AGetConnectionResponse%27"><span class="hs-identifier hs-var">connectedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679136862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679136871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; GetConnectionResponse -&gt; f GetConnectionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -438,16 +438,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136858"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136867"><span class="annot"><span class="annottext">Maybe POSIX
 lastActiveAt :: Maybe POSIX
 $sel:lastActiveAt:GetConnectionResponse' :: GetConnectionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679136858"><span class="hs-identifier hs-var hs-var">lastActiveAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679136858"><span class="hs-identifier hs-var">lastActiveAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136857"><span class="annot"><span class="annottext">s :: GetConnectionResponse
-</span><a href="#local-6989586621679136857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136856"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679136856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
-</span><a href="#local-6989586621679136857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastActiveAt:GetConnectionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679136867"><span class="hs-identifier hs-var hs-var">lastActiveAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679136867"><span class="hs-identifier hs-var">lastActiveAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136866"><span class="annot"><span class="annottext">s :: GetConnectionResponse
+</span><a href="#local-6989586621679136866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136865"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679136865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
+</span><a href="#local-6989586621679136866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastActiveAt:GetConnectionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AlastActiveAt%3AGetConnectionResponse%27"><span class="hs-identifier hs-var">lastActiveAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679136856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679136865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; GetConnectionResponse -&gt; f GetConnectionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -477,16 +477,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Identity)
      (Maybe Identity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136855"><span class="annot"><span class="annottext">Maybe Identity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136864"><span class="annot"><span class="annottext">Maybe Identity
 identity :: Maybe Identity
 $sel:identity:GetConnectionResponse' :: GetConnectionResponse -&gt; Maybe Identity
-</span><a href="#local-6989586621679136855"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
-</span><a href="#local-6989586621679136855"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136854"><span class="annot"><span class="annottext">s :: GetConnectionResponse
-</span><a href="#local-6989586621679136854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136853"><span class="annot"><span class="annottext">Maybe Identity
-</span><a href="#local-6989586621679136853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
-</span><a href="#local-6989586621679136854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:GetConnectionResponse' :: Maybe Identity
+</span><a href="#local-6989586621679136864"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679136864"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136863"><span class="annot"><span class="annottext">s :: GetConnectionResponse
+</span><a href="#local-6989586621679136863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136862"><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679136862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
+</span><a href="#local-6989586621679136863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:GetConnectionResponse' :: Maybe Identity
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3Aidentity%3AGetConnectionResponse%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
-</span><a href="#local-6989586621679136853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#getConnectionResponse_httpStatus"><span class="hs-identifier hs-type">getConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -495,16 +495,16 @@ $sel:identity:GetConnectionResponse' :: GetConnectionResponse -&gt; Maybe Identi
 -&gt; (GetConnectionResponse -&gt; Int -&gt; GetConnectionResponse)
 -&gt; Lens GetConnectionResponse GetConnectionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136852"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136861"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetConnectionResponse' :: GetConnectionResponse -&gt; Int
-</span><a href="#local-6989586621679136852"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679136852"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136851"><span class="annot"><span class="annottext">s :: GetConnectionResponse
-</span><a href="#local-6989586621679136851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136850"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679136850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
-</span><a href="#local-6989586621679136851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetConnectionResponse' :: Int
+</span><a href="#local-6989586621679136861"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679136861"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136860"><span class="annot"><span class="annottext">s :: GetConnectionResponse
+</span><a href="#local-6989586621679136860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier hs-type">GetConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679136859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionResponse
+</span><a href="#local-6989586621679136860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetConnectionResponse' :: Int
 </span><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#%24sel%3AhttpStatus%3AGetConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679136850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.GetConnection.html#GetConnectionResponse"><span class="hs-identifier hs-type">GetConnectionResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

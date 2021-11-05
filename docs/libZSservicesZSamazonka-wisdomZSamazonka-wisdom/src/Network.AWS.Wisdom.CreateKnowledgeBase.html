@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Wisdom.CreateKnowledgeBase</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a knowledge base.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When using this API, you cannot reuse</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html Amazon AppIntegrations&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- DataIntegrations with external knowledge bases such as Salesforce and</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- ServiceNow. If you do, you\'ll get an @InvalidRequestException@ error.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &gt;  &lt;p&gt;For example, you're programmatically managing your external knowledge base, and you want to add or remove one of the fields that is being ingested from Salesforce. Do the following:&lt;/p&gt; &lt;ol&gt; &lt;li&gt; &lt;p&gt;Call &lt;a href=&quot;https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html&quot;&gt;DeleteKnowledgeBase&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Call &lt;a href=&quot;https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html&quot;&gt;DeleteDataIntegration&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Call &lt;a href=&quot;https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html&quot;&gt;CreateDataIntegration&lt;/a&gt; to recreate the DataIntegration or a create different one.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Call CreateKnowledgeBase.&lt;/p&gt; &lt;/li&gt; &lt;/ol&gt; &lt;/note&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Wisdom.CreateKnowledgeBase</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#newCreateKnowledgeBase"><span class="hs-identifier">newCreateKnowledgeBase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_clientToken"><span class="hs-identifier">createKnowledgeBase_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_renderingConfiguration"><span class="hs-identifier">createKnowledgeBase_renderingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_sourceConfiguration"><span class="hs-identifier">createKnowledgeBase_sourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_description"><span class="hs-identifier">createKnowledgeBase_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_serverSideEncryptionConfiguration"><span class="hs-identifier">createKnowledgeBase_serverSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_tags"><span class="hs-identifier">createKnowledgeBase_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_knowledgeBaseType"><span class="hs-identifier">createKnowledgeBase_knowledgeBaseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_name"><span class="hs-identifier">createKnowledgeBase_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier">CreateKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#newCreateKnowledgeBaseResponse"><span class="hs-identifier">newCreateKnowledgeBaseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBaseResponse_knowledgeBase"><span class="hs-identifier">createKnowledgeBaseResponse_knowledgeBase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBaseResponse_httpStatus"><span class="hs-identifier">createKnowledgeBaseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html"><span class="hs-identifier">Network.AWS.Wisdom.Types</span></a></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreateKnowledgeBase' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679229714"><span id="local-6989586621679229715"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKnowledgeBase"><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-var">CreateKnowledgeBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKnowledgeBase%27"><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-var">CreateKnowledgeBase'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; Maybe Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AclientToken%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Information about how to render the content.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3ArenderingConfiguration%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; Maybe RenderingConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3ArenderingConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">renderingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RenderingConfiguration.html#RenderingConfiguration"><span class="hs-identifier hs-type">RenderingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The source of the knowledge base content. Only set this argument for</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- EXTERNAL knowledge bases.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AsourceConfiguration%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; Maybe SourceConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AsourceConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">sourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Adescription%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; Maybe Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Adescription%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The KMS key used for encryption.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AserverSideEncryptionConfiguration%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; Maybe ServerSideEncryptionConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AserverSideEncryptionConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Atags%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Atags%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The type of knowledge base. Only CUSTOM knowledge bases allow you to</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- upload your own content. EXTERNAL knowledge bases support integrations</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- with third-party systems whose content is synchronized automatically.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AknowledgeBaseType%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; KnowledgeBaseType
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AknowledgeBaseType%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">knowledgeBaseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseType.html#KnowledgeBaseType"><span class="hs-identifier hs-type">KnowledgeBaseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The name of the knowledge base.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aname%3ACreateKnowledgeBase%27"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Aname%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229701"><span id="local-6989586621679229703"><span class="annot"><span class="annottext">CreateKnowledgeBase -&gt; CreateKnowledgeBase -&gt; Bool
+(CreateKnowledgeBase -&gt; CreateKnowledgeBase -&gt; Bool)
+-&gt; (CreateKnowledgeBase -&gt; CreateKnowledgeBase -&gt; Bool)
+-&gt; Eq CreateKnowledgeBase
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateKnowledgeBase -&gt; CreateKnowledgeBase -&gt; Bool
+$c/= :: CreateKnowledgeBase -&gt; CreateKnowledgeBase -&gt; Bool
+== :: CreateKnowledgeBase -&gt; CreateKnowledgeBase -&gt; Bool
+$c== :: CreateKnowledgeBase -&gt; CreateKnowledgeBase -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229692"><span id="local-6989586621679229694"><span id="local-6989586621679229696"><span id="local-6989586621679229698"><span class="annot"><span class="annottext">ReadPrec [CreateKnowledgeBase]
+ReadPrec CreateKnowledgeBase
+Int -&gt; ReadS CreateKnowledgeBase
+ReadS [CreateKnowledgeBase]
+(Int -&gt; ReadS CreateKnowledgeBase)
+-&gt; ReadS [CreateKnowledgeBase]
+-&gt; ReadPrec CreateKnowledgeBase
+-&gt; ReadPrec [CreateKnowledgeBase]
+-&gt; Read CreateKnowledgeBase
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateKnowledgeBase]
+$creadListPrec :: ReadPrec [CreateKnowledgeBase]
+readPrec :: ReadPrec CreateKnowledgeBase
+$creadPrec :: ReadPrec CreateKnowledgeBase
+readList :: ReadS [CreateKnowledgeBase]
+$creadList :: ReadS [CreateKnowledgeBase]
+readsPrec :: Int -&gt; ReadS CreateKnowledgeBase
+$creadsPrec :: Int -&gt; ReadS CreateKnowledgeBase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229685"><span id="local-6989586621679229687"><span id="local-6989586621679229689"><span class="annot"><span class="annottext">Int -&gt; CreateKnowledgeBase -&gt; ShowS
+[CreateKnowledgeBase] -&gt; ShowS
+CreateKnowledgeBase -&gt; String
+(Int -&gt; CreateKnowledgeBase -&gt; ShowS)
+-&gt; (CreateKnowledgeBase -&gt; String)
+-&gt; ([CreateKnowledgeBase] -&gt; ShowS)
+-&gt; Show CreateKnowledgeBase
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateKnowledgeBase] -&gt; ShowS
+$cshowList :: [CreateKnowledgeBase] -&gt; ShowS
+show :: CreateKnowledgeBase -&gt; String
+$cshow :: CreateKnowledgeBase -&gt; String
+showsPrec :: Int -&gt; CreateKnowledgeBase -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateKnowledgeBase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateKnowledgeBase -&gt; Rep CreateKnowledgeBase x)
+-&gt; (forall x. Rep CreateKnowledgeBase x -&gt; CreateKnowledgeBase)
+-&gt; Generic CreateKnowledgeBase
+forall x. Rep CreateKnowledgeBase x -&gt; CreateKnowledgeBase
+forall x. CreateKnowledgeBase -&gt; Rep CreateKnowledgeBase x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateKnowledgeBase x -&gt; CreateKnowledgeBase
+$cfrom :: forall x. CreateKnowledgeBase -&gt; Rep CreateKnowledgeBase x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'CreateKnowledgeBase' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'clientToken', 'createKnowledgeBase_clientToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'renderingConfiguration', 'createKnowledgeBase_renderingConfiguration' - Information about how to render the content.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'sourceConfiguration', 'createKnowledgeBase_sourceConfiguration' - The source of the knowledge base content. Only set this argument for</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- EXTERNAL knowledge bases.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'description', 'createKnowledgeBase_description' - The description.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'serverSideEncryptionConfiguration', 'createKnowledgeBase_serverSideEncryptionConfiguration' - The KMS key used for encryption.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'tags', 'createKnowledgeBase_tags' - The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'knowledgeBaseType', 'createKnowledgeBase_knowledgeBaseType' - The type of knowledge base. Only CUSTOM knowledge bases allow you to</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- upload your own content. EXTERNAL knowledge bases support integrations</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- with third-party systems whose content is synchronized automatically.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'name', 'createKnowledgeBase_name' - The name of the knowledge base.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#newCreateKnowledgeBase"><span class="hs-identifier hs-type">newCreateKnowledgeBase</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'knowledgeBaseType'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseType.html#KnowledgeBaseType"><span class="hs-identifier hs-type">KnowledgeBaseType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span>
+</span><span id="line-121"></span><span id="newCreateKnowledgeBase"><span class="annot"><span class="annottext">newCreateKnowledgeBase :: KnowledgeBaseType -&gt; Text -&gt; CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#newCreateKnowledgeBase"><span class="hs-identifier hs-var hs-var">newCreateKnowledgeBase</span></a></span></span><span> </span><span id="local-6989586621679229680"><span class="annot"><span class="annottext">KnowledgeBaseType
+</span><a href="#local-6989586621679229680"><span class="hs-identifier hs-var">pKnowledgeBaseType_</span></a></span></span><span> </span><span id="local-6989586621679229679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229679"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">CreateKnowledgeBase' :: Maybe Text
+-&gt; Maybe RenderingConfiguration
+-&gt; Maybe SourceConfiguration
+-&gt; Maybe Text
+-&gt; Maybe ServerSideEncryptionConfiguration
+-&gt; Maybe (HashMap Text Text)
+-&gt; KnowledgeBaseType
+-&gt; Text
+-&gt; CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateKnowledgeBase' :: Maybe Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AclientToken%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:renderingConfiguration:CreateKnowledgeBase' :: Maybe RenderingConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3ArenderingConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">renderingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RenderingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceConfiguration:CreateKnowledgeBase' :: Maybe SourceConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AsourceConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">sourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateKnowledgeBase' :: Maybe Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Adescription%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:CreateKnowledgeBase' :: Maybe ServerSideEncryptionConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AserverSideEncryptionConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateKnowledgeBase' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Atags%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:knowledgeBaseType:CreateKnowledgeBase' :: KnowledgeBaseType
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AknowledgeBaseType%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">knowledgeBaseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KnowledgeBaseType
+</span><a href="#local-6989586621679229680"><span class="hs-identifier hs-var">pKnowledgeBaseType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateKnowledgeBase' :: Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Aname%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229679"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_clientToken"><span class="hs-identifier hs-type">createKnowledgeBase_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="createKnowledgeBase_clientToken"><span class="annot"><span class="annottext">createKnowledgeBase_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_clientToken"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; Maybe Text)
+-&gt; (CreateKnowledgeBase -&gt; Maybe Text -&gt; CreateKnowledgeBase)
+-&gt; Lens
+     CreateKnowledgeBase CreateKnowledgeBase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229676"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe Text
+</span><a href="#local-6989586621679229676"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229676"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229675"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229674"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateKnowledgeBase' :: Maybe Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AclientToken%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Information about how to render the content.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_renderingConfiguration"><span class="hs-identifier hs-type">createKnowledgeBase_renderingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RenderingConfiguration.html#RenderingConfiguration"><span class="hs-identifier hs-type">RenderingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="createKnowledgeBase_renderingConfiguration"><span class="annot"><span class="annottext">createKnowledgeBase_renderingConfiguration :: (Maybe RenderingConfiguration -&gt; f (Maybe RenderingConfiguration))
+-&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_renderingConfiguration"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_renderingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; Maybe RenderingConfiguration)
+-&gt; (CreateKnowledgeBase
+    -&gt; Maybe RenderingConfiguration -&gt; CreateKnowledgeBase)
+-&gt; Lens
+     CreateKnowledgeBase
+     CreateKnowledgeBase
+     (Maybe RenderingConfiguration)
+     (Maybe RenderingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229673"><span class="annot"><span class="annottext">Maybe RenderingConfiguration
+renderingConfiguration :: Maybe RenderingConfiguration
+$sel:renderingConfiguration:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe RenderingConfiguration
+</span><a href="#local-6989586621679229673"><span class="hs-identifier hs-var hs-var">renderingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RenderingConfiguration
+</span><a href="#local-6989586621679229673"><span class="hs-identifier hs-var">renderingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229672"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229671"><span class="annot"><span class="annottext">Maybe RenderingConfiguration
+</span><a href="#local-6989586621679229671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:renderingConfiguration:CreateKnowledgeBase' :: Maybe RenderingConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3ArenderingConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">renderingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RenderingConfiguration
+</span><a href="#local-6989586621679229671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The source of the knowledge base content. Only set this argument for</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- EXTERNAL knowledge bases.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_sourceConfiguration"><span class="hs-identifier hs-type">createKnowledgeBase_sourceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="createKnowledgeBase_sourceConfiguration"><span class="annot"><span class="annottext">createKnowledgeBase_sourceConfiguration :: (Maybe SourceConfiguration -&gt; f (Maybe SourceConfiguration))
+-&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_sourceConfiguration"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_sourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; Maybe SourceConfiguration)
+-&gt; (CreateKnowledgeBase
+    -&gt; Maybe SourceConfiguration -&gt; CreateKnowledgeBase)
+-&gt; Lens
+     CreateKnowledgeBase
+     CreateKnowledgeBase
+     (Maybe SourceConfiguration)
+     (Maybe SourceConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229670"><span class="annot"><span class="annottext">Maybe SourceConfiguration
+sourceConfiguration :: Maybe SourceConfiguration
+$sel:sourceConfiguration:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe SourceConfiguration
+</span><a href="#local-6989586621679229670"><span class="hs-identifier hs-var hs-var">sourceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceConfiguration
+</span><a href="#local-6989586621679229670"><span class="hs-identifier hs-var">sourceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229669"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229668"><span class="annot"><span class="annottext">Maybe SourceConfiguration
+</span><a href="#local-6989586621679229668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceConfiguration:CreateKnowledgeBase' :: Maybe SourceConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AsourceConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">sourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceConfiguration
+</span><a href="#local-6989586621679229668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_description"><span class="hs-identifier hs-type">createKnowledgeBase_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="createKnowledgeBase_description"><span class="annot"><span class="annottext">createKnowledgeBase_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_description"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; Maybe Text)
+-&gt; (CreateKnowledgeBase -&gt; Maybe Text -&gt; CreateKnowledgeBase)
+-&gt; Lens
+     CreateKnowledgeBase CreateKnowledgeBase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229667"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe Text
+</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229666"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229665"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateKnowledgeBase' :: Maybe Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Adescription%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The KMS key used for encryption.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_serverSideEncryptionConfiguration"><span class="hs-identifier hs-type">createKnowledgeBase_serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="createKnowledgeBase_serverSideEncryptionConfiguration"><span class="annot"><span class="annottext">createKnowledgeBase_serverSideEncryptionConfiguration :: (Maybe ServerSideEncryptionConfiguration
+ -&gt; f (Maybe ServerSideEncryptionConfiguration))
+-&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_serverSideEncryptionConfiguration"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_serverSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; Maybe ServerSideEncryptionConfiguration)
+-&gt; (CreateKnowledgeBase
+    -&gt; Maybe ServerSideEncryptionConfiguration -&gt; CreateKnowledgeBase)
+-&gt; Lens
+     CreateKnowledgeBase
+     CreateKnowledgeBase
+     (Maybe ServerSideEncryptionConfiguration)
+     (Maybe ServerSideEncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229664"><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+serverSideEncryptionConfiguration :: Maybe ServerSideEncryptionConfiguration
+$sel:serverSideEncryptionConfiguration:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679229664"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679229664"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229663"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229662"><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679229662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:CreateKnowledgeBase' :: Maybe ServerSideEncryptionConfiguration
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AserverSideEncryptionConfiguration%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679229662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_tags"><span class="hs-identifier hs-type">createKnowledgeBase_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="createKnowledgeBase_tags"><span class="annot"><span class="annottext">createKnowledgeBase_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_tags"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateKnowledgeBase
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateKnowledgeBase)
+-&gt; Lens
+     CreateKnowledgeBase
+     CreateKnowledgeBase
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229661"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229661"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229661"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229660"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229659"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateKnowledgeBase' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Atags%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateKnowledgeBase
+-&gt; f CreateKnowledgeBase
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The type of knowledge base. Only CUSTOM knowledge bases allow you to</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- upload your own content. EXTERNAL knowledge bases support integrations</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- with third-party systems whose content is synchronized automatically.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_knowledgeBaseType"><span class="hs-identifier hs-type">createKnowledgeBase_knowledgeBaseType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseType.html#KnowledgeBaseType"><span class="hs-identifier hs-type">KnowledgeBaseType</span></a></span><span>
+</span><span id="line-163"></span><span id="createKnowledgeBase_knowledgeBaseType"><span class="annot"><span class="annottext">createKnowledgeBase_knowledgeBaseType :: (KnowledgeBaseType -&gt; f KnowledgeBaseType)
+-&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_knowledgeBaseType"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_knowledgeBaseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; KnowledgeBaseType)
+-&gt; (CreateKnowledgeBase
+    -&gt; KnowledgeBaseType -&gt; CreateKnowledgeBase)
+-&gt; Lens
+     CreateKnowledgeBase
+     CreateKnowledgeBase
+     KnowledgeBaseType
+     KnowledgeBaseType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229655"><span class="annot"><span class="annottext">KnowledgeBaseType
+knowledgeBaseType :: KnowledgeBaseType
+$sel:knowledgeBaseType:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; KnowledgeBaseType
+</span><a href="#local-6989586621679229655"><span class="hs-identifier hs-var hs-var">knowledgeBaseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KnowledgeBaseType
+</span><a href="#local-6989586621679229655"><span class="hs-identifier hs-var">knowledgeBaseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229654"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229653"><span class="annot"><span class="annottext">KnowledgeBaseType
+</span><a href="#local-6989586621679229653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knowledgeBaseType:CreateKnowledgeBase' :: KnowledgeBaseType
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AknowledgeBaseType%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">knowledgeBaseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KnowledgeBaseType
+</span><a href="#local-6989586621679229653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The name of the knowledge base.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_name"><span class="hs-identifier hs-type">createKnowledgeBase_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="createKnowledgeBase_name"><span class="annot"><span class="annottext">createKnowledgeBase_name :: (Text -&gt; f Text) -&gt; CreateKnowledgeBase -&gt; f CreateKnowledgeBase
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBase_name"><span class="hs-identifier hs-var hs-var">createKnowledgeBase_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBase -&gt; Text)
+-&gt; (CreateKnowledgeBase -&gt; Text -&gt; CreateKnowledgeBase)
+-&gt; Lens CreateKnowledgeBase CreateKnowledgeBase Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229652"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Text
+</span><a href="#local-6989586621679229652"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229652"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229651"><span class="annot"><span class="annottext">s :: CreateKnowledgeBase
+</span><a href="#local-6989586621679229651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBase
+</span><a href="#local-6989586621679229651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateKnowledgeBase' :: Text
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3Aname%3ACreateKnowledgeBase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-171"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679229646"><span class="annot"><span class="annottext">request :: CreateKnowledgeBase -&gt; Request CreateKnowledgeBase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateKnowledgeBase -&gt; Request CreateKnowledgeBase
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679229642"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateKnowledgeBase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateKnowledgeBase)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateKnowledgeBase))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateKnowledgeBase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateKnowledgeBase)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229638"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229638"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229637"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData -&gt; Int -&gt; CreateKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">CreateKnowledgeBaseResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KnowledgeBaseData -&gt; Int -&gt; CreateKnowledgeBaseResponse)
+-&gt; Either String (Maybe KnowledgeBaseData)
+-&gt; Either String (Int -&gt; CreateKnowledgeBaseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KnowledgeBaseData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;knowledgeBase&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateKnowledgeBaseResponse)
+-&gt; Either String Int -&gt; Either String CreateKnowledgeBaseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229629"><span id="local-6989586621679229631"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679229622"><span class="annot"><span class="annottext">toHeaders :: CreateKnowledgeBase -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateKnowledgeBase -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-193"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229612"><span id="local-6989586621679229614"><span id="local-6989586621679229616"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679229610"><span class="annot"><span class="annottext">toJSON :: CreateKnowledgeBase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase%27"><span class="hs-identifier hs-type">CreateKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229601"><span id="local-6989586621679229602"><span id="local-6989586621679229603"><span id="local-6989586621679229604"><span id="local-6989586621679229605"><span id="local-6989586621679229606"><span id="local-6989586621679229607"><span id="local-6989586621679229608"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe RenderingConfiguration
+Maybe ServerSideEncryptionConfiguration
+Maybe SourceConfiguration
+Text
+KnowledgeBaseType
+name :: Text
+knowledgeBaseType :: KnowledgeBaseType
+tags :: Maybe (HashMap Text Text)
+serverSideEncryptionConfiguration :: Maybe ServerSideEncryptionConfiguration
+description :: Maybe Text
+sourceConfiguration :: Maybe SourceConfiguration
+renderingConfiguration :: Maybe RenderingConfiguration
+clientToken :: Maybe Text
+$sel:name:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Text
+$sel:knowledgeBaseType:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; KnowledgeBaseType
+$sel:tags:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe (HashMap Text Text)
+$sel:serverSideEncryptionConfiguration:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe ServerSideEncryptionConfiguration
+$sel:description:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe Text
+$sel:sourceConfiguration:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe SourceConfiguration
+$sel:renderingConfiguration:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe RenderingConfiguration
+$sel:clientToken:CreateKnowledgeBase' :: CreateKnowledgeBase -&gt; Maybe Text
+</span><a href="#local-6989586621679229601"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229608"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;renderingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RenderingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(RenderingConfiguration -&gt; Pair)
+-&gt; Maybe RenderingConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RenderingConfiguration
+</span><a href="#local-6989586621679229607"><span class="hs-identifier hs-var">renderingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(SourceConfiguration -&gt; Pair)
+-&gt; Maybe SourceConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceConfiguration
+</span><a href="#local-6989586621679229606"><span class="hs-identifier hs-var">sourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229605"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serverSideEncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServerSideEncryptionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(ServerSideEncryptionConfiguration -&gt; Pair)
+-&gt; Maybe ServerSideEncryptionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679229604"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229603"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-211"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;knowledgeBaseType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KnowledgeBaseType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KnowledgeBaseType
+</span><a href="#local-6989586621679229602"><span class="hs-identifier hs-var">knowledgeBaseType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229601"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679229595"><span class="annot"><span class="annottext">toPath :: CreateKnowledgeBase -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateKnowledgeBase -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/knowledgeBases&quot;</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBase"><span class="hs-identifier hs-type">CreateKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679229591"><span class="annot"><span class="annottext">toQuery :: CreateKnowledgeBase -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateKnowledgeBase -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | /See:/ 'newCreateKnowledgeBaseResponse' smart constructor.</span><span>
+</span><span id="line-223"></span><span id="local-6989586621679229588"><span id="local-6989586621679229589"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKnowledgeBaseResponse"><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-var">CreateKnowledgeBaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKnowledgeBaseResponse%27"><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">CreateKnowledgeBaseResponse'</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The knowledge base.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AknowledgeBase%3ACreateKnowledgeBaseResponse%27"><span class="annot"><span class="annottext">CreateKnowledgeBaseResponse -&gt; Maybe KnowledgeBaseData
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AknowledgeBase%3ACreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var hs-var">knowledgeBase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#KnowledgeBaseData"><span class="hs-identifier hs-type">KnowledgeBaseData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateKnowledgeBaseResponse%27"><span class="annot"><span class="annottext">CreateKnowledgeBaseResponse -&gt; Int
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AhttpStatus%3ACreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229582"><span id="local-6989586621679229584"><span class="annot"><span class="annottext">CreateKnowledgeBaseResponse -&gt; CreateKnowledgeBaseResponse -&gt; Bool
+(CreateKnowledgeBaseResponse
+ -&gt; CreateKnowledgeBaseResponse -&gt; Bool)
+-&gt; (CreateKnowledgeBaseResponse
+    -&gt; CreateKnowledgeBaseResponse -&gt; Bool)
+-&gt; Eq CreateKnowledgeBaseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateKnowledgeBaseResponse -&gt; CreateKnowledgeBaseResponse -&gt; Bool
+$c/= :: CreateKnowledgeBaseResponse -&gt; CreateKnowledgeBaseResponse -&gt; Bool
+== :: CreateKnowledgeBaseResponse -&gt; CreateKnowledgeBaseResponse -&gt; Bool
+$c== :: CreateKnowledgeBaseResponse -&gt; CreateKnowledgeBaseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229574"><span id="local-6989586621679229576"><span id="local-6989586621679229578"><span id="local-6989586621679229580"><span class="annot"><span class="annottext">ReadPrec [CreateKnowledgeBaseResponse]
+ReadPrec CreateKnowledgeBaseResponse
+Int -&gt; ReadS CreateKnowledgeBaseResponse
+ReadS [CreateKnowledgeBaseResponse]
+(Int -&gt; ReadS CreateKnowledgeBaseResponse)
+-&gt; ReadS [CreateKnowledgeBaseResponse]
+-&gt; ReadPrec CreateKnowledgeBaseResponse
+-&gt; ReadPrec [CreateKnowledgeBaseResponse]
+-&gt; Read CreateKnowledgeBaseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateKnowledgeBaseResponse]
+$creadListPrec :: ReadPrec [CreateKnowledgeBaseResponse]
+readPrec :: ReadPrec CreateKnowledgeBaseResponse
+$creadPrec :: ReadPrec CreateKnowledgeBaseResponse
+readList :: ReadS [CreateKnowledgeBaseResponse]
+$creadList :: ReadS [CreateKnowledgeBaseResponse]
+readsPrec :: Int -&gt; ReadS CreateKnowledgeBaseResponse
+$creadsPrec :: Int -&gt; ReadS CreateKnowledgeBaseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229568"><span id="local-6989586621679229570"><span id="local-6989586621679229572"><span class="annot"><span class="annottext">Int -&gt; CreateKnowledgeBaseResponse -&gt; ShowS
+[CreateKnowledgeBaseResponse] -&gt; ShowS
+CreateKnowledgeBaseResponse -&gt; String
+(Int -&gt; CreateKnowledgeBaseResponse -&gt; ShowS)
+-&gt; (CreateKnowledgeBaseResponse -&gt; String)
+-&gt; ([CreateKnowledgeBaseResponse] -&gt; ShowS)
+-&gt; Show CreateKnowledgeBaseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateKnowledgeBaseResponse] -&gt; ShowS
+$cshowList :: [CreateKnowledgeBaseResponse] -&gt; ShowS
+show :: CreateKnowledgeBaseResponse -&gt; String
+$cshow :: CreateKnowledgeBaseResponse -&gt; String
+showsPrec :: Int -&gt; CreateKnowledgeBaseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateKnowledgeBaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateKnowledgeBaseResponse -&gt; Rep CreateKnowledgeBaseResponse x)
+-&gt; (forall x.
+    Rep CreateKnowledgeBaseResponse x -&gt; CreateKnowledgeBaseResponse)
+-&gt; Generic CreateKnowledgeBaseResponse
+forall x.
+Rep CreateKnowledgeBaseResponse x -&gt; CreateKnowledgeBaseResponse
+forall x.
+CreateKnowledgeBaseResponse -&gt; Rep CreateKnowledgeBaseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateKnowledgeBaseResponse x -&gt; CreateKnowledgeBaseResponse
+$cfrom :: forall x.
+CreateKnowledgeBaseResponse -&gt; Rep CreateKnowledgeBaseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Create a value of 'CreateKnowledgeBaseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'knowledgeBase', 'createKnowledgeBaseResponse_knowledgeBase' - The knowledge base.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'createKnowledgeBaseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#newCreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">newCreateKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newCreateKnowledgeBaseResponse"><span class="annot"><span class="annottext">newCreateKnowledgeBaseResponse :: Int -&gt; CreateKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#newCreateKnowledgeBaseResponse"><span class="hs-identifier hs-var hs-var">newCreateKnowledgeBaseResponse</span></a></span></span><span> </span><span id="local-6989586621679229565"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">CreateKnowledgeBaseResponse' :: Maybe KnowledgeBaseData -&gt; Int -&gt; CreateKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:knowledgeBase:CreateKnowledgeBaseResponse' :: Maybe KnowledgeBaseData
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AknowledgeBase%3ACreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">knowledgeBase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKnowledgeBaseResponse' :: Int
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AhttpStatus%3ACreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The knowledge base.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBaseResponse_knowledgeBase"><span class="hs-identifier hs-type">createKnowledgeBaseResponse_knowledgeBase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#KnowledgeBaseData"><span class="hs-identifier hs-type">KnowledgeBaseData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="createKnowledgeBaseResponse_knowledgeBase"><span class="annot"><span class="annottext">createKnowledgeBaseResponse_knowledgeBase :: (Maybe KnowledgeBaseData -&gt; f (Maybe KnowledgeBaseData))
+-&gt; CreateKnowledgeBaseResponse -&gt; f CreateKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBaseResponse_knowledgeBase"><span class="hs-identifier hs-var hs-var">createKnowledgeBaseResponse_knowledgeBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBaseResponse -&gt; Maybe KnowledgeBaseData)
+-&gt; (CreateKnowledgeBaseResponse
+    -&gt; Maybe KnowledgeBaseData -&gt; CreateKnowledgeBaseResponse)
+-&gt; Lens
+     CreateKnowledgeBaseResponse
+     CreateKnowledgeBaseResponse
+     (Maybe KnowledgeBaseData)
+     (Maybe KnowledgeBaseData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229564"><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+knowledgeBase :: Maybe KnowledgeBaseData
+$sel:knowledgeBase:CreateKnowledgeBaseResponse' :: CreateKnowledgeBaseResponse -&gt; Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679229564"><span class="hs-identifier hs-var hs-var">knowledgeBase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679229564"><span class="hs-identifier hs-var">knowledgeBase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229563"><span class="annot"><span class="annottext">s :: CreateKnowledgeBaseResponse
+</span><a href="#local-6989586621679229563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229562"><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679229562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBaseResponse
+</span><a href="#local-6989586621679229563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knowledgeBase:CreateKnowledgeBaseResponse' :: Maybe KnowledgeBaseData
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AknowledgeBase%3ACreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">knowledgeBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679229562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBaseResponse_httpStatus"><span class="hs-identifier hs-type">createKnowledgeBaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="createKnowledgeBaseResponse_httpStatus"><span class="annot"><span class="annottext">createKnowledgeBaseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateKnowledgeBaseResponse -&gt; f CreateKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#createKnowledgeBaseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createKnowledgeBaseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKnowledgeBaseResponse -&gt; Int)
+-&gt; (CreateKnowledgeBaseResponse
+    -&gt; Int -&gt; CreateKnowledgeBaseResponse)
+-&gt; Lens
+     CreateKnowledgeBaseResponse CreateKnowledgeBaseResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229561"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateKnowledgeBaseResponse' :: CreateKnowledgeBaseResponse -&gt; Int
+</span><a href="#local-6989586621679229561"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229561"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229560"><span class="annot"><span class="annottext">s :: CreateKnowledgeBaseResponse
+</span><a href="#local-6989586621679229560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229559"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKnowledgeBaseResponse
+</span><a href="#local-6989586621679229560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKnowledgeBaseResponse' :: Int
+</span><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#%24sel%3AhttpStatus%3ACreateKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.CreateKnowledgeBase.html#CreateKnowledgeBaseResponse"><span class="hs-identifier hs-type">CreateKnowledgeBaseResponse</span></a></span></span><span>
+</span><span id="line-262"></span></pre></body></html>

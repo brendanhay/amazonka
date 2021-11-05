@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- the input to ingest only a portion of the file.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInputClippingSettings' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679923820"><span id="local-6989586621679923821"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputClippingSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-var">InputClippingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputClippingSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-var">InputClippingSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679923829"><span id="local-6989586621679923830"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputClippingSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-var">InputClippingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputClippingSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-var">InputClippingSettings'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings to identify the end of the clip.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AstopTimecode%3AInputClippingSettings%27"><span class="annot"><span class="annottext">InputClippingSettings -&gt; Maybe StopTimecode
 </span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#%24sel%3AstopTimecode%3AInputClippingSettings%27"><span class="hs-identifier hs-var hs-var">stopTimecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AinputTimecodeSource%3AInputClippingSettings%27"><span class="annot"><span class="annottext">InputClippingSettings -&gt; InputTimecodeSource
 </span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#%24sel%3AinputTimecodeSource%3AInputClippingSettings%27"><span class="hs-identifier hs-var hs-var">inputTimecodeSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputTimecodeSource.html#InputTimecodeSource"><span class="hs-identifier hs-type">InputTimecodeSource</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923812"><span id="local-6989586621679923814"><span class="annot"><span class="annottext">InputClippingSettings -&gt; InputClippingSettings -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923821"><span id="local-6989586621679923823"><span class="annot"><span class="annottext">InputClippingSettings -&gt; InputClippingSettings -&gt; Bool
 (InputClippingSettings -&gt; InputClippingSettings -&gt; Bool)
 -&gt; (InputClippingSettings -&gt; InputClippingSettings -&gt; Bool)
 -&gt; Eq InputClippingSettings
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputClippingSettings -&gt; InputClippingSettings -&gt; Bool
 == :: InputClippingSettings -&gt; InputClippingSettings -&gt; Bool
 $c== :: InputClippingSettings -&gt; InputClippingSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923803"><span id="local-6989586621679923805"><span id="local-6989586621679923807"><span id="local-6989586621679923809"><span class="annot"><span class="annottext">ReadPrec [InputClippingSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923812"><span id="local-6989586621679923814"><span id="local-6989586621679923816"><span id="local-6989586621679923818"><span class="annot"><span class="annottext">ReadPrec [InputClippingSettings]
 ReadPrec InputClippingSettings
 Int -&gt; ReadS InputClippingSettings
 ReadS [InputClippingSettings]
@@ -70,7 +70,7 @@ readList :: ReadS [InputClippingSettings]
 $creadList :: ReadS [InputClippingSettings]
 readsPrec :: Int -&gt; ReadS InputClippingSettings
 $creadsPrec :: Int -&gt; ReadS InputClippingSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923796"><span id="local-6989586621679923798"><span id="local-6989586621679923800"><span class="annot"><span class="annottext">Int -&gt; InputClippingSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923805"><span id="local-6989586621679923807"><span id="local-6989586621679923809"><span class="annot"><span class="annottext">Int -&gt; InputClippingSettings -&gt; ShowS
 [InputClippingSettings] -&gt; ShowS
 InputClippingSettings -&gt; String
 (Int -&gt; InputClippingSettings -&gt; ShowS)
@@ -114,8 +114,8 @@ $cfrom :: forall x. InputClippingSettings -&gt; Rep InputClippingSettings x
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputTimecodeSource.html#InputTimecodeSource"><span class="hs-identifier hs-type">InputTimecodeSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span>
 </span><span id="line-60"></span><span id="newInputClippingSettings"><span class="annot"><span class="annottext">newInputClippingSettings :: InputTimecodeSource -&gt; InputClippingSettings
-</span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#newInputClippingSettings"><span class="hs-identifier hs-var hs-var">newInputClippingSettings</span></a></span></span><span> </span><span id="local-6989586621679923790"><span class="annot"><span class="annottext">InputTimecodeSource
-</span><a href="#local-6989586621679923790"><span class="hs-identifier hs-var">pInputTimecodeSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#newInputClippingSettings"><span class="hs-identifier hs-var hs-var">newInputClippingSettings</span></a></span></span><span> </span><span id="local-6989586621679923799"><span class="annot"><span class="annottext">InputTimecodeSource
+</span><a href="#local-6989586621679923799"><span class="hs-identifier hs-var">pInputTimecodeSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">InputClippingSettings' :: Maybe StopTimecode
 -&gt; Maybe StartTimecode
 -&gt; InputTimecodeSource
@@ -132,7 +132,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputTimecodeSource:InputClippingSettings' :: InputTimecodeSource
 </span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#%24sel%3AinputTimecodeSource%3AInputClippingSettings%27"><span class="hs-identifier hs-var">inputTimecodeSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputTimecodeSource
-</span><a href="#local-6989586621679923790"><span class="hs-identifier hs-var">pInputTimecodeSource_</span></a></span><span>
+</span><a href="#local-6989586621679923799"><span class="hs-identifier hs-var">pInputTimecodeSource_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Settings to identify the end of the clip.</span><span>
@@ -148,16 +148,16 @@ forall a. Maybe a
      (Maybe StopTimecode)
      (Maybe StopTimecode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923786"><span class="annot"><span class="annottext">Maybe StopTimecode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923795"><span class="annot"><span class="annottext">Maybe StopTimecode
 stopTimecode :: Maybe StopTimecode
 $sel:stopTimecode:InputClippingSettings' :: InputClippingSettings -&gt; Maybe StopTimecode
-</span><a href="#local-6989586621679923786"><span class="hs-identifier hs-var hs-var">stopTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopTimecode
-</span><a href="#local-6989586621679923786"><span class="hs-identifier hs-var">stopTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923785"><span class="annot"><span class="annottext">s :: InputClippingSettings
-</span><a href="#local-6989586621679923785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923784"><span class="annot"><span class="annottext">Maybe StopTimecode
-</span><a href="#local-6989586621679923784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClippingSettings
-</span><a href="#local-6989586621679923785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTimecode:InputClippingSettings' :: Maybe StopTimecode
+</span><a href="#local-6989586621679923795"><span class="hs-identifier hs-var hs-var">stopTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopTimecode
+</span><a href="#local-6989586621679923795"><span class="hs-identifier hs-var">stopTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923794"><span class="annot"><span class="annottext">s :: InputClippingSettings
+</span><a href="#local-6989586621679923794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923793"><span class="annot"><span class="annottext">Maybe StopTimecode
+</span><a href="#local-6989586621679923793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClippingSettings
+</span><a href="#local-6989586621679923794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTimecode:InputClippingSettings' :: Maybe StopTimecode
 </span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#%24sel%3AstopTimecode%3AInputClippingSettings%27"><span class="hs-identifier hs-var">stopTimecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopTimecode
-</span><a href="#local-6989586621679923784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679923793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Settings to identify the start of the clip.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#inputClippingSettings_startTimecode"><span class="hs-identifier hs-type">inputClippingSettings_startTimecode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span><span class="hs-special">)</span><span>
@@ -172,16 +172,16 @@ $sel:stopTimecode:InputClippingSettings' :: InputClippingSettings -&gt; Maybe St
      (Maybe StartTimecode)
      (Maybe StartTimecode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923782"><span class="annot"><span class="annottext">Maybe StartTimecode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923791"><span class="annot"><span class="annottext">Maybe StartTimecode
 startTimecode :: Maybe StartTimecode
 $sel:startTimecode:InputClippingSettings' :: InputClippingSettings -&gt; Maybe StartTimecode
-</span><a href="#local-6989586621679923782"><span class="hs-identifier hs-var hs-var">startTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartTimecode
-</span><a href="#local-6989586621679923782"><span class="hs-identifier hs-var">startTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923781"><span class="annot"><span class="annottext">s :: InputClippingSettings
-</span><a href="#local-6989586621679923781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923780"><span class="annot"><span class="annottext">Maybe StartTimecode
-</span><a href="#local-6989586621679923780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClippingSettings
-</span><a href="#local-6989586621679923781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimecode:InputClippingSettings' :: Maybe StartTimecode
+</span><a href="#local-6989586621679923791"><span class="hs-identifier hs-var hs-var">startTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartTimecode
+</span><a href="#local-6989586621679923791"><span class="hs-identifier hs-var">startTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923790"><span class="annot"><span class="annottext">s :: InputClippingSettings
+</span><a href="#local-6989586621679923790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923789"><span class="annot"><span class="annottext">Maybe StartTimecode
+</span><a href="#local-6989586621679923789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClippingSettings
+</span><a href="#local-6989586621679923790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimecode:InputClippingSettings' :: Maybe StartTimecode
 </span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#%24sel%3AstartTimecode%3AInputClippingSettings%27"><span class="hs-identifier hs-var">startTimecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartTimecode
-</span><a href="#local-6989586621679923780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679923789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The source of the timecodes in the source being clipped.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#inputClippingSettings_inputTimecodeSource"><span class="hs-identifier hs-type">inputClippingSettings_inputTimecodeSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputTimecodeSource.html#InputTimecodeSource"><span class="hs-identifier hs-type">InputTimecodeSource</span></a></span><span>
@@ -196,19 +196,19 @@ $sel:startTimecode:InputClippingSettings' :: InputClippingSettings -&gt; Maybe S
      InputTimecodeSource
      InputTimecodeSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923778"><span class="annot"><span class="annottext">InputTimecodeSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923787"><span class="annot"><span class="annottext">InputTimecodeSource
 inputTimecodeSource :: InputTimecodeSource
 $sel:inputTimecodeSource:InputClippingSettings' :: InputClippingSettings -&gt; InputTimecodeSource
-</span><a href="#local-6989586621679923778"><span class="hs-identifier hs-var hs-var">inputTimecodeSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTimecodeSource
-</span><a href="#local-6989586621679923778"><span class="hs-identifier hs-var">inputTimecodeSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923777"><span class="annot"><span class="annottext">s :: InputClippingSettings
-</span><a href="#local-6989586621679923777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923776"><span class="annot"><span class="annottext">InputTimecodeSource
-</span><a href="#local-6989586621679923776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClippingSettings
-</span><a href="#local-6989586621679923777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputTimecodeSource:InputClippingSettings' :: InputTimecodeSource
+</span><a href="#local-6989586621679923787"><span class="hs-identifier hs-var hs-var">inputTimecodeSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTimecodeSource
+</span><a href="#local-6989586621679923787"><span class="hs-identifier hs-var">inputTimecodeSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923786"><span class="annot"><span class="annottext">s :: InputClippingSettings
+</span><a href="#local-6989586621679923786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923785"><span class="annot"><span class="annottext">InputTimecodeSource
+</span><a href="#local-6989586621679923785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClippingSettings
+</span><a href="#local-6989586621679923786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputTimecodeSource:InputClippingSettings' :: InputTimecodeSource
 </span><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#%24sel%3AinputTimecodeSource%3AInputClippingSettings%27"><span class="hs-identifier hs-var">inputTimecodeSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputTimecodeSource
-</span><a href="#local-6989586621679923776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679923785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923773"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679923771"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputClippingSettings
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923782"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679923780"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputClippingSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputClippingSettings)
@@ -218,8 +218,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputClippingSettings&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679923768"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679923777"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923777"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe StopTimecode
 -&gt; Maybe StartTimecode
 -&gt; InputTimecodeSource
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; InputTimecodeSource -&gt; InputClippingSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StopTimecode)
+</span><a href="#local-6989586621679923777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StopTimecode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stopTimecode&quot;</span></span><span class="hs-special">)</span><span>
@@ -246,7 +246,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (InputTimecodeSource -&gt; InputClippingSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StartTimecode)
+</span><a href="#local-6989586621679923777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StartTimecode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTimecode&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,19 +254,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser InputTimecodeSource -&gt; Parser InputClippingSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InputTimecodeSource
+</span><a href="#local-6989586621679923777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InputTimecodeSource
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputTimecodeSource&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923761"><span id="local-6989586621679923763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923770"><span id="local-6989586621679923772"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923750"><span id="local-6989586621679923752"><span id="local-6989586621679923754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679923748"><span class="annot"><span class="annottext">toJSON :: InputClippingSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923744"><span id="local-6989586621679923745"><span id="local-6989586621679923746"><span class="annot"><span class="annottext">Maybe StartTimecode
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923759"><span id="local-6989586621679923761"><span id="local-6989586621679923763"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings"><span class="hs-identifier hs-type">InputClippingSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679923757"><span class="annot"><span class="annottext">toJSON :: InputClippingSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputClippingSettings.html#InputClippingSettings%27"><span class="hs-identifier hs-type">InputClippingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923753"><span id="local-6989586621679923754"><span id="local-6989586621679923755"><span class="annot"><span class="annottext">Maybe StartTimecode
 Maybe StopTimecode
 InputTimecodeSource
 inputTimecodeSource :: InputTimecodeSource
@@ -275,7 +275,7 @@ stopTimecode :: Maybe StopTimecode
 $sel:inputTimecodeSource:InputClippingSettings' :: InputClippingSettings -&gt; InputTimecodeSource
 $sel:startTimecode:InputClippingSettings' :: InputClippingSettings -&gt; Maybe StartTimecode
 $sel:stopTimecode:InputClippingSettings' :: InputClippingSettings -&gt; Maybe StopTimecode
-</span><a href="#local-6989586621679923744"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679923753"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -287,14 +287,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StopTimecode -&gt; Pair) -&gt; Maybe StopTimecode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StopTimecode
-</span><a href="#local-6989586621679923746"><span class="hs-identifier hs-var">stopTimecode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679923755"><span class="hs-identifier hs-var">stopTimecode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTimecode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartTimecode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StartTimecode -&gt; Pair) -&gt; Maybe StartTimecode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StartTimecode
-</span><a href="#local-6989586621679923745"><span class="hs-identifier hs-var">startTimecode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679923754"><span class="hs-identifier hs-var">startTimecode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -302,7 +302,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;inputTimecodeSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputTimecodeSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputTimecodeSource
-</span><a href="#local-6989586621679923744"><span class="hs-identifier hs-var">inputTimecodeSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679923753"><span class="hs-identifier hs-var">inputTimecodeSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

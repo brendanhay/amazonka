@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A destination for events that were processed successfully.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOnSuccess' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679297413"><span id="local-6989586621679297414"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnSuccess"><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-var">OnSuccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnSuccess%27"><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-var">OnSuccess'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679297422"><span id="local-6989586621679297423"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnSuccess"><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-var">OnSuccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnSuccess%27"><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-var">OnSuccess'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the destination resource.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Adestination%3AOnSuccess%27"><span class="annot"><span class="annottext">OnSuccess -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.OnSuccess.html#%24sel%3Adestination%3AOnSuccess%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297407"><span id="local-6989586621679297409"><span class="annot"><span class="annottext">OnSuccess -&gt; OnSuccess -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297416"><span id="local-6989586621679297418"><span class="annot"><span class="annottext">OnSuccess -&gt; OnSuccess -&gt; Bool
 (OnSuccess -&gt; OnSuccess -&gt; Bool)
 -&gt; (OnSuccess -&gt; OnSuccess -&gt; Bool) -&gt; Eq OnSuccess
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OnSuccess -&gt; OnSuccess -&gt; Bool
 == :: OnSuccess -&gt; OnSuccess -&gt; Bool
 $c== :: OnSuccess -&gt; OnSuccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297398"><span id="local-6989586621679297400"><span id="local-6989586621679297402"><span id="local-6989586621679297404"><span class="annot"><span class="annottext">ReadPrec [OnSuccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297407"><span id="local-6989586621679297409"><span id="local-6989586621679297411"><span id="local-6989586621679297413"><span class="annot"><span class="annottext">ReadPrec [OnSuccess]
 ReadPrec OnSuccess
 Int -&gt; ReadS OnSuccess
 ReadS [OnSuccess]
@@ -59,7 +59,7 @@ readList :: ReadS [OnSuccess]
 $creadList :: ReadS [OnSuccess]
 readsPrec :: Int -&gt; ReadS OnSuccess
 $creadsPrec :: Int -&gt; ReadS OnSuccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297391"><span id="local-6989586621679297393"><span id="local-6989586621679297395"><span class="annot"><span class="annottext">Int -&gt; OnSuccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297400"><span id="local-6989586621679297402"><span id="local-6989586621679297404"><span class="annot"><span class="annottext">Int -&gt; OnSuccess -&gt; ShowS
 [OnSuccess] -&gt; ShowS
 OnSuccess -&gt; String
 (Int -&gt; OnSuccess -&gt; ShowS)
@@ -110,48 +110,48 @@ forall a. Maybe a
 -&gt; (OnSuccess -&gt; Maybe Text -&gt; OnSuccess)
 -&gt; Lens OnSuccess OnSuccess (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-type">OnSuccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297382"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-type">OnSuccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297391"><span class="annot"><span class="annottext">Maybe Text
 destination :: Maybe Text
 $sel:destination:OnSuccess' :: OnSuccess -&gt; Maybe Text
-</span><a href="#local-6989586621679297382"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297382"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297381"><span class="annot"><span class="annottext">s :: OnSuccess
-</span><a href="#local-6989586621679297381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-type">OnSuccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297380"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnSuccess
-</span><a href="#local-6989586621679297381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:OnSuccess' :: Maybe Text
+</span><a href="#local-6989586621679297391"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297391"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297390"><span class="annot"><span class="annottext">s :: OnSuccess
+</span><a href="#local-6989586621679297390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-type">OnSuccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297389"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnSuccess
+</span><a href="#local-6989586621679297390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:OnSuccess' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.OnSuccess.html#%24sel%3Adestination%3AOnSuccess%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297377"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679297375"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnSuccess
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297386"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679297384"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnSuccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser OnSuccess) -&gt; Value -&gt; Parser OnSuccess
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OnSuccess&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297372"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297381"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297381"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; OnSuccess
 </span><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-var">OnSuccess'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; OnSuccess)
 -&gt; Parser (Maybe Text) -&gt; Parser OnSuccess
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297381"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297366"><span id="local-6989586621679297368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297375"><span id="local-6989586621679297377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297355"><span id="local-6989586621679297357"><span id="local-6989586621679297359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679297353"><span class="annot"><span class="annottext">toJSON :: OnSuccess -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-type">OnSuccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297351"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297364"><span id="local-6989586621679297366"><span id="local-6989586621679297368"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679297362"><span class="annot"><span class="annottext">toJSON :: OnSuccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess%27"><span class="hs-identifier hs-type">OnSuccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297360"><span class="annot"><span class="annottext">Maybe Text
 destination :: Maybe Text
 $sel:destination:OnSuccess' :: OnSuccess -&gt; Maybe Text
-</span><a href="#local-6989586621679297351"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679297360"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -163,6 +163,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297351"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679297360"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

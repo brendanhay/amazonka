@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.Types.AnalysisResultLevel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.Types.AnalysisResultLevel</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel"><span class="hs-identifier">AnalysisResultLevel</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_ERROR"><span class="hs-identifier">AnalysisResultLevel_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_INFO"><span class="hs-identifier">AnalysisResultLevel_INFO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_WARNING"><span class="hs-identifier">AnalysisResultLevel_WARNING</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679238412"><span id="local-6989586621679238413"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalysisResultLevel"><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel"><span class="hs-identifier hs-var">AnalysisResultLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisResultLevel%27"><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel%27"><span class="hs-identifier hs-var">AnalysisResultLevel'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnalysisResultLevel"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; Text
+</span><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#fromAnalysisResultLevel"><span class="hs-identifier hs-var hs-var">fromAnalysisResultLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238404"><span id="local-6989586621679238406"><span id="local-6989586621679238408"><span class="annot"><span class="annottext">Int -&gt; AnalysisResultLevel -&gt; ShowS
+[AnalysisResultLevel] -&gt; ShowS
+AnalysisResultLevel -&gt; String
+(Int -&gt; AnalysisResultLevel -&gt; ShowS)
+-&gt; (AnalysisResultLevel -&gt; String)
+-&gt; ([AnalysisResultLevel] -&gt; ShowS)
+-&gt; Show AnalysisResultLevel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalysisResultLevel] -&gt; ShowS
+$cshowList :: [AnalysisResultLevel] -&gt; ShowS
+show :: AnalysisResultLevel -&gt; String
+$cshow :: AnalysisResultLevel -&gt; String
+showsPrec :: Int -&gt; AnalysisResultLevel -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalysisResultLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679238395"><span id="local-6989586621679238397"><span id="local-6989586621679238399"><span id="local-6989586621679238401"><span class="annot"><span class="annottext">ReadPrec [AnalysisResultLevel]
+ReadPrec AnalysisResultLevel
+Int -&gt; ReadS AnalysisResultLevel
+ReadS [AnalysisResultLevel]
+(Int -&gt; ReadS AnalysisResultLevel)
+-&gt; ReadS [AnalysisResultLevel]
+-&gt; ReadPrec AnalysisResultLevel
+-&gt; ReadPrec [AnalysisResultLevel]
+-&gt; Read AnalysisResultLevel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalysisResultLevel]
+$creadListPrec :: ReadPrec [AnalysisResultLevel]
+readPrec :: ReadPrec AnalysisResultLevel
+$creadPrec :: ReadPrec AnalysisResultLevel
+readList :: ReadS [AnalysisResultLevel]
+$creadList :: ReadS [AnalysisResultLevel]
+readsPrec :: Int -&gt; ReadS AnalysisResultLevel
+$creadsPrec :: Int -&gt; ReadS AnalysisResultLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679238390"><span id="local-6989586621679238392"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+(AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool)
+-&gt; (AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool)
+-&gt; Eq AnalysisResultLevel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+$c/= :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+== :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+$c== :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679238374"><span id="local-6989586621679238376"><span id="local-6989586621679238378"><span id="local-6989586621679238380"><span id="local-6989586621679238382"><span id="local-6989586621679238384"><span id="local-6989586621679238386"><span class="annot"><span class="annottext">Eq AnalysisResultLevel
+Eq AnalysisResultLevel
+-&gt; (AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Ordering)
+-&gt; (AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool)
+-&gt; (AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool)
+-&gt; (AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool)
+-&gt; (AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool)
+-&gt; (AnalysisResultLevel
+    -&gt; AnalysisResultLevel -&gt; AnalysisResultLevel)
+-&gt; (AnalysisResultLevel
+    -&gt; AnalysisResultLevel -&gt; AnalysisResultLevel)
+-&gt; Ord AnalysisResultLevel
+AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Ordering
+AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; AnalysisResultLevel
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; AnalysisResultLevel
+$cmin :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; AnalysisResultLevel
+max :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; AnalysisResultLevel
+$cmax :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; AnalysisResultLevel
+&gt;= :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+$c&gt;= :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+&gt; :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+$c&gt; :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+&lt;= :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+$c&lt;= :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+&lt; :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+$c&lt; :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Bool
+compare :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Ordering
+$ccompare :: AnalysisResultLevel -&gt; AnalysisResultLevel -&gt; Ordering
+$cp1Ord :: Eq AnalysisResultLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AnalysisResultLevel -&gt; Rep AnalysisResultLevel x)
+-&gt; (forall x. Rep AnalysisResultLevel x -&gt; AnalysisResultLevel)
+-&gt; Generic AnalysisResultLevel
+forall x. Rep AnalysisResultLevel x -&gt; AnalysisResultLevel
+forall x. AnalysisResultLevel -&gt; Rep AnalysisResultLevel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalysisResultLevel x -&gt; AnalysisResultLevel
+$cfrom :: forall x. AnalysisResultLevel -&gt; Rep AnalysisResultLevel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238366"><span id="local-6989586621679238368"><span class="annot"><span class="annottext">Int -&gt; AnalysisResultLevel -&gt; Int
+AnalysisResultLevel -&gt; Int
+(Int -&gt; AnalysisResultLevel -&gt; Int)
+-&gt; (AnalysisResultLevel -&gt; Int) -&gt; Hashable AnalysisResultLevel
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AnalysisResultLevel -&gt; Int
+$chash :: AnalysisResultLevel -&gt; Int
+hashWithSalt :: Int -&gt; AnalysisResultLevel -&gt; Int
+$chashWithSalt :: Int -&gt; AnalysisResultLevel -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679238363"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; ()
+(AnalysisResultLevel -&gt; ()) -&gt; NFData AnalysisResultLevel
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AnalysisResultLevel -&gt; ()
+$crnf :: AnalysisResultLevel -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679238360"><span class="annot"><span class="annottext">Text -&gt; Either String AnalysisResultLevel
+(Text -&gt; Either String AnalysisResultLevel)
+-&gt; FromText AnalysisResultLevel
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AnalysisResultLevel
+$cfromText :: Text -&gt; Either String AnalysisResultLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679238357"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; Text
+(AnalysisResultLevel -&gt; Text) -&gt; ToText AnalysisResultLevel
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AnalysisResultLevel -&gt; Text
+$ctoText :: AnalysisResultLevel -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679238354"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; ByteString
+(AnalysisResultLevel -&gt; ByteString)
+-&gt; ToByteString AnalysisResultLevel
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AnalysisResultLevel -&gt; ByteString
+$ctoBS :: AnalysisResultLevel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679238351"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; ByteStringBuilder
+(AnalysisResultLevel -&gt; ByteStringBuilder)
+-&gt; ToLog AnalysisResultLevel
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AnalysisResultLevel -&gt; ByteStringBuilder
+$cbuild :: AnalysisResultLevel -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679238348"><span class="annot"><span class="annottext">HeaderName -&gt; AnalysisResultLevel -&gt; [Header]
+(HeaderName -&gt; AnalysisResultLevel -&gt; [Header])
+-&gt; ToHeader AnalysisResultLevel
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AnalysisResultLevel -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AnalysisResultLevel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679238345"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; QueryString
+(AnalysisResultLevel -&gt; QueryString) -&gt; ToQuery AnalysisResultLevel
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AnalysisResultLevel -&gt; QueryString
+$ctoQuery :: AnalysisResultLevel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679238340"><span id="local-6989586621679238342"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalysisResultLevel]
+Value -&gt; Parser AnalysisResultLevel
+(Value -&gt; Parser AnalysisResultLevel)
+-&gt; (Value -&gt; Parser [AnalysisResultLevel])
+-&gt; FromJSON AnalysisResultLevel
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AnalysisResultLevel]
+$cparseJSONList :: Value -&gt; Parser [AnalysisResultLevel]
+parseJSON :: Value -&gt; Parser AnalysisResultLevel
+$cparseJSON :: Value -&gt; Parser AnalysisResultLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679238335"><span id="local-6989586621679238337"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalysisResultLevel]
+FromJSONKeyFunction AnalysisResultLevel
+FromJSONKeyFunction AnalysisResultLevel
+-&gt; FromJSONKeyFunction [AnalysisResultLevel]
+-&gt; FromJSONKey AnalysisResultLevel
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AnalysisResultLevel]
+$cfromJSONKeyList :: FromJSONKeyFunction [AnalysisResultLevel]
+fromJSONKey :: FromJSONKeyFunction AnalysisResultLevel
+$cfromJSONKey :: FromJSONKeyFunction AnalysisResultLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679238326"><span id="local-6989586621679238328"><span id="local-6989586621679238330"><span id="local-6989586621679238332"><span class="annot"><span class="annottext">[AnalysisResultLevel] -&gt; Encoding
+[AnalysisResultLevel] -&gt; Value
+AnalysisResultLevel -&gt; Encoding
+AnalysisResultLevel -&gt; Value
+(AnalysisResultLevel -&gt; Value)
+-&gt; (AnalysisResultLevel -&gt; Encoding)
+-&gt; ([AnalysisResultLevel] -&gt; Value)
+-&gt; ([AnalysisResultLevel] -&gt; Encoding)
+-&gt; ToJSON AnalysisResultLevel
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AnalysisResultLevel] -&gt; Encoding
+$ctoEncodingList :: [AnalysisResultLevel] -&gt; Encoding
+toJSONList :: [AnalysisResultLevel] -&gt; Value
+$ctoJSONList :: [AnalysisResultLevel] -&gt; Value
+toEncoding :: AnalysisResultLevel -&gt; Encoding
+$ctoEncoding :: AnalysisResultLevel -&gt; Encoding
+toJSON :: AnalysisResultLevel -&gt; Value
+$ctoJSON :: AnalysisResultLevel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679238321"><span id="local-6989586621679238323"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalysisResultLevel]
+ToJSONKeyFunction AnalysisResultLevel
+ToJSONKeyFunction AnalysisResultLevel
+-&gt; ToJSONKeyFunction [AnalysisResultLevel]
+-&gt; ToJSONKey AnalysisResultLevel
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AnalysisResultLevel]
+$ctoJSONKeyList :: ToJSONKeyFunction [AnalysisResultLevel]
+toJSONKey :: ToJSONKeyFunction AnalysisResultLevel
+$ctoJSONKey :: ToJSONKeyFunction AnalysisResultLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679238318"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalysisResultLevel
+([Node] -&gt; Either String AnalysisResultLevel)
+-&gt; FromXML AnalysisResultLevel
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AnalysisResultLevel
+$cparseXML :: [Node] -&gt; Either String AnalysisResultLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679238315"><span class="annot"><span class="annottext">AnalysisResultLevel -&gt; XML
+(AnalysisResultLevel -&gt; XML) -&gt; ToXML AnalysisResultLevel
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AnalysisResultLevel -&gt; XML
+$ctoXML :: AnalysisResultLevel -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_ERROR"><span class="hs-identifier hs-type">AnalysisResultLevel_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel"><span class="hs-identifier hs-type">AnalysisResultLevel</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisResultLevel_ERROR"><span id="%24mAnalysisResultLevel_ERROR"><span id="AnalysisResultLevel_ERROR"><span class="annot"><span class="annottext">$bAnalysisResultLevel_ERROR :: AnalysisResultLevel
+$mAnalysisResultLevel_ERROR :: forall r. AnalysisResultLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#%24bAnalysisResultLevel_ERROR"><span class="hs-identifier hs-var hs-var hs-var">AnalysisResultLevel_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel%27"><span class="hs-identifier hs-type">AnalysisResultLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_INFO"><span class="hs-identifier hs-type">AnalysisResultLevel_INFO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel"><span class="hs-identifier hs-type">AnalysisResultLevel</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisResultLevel_INFO"><span id="%24mAnalysisResultLevel_INFO"><span id="AnalysisResultLevel_INFO"><span class="annot"><span class="annottext">$bAnalysisResultLevel_INFO :: AnalysisResultLevel
+$mAnalysisResultLevel_INFO :: forall r. AnalysisResultLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#%24bAnalysisResultLevel_INFO"><span class="hs-identifier hs-var hs-var hs-var">AnalysisResultLevel_INFO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel%27"><span class="hs-identifier hs-type">AnalysisResultLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INFO&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_WARNING"><span class="hs-identifier hs-type">AnalysisResultLevel_WARNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel"><span class="hs-identifier hs-type">AnalysisResultLevel</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalysisResultLevel_WARNING"><span id="%24mAnalysisResultLevel_WARNING"><span id="AnalysisResultLevel_WARNING"><span class="annot"><span class="annottext">$bAnalysisResultLevel_WARNING :: AnalysisResultLevel
+$mAnalysisResultLevel_WARNING :: forall r. AnalysisResultLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#%24bAnalysisResultLevel_WARNING"><span class="hs-identifier hs-var hs-var hs-var">AnalysisResultLevel_WARNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel%27"><span class="hs-identifier hs-type">AnalysisResultLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WARNING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_ERROR"><span class="hs-pragma hs-type">AnalysisResultLevel_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_INFO"><span class="hs-pragma hs-type">AnalysisResultLevel_INFO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel_WARNING"><span class="hs-pragma hs-type">AnalysisResultLevel_WARNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AnalysisResultLevel.html#AnalysisResultLevel%27"><span class="hs-pragma hs-type">AnalysisResultLevel'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

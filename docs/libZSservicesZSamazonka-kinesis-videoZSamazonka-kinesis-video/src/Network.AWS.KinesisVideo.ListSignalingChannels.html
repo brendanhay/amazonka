@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListSignalingChannels' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679178655"><span id="local-6989586621679178656"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSignalingChannels"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-var">ListSignalingChannels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSignalingChannels%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-var">ListSignalingChannels'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679178664"><span id="local-6989586621679178665"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSignalingChannels"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-var">ListSignalingChannels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSignalingChannels%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-var">ListSignalingChannels'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional: Returns only the channels that satisfy a specific condition.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AchannelNameCondition%3AListSignalingChannels%27"><span class="annot"><span class="annottext">ListSignalingChannels -&gt; Maybe ChannelNameCondition
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AchannelNameCondition%3AListSignalingChannels%27"><span class="hs-identifier hs-var hs-var">channelNameCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.ChannelNameCondition.html#ChannelNameCondition"><span class="hs-identifier hs-type">ChannelNameCondition</span></a></span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListSignalingChannels%27"><span class="annot"><span class="annottext">ListSignalingChannels -&gt; Maybe Natural
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AmaxResults%3AListSignalingChannels%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178647"><span id="local-6989586621679178649"><span class="annot"><span class="annottext">ListSignalingChannels -&gt; ListSignalingChannels -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178656"><span id="local-6989586621679178658"><span class="annot"><span class="annottext">ListSignalingChannels -&gt; ListSignalingChannels -&gt; Bool
 (ListSignalingChannels -&gt; ListSignalingChannels -&gt; Bool)
 -&gt; (ListSignalingChannels -&gt; ListSignalingChannels -&gt; Bool)
 -&gt; Eq ListSignalingChannels
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSignalingChannels -&gt; ListSignalingChannels -&gt; Bool
 == :: ListSignalingChannels -&gt; ListSignalingChannels -&gt; Bool
 $c== :: ListSignalingChannels -&gt; ListSignalingChannels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178638"><span id="local-6989586621679178640"><span id="local-6989586621679178642"><span id="local-6989586621679178644"><span class="annot"><span class="annottext">ReadPrec [ListSignalingChannels]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178647"><span id="local-6989586621679178649"><span id="local-6989586621679178651"><span id="local-6989586621679178653"><span class="annot"><span class="annottext">ReadPrec [ListSignalingChannels]
 ReadPrec ListSignalingChannels
 Int -&gt; ReadS ListSignalingChannels
 ReadS [ListSignalingChannels]
@@ -98,7 +98,7 @@ readList :: ReadS [ListSignalingChannels]
 $creadList :: ReadS [ListSignalingChannels]
 readsPrec :: Int -&gt; ReadS ListSignalingChannels
 $creadsPrec :: Int -&gt; ReadS ListSignalingChannels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178631"><span id="local-6989586621679178633"><span id="local-6989586621679178635"><span class="annot"><span class="annottext">Int -&gt; ListSignalingChannels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178640"><span id="local-6989586621679178642"><span id="local-6989586621679178644"><span class="annot"><span class="annottext">Int -&gt; ListSignalingChannels -&gt; ShowS
 [ListSignalingChannels] -&gt; ShowS
 ListSignalingChannels -&gt; String
 (Int -&gt; ListSignalingChannels -&gt; ShowS)
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe ChannelNameCondition)
      (Maybe ChannelNameCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178625"><span class="annot"><span class="annottext">Maybe ChannelNameCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178634"><span class="annot"><span class="annottext">Maybe ChannelNameCondition
 channelNameCondition :: Maybe ChannelNameCondition
 $sel:channelNameCondition:ListSignalingChannels' :: ListSignalingChannels -&gt; Maybe ChannelNameCondition
-</span><a href="#local-6989586621679178625"><span class="hs-identifier hs-var hs-var">channelNameCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelNameCondition
-</span><a href="#local-6989586621679178625"><span class="hs-identifier hs-var">channelNameCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178624"><span class="annot"><span class="annottext">s :: ListSignalingChannels
-</span><a href="#local-6989586621679178624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178623"><span class="annot"><span class="annottext">Maybe ChannelNameCondition
-</span><a href="#local-6989586621679178623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannels
-</span><a href="#local-6989586621679178624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelNameCondition:ListSignalingChannels' :: Maybe ChannelNameCondition
+</span><a href="#local-6989586621679178634"><span class="hs-identifier hs-var hs-var">channelNameCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelNameCondition
+</span><a href="#local-6989586621679178634"><span class="hs-identifier hs-var">channelNameCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178633"><span class="annot"><span class="annottext">s :: ListSignalingChannels
+</span><a href="#local-6989586621679178633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178632"><span class="annot"><span class="annottext">Maybe ChannelNameCondition
+</span><a href="#local-6989586621679178632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannels
+</span><a href="#local-6989586621679178633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelNameCondition:ListSignalingChannels' :: Maybe ChannelNameCondition
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AchannelNameCondition%3AListSignalingChannels%27"><span class="hs-identifier hs-var">channelNameCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelNameCondition
-</span><a href="#local-6989586621679178623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | If you specify this parameter, when the result of a</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- @ListSignalingChannels@ operation is truncated, the call returns the</span><span>
@@ -202,16 +202,16 @@ $sel:channelNameCondition:ListSignalingChannels' :: ListSignalingChannels -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178622"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178631"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSignalingChannels' :: ListSignalingChannels -&gt; Maybe Text
-</span><a href="#local-6989586621679178622"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178622"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178621"><span class="annot"><span class="annottext">s :: ListSignalingChannels
-</span><a href="#local-6989586621679178621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178620"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannels
-</span><a href="#local-6989586621679178621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSignalingChannels' :: Maybe Text
+</span><a href="#local-6989586621679178631"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178631"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178630"><span class="annot"><span class="annottext">s :: ListSignalingChannels
+</span><a href="#local-6989586621679178630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178629"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannels
+</span><a href="#local-6989586621679178630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSignalingChannels' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AnextToken%3AListSignalingChannels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The maximum number of channels to return in the response. The default is</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- 500.</span><span>
@@ -227,29 +227,29 @@ $sel:nextToken:ListSignalingChannels' :: ListSignalingChannels -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178619"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178628"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListSignalingChannels' :: ListSignalingChannels -&gt; Maybe Natural
-</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178618"><span class="annot"><span class="annottext">s :: ListSignalingChannels
-</span><a href="#local-6989586621679178618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178617"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannels
-</span><a href="#local-6989586621679178618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSignalingChannels' :: Maybe Natural
+</span><a href="#local-6989586621679178628"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178628"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178627"><span class="annot"><span class="annottext">s :: ListSignalingChannels
+</span><a href="#local-6989586621679178627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178626"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannels
+</span><a href="#local-6989586621679178627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSignalingChannels' :: Maybe Natural
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AmaxResults%3AListSignalingChannels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679178613"><span class="annot"><span class="annottext">page :: ListSignalingChannels
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679178622"><span class="annot"><span class="annottext">page :: ListSignalingChannels
 -&gt; AWSResponse ListSignalingChannels -&gt; Maybe ListSignalingChannels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679178611"><span class="annot"><span class="annottext">ListSignalingChannels
-</span><a href="#local-6989586621679178611"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679178610"><span class="annot"><span class="annottext">AWSResponse ListSignalingChannels
-</span><a href="#local-6989586621679178610"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679178620"><span class="annot"><span class="annottext">ListSignalingChannels
+</span><a href="#local-6989586621679178620"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679178619"><span class="annot"><span class="annottext">AWSResponse ListSignalingChannels
+</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSignalingChannels
 ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178610"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
 -&gt; Getting (First Text) ListSignalingChannelsResponse Text
 -&gt; Maybe Text
@@ -279,7 +279,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSignalingChannels
 ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178610"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
 -&gt; Getting
      (First [ChannelInfo]) ListSignalingChannelsResponse [ChannelInfo]
@@ -319,7 +319,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ListSignalingChannels
-</span><a href="#local-6989586621679178611"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679178620"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListSignalingChannels
 -&gt; (ListSignalingChannels -&gt; ListSignalingChannels)
 -&gt; ListSignalingChannels
@@ -338,7 +338,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSignalingChannels
 ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178610"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
 -&gt; Getting (First Text) ListSignalingChannelsResponse Text
 -&gt; Maybe Text
@@ -364,12 +364,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679178600"><span class="annot"><span class="annottext">request :: ListSignalingChannels -&gt; Request ListSignalingChannels
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679178609"><span class="annot"><span class="annottext">request :: ListSignalingChannels -&gt; Request ListSignalingChannels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSignalingChannels -&gt; Request ListSignalingChannels
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679178596"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679178605"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListSignalingChannels
 -&gt; ClientResponse ClientBody
@@ -395,10 +395,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178593"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178593"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178592"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178592"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178591"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178591"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178602"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178602"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178601"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178601"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178600"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178600"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ChannelInfo]
 -&gt; Maybe Text -&gt; Int -&gt; ListSignalingChannelsResponse
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-var">ListSignalingChannelsResponse'</span></a></span><span>
@@ -409,7 +409,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListSignalingChannelsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChannelInfo]))
+</span><a href="#local-6989586621679178600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChannelInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChannelInfoList&quot;</span></span><span>
@@ -425,7 +425,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListSignalingChannelsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679178600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -437,24 +437,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178593"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178602"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178582"><span id="local-6989586621679178584"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178591"><span id="local-6989586621679178593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679178575"><span class="annot"><span class="annottext">toHeaders :: ListSignalingChannels -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679178584"><span class="annot"><span class="annottext">toHeaders :: ListSignalingChannels -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSignalingChannels -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178566"><span id="local-6989586621679178568"><span id="local-6989586621679178570"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679178564"><span class="annot"><span class="annottext">toJSON :: ListSignalingChannels -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178560"><span id="local-6989586621679178561"><span id="local-6989586621679178562"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178575"><span id="local-6989586621679178577"><span id="local-6989586621679178579"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679178573"><span class="annot"><span class="annottext">toJSON :: ListSignalingChannels -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels%27"><span class="hs-identifier hs-type">ListSignalingChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178569"><span id="local-6989586621679178570"><span id="local-6989586621679178571"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ChannelNameCondition
 maxResults :: Maybe Natural
@@ -463,7 +463,7 @@ channelNameCondition :: Maybe ChannelNameCondition
 $sel:maxResults:ListSignalingChannels' :: ListSignalingChannels -&gt; Maybe Natural
 $sel:nextToken:ListSignalingChannels' :: ListSignalingChannels -&gt; Maybe Text
 $sel:channelNameCondition:ListSignalingChannels' :: ListSignalingChannels -&gt; Maybe ChannelNameCondition
-</span><a href="#local-6989586621679178560"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178569"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -477,33 +477,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ChannelNameCondition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChannelNameCondition
-</span><a href="#local-6989586621679178562"><span class="hs-identifier hs-var">channelNameCondition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178571"><span class="hs-identifier hs-var">channelNameCondition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178561"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178570"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178560"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679178569"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679178554"><span class="annot"><span class="annottext">toPath :: ListSignalingChannels -&gt; ByteString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679178563"><span class="annot"><span class="annottext">toPath :: ListSignalingChannels -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSignalingChannels -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/listSignalingChannels&quot;</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannels"><span class="hs-identifier hs-type">ListSignalingChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679178550"><span class="annot"><span class="annottext">toQuery :: ListSignalingChannels -&gt; QueryString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679178559"><span class="annot"><span class="annottext">toQuery :: ListSignalingChannels -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListSignalingChannels -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -511,7 +511,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newListSignalingChannelsResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621679178547"><span id="local-6989586621679178548"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSignalingChannelsResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-var">ListSignalingChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSignalingChannelsResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-var">ListSignalingChannelsResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621679178556"><span id="local-6989586621679178557"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSignalingChannelsResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-var">ListSignalingChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSignalingChannelsResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-var">ListSignalingChannelsResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @ChannelInfo@ objects.</span><span>
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AchannelInfoList%3AListSignalingChannelsResponse%27"><span class="annot"><span class="annottext">ListSignalingChannelsResponse -&gt; Maybe [ChannelInfo]
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AchannelInfoList%3AListSignalingChannelsResponse%27"><span class="hs-identifier hs-var hs-var">channelInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.ChannelInfo.html#ChannelInfo"><span class="hs-identifier hs-type">ChannelInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -524,7 +524,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSignalingChannelsResponse%27"><span class="annot"><span class="annottext">ListSignalingChannelsResponse -&gt; Int
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AhttpStatus%3AListSignalingChannelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178540"><span id="local-6989586621679178542"><span class="annot"><span class="annottext">ListSignalingChannelsResponse
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178549"><span id="local-6989586621679178551"><span class="annot"><span class="annottext">ListSignalingChannelsResponse
 -&gt; ListSignalingChannelsResponse -&gt; Bool
 (ListSignalingChannelsResponse
  -&gt; ListSignalingChannelsResponse -&gt; Bool)
@@ -540,7 +540,7 @@ $c/= :: ListSignalingChannelsResponse
 -&gt; ListSignalingChannelsResponse -&gt; Bool
 $c== :: ListSignalingChannelsResponse
 -&gt; ListSignalingChannelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178532"><span id="local-6989586621679178534"><span id="local-6989586621679178536"><span id="local-6989586621679178538"><span class="annot"><span class="annottext">ReadPrec [ListSignalingChannelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178541"><span id="local-6989586621679178543"><span id="local-6989586621679178545"><span id="local-6989586621679178547"><span class="annot"><span class="annottext">ReadPrec [ListSignalingChannelsResponse]
 ReadPrec ListSignalingChannelsResponse
 Int -&gt; ReadS ListSignalingChannelsResponse
 ReadS [ListSignalingChannelsResponse]
@@ -560,7 +560,7 @@ readList :: ReadS [ListSignalingChannelsResponse]
 $creadList :: ReadS [ListSignalingChannelsResponse]
 readsPrec :: Int -&gt; ReadS ListSignalingChannelsResponse
 $creadsPrec :: Int -&gt; ReadS ListSignalingChannelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178526"><span id="local-6989586621679178528"><span id="local-6989586621679178530"><span class="annot"><span class="annottext">Int -&gt; ListSignalingChannelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178535"><span id="local-6989586621679178537"><span id="local-6989586621679178539"><span class="annot"><span class="annottext">Int -&gt; ListSignalingChannelsResponse -&gt; ShowS
 [ListSignalingChannelsResponse] -&gt; ShowS
 ListSignalingChannelsResponse -&gt; String
 (Int -&gt; ListSignalingChannelsResponse -&gt; ShowS)
@@ -618,8 +618,8 @@ ListSignalingChannelsResponse
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span>
 </span><span id="line-208"></span><span id="newListSignalingChannelsResponse"><span class="annot"><span class="annottext">newListSignalingChannelsResponse :: Int -&gt; ListSignalingChannelsResponse
-</span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#newListSignalingChannelsResponse"><span class="hs-identifier hs-var hs-var">newListSignalingChannelsResponse</span></a></span></span><span> </span><span id="local-6989586621679178523"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#newListSignalingChannelsResponse"><span class="hs-identifier hs-var hs-var">newListSignalingChannelsResponse</span></a></span></span><span> </span><span id="local-6989586621679178532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178532"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse' :: Maybe [ChannelInfo]
 -&gt; Maybe Text -&gt; Int -&gt; ListSignalingChannelsResponse
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span>
@@ -634,7 +634,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSignalingChannelsResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AhttpStatus%3AListSignalingChannelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679178532"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | An array of @ChannelInfo@ objects.</span><span>
@@ -646,16 +646,16 @@ forall a. Maybe a
     -&gt; Maybe [ChannelInfo] -&gt; ListSignalingChannelsResponse)
 -&gt; Lens' ListSignalingChannelsResponse (Maybe [ChannelInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178522"><span class="annot"><span class="annottext">Maybe [ChannelInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178531"><span class="annot"><span class="annottext">Maybe [ChannelInfo]
 channelInfoList :: Maybe [ChannelInfo]
 $sel:channelInfoList:ListSignalingChannelsResponse' :: ListSignalingChannelsResponse -&gt; Maybe [ChannelInfo]
-</span><a href="#local-6989586621679178522"><span class="hs-identifier hs-var hs-var">channelInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelInfo]
-</span><a href="#local-6989586621679178522"><span class="hs-identifier hs-var">channelInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178521"><span class="annot"><span class="annottext">s :: ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178520"><span class="annot"><span class="annottext">Maybe [ChannelInfo]
-</span><a href="#local-6989586621679178520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelInfoList:ListSignalingChannelsResponse' :: Maybe [ChannelInfo]
+</span><a href="#local-6989586621679178531"><span class="hs-identifier hs-var hs-var">channelInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelInfo]
+</span><a href="#local-6989586621679178531"><span class="hs-identifier hs-var">channelInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178530"><span class="annot"><span class="annottext">s :: ListSignalingChannelsResponse
+</span><a href="#local-6989586621679178530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178529"><span class="annot"><span class="annottext">Maybe [ChannelInfo]
+</span><a href="#local-6989586621679178529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
+</span><a href="#local-6989586621679178530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelInfoList:ListSignalingChannelsResponse' :: Maybe [ChannelInfo]
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AchannelInfoList%3AListSignalingChannelsResponse%27"><span class="hs-identifier hs-var">channelInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelInfo]
-</span><a href="#local-6989586621679178520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChannelInfo] -&gt; f (Maybe [ChannelInfo]))
+</span><a href="#local-6989586621679178529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChannelInfo] -&gt; f (Maybe [ChannelInfo]))
  -&gt; ListSignalingChannelsResponse
  -&gt; f ListSignalingChannelsResponse)
 -&gt; ((Maybe [ChannelInfo] -&gt; f (Maybe [ChannelInfo]))
@@ -688,16 +688,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListSignalingChannelsResponse)
 -&gt; Lens' ListSignalingChannelsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178517"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178526"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSignalingChannelsResponse' :: ListSignalingChannelsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178516"><span class="annot"><span class="annottext">s :: ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178515"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSignalingChannelsResponse' :: Maybe Text
+</span><a href="#local-6989586621679178526"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178526"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178525"><span class="annot"><span class="annottext">s :: ListSignalingChannelsResponse
+</span><a href="#local-6989586621679178525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178524"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
+</span><a href="#local-6989586621679178525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSignalingChannelsResponse' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AnextToken%3AListSignalingChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#listSignalingChannelsResponse_httpStatus"><span class="hs-identifier hs-type">listSignalingChannelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -709,16 +709,16 @@ $sel:nextToken:ListSignalingChannelsResponse' :: ListSignalingChannelsResponse -
 -&gt; Lens
      ListSignalingChannelsResponse ListSignalingChannelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178514"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178523"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListSignalingChannelsResponse' :: ListSignalingChannelsResponse -&gt; Int
-</span><a href="#local-6989586621679178514"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178514"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178513"><span class="annot"><span class="annottext">s :: ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178512"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
-</span><a href="#local-6989586621679178513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSignalingChannelsResponse' :: Int
+</span><a href="#local-6989586621679178523"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178523"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178522"><span class="annot"><span class="annottext">s :: ListSignalingChannelsResponse
+</span><a href="#local-6989586621679178522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse%27"><span class="hs-identifier hs-type">ListSignalingChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178521"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSignalingChannelsResponse
+</span><a href="#local-6989586621679178522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSignalingChannelsResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#%24sel%3AhttpStatus%3AListSignalingChannelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListSignalingChannels.html#ListSignalingChannelsResponse"><span class="hs-identifier hs-type">ListSignalingChannelsResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

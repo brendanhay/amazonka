@@ -130,7 +130,7 @@
 </span><span id="line-130"></span><span class="hs-comment">-- | Represents the input of a @BatchWriteItem@ operation.</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- /See:/ 'newBatchWriteItem' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679395513"><span id="local-6989586621679395514"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWriteItem"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-var">BatchWriteItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWriteItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-var">BatchWriteItem'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679395522"><span id="local-6989586621679395523"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWriteItem"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-var">BatchWriteItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWriteItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-var">BatchWriteItem'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreturnConsumedCapacity%3ABatchWriteItem%27"><span class="annot"><span class="annottext">BatchWriteItem -&gt; Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AreturnConsumedCapacity%3ABatchWriteItem%27"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#ReturnConsumedCapacity"><span class="hs-identifier hs-type">ReturnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | Determines whether item collection metrics are returned. If set to</span><span>
@@ -170,7 +170,7 @@
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3ArequestItems%3ABatchWriteItem%27"><span class="annot"><span class="annottext">BatchWriteItem -&gt; HashMap Text (NonEmpty WriteRequest)
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3ArequestItems%3ABatchWriteItem%27"><span class="hs-identifier hs-var hs-var">requestItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395505"><span id="local-6989586621679395507"><span class="annot"><span class="annottext">BatchWriteItem -&gt; BatchWriteItem -&gt; Bool
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395514"><span id="local-6989586621679395516"><span class="annot"><span class="annottext">BatchWriteItem -&gt; BatchWriteItem -&gt; Bool
 (BatchWriteItem -&gt; BatchWriteItem -&gt; Bool)
 -&gt; (BatchWriteItem -&gt; BatchWriteItem -&gt; Bool) -&gt; Eq BatchWriteItem
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -178,7 +178,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchWriteItem -&gt; BatchWriteItem -&gt; Bool
 == :: BatchWriteItem -&gt; BatchWriteItem -&gt; Bool
 $c== :: BatchWriteItem -&gt; BatchWriteItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395496"><span id="local-6989586621679395498"><span id="local-6989586621679395500"><span id="local-6989586621679395502"><span class="annot"><span class="annottext">ReadPrec [BatchWriteItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395505"><span id="local-6989586621679395507"><span id="local-6989586621679395509"><span id="local-6989586621679395511"><span class="annot"><span class="annottext">ReadPrec [BatchWriteItem]
 ReadPrec BatchWriteItem
 Int -&gt; ReadS BatchWriteItem
 ReadS [BatchWriteItem]
@@ -198,7 +198,7 @@ readList :: ReadS [BatchWriteItem]
 $creadList :: ReadS [BatchWriteItem]
 readsPrec :: Int -&gt; ReadS BatchWriteItem
 $creadsPrec :: Int -&gt; ReadS BatchWriteItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395489"><span id="local-6989586621679395491"><span id="local-6989586621679395493"><span class="annot"><span class="annottext">Int -&gt; BatchWriteItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395498"><span id="local-6989586621679395500"><span id="local-6989586621679395502"><span class="annot"><span class="annottext">Int -&gt; BatchWriteItem -&gt; ShowS
 [BatchWriteItem] -&gt; ShowS
 BatchWriteItem -&gt; String
 (Int -&gt; BatchWriteItem -&gt; ShowS)
@@ -304,16 +304,16 @@ forall a. Monoid a =&gt; a
      (Maybe ReturnConsumedCapacity)
      (Maybe ReturnConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395482"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395491"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:returnConsumedCapacity:BatchWriteItem' :: BatchWriteItem -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679395482"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679395482"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395481"><span class="annot"><span class="annottext">s :: BatchWriteItem
-</span><a href="#local-6989586621679395481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395480"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679395480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItem
-</span><a href="#local-6989586621679395481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:BatchWriteItem' :: Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679395491"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679395491"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395490"><span class="annot"><span class="annottext">s :: BatchWriteItem
+</span><a href="#local-6989586621679395490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395489"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679395489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItem
+</span><a href="#local-6989586621679395490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:BatchWriteItem' :: Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AreturnConsumedCapacity%3ABatchWriteItem%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679395480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | Determines whether item collection metrics are returned. If set to</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- @SIZE@, the response includes statistics about item collections, if any,</span><span>
@@ -332,16 +332,16 @@ $sel:returnConsumedCapacity:BatchWriteItem' :: BatchWriteItem -&gt; Maybe Return
      (Maybe ReturnItemCollectionMetrics)
      (Maybe ReturnItemCollectionMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395479"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395488"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
 returnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
 $sel:returnItemCollectionMetrics:BatchWriteItem' :: BatchWriteItem -&gt; Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679395479"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679395479"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395478"><span class="annot"><span class="annottext">s :: BatchWriteItem
-</span><a href="#local-6989586621679395478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395477"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679395477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItem
-</span><a href="#local-6989586621679395478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:BatchWriteItem' :: Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679395488"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679395488"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395487"><span class="annot"><span class="annottext">s :: BatchWriteItem
+</span><a href="#local-6989586621679395487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395486"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679395486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItem
+</span><a href="#local-6989586621679395487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:BatchWriteItem' :: Maybe ReturnItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AreturnItemCollectionMetrics%3ABatchWriteItem%27"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679395477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | A map of one or more table names and, for each table, a list of</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- operations to be performed (@DeleteRequest@ or @PutRequest@). Each</span><span>
@@ -384,16 +384,16 @@ $sel:returnItemCollectionMetrics:BatchWriteItem' :: BatchWriteItem -&gt; Maybe R
      (HashMap Text (NonEmpty WriteRequest))
      (HashMap Text (NonEmpty WriteRequest))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395476"><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395485"><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
 requestItems :: HashMap Text (NonEmpty WriteRequest)
 $sel:requestItems:BatchWriteItem' :: BatchWriteItem -&gt; HashMap Text (NonEmpty WriteRequest)
-</span><a href="#local-6989586621679395476"><span class="hs-identifier hs-var hs-var">requestItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
-</span><a href="#local-6989586621679395476"><span class="hs-identifier hs-var">requestItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395475"><span class="annot"><span class="annottext">s :: BatchWriteItem
-</span><a href="#local-6989586621679395475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395474"><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
-</span><a href="#local-6989586621679395474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItem
-</span><a href="#local-6989586621679395475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestItems:BatchWriteItem' :: HashMap Text (NonEmpty WriteRequest)
+</span><a href="#local-6989586621679395485"><span class="hs-identifier hs-var hs-var">requestItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
+</span><a href="#local-6989586621679395485"><span class="hs-identifier hs-var">requestItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395484"><span class="annot"><span class="annottext">s :: BatchWriteItem
+</span><a href="#local-6989586621679395484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395483"><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
+</span><a href="#local-6989586621679395483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItem
+</span><a href="#local-6989586621679395484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestItems:BatchWriteItem' :: HashMap Text (NonEmpty WriteRequest)
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3ArequestItems%3ABatchWriteItem%27"><span class="hs-identifier hs-var">requestItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
-</span><a href="#local-6989586621679395474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text (NonEmpty WriteRequest)
+</span><a href="#local-6989586621679395483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text (NonEmpty WriteRequest)
   -&gt; f (HashMap Text (NonEmpty WriteRequest)))
  -&gt; BatchWriteItem -&gt; f BatchWriteItem)
 -&gt; ((HashMap Text (NonEmpty WriteRequest)
@@ -416,12 +416,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-268"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-269"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-270"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679395468"><span class="annot"><span class="annottext">request :: BatchWriteItem -&gt; Request BatchWriteItem
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679395477"><span class="annot"><span class="annottext">request :: BatchWriteItem -&gt; Request BatchWriteItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchWriteItem -&gt; Request BatchWriteItem
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679395464"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679395473"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchWriteItem
 -&gt; ClientResponse ClientBody
@@ -445,10 +445,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-274"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395461"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395460"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679395460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395459"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395470"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395469"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679395469"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395468"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-275"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
 -&gt; Maybe [ConsumedCapacity]
 -&gt; Maybe (HashMap Text (NonEmpty WriteRequest))
@@ -469,7 +469,7 @@ MonadResource m =&gt;
       -&gt; BatchWriteItemResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe (HashMap Text [ItemCollectionMetrics])))
@@ -498,7 +498,7 @@ forall a. Monoid a =&gt; a
       -&gt; Int -&gt; BatchWriteItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConsumedCapacity]))
+</span><a href="#local-6989586621679395468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConsumedCapacity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span>
@@ -518,7 +518,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchWriteItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe (HashMap Text (NonEmpty WriteRequest))))
@@ -542,15 +542,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395470"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
-</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395450"><span id="local-6989586621679395452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span></span></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395459"><span id="local-6989586621679395461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span></span></span><span>
 </span><span id="line-289"></span><span>
-</span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span></span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-293"></span><span>  </span><span id="local-6989586621679395443"><span class="annot"><span class="annottext">toHeaders :: BatchWriteItem -&gt; ResponseHeaders
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679395452"><span class="annot"><span class="annottext">toHeaders :: BatchWriteItem -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-294"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchWriteItem -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -577,9 +577,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-304"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-305"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395433"><span id="local-6989586621679395435"><span id="local-6989586621679395437"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-308"></span><span>  </span><span id="local-6989586621679395431"><span class="annot"><span class="annottext">toJSON :: BatchWriteItem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395427"><span id="local-6989586621679395428"><span id="local-6989586621679395429"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395442"><span id="local-6989586621679395444"><span id="local-6989586621679395446"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679395440"><span class="annot"><span class="annottext">toJSON :: BatchWriteItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem%27"><span class="hs-identifier hs-type">BatchWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395436"><span id="local-6989586621679395437"><span id="local-6989586621679395438"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 Maybe ReturnItemCollectionMetrics
 HashMap Text (NonEmpty WriteRequest)
 requestItems :: HashMap Text (NonEmpty WriteRequest)
@@ -588,7 +588,7 @@ returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:requestItems:BatchWriteItem' :: BatchWriteItem -&gt; HashMap Text (NonEmpty WriteRequest)
 $sel:returnItemCollectionMetrics:BatchWriteItem' :: BatchWriteItem -&gt; Maybe ReturnItemCollectionMetrics
 $sel:returnConsumedCapacity:BatchWriteItem' :: BatchWriteItem -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679395427"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679395436"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-310"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -602,7 +602,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679395429"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395438"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnItemCollectionMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnItemCollectionMetrics -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -611,26 +611,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnItemCollectionMetrics -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679395428"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395437"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RequestItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text (NonEmpty WriteRequest) -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text (NonEmpty WriteRequest)
-</span><a href="#local-6989586621679395427"><span class="hs-identifier hs-var">requestItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395436"><span class="hs-identifier hs-var">requestItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-317"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-318"></span><span>
 </span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621679395421"><span class="annot"><span class="annottext">toPath :: BatchWriteItem -&gt; ByteString
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679395430"><span class="annot"><span class="annottext">toPath :: BatchWriteItem -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchWriteItem -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItem"><span class="hs-identifier hs-type">BatchWriteItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-323"></span><span>  </span><span id="local-6989586621679395417"><span class="annot"><span class="annottext">toQuery :: BatchWriteItem -&gt; QueryString
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621679395426"><span class="annot"><span class="annottext">toQuery :: BatchWriteItem -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchWriteItem -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -640,7 +640,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-325"></span><span class="hs-comment">-- | Represents the output of a @BatchWriteItem@ operation.</span><span>
 </span><span id="line-326"></span><span class="hs-comment">--</span><span>
 </span><span id="line-327"></span><span class="hs-comment">-- /See:/ 'newBatchWriteItemResponse' smart constructor.</span><span>
-</span><span id="line-328"></span><span id="local-6989586621679395414"><span id="local-6989586621679395415"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWriteItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-var">BatchWriteItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWriteItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-var">BatchWriteItemResponse'</span></a></span></span><span>
+</span><span id="line-328"></span><span id="local-6989586621679395423"><span id="local-6989586621679395424"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWriteItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-var">BatchWriteItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWriteItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-var">BatchWriteItemResponse'</span></a></span></span><span>
 </span><span id="line-329"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tables that were processed by @BatchWriteItem@ and, for each</span><span>
 </span><span id="line-330"></span><span>    </span><span class="hs-comment">-- table, information about any item collections that were affected by</span><span>
 </span><span id="line-331"></span><span>    </span><span class="hs-comment">-- individual @DeleteItem@ or @PutItem@ operations.</span><span>
@@ -712,7 +712,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-392"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchWriteItemResponse%27"><span class="annot"><span class="annottext">BatchWriteItemResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AhttpStatus%3ABatchWriteItemResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-393"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-394"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395406"><span id="local-6989586621679395408"><span class="annot"><span class="annottext">BatchWriteItemResponse -&gt; BatchWriteItemResponse -&gt; Bool
+</span><span id="line-394"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395415"><span id="local-6989586621679395417"><span class="annot"><span class="annottext">BatchWriteItemResponse -&gt; BatchWriteItemResponse -&gt; Bool
 (BatchWriteItemResponse -&gt; BatchWriteItemResponse -&gt; Bool)
 -&gt; (BatchWriteItemResponse -&gt; BatchWriteItemResponse -&gt; Bool)
 -&gt; Eq BatchWriteItemResponse
@@ -721,7 +721,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchWriteItemResponse -&gt; BatchWriteItemResponse -&gt; Bool
 == :: BatchWriteItemResponse -&gt; BatchWriteItemResponse -&gt; Bool
 $c== :: BatchWriteItemResponse -&gt; BatchWriteItemResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395398"><span id="local-6989586621679395400"><span id="local-6989586621679395402"><span id="local-6989586621679395404"><span class="annot"><span class="annottext">ReadPrec [BatchWriteItemResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395407"><span id="local-6989586621679395409"><span id="local-6989586621679395411"><span id="local-6989586621679395413"><span class="annot"><span class="annottext">ReadPrec [BatchWriteItemResponse]
 ReadPrec BatchWriteItemResponse
 Int -&gt; ReadS BatchWriteItemResponse
 ReadS [BatchWriteItemResponse]
@@ -741,7 +741,7 @@ readList :: ReadS [BatchWriteItemResponse]
 $creadList :: ReadS [BatchWriteItemResponse]
 readsPrec :: Int -&gt; ReadS BatchWriteItemResponse
 $creadsPrec :: Int -&gt; ReadS BatchWriteItemResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395392"><span id="local-6989586621679395394"><span id="local-6989586621679395396"><span class="annot"><span class="annottext">Int -&gt; BatchWriteItemResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395401"><span id="local-6989586621679395403"><span id="local-6989586621679395405"><span class="annot"><span class="annottext">Int -&gt; BatchWriteItemResponse -&gt; ShowS
 [BatchWriteItemResponse] -&gt; ShowS
 BatchWriteItemResponse -&gt; String
 (Int -&gt; BatchWriteItemResponse -&gt; ShowS)
@@ -844,8 +844,8 @@ $cfrom :: forall x. BatchWriteItemResponse -&gt; Rep BatchWriteItemResponse x
 </span><span id="line-469"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-470"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span>
 </span><span id="line-471"></span><span id="newBatchWriteItemResponse"><span class="annot"><span class="annottext">newBatchWriteItemResponse :: Int -&gt; BatchWriteItemResponse
-</span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#newBatchWriteItemResponse"><span class="hs-identifier hs-var hs-var">newBatchWriteItemResponse</span></a></span></span><span> </span><span id="local-6989586621679395389"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#newBatchWriteItemResponse"><span class="hs-identifier hs-var hs-var">newBatchWriteItemResponse</span></a></span></span><span> </span><span id="local-6989586621679395398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-472"></span><span>  </span><span class="annot"><span class="annottext">BatchWriteItemResponse' :: Maybe (HashMap Text [ItemCollectionMetrics])
 -&gt; Maybe [ConsumedCapacity]
 -&gt; Maybe (HashMap Text (NonEmpty WriteRequest))
@@ -867,7 +867,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-477"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchWriteItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AhttpStatus%3ABatchWriteItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679395398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-478"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-479"></span><span>
 </span><span id="line-480"></span><span class="hs-comment">-- | A list of tables that were processed by @BatchWriteItem@ and, for each</span><span>
@@ -904,17 +904,17 @@ forall a. Maybe a
      (Maybe (HashMap Text [ItemCollectionMetrics]))
      (Maybe (HashMap Text [ItemCollectionMetrics]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395388"><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395397"><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
 itemCollectionMetrics :: Maybe (HashMap Text [ItemCollectionMetrics])
 $sel:itemCollectionMetrics:BatchWriteItemResponse' :: BatchWriteItemResponse
 -&gt; Maybe (HashMap Text [ItemCollectionMetrics])
-</span><a href="#local-6989586621679395388"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
-</span><a href="#local-6989586621679395388"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395387"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
-</span><a href="#local-6989586621679395387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395386"><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
-</span><a href="#local-6989586621679395386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
-</span><a href="#local-6989586621679395387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:BatchWriteItemResponse' :: Maybe (HashMap Text [ItemCollectionMetrics])
+</span><a href="#local-6989586621679395397"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
+</span><a href="#local-6989586621679395397"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395396"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
+</span><a href="#local-6989586621679395396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395395"><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
+</span><a href="#local-6989586621679395395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
+</span><a href="#local-6989586621679395396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:BatchWriteItemResponse' :: Maybe (HashMap Text [ItemCollectionMetrics])
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AitemCollectionMetrics%3ABatchWriteItemResponse%27"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [ItemCollectionMetrics])
-</span><a href="#local-6989586621679395386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [ItemCollectionMetrics])
+</span><a href="#local-6989586621679395395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [ItemCollectionMetrics])
   -&gt; f (Maybe (HashMap Text [ItemCollectionMetrics])))
  -&gt; BatchWriteItemResponse -&gt; f BatchWriteItemResponse)
 -&gt; ((Maybe (HashMap Text [ItemCollectionMetrics])
@@ -966,16 +966,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ConsumedCapacity])
      (Maybe [ConsumedCapacity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395384"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395393"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
 consumedCapacity :: Maybe [ConsumedCapacity]
 $sel:consumedCapacity:BatchWriteItemResponse' :: BatchWriteItemResponse -&gt; Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679395384"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679395384"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395383"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
-</span><a href="#local-6989586621679395383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395382"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679395382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
-</span><a href="#local-6989586621679395383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:BatchWriteItemResponse' :: Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679395393"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679395393"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395392"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
+</span><a href="#local-6989586621679395392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395391"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679395391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
+</span><a href="#local-6989586621679395392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:BatchWriteItemResponse' :: Maybe [ConsumedCapacity]
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AconsumedCapacity%3ABatchWriteItemResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679395382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
+</span><a href="#local-6989586621679395391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
  -&gt; BatchWriteItemResponse -&gt; f BatchWriteItemResponse)
 -&gt; ((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
     -&gt; Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
@@ -1052,17 +1052,17 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text (NonEmpty WriteRequest)))
      (Maybe (HashMap Text (NonEmpty WriteRequest)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395381"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty WriteRequest))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395390"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty WriteRequest))
 unprocessedItems :: Maybe (HashMap Text (NonEmpty WriteRequest))
 $sel:unprocessedItems:BatchWriteItemResponse' :: BatchWriteItemResponse
 -&gt; Maybe (HashMap Text (NonEmpty WriteRequest))
-</span><a href="#local-6989586621679395381"><span class="hs-identifier hs-var hs-var">unprocessedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty WriteRequest))
-</span><a href="#local-6989586621679395381"><span class="hs-identifier hs-var">unprocessedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395380"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
-</span><a href="#local-6989586621679395380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395379"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty WriteRequest))
-</span><a href="#local-6989586621679395379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
-</span><a href="#local-6989586621679395380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedItems:BatchWriteItemResponse' :: Maybe (HashMap Text (NonEmpty WriteRequest))
+</span><a href="#local-6989586621679395390"><span class="hs-identifier hs-var hs-var">unprocessedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty WriteRequest))
+</span><a href="#local-6989586621679395390"><span class="hs-identifier hs-var">unprocessedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395389"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
+</span><a href="#local-6989586621679395389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395388"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty WriteRequest))
+</span><a href="#local-6989586621679395388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
+</span><a href="#local-6989586621679395389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedItems:BatchWriteItemResponse' :: Maybe (HashMap Text (NonEmpty WriteRequest))
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AunprocessedItems%3ABatchWriteItemResponse%27"><span class="hs-identifier hs-var">unprocessedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty WriteRequest))
-</span><a href="#local-6989586621679395379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (NonEmpty WriteRequest))
+</span><a href="#local-6989586621679395388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (NonEmpty WriteRequest))
   -&gt; f (Maybe (HashMap Text (NonEmpty WriteRequest))))
  -&gt; BatchWriteItemResponse -&gt; f BatchWriteItemResponse)
 -&gt; ((Maybe (HashMap Text (NonEmpty WriteRequest))
@@ -1103,16 +1103,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (BatchWriteItemResponse -&gt; Int -&gt; BatchWriteItemResponse)
 -&gt; Lens BatchWriteItemResponse BatchWriteItemResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395378"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395387"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchWriteItemResponse' :: BatchWriteItemResponse -&gt; Int
-</span><a href="#local-6989586621679395378"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395378"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395377"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
-</span><a href="#local-6989586621679395377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395376"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
-</span><a href="#local-6989586621679395377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchWriteItemResponse' :: Int
+</span><a href="#local-6989586621679395387"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395387"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395386"><span class="annot"><span class="annottext">s :: BatchWriteItemResponse
+</span><a href="#local-6989586621679395386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse%27"><span class="hs-identifier hs-type">BatchWriteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteItemResponse
+</span><a href="#local-6989586621679395386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchWriteItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.BatchWriteItem.html#%24sel%3AhttpStatus%3ABatchWriteItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-551"></span><span>
-</span><span id="line-552"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span></span><span>
+</span><span id="line-552"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchWriteItem.html#BatchWriteItemResponse"><span class="hs-identifier hs-type">BatchWriteItemResponse</span></a></span></span><span>
 </span><span id="line-553"></span></pre></body></html>

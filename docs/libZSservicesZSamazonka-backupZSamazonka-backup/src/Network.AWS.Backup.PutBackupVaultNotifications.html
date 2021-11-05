@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.PutBackupVaultNotifications</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Turns on notifications on a backup vault for the specified topic and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- events.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.PutBackupVaultNotifications</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier">PutBackupVaultNotifications</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#newPutBackupVaultNotifications"><span class="hs-identifier">newPutBackupVaultNotifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_backupVaultName"><span class="hs-identifier">putBackupVaultNotifications_backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_sNSTopicArn"><span class="hs-identifier">putBackupVaultNotifications_sNSTopicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_backupVaultEvents"><span class="hs-identifier">putBackupVaultNotifications_backupVaultEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse"><span class="hs-identifier">PutBackupVaultNotificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#newPutBackupVaultNotificationsResponse"><span class="hs-identifier">newPutBackupVaultNotificationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.html"><span class="hs-identifier">Network.AWS.Backup.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newPutBackupVaultNotifications' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679312923"><span id="local-6989586621679312924"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBackupVaultNotifications"><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-var">PutBackupVaultNotifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBackupVaultNotifications%27"><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-var">PutBackupVaultNotifications'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a logical container where backups are stored. Backup vaults</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- are identified by names that are unique to the account used to create</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- them and the Amazon Web Services Region where they are created. They</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- consist of lowercase letters, numbers, and hyphens.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AbackupVaultName%3APutBackupVaultNotifications%27"><span class="annot"><span class="annottext">PutBackupVaultNotifications -&gt; Text
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AbackupVaultName%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var hs-var">backupVaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that specifies the topic for a backup</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- vault&#8217;s events; for example,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @arn:aws:sns:us-west-2:111122223333:MyVaultTopic@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsNSTopicArn%3APutBackupVaultNotifications%27"><span class="annot"><span class="annottext">PutBackupVaultNotifications -&gt; Text
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AsNSTopicArn%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var hs-var">sNSTopicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | An array of events that indicate the status of jobs to back up resources</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to the backup vault.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- The following events are supported:</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @BACKUP_JOB_STARTED@, @BACKUP_JOB_COMPLETED@,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @COPY_JOB_STARTED@, @COPY_JOB_SUCCESSFUL@, @COPY_JOB_FAILED@,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @RESTORE_JOB_STARTED@, @RESTORE_JOB_COMPLETED@, and</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @RECOVERY_POINT_MODIFIED@.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- To find failed backup jobs, use @BACKUP_JOB_COMPLETED@ and filter using</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- event metadata.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Other events in the following list are deprecated.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AbackupVaultEvents%3APutBackupVaultNotifications%27"><span class="annot"><span class="annottext">PutBackupVaultNotifications -&gt; [BackupVaultEvent]
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AbackupVaultEvents%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var hs-var">backupVaultEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultEvent.html#BackupVaultEvent"><span class="hs-identifier hs-type">BackupVaultEvent</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312915"><span id="local-6989586621679312917"><span class="annot"><span class="annottext">PutBackupVaultNotifications -&gt; PutBackupVaultNotifications -&gt; Bool
+(PutBackupVaultNotifications
+ -&gt; PutBackupVaultNotifications -&gt; Bool)
+-&gt; (PutBackupVaultNotifications
+    -&gt; PutBackupVaultNotifications -&gt; Bool)
+-&gt; Eq PutBackupVaultNotifications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBackupVaultNotifications -&gt; PutBackupVaultNotifications -&gt; Bool
+$c/= :: PutBackupVaultNotifications -&gt; PutBackupVaultNotifications -&gt; Bool
+== :: PutBackupVaultNotifications -&gt; PutBackupVaultNotifications -&gt; Bool
+$c== :: PutBackupVaultNotifications -&gt; PutBackupVaultNotifications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312906"><span id="local-6989586621679312908"><span id="local-6989586621679312910"><span id="local-6989586621679312912"><span class="annot"><span class="annottext">ReadPrec [PutBackupVaultNotifications]
+ReadPrec PutBackupVaultNotifications
+Int -&gt; ReadS PutBackupVaultNotifications
+ReadS [PutBackupVaultNotifications]
+(Int -&gt; ReadS PutBackupVaultNotifications)
+-&gt; ReadS [PutBackupVaultNotifications]
+-&gt; ReadPrec PutBackupVaultNotifications
+-&gt; ReadPrec [PutBackupVaultNotifications]
+-&gt; Read PutBackupVaultNotifications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBackupVaultNotifications]
+$creadListPrec :: ReadPrec [PutBackupVaultNotifications]
+readPrec :: ReadPrec PutBackupVaultNotifications
+$creadPrec :: ReadPrec PutBackupVaultNotifications
+readList :: ReadS [PutBackupVaultNotifications]
+$creadList :: ReadS [PutBackupVaultNotifications]
+readsPrec :: Int -&gt; ReadS PutBackupVaultNotifications
+$creadsPrec :: Int -&gt; ReadS PutBackupVaultNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312899"><span id="local-6989586621679312901"><span id="local-6989586621679312903"><span class="annot"><span class="annottext">Int -&gt; PutBackupVaultNotifications -&gt; ShowS
+[PutBackupVaultNotifications] -&gt; ShowS
+PutBackupVaultNotifications -&gt; String
+(Int -&gt; PutBackupVaultNotifications -&gt; ShowS)
+-&gt; (PutBackupVaultNotifications -&gt; String)
+-&gt; ([PutBackupVaultNotifications] -&gt; ShowS)
+-&gt; Show PutBackupVaultNotifications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBackupVaultNotifications] -&gt; ShowS
+$cshowList :: [PutBackupVaultNotifications] -&gt; ShowS
+show :: PutBackupVaultNotifications -&gt; String
+$cshow :: PutBackupVaultNotifications -&gt; String
+showsPrec :: Int -&gt; PutBackupVaultNotifications -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBackupVaultNotifications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBackupVaultNotifications -&gt; Rep PutBackupVaultNotifications x)
+-&gt; (forall x.
+    Rep PutBackupVaultNotifications x -&gt; PutBackupVaultNotifications)
+-&gt; Generic PutBackupVaultNotifications
+forall x.
+Rep PutBackupVaultNotifications x -&gt; PutBackupVaultNotifications
+forall x.
+PutBackupVaultNotifications -&gt; Rep PutBackupVaultNotifications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutBackupVaultNotifications x -&gt; PutBackupVaultNotifications
+$cfrom :: forall x.
+PutBackupVaultNotifications -&gt; Rep PutBackupVaultNotifications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'PutBackupVaultNotifications' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'backupVaultName', 'putBackupVaultNotifications_backupVaultName' - The name of a logical container where backups are stored. Backup vaults</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- are identified by names that are unique to the account used to create</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- them and the Amazon Web Services Region where they are created. They</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- consist of lowercase letters, numbers, and hyphens.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'sNSTopicArn', 'putBackupVaultNotifications_sNSTopicArn' - The Amazon Resource Name (ARN) that specifies the topic for a backup</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- vault&#8217;s events; for example,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @arn:aws:sns:us-west-2:111122223333:MyVaultTopic@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'backupVaultEvents', 'putBackupVaultNotifications_backupVaultEvents' - An array of events that indicate the status of jobs to back up resources</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- to the backup vault.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following events are supported:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @BACKUP_JOB_STARTED@, @BACKUP_JOB_COMPLETED@,</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @COPY_JOB_STARTED@, @COPY_JOB_SUCCESSFUL@, @COPY_JOB_FAILED@,</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @RESTORE_JOB_STARTED@, @RESTORE_JOB_COMPLETED@, and</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @RECOVERY_POINT_MODIFIED@.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- To find failed backup jobs, use @BACKUP_JOB_COMPLETED@ and filter using</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- event metadata.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Other events in the following list are deprecated.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#newPutBackupVaultNotifications"><span class="hs-identifier hs-type">newPutBackupVaultNotifications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'backupVaultName'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'sNSTopicArn'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span>
+</span><span id="line-118"></span><span id="newPutBackupVaultNotifications"><span class="annot"><span class="annottext">newPutBackupVaultNotifications :: Text -&gt; Text -&gt; PutBackupVaultNotifications
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#newPutBackupVaultNotifications"><span class="hs-identifier hs-var hs-var">newPutBackupVaultNotifications</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679312894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312894"><span class="hs-identifier hs-var">pBackupVaultName_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679312893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312893"><span class="hs-identifier hs-var">pSNSTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">PutBackupVaultNotifications' :: Text -&gt; Text -&gt; [BackupVaultEvent] -&gt; PutBackupVaultNotifications
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupVaultName:PutBackupVaultNotifications' :: Text
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AbackupVaultName%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312894"><span class="hs-identifier hs-var">pBackupVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:sNSTopicArn:PutBackupVaultNotifications' :: Text
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AsNSTopicArn%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312893"><span class="hs-identifier hs-var">pSNSTopicArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:backupVaultEvents:PutBackupVaultNotifications' :: [BackupVaultEvent]
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AbackupVaultEvents%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var">backupVaultEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BackupVaultEvent]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The name of a logical container where backups are stored. Backup vaults</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- are identified by names that are unique to the account used to create</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- them and the Amazon Web Services Region where they are created. They</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- consist of lowercase letters, numbers, and hyphens.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_backupVaultName"><span class="hs-identifier hs-type">putBackupVaultNotifications_backupVaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="putBackupVaultNotifications_backupVaultName"><span class="annot"><span class="annottext">putBackupVaultNotifications_backupVaultName :: (Text -&gt; f Text)
+-&gt; PutBackupVaultNotifications -&gt; f PutBackupVaultNotifications
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_backupVaultName"><span class="hs-identifier hs-var hs-var">putBackupVaultNotifications_backupVaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBackupVaultNotifications -&gt; Text)
+-&gt; (PutBackupVaultNotifications
+    -&gt; Text -&gt; PutBackupVaultNotifications)
+-&gt; Lens
+     PutBackupVaultNotifications PutBackupVaultNotifications Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312890"><span class="annot"><span class="annottext">Text
+backupVaultName :: Text
+$sel:backupVaultName:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; Text
+</span><a href="#local-6989586621679312890"><span class="hs-identifier hs-var hs-var">backupVaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312890"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312889"><span class="annot"><span class="annottext">s :: PutBackupVaultNotifications
+</span><a href="#local-6989586621679312889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBackupVaultNotifications
+</span><a href="#local-6989586621679312889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupVaultName:PutBackupVaultNotifications' :: Text
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AbackupVaultName%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that specifies the topic for a backup</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- vault&#8217;s events; for example,</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @arn:aws:sns:us-west-2:111122223333:MyVaultTopic@.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_sNSTopicArn"><span class="hs-identifier hs-type">putBackupVaultNotifications_sNSTopicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="putBackupVaultNotifications_sNSTopicArn"><span class="annot"><span class="annottext">putBackupVaultNotifications_sNSTopicArn :: (Text -&gt; f Text)
+-&gt; PutBackupVaultNotifications -&gt; f PutBackupVaultNotifications
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_sNSTopicArn"><span class="hs-identifier hs-var hs-var">putBackupVaultNotifications_sNSTopicArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBackupVaultNotifications -&gt; Text)
+-&gt; (PutBackupVaultNotifications
+    -&gt; Text -&gt; PutBackupVaultNotifications)
+-&gt; Lens
+     PutBackupVaultNotifications PutBackupVaultNotifications Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312887"><span class="annot"><span class="annottext">Text
+sNSTopicArn :: Text
+$sel:sNSTopicArn:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; Text
+</span><a href="#local-6989586621679312887"><span class="hs-identifier hs-var hs-var">sNSTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312887"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312886"><span class="annot"><span class="annottext">s :: PutBackupVaultNotifications
+</span><a href="#local-6989586621679312886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312885"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBackupVaultNotifications
+</span><a href="#local-6989586621679312886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sNSTopicArn:PutBackupVaultNotifications' :: Text
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AsNSTopicArn%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | An array of events that indicate the status of jobs to back up resources</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- to the backup vault.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following events are supported:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @BACKUP_JOB_STARTED@, @BACKUP_JOB_COMPLETED@,</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @COPY_JOB_STARTED@, @COPY_JOB_SUCCESSFUL@, @COPY_JOB_FAILED@,</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @RESTORE_JOB_STARTED@, @RESTORE_JOB_COMPLETED@, and</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @RECOVERY_POINT_MODIFIED@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- To find failed backup jobs, use @BACKUP_JOB_COMPLETED@ and filter using</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- event metadata.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Other events in the following list are deprecated.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_backupVaultEvents"><span class="hs-identifier hs-type">putBackupVaultNotifications_backupVaultEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultEvent.html#BackupVaultEvent"><span class="hs-identifier hs-type">BackupVaultEvent</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span id="putBackupVaultNotifications_backupVaultEvents"><span class="annot"><span class="annottext">putBackupVaultNotifications_backupVaultEvents :: ([BackupVaultEvent] -&gt; f [BackupVaultEvent])
+-&gt; PutBackupVaultNotifications -&gt; f PutBackupVaultNotifications
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#putBackupVaultNotifications_backupVaultEvents"><span class="hs-identifier hs-var hs-var">putBackupVaultNotifications_backupVaultEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBackupVaultNotifications -&gt; [BackupVaultEvent])
+-&gt; (PutBackupVaultNotifications
+    -&gt; [BackupVaultEvent] -&gt; PutBackupVaultNotifications)
+-&gt; Lens
+     PutBackupVaultNotifications
+     PutBackupVaultNotifications
+     [BackupVaultEvent]
+     [BackupVaultEvent]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312884"><span class="annot"><span class="annottext">[BackupVaultEvent]
+backupVaultEvents :: [BackupVaultEvent]
+$sel:backupVaultEvents:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; [BackupVaultEvent]
+</span><a href="#local-6989586621679312884"><span class="hs-identifier hs-var hs-var">backupVaultEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BackupVaultEvent]
+</span><a href="#local-6989586621679312884"><span class="hs-identifier hs-var">backupVaultEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312883"><span class="annot"><span class="annottext">s :: PutBackupVaultNotifications
+</span><a href="#local-6989586621679312883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312882"><span class="annot"><span class="annottext">[BackupVaultEvent]
+</span><a href="#local-6989586621679312882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBackupVaultNotifications
+</span><a href="#local-6989586621679312883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupVaultEvents:PutBackupVaultNotifications' :: [BackupVaultEvent]
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#%24sel%3AbackupVaultEvents%3APutBackupVaultNotifications%27"><span class="hs-identifier hs-var">backupVaultEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BackupVaultEvent]
+</span><a href="#local-6989586621679312882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BackupVaultEvent] -&gt; f [BackupVaultEvent])
+ -&gt; PutBackupVaultNotifications -&gt; f PutBackupVaultNotifications)
+-&gt; (([BackupVaultEvent] -&gt; f [BackupVaultEvent])
+    -&gt; [BackupVaultEvent] -&gt; f [BackupVaultEvent])
+-&gt; ([BackupVaultEvent] -&gt; f [BackupVaultEvent])
+-&gt; PutBackupVaultNotifications
+-&gt; f PutBackupVaultNotifications
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BackupVaultEvent] -&gt; f [BackupVaultEvent])
+-&gt; [BackupVaultEvent] -&gt; f [BackupVaultEvent]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse"><span class="hs-identifier hs-type">PutBackupVaultNotificationsResponse</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679312876"><span class="annot"><span class="annottext">request :: PutBackupVaultNotifications -&gt; Request PutBackupVaultNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutBackupVaultNotifications
+-&gt; Request PutBackupVaultNotifications
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679312872"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutBackupVaultNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutBackupVaultNotifications)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBackupVaultNotifications
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutBackupVaultNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutBackupVaultNotifications)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutBackupVaultNotifications
+PutBackupVaultNotificationsResponse
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse%27"><span class="hs-identifier hs-var">PutBackupVaultNotificationsResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312865"><span id="local-6989586621679312867"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679312858"><span class="annot"><span class="annottext">toHeaders :: PutBackupVaultNotifications -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutBackupVaultNotifications -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-180"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312848"><span id="local-6989586621679312850"><span id="local-6989586621679312852"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679312846"><span class="annot"><span class="annottext">toJSON :: PutBackupVaultNotifications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312842"><span id="local-6989586621679312843"><span id="local-6989586621679312844"><span class="annot"><span class="annottext">[BackupVaultEvent]
+Text
+backupVaultEvents :: [BackupVaultEvent]
+sNSTopicArn :: Text
+backupVaultName :: Text
+$sel:backupVaultEvents:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; [BackupVaultEvent]
+$sel:sNSTopicArn:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; Text
+$sel:backupVaultName:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; Text
+</span><a href="#local-6989586621679312842"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SNSTopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312843"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupVaultEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [BackupVaultEvent] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[BackupVaultEvent]
+</span><a href="#local-6989586621679312842"><span class="hs-identifier hs-var">backupVaultEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679312836"><span class="annot"><span class="annottext">toPath :: PutBackupVaultNotifications -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications%27"><span class="hs-identifier hs-type">PutBackupVaultNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312832"><span id="local-6989586621679312833"><span id="local-6989586621679312834"><span class="annot"><span class="annottext">[BackupVaultEvent]
+Text
+backupVaultEvents :: [BackupVaultEvent]
+sNSTopicArn :: Text
+backupVaultName :: Text
+$sel:backupVaultEvents:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; [BackupVaultEvent]
+$sel:sNSTopicArn:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; Text
+$sel:backupVaultName:PutBackupVaultNotifications' :: PutBackupVaultNotifications -&gt; Text
+</span><a href="#local-6989586621679312832"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backup-vaults/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312834"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/notification-configuration&quot;</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotifications"><span class="hs-identifier hs-type">PutBackupVaultNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679312828"><span class="annot"><span class="annottext">toQuery :: PutBackupVaultNotifications -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutBackupVaultNotifications -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newPutBackupVaultNotificationsResponse' smart constructor.</span><span>
+</span><span id="line-206"></span><span id="local-6989586621679312825"><span id="local-6989586621679312826"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBackupVaultNotificationsResponse"><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse"><span class="hs-identifier hs-var">PutBackupVaultNotificationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBackupVaultNotificationsResponse%27"><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse%27"><span class="hs-identifier hs-var">PutBackupVaultNotificationsResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312821"><span id="local-6989586621679312823"><span class="annot"><span class="annottext">PutBackupVaultNotificationsResponse
+-&gt; PutBackupVaultNotificationsResponse -&gt; Bool
+(PutBackupVaultNotificationsResponse
+ -&gt; PutBackupVaultNotificationsResponse -&gt; Bool)
+-&gt; (PutBackupVaultNotificationsResponse
+    -&gt; PutBackupVaultNotificationsResponse -&gt; Bool)
+-&gt; Eq PutBackupVaultNotificationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBackupVaultNotificationsResponse
+-&gt; PutBackupVaultNotificationsResponse -&gt; Bool
+$c/= :: PutBackupVaultNotificationsResponse
+-&gt; PutBackupVaultNotificationsResponse -&gt; Bool
+== :: PutBackupVaultNotificationsResponse
+-&gt; PutBackupVaultNotificationsResponse -&gt; Bool
+$c== :: PutBackupVaultNotificationsResponse
+-&gt; PutBackupVaultNotificationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312813"><span id="local-6989586621679312815"><span id="local-6989586621679312817"><span id="local-6989586621679312819"><span class="annot"><span class="annottext">ReadPrec [PutBackupVaultNotificationsResponse]
+ReadPrec PutBackupVaultNotificationsResponse
+Int -&gt; ReadS PutBackupVaultNotificationsResponse
+ReadS [PutBackupVaultNotificationsResponse]
+(Int -&gt; ReadS PutBackupVaultNotificationsResponse)
+-&gt; ReadS [PutBackupVaultNotificationsResponse]
+-&gt; ReadPrec PutBackupVaultNotificationsResponse
+-&gt; ReadPrec [PutBackupVaultNotificationsResponse]
+-&gt; Read PutBackupVaultNotificationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBackupVaultNotificationsResponse]
+$creadListPrec :: ReadPrec [PutBackupVaultNotificationsResponse]
+readPrec :: ReadPrec PutBackupVaultNotificationsResponse
+$creadPrec :: ReadPrec PutBackupVaultNotificationsResponse
+readList :: ReadS [PutBackupVaultNotificationsResponse]
+$creadList :: ReadS [PutBackupVaultNotificationsResponse]
+readsPrec :: Int -&gt; ReadS PutBackupVaultNotificationsResponse
+$creadsPrec :: Int -&gt; ReadS PutBackupVaultNotificationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312807"><span id="local-6989586621679312809"><span id="local-6989586621679312811"><span class="annot"><span class="annottext">Int -&gt; PutBackupVaultNotificationsResponse -&gt; ShowS
+[PutBackupVaultNotificationsResponse] -&gt; ShowS
+PutBackupVaultNotificationsResponse -&gt; String
+(Int -&gt; PutBackupVaultNotificationsResponse -&gt; ShowS)
+-&gt; (PutBackupVaultNotificationsResponse -&gt; String)
+-&gt; ([PutBackupVaultNotificationsResponse] -&gt; ShowS)
+-&gt; Show PutBackupVaultNotificationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBackupVaultNotificationsResponse] -&gt; ShowS
+$cshowList :: [PutBackupVaultNotificationsResponse] -&gt; ShowS
+show :: PutBackupVaultNotificationsResponse -&gt; String
+$cshow :: PutBackupVaultNotificationsResponse -&gt; String
+showsPrec :: Int -&gt; PutBackupVaultNotificationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBackupVaultNotificationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBackupVaultNotificationsResponse
+ -&gt; Rep PutBackupVaultNotificationsResponse x)
+-&gt; (forall x.
+    Rep PutBackupVaultNotificationsResponse x
+    -&gt; PutBackupVaultNotificationsResponse)
+-&gt; Generic PutBackupVaultNotificationsResponse
+forall x.
+Rep PutBackupVaultNotificationsResponse x
+-&gt; PutBackupVaultNotificationsResponse
+forall x.
+PutBackupVaultNotificationsResponse
+-&gt; Rep PutBackupVaultNotificationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutBackupVaultNotificationsResponse x
+-&gt; PutBackupVaultNotificationsResponse
+$cfrom :: forall x.
+PutBackupVaultNotificationsResponse
+-&gt; Rep PutBackupVaultNotificationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Create a value of 'PutBackupVaultNotificationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#newPutBackupVaultNotificationsResponse"><span class="hs-identifier hs-type">newPutBackupVaultNotificationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse"><span class="hs-identifier hs-type">PutBackupVaultNotificationsResponse</span></a></span><span>
+</span><span id="line-217"></span><span id="newPutBackupVaultNotificationsResponse"><span class="annot"><span class="annottext">newPutBackupVaultNotificationsResponse :: PutBackupVaultNotificationsResponse
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#newPutBackupVaultNotificationsResponse"><span class="hs-identifier hs-var hs-var">newPutBackupVaultNotificationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">PutBackupVaultNotificationsResponse
+</span><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse%27"><span class="hs-identifier hs-var">PutBackupVaultNotificationsResponse'</span></a></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679312803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.PutBackupVaultNotifications.html#PutBackupVaultNotificationsResponse"><span class="hs-identifier hs-type">PutBackupVaultNotificationsResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

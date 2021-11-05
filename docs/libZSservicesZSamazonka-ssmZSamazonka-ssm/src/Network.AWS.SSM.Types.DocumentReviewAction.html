@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679794045"><span id="local-6989586621679794046"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReviewAction"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier hs-var">DocumentReviewAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReviewAction%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-identifier hs-var">DocumentReviewAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679794054"><span id="local-6989586621679794055"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReviewAction"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier hs-var">DocumentReviewAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReviewAction%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-identifier hs-var">DocumentReviewAction'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentReviewAction"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; Text
 </span><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#fromDocumentReviewAction"><span class="hs-identifier hs-var hs-var">fromDocumentReviewAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794037"><span id="local-6989586621679794039"><span id="local-6989586621679794041"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewAction -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794046"><span id="local-6989586621679794048"><span id="local-6989586621679794050"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewAction -&gt; ShowS
 [DocumentReviewAction] -&gt; ShowS
 DocumentReviewAction -&gt; String
 (Int -&gt; DocumentReviewAction -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DocumentReviewAction -&gt; String
 showsPrec :: Int -&gt; DocumentReviewAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentReviewAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679794028"><span id="local-6989586621679794030"><span id="local-6989586621679794032"><span id="local-6989586621679794034"><span class="annot"><span class="annottext">ReadPrec [DocumentReviewAction]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679794037"><span id="local-6989586621679794039"><span id="local-6989586621679794041"><span id="local-6989586621679794043"><span class="annot"><span class="annottext">ReadPrec [DocumentReviewAction]
 ReadPrec DocumentReviewAction
 Int -&gt; ReadS DocumentReviewAction
 ReadS [DocumentReviewAction]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DocumentReviewAction]
 readsPrec :: Int -&gt; ReadS DocumentReviewAction
 $creadsPrec :: Int -&gt; ReadS DocumentReviewAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679794023"><span id="local-6989586621679794025"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679794032"><span id="local-6989586621679794034"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
 (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
 -&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
 -&gt; Eq DocumentReviewAction
@@ -84,7 +84,7 @@ $c/= :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
 == :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
 $c== :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679794007"><span id="local-6989586621679794009"><span id="local-6989586621679794011"><span id="local-6989586621679794013"><span id="local-6989586621679794015"><span id="local-6989586621679794017"><span id="local-6989586621679794019"><span class="annot"><span class="annottext">Eq DocumentReviewAction
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679794016"><span id="local-6989586621679794018"><span id="local-6989586621679794020"><span id="local-6989586621679794022"><span id="local-6989586621679794024"><span id="local-6989586621679794026"><span id="local-6989586621679794028"><span class="annot"><span class="annottext">Eq DocumentReviewAction
 Eq DocumentReviewAction
 -&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Ordering)
 -&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. DocumentReviewAction -&gt; Rep DocumentReviewAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793999"><span id="local-6989586621679794001"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewAction -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794008"><span id="local-6989586621679794010"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewAction -&gt; Int
 DocumentReviewAction -&gt; Int
 (Int -&gt; DocumentReviewAction -&gt; Int)
 -&gt; (DocumentReviewAction -&gt; Int) -&gt; Hashable DocumentReviewAction
@@ -152,54 +152,54 @@ $chash :: DocumentReviewAction -&gt; Int
 hashWithSalt :: Int -&gt; DocumentReviewAction -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentReviewAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679793996"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679794005"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ()
 (DocumentReviewAction -&gt; ()) -&gt; NFData DocumentReviewAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentReviewAction -&gt; ()
 $crnf :: DocumentReviewAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679793993"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReviewAction
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679794002"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReviewAction
 (Text -&gt; Either String DocumentReviewAction)
 -&gt; FromText DocumentReviewAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentReviewAction
 $cfromText :: Text -&gt; Either String DocumentReviewAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679793990"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679793999"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; Text
 (DocumentReviewAction -&gt; Text) -&gt; ToText DocumentReviewAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentReviewAction -&gt; Text
 $ctoText :: DocumentReviewAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679793987"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679793996"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ByteString
 (DocumentReviewAction -&gt; ByteString)
 -&gt; ToByteString DocumentReviewAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentReviewAction -&gt; ByteString
 $ctoBS :: DocumentReviewAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679793984"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679793993"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ByteStringBuilder
 (DocumentReviewAction -&gt; ByteStringBuilder)
 -&gt; ToLog DocumentReviewAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentReviewAction -&gt; ByteStringBuilder
 $cbuild :: DocumentReviewAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679793981"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReviewAction -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679793990"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReviewAction -&gt; [Header]
 (HeaderName -&gt; DocumentReviewAction -&gt; [Header])
 -&gt; ToHeader DocumentReviewAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentReviewAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentReviewAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679793978"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679793987"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; QueryString
 (DocumentReviewAction -&gt; QueryString)
 -&gt; ToQuery DocumentReviewAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentReviewAction -&gt; QueryString
 $ctoQuery :: DocumentReviewAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679793973"><span id="local-6989586621679793975"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReviewAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679793982"><span id="local-6989586621679793984"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReviewAction]
 Value -&gt; Parser DocumentReviewAction
 (Value -&gt; Parser DocumentReviewAction)
 -&gt; (Value -&gt; Parser [DocumentReviewAction])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentReviewAction]
 parseJSON :: Value -&gt; Parser DocumentReviewAction
 $cparseJSON :: Value -&gt; Parser DocumentReviewAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679793968"><span id="local-6989586621679793970"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReviewAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679793977"><span id="local-6989586621679793979"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReviewAction]
 FromJSONKeyFunction DocumentReviewAction
 FromJSONKeyFunction DocumentReviewAction
 -&gt; FromJSONKeyFunction [DocumentReviewAction]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentReviewAction]
 fromJSONKey :: FromJSONKeyFunction DocumentReviewAction
 $cfromJSONKey :: FromJSONKeyFunction DocumentReviewAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679793959"><span id="local-6989586621679793961"><span id="local-6989586621679793963"><span id="local-6989586621679793965"><span class="annot"><span class="annottext">[DocumentReviewAction] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679793968"><span id="local-6989586621679793970"><span id="local-6989586621679793972"><span id="local-6989586621679793974"><span class="annot"><span class="annottext">[DocumentReviewAction] -&gt; Encoding
 [DocumentReviewAction] -&gt; Value
 DocumentReviewAction -&gt; Encoding
 DocumentReviewAction -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: DocumentReviewAction -&gt; Encoding
 toJSON :: DocumentReviewAction -&gt; Value
 $ctoJSON :: DocumentReviewAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679793954"><span id="local-6989586621679793956"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReviewAction]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679793963"><span id="local-6989586621679793965"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReviewAction]
 ToJSONKeyFunction DocumentReviewAction
 ToJSONKeyFunction DocumentReviewAction
 -&gt; ToJSONKeyFunction [DocumentReviewAction]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentReviewAction]
 toJSONKey :: ToJSONKeyFunction DocumentReviewAction
 $ctoJSONKey :: ToJSONKeyFunction DocumentReviewAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679793951"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReviewAction
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679793960"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReviewAction
 ([Node] -&gt; Either String DocumentReviewAction)
 -&gt; FromXML DocumentReviewAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentReviewAction
 $cparseXML :: [Node] -&gt; Either String DocumentReviewAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679793948"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679793957"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; XML
 (DocumentReviewAction -&gt; XML) -&gt; ToXML DocumentReviewAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentReviewAction -&gt; XML

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Model quality statistics and constraints.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newModelQuality' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680319664"><span id="local-6989586621680319665"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelQuality"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-var">ModelQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelQuality%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-var">ModelQuality'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680319673"><span id="local-6989586621680319674"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelQuality"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-var">ModelQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelQuality%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-var">ModelQuality'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Model quality constraints.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aconstraints%3AModelQuality%27"><span class="annot"><span class="annottext">ModelQuality -&gt; Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.ModelQuality.html#%24sel%3Aconstraints%3AModelQuality%27"><span class="hs-identifier hs-var hs-var">constraints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricsSource.html#MetricsSource"><span class="hs-identifier hs-type">MetricsSource</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatistics%3AModelQuality%27"><span class="annot"><span class="annottext">ModelQuality -&gt; Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.ModelQuality.html#%24sel%3Astatistics%3AModelQuality%27"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricsSource.html#MetricsSource"><span class="hs-identifier hs-type">MetricsSource</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680319657"><span id="local-6989586621680319659"><span class="annot"><span class="annottext">ModelQuality -&gt; ModelQuality -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680319666"><span id="local-6989586621680319668"><span class="annot"><span class="annottext">ModelQuality -&gt; ModelQuality -&gt; Bool
 (ModelQuality -&gt; ModelQuality -&gt; Bool)
 -&gt; (ModelQuality -&gt; ModelQuality -&gt; Bool) -&gt; Eq ModelQuality
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelQuality -&gt; ModelQuality -&gt; Bool
 == :: ModelQuality -&gt; ModelQuality -&gt; Bool
 $c== :: ModelQuality -&gt; ModelQuality -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680319648"><span id="local-6989586621680319650"><span id="local-6989586621680319652"><span id="local-6989586621680319654"><span class="annot"><span class="annottext">ReadPrec [ModelQuality]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680319657"><span id="local-6989586621680319659"><span id="local-6989586621680319661"><span id="local-6989586621680319663"><span class="annot"><span class="annottext">ReadPrec [ModelQuality]
 ReadPrec ModelQuality
 Int -&gt; ReadS ModelQuality
 ReadS [ModelQuality]
@@ -63,7 +63,7 @@ readList :: ReadS [ModelQuality]
 $creadList :: ReadS [ModelQuality]
 readsPrec :: Int -&gt; ReadS ModelQuality
 $creadsPrec :: Int -&gt; ReadS ModelQuality
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680319641"><span id="local-6989586621680319643"><span id="local-6989586621680319645"><span class="annot"><span class="annottext">Int -&gt; ModelQuality -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680319650"><span id="local-6989586621680319652"><span id="local-6989586621680319654"><span class="annot"><span class="annottext">Int -&gt; ModelQuality -&gt; ShowS
 [ModelQuality] -&gt; ShowS
 ModelQuality -&gt; String
 (Int -&gt; ModelQuality -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
      (Maybe MetricsSource)
      (Maybe MetricsSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319632"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319641"><span class="annot"><span class="annottext">Maybe MetricsSource
 constraints :: Maybe MetricsSource
 $sel:constraints:ModelQuality' :: ModelQuality -&gt; Maybe MetricsSource
-</span><a href="#local-6989586621680319632"><span class="hs-identifier hs-var hs-var">constraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319632"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319631"><span class="annot"><span class="annottext">s :: ModelQuality
-</span><a href="#local-6989586621680319631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319630"><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQuality
-</span><a href="#local-6989586621680319631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraints:ModelQuality' :: Maybe MetricsSource
+</span><a href="#local-6989586621680319641"><span class="hs-identifier hs-var hs-var">constraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680319641"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319640"><span class="annot"><span class="annottext">s :: ModelQuality
+</span><a href="#local-6989586621680319640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319639"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680319639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQuality
+</span><a href="#local-6989586621680319640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraints:ModelQuality' :: Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.ModelQuality.html#%24sel%3Aconstraints%3AModelQuality%27"><span class="hs-identifier hs-var">constraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680319639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Model quality statistics.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#modelQuality_statistics"><span class="hs-identifier hs-type">modelQuality_statistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricsSource.html#MetricsSource"><span class="hs-identifier hs-type">MetricsSource</span></a></span><span class="hs-special">)</span><span>
@@ -151,19 +151,19 @@ $sel:constraints:ModelQuality' :: ModelQuality -&gt; Maybe MetricsSource
      (Maybe MetricsSource)
      (Maybe MetricsSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319628"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319637"><span class="annot"><span class="annottext">Maybe MetricsSource
 statistics :: Maybe MetricsSource
 $sel:statistics:ModelQuality' :: ModelQuality -&gt; Maybe MetricsSource
-</span><a href="#local-6989586621680319628"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319628"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319627"><span class="annot"><span class="annottext">s :: ModelQuality
-</span><a href="#local-6989586621680319627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319626"><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQuality
-</span><a href="#local-6989586621680319627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:ModelQuality' :: Maybe MetricsSource
+</span><a href="#local-6989586621680319637"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680319637"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319636"><span class="annot"><span class="annottext">s :: ModelQuality
+</span><a href="#local-6989586621680319636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319635"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680319635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQuality
+</span><a href="#local-6989586621680319636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:ModelQuality' :: Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.ModelQuality.html#%24sel%3Astatistics%3AModelQuality%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680319635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319623"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621680319621"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelQuality
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319632"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680319630"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelQuality
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelQuality) -&gt; Value -&gt; Parser ModelQuality
@@ -171,8 +171,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelQuality&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680319618"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680319618"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680319627"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680319627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe MetricsSource -&gt; Maybe MetricsSource -&gt; ModelQuality
 </span><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-var">ModelQuality'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MetricsSource -&gt; Maybe MetricsSource -&gt; ModelQuality)
@@ -180,7 +180,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe MetricsSource -&gt; ModelQuality)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680319618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
+</span><a href="#local-6989586621680319627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Constraints&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,24 +188,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MetricsSource) -&gt; Parser ModelQuality
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680319618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
+</span><a href="#local-6989586621680319627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Statistics&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319612"><span id="local-6989586621680319614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319621"><span id="local-6989586621680319623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319601"><span id="local-6989586621680319603"><span id="local-6989586621680319605"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680319599"><span class="annot"><span class="annottext">toJSON :: ModelQuality -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319596"><span id="local-6989586621680319597"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319610"><span id="local-6989586621680319612"><span id="local-6989586621680319614"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality"><span class="hs-identifier hs-type">ModelQuality</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680319608"><span class="annot"><span class="annottext">toJSON :: ModelQuality -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelQuality.html#ModelQuality%27"><span class="hs-identifier hs-type">ModelQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319605"><span id="local-6989586621680319606"><span class="annot"><span class="annottext">Maybe MetricsSource
 statistics :: Maybe MetricsSource
 constraints :: Maybe MetricsSource
 $sel:statistics:ModelQuality' :: ModelQuality -&gt; Maybe MetricsSource
 $sel:constraints:ModelQuality' :: ModelQuality -&gt; Maybe MetricsSource
-</span><a href="#local-6989586621680319596"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680319605"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -217,14 +217,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MetricsSource -&gt; Pair) -&gt; Maybe MetricsSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319597"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680319606"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Statistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricsSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MetricsSource -&gt; Pair) -&gt; Maybe MetricsSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680319596"><span class="hs-identifier hs-var">statistics</span></a></span><span>
+</span><a href="#local-6989586621680319605"><span class="hs-identifier hs-var">statistics</span></a></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

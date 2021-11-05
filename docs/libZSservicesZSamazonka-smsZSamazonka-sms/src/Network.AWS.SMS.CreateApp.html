@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newCreateApp' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679259053"><span id="local-6989586621679259054"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApp"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-var">CreateApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApp%27"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-var">CreateApp'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679259062"><span id="local-6989586621679259063"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApp"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-var">CreateApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApp%27"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-var">CreateApp'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- idempotency of application creation.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe Text
@@ -77,7 +77,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Atags%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe [Tag]
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3Atags%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259042"><span id="local-6989586621679259044"><span class="annot"><span class="annottext">CreateApp -&gt; CreateApp -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259051"><span id="local-6989586621679259053"><span class="annot"><span class="annottext">CreateApp -&gt; CreateApp -&gt; Bool
 (CreateApp -&gt; CreateApp -&gt; Bool)
 -&gt; (CreateApp -&gt; CreateApp -&gt; Bool) -&gt; Eq CreateApp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateApp -&gt; CreateApp -&gt; Bool
 == :: CreateApp -&gt; CreateApp -&gt; Bool
 $c== :: CreateApp -&gt; CreateApp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259033"><span id="local-6989586621679259035"><span id="local-6989586621679259037"><span id="local-6989586621679259039"><span class="annot"><span class="annottext">ReadPrec [CreateApp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259042"><span id="local-6989586621679259044"><span id="local-6989586621679259046"><span id="local-6989586621679259048"><span class="annot"><span class="annottext">ReadPrec [CreateApp]
 ReadPrec CreateApp
 Int -&gt; ReadS CreateApp
 ReadS [CreateApp]
@@ -105,7 +105,7 @@ readList :: ReadS [CreateApp]
 $creadList :: ReadS [CreateApp]
 readsPrec :: Int -&gt; ReadS CreateApp
 $creadsPrec :: Int -&gt; ReadS CreateApp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259026"><span id="local-6989586621679259028"><span id="local-6989586621679259030"><span class="annot"><span class="annottext">Int -&gt; CreateApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259035"><span id="local-6989586621679259037"><span id="local-6989586621679259039"><span class="annot"><span class="annottext">Int -&gt; CreateApp -&gt; ShowS
 [CreateApp] -&gt; ShowS
 CreateApp -&gt; String
 (Int -&gt; CreateApp -&gt; ShowS)
@@ -197,16 +197,16 @@ forall a. Maybe a
 -&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259019"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259028"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:CreateApp' :: CreateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679259019"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259019"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259018"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679259018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259017"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679259018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateApp' :: Maybe Text
+</span><a href="#local-6989586621679259028"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259028"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259027"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679259027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259026"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679259027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateApp' :: Maybe Text
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AclientToken%3ACreateApp%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The name of the service role in the customer\'s account to be used by</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- AWS SMS.</span><span>
@@ -216,16 +216,16 @@ $sel:clientToken:CreateApp' :: CreateApp -&gt; Maybe Text
 -&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259016"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259025"><span class="annot"><span class="annottext">Maybe Text
 roleName :: Maybe Text
 $sel:roleName:CreateApp' :: CreateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679259016"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259016"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259015"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679259015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259014"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679259015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:CreateApp' :: Maybe Text
+</span><a href="#local-6989586621679259025"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259025"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259024"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679259024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259023"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679259024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:CreateApp' :: Maybe Text
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AroleName%3ACreateApp%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The name of the new application.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#createApp_name"><span class="hs-identifier hs-type">createApp_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -234,16 +234,16 @@ $sel:roleName:CreateApp' :: CreateApp -&gt; Maybe Text
 -&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259013"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259022"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CreateApp' :: CreateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679259013"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259013"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259012"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679259012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259011"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679259012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateApp' :: Maybe Text
+</span><a href="#local-6989586621679259022"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259022"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259021"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679259021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679259021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateApp' :: Maybe Text
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3Aname%3ACreateApp%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The description of the new application</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#createApp_description"><span class="hs-identifier hs-type">createApp_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -252,16 +252,16 @@ $sel:name:CreateApp' :: CreateApp -&gt; Maybe Text
 -&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259010"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259019"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateApp' :: CreateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679259010"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259010"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259009"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679259009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259008"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679259009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApp' :: Maybe Text
+</span><a href="#local-6989586621679259019"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259019"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259018"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679259018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259017"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679259018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApp' :: Maybe Text
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3Adescription%3ACreateApp%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The server groups to include in the application.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#createApp_serverGroups"><span class="hs-identifier hs-type">createApp_serverGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroup.html#ServerGroup"><span class="hs-identifier hs-type">ServerGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -272,16 +272,16 @@ $sel:description:CreateApp' :: CreateApp -&gt; Maybe Text
 -&gt; Lens
      CreateApp CreateApp (Maybe [ServerGroup]) (Maybe [ServerGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259007"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259016"><span class="annot"><span class="annottext">Maybe [ServerGroup]
 serverGroups :: Maybe [ServerGroup]
 $sel:serverGroups:CreateApp' :: CreateApp -&gt; Maybe [ServerGroup]
-</span><a href="#local-6989586621679259007"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679259007"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259006"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679259006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259005"><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679259005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679259006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroups:CreateApp' :: Maybe [ServerGroup]
+</span><a href="#local-6989586621679259016"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679259016"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259015"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679259015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259014"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679259014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679259015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroups:CreateApp' :: Maybe [ServerGroup]
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AserverGroups%3ACreateApp%27"><span class="hs-identifier hs-var">serverGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679259005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+</span><a href="#local-6989586621679259014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
  -&gt; CreateApp -&gt; f CreateApp)
 -&gt; ((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
     -&gt; Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
@@ -309,16 +309,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateApp -&gt; Maybe [Tag] -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259001"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259010"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateApp' :: CreateApp -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679259001"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679259001"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259000"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679259000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258999"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679258999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679259000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateApp' :: Maybe [Tag]
+</span><a href="#local-6989586621679259010"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259010"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259009"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679259009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259008"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679259009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateApp' :: Maybe [Tag]
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3Atags%3ACreateApp%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679258999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateApp -&gt; f CreateApp)
+</span><a href="#local-6989586621679259008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateApp -&gt; f CreateApp)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -336,12 +336,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679258995"><span class="annot"><span class="annottext">request :: CreateApp -&gt; Request CreateApp
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679259004"><span class="annot"><span class="annottext">request :: CreateApp -&gt; Request CreateApp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateApp -&gt; Request CreateApp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679258991"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679259000"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateApp
 -&gt; ClientResponse ClientBody
@@ -365,10 +365,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258988"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258988"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258987"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679258987"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258986"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258986"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258997"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258997"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258996"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258996"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258995"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258995"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe AppSummary
 -&gt; Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; CreateAppResponse
 </span><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span><span>
@@ -380,7 +380,7 @@ MonadResource m =&gt;
      (Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; CreateAppResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppSummary)
+</span><a href="#local-6989586621679258995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;appSummary&quot;</span></span><span class="hs-special">)</span><span>
@@ -391,7 +391,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag] -&gt; Int -&gt; CreateAppResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ServerGroup]))
+</span><a href="#local-6989586621679258995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ServerGroup]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ServerGroup]))
@@ -405,7 +405,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; CreateAppResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679258995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
@@ -422,15 +422,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258988"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258997"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258977"><span id="local-6989586621679258979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258986"><span id="local-6989586621679258988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679258970"><span class="annot"><span class="annottext">toHeaders :: CreateApp -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679258979"><span class="annot"><span class="annottext">toHeaders :: CreateApp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateApp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -457,9 +457,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258960"><span id="local-6989586621679258962"><span id="local-6989586621679258964"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679258958"><span class="annot"><span class="annottext">toJSON :: CreateApp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258951"><span id="local-6989586621679258952"><span id="local-6989586621679258953"><span id="local-6989586621679258954"><span id="local-6989586621679258955"><span id="local-6989586621679258956"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258969"><span id="local-6989586621679258971"><span id="local-6989586621679258973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679258967"><span class="annot"><span class="annottext">toJSON :: CreateApp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258960"><span id="local-6989586621679258961"><span id="local-6989586621679258962"><span id="local-6989586621679258963"><span id="local-6989586621679258964"><span id="local-6989586621679258965"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe [ServerGroup]
 Maybe Text
 tags :: Maybe [Tag]
@@ -474,7 +474,7 @@ $sel:description:CreateApp' :: CreateApp -&gt; Maybe Text
 $sel:name:CreateApp' :: CreateApp -&gt; Maybe Text
 $sel:roleName:CreateApp' :: CreateApp -&gt; Maybe Text
 $sel:clientToken:CreateApp' :: CreateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679258951"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258960"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -486,54 +486,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258956"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258965"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258955"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258964"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258954"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258963"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258953"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258962"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ServerGroup] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ServerGroup] -&gt; Pair) -&gt; Maybe [ServerGroup] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679258952"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258961"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679258951"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679258960"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679258945"><span class="annot"><span class="annottext">toPath :: CreateApp -&gt; ByteString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679258954"><span class="annot"><span class="annottext">toPath :: CreateApp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateApp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679258941"><span class="annot"><span class="annottext">toQuery :: CreateApp -&gt; QueryString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679258950"><span class="annot"><span class="annottext">toQuery :: CreateApp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateApp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -541,7 +541,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newCreateAppResponse' smart constructor.</span><span>
-</span><span id="line-187"></span><span id="local-6989586621679258938"><span id="local-6989586621679258939"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppResponse"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-var">CreateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppResponse%27"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span id="local-6989586621679258947"><span id="local-6989586621679258948"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppResponse"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-var">CreateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppResponse%27"><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A summary description of the application.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AappSummary%3ACreateAppResponse%27"><span class="annot"><span class="annottext">CreateAppResponse -&gt; Maybe AppSummary
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AappSummary%3ACreateAppResponse%27"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppSummary.html#AppSummary"><span class="hs-identifier hs-type">AppSummary</span></a></span><span class="hs-special">,</span><span>
@@ -555,7 +555,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="annot"><span class="annottext">CreateAppResponse -&gt; Int
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258930"><span id="local-6989586621679258932"><span class="annot"><span class="annottext">CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258939"><span id="local-6989586621679258941"><span class="annot"><span class="annottext">CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
 (CreateAppResponse -&gt; CreateAppResponse -&gt; Bool)
 -&gt; (CreateAppResponse -&gt; CreateAppResponse -&gt; Bool)
 -&gt; Eq CreateAppResponse
@@ -564,7 +564,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
 == :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
 $c== :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258922"><span id="local-6989586621679258924"><span id="local-6989586621679258926"><span id="local-6989586621679258928"><span class="annot"><span class="annottext">ReadPrec [CreateAppResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258931"><span id="local-6989586621679258933"><span id="local-6989586621679258935"><span id="local-6989586621679258937"><span class="annot"><span class="annottext">ReadPrec [CreateAppResponse]
 ReadPrec CreateAppResponse
 Int -&gt; ReadS CreateAppResponse
 ReadS [CreateAppResponse]
@@ -584,7 +584,7 @@ readList :: ReadS [CreateAppResponse]
 $creadList :: ReadS [CreateAppResponse]
 readsPrec :: Int -&gt; ReadS CreateAppResponse
 $creadsPrec :: Int -&gt; ReadS CreateAppResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258916"><span id="local-6989586621679258918"><span id="local-6989586621679258920"><span class="annot"><span class="annottext">Int -&gt; CreateAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258925"><span id="local-6989586621679258927"><span id="local-6989586621679258929"><span class="annot"><span class="annottext">Int -&gt; CreateAppResponse -&gt; ShowS
 [CreateAppResponse] -&gt; ShowS
 CreateAppResponse -&gt; String
 (Int -&gt; CreateAppResponse -&gt; ShowS)
@@ -630,8 +630,8 @@ $cfrom :: forall x. CreateAppResponse -&gt; Rep CreateAppResponse x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newCreateAppResponse"><span class="annot"><span class="annottext">newCreateAppResponse :: Int -&gt; CreateAppResponse
-</span><a href="Network.AWS.SMS.CreateApp.html#newCreateAppResponse"><span class="hs-identifier hs-var hs-var">newCreateAppResponse</span></a></span></span><span> </span><span id="local-6989586621679258913"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SMS.CreateApp.html#newCreateAppResponse"><span class="hs-identifier hs-var hs-var">newCreateAppResponse</span></a></span></span><span> </span><span id="local-6989586621679258922"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258922"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">CreateAppResponse' :: Maybe AppSummary
 -&gt; Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; CreateAppResponse
 </span><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span>
@@ -649,7 +649,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679258922"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | A summary description of the application.</span><span>
@@ -664,16 +664,16 @@ forall a. Maybe a
      (Maybe AppSummary)
      (Maybe AppSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258912"><span class="annot"><span class="annottext">Maybe AppSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258921"><span class="annot"><span class="annottext">Maybe AppSummary
 appSummary :: Maybe AppSummary
 $sel:appSummary:CreateAppResponse' :: CreateAppResponse -&gt; Maybe AppSummary
-</span><a href="#local-6989586621679258912"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
-</span><a href="#local-6989586621679258912"><span class="hs-identifier hs-var">appSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258911"><span class="annot"><span class="annottext">s :: CreateAppResponse
-</span><a href="#local-6989586621679258911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258910"><span class="annot"><span class="annottext">Maybe AppSummary
-</span><a href="#local-6989586621679258910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
-</span><a href="#local-6989586621679258911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSummary:CreateAppResponse' :: Maybe AppSummary
+</span><a href="#local-6989586621679258921"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
+</span><a href="#local-6989586621679258921"><span class="hs-identifier hs-var">appSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258920"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679258920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258919"><span class="annot"><span class="annottext">Maybe AppSummary
+</span><a href="#local-6989586621679258919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679258920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSummary:CreateAppResponse' :: Maybe AppSummary
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AappSummary%3ACreateAppResponse%27"><span class="hs-identifier hs-var">appSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
-</span><a href="#local-6989586621679258910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The server groups included in the application.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#createAppResponse_serverGroups"><span class="hs-identifier hs-type">createAppResponse_serverGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroup.html#ServerGroup"><span class="hs-identifier hs-type">ServerGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -687,16 +687,16 @@ $sel:appSummary:CreateAppResponse' :: CreateAppResponse -&gt; Maybe AppSummary
      (Maybe [ServerGroup])
      (Maybe [ServerGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258909"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258918"><span class="annot"><span class="annottext">Maybe [ServerGroup]
 serverGroups :: Maybe [ServerGroup]
 $sel:serverGroups:CreateAppResponse' :: CreateAppResponse -&gt; Maybe [ServerGroup]
-</span><a href="#local-6989586621679258909"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679258909"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258908"><span class="annot"><span class="annottext">s :: CreateAppResponse
-</span><a href="#local-6989586621679258908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258907"><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679258907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
-</span><a href="#local-6989586621679258908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroups:CreateAppResponse' :: Maybe [ServerGroup]
+</span><a href="#local-6989586621679258918"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679258918"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258917"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679258917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258916"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679258916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679258917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroups:CreateAppResponse' :: Maybe [ServerGroup]
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AserverGroups%3ACreateAppResponse%27"><span class="hs-identifier hs-var">serverGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679258907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+</span><a href="#local-6989586621679258916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
  -&gt; CreateAppResponse -&gt; f CreateAppResponse)
 -&gt; ((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
     -&gt; Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
@@ -726,16 +726,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      CreateAppResponse CreateAppResponse (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258906"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258915"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateAppResponse' :: CreateAppResponse -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679258906"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679258906"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258905"><span class="annot"><span class="annottext">s :: CreateAppResponse
-</span><a href="#local-6989586621679258905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258904"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679258904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
-</span><a href="#local-6989586621679258905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAppResponse' :: Maybe [Tag]
+</span><a href="#local-6989586621679258915"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679258915"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258914"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679258914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258913"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679258913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679258914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAppResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3Atags%3ACreateAppResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679258904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679258913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateAppResponse -&gt; f CreateAppResponse)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -759,16 +759,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateAppResponse -&gt; Int -&gt; CreateAppResponse)
 -&gt; Lens CreateAppResponse CreateAppResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258903"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258912"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateAppResponse' :: CreateAppResponse -&gt; Int
-</span><a href="#local-6989586621679258903"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258903"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258902"><span class="annot"><span class="annottext">s :: CreateAppResponse
-</span><a href="#local-6989586621679258902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258901"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
-</span><a href="#local-6989586621679258902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
+</span><a href="#local-6989586621679258912"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258912"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258911"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679258911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679258911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
 </span><a href="Network.AWS.SMS.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

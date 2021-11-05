@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetDomain' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679642977"><span id="local-6989586621679642978"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomain"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-var">GetDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomain%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-var">GetDomain'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679642986"><span id="local-6989586621679642987"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomain"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-var">GetDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomain%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-var">GetDomain'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain name for which your want to return information about.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdomainName%3AGetDomain%27"><span class="annot"><span class="annottext">GetDomain -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetDomain.html#%24sel%3AdomainName%3AGetDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642971"><span id="local-6989586621679642973"><span class="annot"><span class="annottext">GetDomain -&gt; GetDomain -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642980"><span id="local-6989586621679642982"><span class="annot"><span class="annottext">GetDomain -&gt; GetDomain -&gt; Bool
 (GetDomain -&gt; GetDomain -&gt; Bool)
 -&gt; (GetDomain -&gt; GetDomain -&gt; Bool) -&gt; Eq GetDomain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDomain -&gt; GetDomain -&gt; Bool
 == :: GetDomain -&gt; GetDomain -&gt; Bool
 $c== :: GetDomain -&gt; GetDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642962"><span id="local-6989586621679642964"><span id="local-6989586621679642966"><span id="local-6989586621679642968"><span class="annot"><span class="annottext">ReadPrec [GetDomain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642971"><span id="local-6989586621679642973"><span id="local-6989586621679642975"><span id="local-6989586621679642977"><span class="annot"><span class="annottext">ReadPrec [GetDomain]
 ReadPrec GetDomain
 Int -&gt; ReadS GetDomain
 ReadS [GetDomain]
@@ -80,7 +80,7 @@ readList :: ReadS [GetDomain]
 $creadList :: ReadS [GetDomain]
 readsPrec :: Int -&gt; ReadS GetDomain
 $creadsPrec :: Int -&gt; ReadS GetDomain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642955"><span id="local-6989586621679642957"><span id="local-6989586621679642959"><span class="annot"><span class="annottext">Int -&gt; GetDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642964"><span id="local-6989586621679642966"><span id="local-6989586621679642968"><span class="annot"><span class="annottext">Int -&gt; GetDomain -&gt; ShowS
 [GetDomain] -&gt; ShowS
 GetDomain -&gt; String
 (Int -&gt; GetDomain -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. GetDomain -&gt; Rep GetDomain x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetDomain"><span class="annot"><span class="annottext">newGetDomain :: Text -&gt; GetDomain
-</span><a href="Network.AWS.Lightsail.GetDomain.html#newGetDomain"><span class="hs-identifier hs-var hs-var">newGetDomain</span></a></span></span><span> </span><span id="local-6989586621679642950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679642950"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetDomain.html#newGetDomain"><span class="hs-identifier hs-var hs-var">newGetDomain</span></a></span></span><span> </span><span id="local-6989586621679642959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642959"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetDomain' :: Text -&gt; GetDomain
 </span><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomain' :: Text
 </span><a href="Network.AWS.Lightsail.GetDomain.html#%24sel%3AdomainName%3AGetDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679642950"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679642959"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The domain name for which your want to return information about.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#getDomain_domainName"><span class="hs-identifier hs-type">getDomain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. GetDomain -&gt; Rep GetDomain x
 -&gt; (GetDomain -&gt; Text -&gt; GetDomain)
 -&gt; Lens GetDomain GetDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642947"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642956"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:GetDomain' :: GetDomain -&gt; Text
-</span><a href="#local-6989586621679642947"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679642947"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642946"><span class="annot"><span class="annottext">s :: GetDomain
-</span><a href="#local-6989586621679642946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642945"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679642945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomain
-</span><a href="#local-6989586621679642946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomain' :: Text
+</span><a href="#local-6989586621679642956"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642956"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642955"><span class="annot"><span class="annottext">s :: GetDomain
+</span><a href="#local-6989586621679642955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642954"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomain
+</span><a href="#local-6989586621679642955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomain' :: Text
 </span><a href="Network.AWS.Lightsail.GetDomain.html#%24sel%3AdomainName%3AGetDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679642945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679642941"><span class="annot"><span class="annottext">request :: GetDomain -&gt; Request GetDomain
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679642950"><span class="annot"><span class="annottext">request :: GetDomain -&gt; Request GetDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDomain -&gt; Request GetDomain
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679642937"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679642946"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDomain
 -&gt; ClientResponse ClientBody
@@ -175,10 +175,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679642934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642934"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679642933"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679642933"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679642932"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679642932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679642943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642943"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679642942"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679642942"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679642941"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Domain -&gt; Int -&gt; GetDomainResponse
 </span><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-var">GetDomainResponse'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Domain -&gt; Int -&gt; GetDomainResponse)
@@ -186,7 +186,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetDomainResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679642932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Domain)
+</span><a href="#local-6989586621679642941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Domain)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domain&quot;</span></span><span class="hs-special">)</span><span>
@@ -198,15 +198,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642934"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642943"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642924"><span id="local-6989586621679642926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642933"><span id="local-6989586621679642935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679642917"><span class="annot"><span class="annottext">toHeaders :: GetDomain -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679642926"><span class="annot"><span class="annottext">toHeaders :: GetDomain -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDomain -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -233,12 +233,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642907"><span id="local-6989586621679642909"><span id="local-6989586621679642911"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679642905"><span class="annot"><span class="annottext">toJSON :: GetDomain -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642903"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642916"><span id="local-6989586621679642918"><span id="local-6989586621679642920"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679642914"><span class="annot"><span class="annottext">toJSON :: GetDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642912"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:GetDomain' :: GetDomain -&gt; Text
-</span><a href="#local-6989586621679642903"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679642912"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,18 +250,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;domainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679642903"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679642912"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679642897"><span class="annot"><span class="annottext">toPath :: GetDomain -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679642906"><span class="annot"><span class="annottext">toPath :: GetDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679642893"><span class="annot"><span class="annottext">toQuery :: GetDomain -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679642902"><span class="annot"><span class="annottext">toQuery :: GetDomain -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDomain -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -269,7 +269,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newGetDomainResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679642890"><span id="local-6989586621679642891"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomainResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-var">GetDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomainResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-var">GetDomainResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679642899"><span id="local-6989586621679642900"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomainResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-var">GetDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomainResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-var">GetDomainResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of key-value pairs containing information about your get domain</span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3Adomain%3AGetDomainResponse%27"><span class="annot"><span class="annottext">GetDomainResponse -&gt; Maybe Domain
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="annot"><span class="annottext">GetDomainResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetDomain.html#%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642884"><span id="local-6989586621679642886"><span class="annot"><span class="annottext">GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642893"><span id="local-6989586621679642895"><span class="annot"><span class="annottext">GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
 (GetDomainResponse -&gt; GetDomainResponse -&gt; Bool)
 -&gt; (GetDomainResponse -&gt; GetDomainResponse -&gt; Bool)
 -&gt; Eq GetDomainResponse
@@ -287,7 +287,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
 == :: GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
 $c== :: GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642876"><span id="local-6989586621679642878"><span id="local-6989586621679642880"><span id="local-6989586621679642882"><span class="annot"><span class="annottext">ReadPrec [GetDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642885"><span id="local-6989586621679642887"><span id="local-6989586621679642889"><span id="local-6989586621679642891"><span class="annot"><span class="annottext">ReadPrec [GetDomainResponse]
 ReadPrec GetDomainResponse
 Int -&gt; ReadS GetDomainResponse
 ReadS [GetDomainResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [GetDomainResponse]
 $creadList :: ReadS [GetDomainResponse]
 readsPrec :: Int -&gt; ReadS GetDomainResponse
 $creadsPrec :: Int -&gt; ReadS GetDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642870"><span id="local-6989586621679642872"><span id="local-6989586621679642874"><span class="annot"><span class="annottext">Int -&gt; GetDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642879"><span id="local-6989586621679642881"><span id="local-6989586621679642883"><span class="annot"><span class="annottext">Int -&gt; GetDomainResponse -&gt; ShowS
 [GetDomainResponse] -&gt; ShowS
 GetDomainResponse -&gt; String
 (Int -&gt; GetDomainResponse -&gt; ShowS)
@@ -350,8 +350,8 @@ $cfrom :: forall x. GetDomainResponse -&gt; Rep GetDomainResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newGetDomainResponse"><span class="annot"><span class="annottext">newGetDomainResponse :: Int -&gt; GetDomainResponse
-</span><a href="Network.AWS.Lightsail.GetDomain.html#newGetDomainResponse"><span class="hs-identifier hs-var hs-var">newGetDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679642867"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetDomain.html#newGetDomainResponse"><span class="hs-identifier hs-var hs-var">newGetDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679642876"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">GetDomainResponse' :: Maybe Domain -&gt; Int -&gt; GetDomainResponse
 </span><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domain:GetDomainResponse' :: Maybe Domain
@@ -360,7 +360,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDomainResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetDomain.html#%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679642876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | An array of key-value pairs containing information about your get domain</span><span>
@@ -373,16 +373,16 @@ forall a. Maybe a
 -&gt; Lens
      GetDomainResponse GetDomainResponse (Maybe Domain) (Maybe Domain)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642866"><span class="annot"><span class="annottext">Maybe Domain
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642875"><span class="annot"><span class="annottext">Maybe Domain
 domain :: Maybe Domain
 $sel:domain:GetDomainResponse' :: GetDomainResponse -&gt; Maybe Domain
-</span><a href="#local-6989586621679642866"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
-</span><a href="#local-6989586621679642866"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642865"><span class="annot"><span class="annottext">s :: GetDomainResponse
-</span><a href="#local-6989586621679642865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642864"><span class="annot"><span class="annottext">Maybe Domain
-</span><a href="#local-6989586621679642864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainResponse
-</span><a href="#local-6989586621679642865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:GetDomainResponse' :: Maybe Domain
+</span><a href="#local-6989586621679642875"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679642875"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642874"><span class="annot"><span class="annottext">s :: GetDomainResponse
+</span><a href="#local-6989586621679642874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642873"><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679642873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainResponse
+</span><a href="#local-6989586621679642874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:GetDomainResponse' :: Maybe Domain
 </span><a href="Network.AWS.Lightsail.GetDomain.html#%24sel%3Adomain%3AGetDomainResponse%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
-</span><a href="#local-6989586621679642864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#getDomainResponse_httpStatus"><span class="hs-identifier hs-type">getDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -391,16 +391,16 @@ $sel:domain:GetDomainResponse' :: GetDomainResponse -&gt; Maybe Domain
 -&gt; (GetDomainResponse -&gt; Int -&gt; GetDomainResponse)
 -&gt; Lens GetDomainResponse GetDomainResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642863"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642872"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDomainResponse' :: GetDomainResponse -&gt; Int
-</span><a href="#local-6989586621679642863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642862"><span class="annot"><span class="annottext">s :: GetDomainResponse
-</span><a href="#local-6989586621679642862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642861"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainResponse
-</span><a href="#local-6989586621679642862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDomainResponse' :: Int
+</span><a href="#local-6989586621679642872"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642872"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642871"><span class="annot"><span class="annottext">s :: GetDomainResponse
+</span><a href="#local-6989586621679642871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainResponse
+</span><a href="#local-6989586621679642871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDomainResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetDomain.html#%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

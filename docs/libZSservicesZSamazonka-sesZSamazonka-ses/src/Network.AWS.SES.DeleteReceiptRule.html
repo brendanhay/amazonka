@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newDeleteReceiptRule' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679286770"><span id="local-6989586621679286771"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReceiptRule"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-var">DeleteReceiptRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReceiptRule%27"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-var">DeleteReceiptRule'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679286779"><span id="local-6989586621679286780"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReceiptRule"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-var">DeleteReceiptRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReceiptRule%27"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-var">DeleteReceiptRule'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the receipt rule set that contains the receipt rule to</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AruleSetName%3ADeleteReceiptRule%27"><span class="annot"><span class="annottext">DeleteReceiptRule -&gt; Text
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AruleName%3ADeleteReceiptRule%27"><span class="annot"><span class="annottext">DeleteReceiptRule -&gt; Text
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AruleName%3ADeleteReceiptRule%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286763"><span id="local-6989586621679286765"><span class="annot"><span class="annottext">DeleteReceiptRule -&gt; DeleteReceiptRule -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286772"><span id="local-6989586621679286774"><span class="annot"><span class="annottext">DeleteReceiptRule -&gt; DeleteReceiptRule -&gt; Bool
 (DeleteReceiptRule -&gt; DeleteReceiptRule -&gt; Bool)
 -&gt; (DeleteReceiptRule -&gt; DeleteReceiptRule -&gt; Bool)
 -&gt; Eq DeleteReceiptRule
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteReceiptRule -&gt; DeleteReceiptRule -&gt; Bool
 == :: DeleteReceiptRule -&gt; DeleteReceiptRule -&gt; Bool
 $c== :: DeleteReceiptRule -&gt; DeleteReceiptRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286754"><span id="local-6989586621679286756"><span id="local-6989586621679286758"><span id="local-6989586621679286760"><span class="annot"><span class="annottext">ReadPrec [DeleteReceiptRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286763"><span id="local-6989586621679286765"><span id="local-6989586621679286767"><span id="local-6989586621679286769"><span class="annot"><span class="annottext">ReadPrec [DeleteReceiptRule]
 ReadPrec DeleteReceiptRule
 Int -&gt; ReadS DeleteReceiptRule
 ReadS [DeleteReceiptRule]
@@ -94,7 +94,7 @@ readList :: ReadS [DeleteReceiptRule]
 $creadList :: ReadS [DeleteReceiptRule]
 readsPrec :: Int -&gt; ReadS DeleteReceiptRule
 $creadsPrec :: Int -&gt; ReadS DeleteReceiptRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286747"><span id="local-6989586621679286749"><span id="local-6989586621679286751"><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286756"><span id="local-6989586621679286758"><span id="local-6989586621679286760"><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRule -&gt; ShowS
 [DeleteReceiptRule] -&gt; ShowS
 DeleteReceiptRule -&gt; String
 (Int -&gt; DeleteReceiptRule -&gt; ShowS)
@@ -139,17 +139,17 @@ $cfrom :: forall x. DeleteReceiptRule -&gt; Rep DeleteReceiptRule x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span>
 </span><span id="line-86"></span><span id="newDeleteReceiptRule"><span class="annot"><span class="annottext">newDeleteReceiptRule :: Text -&gt; Text -&gt; DeleteReceiptRule
-</span><a href="Network.AWS.SES.DeleteReceiptRule.html#newDeleteReceiptRule"><span class="hs-identifier hs-var hs-var">newDeleteReceiptRule</span></a></span></span><span> </span><span id="local-6989586621679286742"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286742"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span></span><span> </span><span id="local-6989586621679286741"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286741"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.DeleteReceiptRule.html#newDeleteReceiptRule"><span class="hs-identifier hs-var hs-var">newDeleteReceiptRule</span></a></span></span><span> </span><span id="local-6989586621679286751"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286751"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span></span><span> </span><span id="local-6989586621679286750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286750"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">DeleteReceiptRule' :: Text -&gt; Text -&gt; DeleteReceiptRule
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleSetName:DeleteReceiptRule' :: Text
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AruleSetName%3ADeleteReceiptRule%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286742"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286751"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleName:DeleteReceiptRule' :: Text
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AruleName%3ADeleteReceiptRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286741"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span>
+</span><a href="#local-6989586621679286750"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the receipt rule set that contains the receipt rule to</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. DeleteReceiptRule -&gt; Rep DeleteReceiptRule x
 -&gt; (DeleteReceiptRule -&gt; Text -&gt; DeleteReceiptRule)
 -&gt; Lens DeleteReceiptRule DeleteReceiptRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286738"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286747"><span class="annot"><span class="annottext">Text
 ruleSetName :: Text
 $sel:ruleSetName:DeleteReceiptRule' :: DeleteReceiptRule -&gt; Text
-</span><a href="#local-6989586621679286738"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286738"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286737"><span class="annot"><span class="annottext">s :: DeleteReceiptRule
-</span><a href="#local-6989586621679286737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286736"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRule
-</span><a href="#local-6989586621679286737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:DeleteReceiptRule' :: Text
+</span><a href="#local-6989586621679286747"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286747"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286746"><span class="annot"><span class="annottext">s :: DeleteReceiptRule
+</span><a href="#local-6989586621679286746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286745"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRule
+</span><a href="#local-6989586621679286746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:DeleteReceiptRule' :: Text
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AruleSetName%3ADeleteReceiptRule%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The name of the receipt rule to delete.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#deleteReceiptRule_ruleName"><span class="hs-identifier hs-type">deleteReceiptRule_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -178,27 +178,27 @@ $sel:ruleSetName:DeleteReceiptRule' :: DeleteReceiptRule -&gt; Text
 -&gt; (DeleteReceiptRule -&gt; Text -&gt; DeleteReceiptRule)
 -&gt; Lens DeleteReceiptRule DeleteReceiptRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286735"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286744"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 $sel:ruleName:DeleteReceiptRule' :: DeleteReceiptRule -&gt; Text
-</span><a href="#local-6989586621679286735"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286735"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286734"><span class="annot"><span class="annottext">s :: DeleteReceiptRule
-</span><a href="#local-6989586621679286734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286733"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRule
-</span><a href="#local-6989586621679286734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:DeleteReceiptRule' :: Text
+</span><a href="#local-6989586621679286744"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286744"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286743"><span class="annot"><span class="annottext">s :: DeleteReceiptRule
+</span><a href="#local-6989586621679286743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRule
+</span><a href="#local-6989586621679286743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:DeleteReceiptRule' :: Text
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AruleName%3ADeleteReceiptRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286729"><span class="annot"><span class="annottext">request :: DeleteReceiptRule -&gt; Request DeleteReceiptRule
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286738"><span class="annot"><span class="annottext">request :: DeleteReceiptRule -&gt; Request DeleteReceiptRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteReceiptRule -&gt; Request DeleteReceiptRule
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679286725"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679286734"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteReceiptRule
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteReceiptRuleResult&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286722"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286722"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286721"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679286721"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286720"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679286720"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286731"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286730"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286730"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286729"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679286729"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRuleResponse
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-var">DeleteReceiptRuleResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteReceiptRuleResponse)
@@ -243,15 +243,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286722"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286731"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286713"><span id="local-6989586621679286715"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286722"><span id="local-6989586621679286724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679286706"><span class="annot"><span class="annottext">toHeaders :: DeleteReceiptRule -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679286715"><span class="annot"><span class="annottext">toHeaders :: DeleteReceiptRule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteReceiptRule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -259,20 +259,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679286701"><span class="annot"><span class="annottext">toPath :: DeleteReceiptRule -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679286710"><span class="annot"><span class="annottext">toPath :: DeleteReceiptRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteReceiptRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule"><span class="hs-identifier hs-type">DeleteReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679286697"><span class="annot"><span class="annottext">toQuery :: DeleteReceiptRule -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286694"><span id="local-6989586621679286695"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679286706"><span class="annot"><span class="annottext">toQuery :: DeleteReceiptRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRule%27"><span class="hs-identifier hs-type">DeleteReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286703"><span id="local-6989586621679286704"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 ruleSetName :: Text
 $sel:ruleName:DeleteReceiptRule' :: DeleteReceiptRule -&gt; Text
 $sel:ruleSetName:DeleteReceiptRule' :: DeleteReceiptRule -&gt; Text
-</span><a href="#local-6989586621679286694"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679286703"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -292,23 +292,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RuleSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286695"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286704"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RuleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286694"><span class="hs-identifier hs-var">ruleName</span></a></span><span>
+</span><a href="#local-6989586621679286703"><span class="hs-identifier hs-var">ruleName</span></a></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- /See:/ 'newDeleteReceiptRuleResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679286691"><span id="local-6989586621679286692"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReceiptRuleResponse"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-var">DeleteReceiptRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReceiptRuleResponse%27"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-var">DeleteReceiptRuleResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679286700"><span id="local-6989586621679286701"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReceiptRuleResponse"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-var">DeleteReceiptRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReceiptRuleResponse%27"><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-var">DeleteReceiptRuleResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteReceiptRuleResponse%27"><span class="annot"><span class="annottext">DeleteReceiptRuleResponse -&gt; Int
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AhttpStatus%3ADeleteReceiptRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286686"><span id="local-6989586621679286688"><span class="annot"><span class="annottext">DeleteReceiptRuleResponse -&gt; DeleteReceiptRuleResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286695"><span id="local-6989586621679286697"><span class="annot"><span class="annottext">DeleteReceiptRuleResponse -&gt; DeleteReceiptRuleResponse -&gt; Bool
 (DeleteReceiptRuleResponse -&gt; DeleteReceiptRuleResponse -&gt; Bool)
 -&gt; (DeleteReceiptRuleResponse -&gt; DeleteReceiptRuleResponse -&gt; Bool)
 -&gt; Eq DeleteReceiptRuleResponse
@@ -317,7 +317,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteReceiptRuleResponse -&gt; DeleteReceiptRuleResponse -&gt; Bool
 == :: DeleteReceiptRuleResponse -&gt; DeleteReceiptRuleResponse -&gt; Bool
 $c== :: DeleteReceiptRuleResponse -&gt; DeleteReceiptRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286678"><span id="local-6989586621679286680"><span id="local-6989586621679286682"><span id="local-6989586621679286684"><span class="annot"><span class="annottext">ReadPrec [DeleteReceiptRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286687"><span id="local-6989586621679286689"><span id="local-6989586621679286691"><span id="local-6989586621679286693"><span class="annot"><span class="annottext">ReadPrec [DeleteReceiptRuleResponse]
 ReadPrec DeleteReceiptRuleResponse
 Int -&gt; ReadS DeleteReceiptRuleResponse
 ReadS [DeleteReceiptRuleResponse]
@@ -337,7 +337,7 @@ readList :: ReadS [DeleteReceiptRuleResponse]
 $creadList :: ReadS [DeleteReceiptRuleResponse]
 readsPrec :: Int -&gt; ReadS DeleteReceiptRuleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteReceiptRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286672"><span id="local-6989586621679286674"><span id="local-6989586621679286676"><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286681"><span id="local-6989586621679286683"><span id="local-6989586621679286685"><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRuleResponse -&gt; ShowS
 [DeleteReceiptRuleResponse] -&gt; ShowS
 DeleteReceiptRuleResponse -&gt; String
 (Int -&gt; DeleteReceiptRuleResponse -&gt; ShowS)
@@ -383,14 +383,14 @@ DeleteReceiptRuleResponse -&gt; Rep DeleteReceiptRuleResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newDeleteReceiptRuleResponse"><span class="annot"><span class="annottext">newDeleteReceiptRuleResponse :: Int -&gt; DeleteReceiptRuleResponse
-</span><a href="Network.AWS.SES.DeleteReceiptRule.html#newDeleteReceiptRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteReceiptRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679286669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286669"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.DeleteReceiptRule.html#newDeleteReceiptRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteReceiptRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679286678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286678"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DeleteReceiptRuleResponse' :: Int -&gt; DeleteReceiptRuleResponse
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReceiptRuleResponse' :: Int
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AhttpStatus%3ADeleteReceiptRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286669"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679286678"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -401,16 +401,16 @@ DeleteReceiptRuleResponse -&gt; Rep DeleteReceiptRuleResponse x
 -&gt; (DeleteReceiptRuleResponse -&gt; Int -&gt; DeleteReceiptRuleResponse)
 -&gt; Lens DeleteReceiptRuleResponse DeleteReceiptRuleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286668"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286677"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteReceiptRuleResponse' :: DeleteReceiptRuleResponse -&gt; Int
-</span><a href="#local-6989586621679286668"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286668"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286667"><span class="annot"><span class="annottext">s :: DeleteReceiptRuleResponse
-</span><a href="#local-6989586621679286667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286666"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRuleResponse
-</span><a href="#local-6989586621679286667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReceiptRuleResponse' :: Int
+</span><a href="#local-6989586621679286677"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286677"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286676"><span class="annot"><span class="annottext">s :: DeleteReceiptRuleResponse
+</span><a href="#local-6989586621679286676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRuleResponse
+</span><a href="#local-6989586621679286676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReceiptRuleResponse' :: Int
 </span><a href="Network.AWS.SES.DeleteReceiptRule.html#%24sel%3AhttpStatus%3ADeleteReceiptRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteReceiptRule.html#DeleteReceiptRuleResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleResponse</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- Latency policies are part of a GameSessionQueue.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newPlayerLatencyPolicy' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679437870"><span id="local-6989586621679437871"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlayerLatencyPolicy"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-var">PlayerLatencyPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlayerLatencyPolicy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-var">PlayerLatencyPolicy'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679437879"><span id="local-6989586621679437880"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlayerLatencyPolicy"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-var">PlayerLatencyPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlayerLatencyPolicy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-var">PlayerLatencyPolicy'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The length of time, in seconds, that the policy is enforced while</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- placing a new game session. A null value for this property means that</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the policy is enforced until the queue times out.</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AmaximumIndividualPlayerLatencyMilliseconds%3APlayerLatencyPolicy%27"><span class="annot"><span class="annottext">PlayerLatencyPolicy -&gt; Maybe Natural
 </span><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#%24sel%3AmaximumIndividualPlayerLatencyMilliseconds%3APlayerLatencyPolicy%27"><span class="hs-identifier hs-var hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437863"><span id="local-6989586621679437865"><span class="annot"><span class="annottext">PlayerLatencyPolicy -&gt; PlayerLatencyPolicy -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437872"><span id="local-6989586621679437874"><span class="annot"><span class="annottext">PlayerLatencyPolicy -&gt; PlayerLatencyPolicy -&gt; Bool
 (PlayerLatencyPolicy -&gt; PlayerLatencyPolicy -&gt; Bool)
 -&gt; (PlayerLatencyPolicy -&gt; PlayerLatencyPolicy -&gt; Bool)
 -&gt; Eq PlayerLatencyPolicy
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PlayerLatencyPolicy -&gt; PlayerLatencyPolicy -&gt; Bool
 == :: PlayerLatencyPolicy -&gt; PlayerLatencyPolicy -&gt; Bool
 $c== :: PlayerLatencyPolicy -&gt; PlayerLatencyPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437854"><span id="local-6989586621679437856"><span id="local-6989586621679437858"><span id="local-6989586621679437860"><span class="annot"><span class="annottext">ReadPrec [PlayerLatencyPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437863"><span id="local-6989586621679437865"><span id="local-6989586621679437867"><span id="local-6989586621679437869"><span class="annot"><span class="annottext">ReadPrec [PlayerLatencyPolicy]
 ReadPrec PlayerLatencyPolicy
 Int -&gt; ReadS PlayerLatencyPolicy
 ReadS [PlayerLatencyPolicy]
@@ -73,7 +73,7 @@ readList :: ReadS [PlayerLatencyPolicy]
 $creadList :: ReadS [PlayerLatencyPolicy]
 readsPrec :: Int -&gt; ReadS PlayerLatencyPolicy
 $creadsPrec :: Int -&gt; ReadS PlayerLatencyPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437847"><span id="local-6989586621679437849"><span id="local-6989586621679437851"><span class="annot"><span class="annottext">Int -&gt; PlayerLatencyPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437856"><span id="local-6989586621679437858"><span id="local-6989586621679437860"><span class="annot"><span class="annottext">Int -&gt; PlayerLatencyPolicy -&gt; ShowS
 [PlayerLatencyPolicy] -&gt; ShowS
 PlayerLatencyPolicy -&gt; String
 (Int -&gt; PlayerLatencyPolicy -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437838"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437847"><span class="annot"><span class="annottext">Maybe Natural
 policyDurationSeconds :: Maybe Natural
 $sel:policyDurationSeconds:PlayerLatencyPolicy' :: PlayerLatencyPolicy -&gt; Maybe Natural
-</span><a href="#local-6989586621679437838"><span class="hs-identifier hs-var hs-var">policyDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437838"><span class="hs-identifier hs-var">policyDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437837"><span class="annot"><span class="annottext">s :: PlayerLatencyPolicy
-</span><a href="#local-6989586621679437837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437836"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatencyPolicy
-</span><a href="#local-6989586621679437837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDurationSeconds:PlayerLatencyPolicy' :: Maybe Natural
+</span><a href="#local-6989586621679437847"><span class="hs-identifier hs-var hs-var">policyDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679437847"><span class="hs-identifier hs-var">policyDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437846"><span class="annot"><span class="annottext">s :: PlayerLatencyPolicy
+</span><a href="#local-6989586621679437846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437845"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679437845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatencyPolicy
+</span><a href="#local-6989586621679437846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDurationSeconds:PlayerLatencyPolicy' :: Maybe Natural
 </span><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#%24sel%3ApolicyDurationSeconds%3APlayerLatencyPolicy%27"><span class="hs-identifier hs-var">policyDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The maximum latency value that is allowed for any player, in</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- milliseconds. All policies must have a value set for this property.</span><span>
@@ -169,19 +169,19 @@ $sel:policyDurationSeconds:PlayerLatencyPolicy' :: PlayerLatencyPolicy -&gt; May
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437834"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437843"><span class="annot"><span class="annottext">Maybe Natural
 maximumIndividualPlayerLatencyMilliseconds :: Maybe Natural
 $sel:maximumIndividualPlayerLatencyMilliseconds:PlayerLatencyPolicy' :: PlayerLatencyPolicy -&gt; Maybe Natural
-</span><a href="#local-6989586621679437834"><span class="hs-identifier hs-var hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437834"><span class="hs-identifier hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437833"><span class="annot"><span class="annottext">s :: PlayerLatencyPolicy
-</span><a href="#local-6989586621679437833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437832"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatencyPolicy
-</span><a href="#local-6989586621679437833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumIndividualPlayerLatencyMilliseconds:PlayerLatencyPolicy' :: Maybe Natural
+</span><a href="#local-6989586621679437843"><span class="hs-identifier hs-var hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679437843"><span class="hs-identifier hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437842"><span class="annot"><span class="annottext">s :: PlayerLatencyPolicy
+</span><a href="#local-6989586621679437842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437841"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679437841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatencyPolicy
+</span><a href="#local-6989586621679437842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumIndividualPlayerLatencyMilliseconds:PlayerLatencyPolicy' :: Maybe Natural
 </span><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#%24sel%3AmaximumIndividualPlayerLatencyMilliseconds%3APlayerLatencyPolicy%27"><span class="hs-identifier hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437829"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679437827"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlayerLatencyPolicy
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437838"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679437836"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlayerLatencyPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PlayerLatencyPolicy)
@@ -191,8 +191,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PlayerLatencyPolicy&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437824"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437833"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; PlayerLatencyPolicy
 </span><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-var">PlayerLatencyPolicy'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; PlayerLatencyPolicy)
@@ -200,7 +200,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; PlayerLatencyPolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679437833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,7 +208,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser PlayerLatencyPolicy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437824"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679437833"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-90"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -216,18 +216,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span id="line-91"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437818"><span id="local-6989586621679437820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437827"><span id="local-6989586621679437829"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437807"><span id="local-6989586621679437809"><span id="local-6989586621679437811"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679437805"><span class="annot"><span class="annottext">toJSON :: PlayerLatencyPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437802"><span id="local-6989586621679437803"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437816"><span id="local-6989586621679437818"><span id="local-6989586621679437820"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679437814"><span class="annot"><span class="annottext">toJSON :: PlayerLatencyPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy%27"><span class="hs-identifier hs-type">PlayerLatencyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437811"><span id="local-6989586621679437812"><span class="annot"><span class="annottext">Maybe Natural
 maximumIndividualPlayerLatencyMilliseconds :: Maybe Natural
 policyDurationSeconds :: Maybe Natural
 $sel:maximumIndividualPlayerLatencyMilliseconds:PlayerLatencyPolicy' :: PlayerLatencyPolicy -&gt; Maybe Natural
 $sel:policyDurationSeconds:PlayerLatencyPolicy' :: PlayerLatencyPolicy -&gt; Maybe Natural
-</span><a href="#local-6989586621679437802"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679437811"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -240,7 +240,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437803"><span class="hs-identifier hs-var">policyDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679437812"><span class="hs-identifier hs-var">policyDurationSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumIndividualPlayerLatencyMilliseconds&quot;</span></span><span>
 </span><span id="line-105"></span><span>                </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
@@ -250,7 +250,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679437802"><span class="hs-identifier hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span><span>
+</span><a href="#local-6989586621679437811"><span class="hs-identifier hs-var">maximumIndividualPlayerLatencyMilliseconds</span></a></span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

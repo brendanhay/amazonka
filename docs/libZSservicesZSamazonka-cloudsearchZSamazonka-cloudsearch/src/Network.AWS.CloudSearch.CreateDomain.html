@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- a name for the new search domain.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newCreateDomain' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679215793"><span id="local-6989586621679215794"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomain"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-var">CreateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomain%27"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-var">CreateDomain'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679215802"><span id="local-6989586621679215803"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomain"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-var">CreateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomain%27"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-var">CreateDomain'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name for the domain you are creating. Allowed characters are a-z</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- (lower-case letters), 0-9, and hyphen (-). Domain names must start with</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- a letter or number and be at least 3 and no more than 28 characters</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdomainName%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Text
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215787"><span id="local-6989586621679215789"><span class="annot"><span class="annottext">CreateDomain -&gt; CreateDomain -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215796"><span id="local-6989586621679215798"><span class="annot"><span class="annottext">CreateDomain -&gt; CreateDomain -&gt; Bool
 (CreateDomain -&gt; CreateDomain -&gt; Bool)
 -&gt; (CreateDomain -&gt; CreateDomain -&gt; Bool) -&gt; Eq CreateDomain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomain -&gt; CreateDomain -&gt; Bool
 == :: CreateDomain -&gt; CreateDomain -&gt; Bool
 $c== :: CreateDomain -&gt; CreateDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215778"><span id="local-6989586621679215780"><span id="local-6989586621679215782"><span id="local-6989586621679215784"><span class="annot"><span class="annottext">ReadPrec [CreateDomain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215787"><span id="local-6989586621679215789"><span id="local-6989586621679215791"><span id="local-6989586621679215793"><span class="annot"><span class="annottext">ReadPrec [CreateDomain]
 ReadPrec CreateDomain
 Int -&gt; ReadS CreateDomain
 ReadS [CreateDomain]
@@ -88,7 +88,7 @@ readList :: ReadS [CreateDomain]
 $creadList :: ReadS [CreateDomain]
 readsPrec :: Int -&gt; ReadS CreateDomain
 $creadsPrec :: Int -&gt; ReadS CreateDomain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215771"><span id="local-6989586621679215773"><span id="local-6989586621679215775"><span class="annot"><span class="annottext">Int -&gt; CreateDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215780"><span id="local-6989586621679215782"><span id="local-6989586621679215784"><span class="annot"><span class="annottext">Int -&gt; CreateDomain -&gt; ShowS
 [CreateDomain] -&gt; ShowS
 CreateDomain -&gt; String
 (Int -&gt; CreateDomain -&gt; ShowS)
@@ -131,12 +131,12 @@ $cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span>
 </span><span id="line-80"></span><span id="newCreateDomain"><span class="annot"><span class="annottext">newCreateDomain :: Text -&gt; CreateDomain
-</span><a href="Network.AWS.CloudSearch.CreateDomain.html#newCreateDomain"><span class="hs-identifier hs-var hs-var">newCreateDomain</span></a></span></span><span> </span><span id="local-6989586621679215766"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215766"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudSearch.CreateDomain.html#newCreateDomain"><span class="hs-identifier hs-var hs-var">newCreateDomain</span></a></span></span><span> </span><span id="local-6989586621679215775"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">CreateDomain' :: Text -&gt; CreateDomain
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215766"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | A name for the domain you are creating. Allowed characters are a-z</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- (lower-case letters), 0-9, and hyphen (-). Domain names must start with</span><span>
@@ -148,25 +148,25 @@ $cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
 -&gt; (CreateDomain -&gt; Text -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215763"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215772"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:CreateDomain' :: CreateDomain -&gt; Text
-</span><a href="#local-6989586621679215763"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215763"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215762"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215761"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
+</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215771"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215770"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679215757"><span class="annot"><span class="annottext">request :: CreateDomain -&gt; Request CreateDomain
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679215766"><span class="annot"><span class="annottext">request :: CreateDomain -&gt; Request CreateDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDomain -&gt; Request CreateDomain
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679215753"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679215762"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDomain
 -&gt; ClientResponse ClientBody
@@ -195,10 +195,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDomainResult&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215750"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215750"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215749"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679215749"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215748"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679215748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215759"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215758"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215758"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215757"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679215757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe DomainStatus -&gt; Int -&gt; CreateDomainResponse
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DomainStatus -&gt; Int -&gt; CreateDomainResponse)
@@ -206,7 +206,7 @@ Text
 -&gt; Either String (Int -&gt; CreateDomainResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679215748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DomainStatus)
+</span><a href="#local-6989586621679215757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DomainStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,15 +218,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215750"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215759"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215740"><span id="local-6989586621679215742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215749"><span id="local-6989586621679215751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679215733"><span class="annot"><span class="annottext">toHeaders :: CreateDomain -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679215742"><span class="annot"><span class="annottext">toHeaders :: CreateDomain -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDomain -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -234,18 +234,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679215728"><span class="annot"><span class="annottext">toPath :: CreateDomain -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679215737"><span class="annot"><span class="annottext">toPath :: CreateDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679215724"><span class="annot"><span class="annottext">toQuery :: CreateDomain -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215722"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679215733"><span class="annot"><span class="annottext">toQuery :: CreateDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215731"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:CreateDomain' :: CreateDomain -&gt; Text
-</span><a href="#local-6989586621679215722"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215731"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -265,21 +265,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215722"><span class="hs-identifier hs-var">domainName</span></a></span><span>
+</span><a href="#local-6989586621679215731"><span class="hs-identifier hs-var">domainName</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The result of a @CreateDomainRequest@. Contains the status of a newly</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- created domain.</span><span>
 </span><span id="line-124"></span><span class="hs-comment">--</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- /See:/ 'newCreateDomainResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679215719"><span id="local-6989586621679215720"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainResponse"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-var">CreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679215728"><span id="local-6989586621679215729"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainResponse"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-var">CreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdomainStatus%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Maybe DomainStatus
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AdomainStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var hs-var">domainStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Int
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215713"><span id="local-6989586621679215715"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215722"><span id="local-6989586621679215724"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 (CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
 -&gt; (CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
 -&gt; Eq CreateDomainResponse
@@ -288,7 +288,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 == :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 $c== :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215705"><span id="local-6989586621679215707"><span id="local-6989586621679215709"><span id="local-6989586621679215711"><span class="annot"><span class="annottext">ReadPrec [CreateDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215714"><span id="local-6989586621679215716"><span id="local-6989586621679215718"><span id="local-6989586621679215720"><span class="annot"><span class="annottext">ReadPrec [CreateDomainResponse]
 ReadPrec CreateDomainResponse
 Int -&gt; ReadS CreateDomainResponse
 ReadS [CreateDomainResponse]
@@ -308,7 +308,7 @@ readList :: ReadS [CreateDomainResponse]
 $creadList :: ReadS [CreateDomainResponse]
 readsPrec :: Int -&gt; ReadS CreateDomainResponse
 $creadsPrec :: Int -&gt; ReadS CreateDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215699"><span id="local-6989586621679215701"><span id="local-6989586621679215703"><span class="annot"><span class="annottext">Int -&gt; CreateDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215708"><span id="local-6989586621679215710"><span id="local-6989586621679215712"><span class="annot"><span class="annottext">Int -&gt; CreateDomainResponse -&gt; ShowS
 [CreateDomainResponse] -&gt; ShowS
 CreateDomainResponse -&gt; String
 (Int -&gt; CreateDomainResponse -&gt; ShowS)
@@ -350,8 +350,8 @@ $cfrom :: forall x. CreateDomainResponse -&gt; Rep CreateDomainResponse x
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
 </span><span id="line-148"></span><span id="newCreateDomainResponse"><span class="annot"><span class="annottext">newCreateDomainResponse :: Int -&gt; CreateDomainResponse
-</span><a href="Network.AWS.CloudSearch.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679215696"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudSearch.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679215705"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">CreateDomainResponse' :: Maybe DomainStatus -&gt; Int -&gt; CreateDomainResponse
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainStatus:CreateDomainResponse' :: Maybe DomainStatus
@@ -361,7 +361,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679215705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -377,16 +377,16 @@ forall a. Maybe a
      (Maybe DomainStatus)
      (Maybe DomainStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215695"><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215704"><span class="annot"><span class="annottext">Maybe DomainStatus
 domainStatus :: Maybe DomainStatus
 $sel:domainStatus:CreateDomainResponse' :: CreateDomainResponse -&gt; Maybe DomainStatus
-</span><a href="#local-6989586621679215695"><span class="hs-identifier hs-var hs-var">domainStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
-</span><a href="#local-6989586621679215695"><span class="hs-identifier hs-var">domainStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215694"><span class="annot"><span class="annottext">s :: CreateDomainResponse
-</span><a href="#local-6989586621679215694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215693"><span class="annot"><span class="annottext">Maybe DomainStatus
-</span><a href="#local-6989586621679215693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
-</span><a href="#local-6989586621679215694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainStatus:CreateDomainResponse' :: Maybe DomainStatus
+</span><a href="#local-6989586621679215704"><span class="hs-identifier hs-var hs-var">domainStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><a href="#local-6989586621679215704"><span class="hs-identifier hs-var">domainStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215703"><span class="annot"><span class="annottext">s :: CreateDomainResponse
+</span><a href="#local-6989586621679215703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215702"><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><a href="#local-6989586621679215702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
+</span><a href="#local-6989586621679215703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainStatus:CreateDomainResponse' :: Maybe DomainStatus
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AdomainStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">domainStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
-</span><a href="#local-6989586621679215693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#createDomainResponse_httpStatus"><span class="hs-identifier hs-type">createDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -395,16 +395,16 @@ $sel:domainStatus:CreateDomainResponse' :: CreateDomainResponse -&gt; Maybe Doma
 -&gt; (CreateDomainResponse -&gt; Int -&gt; CreateDomainResponse)
 -&gt; Lens CreateDomainResponse CreateDomainResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215692"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215701"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDomainResponse' :: CreateDomainResponse -&gt; Int
-</span><a href="#local-6989586621679215692"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215692"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215691"><span class="annot"><span class="annottext">s :: CreateDomainResponse
-</span><a href="#local-6989586621679215691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
-</span><a href="#local-6989586621679215691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
+</span><a href="#local-6989586621679215701"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215701"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215700"><span class="annot"><span class="annottext">s :: CreateDomainResponse
+</span><a href="#local-6989586621679215700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215699"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
+</span><a href="#local-6989586621679215700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
 </span><a href="Network.AWS.CloudSearch.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- checkpoint data.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCheckpointConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680297475"><span id="local-6989586621680297476"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckpointConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-var">CheckpointConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckpointConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-var">CheckpointConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680297484"><span id="local-6989586621680297485"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckpointConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-var">CheckpointConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckpointConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-var">CheckpointConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) The local directory where checkpoints are written. The</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- default directory is @\/opt\/ml\/checkpoints\/@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AlocalPath%3ACheckpointConfig%27"><span class="annot"><span class="annottext">CheckpointConfig -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3As3Uri%3ACheckpointConfig%27"><span class="annot"><span class="annottext">CheckpointConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#%24sel%3As3Uri%3ACheckpointConfig%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680297468"><span id="local-6989586621680297470"><span class="annot"><span class="annottext">CheckpointConfig -&gt; CheckpointConfig -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680297477"><span id="local-6989586621680297479"><span class="annot"><span class="annottext">CheckpointConfig -&gt; CheckpointConfig -&gt; Bool
 (CheckpointConfig -&gt; CheckpointConfig -&gt; Bool)
 -&gt; (CheckpointConfig -&gt; CheckpointConfig -&gt; Bool)
 -&gt; Eq CheckpointConfig
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CheckpointConfig -&gt; CheckpointConfig -&gt; Bool
 == :: CheckpointConfig -&gt; CheckpointConfig -&gt; Bool
 $c== :: CheckpointConfig -&gt; CheckpointConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297459"><span id="local-6989586621680297461"><span id="local-6989586621680297463"><span id="local-6989586621680297465"><span class="annot"><span class="annottext">ReadPrec [CheckpointConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297468"><span id="local-6989586621680297470"><span id="local-6989586621680297472"><span id="local-6989586621680297474"><span class="annot"><span class="annottext">ReadPrec [CheckpointConfig]
 ReadPrec CheckpointConfig
 Int -&gt; ReadS CheckpointConfig
 ReadS [CheckpointConfig]
@@ -66,7 +66,7 @@ readList :: ReadS [CheckpointConfig]
 $creadList :: ReadS [CheckpointConfig]
 readsPrec :: Int -&gt; ReadS CheckpointConfig
 $creadsPrec :: Int -&gt; ReadS CheckpointConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297452"><span id="local-6989586621680297454"><span id="local-6989586621680297456"><span class="annot"><span class="annottext">Int -&gt; CheckpointConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297461"><span id="local-6989586621680297463"><span id="local-6989586621680297465"><span class="annot"><span class="annottext">Int -&gt; CheckpointConfig -&gt; ShowS
 [CheckpointConfig] -&gt; ShowS
 CheckpointConfig -&gt; String
 (Int -&gt; CheckpointConfig -&gt; ShowS)
@@ -110,8 +110,8 @@ $cfrom :: forall x. CheckpointConfig -&gt; Rep CheckpointConfig x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span><span>
 </span><span id="line-57"></span><span id="newCheckpointConfig"><span class="annot"><span class="annottext">newCheckpointConfig :: Text -&gt; CheckpointConfig
-</span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#newCheckpointConfig"><span class="hs-identifier hs-var hs-var">newCheckpointConfig</span></a></span></span><span> </span><span id="local-6989586621680297446"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297446"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#newCheckpointConfig"><span class="hs-identifier hs-var hs-var">newCheckpointConfig</span></a></span></span><span> </span><span id="local-6989586621680297455"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680297455"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">CheckpointConfig' :: Maybe Text -&gt; Text -&gt; CheckpointConfig
 </span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:localPath:CheckpointConfig' :: Maybe Text
@@ -120,7 +120,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:CheckpointConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#%24sel%3As3Uri%3ACheckpointConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297446"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
+</span><a href="#local-6989586621680297455"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | (Optional) The local directory where checkpoints are written. The</span><span>
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (CheckpointConfig -&gt; Maybe Text -&gt; CheckpointConfig)
 -&gt; Lens CheckpointConfig CheckpointConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297442"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297451"><span class="annot"><span class="annottext">Maybe Text
 localPath :: Maybe Text
 $sel:localPath:CheckpointConfig' :: CheckpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680297442"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680297442"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297441"><span class="annot"><span class="annottext">s :: CheckpointConfig
-</span><a href="#local-6989586621680297441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297440"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680297440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfig
-</span><a href="#local-6989586621680297441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:CheckpointConfig' :: Maybe Text
+</span><a href="#local-6989586621680297451"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680297451"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297450"><span class="annot"><span class="annottext">s :: CheckpointConfig
+</span><a href="#local-6989586621680297450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297449"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680297449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfig
+</span><a href="#local-6989586621680297450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:CheckpointConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#%24sel%3AlocalPath%3ACheckpointConfig%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680297440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680297449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Identifies the S3 path where you want Amazon SageMaker to store</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- checkpoints. For example, @s3:\/\/bucket-name\/key-name-prefix@.</span><span>
@@ -151,19 +151,19 @@ $sel:localPath:CheckpointConfig' :: CheckpointConfig -&gt; Maybe Text
 -&gt; (CheckpointConfig -&gt; Text -&gt; CheckpointConfig)
 -&gt; Lens CheckpointConfig CheckpointConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297438"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297447"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:CheckpointConfig' :: CheckpointConfig -&gt; Text
-</span><a href="#local-6989586621680297438"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297438"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297437"><span class="annot"><span class="annottext">s :: CheckpointConfig
-</span><a href="#local-6989586621680297437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297436"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfig
-</span><a href="#local-6989586621680297437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:CheckpointConfig' :: Text
+</span><a href="#local-6989586621680297447"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680297447"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297446"><span class="annot"><span class="annottext">s :: CheckpointConfig
+</span><a href="#local-6989586621680297446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680297445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckpointConfig
+</span><a href="#local-6989586621680297446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:CheckpointConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#%24sel%3As3Uri%3ACheckpointConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680297445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297433"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621680297431"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CheckpointConfig
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297442"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621680297440"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CheckpointConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CheckpointConfig)
@@ -173,15 +173,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CheckpointConfig&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680297428"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680297428"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680297437"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680297437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; CheckpointConfig
 </span><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-var">CheckpointConfig'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; CheckpointConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; CheckpointConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680297428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680297437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,25 +189,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser CheckpointConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680297428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680297437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297421"><span id="local-6989586621680297423"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297430"><span id="local-6989586621680297432"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297410"><span id="local-6989586621680297412"><span id="local-6989586621680297414"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621680297408"><span class="annot"><span class="annottext">toJSON :: CheckpointConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297405"><span id="local-6989586621680297406"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297419"><span id="local-6989586621680297421"><span id="local-6989586621680297423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig"><span class="hs-identifier hs-type">CheckpointConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680297417"><span class="annot"><span class="annottext">toJSON :: CheckpointConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CheckpointConfig.html#CheckpointConfig%27"><span class="hs-identifier hs-type">CheckpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297414"><span id="local-6989586621680297415"><span class="annot"><span class="annottext">Maybe Text
 Text
 s3Uri :: Text
 localPath :: Maybe Text
 $sel:s3Uri:CheckpointConfig' :: CheckpointConfig -&gt; Text
 $sel:localPath:CheckpointConfig' :: CheckpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680297405"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680297414"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -219,14 +219,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680297406"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680297415"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297405"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680297414"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

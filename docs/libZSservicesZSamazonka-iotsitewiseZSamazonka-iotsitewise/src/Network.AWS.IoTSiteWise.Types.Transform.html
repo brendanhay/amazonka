@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.Transform</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.Transform</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.ExpressionVariable</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TransformProcessingConfig.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.TransformProcessingConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains an asset transform property. A transform is a one-to-one</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- mapping of a property\'s data points from one form to another. For</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- example, you can use a transform to convert a Celsius data stream to</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Fahrenheit by applying the transformation expression to each data point</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- of the Celsius stream. A transform can only have a data type of @DOUBLE@</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- and consume properties with data types of @INTEGER@ or @DOUBLE@.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms Transforms&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newTransform' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679345744"><span id="local-6989586621679345745"></span></span><span class="hs-keyword">data</span><span> </span><span id="Transform"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-var">Transform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Transform%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-var">Transform'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The processing configuration for the given transform property. You can</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- configure transforms to be kept at the edge or forwarded to the Amazon</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Web Services Cloud. You can also configure transforms to be computed at</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the edge or in the cloud.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AprocessingConfig%3ATransform%27"><span class="annot"><span class="annottext">Transform -&gt; Maybe TransformProcessingConfig
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3AprocessingConfig%3ATransform%27"><span class="hs-identifier hs-var hs-var">processingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TransformProcessingConfig.html#TransformProcessingConfig"><span class="hs-identifier hs-type">TransformProcessingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The mathematical expression that defines the transformation function.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- You can specify up to 10 variables per expression. You can specify up to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- 10 functions per expression.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas&gt;</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aexpression%3ATransform%27"><span class="annot"><span class="annottext">Transform -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3Aexpression%3ATransform%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The list of variables used in the expression.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Avariables%3ATransform%27"><span class="annot"><span class="annottext">Transform -&gt; [ExpressionVariable]
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3Avariables%3ATransform%27"><span class="hs-identifier hs-var hs-var">variables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345736"><span id="local-6989586621679345738"><span class="annot"><span class="annottext">Transform -&gt; Transform -&gt; Bool
+(Transform -&gt; Transform -&gt; Bool)
+-&gt; (Transform -&gt; Transform -&gt; Bool) -&gt; Eq Transform
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Transform -&gt; Transform -&gt; Bool
+$c/= :: Transform -&gt; Transform -&gt; Bool
+== :: Transform -&gt; Transform -&gt; Bool
+$c== :: Transform -&gt; Transform -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345727"><span id="local-6989586621679345729"><span id="local-6989586621679345731"><span id="local-6989586621679345733"><span class="annot"><span class="annottext">ReadPrec [Transform]
+ReadPrec Transform
+Int -&gt; ReadS Transform
+ReadS [Transform]
+(Int -&gt; ReadS Transform)
+-&gt; ReadS [Transform]
+-&gt; ReadPrec Transform
+-&gt; ReadPrec [Transform]
+-&gt; Read Transform
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Transform]
+$creadListPrec :: ReadPrec [Transform]
+readPrec :: ReadPrec Transform
+$creadPrec :: ReadPrec Transform
+readList :: ReadS [Transform]
+$creadList :: ReadS [Transform]
+readsPrec :: Int -&gt; ReadS Transform
+$creadsPrec :: Int -&gt; ReadS Transform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345720"><span id="local-6989586621679345722"><span id="local-6989586621679345724"><span class="annot"><span class="annottext">Int -&gt; Transform -&gt; ShowS
+[Transform] -&gt; ShowS
+Transform -&gt; String
+(Int -&gt; Transform -&gt; ShowS)
+-&gt; (Transform -&gt; String)
+-&gt; ([Transform] -&gt; ShowS)
+-&gt; Show Transform
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Transform] -&gt; ShowS
+$cshowList :: [Transform] -&gt; ShowS
+show :: Transform -&gt; String
+$cshow :: Transform -&gt; String
+showsPrec :: Int -&gt; Transform -&gt; ShowS
+$cshowsPrec :: Int -&gt; Transform -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Transform -&gt; Rep Transform x)
+-&gt; (forall x. Rep Transform x -&gt; Transform) -&gt; Generic Transform
+forall x. Rep Transform x -&gt; Transform
+forall x. Transform -&gt; Rep Transform x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Transform x -&gt; Transform
+$cfrom :: forall x. Transform -&gt; Rep Transform x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'Transform' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'processingConfig', 'transform_processingConfig' - The processing configuration for the given transform property. You can</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- configure transforms to be kept at the edge or forwarded to the Amazon</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Web Services Cloud. You can also configure transforms to be computed at</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- the edge or in the cloud.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'expression', 'transform_expression' - The mathematical expression that defines the transformation function.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- You can specify up to 10 variables per expression. You can specify up to</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 10 functions per expression.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas&gt;</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'variables', 'transform_variables' - The list of variables used in the expression.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#newTransform"><span class="hs-identifier hs-type">newTransform</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'expression'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span>
+</span><span id="line-85"></span><span id="newTransform"><span class="annot"><span class="annottext">newTransform :: Text -&gt; Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#newTransform"><span class="hs-identifier hs-var hs-var">newTransform</span></a></span></span><span> </span><span id="local-6989586621679345714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345714"><span class="hs-identifier hs-var">pExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">Transform' :: Maybe TransformProcessingConfig
+-&gt; Text -&gt; [ExpressionVariable] -&gt; Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:processingConfig:Transform' :: Maybe TransformProcessingConfig
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3AprocessingConfig%3ATransform%27"><span class="hs-identifier hs-var">processingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformProcessingConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:expression:Transform' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3Aexpression%3ATransform%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345714"><span class="hs-identifier hs-var">pExpression_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:variables:Transform' :: [ExpressionVariable]
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3Avariables%3ATransform%27"><span class="hs-identifier hs-var">variables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ExpressionVariable]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The processing configuration for the given transform property. You can</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- configure transforms to be kept at the edge or forwarded to the Amazon</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Web Services Cloud. You can also configure transforms to be computed at</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the edge or in the cloud.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#transform_processingConfig"><span class="hs-identifier hs-type">transform_processingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TransformProcessingConfig.html#TransformProcessingConfig"><span class="hs-identifier hs-type">TransformProcessingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="transform_processingConfig"><span class="annot"><span class="annottext">transform_processingConfig :: (Maybe TransformProcessingConfig
+ -&gt; f (Maybe TransformProcessingConfig))
+-&gt; Transform -&gt; f Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#transform_processingConfig"><span class="hs-identifier hs-var hs-var">transform_processingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transform -&gt; Maybe TransformProcessingConfig)
+-&gt; (Transform -&gt; Maybe TransformProcessingConfig -&gt; Transform)
+-&gt; Lens
+     Transform
+     Transform
+     (Maybe TransformProcessingConfig)
+     (Maybe TransformProcessingConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345710"><span class="annot"><span class="annottext">Maybe TransformProcessingConfig
+processingConfig :: Maybe TransformProcessingConfig
+$sel:processingConfig:Transform' :: Transform -&gt; Maybe TransformProcessingConfig
+</span><a href="#local-6989586621679345710"><span class="hs-identifier hs-var hs-var">processingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransformProcessingConfig
+</span><a href="#local-6989586621679345710"><span class="hs-identifier hs-var">processingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345709"><span class="annot"><span class="annottext">s :: Transform
+</span><a href="#local-6989586621679345709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345708"><span class="annot"><span class="annottext">Maybe TransformProcessingConfig
+</span><a href="#local-6989586621679345708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transform
+</span><a href="#local-6989586621679345709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfig:Transform' :: Maybe TransformProcessingConfig
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3AprocessingConfig%3ATransform%27"><span class="hs-identifier hs-var">processingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformProcessingConfig
+</span><a href="#local-6989586621679345708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The mathematical expression that defines the transformation function.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- You can specify up to 10 variables per expression. You can specify up to</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 10 functions per expression.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas&gt;</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#transform_expression"><span class="hs-identifier hs-type">transform_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="transform_expression"><span class="annot"><span class="annottext">transform_expression :: (Text -&gt; f Text) -&gt; Transform -&gt; f Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#transform_expression"><span class="hs-identifier hs-var hs-var">transform_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transform -&gt; Text)
+-&gt; (Transform -&gt; Text -&gt; Transform)
+-&gt; Lens Transform Transform Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345706"><span class="annot"><span class="annottext">Text
+expression :: Text
+$sel:expression:Transform' :: Transform -&gt; Text
+</span><a href="#local-6989586621679345706"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345706"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345705"><span class="annot"><span class="annottext">s :: Transform
+</span><a href="#local-6989586621679345705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transform
+</span><a href="#local-6989586621679345705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:Transform' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3Aexpression%3ATransform%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The list of variables used in the expression.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#transform_variables"><span class="hs-identifier hs-type">transform_variables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ExpressionVariable.html#ExpressionVariable"><span class="hs-identifier hs-type">ExpressionVariable</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span id="transform_variables"><span class="annot"><span class="annottext">transform_variables :: ([ExpressionVariable] -&gt; f [ExpressionVariable])
+-&gt; Transform -&gt; f Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#transform_variables"><span class="hs-identifier hs-var hs-var">transform_variables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transform -&gt; [ExpressionVariable])
+-&gt; (Transform -&gt; [ExpressionVariable] -&gt; Transform)
+-&gt; Lens
+     Transform Transform [ExpressionVariable] [ExpressionVariable]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345702"><span class="annot"><span class="annottext">[ExpressionVariable]
+variables :: [ExpressionVariable]
+$sel:variables:Transform' :: Transform -&gt; [ExpressionVariable]
+</span><a href="#local-6989586621679345702"><span class="hs-identifier hs-var hs-var">variables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ExpressionVariable]
+</span><a href="#local-6989586621679345702"><span class="hs-identifier hs-var">variables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345701"><span class="annot"><span class="annottext">s :: Transform
+</span><a href="#local-6989586621679345701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345700"><span class="annot"><span class="annottext">[ExpressionVariable]
+</span><a href="#local-6989586621679345700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transform
+</span><a href="#local-6989586621679345701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variables:Transform' :: [ExpressionVariable]
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#%24sel%3Avariables%3ATransform%27"><span class="hs-identifier hs-var">variables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ExpressionVariable]
+</span><a href="#local-6989586621679345700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ExpressionVariable] -&gt; f [ExpressionVariable])
+ -&gt; Transform -&gt; f Transform)
+-&gt; (([ExpressionVariable] -&gt; f [ExpressionVariable])
+    -&gt; [ExpressionVariable] -&gt; f [ExpressionVariable])
+-&gt; ([ExpressionVariable] -&gt; f [ExpressionVariable])
+-&gt; Transform
+-&gt; f Transform
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ExpressionVariable] -&gt; f [ExpressionVariable])
+-&gt; [ExpressionVariable] -&gt; f [ExpressionVariable]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345695"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679345693"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Transform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Transform) -&gt; Value -&gt; Parser Transform
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Transform&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345690"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransformProcessingConfig
+-&gt; Text -&gt; [ExpressionVariable] -&gt; Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-var">Transform'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransformProcessingConfig
+ -&gt; Text -&gt; [ExpressionVariable] -&gt; Transform)
+-&gt; Parser (Maybe TransformProcessingConfig)
+-&gt; Parser (Text -&gt; [ExpressionVariable] -&gt; Transform)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransformProcessingConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;processingConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [ExpressionVariable] -&gt; Transform)
+-&gt; Parser Text -&gt; Parser ([ExpressionVariable] -&gt; Transform)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser ([ExpressionVariable] -&gt; Transform)
+-&gt; Parser [ExpressionVariable] -&gt; Parser Transform
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ExpressionVariable])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;variables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [ExpressionVariable])
+-&gt; [ExpressionVariable] -&gt; Parser [ExpressionVariable]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[ExpressionVariable]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345682"><span id="local-6989586621679345684"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345671"><span id="local-6989586621679345673"><span id="local-6989586621679345675"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679345669"><span class="annot"><span class="annottext">toJSON :: Transform -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform%27"><span class="hs-identifier hs-type">Transform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345665"><span id="local-6989586621679345666"><span id="local-6989586621679345667"><span class="annot"><span class="annottext">[ExpressionVariable]
+Maybe TransformProcessingConfig
+Text
+variables :: [ExpressionVariable]
+expression :: Text
+processingConfig :: Maybe TransformProcessingConfig
+$sel:variables:Transform' :: Transform -&gt; [ExpressionVariable]
+$sel:expression:Transform' :: Transform -&gt; Text
+$sel:processingConfig:Transform' :: Transform -&gt; Maybe TransformProcessingConfig
+</span><a href="#local-6989586621679345665"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;processingConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransformProcessingConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(TransformProcessingConfig -&gt; Pair)
+-&gt; Maybe TransformProcessingConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransformProcessingConfig
+</span><a href="#local-6989586621679345667"><span class="hs-identifier hs-var">processingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345666"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;variables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ExpressionVariable] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ExpressionVariable]
+</span><a href="#local-6989586621679345665"><span class="hs-identifier hs-var">variables</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span></pre></body></html>

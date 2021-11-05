@@ -86,12 +86,12 @@
 </span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- /See:/ 'newVerifyDomainDkim' smart constructor.</span><span>
-</span><span id="line-89"></span><span id="local-6989586621679291123"><span id="local-6989586621679291124"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainDkim"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-var">VerifyDomainDkim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainDkim%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-var">VerifyDomainDkim'</span></a></span></span><span>
+</span><span id="line-89"></span><span id="local-6989586621679291132"><span id="local-6989586621679291133"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainDkim"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-var">VerifyDomainDkim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainDkim%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-var">VerifyDomainDkim'</span></a></span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain to be verified for Easy DKIM signing.</span><span>
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3Adomain%3AVerifyDomainDkim%27"><span class="annot"><span class="annottext">VerifyDomainDkim -&gt; Text
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3Adomain%3AVerifyDomainDkim%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291117"><span id="local-6989586621679291119"><span class="annot"><span class="annottext">VerifyDomainDkim -&gt; VerifyDomainDkim -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291126"><span id="local-6989586621679291128"><span class="annot"><span class="annottext">VerifyDomainDkim -&gt; VerifyDomainDkim -&gt; Bool
 (VerifyDomainDkim -&gt; VerifyDomainDkim -&gt; Bool)
 -&gt; (VerifyDomainDkim -&gt; VerifyDomainDkim -&gt; Bool)
 -&gt; Eq VerifyDomainDkim
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyDomainDkim -&gt; VerifyDomainDkim -&gt; Bool
 == :: VerifyDomainDkim -&gt; VerifyDomainDkim -&gt; Bool
 $c== :: VerifyDomainDkim -&gt; VerifyDomainDkim -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291108"><span id="local-6989586621679291110"><span id="local-6989586621679291112"><span id="local-6989586621679291114"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainDkim]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291117"><span id="local-6989586621679291119"><span id="local-6989586621679291121"><span id="local-6989586621679291123"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainDkim]
 ReadPrec VerifyDomainDkim
 Int -&gt; ReadS VerifyDomainDkim
 ReadS [VerifyDomainDkim]
@@ -120,7 +120,7 @@ readList :: ReadS [VerifyDomainDkim]
 $creadList :: ReadS [VerifyDomainDkim]
 readsPrec :: Int -&gt; ReadS VerifyDomainDkim
 $creadsPrec :: Int -&gt; ReadS VerifyDomainDkim
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291101"><span id="local-6989586621679291103"><span id="local-6989586621679291105"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainDkim -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291110"><span id="local-6989586621679291112"><span id="local-6989586621679291114"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainDkim -&gt; ShowS
 [VerifyDomainDkim] -&gt; ShowS
 VerifyDomainDkim -&gt; String
 (Int -&gt; VerifyDomainDkim -&gt; ShowS)
@@ -160,12 +160,12 @@ $cfrom :: forall x. VerifyDomainDkim -&gt; Rep VerifyDomainDkim x
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span>
 </span><span id="line-108"></span><span id="newVerifyDomainDkim"><span class="annot"><span class="annottext">newVerifyDomainDkim :: Text -&gt; VerifyDomainDkim
-</span><a href="Network.AWS.SES.VerifyDomainDkim.html#newVerifyDomainDkim"><span class="hs-identifier hs-var hs-var">newVerifyDomainDkim</span></a></span></span><span> </span><span id="local-6989586621679291096"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291096"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.VerifyDomainDkim.html#newVerifyDomainDkim"><span class="hs-identifier hs-var hs-var">newVerifyDomainDkim</span></a></span></span><span> </span><span id="local-6989586621679291105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291105"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">VerifyDomainDkim' :: Text -&gt; VerifyDomainDkim
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-type">VerifyDomainDkim'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:VerifyDomainDkim' :: Text
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3Adomain%3AVerifyDomainDkim%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291096"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679291105"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The name of the domain to be verified for Easy DKIM signing.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#verifyDomainDkim_domain"><span class="hs-identifier hs-type">verifyDomainDkim_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,27 +174,27 @@ $cfrom :: forall x. VerifyDomainDkim -&gt; Rep VerifyDomainDkim x
 -&gt; (VerifyDomainDkim -&gt; Text -&gt; VerifyDomainDkim)
 -&gt; Lens VerifyDomainDkim VerifyDomainDkim Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-type">VerifyDomainDkim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291093"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-type">VerifyDomainDkim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291102"><span class="annot"><span class="annottext">Text
 domain :: Text
 $sel:domain:VerifyDomainDkim' :: VerifyDomainDkim -&gt; Text
-</span><a href="#local-6989586621679291093"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291093"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291092"><span class="annot"><span class="annottext">s :: VerifyDomainDkim
-</span><a href="#local-6989586621679291092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-type">VerifyDomainDkim'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainDkim
-</span><a href="#local-6989586621679291092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:VerifyDomainDkim' :: Text
+</span><a href="#local-6989586621679291102"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291102"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291101"><span class="annot"><span class="annottext">s :: VerifyDomainDkim
+</span><a href="#local-6989586621679291101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-type">VerifyDomainDkim'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainDkim
+</span><a href="#local-6989586621679291101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:VerifyDomainDkim' :: Text
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3Adomain%3AVerifyDomainDkim%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679291087"><span class="annot"><span class="annottext">request :: VerifyDomainDkim -&gt; Request VerifyDomainDkim
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679291096"><span class="annot"><span class="annottext">request :: VerifyDomainDkim -&gt; Request VerifyDomainDkim
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; VerifyDomainDkim -&gt; Request VerifyDomainDkim
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679291083"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679291092"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy VerifyDomainDkim
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerifyDomainDkimResult&quot;</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291080"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291080"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291079"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679291079"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291078"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679291078"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291089"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291089"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291088"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679291088"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291087"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679291087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [Text] -&gt; VerifyDomainDkimResponse
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-var">VerifyDomainDkimResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [Text] -&gt; VerifyDomainDkimResponse)
@@ -238,12 +238,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291080"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291089"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; VerifyDomainDkimResponse)
 -&gt; Either String [Text] -&gt; Either String VerifyDomainDkimResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679291078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679291087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DkimTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -261,12 +261,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-128"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291068"><span id="local-6989586621679291070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291077"><span id="local-6989586621679291079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679291061"><span class="annot"><span class="annottext">toHeaders :: VerifyDomainDkim -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679291070"><span class="annot"><span class="annottext">toHeaders :: VerifyDomainDkim -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; VerifyDomainDkim -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -274,18 +274,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679291056"><span class="annot"><span class="annottext">toPath :: VerifyDomainDkim -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679291065"><span class="annot"><span class="annottext">toPath :: VerifyDomainDkim -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VerifyDomainDkim -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim"><span class="hs-identifier hs-type">VerifyDomainDkim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679291052"><span class="annot"><span class="annottext">toQuery :: VerifyDomainDkim -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-type">VerifyDomainDkim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291050"><span class="annot"><span class="annottext">Text
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679291061"><span class="annot"><span class="annottext">toQuery :: VerifyDomainDkim -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkim%27"><span class="hs-identifier hs-type">VerifyDomainDkim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291059"><span class="annot"><span class="annottext">Text
 domain :: Text
 $sel:domain:VerifyDomainDkim' :: VerifyDomainDkim -&gt; Text
-</span><a href="#local-6989586621679291050"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679291059"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -305,14 +305,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291050"><span class="hs-identifier hs-var">domain</span></a></span><span>
+</span><a href="#local-6989586621679291059"><span class="hs-identifier hs-var">domain</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | Returns CNAME records that you must publish to the DNS server of your</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- domain to set up Easy DKIM with Amazon SES.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- /See:/ 'newVerifyDomainDkimResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679291047"><span id="local-6989586621679291048"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainDkimResponse"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-var">VerifyDomainDkimResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainDkimResponse%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-var">VerifyDomainDkimResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679291056"><span id="local-6989586621679291057"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainDkimResponse"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-var">VerifyDomainDkimResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainDkimResponse%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-var">VerifyDomainDkimResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AVerifyDomainDkimResponse%27"><span class="annot"><span class="annottext">VerifyDomainDkimResponse -&gt; Int
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3AhttpStatus%3AVerifyDomainDkimResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -333,7 +333,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AdkimTokens%3AVerifyDomainDkimResponse%27"><span class="annot"><span class="annottext">VerifyDomainDkimResponse -&gt; [Text]
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3AdkimTokens%3AVerifyDomainDkimResponse%27"><span class="hs-identifier hs-var hs-var">dkimTokens</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291041"><span id="local-6989586621679291043"><span class="annot"><span class="annottext">VerifyDomainDkimResponse -&gt; VerifyDomainDkimResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291050"><span id="local-6989586621679291052"><span class="annot"><span class="annottext">VerifyDomainDkimResponse -&gt; VerifyDomainDkimResponse -&gt; Bool
 (VerifyDomainDkimResponse -&gt; VerifyDomainDkimResponse -&gt; Bool)
 -&gt; (VerifyDomainDkimResponse -&gt; VerifyDomainDkimResponse -&gt; Bool)
 -&gt; Eq VerifyDomainDkimResponse
@@ -342,7 +342,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyDomainDkimResponse -&gt; VerifyDomainDkimResponse -&gt; Bool
 == :: VerifyDomainDkimResponse -&gt; VerifyDomainDkimResponse -&gt; Bool
 $c== :: VerifyDomainDkimResponse -&gt; VerifyDomainDkimResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291033"><span id="local-6989586621679291035"><span id="local-6989586621679291037"><span id="local-6989586621679291039"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainDkimResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291042"><span id="local-6989586621679291044"><span id="local-6989586621679291046"><span id="local-6989586621679291048"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainDkimResponse]
 ReadPrec VerifyDomainDkimResponse
 Int -&gt; ReadS VerifyDomainDkimResponse
 ReadS [VerifyDomainDkimResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [VerifyDomainDkimResponse]
 $creadList :: ReadS [VerifyDomainDkimResponse]
 readsPrec :: Int -&gt; ReadS VerifyDomainDkimResponse
 $creadsPrec :: Int -&gt; ReadS VerifyDomainDkimResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291027"><span id="local-6989586621679291029"><span id="local-6989586621679291031"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainDkimResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291036"><span id="local-6989586621679291038"><span id="local-6989586621679291040"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainDkimResponse -&gt; ShowS
 [VerifyDomainDkimResponse] -&gt; ShowS
 VerifyDomainDkimResponse -&gt; String
 (Int -&gt; VerifyDomainDkimResponse -&gt; ShowS)
@@ -423,14 +423,14 @@ VerifyDomainDkimResponse -&gt; Rep VerifyDomainDkimResponse x
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span><span>
 </span><span id="line-204"></span><span id="newVerifyDomainDkimResponse"><span class="annot"><span class="annottext">newVerifyDomainDkimResponse :: Int -&gt; VerifyDomainDkimResponse
-</span><a href="Network.AWS.SES.VerifyDomainDkim.html#newVerifyDomainDkimResponse"><span class="hs-identifier hs-var hs-var">newVerifyDomainDkimResponse</span></a></span></span><span> </span><span id="local-6989586621679291024"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.VerifyDomainDkim.html#newVerifyDomainDkimResponse"><span class="hs-identifier hs-var hs-var">newVerifyDomainDkimResponse</span></a></span></span><span> </span><span id="local-6989586621679291033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">VerifyDomainDkimResponse' :: Int -&gt; [Text] -&gt; VerifyDomainDkimResponse
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyDomainDkimResponse' :: Int
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3AhttpStatus%3AVerifyDomainDkimResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:dkimTokens:VerifyDomainDkimResponse' :: [Text]
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3AdkimTokens%3AVerifyDomainDkimResponse%27"><span class="hs-identifier hs-var">dkimTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -445,16 +445,16 @@ forall a. Monoid a =&gt; a
 -&gt; (VerifyDomainDkimResponse -&gt; Int -&gt; VerifyDomainDkimResponse)
 -&gt; Lens VerifyDomainDkimResponse VerifyDomainDkimResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291023"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291032"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:VerifyDomainDkimResponse' :: VerifyDomainDkimResponse -&gt; Int
-</span><a href="#local-6989586621679291023"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291023"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291022"><span class="annot"><span class="annottext">s :: VerifyDomainDkimResponse
-</span><a href="#local-6989586621679291022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291021"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainDkimResponse
-</span><a href="#local-6989586621679291022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyDomainDkimResponse' :: Int
+</span><a href="#local-6989586621679291032"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291032"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291031"><span class="annot"><span class="annottext">s :: VerifyDomainDkimResponse
+</span><a href="#local-6989586621679291031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainDkimResponse
+</span><a href="#local-6989586621679291031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyDomainDkimResponse' :: Int
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3AhttpStatus%3AVerifyDomainDkimResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | A set of character strings that represent the domain\'s identity. If the</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- identity is an email address, the tokens represent the domain of that</span><span>
@@ -478,16 +478,16 @@ $sel:httpStatus:VerifyDomainDkimResponse' :: VerifyDomainDkimResponse -&gt; Int
 -&gt; Lens
      VerifyDomainDkimResponse VerifyDomainDkimResponse [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291020"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291029"><span class="annot"><span class="annottext">[Text]
 dkimTokens :: [Text]
 $sel:dkimTokens:VerifyDomainDkimResponse' :: VerifyDomainDkimResponse -&gt; [Text]
-</span><a href="#local-6989586621679291020"><span class="hs-identifier hs-var hs-var">dkimTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679291020"><span class="hs-identifier hs-var">dkimTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291019"><span class="annot"><span class="annottext">s :: VerifyDomainDkimResponse
-</span><a href="#local-6989586621679291019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291018"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679291018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainDkimResponse
-</span><a href="#local-6989586621679291019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimTokens:VerifyDomainDkimResponse' :: [Text]
+</span><a href="#local-6989586621679291029"><span class="hs-identifier hs-var hs-var">dkimTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679291029"><span class="hs-identifier hs-var">dkimTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291028"><span class="annot"><span class="annottext">s :: VerifyDomainDkimResponse
+</span><a href="#local-6989586621679291028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse%27"><span class="hs-identifier hs-type">VerifyDomainDkimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291027"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679291027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainDkimResponse
+</span><a href="#local-6989586621679291028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimTokens:VerifyDomainDkimResponse' :: [Text]
 </span><a href="Network.AWS.SES.VerifyDomainDkim.html#%24sel%3AdkimTokens%3AVerifyDomainDkimResponse%27"><span class="hs-identifier hs-var">dkimTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679291018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679291027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; VerifyDomainDkimResponse -&gt; f VerifyDomainDkimResponse)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -498,5 +498,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainDkim.html#VerifyDomainDkimResponse"><span class="hs-identifier hs-type">VerifyDomainDkimResponse</span></a></span></span><span>
 </span><span id="line-233"></span></pre></body></html>

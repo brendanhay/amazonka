@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateLogSubscription' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679313874"><span id="local-6989586621679313875"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogSubscription"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-var">CreateLogSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogSubscription%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-var">CreateLogSubscription'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679313883"><span id="local-6989586621679313884"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogSubscription"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-var">CreateLogSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogSubscription%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-var">CreateLogSubscription'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the directory to which you want to subscribe and receive</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- real-time logs to your specified CloudWatch log group.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdirectoryId%3ACreateLogSubscription%27"><span class="annot"><span class="annottext">CreateLogSubscription -&gt; Text
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACreateLogSubscription%27"><span class="annot"><span class="annottext">CreateLogSubscription -&gt; Text
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AlogGroupName%3ACreateLogSubscription%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313867"><span id="local-6989586621679313869"><span class="annot"><span class="annottext">CreateLogSubscription -&gt; CreateLogSubscription -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313876"><span id="local-6989586621679313878"><span class="annot"><span class="annottext">CreateLogSubscription -&gt; CreateLogSubscription -&gt; Bool
 (CreateLogSubscription -&gt; CreateLogSubscription -&gt; Bool)
 -&gt; (CreateLogSubscription -&gt; CreateLogSubscription -&gt; Bool)
 -&gt; Eq CreateLogSubscription
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLogSubscription -&gt; CreateLogSubscription -&gt; Bool
 == :: CreateLogSubscription -&gt; CreateLogSubscription -&gt; Bool
 $c== :: CreateLogSubscription -&gt; CreateLogSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313858"><span id="local-6989586621679313860"><span id="local-6989586621679313862"><span id="local-6989586621679313864"><span class="annot"><span class="annottext">ReadPrec [CreateLogSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313867"><span id="local-6989586621679313869"><span id="local-6989586621679313871"><span id="local-6989586621679313873"><span class="annot"><span class="annottext">ReadPrec [CreateLogSubscription]
 ReadPrec CreateLogSubscription
 Int -&gt; ReadS CreateLogSubscription
 ReadS [CreateLogSubscription]
@@ -88,7 +88,7 @@ readList :: ReadS [CreateLogSubscription]
 $creadList :: ReadS [CreateLogSubscription]
 readsPrec :: Int -&gt; ReadS CreateLogSubscription
 $creadsPrec :: Int -&gt; ReadS CreateLogSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313851"><span id="local-6989586621679313853"><span id="local-6989586621679313855"><span class="annot"><span class="annottext">Int -&gt; CreateLogSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313860"><span id="local-6989586621679313862"><span id="local-6989586621679313864"><span class="annot"><span class="annottext">Int -&gt; CreateLogSubscription -&gt; ShowS
 [CreateLogSubscription] -&gt; ShowS
 CreateLogSubscription -&gt; String
 (Int -&gt; CreateLogSubscription -&gt; ShowS)
@@ -134,17 +134,17 @@ $cfrom :: forall x. CreateLogSubscription -&gt; Rep CreateLogSubscription x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span>
 </span><span id="line-81"></span><span id="newCreateLogSubscription"><span class="annot"><span class="annottext">newCreateLogSubscription :: Text -&gt; Text -&gt; CreateLogSubscription
-</span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#newCreateLogSubscription"><span class="hs-identifier hs-var hs-var">newCreateLogSubscription</span></a></span></span><span> </span><span id="local-6989586621679313846"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313846"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679313845"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313845"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#newCreateLogSubscription"><span class="hs-identifier hs-var hs-var">newCreateLogSubscription</span></a></span></span><span> </span><span id="local-6989586621679313855"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313855"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679313854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313854"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">CreateLogSubscription' :: Text -&gt; Text -&gt; CreateLogSubscription
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:CreateLogSubscription' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AdirectoryId%3ACreateLogSubscription%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313846"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313855"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogSubscription' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AlogGroupName%3ACreateLogSubscription%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313845"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679313854"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Identifier of the directory to which you want to subscribe and receive</span><span>
@@ -156,16 +156,16 @@ $cfrom :: forall x. CreateLogSubscription -&gt; Rep CreateLogSubscription x
 -&gt; (CreateLogSubscription -&gt; Text -&gt; CreateLogSubscription)
 -&gt; Lens CreateLogSubscription CreateLogSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313842"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313851"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:CreateLogSubscription' :: CreateLogSubscription -&gt; Text
-</span><a href="#local-6989586621679313842"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313842"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313841"><span class="annot"><span class="annottext">s :: CreateLogSubscription
-</span><a href="#local-6989586621679313841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313840"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogSubscription
-</span><a href="#local-6989586621679313841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateLogSubscription' :: Text
+</span><a href="#local-6989586621679313851"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313851"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313850"><span class="annot"><span class="annottext">s :: CreateLogSubscription
+</span><a href="#local-6989586621679313850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313849"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogSubscription
+</span><a href="#local-6989586621679313850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateLogSubscription' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AdirectoryId%3ACreateLogSubscription%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the CloudWatch log group where the real-time domain</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- controller logs are forwarded.</span><span>
@@ -176,27 +176,27 @@ $sel:directoryId:CreateLogSubscription' :: CreateLogSubscription -&gt; Text
 -&gt; (CreateLogSubscription -&gt; Text -&gt; CreateLogSubscription)
 -&gt; Lens CreateLogSubscription CreateLogSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313839"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313848"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:CreateLogSubscription' :: CreateLogSubscription -&gt; Text
-</span><a href="#local-6989586621679313839"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313839"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313838"><span class="annot"><span class="annottext">s :: CreateLogSubscription
-</span><a href="#local-6989586621679313838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313837"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogSubscription
-</span><a href="#local-6989586621679313838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogSubscription' :: Text
+</span><a href="#local-6989586621679313848"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313848"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313847"><span class="annot"><span class="annottext">s :: CreateLogSubscription
+</span><a href="#local-6989586621679313847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogSubscription
+</span><a href="#local-6989586621679313847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogSubscription' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AlogGroupName%3ACreateLogSubscription%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679313833"><span class="annot"><span class="annottext">request :: CreateLogSubscription -&gt; Request CreateLogSubscription
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679313842"><span class="annot"><span class="annottext">request :: CreateLogSubscription -&gt; Request CreateLogSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLogSubscription -&gt; Request CreateLogSubscription
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679313829"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679313838"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateLogSubscription
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313826"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313825"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679313825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313824"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679313824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313835"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313834"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313834"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313833"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679313833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateLogSubscriptionResponse
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-var">CreateLogSubscriptionResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateLogSubscriptionResponse)
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313835"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313817"><span id="local-6989586621679313819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313826"><span id="local-6989586621679313828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679313810"><span class="annot"><span class="annottext">toHeaders :: CreateLogSubscription -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679313819"><span class="annot"><span class="annottext">toHeaders :: CreateLogSubscription -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLogSubscription -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,14 +271,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313800"><span id="local-6989586621679313802"><span id="local-6989586621679313804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679313798"><span class="annot"><span class="annottext">toJSON :: CreateLogSubscription -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313795"><span id="local-6989586621679313796"><span class="annot"><span class="annottext">Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313809"><span id="local-6989586621679313811"><span id="local-6989586621679313813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679313807"><span class="annot"><span class="annottext">toJSON :: CreateLogSubscription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription%27"><span class="hs-identifier hs-type">CreateLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313804"><span id="local-6989586621679313805"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 directoryId :: Text
 $sel:logGroupName:CreateLogSubscription' :: CreateLogSubscription -&gt; Text
 $sel:directoryId:CreateLogSubscription' :: CreateLogSubscription -&gt; Text
-</span><a href="#local-6989586621679313795"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313804"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,26 +290,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313796"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313805"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313795"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313804"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679313789"><span class="annot"><span class="annottext">toPath :: CreateLogSubscription -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679313798"><span class="annot"><span class="annottext">toPath :: CreateLogSubscription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLogSubscription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscription"><span class="hs-identifier hs-type">CreateLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679313785"><span class="annot"><span class="annottext">toQuery :: CreateLogSubscription -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679313794"><span class="annot"><span class="annottext">toQuery :: CreateLogSubscription -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLogSubscription -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,12 +317,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newCreateLogSubscriptionResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679313782"><span id="local-6989586621679313783"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogSubscriptionResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-var">CreateLogSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-var">CreateLogSubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679313791"><span id="local-6989586621679313792"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogSubscriptionResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-var">CreateLogSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-var">CreateLogSubscriptionResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLogSubscriptionResponse%27"><span class="annot"><span class="annottext">CreateLogSubscriptionResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AhttpStatus%3ACreateLogSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313777"><span id="local-6989586621679313779"><span class="annot"><span class="annottext">CreateLogSubscriptionResponse
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313786"><span id="local-6989586621679313788"><span class="annot"><span class="annottext">CreateLogSubscriptionResponse
 -&gt; CreateLogSubscriptionResponse -&gt; Bool
 (CreateLogSubscriptionResponse
  -&gt; CreateLogSubscriptionResponse -&gt; Bool)
@@ -338,7 +338,7 @@ $c/= :: CreateLogSubscriptionResponse
 -&gt; CreateLogSubscriptionResponse -&gt; Bool
 $c== :: CreateLogSubscriptionResponse
 -&gt; CreateLogSubscriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313769"><span id="local-6989586621679313771"><span id="local-6989586621679313773"><span id="local-6989586621679313775"><span class="annot"><span class="annottext">ReadPrec [CreateLogSubscriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313778"><span id="local-6989586621679313780"><span id="local-6989586621679313782"><span id="local-6989586621679313784"><span class="annot"><span class="annottext">ReadPrec [CreateLogSubscriptionResponse]
 ReadPrec CreateLogSubscriptionResponse
 Int -&gt; ReadS CreateLogSubscriptionResponse
 ReadS [CreateLogSubscriptionResponse]
@@ -358,7 +358,7 @@ readList :: ReadS [CreateLogSubscriptionResponse]
 $creadList :: ReadS [CreateLogSubscriptionResponse]
 readsPrec :: Int -&gt; ReadS CreateLogSubscriptionResponse
 $creadsPrec :: Int -&gt; ReadS CreateLogSubscriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313763"><span id="local-6989586621679313765"><span id="local-6989586621679313767"><span class="annot"><span class="annottext">Int -&gt; CreateLogSubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313772"><span id="local-6989586621679313774"><span id="local-6989586621679313776"><span class="annot"><span class="annottext">Int -&gt; CreateLogSubscriptionResponse -&gt; ShowS
 [CreateLogSubscriptionResponse] -&gt; ShowS
 CreateLogSubscriptionResponse -&gt; String
 (Int -&gt; CreateLogSubscriptionResponse -&gt; ShowS)
@@ -410,14 +410,14 @@ CreateLogSubscriptionResponse
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newCreateLogSubscriptionResponse"><span class="annot"><span class="annottext">newCreateLogSubscriptionResponse :: Int -&gt; CreateLogSubscriptionResponse
-</span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#newCreateLogSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newCreateLogSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679313760"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#newCreateLogSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newCreateLogSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679313769"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313769"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">CreateLogSubscriptionResponse' :: Int -&gt; CreateLogSubscriptionResponse
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLogSubscriptionResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AhttpStatus%3ACreateLogSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679313769"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -430,16 +430,16 @@ CreateLogSubscriptionResponse
 -&gt; Lens
      CreateLogSubscriptionResponse CreateLogSubscriptionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313759"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313768"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateLogSubscriptionResponse' :: CreateLogSubscriptionResponse -&gt; Int
-</span><a href="#local-6989586621679313759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313758"><span class="annot"><span class="annottext">s :: CreateLogSubscriptionResponse
-</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313757"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogSubscriptionResponse
-</span><a href="#local-6989586621679313758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLogSubscriptionResponse' :: Int
+</span><a href="#local-6989586621679313768"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313768"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313767"><span class="annot"><span class="annottext">s :: CreateLogSubscriptionResponse
+</span><a href="#local-6989586621679313767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogSubscriptionResponse
+</span><a href="#local-6989586621679313767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLogSubscriptionResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#%24sel%3AhttpStatus%3ACreateLogSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateLogSubscription.html#CreateLogSubscriptionResponse"><span class="hs-identifier hs-type">CreateLogSubscriptionResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

@@ -97,7 +97,7 @@
 </span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newPutEventSelectors' smart constructor.</span><span>
-</span><span id="line-100"></span><span id="local-6989586621679198356"><span id="local-6989586621679198357"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEventSelectors"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-var">PutEventSelectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEventSelectors%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-var">PutEventSelectors'</span></a></span></span><span>
+</span><span id="line-100"></span><span id="local-6989586621679198365"><span id="local-6989586621679198366"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEventSelectors"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-var">PutEventSelectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEventSelectors%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-var">PutEventSelectors'</span></a></span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the settings for your event selectors. You can configure up to</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">-- five event selectors for a trail. You can use either @EventSelectors@ or</span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-comment">-- @AdvancedEventSelectors@ in a @PutEventSelectors@ request, but not both.</span><span>
@@ -137,7 +137,7 @@
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AtrailName%3APutEventSelectors%27"><span class="annot"><span class="annottext">PutEventSelectors -&gt; Text
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AtrailName%3APutEventSelectors%27"><span class="hs-identifier hs-var hs-var">trailName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198348"><span id="local-6989586621679198350"><span class="annot"><span class="annottext">PutEventSelectors -&gt; PutEventSelectors -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198357"><span id="local-6989586621679198359"><span class="annot"><span class="annottext">PutEventSelectors -&gt; PutEventSelectors -&gt; Bool
 (PutEventSelectors -&gt; PutEventSelectors -&gt; Bool)
 -&gt; (PutEventSelectors -&gt; PutEventSelectors -&gt; Bool)
 -&gt; Eq PutEventSelectors
@@ -146,7 +146,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutEventSelectors -&gt; PutEventSelectors -&gt; Bool
 == :: PutEventSelectors -&gt; PutEventSelectors -&gt; Bool
 $c== :: PutEventSelectors -&gt; PutEventSelectors -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198339"><span id="local-6989586621679198341"><span id="local-6989586621679198343"><span id="local-6989586621679198345"><span class="annot"><span class="annottext">ReadPrec [PutEventSelectors]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198348"><span id="local-6989586621679198350"><span id="local-6989586621679198352"><span id="local-6989586621679198354"><span class="annot"><span class="annottext">ReadPrec [PutEventSelectors]
 ReadPrec PutEventSelectors
 Int -&gt; ReadS PutEventSelectors
 ReadS [PutEventSelectors]
@@ -166,7 +166,7 @@ readList :: ReadS [PutEventSelectors]
 $creadList :: ReadS [PutEventSelectors]
 readsPrec :: Int -&gt; ReadS PutEventSelectors
 $creadsPrec :: Int -&gt; ReadS PutEventSelectors
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198332"><span id="local-6989586621679198334"><span id="local-6989586621679198336"><span class="annot"><span class="annottext">Int -&gt; PutEventSelectors -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198341"><span id="local-6989586621679198343"><span id="local-6989586621679198345"><span class="annot"><span class="annottext">Int -&gt; PutEventSelectors -&gt; ShowS
 [PutEventSelectors] -&gt; ShowS
 PutEventSelectors -&gt; String
 (Int -&gt; PutEventSelectors -&gt; ShowS)
@@ -239,8 +239,8 @@ $cfrom :: forall x. PutEventSelectors -&gt; Rep PutEventSelectors x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span>
 </span><span id="line-185"></span><span id="newPutEventSelectors"><span class="annot"><span class="annottext">newPutEventSelectors :: Text -&gt; PutEventSelectors
-</span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#newPutEventSelectors"><span class="hs-identifier hs-var hs-var">newPutEventSelectors</span></a></span></span><span> </span><span id="local-6989586621679198327"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198327"><span class="hs-identifier hs-var">pTrailName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#newPutEventSelectors"><span class="hs-identifier hs-var hs-var">newPutEventSelectors</span></a></span></span><span> </span><span id="local-6989586621679198336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198336"><span class="hs-identifier hs-var">pTrailName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">PutEventSelectors' :: Maybe [EventSelector]
 -&gt; Maybe [AdvancedEventSelector] -&gt; Text -&gt; PutEventSelectors
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span>
@@ -255,7 +255,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:trailName:PutEventSelectors' :: Text
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AtrailName%3APutEventSelectors%27"><span class="hs-identifier hs-var">trailName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198327"><span class="hs-identifier hs-var">pTrailName_</span></a></span><span>
+</span><a href="#local-6989586621679198336"><span class="hs-identifier hs-var">pTrailName_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | Specifies the settings for your event selectors. You can configure up to</span><span>
@@ -275,16 +275,16 @@ forall a. Maybe a
      (Maybe [EventSelector])
      (Maybe [EventSelector])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198324"><span class="annot"><span class="annottext">Maybe [EventSelector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198333"><span class="annot"><span class="annottext">Maybe [EventSelector]
 eventSelectors :: Maybe [EventSelector]
 $sel:eventSelectors:PutEventSelectors' :: PutEventSelectors -&gt; Maybe [EventSelector]
-</span><a href="#local-6989586621679198324"><span class="hs-identifier hs-var hs-var">eventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSelector]
-</span><a href="#local-6989586621679198324"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198323"><span class="annot"><span class="annottext">s :: PutEventSelectors
-</span><a href="#local-6989586621679198323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198322"><span class="annot"><span class="annottext">Maybe [EventSelector]
-</span><a href="#local-6989586621679198322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectors
-</span><a href="#local-6989586621679198323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSelectors:PutEventSelectors' :: Maybe [EventSelector]
+</span><a href="#local-6989586621679198333"><span class="hs-identifier hs-var hs-var">eventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSelector]
+</span><a href="#local-6989586621679198333"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198332"><span class="annot"><span class="annottext">s :: PutEventSelectors
+</span><a href="#local-6989586621679198332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198331"><span class="annot"><span class="annottext">Maybe [EventSelector]
+</span><a href="#local-6989586621679198331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectors
+</span><a href="#local-6989586621679198332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSelectors:PutEventSelectors' :: Maybe [EventSelector]
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AeventSelectors%3APutEventSelectors%27"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSelector]
-</span><a href="#local-6989586621679198322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
+</span><a href="#local-6989586621679198331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
  -&gt; PutEventSelectors -&gt; f PutEventSelectors)
 -&gt; ((Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
     -&gt; Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
@@ -329,16 +329,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [AdvancedEventSelector])
      (Maybe [AdvancedEventSelector])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198318"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198327"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
 advancedEventSelectors :: Maybe [AdvancedEventSelector]
 $sel:advancedEventSelectors:PutEventSelectors' :: PutEventSelectors -&gt; Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198318"><span class="hs-identifier hs-var hs-var">advancedEventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198318"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198317"><span class="annot"><span class="annottext">s :: PutEventSelectors
-</span><a href="#local-6989586621679198317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198316"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectors
-</span><a href="#local-6989586621679198317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:advancedEventSelectors:PutEventSelectors' :: Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198327"><span class="hs-identifier hs-var hs-var">advancedEventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198327"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198326"><span class="annot"><span class="annottext">s :: PutEventSelectors
+</span><a href="#local-6989586621679198326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198325"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectors
+</span><a href="#local-6989586621679198326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:advancedEventSelectors:PutEventSelectors' :: Maybe [AdvancedEventSelector]
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AadvancedEventSelectors%3APutEventSelectors%27"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdvancedEventSelector]
   -&gt; f (Maybe [AdvancedEventSelector]))
  -&gt; PutEventSelectors -&gt; f PutEventSelectors)
 -&gt; ((Maybe [AdvancedEventSelector]
@@ -395,27 +395,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutEventSelectors -&gt; Text -&gt; PutEventSelectors)
 -&gt; Lens PutEventSelectors PutEventSelectors Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198315"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198324"><span class="annot"><span class="annottext">Text
 trailName :: Text
 $sel:trailName:PutEventSelectors' :: PutEventSelectors -&gt; Text
-</span><a href="#local-6989586621679198315"><span class="hs-identifier hs-var hs-var">trailName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198315"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198314"><span class="annot"><span class="annottext">s :: PutEventSelectors
-</span><a href="#local-6989586621679198314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198313"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectors
-</span><a href="#local-6989586621679198314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailName:PutEventSelectors' :: Text
+</span><a href="#local-6989586621679198324"><span class="hs-identifier hs-var hs-var">trailName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198324"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198323"><span class="annot"><span class="annottext">s :: PutEventSelectors
+</span><a href="#local-6989586621679198323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectors
+</span><a href="#local-6989586621679198323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailName:PutEventSelectors' :: Text
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AtrailName%3APutEventSelectors%27"><span class="hs-identifier hs-var">trailName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-235"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-236"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679198309"><span class="annot"><span class="annottext">request :: PutEventSelectors -&gt; Request PutEventSelectors
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679198318"><span class="annot"><span class="annottext">request :: PutEventSelectors -&gt; Request PutEventSelectors
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutEventSelectors -&gt; Request PutEventSelectors
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679198305"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679198314"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutEventSelectors
 -&gt; ClientResponse ClientBody
@@ -441,10 +441,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198302"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198302"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198301"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679198301"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198300"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679198300"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198311"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198310"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679198310"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198309"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [EventSelector]
 -&gt; Maybe [AdvancedEventSelector]
@@ -465,7 +465,7 @@ MonadResource m =&gt;
       -&gt; PutEventSelectorsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679198300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679198309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrailARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -481,7 +481,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe [AdvancedEventSelector] -&gt; Int -&gt; PutEventSelectorsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679198300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EventSelector]))
+</span><a href="#local-6989586621679198309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EventSelector]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [EventSelector]))
@@ -497,7 +497,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; PutEventSelectorsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679198300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [AdvancedEventSelector]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -518,15 +518,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198302"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198311"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198291"><span id="local-6989586621679198293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span></span></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198300"><span id="local-6989586621679198302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span></span></span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span></span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679198284"><span class="annot"><span class="annottext">toHeaders :: PutEventSelectors -&gt; ResponseHeaders
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679198293"><span class="annot"><span class="annottext">toHeaders :: PutEventSelectors -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutEventSelectors -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -553,9 +553,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198274"><span id="local-6989586621679198276"><span id="local-6989586621679198278"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679198272"><span class="annot"><span class="annottext">toJSON :: PutEventSelectors -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198268"><span id="local-6989586621679198269"><span id="local-6989586621679198270"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198283"><span id="local-6989586621679198285"><span id="local-6989586621679198287"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679198281"><span class="annot"><span class="annottext">toJSON :: PutEventSelectors -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors%27"><span class="hs-identifier hs-type">PutEventSelectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198277"><span id="local-6989586621679198278"><span id="local-6989586621679198279"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
 Maybe [EventSelector]
 Text
 trailName :: Text
@@ -564,7 +564,7 @@ eventSelectors :: Maybe [EventSelector]
 $sel:trailName:PutEventSelectors' :: PutEventSelectors -&gt; Text
 $sel:advancedEventSelectors:PutEventSelectors' :: PutEventSelectors -&gt; Maybe [AdvancedEventSelector]
 $sel:eventSelectors:PutEventSelectors' :: PutEventSelectors -&gt; Maybe [EventSelector]
-</span><a href="#local-6989586621679198268"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198277"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -577,7 +577,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">([EventSelector] -&gt; Pair) -&gt; Maybe [EventSelector] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EventSelector]
-</span><a href="#local-6989586621679198270"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198279"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdvancedEventSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AdvancedEventSelector] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -586,26 +586,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [AdvancedEventSelector] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198269"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198278"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrailName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198268"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198277"><span class="hs-identifier hs-var">trailName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-280"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679198262"><span class="annot"><span class="annottext">toPath :: PutEventSelectors -&gt; ByteString
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679198271"><span class="annot"><span class="annottext">toPath :: PutEventSelectors -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutEventSelectors -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectors"><span class="hs-identifier hs-type">PutEventSelectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-286"></span><span>  </span><span id="local-6989586621679198258"><span class="annot"><span class="annottext">toQuery :: PutEventSelectors -&gt; QueryString
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679198267"><span class="annot"><span class="annottext">toQuery :: PutEventSelectors -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutEventSelectors -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -613,7 +613,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- | /See:/ 'newPutEventSelectorsResponse' smart constructor.</span><span>
-</span><span id="line-289"></span><span id="local-6989586621679198255"><span id="local-6989586621679198256"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEventSelectorsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-var">PutEventSelectorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEventSelectorsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-var">PutEventSelectorsResponse'</span></a></span></span><span>
+</span><span id="line-289"></span><span id="local-6989586621679198264"><span id="local-6989586621679198265"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEventSelectorsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-var">PutEventSelectorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEventSelectorsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-var">PutEventSelectorsResponse'</span></a></span></span><span>
 </span><span id="line-290"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the ARN of the trail that was updated with event selectors.</span><span>
 </span><span id="line-291"></span><span>    </span><span class="hs-comment">-- The following is the format of a trail ARN.</span><span>
 </span><span id="line-292"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -630,7 +630,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-300"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutEventSelectorsResponse%27"><span class="annot"><span class="annottext">PutEventSelectorsResponse -&gt; Int
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AhttpStatus%3APutEventSelectorsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-301"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-302"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198247"><span id="local-6989586621679198249"><span class="annot"><span class="annottext">PutEventSelectorsResponse -&gt; PutEventSelectorsResponse -&gt; Bool
+</span><span id="line-302"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198256"><span id="local-6989586621679198258"><span class="annot"><span class="annottext">PutEventSelectorsResponse -&gt; PutEventSelectorsResponse -&gt; Bool
 (PutEventSelectorsResponse -&gt; PutEventSelectorsResponse -&gt; Bool)
 -&gt; (PutEventSelectorsResponse -&gt; PutEventSelectorsResponse -&gt; Bool)
 -&gt; Eq PutEventSelectorsResponse
@@ -639,7 +639,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutEventSelectorsResponse -&gt; PutEventSelectorsResponse -&gt; Bool
 == :: PutEventSelectorsResponse -&gt; PutEventSelectorsResponse -&gt; Bool
 $c== :: PutEventSelectorsResponse -&gt; PutEventSelectorsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198239"><span id="local-6989586621679198241"><span id="local-6989586621679198243"><span id="local-6989586621679198245"><span class="annot"><span class="annottext">ReadPrec [PutEventSelectorsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198248"><span id="local-6989586621679198250"><span id="local-6989586621679198252"><span id="local-6989586621679198254"><span class="annot"><span class="annottext">ReadPrec [PutEventSelectorsResponse]
 ReadPrec PutEventSelectorsResponse
 Int -&gt; ReadS PutEventSelectorsResponse
 ReadS [PutEventSelectorsResponse]
@@ -659,7 +659,7 @@ readList :: ReadS [PutEventSelectorsResponse]
 $creadList :: ReadS [PutEventSelectorsResponse]
 readsPrec :: Int -&gt; ReadS PutEventSelectorsResponse
 $creadsPrec :: Int -&gt; ReadS PutEventSelectorsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198233"><span id="local-6989586621679198235"><span id="local-6989586621679198237"><span class="annot"><span class="annottext">Int -&gt; PutEventSelectorsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198242"><span id="local-6989586621679198244"><span id="local-6989586621679198246"><span class="annot"><span class="annottext">Int -&gt; PutEventSelectorsResponse -&gt; ShowS
 [PutEventSelectorsResponse] -&gt; ShowS
 PutEventSelectorsResponse -&gt; String
 (Int -&gt; PutEventSelectorsResponse -&gt; ShowS)
@@ -714,8 +714,8 @@ PutEventSelectorsResponse -&gt; Rep PutEventSelectorsResponse x
 </span><span id="line-324"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-325"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span>
 </span><span id="line-326"></span><span id="newPutEventSelectorsResponse"><span class="annot"><span class="annottext">newPutEventSelectorsResponse :: Int -&gt; PutEventSelectorsResponse
-</span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#newPutEventSelectorsResponse"><span class="hs-identifier hs-var hs-var">newPutEventSelectorsResponse</span></a></span></span><span> </span><span id="local-6989586621679198230"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#newPutEventSelectorsResponse"><span class="hs-identifier hs-var hs-var">newPutEventSelectorsResponse</span></a></span></span><span> </span><span id="local-6989586621679198239"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198239"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-327"></span><span>  </span><span class="annot"><span class="annottext">PutEventSelectorsResponse' :: Maybe Text
 -&gt; Maybe [EventSelector]
 -&gt; Maybe [AdvancedEventSelector]
@@ -737,7 +737,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-332"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutEventSelectorsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AhttpStatus%3APutEventSelectorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679198239"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-333"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | Specifies the ARN of the trail that was updated with event selectors.</span><span>
@@ -756,16 +756,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198229"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198238"><span class="annot"><span class="annottext">Maybe Text
 trailARN :: Maybe Text
 $sel:trailARN:PutEventSelectorsResponse' :: PutEventSelectorsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679198229"><span class="hs-identifier hs-var hs-var">trailARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198229"><span class="hs-identifier hs-var">trailARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198228"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
-</span><a href="#local-6989586621679198228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198227"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
-</span><a href="#local-6989586621679198228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailARN:PutEventSelectorsResponse' :: Maybe Text
+</span><a href="#local-6989586621679198238"><span class="hs-identifier hs-var hs-var">trailARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198238"><span class="hs-identifier hs-var">trailARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198237"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
+</span><a href="#local-6989586621679198237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198236"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
+</span><a href="#local-6989586621679198237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trailARN:PutEventSelectorsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AtrailARN%3APutEventSelectorsResponse%27"><span class="hs-identifier hs-var">trailARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-341"></span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- | Specifies the event selectors configured for your trail.</span><span>
 </span><span id="line-343"></span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#putEventSelectorsResponse_eventSelectors"><span class="hs-identifier hs-type">putEventSelectorsResponse_eventSelectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -780,16 +780,16 @@ $sel:trailARN:PutEventSelectorsResponse' :: PutEventSelectorsResponse -&gt; Mayb
      (Maybe [EventSelector])
      (Maybe [EventSelector])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198226"><span class="annot"><span class="annottext">Maybe [EventSelector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198235"><span class="annot"><span class="annottext">Maybe [EventSelector]
 eventSelectors :: Maybe [EventSelector]
 $sel:eventSelectors:PutEventSelectorsResponse' :: PutEventSelectorsResponse -&gt; Maybe [EventSelector]
-</span><a href="#local-6989586621679198226"><span class="hs-identifier hs-var hs-var">eventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSelector]
-</span><a href="#local-6989586621679198226"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198225"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
-</span><a href="#local-6989586621679198225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198224"><span class="annot"><span class="annottext">Maybe [EventSelector]
-</span><a href="#local-6989586621679198224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
-</span><a href="#local-6989586621679198225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSelectors:PutEventSelectorsResponse' :: Maybe [EventSelector]
+</span><a href="#local-6989586621679198235"><span class="hs-identifier hs-var hs-var">eventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSelector]
+</span><a href="#local-6989586621679198235"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198234"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
+</span><a href="#local-6989586621679198234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198233"><span class="annot"><span class="annottext">Maybe [EventSelector]
+</span><a href="#local-6989586621679198233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
+</span><a href="#local-6989586621679198234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSelectors:PutEventSelectorsResponse' :: Maybe [EventSelector]
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AeventSelectors%3APutEventSelectorsResponse%27"><span class="hs-identifier hs-var">eventSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSelector]
-</span><a href="#local-6989586621679198224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
+</span><a href="#local-6989586621679198233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
  -&gt; PutEventSelectorsResponse -&gt; f PutEventSelectorsResponse)
 -&gt; ((Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
     -&gt; Maybe [EventSelector] -&gt; f (Maybe [EventSelector]))
@@ -826,16 +826,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [AdvancedEventSelector])
      (Maybe [AdvancedEventSelector])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198223"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198232"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
 advancedEventSelectors :: Maybe [AdvancedEventSelector]
 $sel:advancedEventSelectors:PutEventSelectorsResponse' :: PutEventSelectorsResponse -&gt; Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198223"><span class="hs-identifier hs-var hs-var">advancedEventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198223"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198222"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
-</span><a href="#local-6989586621679198222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198221"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
-</span><a href="#local-6989586621679198222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:advancedEventSelectors:PutEventSelectorsResponse' :: Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198232"><span class="hs-identifier hs-var hs-var">advancedEventSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198232"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198231"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
+</span><a href="#local-6989586621679198231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198230"><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
+</span><a href="#local-6989586621679198231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:advancedEventSelectors:PutEventSelectorsResponse' :: Maybe [AdvancedEventSelector]
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AadvancedEventSelectors%3APutEventSelectorsResponse%27"><span class="hs-identifier hs-var">advancedEventSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdvancedEventSelector]
-</span><a href="#local-6989586621679198221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdvancedEventSelector]
+</span><a href="#local-6989586621679198230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdvancedEventSelector]
   -&gt; f (Maybe [AdvancedEventSelector]))
  -&gt; PutEventSelectorsResponse -&gt; f PutEventSelectorsResponse)
 -&gt; ((Maybe [AdvancedEventSelector]
@@ -876,16 +876,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutEventSelectorsResponse -&gt; Int -&gt; PutEventSelectorsResponse)
 -&gt; Lens PutEventSelectorsResponse PutEventSelectorsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198220"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198229"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutEventSelectorsResponse' :: PutEventSelectorsResponse -&gt; Int
-</span><a href="#local-6989586621679198220"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198220"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198219"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
-</span><a href="#local-6989586621679198219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198218"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
-</span><a href="#local-6989586621679198219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutEventSelectorsResponse' :: Int
+</span><a href="#local-6989586621679198229"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198229"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198228"><span class="annot"><span class="annottext">s :: PutEventSelectorsResponse
+</span><a href="#local-6989586621679198228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse%27"><span class="hs-identifier hs-type">PutEventSelectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventSelectorsResponse
+</span><a href="#local-6989586621679198228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutEventSelectorsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.PutEventSelectors.html#%24sel%3AhttpStatus%3APutEventSelectorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
-</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.PutEventSelectors.html#PutEventSelectorsResponse"><span class="hs-identifier hs-type">PutEventSelectorsResponse</span></a></span></span><span>
 </span><span id="line-355"></span></pre></body></html>

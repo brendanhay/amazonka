@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- in the /Amazon EventBridge User Guide/.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newTarget' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679307259"><span id="local-6989586621679307260"></span></span><span class="hs-keyword">data</span><span> </span><span id="Target"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-var">Target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Target%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-var">Target'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679307268"><span id="local-6989586621679307269"></span></span><span class="hs-keyword">data</span><span> </span><span id="Target"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-var">Target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Target%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-var">Target'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Parameters used when you are using the rule to invoke Amazon EC2 Run</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Command.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3ArunCommandParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe RunCommandParameters
@@ -139,7 +139,7 @@
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3Aarn%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3Aarn%3ATarget%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307238"><span id="local-6989586621679307240"><span class="annot"><span class="annottext">Target -&gt; Target -&gt; Bool
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307247"><span id="local-6989586621679307249"><span class="annot"><span class="annottext">Target -&gt; Target -&gt; Bool
 (Target -&gt; Target -&gt; Bool)
 -&gt; (Target -&gt; Target -&gt; Bool) -&gt; Eq Target
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -147,7 +147,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Target -&gt; Target -&gt; Bool
 == :: Target -&gt; Target -&gt; Bool
 $c== :: Target -&gt; Target -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307229"><span id="local-6989586621679307231"><span id="local-6989586621679307233"><span id="local-6989586621679307235"><span class="annot"><span class="annottext">ReadPrec [Target]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307238"><span id="local-6989586621679307240"><span id="local-6989586621679307242"><span id="local-6989586621679307244"><span class="annot"><span class="annottext">ReadPrec [Target]
 ReadPrec Target
 Int -&gt; ReadS Target
 ReadS [Target]
@@ -167,7 +167,7 @@ readList :: ReadS [Target]
 $creadList :: ReadS [Target]
 readsPrec :: Int -&gt; ReadS Target
 $creadsPrec :: Int -&gt; ReadS Target
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307222"><span id="local-6989586621679307224"><span id="local-6989586621679307226"><span class="annot"><span class="annottext">Int -&gt; Target -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307231"><span id="local-6989586621679307233"><span id="local-6989586621679307235"><span class="annot"><span class="annottext">Int -&gt; Target -&gt; ShowS
 [Target] -&gt; ShowS
 Target -&gt; String
 (Int -&gt; Target -&gt; ShowS)
@@ -278,9 +278,9 @@ $cfrom :: forall x. Target -&gt; Rep Target x
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span>
 </span><span id="line-215"></span><span id="newTarget"><span class="annot"><span class="annottext">newTarget :: Text -&gt; Text -&gt; Target
-</span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#newTarget"><span class="hs-identifier hs-var hs-var">newTarget</span></a></span></span><span> </span><span id="local-6989586621679307216"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307216"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679307215"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307215"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#newTarget"><span class="hs-identifier hs-var hs-var">newTarget</span></a></span></span><span> </span><span id="local-6989586621679307225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307225"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679307224"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307224"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">Target' :: Maybe RunCommandParameters
 -&gt; Maybe HttpParameters
 -&gt; Maybe KinesisParameters
@@ -357,10 +357,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Target' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3Aid%3ATarget%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307216"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307225"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Target' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3Aarn%3ATarget%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307215"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><a href="#local-6989586621679307224"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
 </span><span id="line-233"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | Parameters used when you are using the rule to invoke Amazon EC2 Run</span><span>
@@ -376,16 +376,16 @@ forall a. Maybe a
      (Maybe RunCommandParameters)
      (Maybe RunCommandParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307211"><span class="annot"><span class="annottext">Maybe RunCommandParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307220"><span class="annot"><span class="annottext">Maybe RunCommandParameters
 runCommandParameters :: Maybe RunCommandParameters
 $sel:runCommandParameters:Target' :: Target -&gt; Maybe RunCommandParameters
-</span><a href="#local-6989586621679307211"><span class="hs-identifier hs-var hs-var">runCommandParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
-</span><a href="#local-6989586621679307211"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307210"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307209"><span class="annot"><span class="annottext">Maybe RunCommandParameters
-</span><a href="#local-6989586621679307209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runCommandParameters:Target' :: Maybe RunCommandParameters
+</span><a href="#local-6989586621679307220"><span class="hs-identifier hs-var hs-var">runCommandParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
+</span><a href="#local-6989586621679307220"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307219"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307218"><span class="annot"><span class="annottext">Maybe RunCommandParameters
+</span><a href="#local-6989586621679307218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runCommandParameters:Target' :: Maybe RunCommandParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3ArunCommandParameters%3ATarget%27"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
-</span><a href="#local-6989586621679307209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | Contains the HTTP parameters to use when the target is a API Gateway</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- REST endpoint or EventBridge ApiDestination.</span><span>
@@ -403,16 +403,16 @@ $sel:runCommandParameters:Target' :: Target -&gt; Maybe RunCommandParameters
 -&gt; (Target -&gt; Maybe HttpParameters -&gt; Target)
 -&gt; Lens Target Target (Maybe HttpParameters) (Maybe HttpParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307207"><span class="annot"><span class="annottext">Maybe HttpParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307216"><span class="annot"><span class="annottext">Maybe HttpParameters
 httpParameters :: Maybe HttpParameters
 $sel:httpParameters:Target' :: Target -&gt; Maybe HttpParameters
-</span><a href="#local-6989586621679307207"><span class="hs-identifier hs-var hs-var">httpParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
-</span><a href="#local-6989586621679307207"><span class="hs-identifier hs-var">httpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307206"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307205"><span class="annot"><span class="annottext">Maybe HttpParameters
-</span><a href="#local-6989586621679307205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpParameters:Target' :: Maybe HttpParameters
+</span><a href="#local-6989586621679307216"><span class="hs-identifier hs-var hs-var">httpParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
+</span><a href="#local-6989586621679307216"><span class="hs-identifier hs-var">httpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307215"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307214"><span class="annot"><span class="annottext">Maybe HttpParameters
+</span><a href="#local-6989586621679307214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpParameters:Target' :: Maybe HttpParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AhttpParameters%3ATarget%27"><span class="hs-identifier hs-var">httpParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
-</span><a href="#local-6989586621679307205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | The custom parameter you can use to control the shard assignment, when</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- the target is a Kinesis data stream. If you do not include this</span><span>
@@ -425,16 +425,16 @@ $sel:httpParameters:Target' :: Target -&gt; Maybe HttpParameters
 -&gt; Lens
      Target Target (Maybe KinesisParameters) (Maybe KinesisParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307203"><span class="annot"><span class="annottext">Maybe KinesisParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307212"><span class="annot"><span class="annottext">Maybe KinesisParameters
 kinesisParameters :: Maybe KinesisParameters
 $sel:kinesisParameters:Target' :: Target -&gt; Maybe KinesisParameters
-</span><a href="#local-6989586621679307203"><span class="hs-identifier hs-var hs-var">kinesisParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
-</span><a href="#local-6989586621679307203"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307202"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307201"><span class="annot"><span class="annottext">Maybe KinesisParameters
-</span><a href="#local-6989586621679307201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisParameters:Target' :: Maybe KinesisParameters
+</span><a href="#local-6989586621679307212"><span class="hs-identifier hs-var hs-var">kinesisParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
+</span><a href="#local-6989586621679307212"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307211"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307210"><span class="annot"><span class="annottext">Maybe KinesisParameters
+</span><a href="#local-6989586621679307210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisParameters:Target' :: Maybe KinesisParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AkinesisParameters%3ATarget%27"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
-</span><a href="#local-6989586621679307201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | Settings to enable you to provide custom input to a target based on</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- certain event data. You can extract one or more key-value pairs from the</span><span>
@@ -447,16 +447,16 @@ $sel:kinesisParameters:Target' :: Target -&gt; Maybe KinesisParameters
 -&gt; Lens
      Target Target (Maybe InputTransformer) (Maybe InputTransformer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307199"><span class="annot"><span class="annottext">Maybe InputTransformer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307208"><span class="annot"><span class="annottext">Maybe InputTransformer
 inputTransformer :: Maybe InputTransformer
 $sel:inputTransformer:Target' :: Target -&gt; Maybe InputTransformer
-</span><a href="#local-6989586621679307199"><span class="hs-identifier hs-var hs-var">inputTransformer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
-</span><a href="#local-6989586621679307199"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307198"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307197"><span class="annot"><span class="annottext">Maybe InputTransformer
-</span><a href="#local-6989586621679307197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputTransformer:Target' :: Maybe InputTransformer
+</span><a href="#local-6989586621679307208"><span class="hs-identifier hs-var hs-var">inputTransformer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
+</span><a href="#local-6989586621679307208"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307207"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307206"><span class="annot"><span class="annottext">Maybe InputTransformer
+</span><a href="#local-6989586621679307206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputTransformer:Target' :: Maybe InputTransformer
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AinputTransformer%3ATarget%27"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
-</span><a href="#local-6989586621679307197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- | The @DeadLetterConfig@ that defines the target queue to send dead-letter</span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- queue events to.</span><span>
@@ -468,16 +468,16 @@ $sel:inputTransformer:Target' :: Target -&gt; Maybe InputTransformer
 -&gt; Lens
      Target Target (Maybe DeadLetterConfig) (Maybe DeadLetterConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307195"><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307204"><span class="annot"><span class="annottext">Maybe DeadLetterConfig
 deadLetterConfig :: Maybe DeadLetterConfig
 $sel:deadLetterConfig:Target' :: Target -&gt; Maybe DeadLetterConfig
-</span><a href="#local-6989586621679307195"><span class="hs-identifier hs-var hs-var">deadLetterConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
-</span><a href="#local-6989586621679307195"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307194"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307193"><span class="annot"><span class="annottext">Maybe DeadLetterConfig
-</span><a href="#local-6989586621679307193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deadLetterConfig:Target' :: Maybe DeadLetterConfig
+</span><a href="#local-6989586621679307204"><span class="hs-identifier hs-var hs-var">deadLetterConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+</span><a href="#local-6989586621679307204"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307203"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307202"><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+</span><a href="#local-6989586621679307202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deadLetterConfig:Target' :: Maybe DeadLetterConfig
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AdeadLetterConfig%3ATarget%27"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
-</span><a href="#local-6989586621679307193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | Contains the SageMaker Model Building Pipeline parameters to start</span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- execution of a SageMaker Model Building Pipeline.</span><span>
@@ -497,16 +497,16 @@ $sel:deadLetterConfig:Target' :: Target -&gt; Maybe DeadLetterConfig
      (Maybe SageMakerPipelineParameters)
      (Maybe SageMakerPipelineParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307191"><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307200"><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
 sageMakerPipelineParameters :: Maybe SageMakerPipelineParameters
 $sel:sageMakerPipelineParameters:Target' :: Target -&gt; Maybe SageMakerPipelineParameters
-</span><a href="#local-6989586621679307191"><span class="hs-identifier hs-var hs-var">sageMakerPipelineParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
-</span><a href="#local-6989586621679307191"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307190"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307189"><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
-</span><a href="#local-6989586621679307189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerPipelineParameters:Target' :: Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679307200"><span class="hs-identifier hs-var hs-var">sageMakerPipelineParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679307200"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307199"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307198"><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679307198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerPipelineParameters:Target' :: Maybe SageMakerPipelineParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AsageMakerPipelineParameters%3ATarget%27"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
-</span><a href="#local-6989586621679307189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | Contains the message group ID to use when the target is a FIFO queue.</span><span>
 </span><span id="line-279"></span><span class="hs-comment">--</span><span>
@@ -519,16 +519,16 @@ $sel:sageMakerPipelineParameters:Target' :: Target -&gt; Maybe SageMakerPipeline
 -&gt; (Target -&gt; Maybe SqsParameters -&gt; Target)
 -&gt; Lens Target Target (Maybe SqsParameters) (Maybe SqsParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307187"><span class="annot"><span class="annottext">Maybe SqsParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307196"><span class="annot"><span class="annottext">Maybe SqsParameters
 sqsParameters :: Maybe SqsParameters
 $sel:sqsParameters:Target' :: Target -&gt; Maybe SqsParameters
-</span><a href="#local-6989586621679307187"><span class="hs-identifier hs-var hs-var">sqsParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
-</span><a href="#local-6989586621679307187"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307186"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307185"><span class="annot"><span class="annottext">Maybe SqsParameters
-</span><a href="#local-6989586621679307185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqsParameters:Target' :: Maybe SqsParameters
+</span><a href="#local-6989586621679307196"><span class="hs-identifier hs-var hs-var">sqsParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
+</span><a href="#local-6989586621679307196"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307195"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307194"><span class="annot"><span class="annottext">Maybe SqsParameters
+</span><a href="#local-6989586621679307194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqsParameters:Target' :: Maybe SqsParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AsqsParameters%3ATarget%27"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
-</span><a href="#local-6989586621679307185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | Valid JSON text passed to the target. In this case, nothing from the</span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- event itself is passed to the target. For more information, see</span><span>
@@ -539,16 +539,16 @@ $sel:sqsParameters:Target' :: Target -&gt; Maybe SqsParameters
 -&gt; (Target -&gt; Maybe Text -&gt; Target)
 -&gt; Lens Target Target (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307183"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307192"><span class="annot"><span class="annottext">Maybe Text
 input :: Maybe Text
 $sel:input:Target' :: Target -&gt; Maybe Text
-</span><a href="#local-6989586621679307183"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307183"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307182"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307181"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:Target' :: Maybe Text
+</span><a href="#local-6989586621679307192"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307192"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307191"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307190"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:Target' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3Ainput%3ATarget%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | If the event target is an Batch job, this contains the job definition,</span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- job name, and other parameters. For more information, see</span><span>
@@ -562,16 +562,16 @@ $sel:input:Target' :: Target -&gt; Maybe Text
 -&gt; Lens
      Target Target (Maybe BatchParameters) (Maybe BatchParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307179"><span class="annot"><span class="annottext">Maybe BatchParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307188"><span class="annot"><span class="annottext">Maybe BatchParameters
 batchParameters :: Maybe BatchParameters
 $sel:batchParameters:Target' :: Target -&gt; Maybe BatchParameters
-</span><a href="#local-6989586621679307179"><span class="hs-identifier hs-var hs-var">batchParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
-</span><a href="#local-6989586621679307179"><span class="hs-identifier hs-var">batchParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307178"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307177"><span class="annot"><span class="annottext">Maybe BatchParameters
-</span><a href="#local-6989586621679307177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchParameters:Target' :: Maybe BatchParameters
+</span><a href="#local-6989586621679307188"><span class="hs-identifier hs-var hs-var">batchParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
+</span><a href="#local-6989586621679307188"><span class="hs-identifier hs-var">batchParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307187"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307186"><span class="annot"><span class="annottext">Maybe BatchParameters
+</span><a href="#local-6989586621679307186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchParameters:Target' :: Maybe BatchParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AbatchParameters%3ATarget%27"><span class="hs-identifier hs-var">batchParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
-</span><a href="#local-6989586621679307177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | Contains the Amazon Redshift Data API parameters to use when the target</span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- is a Amazon Redshift cluster.</span><span>
@@ -590,16 +590,16 @@ $sel:batchParameters:Target' :: Target -&gt; Maybe BatchParameters
      (Maybe RedshiftDataParameters)
      (Maybe RedshiftDataParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307175"><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307184"><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
 redshiftDataParameters :: Maybe RedshiftDataParameters
 $sel:redshiftDataParameters:Target' :: Target -&gt; Maybe RedshiftDataParameters
-</span><a href="#local-6989586621679307175"><span class="hs-identifier hs-var hs-var">redshiftDataParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
-</span><a href="#local-6989586621679307175"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307174"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307173"><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
-</span><a href="#local-6989586621679307173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redshiftDataParameters:Target' :: Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679307184"><span class="hs-identifier hs-var hs-var">redshiftDataParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679307184"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307183"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307182"><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679307182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redshiftDataParameters:Target' :: Maybe RedshiftDataParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AredshiftDataParameters%3ATarget%27"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
-</span><a href="#local-6989586621679307173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-comment">-- | Contains the Amazon ECS task definition and task count to be used, if</span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- the event target is an Amazon ECS task. For more information about</span><span>
@@ -613,16 +613,16 @@ $sel:redshiftDataParameters:Target' :: Target -&gt; Maybe RedshiftDataParameters
 -&gt; (Target -&gt; Maybe EcsParameters -&gt; Target)
 -&gt; Lens Target Target (Maybe EcsParameters) (Maybe EcsParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307171"><span class="annot"><span class="annottext">Maybe EcsParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307180"><span class="annot"><span class="annottext">Maybe EcsParameters
 ecsParameters :: Maybe EcsParameters
 $sel:ecsParameters:Target' :: Target -&gt; Maybe EcsParameters
-</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var hs-var">ecsParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
-</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307170"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307169"><span class="annot"><span class="annottext">Maybe EcsParameters
-</span><a href="#local-6989586621679307169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsParameters:Target' :: Maybe EcsParameters
+</span><a href="#local-6989586621679307180"><span class="hs-identifier hs-var hs-var">ecsParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
+</span><a href="#local-6989586621679307180"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307179"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307178"><span class="annot"><span class="annottext">Maybe EcsParameters
+</span><a href="#local-6989586621679307178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsParameters:Target' :: Maybe EcsParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AecsParameters%3ATarget%27"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
-</span><a href="#local-6989586621679307169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- | The @RetryPolicy@ object that contains the retry policy configuration to</span><span>
 </span><span id="line-316"></span><span class="hs-comment">-- use for the dead-letter queue.</span><span>
@@ -632,16 +632,16 @@ $sel:ecsParameters:Target' :: Target -&gt; Maybe EcsParameters
 -&gt; (Target -&gt; Maybe RetryPolicy -&gt; Target)
 -&gt; Lens Target Target (Maybe RetryPolicy) (Maybe RetryPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307167"><span class="annot"><span class="annottext">Maybe RetryPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307176"><span class="annot"><span class="annottext">Maybe RetryPolicy
 retryPolicy :: Maybe RetryPolicy
 $sel:retryPolicy:Target' :: Target -&gt; Maybe RetryPolicy
-</span><a href="#local-6989586621679307167"><span class="hs-identifier hs-var hs-var">retryPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
-</span><a href="#local-6989586621679307167"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307166"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307165"><span class="annot"><span class="annottext">Maybe RetryPolicy
-</span><a href="#local-6989586621679307165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryPolicy:Target' :: Maybe RetryPolicy
+</span><a href="#local-6989586621679307176"><span class="hs-identifier hs-var hs-var">retryPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
+</span><a href="#local-6989586621679307176"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307175"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307174"><span class="annot"><span class="annottext">Maybe RetryPolicy
+</span><a href="#local-6989586621679307174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryPolicy:Target' :: Maybe RetryPolicy
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AretryPolicy%3ATarget%27"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
-</span><a href="#local-6989586621679307165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-319"></span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- | The value of the JSONPath that is used for extracting part of the</span><span>
 </span><span id="line-321"></span><span class="hs-comment">-- matched event when passing it to the target. You must use JSON dot</span><span>
@@ -653,16 +653,16 @@ $sel:retryPolicy:Target' :: Target -&gt; Maybe RetryPolicy
 -&gt; (Target -&gt; Maybe Text -&gt; Target)
 -&gt; Lens Target Target (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307163"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307172"><span class="annot"><span class="annottext">Maybe Text
 inputPath :: Maybe Text
 $sel:inputPath:Target' :: Target -&gt; Maybe Text
-</span><a href="#local-6989586621679307163"><span class="hs-identifier hs-var hs-var">inputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307163"><span class="hs-identifier hs-var">inputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307162"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307161"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPath:Target' :: Maybe Text
+</span><a href="#local-6989586621679307172"><span class="hs-identifier hs-var hs-var">inputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307172"><span class="hs-identifier hs-var">inputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307171"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307170"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPath:Target' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AinputPath%3ATarget%27"><span class="hs-identifier hs-var">inputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-326"></span><span>
 </span><span id="line-327"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role to be used for this</span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- target when the rule is triggered. If one rule triggers multiple</span><span>
@@ -673,16 +673,16 @@ $sel:inputPath:Target' :: Target -&gt; Maybe Text
 -&gt; (Target -&gt; Maybe Text -&gt; Target)
 -&gt; Lens Target Target (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307159"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307168"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:Target' :: Target -&gt; Maybe Text
-</span><a href="#local-6989586621679307159"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307159"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307158"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307157"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Target' :: Maybe Text
+</span><a href="#local-6989586621679307168"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307168"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307167"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Target' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3AroleArn%3ATarget%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-comment">-- | The ID of the target. We recommend using a memorable and unique string.</span><span>
 </span><span id="line-334"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#target_id"><span class="hs-identifier hs-type">target_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -690,16 +690,16 @@ $sel:roleArn:Target' :: Target -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#target_id"><span class="hs-identifier hs-var hs-var">target_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Text)
 -&gt; (Target -&gt; Text -&gt; Target) -&gt; Lens Target Target Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307155"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307164"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Target' :: Target -&gt; Text
-</span><a href="#local-6989586621679307155"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307155"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307154"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307153"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Target' :: Text
+</span><a href="#local-6989586621679307164"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307164"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307163"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Target' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3Aid%3ATarget%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-336"></span><span>
 </span><span id="line-337"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target.</span><span>
 </span><span id="line-338"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#target_arn"><span class="hs-identifier hs-type">target_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -707,27 +707,27 @@ $sel:id:Target' :: Target -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#target_arn"><span class="hs-identifier hs-var hs-var">target_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Text)
 -&gt; (Target -&gt; Text -&gt; Target) -&gt; Lens Target Target Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307151"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307160"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:Target' :: Target -&gt; Text
-</span><a href="#local-6989586621679307151"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307151"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307150"><span class="annot"><span class="annottext">s :: Target
-</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307149"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
-</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Target' :: Text
+</span><a href="#local-6989586621679307160"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307160"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307159"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679307159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679307159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Target' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.Target.html#%24sel%3Aarn%3ATarget%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-340"></span><span>
-</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307146"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-342"></span><span>  </span><span id="local-6989586621679307144"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Target
+</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307155"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-342"></span><span>  </span><span id="local-6989586621679307153"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Target
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-343"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Target) -&gt; Value -&gt; Parser Target
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-344"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Target&quot;</span></span><span>
-</span><span id="line-345"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307141"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-345"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307150"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-346"></span><span>          </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
 -&gt; Maybe HttpParameters
 -&gt; Maybe KinesisParameters
@@ -783,7 +783,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RunCommandParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RunCommandParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RunCommandParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -823,7 +823,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HttpParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -861,7 +861,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KinesisParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -897,7 +897,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputTransformer)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputTransformer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputTransformer&quot;</span></span><span class="hs-special">)</span><span>
@@ -931,7 +931,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeadLetterConfig)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeadLetterConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeadLetterConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -963,7 +963,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SageMakerPipelineParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SageMakerPipelineParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SageMakerPipelineParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -993,7 +993,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SqsParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -1021,7 +1021,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Input&quot;</span></span><span class="hs-special">)</span><span>
@@ -1047,7 +1047,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -1071,7 +1071,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftDataParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftDataParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RedshiftDataParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -1089,7 +1089,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EcsParameters)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EcsParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EcsParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -1100,7 +1100,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetryPolicy)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetryPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetryPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -1109,7 +1109,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -1117,7 +1117,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -1125,26 +1125,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-362"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Target) -&gt; Parser Text -&gt; Parser Target
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679307150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-364"></span><span>
-</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307134"><span id="local-6989586621679307136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307143"><span id="local-6989586621679307145"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span></span><span>
 </span><span id="line-366"></span><span>
-</span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span><span>
 </span><span id="line-368"></span><span>
-</span><span id="line-369"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307123"><span id="local-6989586621679307125"><span id="local-6989586621679307127"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-370"></span><span>  </span><span id="local-6989586621679307121"><span class="annot"><span class="annottext">toJSON :: Target -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307104"><span id="local-6989586621679307105"><span id="local-6989586621679307106"><span id="local-6989586621679307107"><span id="local-6989586621679307108"><span id="local-6989586621679307109"><span id="local-6989586621679307110"><span id="local-6989586621679307111"><span id="local-6989586621679307112"><span id="local-6989586621679307113"><span id="local-6989586621679307114"><span id="local-6989586621679307115"><span id="local-6989586621679307116"><span id="local-6989586621679307117"><span id="local-6989586621679307118"><span id="local-6989586621679307119"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-369"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307132"><span id="local-6989586621679307134"><span id="local-6989586621679307136"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-370"></span><span>  </span><span id="local-6989586621679307130"><span class="annot"><span class="annottext">toJSON :: Target -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307113"><span id="local-6989586621679307114"><span id="local-6989586621679307115"><span id="local-6989586621679307116"><span id="local-6989586621679307117"><span id="local-6989586621679307118"><span id="local-6989586621679307119"><span id="local-6989586621679307120"><span id="local-6989586621679307121"><span id="local-6989586621679307122"><span id="local-6989586621679307123"><span id="local-6989586621679307124"><span id="local-6989586621679307125"><span id="local-6989586621679307126"><span id="local-6989586621679307127"><span id="local-6989586621679307128"><span class="annot"><span class="annottext">Maybe Text
 Maybe BatchParameters
 Maybe DeadLetterConfig
 Maybe HttpParameters
@@ -1189,7 +1189,7 @@ $sel:inputTransformer:Target' :: Target -&gt; Maybe InputTransformer
 $sel:kinesisParameters:Target' :: Target -&gt; Maybe KinesisParameters
 $sel:httpParameters:Target' :: Target -&gt; Maybe HttpParameters
 $sel:runCommandParameters:Target' :: Target -&gt; Maybe RunCommandParameters
-</span><a href="#local-6989586621679307104"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679307113"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-371"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-372"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1203,7 +1203,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RunCommandParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
-</span><a href="#local-6989586621679307119"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307128"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HttpParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1211,7 +1211,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">(HttpParameters -&gt; Pair) -&gt; Maybe HttpParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
-</span><a href="#local-6989586621679307118"><span class="hs-identifier hs-var">httpParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307127"><span class="hs-identifier hs-var">httpParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KinesisParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1220,7 +1220,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe KinesisParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
-</span><a href="#local-6989586621679307117"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307126"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-379"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputTransformer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputTransformer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1228,7 +1228,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-380"></span><span>              </span><span class="annot"><span class="annottext">(InputTransformer -&gt; Pair) -&gt; Maybe InputTransformer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
-</span><a href="#local-6989586621679307116"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307125"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeadLetterConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeadLetterConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1236,7 +1236,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-382"></span><span>              </span><span class="annot"><span class="annottext">(DeadLetterConfig -&gt; Pair) -&gt; Maybe DeadLetterConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
-</span><a href="#local-6989586621679307115"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307124"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SageMakerPipelineParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SageMakerPipelineParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1245,21 +1245,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SageMakerPipelineParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
-</span><a href="#local-6989586621679307114"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307123"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SqsParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqsParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SqsParameters -&gt; Pair) -&gt; Maybe SqsParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
-</span><a href="#local-6989586621679307113"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307122"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-386"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Input&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307112"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307121"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-387"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BatchParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1267,7 +1267,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-388"></span><span>              </span><span class="annot"><span class="annottext">(BatchParameters -&gt; Pair) -&gt; Maybe BatchParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
-</span><a href="#local-6989586621679307111"><span class="hs-identifier hs-var">batchParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307120"><span class="hs-identifier hs-var">batchParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-389"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RedshiftDataParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RedshiftDataParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1276,49 +1276,49 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RedshiftDataParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
-</span><a href="#local-6989586621679307110"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307119"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-391"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EcsParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EcsParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EcsParameters -&gt; Pair) -&gt; Maybe EcsParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
-</span><a href="#local-6989586621679307109"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307118"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-392"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetryPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetryPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RetryPolicy -&gt; Pair) -&gt; Maybe RetryPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
-</span><a href="#local-6989586621679307108"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307117"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-393"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307107"><span class="hs-identifier hs-var">inputPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307116"><span class="hs-identifier hs-var">inputPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-394"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307106"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307115"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307105"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307114"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-396"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307104"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307113"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-397"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-398"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-399"></span></pre></body></html>

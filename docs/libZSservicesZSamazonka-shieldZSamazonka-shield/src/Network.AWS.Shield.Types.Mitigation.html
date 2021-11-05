@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The mitigation applied to a DDoS attack.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMitigation' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679202278"><span id="local-6989586621679202279"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mitigation"><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-var">Mitigation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mitigation%27"><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation%27"><span class="hs-identifier hs-var">Mitigation'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679202287"><span id="local-6989586621679202288"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mitigation"><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-var">Mitigation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mitigation%27"><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation%27"><span class="hs-identifier hs-var">Mitigation'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the mitigation taken for this attack.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmitigationName%3AMitigation%27"><span class="annot"><span class="annottext">Mitigation -&gt; Maybe Text
 </span><a href="Network.AWS.Shield.Types.Mitigation.html#%24sel%3AmitigationName%3AMitigation%27"><span class="hs-identifier hs-var hs-var">mitigationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202272"><span id="local-6989586621679202274"><span class="annot"><span class="annottext">Mitigation -&gt; Mitigation -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202281"><span id="local-6989586621679202283"><span class="annot"><span class="annottext">Mitigation -&gt; Mitigation -&gt; Bool
 (Mitigation -&gt; Mitigation -&gt; Bool)
 -&gt; (Mitigation -&gt; Mitigation -&gt; Bool) -&gt; Eq Mitigation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Mitigation -&gt; Mitigation -&gt; Bool
 == :: Mitigation -&gt; Mitigation -&gt; Bool
 $c== :: Mitigation -&gt; Mitigation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202263"><span id="local-6989586621679202265"><span id="local-6989586621679202267"><span id="local-6989586621679202269"><span class="annot"><span class="annottext">ReadPrec [Mitigation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202272"><span id="local-6989586621679202274"><span id="local-6989586621679202276"><span id="local-6989586621679202278"><span class="annot"><span class="annottext">ReadPrec [Mitigation]
 ReadPrec Mitigation
 Int -&gt; ReadS Mitigation
 ReadS [Mitigation]
@@ -59,7 +59,7 @@ readList :: ReadS [Mitigation]
 $creadList :: ReadS [Mitigation]
 readsPrec :: Int -&gt; ReadS Mitigation
 $creadsPrec :: Int -&gt; ReadS Mitigation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202256"><span id="local-6989586621679202258"><span id="local-6989586621679202260"><span class="annot"><span class="annottext">Int -&gt; Mitigation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202265"><span id="local-6989586621679202267"><span id="local-6989586621679202269"><span class="annot"><span class="annottext">Int -&gt; Mitigation -&gt; ShowS
 [Mitigation] -&gt; ShowS
 Mitigation -&gt; String
 (Int -&gt; Mitigation -&gt; ShowS)
@@ -110,19 +110,19 @@ forall a. Maybe a
 -&gt; (Mitigation -&gt; Maybe Text -&gt; Mitigation)
 -&gt; Lens Mitigation Mitigation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation%27"><span class="hs-identifier hs-type">Mitigation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202247"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation%27"><span class="hs-identifier hs-type">Mitigation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202256"><span class="annot"><span class="annottext">Maybe Text
 mitigationName :: Maybe Text
 $sel:mitigationName:Mitigation' :: Mitigation -&gt; Maybe Text
-</span><a href="#local-6989586621679202247"><span class="hs-identifier hs-var hs-var">mitigationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202247"><span class="hs-identifier hs-var">mitigationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202246"><span class="annot"><span class="annottext">s :: Mitigation
-</span><a href="#local-6989586621679202246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation%27"><span class="hs-identifier hs-type">Mitigation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202245"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mitigation
-</span><a href="#local-6989586621679202246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mitigationName:Mitigation' :: Maybe Text
+</span><a href="#local-6989586621679202256"><span class="hs-identifier hs-var hs-var">mitigationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202256"><span class="hs-identifier hs-var">mitigationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202255"><span class="annot"><span class="annottext">s :: Mitigation
+</span><a href="#local-6989586621679202255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation%27"><span class="hs-identifier hs-type">Mitigation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mitigation
+</span><a href="#local-6989586621679202255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mitigationName:Mitigation' :: Maybe Text
 </span><a href="Network.AWS.Shield.Types.Mitigation.html#%24sel%3AmitigationName%3AMitigation%27"><span class="hs-identifier hs-var">mitigationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679202240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mitigation
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202251"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679202249"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mitigation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Mitigation) -&gt; Value -&gt; Parser Mitigation
@@ -130,21 +130,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Mitigation&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202237"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202246"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Mitigation
 </span><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation%27"><span class="hs-identifier hs-var">Mitigation'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Mitigation)
 -&gt; Parser (Maybe Text) -&gt; Parser Mitigation
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679202246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MitigationName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202231"><span id="local-6989586621679202233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202240"><span id="local-6989586621679202242"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Mitigation.html#Mitigation"><span class="hs-identifier hs-type">Mitigation</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

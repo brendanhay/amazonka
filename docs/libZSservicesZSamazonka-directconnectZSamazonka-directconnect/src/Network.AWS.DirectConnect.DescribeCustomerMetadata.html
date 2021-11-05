@@ -47,10 +47,10 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeCustomerMetadata' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679297986"><span id="local-6989586621679297987"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomerMetadata"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-var">DescribeCustomerMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomerMetadata%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata%27"><span class="hs-identifier hs-var">DescribeCustomerMetadata'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679297995"><span id="local-6989586621679297996"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomerMetadata"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-var">DescribeCustomerMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomerMetadata%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata%27"><span class="hs-identifier hs-var">DescribeCustomerMetadata'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297981"><span id="local-6989586621679297983"><span class="annot"><span class="annottext">DescribeCustomerMetadata -&gt; DescribeCustomerMetadata -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297990"><span id="local-6989586621679297992"><span class="annot"><span class="annottext">DescribeCustomerMetadata -&gt; DescribeCustomerMetadata -&gt; Bool
 (DescribeCustomerMetadata -&gt; DescribeCustomerMetadata -&gt; Bool)
 -&gt; (DescribeCustomerMetadata -&gt; DescribeCustomerMetadata -&gt; Bool)
 -&gt; Eq DescribeCustomerMetadata
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCustomerMetadata -&gt; DescribeCustomerMetadata -&gt; Bool
 == :: DescribeCustomerMetadata -&gt; DescribeCustomerMetadata -&gt; Bool
 $c== :: DescribeCustomerMetadata -&gt; DescribeCustomerMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297972"><span id="local-6989586621679297974"><span id="local-6989586621679297976"><span id="local-6989586621679297978"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomerMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297981"><span id="local-6989586621679297983"><span id="local-6989586621679297985"><span id="local-6989586621679297987"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomerMetadata]
 ReadPrec DescribeCustomerMetadata
 Int -&gt; ReadS DescribeCustomerMetadata
 ReadS [DescribeCustomerMetadata]
@@ -79,7 +79,7 @@ readList :: ReadS [DescribeCustomerMetadata]
 $creadList :: ReadS [DescribeCustomerMetadata]
 readsPrec :: Int -&gt; ReadS DescribeCustomerMetadata
 $creadsPrec :: Int -&gt; ReadS DescribeCustomerMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297965"><span id="local-6989586621679297967"><span id="local-6989586621679297969"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomerMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297974"><span id="local-6989586621679297976"><span id="local-6989586621679297978"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomerMetadata -&gt; ShowS
 [DescribeCustomerMetadata] -&gt; ShowS
 DescribeCustomerMetadata -&gt; String
 (Int -&gt; DescribeCustomerMetadata -&gt; ShowS)
@@ -126,13 +126,13 @@ DescribeCustomerMetadata -&gt; Rep DescribeCustomerMetadata x
 </span><span id="line-65"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-66"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679297957"><span class="annot"><span class="annottext">request :: DescribeCustomerMetadata -&gt; Request DescribeCustomerMetadata
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679297966"><span class="annot"><span class="annottext">request :: DescribeCustomerMetadata -&gt; Request DescribeCustomerMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeCustomerMetadata -&gt; Request DescribeCustomerMetadata
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679297953"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679297962"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeCustomerMetadata
 -&gt; ClientResponse ClientBody
@@ -158,10 +158,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297950"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297949"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679297949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297948"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297959"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297958"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679297958"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297957"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe NniPartnerType
 -&gt; Maybe [CustomerAgreement]
 -&gt; Int
@@ -178,7 +178,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeCustomerMetadataResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NniPartnerType)
+</span><a href="#local-6989586621679297957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NniPartnerType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nniPartnerType&quot;</span></span><span class="hs-special">)</span><span>
@@ -190,7 +190,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeCustomerMetadataResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CustomerAgreement]))
+</span><a href="#local-6989586621679297957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CustomerAgreement]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;agreements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CustomerAgreement]))
@@ -209,15 +209,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297959"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297939"><span id="local-6989586621679297941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297948"><span id="local-6989586621679297950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679297932"><span class="annot"><span class="annottext">toHeaders :: DescribeCustomerMetadata -&gt; ResponseHeaders
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679297941"><span class="annot"><span class="annottext">toHeaders :: DescribeCustomerMetadata -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCustomerMetadata -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -244,8 +244,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297922"><span id="local-6989586621679297924"><span id="local-6989586621679297926"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679297920"><span class="annot"><span class="annottext">toJSON :: DescribeCustomerMetadata -&gt; Value
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297931"><span id="local-6989586621679297933"><span id="local-6989586621679297935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679297929"><span class="annot"><span class="annottext">toJSON :: DescribeCustomerMetadata -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeCustomerMetadata -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -254,14 +254,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679297915"><span class="annot"><span class="annottext">toPath :: DescribeCustomerMetadata -&gt; ByteString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679297924"><span class="annot"><span class="annottext">toPath :: DescribeCustomerMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCustomerMetadata -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadata"><span class="hs-identifier hs-type">DescribeCustomerMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679297911"><span class="annot"><span class="annottext">toQuery :: DescribeCustomerMetadata -&gt; QueryString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679297920"><span class="annot"><span class="annottext">toQuery :: DescribeCustomerMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCustomerMetadata -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -269,7 +269,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newDescribeCustomerMetadataResponse' smart constructor.</span><span>
-</span><span id="line-107"></span><span id="local-6989586621679297908"><span id="local-6989586621679297909"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomerMetadataResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-var">DescribeCustomerMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomerMetadataResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-var">DescribeCustomerMetadataResponse'</span></a></span></span><span>
+</span><span id="line-107"></span><span id="local-6989586621679297917"><span id="local-6989586621679297918"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomerMetadataResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-var">DescribeCustomerMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomerMetadataResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-var">DescribeCustomerMetadataResponse'</span></a></span></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of network-to-network interface (NNI) partner. The partner type</span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-comment">-- will be one of the following:</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -289,7 +289,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCustomerMetadataResponse%27"><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#%24sel%3AhttpStatus%3ADescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297901"><span id="local-6989586621679297903"><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297910"><span id="local-6989586621679297912"><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
 -&gt; DescribeCustomerMetadataResponse -&gt; Bool
 (DescribeCustomerMetadataResponse
  -&gt; DescribeCustomerMetadataResponse -&gt; Bool)
@@ -305,7 +305,7 @@ $c/= :: DescribeCustomerMetadataResponse
 -&gt; DescribeCustomerMetadataResponse -&gt; Bool
 $c== :: DescribeCustomerMetadataResponse
 -&gt; DescribeCustomerMetadataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297893"><span id="local-6989586621679297895"><span id="local-6989586621679297897"><span id="local-6989586621679297899"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomerMetadataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297902"><span id="local-6989586621679297904"><span id="local-6989586621679297906"><span id="local-6989586621679297908"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomerMetadataResponse]
 ReadPrec DescribeCustomerMetadataResponse
 Int -&gt; ReadS DescribeCustomerMetadataResponse
 ReadS [DescribeCustomerMetadataResponse]
@@ -325,7 +325,7 @@ readList :: ReadS [DescribeCustomerMetadataResponse]
 $creadList :: ReadS [DescribeCustomerMetadataResponse]
 readsPrec :: Int -&gt; ReadS DescribeCustomerMetadataResponse
 $creadsPrec :: Int -&gt; ReadS DescribeCustomerMetadataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297887"><span id="local-6989586621679297889"><span id="local-6989586621679297891"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomerMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297896"><span id="local-6989586621679297898"><span id="local-6989586621679297900"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomerMetadataResponse -&gt; ShowS
 [DescribeCustomerMetadataResponse] -&gt; ShowS
 DescribeCustomerMetadataResponse -&gt; String
 (Int -&gt; DescribeCustomerMetadataResponse -&gt; ShowS)
@@ -390,8 +390,8 @@ DescribeCustomerMetadataResponse
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newDescribeCustomerMetadataResponse"><span class="annot"><span class="annottext">newDescribeCustomerMetadataResponse :: Int -&gt; DescribeCustomerMetadataResponse
-</span><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#newDescribeCustomerMetadataResponse"><span class="hs-identifier hs-var hs-var">newDescribeCustomerMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679297884"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297884"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#newDescribeCustomerMetadataResponse"><span class="hs-identifier hs-var hs-var">newDescribeCustomerMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679297893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse' :: Maybe NniPartnerType
 -&gt; Maybe [CustomerAgreement]
 -&gt; Int
@@ -408,7 +408,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCustomerMetadataResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#%24sel%3AhttpStatus%3ADescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297884"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679297893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The type of network-to-network interface (NNI) partner. The partner type</span><span>
@@ -434,16 +434,16 @@ forall a. Maybe a
      (Maybe NniPartnerType)
      (Maybe NniPartnerType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297881"><span class="annot"><span class="annottext">Maybe NniPartnerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297890"><span class="annot"><span class="annottext">Maybe NniPartnerType
 nniPartnerType :: Maybe NniPartnerType
 $sel:nniPartnerType:DescribeCustomerMetadataResponse' :: DescribeCustomerMetadataResponse -&gt; Maybe NniPartnerType
-</span><a href="#local-6989586621679297881"><span class="hs-identifier hs-var hs-var">nniPartnerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NniPartnerType
-</span><a href="#local-6989586621679297881"><span class="hs-identifier hs-var">nniPartnerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297880"><span class="annot"><span class="annottext">s :: DescribeCustomerMetadataResponse
-</span><a href="#local-6989586621679297880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297879"><span class="annot"><span class="annottext">Maybe NniPartnerType
-</span><a href="#local-6989586621679297879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
-</span><a href="#local-6989586621679297880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nniPartnerType:DescribeCustomerMetadataResponse' :: Maybe NniPartnerType
+</span><a href="#local-6989586621679297890"><span class="hs-identifier hs-var hs-var">nniPartnerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NniPartnerType
+</span><a href="#local-6989586621679297890"><span class="hs-identifier hs-var">nniPartnerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297889"><span class="annot"><span class="annottext">s :: DescribeCustomerMetadataResponse
+</span><a href="#local-6989586621679297889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297888"><span class="annot"><span class="annottext">Maybe NniPartnerType
+</span><a href="#local-6989586621679297888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
+</span><a href="#local-6989586621679297889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nniPartnerType:DescribeCustomerMetadataResponse' :: Maybe NniPartnerType
 </span><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#%24sel%3AnniPartnerType%3ADescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-var">nniPartnerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NniPartnerType
-</span><a href="#local-6989586621679297879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The list of customer agreements.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#describeCustomerMetadataResponse_agreements"><span class="hs-identifier hs-type">describeCustomerMetadataResponse_agreements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.CustomerAgreement.html#CustomerAgreement"><span class="hs-identifier hs-type">CustomerAgreement</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -459,16 +459,16 @@ $sel:nniPartnerType:DescribeCustomerMetadataResponse' :: DescribeCustomerMetadat
      (Maybe [CustomerAgreement])
      (Maybe [CustomerAgreement])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297878"><span class="annot"><span class="annottext">Maybe [CustomerAgreement]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297887"><span class="annot"><span class="annottext">Maybe [CustomerAgreement]
 agreements :: Maybe [CustomerAgreement]
 $sel:agreements:DescribeCustomerMetadataResponse' :: DescribeCustomerMetadataResponse -&gt; Maybe [CustomerAgreement]
-</span><a href="#local-6989586621679297878"><span class="hs-identifier hs-var hs-var">agreements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomerAgreement]
-</span><a href="#local-6989586621679297878"><span class="hs-identifier hs-var">agreements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297877"><span class="annot"><span class="annottext">s :: DescribeCustomerMetadataResponse
-</span><a href="#local-6989586621679297877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297876"><span class="annot"><span class="annottext">Maybe [CustomerAgreement]
-</span><a href="#local-6989586621679297876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
-</span><a href="#local-6989586621679297877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agreements:DescribeCustomerMetadataResponse' :: Maybe [CustomerAgreement]
+</span><a href="#local-6989586621679297887"><span class="hs-identifier hs-var hs-var">agreements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomerAgreement]
+</span><a href="#local-6989586621679297887"><span class="hs-identifier hs-var">agreements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297886"><span class="annot"><span class="annottext">s :: DescribeCustomerMetadataResponse
+</span><a href="#local-6989586621679297886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297885"><span class="annot"><span class="annottext">Maybe [CustomerAgreement]
+</span><a href="#local-6989586621679297885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
+</span><a href="#local-6989586621679297886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agreements:DescribeCustomerMetadataResponse' :: Maybe [CustomerAgreement]
 </span><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#%24sel%3Aagreements%3ADescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-var">agreements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomerAgreement]
-</span><a href="#local-6989586621679297876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomerAgreement] -&gt; f (Maybe [CustomerAgreement]))
+</span><a href="#local-6989586621679297885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomerAgreement] -&gt; f (Maybe [CustomerAgreement]))
  -&gt; DescribeCustomerMetadataResponse
  -&gt; f DescribeCustomerMetadataResponse)
 -&gt; ((Maybe [CustomerAgreement] -&gt; f (Maybe [CustomerAgreement]))
@@ -512,18 +512,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297872"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297881"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCustomerMetadataResponse' :: DescribeCustomerMetadataResponse -&gt; Int
-</span><a href="#local-6989586621679297872"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297872"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297871"><span class="annot"><span class="annottext">s :: DescribeCustomerMetadataResponse
-</span><a href="#local-6989586621679297871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297870"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
-</span><a href="#local-6989586621679297871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCustomerMetadataResponse' :: Int
+</span><a href="#local-6989586621679297881"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297881"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297880"><span class="annot"><span class="annottext">s :: DescribeCustomerMetadataResponse
+</span><a href="#local-6989586621679297880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297879"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomerMetadataResponse
+</span><a href="#local-6989586621679297880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCustomerMetadataResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#%24sel%3AhttpStatus%3ADescribeCustomerMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679297868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679297877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeCustomerMetadata.html#DescribeCustomerMetadataResponse"><span class="hs-identifier hs-type">DescribeCustomerMetadataResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

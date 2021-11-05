@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- between them.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newWorkflowGraph' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679707230"><span id="local-6989586621679707231"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowGraph"><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-var">WorkflowGraph</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowGraph%27"><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-var">WorkflowGraph'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679707239"><span id="local-6989586621679707240"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowGraph"><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-var">WorkflowGraph</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowGraph%27"><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-var">WorkflowGraph'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of all the directed connections between the nodes belonging to</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the workflow.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aedges%3AWorkflowGraph%27"><span class="annot"><span class="annottext">WorkflowGraph -&gt; Maybe [Edge]
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Anodes%3AWorkflowGraph%27"><span class="annot"><span class="annottext">WorkflowGraph -&gt; Maybe [Node]
 </span><a href="Network.AWS.Glue.Types.WorkflowGraph.html#%24sel%3Anodes%3AWorkflowGraph%27"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679707223"><span id="local-6989586621679707225"><span class="annot"><span class="annottext">WorkflowGraph -&gt; WorkflowGraph -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679707232"><span id="local-6989586621679707234"><span class="annot"><span class="annottext">WorkflowGraph -&gt; WorkflowGraph -&gt; Bool
 (WorkflowGraph -&gt; WorkflowGraph -&gt; Bool)
 -&gt; (WorkflowGraph -&gt; WorkflowGraph -&gt; Bool) -&gt; Eq WorkflowGraph
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkflowGraph -&gt; WorkflowGraph -&gt; Bool
 == :: WorkflowGraph -&gt; WorkflowGraph -&gt; Bool
 $c== :: WorkflowGraph -&gt; WorkflowGraph -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679707214"><span id="local-6989586621679707216"><span id="local-6989586621679707218"><span id="local-6989586621679707220"><span class="annot"><span class="annottext">ReadPrec [WorkflowGraph]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679707223"><span id="local-6989586621679707225"><span id="local-6989586621679707227"><span id="local-6989586621679707229"><span class="annot"><span class="annottext">ReadPrec [WorkflowGraph]
 ReadPrec WorkflowGraph
 Int -&gt; ReadS WorkflowGraph
 ReadS [WorkflowGraph]
@@ -68,7 +68,7 @@ readList :: ReadS [WorkflowGraph]
 $creadList :: ReadS [WorkflowGraph]
 readsPrec :: Int -&gt; ReadS WorkflowGraph
 $creadsPrec :: Int -&gt; ReadS WorkflowGraph
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679707207"><span id="local-6989586621679707209"><span id="local-6989586621679707211"><span class="annot"><span class="annottext">Int -&gt; WorkflowGraph -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679707216"><span id="local-6989586621679707218"><span id="local-6989586621679707220"><span class="annot"><span class="annottext">Int -&gt; WorkflowGraph -&gt; ShowS
 [WorkflowGraph] -&gt; ShowS
 WorkflowGraph -&gt; String
 (Int -&gt; WorkflowGraph -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (WorkflowGraph -&gt; Maybe [Edge] -&gt; WorkflowGraph)
 -&gt; Lens WorkflowGraph WorkflowGraph (Maybe [Edge]) (Maybe [Edge])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679707198"><span class="annot"><span class="annottext">Maybe [Edge]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679707207"><span class="annot"><span class="annottext">Maybe [Edge]
 edges :: Maybe [Edge]
 $sel:edges:WorkflowGraph' :: WorkflowGraph -&gt; Maybe [Edge]
-</span><a href="#local-6989586621679707198"><span class="hs-identifier hs-var hs-var">edges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Edge]
-</span><a href="#local-6989586621679707198"><span class="hs-identifier hs-var">edges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679707197"><span class="annot"><span class="annottext">s :: WorkflowGraph
-</span><a href="#local-6989586621679707197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679707196"><span class="annot"><span class="annottext">Maybe [Edge]
-</span><a href="#local-6989586621679707196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowGraph
-</span><a href="#local-6989586621679707197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:edges:WorkflowGraph' :: Maybe [Edge]
+</span><a href="#local-6989586621679707207"><span class="hs-identifier hs-var hs-var">edges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Edge]
+</span><a href="#local-6989586621679707207"><span class="hs-identifier hs-var">edges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679707206"><span class="annot"><span class="annottext">s :: WorkflowGraph
+</span><a href="#local-6989586621679707206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679707205"><span class="annot"><span class="annottext">Maybe [Edge]
+</span><a href="#local-6989586621679707205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowGraph
+</span><a href="#local-6989586621679707206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:edges:WorkflowGraph' :: Maybe [Edge]
 </span><a href="Network.AWS.Glue.Types.WorkflowGraph.html#%24sel%3Aedges%3AWorkflowGraph%27"><span class="hs-identifier hs-var">edges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Edge]
-</span><a href="#local-6989586621679707196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Edge] -&gt; f (Maybe [Edge]))
+</span><a href="#local-6989586621679707205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Edge] -&gt; f (Maybe [Edge]))
  -&gt; WorkflowGraph -&gt; f WorkflowGraph)
 -&gt; ((Maybe [Edge] -&gt; f (Maybe [Edge]))
     -&gt; Maybe [Edge] -&gt; f (Maybe [Edge]))
@@ -167,16 +167,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (WorkflowGraph -&gt; Maybe [Node] -&gt; WorkflowGraph)
 -&gt; Lens WorkflowGraph WorkflowGraph (Maybe [Node]) (Maybe [Node])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679707191"><span class="annot"><span class="annottext">Maybe [Node]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679707200"><span class="annot"><span class="annottext">Maybe [Node]
 nodes :: Maybe [Node]
 $sel:nodes:WorkflowGraph' :: WorkflowGraph -&gt; Maybe [Node]
-</span><a href="#local-6989586621679707191"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
-</span><a href="#local-6989586621679707191"><span class="hs-identifier hs-var">nodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679707190"><span class="annot"><span class="annottext">s :: WorkflowGraph
-</span><a href="#local-6989586621679707190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679707189"><span class="annot"><span class="annottext">Maybe [Node]
-</span><a href="#local-6989586621679707189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowGraph
-</span><a href="#local-6989586621679707190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodes:WorkflowGraph' :: Maybe [Node]
+</span><a href="#local-6989586621679707200"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679707200"><span class="hs-identifier hs-var">nodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679707199"><span class="annot"><span class="annottext">s :: WorkflowGraph
+</span><a href="#local-6989586621679707199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-type">WorkflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679707198"><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679707198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowGraph
+</span><a href="#local-6989586621679707199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodes:WorkflowGraph' :: Maybe [Node]
 </span><a href="Network.AWS.Glue.Types.WorkflowGraph.html#%24sel%3Anodes%3AWorkflowGraph%27"><span class="hs-identifier hs-var">nodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
-</span><a href="#local-6989586621679707189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Node] -&gt; f (Maybe [Node]))
+</span><a href="#local-6989586621679707198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Node] -&gt; f (Maybe [Node]))
  -&gt; WorkflowGraph -&gt; f WorkflowGraph)
 -&gt; ((Maybe [Node] -&gt; f (Maybe [Node]))
     -&gt; Maybe [Node] -&gt; f (Maybe [Node]))
@@ -193,8 +193,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679707186"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679707184"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowGraph
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679707195"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679707193"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowGraph
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkflowGraph)
@@ -204,15 +204,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkflowGraph&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679707181"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679707181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679707190"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679707190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Edge] -&gt; Maybe [Node] -&gt; WorkflowGraph
 </span><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph%27"><span class="hs-identifier hs-var">WorkflowGraph'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Edge] -&gt; Maybe [Node] -&gt; WorkflowGraph)
 -&gt; Parser (Maybe [Edge]) -&gt; Parser (Maybe [Node] -&gt; WorkflowGraph)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679707181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Edge]))
+</span><a href="#local-6989586621679707190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Edge]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Edges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Edge]))
@@ -225,7 +225,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Node]) -&gt; Parser WorkflowGraph
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679707181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Node]))
+</span><a href="#local-6989586621679707190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Node]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Nodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Node]))
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679707174"><span id="local-6989586621679707176"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679707183"><span id="local-6989586621679707185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679707171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679707180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.WorkflowGraph.html#WorkflowGraph"><span class="hs-identifier hs-type">WorkflowGraph</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

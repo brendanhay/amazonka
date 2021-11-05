@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newEnableUser' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679295401"><span id="local-6989586621679295402"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableUser"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-var">EnableUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableUser%27"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-var">EnableUser'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679295410"><span id="local-6989586621679295411"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableUser"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-var">EnableUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableUser%27"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-var">EnableUser'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address of the user.</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Users\' email addresses are case-sensitive. During login, if they</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AauthenticationType%3AEnableUser%27"><span class="annot"><span class="annottext">EnableUser -&gt; AuthenticationType
 </span><a href="Network.AWS.AppStream.EnableUser.html#%24sel%3AauthenticationType%3AEnableUser%27"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295394"><span id="local-6989586621679295396"><span class="annot"><span class="annottext">EnableUser -&gt; EnableUser -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295403"><span id="local-6989586621679295405"><span class="annot"><span class="annottext">EnableUser -&gt; EnableUser -&gt; Bool
 (EnableUser -&gt; EnableUser -&gt; Bool)
 -&gt; (EnableUser -&gt; EnableUser -&gt; Bool) -&gt; Eq EnableUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableUser -&gt; EnableUser -&gt; Bool
 == :: EnableUser -&gt; EnableUser -&gt; Bool
 $c== :: EnableUser -&gt; EnableUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295387"><span id="local-6989586621679295389"><span id="local-6989586621679295391"><span class="annot"><span class="annottext">Int -&gt; EnableUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295396"><span id="local-6989586621679295398"><span id="local-6989586621679295400"><span class="annot"><span class="annottext">Int -&gt; EnableUser -&gt; ShowS
 [EnableUser] -&gt; ShowS
 EnableUser -&gt; String
 (Int -&gt; EnableUser -&gt; ShowS)
@@ -118,9 +118,9 @@ $cfrom :: forall x. EnableUser -&gt; Rep EnableUser x
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span>
 </span><span id="line-87"></span><span id="newEnableUser"><span class="annot"><span class="annottext">newEnableUser :: Text -&gt; AuthenticationType -&gt; EnableUser
-</span><a href="Network.AWS.AppStream.EnableUser.html#newEnableUser"><span class="hs-identifier hs-var hs-var">newEnableUser</span></a></span></span><span> </span><span id="local-6989586621679295382"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295382"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679295381"><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679295381"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.EnableUser.html#newEnableUser"><span class="hs-identifier hs-var hs-var">newEnableUser</span></a></span></span><span> </span><span id="local-6989586621679295391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295391"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679295390"><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679295390"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">EnableUser' :: Sensitive Text -&gt; AuthenticationType -&gt; EnableUser
 </span><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:EnableUser' :: Sensitive Text
@@ -133,10 +133,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295382"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295391"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationType:EnableUser' :: AuthenticationType
 </span><a href="Network.AWS.AppStream.EnableUser.html#%24sel%3AauthenticationType%3AEnableUser%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679295381"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span><span>
+</span><a href="#local-6989586621679295390"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The email address of the user.</span><span>
@@ -151,16 +151,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (EnableUser -&gt; Sensitive Text -&gt; EnableUser)
 -&gt; Lens EnableUser EnableUser (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295376"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295385"><span class="annot"><span class="annottext">Sensitive Text
 userName :: Sensitive Text
 $sel:userName:EnableUser' :: EnableUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679295376"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295376"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295375"><span class="annot"><span class="annottext">s :: EnableUser
-</span><a href="#local-6989586621679295375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295374"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableUser
-</span><a href="#local-6989586621679295375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:EnableUser' :: Sensitive Text
+</span><a href="#local-6989586621679295385"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679295385"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295384"><span class="annot"><span class="annottext">s :: EnableUser
+</span><a href="#local-6989586621679295384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295383"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679295383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableUser
+</span><a href="#local-6989586621679295384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:EnableUser' :: Sensitive Text
 </span><a href="Network.AWS.AppStream.EnableUser.html#%24sel%3AuserName%3AEnableUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679295383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; EnableUser -&gt; f EnableUser)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -179,25 +179,25 @@ forall a. Iso' (Sensitive a) a
 -&gt; (EnableUser -&gt; AuthenticationType -&gt; EnableUser)
 -&gt; Lens EnableUser EnableUser AuthenticationType AuthenticationType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295372"><span class="annot"><span class="annottext">AuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295381"><span class="annot"><span class="annottext">AuthenticationType
 authenticationType :: AuthenticationType
 $sel:authenticationType:EnableUser' :: EnableUser -&gt; AuthenticationType
-</span><a href="#local-6989586621679295372"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679295372"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295371"><span class="annot"><span class="annottext">s :: EnableUser
-</span><a href="#local-6989586621679295371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295370"><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679295370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableUser
-</span><a href="#local-6989586621679295371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:EnableUser' :: AuthenticationType
+</span><a href="#local-6989586621679295381"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679295381"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295380"><span class="annot"><span class="annottext">s :: EnableUser
+</span><a href="#local-6989586621679295380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295379"><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679295379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableUser
+</span><a href="#local-6989586621679295380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:EnableUser' :: AuthenticationType
 </span><a href="Network.AWS.AppStream.EnableUser.html#%24sel%3AauthenticationType%3AEnableUser%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679295370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-type">EnableUserResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679295366"><span class="annot"><span class="annottext">request :: EnableUser -&gt; Request EnableUser
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679295375"><span class="annot"><span class="annottext">request :: EnableUser -&gt; Request EnableUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableUser -&gt; Request EnableUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679295362"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679295371"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableUser
 -&gt; ClientResponse ClientBody
@@ -219,10 +219,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295359"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295358"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679295358"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295357"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679295357"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295368"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295367"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679295367"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295366"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679295366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EnableUserResponse
 </span><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-var">EnableUserResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EnableUserResponse)
@@ -233,15 +233,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295359"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295368"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295350"><span id="local-6989586621679295352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295359"><span id="local-6989586621679295361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679295343"><span class="annot"><span class="annottext">toHeaders :: EnableUser -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679295352"><span class="annot"><span class="annottext">toHeaders :: EnableUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,15 +268,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295333"><span id="local-6989586621679295335"><span id="local-6989586621679295337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679295331"><span class="annot"><span class="annottext">toJSON :: EnableUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295328"><span id="local-6989586621679295329"><span class="annot"><span class="annottext">Sensitive Text
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295342"><span id="local-6989586621679295344"><span id="local-6989586621679295346"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679295340"><span class="annot"><span class="annottext">toJSON :: EnableUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser%27"><span class="hs-identifier hs-type">EnableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295337"><span id="local-6989586621679295338"><span class="annot"><span class="annottext">Sensitive Text
 AuthenticationType
 authenticationType :: AuthenticationType
 userName :: Sensitive Text
 $sel:authenticationType:EnableUser' :: EnableUser -&gt; AuthenticationType
 $sel:userName:EnableUser' :: EnableUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679295328"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679295337"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,7 +288,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295329"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295338"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -296,19 +296,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AuthenticationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679295328"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295337"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679295322"><span class="annot"><span class="annottext">toPath :: EnableUser -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679295331"><span class="annot"><span class="annottext">toPath :: EnableUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUser"><span class="hs-identifier hs-type">EnableUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679295318"><span class="annot"><span class="annottext">toQuery :: EnableUser -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679295327"><span class="annot"><span class="annottext">toQuery :: EnableUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -316,12 +316,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newEnableUserResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679295315"><span id="local-6989586621679295316"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableUserResponse"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-var">EnableUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableUserResponse%27"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-var">EnableUserResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679295324"><span id="local-6989586621679295325"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableUserResponse"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-var">EnableUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableUserResponse%27"><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-var">EnableUserResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnableUserResponse%27"><span class="annot"><span class="annottext">EnableUserResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.EnableUser.html#%24sel%3AhttpStatus%3AEnableUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295310"><span id="local-6989586621679295312"><span class="annot"><span class="annottext">EnableUserResponse -&gt; EnableUserResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295319"><span id="local-6989586621679295321"><span class="annot"><span class="annottext">EnableUserResponse -&gt; EnableUserResponse -&gt; Bool
 (EnableUserResponse -&gt; EnableUserResponse -&gt; Bool)
 -&gt; (EnableUserResponse -&gt; EnableUserResponse -&gt; Bool)
 -&gt; Eq EnableUserResponse
@@ -330,7 +330,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableUserResponse -&gt; EnableUserResponse -&gt; Bool
 == :: EnableUserResponse -&gt; EnableUserResponse -&gt; Bool
 $c== :: EnableUserResponse -&gt; EnableUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295302"><span id="local-6989586621679295304"><span id="local-6989586621679295306"><span id="local-6989586621679295308"><span class="annot"><span class="annottext">ReadPrec [EnableUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295311"><span id="local-6989586621679295313"><span id="local-6989586621679295315"><span id="local-6989586621679295317"><span class="annot"><span class="annottext">ReadPrec [EnableUserResponse]
 ReadPrec EnableUserResponse
 Int -&gt; ReadS EnableUserResponse
 ReadS [EnableUserResponse]
@@ -350,7 +350,7 @@ readList :: ReadS [EnableUserResponse]
 $creadList :: ReadS [EnableUserResponse]
 readsPrec :: Int -&gt; ReadS EnableUserResponse
 $creadsPrec :: Int -&gt; ReadS EnableUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295295"><span id="local-6989586621679295297"><span id="local-6989586621679295299"><span class="annot"><span class="annottext">Int -&gt; EnableUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295304"><span id="local-6989586621679295306"><span id="local-6989586621679295308"><span class="annot"><span class="annottext">Int -&gt; EnableUserResponse -&gt; ShowS
 [EnableUserResponse] -&gt; ShowS
 EnableUserResponse -&gt; String
 (Int -&gt; EnableUserResponse -&gt; ShowS)
@@ -390,12 +390,12 @@ $cfrom :: forall x. EnableUserResponse -&gt; Rep EnableUserResponse x
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-type">EnableUserResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newEnableUserResponse"><span class="annot"><span class="annottext">newEnableUserResponse :: Int -&gt; EnableUserResponse
-</span><a href="Network.AWS.AppStream.EnableUser.html#newEnableUserResponse"><span class="hs-identifier hs-var hs-var">newEnableUserResponse</span></a></span></span><span> </span><span id="local-6989586621679295292"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295292"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.EnableUser.html#newEnableUserResponse"><span class="hs-identifier hs-var hs-var">newEnableUserResponse</span></a></span></span><span> </span><span id="local-6989586621679295301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">EnableUserResponse' :: Int -&gt; EnableUserResponse
 </span><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-type">EnableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableUserResponse' :: Int
 </span><a href="Network.AWS.AppStream.EnableUser.html#%24sel%3AhttpStatus%3AEnableUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295292"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679295301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#enableUserResponse_httpStatus"><span class="hs-identifier hs-type">enableUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-type">EnableUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -404,16 +404,16 @@ $cfrom :: forall x. EnableUserResponse -&gt; Rep EnableUserResponse x
 -&gt; (EnableUserResponse -&gt; Int -&gt; EnableUserResponse)
 -&gt; Lens EnableUserResponse EnableUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-type">EnableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295291"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-type">EnableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295300"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:EnableUserResponse' :: EnableUserResponse -&gt; Int
-</span><a href="#local-6989586621679295291"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295291"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295290"><span class="annot"><span class="annottext">s :: EnableUserResponse
-</span><a href="#local-6989586621679295290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-type">EnableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295289"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableUserResponse
-</span><a href="#local-6989586621679295290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableUserResponse' :: Int
+</span><a href="#local-6989586621679295300"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295300"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295299"><span class="annot"><span class="annottext">s :: EnableUserResponse
+</span><a href="#local-6989586621679295299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse%27"><span class="hs-identifier hs-type">EnableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295298"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableUserResponse
+</span><a href="#local-6989586621679295299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableUserResponse' :: Int
 </span><a href="Network.AWS.AppStream.EnableUser.html#%24sel%3AhttpStatus%3AEnableUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-type">EnableUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-type">EnableUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-type">EnableUserResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.EnableUser.html#EnableUserResponse"><span class="hs-identifier hs-type">EnableUserResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

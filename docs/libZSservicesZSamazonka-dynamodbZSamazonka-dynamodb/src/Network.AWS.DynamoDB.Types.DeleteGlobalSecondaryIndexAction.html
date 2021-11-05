@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- table.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeleteGlobalSecondaryIndexAction' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679371561"><span id="local-6989586621679371562"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGlobalSecondaryIndexAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-var">DeleteGlobalSecondaryIndexAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGlobalSecondaryIndexAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">DeleteGlobalSecondaryIndexAction'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371570"><span id="local-6989586621679371571"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGlobalSecondaryIndexAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-var">DeleteGlobalSecondaryIndexAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGlobalSecondaryIndexAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">DeleteGlobalSecondaryIndexAction'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the global secondary index to be deleted.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AindexName%3ADeleteGlobalSecondaryIndexAction%27"><span class="annot"><span class="annottext">DeleteGlobalSecondaryIndexAction -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#%24sel%3AindexName%3ADeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371555"><span id="local-6989586621679371557"><span class="annot"><span class="annottext">DeleteGlobalSecondaryIndexAction
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371564"><span id="local-6989586621679371566"><span class="annot"><span class="annottext">DeleteGlobalSecondaryIndexAction
 -&gt; DeleteGlobalSecondaryIndexAction -&gt; Bool
 (DeleteGlobalSecondaryIndexAction
  -&gt; DeleteGlobalSecondaryIndexAction -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: DeleteGlobalSecondaryIndexAction
 -&gt; DeleteGlobalSecondaryIndexAction -&gt; Bool
 $c== :: DeleteGlobalSecondaryIndexAction
 -&gt; DeleteGlobalSecondaryIndexAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371546"><span id="local-6989586621679371548"><span id="local-6989586621679371550"><span id="local-6989586621679371552"><span class="annot"><span class="annottext">ReadPrec [DeleteGlobalSecondaryIndexAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371555"><span id="local-6989586621679371557"><span id="local-6989586621679371559"><span id="local-6989586621679371561"><span class="annot"><span class="annottext">ReadPrec [DeleteGlobalSecondaryIndexAction]
 ReadPrec DeleteGlobalSecondaryIndexAction
 Int -&gt; ReadS DeleteGlobalSecondaryIndexAction
 ReadS [DeleteGlobalSecondaryIndexAction]
@@ -68,7 +68,7 @@ readList :: ReadS [DeleteGlobalSecondaryIndexAction]
 $creadList :: ReadS [DeleteGlobalSecondaryIndexAction]
 readsPrec :: Int -&gt; ReadS DeleteGlobalSecondaryIndexAction
 $creadsPrec :: Int -&gt; ReadS DeleteGlobalSecondaryIndexAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371539"><span id="local-6989586621679371541"><span id="local-6989586621679371543"><span class="annot"><span class="annottext">Int -&gt; DeleteGlobalSecondaryIndexAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371548"><span id="local-6989586621679371550"><span id="local-6989586621679371552"><span class="annot"><span class="annottext">Int -&gt; DeleteGlobalSecondaryIndexAction -&gt; ShowS
 [DeleteGlobalSecondaryIndexAction] -&gt; ShowS
 DeleteGlobalSecondaryIndexAction -&gt; String
 (Int -&gt; DeleteGlobalSecondaryIndexAction -&gt; ShowS)
@@ -120,14 +120,14 @@ DeleteGlobalSecondaryIndexAction
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction</span></a></span><span>
 </span><span id="line-49"></span><span id="newDeleteGlobalSecondaryIndexAction"><span class="annot"><span class="annottext">newDeleteGlobalSecondaryIndexAction :: Text -&gt; DeleteGlobalSecondaryIndexAction
-</span><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#newDeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-var hs-var">newDeleteGlobalSecondaryIndexAction</span></a></span></span><span> </span><span id="local-6989586621679371533"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371533"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#newDeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-var hs-var">newDeleteGlobalSecondaryIndexAction</span></a></span></span><span> </span><span id="local-6989586621679371542"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371542"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">DeleteGlobalSecondaryIndexAction' :: Text -&gt; DeleteGlobalSecondaryIndexAction
 </span><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexName:DeleteGlobalSecondaryIndexAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#%24sel%3AindexName%3ADeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371533"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
+</span><a href="#local-6989586621679371542"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | The name of the global secondary index to be deleted.</span><span>
@@ -144,31 +144,31 @@ DeleteGlobalSecondaryIndexAction
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371529"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371538"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:DeleteGlobalSecondaryIndexAction' :: DeleteGlobalSecondaryIndexAction -&gt; Text
-</span><a href="#local-6989586621679371529"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371529"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371528"><span class="annot"><span class="annottext">s :: DeleteGlobalSecondaryIndexAction
-</span><a href="#local-6989586621679371528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371527"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGlobalSecondaryIndexAction
-</span><a href="#local-6989586621679371528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DeleteGlobalSecondaryIndexAction' :: Text
+</span><a href="#local-6989586621679371538"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371538"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371537"><span class="annot"><span class="annottext">s :: DeleteGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679371537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679371537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DeleteGlobalSecondaryIndexAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#%24sel%3AindexName%3ADeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679371523"><span id="local-6989586621679371525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679371532"><span id="local-6989586621679371534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679371520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679371529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371512"><span id="local-6989586621679371514"><span id="local-6989586621679371516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679371510"><span class="annot"><span class="annottext">toJSON :: DeleteGlobalSecondaryIndexAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371508"><span class="annot"><span class="annottext">Text
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371521"><span id="local-6989586621679371523"><span id="local-6989586621679371525"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679371519"><span class="annot"><span class="annottext">toJSON :: DeleteGlobalSecondaryIndexAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction.html#DeleteGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">DeleteGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371517"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:DeleteGlobalSecondaryIndexAction' :: DeleteGlobalSecondaryIndexAction -&gt; Text
-</span><a href="#local-6989586621679371508"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371517"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,6 +180,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371508"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679371517"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

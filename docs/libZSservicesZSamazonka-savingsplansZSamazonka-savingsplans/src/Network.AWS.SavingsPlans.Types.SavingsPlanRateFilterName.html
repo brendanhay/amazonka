@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_InstanceType"><span class="hs-identifier">SavingsPlanRateFilterName_InstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Operation"><span class="hs-identifier">SavingsPlanRateFilterName_Operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ProductDescription"><span class="hs-identifier">SavingsPlanRateFilterName_ProductDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ProductType"><span class="hs-identifier">SavingsPlanRateFilterName_ProductType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Region"><span class="hs-identifier">SavingsPlanRateFilterName_Region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ServiceCode"><span class="hs-identifier">SavingsPlanRateFilterName_ServiceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Tenancy"><span class="hs-identifier">SavingsPlanRateFilterName_Tenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_UsageType"><span class="hs-identifier">SavingsPlanRateFilterName_UsageType</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679188232"><span id="local-6989586621679188233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SavingsPlanRateFilterName"><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-var">SavingsPlanRateFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlanRateFilterName%27"><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-var">SavingsPlanRateFilterName'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSavingsPlanRateFilterName"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; Text
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#fromSavingsPlanRateFilterName"><span class="hs-identifier hs-var hs-var">fromSavingsPlanRateFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188224"><span id="local-6989586621679188226"><span id="local-6989586621679188228"><span class="annot"><span class="annottext">Int -&gt; SavingsPlanRateFilterName -&gt; ShowS
+[SavingsPlanRateFilterName] -&gt; ShowS
+SavingsPlanRateFilterName -&gt; String
+(Int -&gt; SavingsPlanRateFilterName -&gt; ShowS)
+-&gt; (SavingsPlanRateFilterName -&gt; String)
+-&gt; ([SavingsPlanRateFilterName] -&gt; ShowS)
+-&gt; Show SavingsPlanRateFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SavingsPlanRateFilterName] -&gt; ShowS
+$cshowList :: [SavingsPlanRateFilterName] -&gt; ShowS
+show :: SavingsPlanRateFilterName -&gt; String
+$cshow :: SavingsPlanRateFilterName -&gt; String
+showsPrec :: Int -&gt; SavingsPlanRateFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; SavingsPlanRateFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679188215"><span id="local-6989586621679188217"><span id="local-6989586621679188219"><span id="local-6989586621679188221"><span class="annot"><span class="annottext">ReadPrec [SavingsPlanRateFilterName]
+ReadPrec SavingsPlanRateFilterName
+Int -&gt; ReadS SavingsPlanRateFilterName
+ReadS [SavingsPlanRateFilterName]
+(Int -&gt; ReadS SavingsPlanRateFilterName)
+-&gt; ReadS [SavingsPlanRateFilterName]
+-&gt; ReadPrec SavingsPlanRateFilterName
+-&gt; ReadPrec [SavingsPlanRateFilterName]
+-&gt; Read SavingsPlanRateFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SavingsPlanRateFilterName]
+$creadListPrec :: ReadPrec [SavingsPlanRateFilterName]
+readPrec :: ReadPrec SavingsPlanRateFilterName
+$creadPrec :: ReadPrec SavingsPlanRateFilterName
+readList :: ReadS [SavingsPlanRateFilterName]
+$creadList :: ReadS [SavingsPlanRateFilterName]
+readsPrec :: Int -&gt; ReadS SavingsPlanRateFilterName
+$creadsPrec :: Int -&gt; ReadS SavingsPlanRateFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679188210"><span id="local-6989586621679188212"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+(SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool)
+-&gt; (SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool)
+-&gt; Eq SavingsPlanRateFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+$c/= :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+== :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+$c== :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679188194"><span id="local-6989586621679188196"><span id="local-6989586621679188198"><span id="local-6989586621679188200"><span id="local-6989586621679188202"><span id="local-6989586621679188204"><span id="local-6989586621679188206"><span class="annot"><span class="annottext">Eq SavingsPlanRateFilterName
+Eq SavingsPlanRateFilterName
+-&gt; (SavingsPlanRateFilterName
+    -&gt; SavingsPlanRateFilterName -&gt; Ordering)
+-&gt; (SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool)
+-&gt; (SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool)
+-&gt; (SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool)
+-&gt; (SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool)
+-&gt; (SavingsPlanRateFilterName
+    -&gt; SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName)
+-&gt; (SavingsPlanRateFilterName
+    -&gt; SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName)
+-&gt; Ord SavingsPlanRateFilterName
+SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Ordering
+SavingsPlanRateFilterName
+-&gt; SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SavingsPlanRateFilterName
+-&gt; SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName
+$cmin :: SavingsPlanRateFilterName
+-&gt; SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName
+max :: SavingsPlanRateFilterName
+-&gt; SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName
+$cmax :: SavingsPlanRateFilterName
+-&gt; SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName
+&gt;= :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+$c&gt;= :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+&gt; :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+$c&gt; :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+&lt;= :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+$c&lt;= :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+&lt; :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+$c&lt; :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Bool
+compare :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Ordering
+$ccompare :: SavingsPlanRateFilterName -&gt; SavingsPlanRateFilterName -&gt; Ordering
+$cp1Ord :: Eq SavingsPlanRateFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SavingsPlanRateFilterName -&gt; Rep SavingsPlanRateFilterName x)
+-&gt; (forall x.
+    Rep SavingsPlanRateFilterName x -&gt; SavingsPlanRateFilterName)
+-&gt; Generic SavingsPlanRateFilterName
+forall x.
+Rep SavingsPlanRateFilterName x -&gt; SavingsPlanRateFilterName
+forall x.
+SavingsPlanRateFilterName -&gt; Rep SavingsPlanRateFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SavingsPlanRateFilterName x -&gt; SavingsPlanRateFilterName
+$cfrom :: forall x.
+SavingsPlanRateFilterName -&gt; Rep SavingsPlanRateFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188186"><span id="local-6989586621679188188"><span class="annot"><span class="annottext">Int -&gt; SavingsPlanRateFilterName -&gt; Int
+SavingsPlanRateFilterName -&gt; Int
+(Int -&gt; SavingsPlanRateFilterName -&gt; Int)
+-&gt; (SavingsPlanRateFilterName -&gt; Int)
+-&gt; Hashable SavingsPlanRateFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SavingsPlanRateFilterName -&gt; Int
+$chash :: SavingsPlanRateFilterName -&gt; Int
+hashWithSalt :: Int -&gt; SavingsPlanRateFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; SavingsPlanRateFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679188183"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; ()
+(SavingsPlanRateFilterName -&gt; ())
+-&gt; NFData SavingsPlanRateFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SavingsPlanRateFilterName -&gt; ()
+$crnf :: SavingsPlanRateFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679188180"><span class="annot"><span class="annottext">Text -&gt; Either String SavingsPlanRateFilterName
+(Text -&gt; Either String SavingsPlanRateFilterName)
+-&gt; FromText SavingsPlanRateFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SavingsPlanRateFilterName
+$cfromText :: Text -&gt; Either String SavingsPlanRateFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679188177"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; Text
+(SavingsPlanRateFilterName -&gt; Text)
+-&gt; ToText SavingsPlanRateFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SavingsPlanRateFilterName -&gt; Text
+$ctoText :: SavingsPlanRateFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679188174"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; ByteString
+(SavingsPlanRateFilterName -&gt; ByteString)
+-&gt; ToByteString SavingsPlanRateFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SavingsPlanRateFilterName -&gt; ByteString
+$ctoBS :: SavingsPlanRateFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679188171"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; ByteStringBuilder
+(SavingsPlanRateFilterName -&gt; ByteStringBuilder)
+-&gt; ToLog SavingsPlanRateFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SavingsPlanRateFilterName -&gt; ByteStringBuilder
+$cbuild :: SavingsPlanRateFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679188168"><span class="annot"><span class="annottext">HeaderName -&gt; SavingsPlanRateFilterName -&gt; [Header]
+(HeaderName -&gt; SavingsPlanRateFilterName -&gt; [Header])
+-&gt; ToHeader SavingsPlanRateFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SavingsPlanRateFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SavingsPlanRateFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679188165"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; QueryString
+(SavingsPlanRateFilterName -&gt; QueryString)
+-&gt; ToQuery SavingsPlanRateFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SavingsPlanRateFilterName -&gt; QueryString
+$ctoQuery :: SavingsPlanRateFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679188160"><span id="local-6989586621679188162"><span class="annot"><span class="annottext">Value -&gt; Parser [SavingsPlanRateFilterName]
+Value -&gt; Parser SavingsPlanRateFilterName
+(Value -&gt; Parser SavingsPlanRateFilterName)
+-&gt; (Value -&gt; Parser [SavingsPlanRateFilterName])
+-&gt; FromJSON SavingsPlanRateFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SavingsPlanRateFilterName]
+$cparseJSONList :: Value -&gt; Parser [SavingsPlanRateFilterName]
+parseJSON :: Value -&gt; Parser SavingsPlanRateFilterName
+$cparseJSON :: Value -&gt; Parser SavingsPlanRateFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679188155"><span id="local-6989586621679188157"><span class="annot"><span class="annottext">FromJSONKeyFunction [SavingsPlanRateFilterName]
+FromJSONKeyFunction SavingsPlanRateFilterName
+FromJSONKeyFunction SavingsPlanRateFilterName
+-&gt; FromJSONKeyFunction [SavingsPlanRateFilterName]
+-&gt; FromJSONKey SavingsPlanRateFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SavingsPlanRateFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [SavingsPlanRateFilterName]
+fromJSONKey :: FromJSONKeyFunction SavingsPlanRateFilterName
+$cfromJSONKey :: FromJSONKeyFunction SavingsPlanRateFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679188146"><span id="local-6989586621679188148"><span id="local-6989586621679188150"><span id="local-6989586621679188152"><span class="annot"><span class="annottext">[SavingsPlanRateFilterName] -&gt; Encoding
+[SavingsPlanRateFilterName] -&gt; Value
+SavingsPlanRateFilterName -&gt; Encoding
+SavingsPlanRateFilterName -&gt; Value
+(SavingsPlanRateFilterName -&gt; Value)
+-&gt; (SavingsPlanRateFilterName -&gt; Encoding)
+-&gt; ([SavingsPlanRateFilterName] -&gt; Value)
+-&gt; ([SavingsPlanRateFilterName] -&gt; Encoding)
+-&gt; ToJSON SavingsPlanRateFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SavingsPlanRateFilterName] -&gt; Encoding
+$ctoEncodingList :: [SavingsPlanRateFilterName] -&gt; Encoding
+toJSONList :: [SavingsPlanRateFilterName] -&gt; Value
+$ctoJSONList :: [SavingsPlanRateFilterName] -&gt; Value
+toEncoding :: SavingsPlanRateFilterName -&gt; Encoding
+$ctoEncoding :: SavingsPlanRateFilterName -&gt; Encoding
+toJSON :: SavingsPlanRateFilterName -&gt; Value
+$ctoJSON :: SavingsPlanRateFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679188141"><span id="local-6989586621679188143"><span class="annot"><span class="annottext">ToJSONKeyFunction [SavingsPlanRateFilterName]
+ToJSONKeyFunction SavingsPlanRateFilterName
+ToJSONKeyFunction SavingsPlanRateFilterName
+-&gt; ToJSONKeyFunction [SavingsPlanRateFilterName]
+-&gt; ToJSONKey SavingsPlanRateFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SavingsPlanRateFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [SavingsPlanRateFilterName]
+toJSONKey :: ToJSONKeyFunction SavingsPlanRateFilterName
+$ctoJSONKey :: ToJSONKeyFunction SavingsPlanRateFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679188138"><span class="annot"><span class="annottext">[Node] -&gt; Either String SavingsPlanRateFilterName
+([Node] -&gt; Either String SavingsPlanRateFilterName)
+-&gt; FromXML SavingsPlanRateFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SavingsPlanRateFilterName
+$cparseXML :: [Node] -&gt; Either String SavingsPlanRateFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679188135"><span class="annot"><span class="annottext">SavingsPlanRateFilterName -&gt; XML
+(SavingsPlanRateFilterName -&gt; XML)
+-&gt; ToXML SavingsPlanRateFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SavingsPlanRateFilterName -&gt; XML
+$ctoXML :: SavingsPlanRateFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_InstanceType"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_InstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_InstanceType"><span id="%24mSavingsPlanRateFilterName_InstanceType"><span id="SavingsPlanRateFilterName_InstanceType"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_InstanceType :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_InstanceType :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_InstanceType"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_InstanceType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;instanceType&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Operation"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_Operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_Operation"><span id="%24mSavingsPlanRateFilterName_Operation"><span id="SavingsPlanRateFilterName_Operation"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_Operation :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_Operation :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_Operation"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_Operation</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;operation&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ProductDescription"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_ProductDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_ProductDescription"><span id="%24mSavingsPlanRateFilterName_ProductDescription"><span id="SavingsPlanRateFilterName_ProductDescription"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_ProductDescription :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_ProductDescription :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_ProductDescription"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_ProductDescription</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;productDescription&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ProductType"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_ProductType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_ProductType"><span id="%24mSavingsPlanRateFilterName_ProductType"><span id="SavingsPlanRateFilterName_ProductType"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_ProductType :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_ProductType :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_ProductType"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_ProductType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;productType&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Region"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_Region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_Region"><span id="%24mSavingsPlanRateFilterName_Region"><span id="SavingsPlanRateFilterName_Region"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_Region :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_Region :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_Region"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_Region</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;region&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ServiceCode"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_ServiceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_ServiceCode"><span id="%24mSavingsPlanRateFilterName_ServiceCode"><span id="SavingsPlanRateFilterName_ServiceCode"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_ServiceCode :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_ServiceCode :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_ServiceCode"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_ServiceCode</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;serviceCode&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Tenancy"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_Tenancy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_Tenancy"><span id="%24mSavingsPlanRateFilterName_Tenancy"><span id="SavingsPlanRateFilterName_Tenancy"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_Tenancy :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_Tenancy :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_Tenancy"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_Tenancy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;tenancy&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_UsageType"><span class="hs-identifier hs-type">SavingsPlanRateFilterName_UsageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName"><span class="hs-identifier hs-type">SavingsPlanRateFilterName</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanRateFilterName_UsageType"><span id="%24mSavingsPlanRateFilterName_UsageType"><span id="SavingsPlanRateFilterName_UsageType"><span class="annot"><span class="annottext">$bSavingsPlanRateFilterName_UsageType :: SavingsPlanRateFilterName
+$mSavingsPlanRateFilterName_UsageType :: forall r.
+SavingsPlanRateFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#%24bSavingsPlanRateFilterName_UsageType"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanRateFilterName_UsageType</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-identifier hs-type">SavingsPlanRateFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;usageType&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_InstanceType"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_InstanceType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Operation"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_Operation</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ProductDescription"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_ProductDescription</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ProductType"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_ProductType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Region"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_Region</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_ServiceCode"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_ServiceCode</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_Tenancy"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_Tenancy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName_UsageType"><span class="hs-pragma hs-type">SavingsPlanRateFilterName_UsageType</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName.html#SavingsPlanRateFilterName%27"><span class="hs-pragma hs-type">SavingsPlanRateFilterName'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.Types.TaskExecutionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.Types.TaskExecutionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_ERROR"><span class="hs-identifier">TaskExecutionStatus_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_LAUNCHING"><span class="hs-identifier">TaskExecutionStatus_LAUNCHING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_PREPARING"><span class="hs-identifier">TaskExecutionStatus_PREPARING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_QUEUED"><span class="hs-identifier">TaskExecutionStatus_QUEUED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_SUCCESS"><span class="hs-identifier">TaskExecutionStatus_SUCCESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_TRANSFERRING"><span class="hs-identifier">TaskExecutionStatus_TRANSFERRING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_VERIFYING"><span class="hs-identifier">TaskExecutionStatus_VERIFYING</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679251726"><span id="local-6989586621679251727"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskExecutionStatus"><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-var">TaskExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskExecutionStatus%27"><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-var">TaskExecutionStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskExecutionStatus"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; Text
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#fromTaskExecutionStatus"><span class="hs-identifier hs-var hs-var">fromTaskExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251718"><span id="local-6989586621679251720"><span id="local-6989586621679251722"><span class="annot"><span class="annottext">Int -&gt; TaskExecutionStatus -&gt; ShowS
+[TaskExecutionStatus] -&gt; ShowS
+TaskExecutionStatus -&gt; String
+(Int -&gt; TaskExecutionStatus -&gt; ShowS)
+-&gt; (TaskExecutionStatus -&gt; String)
+-&gt; ([TaskExecutionStatus] -&gt; ShowS)
+-&gt; Show TaskExecutionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TaskExecutionStatus] -&gt; ShowS
+$cshowList :: [TaskExecutionStatus] -&gt; ShowS
+show :: TaskExecutionStatus -&gt; String
+$cshow :: TaskExecutionStatus -&gt; String
+showsPrec :: Int -&gt; TaskExecutionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; TaskExecutionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679251709"><span id="local-6989586621679251711"><span id="local-6989586621679251713"><span id="local-6989586621679251715"><span class="annot"><span class="annottext">ReadPrec [TaskExecutionStatus]
+ReadPrec TaskExecutionStatus
+Int -&gt; ReadS TaskExecutionStatus
+ReadS [TaskExecutionStatus]
+(Int -&gt; ReadS TaskExecutionStatus)
+-&gt; ReadS [TaskExecutionStatus]
+-&gt; ReadPrec TaskExecutionStatus
+-&gt; ReadPrec [TaskExecutionStatus]
+-&gt; Read TaskExecutionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TaskExecutionStatus]
+$creadListPrec :: ReadPrec [TaskExecutionStatus]
+readPrec :: ReadPrec TaskExecutionStatus
+$creadPrec :: ReadPrec TaskExecutionStatus
+readList :: ReadS [TaskExecutionStatus]
+$creadList :: ReadS [TaskExecutionStatus]
+readsPrec :: Int -&gt; ReadS TaskExecutionStatus
+$creadsPrec :: Int -&gt; ReadS TaskExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679251704"><span id="local-6989586621679251706"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+(TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool)
+-&gt; (TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool)
+-&gt; Eq TaskExecutionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+$c/= :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+== :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+$c== :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679251688"><span id="local-6989586621679251690"><span id="local-6989586621679251692"><span id="local-6989586621679251694"><span id="local-6989586621679251696"><span id="local-6989586621679251698"><span id="local-6989586621679251700"><span class="annot"><span class="annottext">Eq TaskExecutionStatus
+Eq TaskExecutionStatus
+-&gt; (TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Ordering)
+-&gt; (TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool)
+-&gt; (TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool)
+-&gt; (TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool)
+-&gt; (TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool)
+-&gt; (TaskExecutionStatus
+    -&gt; TaskExecutionStatus -&gt; TaskExecutionStatus)
+-&gt; (TaskExecutionStatus
+    -&gt; TaskExecutionStatus -&gt; TaskExecutionStatus)
+-&gt; Ord TaskExecutionStatus
+TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Ordering
+TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; TaskExecutionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; TaskExecutionStatus
+$cmin :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; TaskExecutionStatus
+max :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; TaskExecutionStatus
+$cmax :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; TaskExecutionStatus
+&gt;= :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+$c&gt;= :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+&gt; :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+$c&gt; :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+&lt;= :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+$c&lt;= :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+&lt; :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+$c&lt; :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Bool
+compare :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Ordering
+$ccompare :: TaskExecutionStatus -&gt; TaskExecutionStatus -&gt; Ordering
+$cp1Ord :: Eq TaskExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TaskExecutionStatus -&gt; Rep TaskExecutionStatus x)
+-&gt; (forall x. Rep TaskExecutionStatus x -&gt; TaskExecutionStatus)
+-&gt; Generic TaskExecutionStatus
+forall x. Rep TaskExecutionStatus x -&gt; TaskExecutionStatus
+forall x. TaskExecutionStatus -&gt; Rep TaskExecutionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TaskExecutionStatus x -&gt; TaskExecutionStatus
+$cfrom :: forall x. TaskExecutionStatus -&gt; Rep TaskExecutionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251680"><span id="local-6989586621679251682"><span class="annot"><span class="annottext">Int -&gt; TaskExecutionStatus -&gt; Int
+TaskExecutionStatus -&gt; Int
+(Int -&gt; TaskExecutionStatus -&gt; Int)
+-&gt; (TaskExecutionStatus -&gt; Int) -&gt; Hashable TaskExecutionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TaskExecutionStatus -&gt; Int
+$chash :: TaskExecutionStatus -&gt; Int
+hashWithSalt :: Int -&gt; TaskExecutionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; TaskExecutionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679251677"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; ()
+(TaskExecutionStatus -&gt; ()) -&gt; NFData TaskExecutionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TaskExecutionStatus -&gt; ()
+$crnf :: TaskExecutionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679251674"><span class="annot"><span class="annottext">Text -&gt; Either String TaskExecutionStatus
+(Text -&gt; Either String TaskExecutionStatus)
+-&gt; FromText TaskExecutionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TaskExecutionStatus
+$cfromText :: Text -&gt; Either String TaskExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679251671"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; Text
+(TaskExecutionStatus -&gt; Text) -&gt; ToText TaskExecutionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TaskExecutionStatus -&gt; Text
+$ctoText :: TaskExecutionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679251668"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; ByteString
+(TaskExecutionStatus -&gt; ByteString)
+-&gt; ToByteString TaskExecutionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TaskExecutionStatus -&gt; ByteString
+$ctoBS :: TaskExecutionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679251665"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; ByteStringBuilder
+(TaskExecutionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog TaskExecutionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TaskExecutionStatus -&gt; ByteStringBuilder
+$cbuild :: TaskExecutionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679251662"><span class="annot"><span class="annottext">HeaderName -&gt; TaskExecutionStatus -&gt; [Header]
+(HeaderName -&gt; TaskExecutionStatus -&gt; [Header])
+-&gt; ToHeader TaskExecutionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TaskExecutionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TaskExecutionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679251659"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; QueryString
+(TaskExecutionStatus -&gt; QueryString) -&gt; ToQuery TaskExecutionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TaskExecutionStatus -&gt; QueryString
+$ctoQuery :: TaskExecutionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679251654"><span id="local-6989586621679251656"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskExecutionStatus]
+Value -&gt; Parser TaskExecutionStatus
+(Value -&gt; Parser TaskExecutionStatus)
+-&gt; (Value -&gt; Parser [TaskExecutionStatus])
+-&gt; FromJSON TaskExecutionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TaskExecutionStatus]
+$cparseJSONList :: Value -&gt; Parser [TaskExecutionStatus]
+parseJSON :: Value -&gt; Parser TaskExecutionStatus
+$cparseJSON :: Value -&gt; Parser TaskExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679251649"><span id="local-6989586621679251651"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskExecutionStatus]
+FromJSONKeyFunction TaskExecutionStatus
+FromJSONKeyFunction TaskExecutionStatus
+-&gt; FromJSONKeyFunction [TaskExecutionStatus]
+-&gt; FromJSONKey TaskExecutionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TaskExecutionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [TaskExecutionStatus]
+fromJSONKey :: FromJSONKeyFunction TaskExecutionStatus
+$cfromJSONKey :: FromJSONKeyFunction TaskExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679251640"><span id="local-6989586621679251642"><span id="local-6989586621679251644"><span id="local-6989586621679251646"><span class="annot"><span class="annottext">[TaskExecutionStatus] -&gt; Encoding
+[TaskExecutionStatus] -&gt; Value
+TaskExecutionStatus -&gt; Encoding
+TaskExecutionStatus -&gt; Value
+(TaskExecutionStatus -&gt; Value)
+-&gt; (TaskExecutionStatus -&gt; Encoding)
+-&gt; ([TaskExecutionStatus] -&gt; Value)
+-&gt; ([TaskExecutionStatus] -&gt; Encoding)
+-&gt; ToJSON TaskExecutionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TaskExecutionStatus] -&gt; Encoding
+$ctoEncodingList :: [TaskExecutionStatus] -&gt; Encoding
+toJSONList :: [TaskExecutionStatus] -&gt; Value
+$ctoJSONList :: [TaskExecutionStatus] -&gt; Value
+toEncoding :: TaskExecutionStatus -&gt; Encoding
+$ctoEncoding :: TaskExecutionStatus -&gt; Encoding
+toJSON :: TaskExecutionStatus -&gt; Value
+$ctoJSON :: TaskExecutionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679251635"><span id="local-6989586621679251637"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskExecutionStatus]
+ToJSONKeyFunction TaskExecutionStatus
+ToJSONKeyFunction TaskExecutionStatus
+-&gt; ToJSONKeyFunction [TaskExecutionStatus]
+-&gt; ToJSONKey TaskExecutionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TaskExecutionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [TaskExecutionStatus]
+toJSONKey :: ToJSONKeyFunction TaskExecutionStatus
+$ctoJSONKey :: ToJSONKeyFunction TaskExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679251632"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskExecutionStatus
+([Node] -&gt; Either String TaskExecutionStatus)
+-&gt; FromXML TaskExecutionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TaskExecutionStatus
+$cparseXML :: [Node] -&gt; Either String TaskExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679251629"><span class="annot"><span class="annottext">TaskExecutionStatus -&gt; XML
+(TaskExecutionStatus -&gt; XML) -&gt; ToXML TaskExecutionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TaskExecutionStatus -&gt; XML
+$ctoXML :: TaskExecutionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_ERROR"><span class="hs-identifier hs-type">TaskExecutionStatus_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-type">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskExecutionStatus_ERROR"><span id="%24mTaskExecutionStatus_ERROR"><span id="TaskExecutionStatus_ERROR"><span class="annot"><span class="annottext">$bTaskExecutionStatus_ERROR :: TaskExecutionStatus
+$mTaskExecutionStatus_ERROR :: forall r. TaskExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#%24bTaskExecutionStatus_ERROR"><span class="hs-identifier hs-var hs-var hs-var">TaskExecutionStatus_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-type">TaskExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_LAUNCHING"><span class="hs-identifier hs-type">TaskExecutionStatus_LAUNCHING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-type">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskExecutionStatus_LAUNCHING"><span id="%24mTaskExecutionStatus_LAUNCHING"><span id="TaskExecutionStatus_LAUNCHING"><span class="annot"><span class="annottext">$bTaskExecutionStatus_LAUNCHING :: TaskExecutionStatus
+$mTaskExecutionStatus_LAUNCHING :: forall r. TaskExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#%24bTaskExecutionStatus_LAUNCHING"><span class="hs-identifier hs-var hs-var hs-var">TaskExecutionStatus_LAUNCHING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-type">TaskExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCHING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_PREPARING"><span class="hs-identifier hs-type">TaskExecutionStatus_PREPARING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-type">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskExecutionStatus_PREPARING"><span id="%24mTaskExecutionStatus_PREPARING"><span id="TaskExecutionStatus_PREPARING"><span class="annot"><span class="annottext">$bTaskExecutionStatus_PREPARING :: TaskExecutionStatus
+$mTaskExecutionStatus_PREPARING :: forall r. TaskExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#%24bTaskExecutionStatus_PREPARING"><span class="hs-identifier hs-var hs-var hs-var">TaskExecutionStatus_PREPARING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-type">TaskExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PREPARING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_QUEUED"><span class="hs-identifier hs-type">TaskExecutionStatus_QUEUED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-type">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskExecutionStatus_QUEUED"><span id="%24mTaskExecutionStatus_QUEUED"><span id="TaskExecutionStatus_QUEUED"><span class="annot"><span class="annottext">$bTaskExecutionStatus_QUEUED :: TaskExecutionStatus
+$mTaskExecutionStatus_QUEUED :: forall r. TaskExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#%24bTaskExecutionStatus_QUEUED"><span class="hs-identifier hs-var hs-var hs-var">TaskExecutionStatus_QUEUED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-type">TaskExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUEUED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_SUCCESS"><span class="hs-identifier hs-type">TaskExecutionStatus_SUCCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-type">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskExecutionStatus_SUCCESS"><span id="%24mTaskExecutionStatus_SUCCESS"><span id="TaskExecutionStatus_SUCCESS"><span class="annot"><span class="annottext">$bTaskExecutionStatus_SUCCESS :: TaskExecutionStatus
+$mTaskExecutionStatus_SUCCESS :: forall r. TaskExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#%24bTaskExecutionStatus_SUCCESS"><span class="hs-identifier hs-var hs-var hs-var">TaskExecutionStatus_SUCCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-type">TaskExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCESS&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_TRANSFERRING"><span class="hs-identifier hs-type">TaskExecutionStatus_TRANSFERRING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-type">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskExecutionStatus_TRANSFERRING"><span id="%24mTaskExecutionStatus_TRANSFERRING"><span id="TaskExecutionStatus_TRANSFERRING"><span class="annot"><span class="annottext">$bTaskExecutionStatus_TRANSFERRING :: TaskExecutionStatus
+$mTaskExecutionStatus_TRANSFERRING :: forall r. TaskExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#%24bTaskExecutionStatus_TRANSFERRING"><span class="hs-identifier hs-var hs-var hs-var">TaskExecutionStatus_TRANSFERRING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-type">TaskExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRANSFERRING&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_VERIFYING"><span class="hs-identifier hs-type">TaskExecutionStatus_VERIFYING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus"><span class="hs-identifier hs-type">TaskExecutionStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskExecutionStatus_VERIFYING"><span id="%24mTaskExecutionStatus_VERIFYING"><span id="TaskExecutionStatus_VERIFYING"><span class="annot"><span class="annottext">$bTaskExecutionStatus_VERIFYING :: TaskExecutionStatus
+$mTaskExecutionStatus_VERIFYING :: forall r. TaskExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#%24bTaskExecutionStatus_VERIFYING"><span class="hs-identifier hs-var hs-var hs-var">TaskExecutionStatus_VERIFYING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-identifier hs-type">TaskExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VERIFYING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_ERROR"><span class="hs-pragma hs-type">TaskExecutionStatus_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_LAUNCHING"><span class="hs-pragma hs-type">TaskExecutionStatus_LAUNCHING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_PREPARING"><span class="hs-pragma hs-type">TaskExecutionStatus_PREPARING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_QUEUED"><span class="hs-pragma hs-type">TaskExecutionStatus_QUEUED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_SUCCESS"><span class="hs-pragma hs-type">TaskExecutionStatus_SUCCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_TRANSFERRING"><span class="hs-pragma hs-type">TaskExecutionStatus_TRANSFERRING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus_VERIFYING"><span class="hs-pragma hs-type">TaskExecutionStatus_VERIFYING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.TaskExecutionStatus.html#TaskExecutionStatus%27"><span class="hs-pragma hs-type">TaskExecutionStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

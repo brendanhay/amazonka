@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- | Optional. Ignore this setting unless Nagra support directs you to</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- specify a value. When you don\'t specify a value here, the Nagra</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- NexGuard library uses its default value.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621680016145"><span id="local-6989586621680016146"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WatermarkingStrength"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength"><span class="hs-identifier hs-var">WatermarkingStrength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WatermarkingStrength%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength%27"><span class="hs-identifier hs-var">WatermarkingStrength'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621680016154"><span id="local-6989586621680016155"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WatermarkingStrength"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength"><span class="hs-identifier hs-var">WatermarkingStrength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WatermarkingStrength%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength%27"><span class="hs-identifier hs-var">WatermarkingStrength'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWatermarkingStrength"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#fromWatermarkingStrength"><span class="hs-identifier hs-var hs-var">fromWatermarkingStrength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680016137"><span id="local-6989586621680016139"><span id="local-6989586621680016141"><span class="annot"><span class="annottext">Int -&gt; WatermarkingStrength -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680016146"><span id="local-6989586621680016148"><span id="local-6989586621680016150"><span class="annot"><span class="annottext">Int -&gt; WatermarkingStrength -&gt; ShowS
 [WatermarkingStrength] -&gt; ShowS
 WatermarkingStrength -&gt; String
 (Int -&gt; WatermarkingStrength -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: WatermarkingStrength -&gt; String
 showsPrec :: Int -&gt; WatermarkingStrength -&gt; ShowS
 $cshowsPrec :: Int -&gt; WatermarkingStrength -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680016128"><span id="local-6989586621680016130"><span id="local-6989586621680016132"><span id="local-6989586621680016134"><span class="annot"><span class="annottext">ReadPrec [WatermarkingStrength]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680016137"><span id="local-6989586621680016139"><span id="local-6989586621680016141"><span id="local-6989586621680016143"><span class="annot"><span class="annottext">ReadPrec [WatermarkingStrength]
 ReadPrec WatermarkingStrength
 Int -&gt; ReadS WatermarkingStrength
 ReadS [WatermarkingStrength]
@@ -78,7 +78,7 @@ $creadList :: ReadS [WatermarkingStrength]
 readsPrec :: Int -&gt; ReadS WatermarkingStrength
 $creadsPrec :: Int -&gt; ReadS WatermarkingStrength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680016123"><span id="local-6989586621680016125"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680016132"><span id="local-6989586621680016134"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool
 (WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool)
 -&gt; (WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool)
 -&gt; Eq WatermarkingStrength
@@ -88,7 +88,7 @@ $c/= :: WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool
 == :: WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool
 $c== :: WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680016107"><span id="local-6989586621680016109"><span id="local-6989586621680016111"><span id="local-6989586621680016113"><span id="local-6989586621680016115"><span id="local-6989586621680016117"><span id="local-6989586621680016119"><span class="annot"><span class="annottext">Eq WatermarkingStrength
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680016116"><span id="local-6989586621680016118"><span id="local-6989586621680016120"><span id="local-6989586621680016122"><span id="local-6989586621680016124"><span id="local-6989586621680016126"><span id="local-6989586621680016128"><span class="annot"><span class="annottext">Eq WatermarkingStrength
 Eq WatermarkingStrength
 -&gt; (WatermarkingStrength -&gt; WatermarkingStrength -&gt; Ordering)
 -&gt; (WatermarkingStrength -&gt; WatermarkingStrength -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. WatermarkingStrength -&gt; Rep WatermarkingStrength x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680016099"><span id="local-6989586621680016101"><span class="annot"><span class="annottext">Int -&gt; WatermarkingStrength -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680016108"><span id="local-6989586621680016110"><span class="annot"><span class="annottext">Int -&gt; WatermarkingStrength -&gt; Int
 WatermarkingStrength -&gt; Int
 (Int -&gt; WatermarkingStrength -&gt; Int)
 -&gt; (WatermarkingStrength -&gt; Int) -&gt; Hashable WatermarkingStrength
@@ -156,54 +156,54 @@ $chash :: WatermarkingStrength -&gt; Int
 hashWithSalt :: Int -&gt; WatermarkingStrength -&gt; Int
 $chashWithSalt :: Int -&gt; WatermarkingStrength -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680016096"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680016105"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; ()
 (WatermarkingStrength -&gt; ()) -&gt; NFData WatermarkingStrength
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WatermarkingStrength -&gt; ()
 $crnf :: WatermarkingStrength -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680016093"><span class="annot"><span class="annottext">Text -&gt; Either String WatermarkingStrength
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680016102"><span class="annot"><span class="annottext">Text -&gt; Either String WatermarkingStrength
 (Text -&gt; Either String WatermarkingStrength)
 -&gt; FromText WatermarkingStrength
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WatermarkingStrength
 $cfromText :: Text -&gt; Either String WatermarkingStrength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680016090"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680016099"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; Text
 (WatermarkingStrength -&gt; Text) -&gt; ToText WatermarkingStrength
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WatermarkingStrength -&gt; Text
 $ctoText :: WatermarkingStrength -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680016087"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680016096"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; ByteString
 (WatermarkingStrength -&gt; ByteString)
 -&gt; ToByteString WatermarkingStrength
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WatermarkingStrength -&gt; ByteString
 $ctoBS :: WatermarkingStrength -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680016084"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680016093"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; ByteStringBuilder
 (WatermarkingStrength -&gt; ByteStringBuilder)
 -&gt; ToLog WatermarkingStrength
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WatermarkingStrength -&gt; ByteStringBuilder
 $cbuild :: WatermarkingStrength -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680016081"><span class="annot"><span class="annottext">HeaderName -&gt; WatermarkingStrength -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680016090"><span class="annot"><span class="annottext">HeaderName -&gt; WatermarkingStrength -&gt; [Header]
 (HeaderName -&gt; WatermarkingStrength -&gt; [Header])
 -&gt; ToHeader WatermarkingStrength
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WatermarkingStrength -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WatermarkingStrength -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680016078"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680016087"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; QueryString
 (WatermarkingStrength -&gt; QueryString)
 -&gt; ToQuery WatermarkingStrength
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WatermarkingStrength -&gt; QueryString
 $ctoQuery :: WatermarkingStrength -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680016073"><span id="local-6989586621680016075"><span class="annot"><span class="annottext">Value -&gt; Parser [WatermarkingStrength]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680016082"><span id="local-6989586621680016084"><span class="annot"><span class="annottext">Value -&gt; Parser [WatermarkingStrength]
 Value -&gt; Parser WatermarkingStrength
 (Value -&gt; Parser WatermarkingStrength)
 -&gt; (Value -&gt; Parser [WatermarkingStrength])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [WatermarkingStrength]
 parseJSON :: Value -&gt; Parser WatermarkingStrength
 $cparseJSON :: Value -&gt; Parser WatermarkingStrength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680016068"><span id="local-6989586621680016070"><span class="annot"><span class="annottext">FromJSONKeyFunction [WatermarkingStrength]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680016077"><span id="local-6989586621680016079"><span class="annot"><span class="annottext">FromJSONKeyFunction [WatermarkingStrength]
 FromJSONKeyFunction WatermarkingStrength
 FromJSONKeyFunction WatermarkingStrength
 -&gt; FromJSONKeyFunction [WatermarkingStrength]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WatermarkingStrength]
 fromJSONKey :: FromJSONKeyFunction WatermarkingStrength
 $cfromJSONKey :: FromJSONKeyFunction WatermarkingStrength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680016059"><span id="local-6989586621680016061"><span id="local-6989586621680016063"><span id="local-6989586621680016065"><span class="annot"><span class="annottext">[WatermarkingStrength] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680016068"><span id="local-6989586621680016070"><span id="local-6989586621680016072"><span id="local-6989586621680016074"><span class="annot"><span class="annottext">[WatermarkingStrength] -&gt; Encoding
 [WatermarkingStrength] -&gt; Value
 WatermarkingStrength -&gt; Encoding
 WatermarkingStrength -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: WatermarkingStrength -&gt; Encoding
 toJSON :: WatermarkingStrength -&gt; Value
 $ctoJSON :: WatermarkingStrength -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680016054"><span id="local-6989586621680016056"><span class="annot"><span class="annottext">ToJSONKeyFunction [WatermarkingStrength]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680016063"><span id="local-6989586621680016065"><span class="annot"><span class="annottext">ToJSONKeyFunction [WatermarkingStrength]
 ToJSONKeyFunction WatermarkingStrength
 ToJSONKeyFunction WatermarkingStrength
 -&gt; ToJSONKeyFunction [WatermarkingStrength]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WatermarkingStrength]
 toJSONKey :: ToJSONKeyFunction WatermarkingStrength
 $ctoJSONKey :: ToJSONKeyFunction WatermarkingStrength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680016051"><span class="annot"><span class="annottext">[Node] -&gt; Either String WatermarkingStrength
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680016060"><span class="annot"><span class="annottext">[Node] -&gt; Either String WatermarkingStrength
 ([Node] -&gt; Either String WatermarkingStrength)
 -&gt; FromXML WatermarkingStrength
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WatermarkingStrength
 $cparseXML :: [Node] -&gt; Either String WatermarkingStrength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680016048"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680016057"><span class="annot"><span class="annottext">WatermarkingStrength -&gt; XML
 (WatermarkingStrength -&gt; XML) -&gt; ToXML WatermarkingStrength
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WatermarkingStrength -&gt; XML

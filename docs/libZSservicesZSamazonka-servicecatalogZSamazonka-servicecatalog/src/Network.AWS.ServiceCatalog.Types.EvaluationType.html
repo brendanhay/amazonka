@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679399057"><span id="local-6989586621679399058"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EvaluationType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType"><span class="hs-identifier hs-var">EvaluationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType%27"><span class="hs-identifier hs-var">EvaluationType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679399066"><span id="local-6989586621679399067"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EvaluationType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType"><span class="hs-identifier hs-var">EvaluationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType%27"><span class="hs-identifier hs-var">EvaluationType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEvaluationType"><span class="annot"><span class="annottext">EvaluationType -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#fromEvaluationType"><span class="hs-identifier hs-var hs-var">fromEvaluationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399049"><span id="local-6989586621679399051"><span id="local-6989586621679399053"><span class="annot"><span class="annottext">Int -&gt; EvaluationType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399058"><span id="local-6989586621679399060"><span id="local-6989586621679399062"><span class="annot"><span class="annottext">Int -&gt; EvaluationType -&gt; ShowS
 [EvaluationType] -&gt; ShowS
 EvaluationType -&gt; String
 (Int -&gt; EvaluationType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EvaluationType -&gt; String
 showsPrec :: Int -&gt; EvaluationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EvaluationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679399040"><span id="local-6989586621679399042"><span id="local-6989586621679399044"><span id="local-6989586621679399046"><span class="annot"><span class="annottext">ReadPrec [EvaluationType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679399049"><span id="local-6989586621679399051"><span id="local-6989586621679399053"><span id="local-6989586621679399055"><span class="annot"><span class="annottext">ReadPrec [EvaluationType]
 ReadPrec EvaluationType
 Int -&gt; ReadS EvaluationType
 ReadS [EvaluationType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EvaluationType]
 readsPrec :: Int -&gt; ReadS EvaluationType
 $creadsPrec :: Int -&gt; ReadS EvaluationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679399035"><span id="local-6989586621679399037"><span class="annot"><span class="annottext">EvaluationType -&gt; EvaluationType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679399044"><span id="local-6989586621679399046"><span class="annot"><span class="annottext">EvaluationType -&gt; EvaluationType -&gt; Bool
 (EvaluationType -&gt; EvaluationType -&gt; Bool)
 -&gt; (EvaluationType -&gt; EvaluationType -&gt; Bool) -&gt; Eq EvaluationType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: EvaluationType -&gt; EvaluationType -&gt; Bool
 == :: EvaluationType -&gt; EvaluationType -&gt; Bool
 $c== :: EvaluationType -&gt; EvaluationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679399019"><span id="local-6989586621679399021"><span id="local-6989586621679399023"><span id="local-6989586621679399025"><span id="local-6989586621679399027"><span id="local-6989586621679399029"><span id="local-6989586621679399031"><span class="annot"><span class="annottext">Eq EvaluationType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679399028"><span id="local-6989586621679399030"><span id="local-6989586621679399032"><span id="local-6989586621679399034"><span id="local-6989586621679399036"><span id="local-6989586621679399038"><span id="local-6989586621679399040"><span class="annot"><span class="annottext">Eq EvaluationType
 Eq EvaluationType
 -&gt; (EvaluationType -&gt; EvaluationType -&gt; Ordering)
 -&gt; (EvaluationType -&gt; EvaluationType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. EvaluationType -&gt; Rep EvaluationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399011"><span id="local-6989586621679399013"><span class="annot"><span class="annottext">Int -&gt; EvaluationType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399020"><span id="local-6989586621679399022"><span class="annot"><span class="annottext">Int -&gt; EvaluationType -&gt; Int
 EvaluationType -&gt; Int
 (Int -&gt; EvaluationType -&gt; Int)
 -&gt; (EvaluationType -&gt; Int) -&gt; Hashable EvaluationType
@@ -142,50 +142,50 @@ $chash :: EvaluationType -&gt; Int
 hashWithSalt :: Int -&gt; EvaluationType -&gt; Int
 $chashWithSalt :: Int -&gt; EvaluationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679399008"><span class="annot"><span class="annottext">EvaluationType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679399017"><span class="annot"><span class="annottext">EvaluationType -&gt; ()
 (EvaluationType -&gt; ()) -&gt; NFData EvaluationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EvaluationType -&gt; ()
 $crnf :: EvaluationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679399005"><span class="annot"><span class="annottext">Text -&gt; Either String EvaluationType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679399014"><span class="annot"><span class="annottext">Text -&gt; Either String EvaluationType
 (Text -&gt; Either String EvaluationType) -&gt; FromText EvaluationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EvaluationType
 $cfromText :: Text -&gt; Either String EvaluationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679399002"><span class="annot"><span class="annottext">EvaluationType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679399011"><span class="annot"><span class="annottext">EvaluationType -&gt; Text
 (EvaluationType -&gt; Text) -&gt; ToText EvaluationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EvaluationType -&gt; Text
 $ctoText :: EvaluationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398999"><span class="annot"><span class="annottext">EvaluationType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679399008"><span class="annot"><span class="annottext">EvaluationType -&gt; ByteString
 (EvaluationType -&gt; ByteString) -&gt; ToByteString EvaluationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EvaluationType -&gt; ByteString
 $ctoBS :: EvaluationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398996"><span class="annot"><span class="annottext">EvaluationType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679399005"><span class="annot"><span class="annottext">EvaluationType -&gt; ByteStringBuilder
 (EvaluationType -&gt; ByteStringBuilder) -&gt; ToLog EvaluationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EvaluationType -&gt; ByteStringBuilder
 $cbuild :: EvaluationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398993"><span class="annot"><span class="annottext">HeaderName -&gt; EvaluationType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679399002"><span class="annot"><span class="annottext">HeaderName -&gt; EvaluationType -&gt; [Header]
 (HeaderName -&gt; EvaluationType -&gt; [Header])
 -&gt; ToHeader EvaluationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EvaluationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EvaluationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398990"><span class="annot"><span class="annottext">EvaluationType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398999"><span class="annot"><span class="annottext">EvaluationType -&gt; QueryString
 (EvaluationType -&gt; QueryString) -&gt; ToQuery EvaluationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EvaluationType -&gt; QueryString
 $ctoQuery :: EvaluationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398985"><span id="local-6989586621679398987"><span class="annot"><span class="annottext">Value -&gt; Parser [EvaluationType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398994"><span id="local-6989586621679398996"><span class="annot"><span class="annottext">Value -&gt; Parser [EvaluationType]
 Value -&gt; Parser EvaluationType
 (Value -&gt; Parser EvaluationType)
 -&gt; (Value -&gt; Parser [EvaluationType]) -&gt; FromJSON EvaluationType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [EvaluationType]
 parseJSON :: Value -&gt; Parser EvaluationType
 $cparseJSON :: Value -&gt; Parser EvaluationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398980"><span id="local-6989586621679398982"><span class="annot"><span class="annottext">FromJSONKeyFunction [EvaluationType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398989"><span id="local-6989586621679398991"><span class="annot"><span class="annottext">FromJSONKeyFunction [EvaluationType]
 FromJSONKeyFunction EvaluationType
 FromJSONKeyFunction EvaluationType
 -&gt; FromJSONKeyFunction [EvaluationType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EvaluationType]
 fromJSONKey :: FromJSONKeyFunction EvaluationType
 $cfromJSONKey :: FromJSONKeyFunction EvaluationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398971"><span id="local-6989586621679398973"><span id="local-6989586621679398975"><span id="local-6989586621679398977"><span class="annot"><span class="annottext">[EvaluationType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398980"><span id="local-6989586621679398982"><span id="local-6989586621679398984"><span id="local-6989586621679398986"><span class="annot"><span class="annottext">[EvaluationType] -&gt; Encoding
 [EvaluationType] -&gt; Value
 EvaluationType -&gt; Encoding
 EvaluationType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: EvaluationType -&gt; Encoding
 toJSON :: EvaluationType -&gt; Value
 $ctoJSON :: EvaluationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398966"><span id="local-6989586621679398968"><span class="annot"><span class="annottext">ToJSONKeyFunction [EvaluationType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398975"><span id="local-6989586621679398977"><span class="annot"><span class="annottext">ToJSONKeyFunction [EvaluationType]
 ToJSONKeyFunction EvaluationType
 ToJSONKeyFunction EvaluationType
 -&gt; ToJSONKeyFunction [EvaluationType] -&gt; ToJSONKey EvaluationType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EvaluationType]
 toJSONKey :: ToJSONKeyFunction EvaluationType
 $ctoJSONKey :: ToJSONKeyFunction EvaluationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398963"><span class="annot"><span class="annottext">[Node] -&gt; Either String EvaluationType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398972"><span class="annot"><span class="annottext">[Node] -&gt; Either String EvaluationType
 ([Node] -&gt; Either String EvaluationType) -&gt; FromXML EvaluationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EvaluationType
 $cparseXML :: [Node] -&gt; Either String EvaluationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398960"><span class="annot"><span class="annottext">EvaluationType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398969"><span class="annot"><span class="annottext">EvaluationType -&gt; XML
 (EvaluationType -&gt; XML) -&gt; ToXML EvaluationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EvaluationType -&gt; XML

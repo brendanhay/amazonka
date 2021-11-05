@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetBuckets' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679647839"><span id="local-6989586621679647840"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBuckets"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-var">GetBuckets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBuckets%27"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-var">GetBuckets'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679647848"><span id="local-6989586621679647849"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBuckets"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-var">GetBuckets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBuckets%27"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-var">GetBuckets'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the bucket for which to return information.</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- When omitted, the response includes all of your buckets in the AWS</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3ApageToken%3AGetBuckets%27"><span class="annot"><span class="annottext">GetBuckets -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3ApageToken%3AGetBuckets%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679647831"><span id="local-6989586621679647833"><span class="annot"><span class="annottext">GetBuckets -&gt; GetBuckets -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679647840"><span id="local-6989586621679647842"><span class="annot"><span class="annottext">GetBuckets -&gt; GetBuckets -&gt; Bool
 (GetBuckets -&gt; GetBuckets -&gt; Bool)
 -&gt; (GetBuckets -&gt; GetBuckets -&gt; Bool) -&gt; Eq GetBuckets
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBuckets -&gt; GetBuckets -&gt; Bool
 == :: GetBuckets -&gt; GetBuckets -&gt; Bool
 $c== :: GetBuckets -&gt; GetBuckets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647822"><span id="local-6989586621679647824"><span id="local-6989586621679647826"><span id="local-6989586621679647828"><span class="annot"><span class="annottext">ReadPrec [GetBuckets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647831"><span id="local-6989586621679647833"><span id="local-6989586621679647835"><span id="local-6989586621679647837"><span class="annot"><span class="annottext">ReadPrec [GetBuckets]
 ReadPrec GetBuckets
 Int -&gt; ReadS GetBuckets
 ReadS [GetBuckets]
@@ -102,7 +102,7 @@ readList :: ReadS [GetBuckets]
 $creadList :: ReadS [GetBuckets]
 readsPrec :: Int -&gt; ReadS GetBuckets
 $creadsPrec :: Int -&gt; ReadS GetBuckets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647815"><span id="local-6989586621679647817"><span id="local-6989586621679647819"><span class="annot"><span class="annottext">Int -&gt; GetBuckets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647824"><span id="local-6989586621679647826"><span id="local-6989586621679647828"><span class="annot"><span class="annottext">Int -&gt; GetBuckets -&gt; ShowS
 [GetBuckets] -&gt; ShowS
 GetBuckets -&gt; String
 (Int -&gt; GetBuckets -&gt; ShowS)
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (GetBuckets -&gt; Maybe Text -&gt; GetBuckets)
 -&gt; Lens GetBuckets GetBuckets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647817"><span class="annot"><span class="annottext">Maybe Text
 bucketName :: Maybe Text
 $sel:bucketName:GetBuckets' :: GetBuckets -&gt; Maybe Text
-</span><a href="#local-6989586621679647808"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647808"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647807"><span class="annot"><span class="annottext">s :: GetBuckets
-</span><a href="#local-6989586621679647807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBuckets
-</span><a href="#local-6989586621679647807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:GetBuckets' :: Maybe Text
+</span><a href="#local-6989586621679647817"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679647817"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647816"><span class="annot"><span class="annottext">s :: GetBuckets
+</span><a href="#local-6989586621679647816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647815"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679647815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBuckets
+</span><a href="#local-6989586621679647816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:GetBuckets' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3AbucketName%3AGetBuckets%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679647815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | A Boolean value that indicates whether to include Lightsail instances</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- that were given access to the bucket using the</span><span>
@@ -199,16 +199,16 @@ $sel:bucketName:GetBuckets' :: GetBuckets -&gt; Maybe Text
 -&gt; (GetBuckets -&gt; Maybe Bool -&gt; GetBuckets)
 -&gt; Lens GetBuckets GetBuckets (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647805"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647814"><span class="annot"><span class="annottext">Maybe Bool
 includeConnectedResources :: Maybe Bool
 $sel:includeConnectedResources:GetBuckets' :: GetBuckets -&gt; Maybe Bool
-</span><a href="#local-6989586621679647805"><span class="hs-identifier hs-var hs-var">includeConnectedResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679647805"><span class="hs-identifier hs-var">includeConnectedResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647804"><span class="annot"><span class="annottext">s :: GetBuckets
-</span><a href="#local-6989586621679647804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647803"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679647803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBuckets
-</span><a href="#local-6989586621679647804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeConnectedResources:GetBuckets' :: Maybe Bool
+</span><a href="#local-6989586621679647814"><span class="hs-identifier hs-var hs-var">includeConnectedResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679647814"><span class="hs-identifier hs-var">includeConnectedResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647813"><span class="annot"><span class="annottext">s :: GetBuckets
+</span><a href="#local-6989586621679647813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647812"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679647812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBuckets
+</span><a href="#local-6989586621679647813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeConnectedResources:GetBuckets' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3AincludeConnectedResources%3AGetBuckets%27"><span class="hs-identifier hs-var">includeConnectedResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679647803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679647812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
@@ -221,25 +221,25 @@ $sel:includeConnectedResources:GetBuckets' :: GetBuckets -&gt; Maybe Bool
 -&gt; (GetBuckets -&gt; Maybe Text -&gt; GetBuckets)
 -&gt; Lens GetBuckets GetBuckets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647802"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647811"><span class="annot"><span class="annottext">Maybe Text
 pageToken :: Maybe Text
 $sel:pageToken:GetBuckets' :: GetBuckets -&gt; Maybe Text
-</span><a href="#local-6989586621679647802"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647802"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647801"><span class="annot"><span class="annottext">s :: GetBuckets
-</span><a href="#local-6989586621679647801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647800"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBuckets
-</span><a href="#local-6989586621679647801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetBuckets' :: Maybe Text
+</span><a href="#local-6989586621679647811"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679647811"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647810"><span class="annot"><span class="annottext">s :: GetBuckets
+</span><a href="#local-6989586621679647810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679647809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBuckets
+</span><a href="#local-6989586621679647810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetBuckets' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3ApageToken%3AGetBuckets%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679647809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679647796"><span class="annot"><span class="annottext">request :: GetBuckets -&gt; Request GetBuckets
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679647805"><span class="annot"><span class="annottext">request :: GetBuckets -&gt; Request GetBuckets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBuckets -&gt; Request GetBuckets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679647792"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679647801"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBuckets
 -&gt; ClientResponse ClientBody
@@ -263,10 +263,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679647789"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679647789"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679647788"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679647788"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679647787"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679647787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679647798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679647798"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679647797"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679647797"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679647796"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679647796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Bucket] -&gt; Int -&gt; GetBucketsResponse
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-var">GetBucketsResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Bucket] -&gt; Int -&gt; GetBucketsResponse)
@@ -274,7 +274,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Bucket] -&gt; Int -&gt; GetBucketsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679647787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679647796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,7 +283,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetBucketsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679647787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Bucket]))
+</span><a href="#local-6989586621679647796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Bucket]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buckets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Bucket]))
@@ -300,15 +300,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679647789"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679647798"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647778"><span id="local-6989586621679647780"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647787"><span id="local-6989586621679647789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647775"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679647771"><span class="annot"><span class="annottext">toHeaders :: GetBuckets -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679647780"><span class="annot"><span class="annottext">toHeaders :: GetBuckets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBuckets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -335,9 +335,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647761"><span id="local-6989586621679647763"><span id="local-6989586621679647765"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679647759"><span class="annot"><span class="annottext">toJSON :: GetBuckets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647755"><span id="local-6989586621679647756"><span id="local-6989586621679647757"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647770"><span id="local-6989586621679647772"><span id="local-6989586621679647774"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679647768"><span class="annot"><span class="annottext">toJSON :: GetBuckets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets%27"><span class="hs-identifier hs-type">GetBuckets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647764"><span id="local-6989586621679647765"><span id="local-6989586621679647766"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 pageToken :: Maybe Text
 includeConnectedResources :: Maybe Bool
@@ -345,7 +345,7 @@ bucketName :: Maybe Text
 $sel:pageToken:GetBuckets' :: GetBuckets -&gt; Maybe Text
 $sel:includeConnectedResources:GetBuckets' :: GetBuckets -&gt; Maybe Bool
 $sel:bucketName:GetBuckets' :: GetBuckets -&gt; Maybe Text
-</span><a href="#local-6989586621679647755"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679647764"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -357,7 +357,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647757"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679647766"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;includeConnectedResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -365,26 +365,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679647756"><span class="hs-identifier hs-var">includeConnectedResources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679647765"><span class="hs-identifier hs-var">includeConnectedResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647755"><span class="hs-identifier hs-var">pageToken</span></a></span><span>
+</span><a href="#local-6989586621679647764"><span class="hs-identifier hs-var">pageToken</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679647749"><span class="annot"><span class="annottext">toPath :: GetBuckets -&gt; ByteString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679647758"><span class="annot"><span class="annottext">toPath :: GetBuckets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetBuckets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBuckets"><span class="hs-identifier hs-type">GetBuckets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679647745"><span class="annot"><span class="annottext">toQuery :: GetBuckets -&gt; QueryString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679647754"><span class="annot"><span class="annottext">toQuery :: GetBuckets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBuckets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newGetBucketsResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621679647742"><span id="local-6989586621679647743"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-var">GetBucketsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-var">GetBucketsResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621679647751"><span id="local-6989586621679647752"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-var">GetBucketsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-var">GetBucketsResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
@@ -409,7 +409,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketsResponse%27"><span class="annot"><span class="annottext">GetBucketsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3AhttpStatus%3AGetBucketsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679647735"><span id="local-6989586621679647737"><span class="annot"><span class="annottext">GetBucketsResponse -&gt; GetBucketsResponse -&gt; Bool
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679647744"><span id="local-6989586621679647746"><span class="annot"><span class="annottext">GetBucketsResponse -&gt; GetBucketsResponse -&gt; Bool
 (GetBucketsResponse -&gt; GetBucketsResponse -&gt; Bool)
 -&gt; (GetBucketsResponse -&gt; GetBucketsResponse -&gt; Bool)
 -&gt; Eq GetBucketsResponse
@@ -418,7 +418,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketsResponse -&gt; GetBucketsResponse -&gt; Bool
 == :: GetBucketsResponse -&gt; GetBucketsResponse -&gt; Bool
 $c== :: GetBucketsResponse -&gt; GetBucketsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647727"><span id="local-6989586621679647729"><span id="local-6989586621679647731"><span id="local-6989586621679647733"><span class="annot"><span class="annottext">ReadPrec [GetBucketsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647736"><span id="local-6989586621679647738"><span id="local-6989586621679647740"><span id="local-6989586621679647742"><span class="annot"><span class="annottext">ReadPrec [GetBucketsResponse]
 ReadPrec GetBucketsResponse
 Int -&gt; ReadS GetBucketsResponse
 ReadS [GetBucketsResponse]
@@ -438,7 +438,7 @@ readList :: ReadS [GetBucketsResponse]
 $creadList :: ReadS [GetBucketsResponse]
 readsPrec :: Int -&gt; ReadS GetBucketsResponse
 $creadsPrec :: Int -&gt; ReadS GetBucketsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647721"><span id="local-6989586621679647723"><span id="local-6989586621679647725"><span class="annot"><span class="annottext">Int -&gt; GetBucketsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679647730"><span id="local-6989586621679647732"><span id="local-6989586621679647734"><span class="annot"><span class="annottext">Int -&gt; GetBucketsResponse -&gt; ShowS
 [GetBucketsResponse] -&gt; ShowS
 GetBucketsResponse -&gt; String
 (Int -&gt; GetBucketsResponse -&gt; ShowS)
@@ -488,8 +488,8 @@ $cfrom :: forall x. GetBucketsResponse -&gt; Rep GetBucketsResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newGetBucketsResponse"><span class="annot"><span class="annottext">newGetBucketsResponse :: Int -&gt; GetBucketsResponse
-</span><a href="Network.AWS.Lightsail.GetBuckets.html#newGetBucketsResponse"><span class="hs-identifier hs-var hs-var">newGetBucketsResponse</span></a></span></span><span> </span><span id="local-6989586621679647718"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679647718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetBuckets.html#newGetBucketsResponse"><span class="hs-identifier hs-var hs-var">newGetBucketsResponse</span></a></span></span><span> </span><span id="local-6989586621679647727"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679647727"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">GetBucketsResponse' :: Maybe Text -&gt; Maybe [Bucket] -&gt; Int -&gt; GetBucketsResponse
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:GetBucketsResponse' :: Maybe Text
@@ -503,7 +503,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3AhttpStatus%3AGetBucketsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679647718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679647727"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
@@ -521,16 +521,16 @@ forall a. Maybe a
 -&gt; Lens
      GetBucketsResponse GetBucketsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647717"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647726"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:GetBucketsResponse' :: GetBucketsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679647717"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647717"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647716"><span class="annot"><span class="annottext">s :: GetBucketsResponse
-</span><a href="#local-6989586621679647716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647715"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketsResponse
-</span><a href="#local-6989586621679647716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetBucketsResponse' :: Maybe Text
+</span><a href="#local-6989586621679647726"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679647726"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647725"><span class="annot"><span class="annottext">s :: GetBucketsResponse
+</span><a href="#local-6989586621679647725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679647724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketsResponse
+</span><a href="#local-6989586621679647725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetBucketsResponse' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3AnextPageToken%3AGetBucketsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679647715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679647724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | An array of objects that describe buckets.</span><span>
 </span><span id="line-235"></span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#getBucketsResponse_buckets"><span class="hs-identifier hs-type">getBucketsResponse_buckets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -544,16 +544,16 @@ $sel:nextPageToken:GetBucketsResponse' :: GetBucketsResponse -&gt; Maybe Text
      (Maybe [Bucket])
      (Maybe [Bucket])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647714"><span class="annot"><span class="annottext">Maybe [Bucket]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647723"><span class="annot"><span class="annottext">Maybe [Bucket]
 buckets :: Maybe [Bucket]
 $sel:buckets:GetBucketsResponse' :: GetBucketsResponse -&gt; Maybe [Bucket]
-</span><a href="#local-6989586621679647714"><span class="hs-identifier hs-var hs-var">buckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Bucket]
-</span><a href="#local-6989586621679647714"><span class="hs-identifier hs-var">buckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647713"><span class="annot"><span class="annottext">s :: GetBucketsResponse
-</span><a href="#local-6989586621679647713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647712"><span class="annot"><span class="annottext">Maybe [Bucket]
-</span><a href="#local-6989586621679647712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketsResponse
-</span><a href="#local-6989586621679647713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buckets:GetBucketsResponse' :: Maybe [Bucket]
+</span><a href="#local-6989586621679647723"><span class="hs-identifier hs-var hs-var">buckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Bucket]
+</span><a href="#local-6989586621679647723"><span class="hs-identifier hs-var">buckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647722"><span class="annot"><span class="annottext">s :: GetBucketsResponse
+</span><a href="#local-6989586621679647722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647721"><span class="annot"><span class="annottext">Maybe [Bucket]
+</span><a href="#local-6989586621679647721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketsResponse
+</span><a href="#local-6989586621679647722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buckets:GetBucketsResponse' :: Maybe [Bucket]
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3Abuckets%3AGetBucketsResponse%27"><span class="hs-identifier hs-var">buckets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Bucket]
-</span><a href="#local-6989586621679647712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Bucket] -&gt; f (Maybe [Bucket]))
+</span><a href="#local-6989586621679647721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Bucket] -&gt; f (Maybe [Bucket]))
  -&gt; GetBucketsResponse -&gt; f GetBucketsResponse)
 -&gt; ((Maybe [Bucket] -&gt; f (Maybe [Bucket]))
     -&gt; Maybe [Bucket] -&gt; f (Maybe [Bucket]))
@@ -578,16 +578,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetBucketsResponse -&gt; Int -&gt; GetBucketsResponse)
 -&gt; Lens GetBucketsResponse GetBucketsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647708"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679647717"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBucketsResponse' :: GetBucketsResponse -&gt; Int
-</span><a href="#local-6989586621679647708"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679647708"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647707"><span class="annot"><span class="annottext">s :: GetBucketsResponse
-</span><a href="#local-6989586621679647707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647706"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679647706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketsResponse
-</span><a href="#local-6989586621679647707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketsResponse' :: Int
+</span><a href="#local-6989586621679647717"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679647717"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679647716"><span class="annot"><span class="annottext">s :: GetBucketsResponse
+</span><a href="#local-6989586621679647716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse%27"><span class="hs-identifier hs-type">GetBucketsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679647715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679647715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketsResponse
+</span><a href="#local-6989586621679647716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetBuckets.html#%24sel%3AhttpStatus%3AGetBucketsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679647706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679647715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679647713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetBuckets.html#GetBucketsResponse"><span class="hs-identifier hs-type">GetBucketsResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

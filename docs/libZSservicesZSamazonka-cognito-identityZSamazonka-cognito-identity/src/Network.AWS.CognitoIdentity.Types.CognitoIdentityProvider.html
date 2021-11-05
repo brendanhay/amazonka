@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A provider representing an Amazon Cognito user pool and its client ID.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCognitoIdentityProvider' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679182773"><span id="local-6989586621679182774"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoIdentityProvider"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-var">CognitoIdentityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoIdentityProvider%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-var">CognitoIdentityProvider'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679182782"><span id="local-6989586621679182783"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoIdentityProvider"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-var">CognitoIdentityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoIdentityProvider%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-var">CognitoIdentityProvider'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The client ID for the Amazon Cognito user pool.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AclientId%3ACognitoIdentityProvider%27"><span class="annot"><span class="annottext">CognitoIdentityProvider -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#%24sel%3AclientId%3ACognitoIdentityProvider%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AproviderName%3ACognitoIdentityProvider%27"><span class="annot"><span class="annottext">CognitoIdentityProvider -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#%24sel%3AproviderName%3ACognitoIdentityProvider%27"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182765"><span id="local-6989586621679182767"><span class="annot"><span class="annottext">CognitoIdentityProvider -&gt; CognitoIdentityProvider -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182774"><span id="local-6989586621679182776"><span class="annot"><span class="annottext">CognitoIdentityProvider -&gt; CognitoIdentityProvider -&gt; Bool
 (CognitoIdentityProvider -&gt; CognitoIdentityProvider -&gt; Bool)
 -&gt; (CognitoIdentityProvider -&gt; CognitoIdentityProvider -&gt; Bool)
 -&gt; Eq CognitoIdentityProvider
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CognitoIdentityProvider -&gt; CognitoIdentityProvider -&gt; Bool
 == :: CognitoIdentityProvider -&gt; CognitoIdentityProvider -&gt; Bool
 $c== :: CognitoIdentityProvider -&gt; CognitoIdentityProvider -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182756"><span id="local-6989586621679182758"><span id="local-6989586621679182760"><span id="local-6989586621679182762"><span class="annot"><span class="annottext">ReadPrec [CognitoIdentityProvider]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182765"><span id="local-6989586621679182767"><span id="local-6989586621679182769"><span id="local-6989586621679182771"><span class="annot"><span class="annottext">ReadPrec [CognitoIdentityProvider]
 ReadPrec CognitoIdentityProvider
 Int -&gt; ReadS CognitoIdentityProvider
 ReadS [CognitoIdentityProvider]
@@ -76,7 +76,7 @@ readList :: ReadS [CognitoIdentityProvider]
 $creadList :: ReadS [CognitoIdentityProvider]
 readsPrec :: Int -&gt; ReadS CognitoIdentityProvider
 $creadsPrec :: Int -&gt; ReadS CognitoIdentityProvider
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182749"><span id="local-6989586621679182751"><span id="local-6989586621679182753"><span class="annot"><span class="annottext">Int -&gt; CognitoIdentityProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182758"><span id="local-6989586621679182760"><span id="local-6989586621679182762"><span class="annot"><span class="annottext">Int -&gt; CognitoIdentityProvider -&gt; ShowS
 [CognitoIdentityProvider] -&gt; ShowS
 CognitoIdentityProvider -&gt; String
 (Int -&gt; CognitoIdentityProvider -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182740"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182749"><span class="annot"><span class="annottext">Maybe Text
 clientId :: Maybe Text
 $sel:clientId:CognitoIdentityProvider' :: CognitoIdentityProvider -&gt; Maybe Text
-</span><a href="#local-6989586621679182740"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182740"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182739"><span class="annot"><span class="annottext">s :: CognitoIdentityProvider
-</span><a href="#local-6989586621679182739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182738"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoIdentityProvider
-</span><a href="#local-6989586621679182739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:CognitoIdentityProvider' :: Maybe Text
+</span><a href="#local-6989586621679182749"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182749"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182748"><span class="annot"><span class="annottext">s :: CognitoIdentityProvider
+</span><a href="#local-6989586621679182748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182747"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoIdentityProvider
+</span><a href="#local-6989586621679182748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:CognitoIdentityProvider' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#%24sel%3AclientId%3ACognitoIdentityProvider%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | TRUE if server-side token validation is enabled for the identity</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- provider&#8217;s token.</span><span>
@@ -194,16 +194,16 @@ $sel:clientId:CognitoIdentityProvider' :: CognitoIdentityProvider -&gt; Maybe Te
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182736"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182745"><span class="annot"><span class="annottext">Maybe Bool
 serverSideTokenCheck :: Maybe Bool
 $sel:serverSideTokenCheck:CognitoIdentityProvider' :: CognitoIdentityProvider -&gt; Maybe Bool
-</span><a href="#local-6989586621679182736"><span class="hs-identifier hs-var hs-var">serverSideTokenCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182736"><span class="hs-identifier hs-var">serverSideTokenCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182735"><span class="annot"><span class="annottext">s :: CognitoIdentityProvider
-</span><a href="#local-6989586621679182735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182734"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoIdentityProvider
-</span><a href="#local-6989586621679182735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideTokenCheck:CognitoIdentityProvider' :: Maybe Bool
+</span><a href="#local-6989586621679182745"><span class="hs-identifier hs-var hs-var">serverSideTokenCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182745"><span class="hs-identifier hs-var">serverSideTokenCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182744"><span class="annot"><span class="annottext">s :: CognitoIdentityProvider
+</span><a href="#local-6989586621679182744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182743"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoIdentityProvider
+</span><a href="#local-6989586621679182744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideTokenCheck:CognitoIdentityProvider' :: Maybe Bool
 </span><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#%24sel%3AserverSideTokenCheck%3ACognitoIdentityProvider%27"><span class="hs-identifier hs-var">serverSideTokenCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The provider name for an Amazon Cognito user pool. For example,</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.</span><span>
@@ -219,19 +219,19 @@ $sel:serverSideTokenCheck:CognitoIdentityProvider' :: CognitoIdentityProvider -&
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182732"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182741"><span class="annot"><span class="annottext">Maybe Text
 providerName :: Maybe Text
 $sel:providerName:CognitoIdentityProvider' :: CognitoIdentityProvider -&gt; Maybe Text
-</span><a href="#local-6989586621679182732"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182732"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182731"><span class="annot"><span class="annottext">s :: CognitoIdentityProvider
-</span><a href="#local-6989586621679182731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoIdentityProvider
-</span><a href="#local-6989586621679182731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:CognitoIdentityProvider' :: Maybe Text
+</span><a href="#local-6989586621679182741"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182741"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182740"><span class="annot"><span class="annottext">s :: CognitoIdentityProvider
+</span><a href="#local-6989586621679182740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoIdentityProvider
+</span><a href="#local-6989586621679182740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:CognitoIdentityProvider' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#%24sel%3AproviderName%3ACognitoIdentityProvider%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182727"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679182725"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoIdentityProvider
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182736"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679182734"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoIdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CognitoIdentityProvider)
@@ -241,8 +241,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CognitoIdentityProvider&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182722"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182722"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182731"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182731"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; CognitoIdentityProvider
 </span><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-var">CognitoIdentityProvider'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; CognitoIdentityProvider)
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; CognitoIdentityProvider)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679182731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientId&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,7 +259,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; CognitoIdentityProvider)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679182731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerSideTokenCheck&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,19 +267,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser CognitoIdentityProvider
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679182731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProviderName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182716"><span id="local-6989586621679182718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182725"><span id="local-6989586621679182727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182705"><span id="local-6989586621679182707"><span id="local-6989586621679182709"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679182703"><span class="annot"><span class="annottext">toJSON :: CognitoIdentityProvider -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182699"><span id="local-6989586621679182700"><span id="local-6989586621679182701"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182714"><span id="local-6989586621679182716"><span id="local-6989586621679182718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider"><span class="hs-identifier hs-type">CognitoIdentityProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679182712"><span class="annot"><span class="annottext">toJSON :: CognitoIdentityProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.html#CognitoIdentityProvider%27"><span class="hs-identifier hs-type">CognitoIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182708"><span id="local-6989586621679182709"><span id="local-6989586621679182710"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 providerName :: Maybe Text
 serverSideTokenCheck :: Maybe Bool
@@ -287,7 +287,7 @@ clientId :: Maybe Text
 $sel:providerName:CognitoIdentityProvider' :: CognitoIdentityProvider -&gt; Maybe Text
 $sel:serverSideTokenCheck:CognitoIdentityProvider' :: CognitoIdentityProvider -&gt; Maybe Bool
 $sel:clientId:CognitoIdentityProvider' :: CognitoIdentityProvider -&gt; Maybe Text
-</span><a href="#local-6989586621679182699"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679182708"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,7 +299,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182701"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679182710"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerSideTokenCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -307,14 +307,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182700"><span class="hs-identifier hs-var">serverSideTokenCheck</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679182709"><span class="hs-identifier hs-var">serverSideTokenCheck</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProviderName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182699"><span class="hs-identifier hs-var">providerName</span></a></span><span>
+</span><a href="#local-6989586621679182708"><span class="hs-identifier hs-var">providerName</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span></pre></body></html>

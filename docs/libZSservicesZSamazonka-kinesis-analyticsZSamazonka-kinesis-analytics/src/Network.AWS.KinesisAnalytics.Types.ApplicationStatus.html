@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679204713"><span id="local-6989586621679204714"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationStatus"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ApplicationStatus.html#ApplicationStatus"><span class="hs-identifier hs-var">ApplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationStatus%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ApplicationStatus.html#ApplicationStatus%27"><span class="hs-identifier hs-var">ApplicationStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679204722"><span id="local-6989586621679204723"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationStatus"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ApplicationStatus.html#ApplicationStatus"><span class="hs-identifier hs-var">ApplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationStatus%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ApplicationStatus.html#ApplicationStatus%27"><span class="hs-identifier hs-var">ApplicationStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApplicationStatus"><span class="annot"><span class="annottext">ApplicationStatus -&gt; Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.ApplicationStatus.html#fromApplicationStatus"><span class="hs-identifier hs-var hs-var">fromApplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204705"><span id="local-6989586621679204707"><span id="local-6989586621679204709"><span class="annot"><span class="annottext">Int -&gt; ApplicationStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204714"><span id="local-6989586621679204716"><span id="local-6989586621679204718"><span class="annot"><span class="annottext">Int -&gt; ApplicationStatus -&gt; ShowS
 [ApplicationStatus] -&gt; ShowS
 ApplicationStatus -&gt; String
 (Int -&gt; ApplicationStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ApplicationStatus -&gt; String
 showsPrec :: Int -&gt; ApplicationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApplicationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679204696"><span id="local-6989586621679204698"><span id="local-6989586621679204700"><span id="local-6989586621679204702"><span class="annot"><span class="annottext">ReadPrec [ApplicationStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679204705"><span id="local-6989586621679204707"><span id="local-6989586621679204709"><span id="local-6989586621679204711"><span class="annot"><span class="annottext">ReadPrec [ApplicationStatus]
 ReadPrec ApplicationStatus
 Int -&gt; ReadS ApplicationStatus
 ReadS [ApplicationStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ApplicationStatus]
 readsPrec :: Int -&gt; ReadS ApplicationStatus
 $creadsPrec :: Int -&gt; ReadS ApplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679204691"><span id="local-6989586621679204693"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ApplicationStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679204700"><span id="local-6989586621679204702"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ApplicationStatus -&gt; Bool
 (ApplicationStatus -&gt; ApplicationStatus -&gt; Bool)
 -&gt; (ApplicationStatus -&gt; ApplicationStatus -&gt; Bool)
 -&gt; Eq ApplicationStatus
@@ -86,7 +86,7 @@ $c/= :: ApplicationStatus -&gt; ApplicationStatus -&gt; Bool
 == :: ApplicationStatus -&gt; ApplicationStatus -&gt; Bool
 $c== :: ApplicationStatus -&gt; ApplicationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679204675"><span id="local-6989586621679204677"><span id="local-6989586621679204679"><span id="local-6989586621679204681"><span id="local-6989586621679204683"><span id="local-6989586621679204685"><span id="local-6989586621679204687"><span class="annot"><span class="annottext">Eq ApplicationStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679204684"><span id="local-6989586621679204686"><span id="local-6989586621679204688"><span id="local-6989586621679204690"><span id="local-6989586621679204692"><span id="local-6989586621679204694"><span id="local-6989586621679204696"><span class="annot"><span class="annottext">Eq ApplicationStatus
 Eq ApplicationStatus
 -&gt; (ApplicationStatus -&gt; ApplicationStatus -&gt; Ordering)
 -&gt; (ApplicationStatus -&gt; ApplicationStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. ApplicationStatus -&gt; Rep ApplicationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204667"><span id="local-6989586621679204669"><span class="annot"><span class="annottext">Int -&gt; ApplicationStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204676"><span id="local-6989586621679204678"><span class="annot"><span class="annottext">Int -&gt; ApplicationStatus -&gt; Int
 ApplicationStatus -&gt; Int
 (Int -&gt; ApplicationStatus -&gt; Int)
 -&gt; (ApplicationStatus -&gt; Int) -&gt; Hashable ApplicationStatus
@@ -147,51 +147,51 @@ $chash :: ApplicationStatus -&gt; Int
 hashWithSalt :: Int -&gt; ApplicationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ApplicationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204664"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204673"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ()
 (ApplicationStatus -&gt; ()) -&gt; NFData ApplicationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApplicationStatus -&gt; ()
 $crnf :: ApplicationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204661"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204670"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationStatus
 (Text -&gt; Either String ApplicationStatus)
 -&gt; FromText ApplicationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApplicationStatus
 $cfromText :: Text -&gt; Either String ApplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204658"><span class="annot"><span class="annottext">ApplicationStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204667"><span class="annot"><span class="annottext">ApplicationStatus -&gt; Text
 (ApplicationStatus -&gt; Text) -&gt; ToText ApplicationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApplicationStatus -&gt; Text
 $ctoText :: ApplicationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204655"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204664"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ByteString
 (ApplicationStatus -&gt; ByteString) -&gt; ToByteString ApplicationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApplicationStatus -&gt; ByteString
 $ctoBS :: ApplicationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204652"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204661"><span class="annot"><span class="annottext">ApplicationStatus -&gt; ByteStringBuilder
 (ApplicationStatus -&gt; ByteStringBuilder) -&gt; ToLog ApplicationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApplicationStatus -&gt; ByteStringBuilder
 $cbuild :: ApplicationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204649"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204658"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationStatus -&gt; [Header]
 (HeaderName -&gt; ApplicationStatus -&gt; [Header])
 -&gt; ToHeader ApplicationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApplicationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApplicationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204646"><span class="annot"><span class="annottext">ApplicationStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204655"><span class="annot"><span class="annottext">ApplicationStatus -&gt; QueryString
 (ApplicationStatus -&gt; QueryString) -&gt; ToQuery ApplicationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApplicationStatus -&gt; QueryString
 $ctoQuery :: ApplicationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204641"><span id="local-6989586621679204643"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204650"><span id="local-6989586621679204652"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationStatus]
 Value -&gt; Parser ApplicationStatus
 (Value -&gt; Parser ApplicationStatus)
 -&gt; (Value -&gt; Parser [ApplicationStatus])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ApplicationStatus]
 parseJSON :: Value -&gt; Parser ApplicationStatus
 $cparseJSON :: Value -&gt; Parser ApplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679204636"><span id="local-6989586621679204638"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679204645"><span id="local-6989586621679204647"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationStatus]
 FromJSONKeyFunction ApplicationStatus
 FromJSONKeyFunction ApplicationStatus
 -&gt; FromJSONKeyFunction [ApplicationStatus]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApplicationStatus]
 fromJSONKey :: FromJSONKeyFunction ApplicationStatus
 $cfromJSONKey :: FromJSONKeyFunction ApplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679204627"><span id="local-6989586621679204629"><span id="local-6989586621679204631"><span id="local-6989586621679204633"><span class="annot"><span class="annottext">[ApplicationStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679204636"><span id="local-6989586621679204638"><span id="local-6989586621679204640"><span id="local-6989586621679204642"><span class="annot"><span class="annottext">[ApplicationStatus] -&gt; Encoding
 [ApplicationStatus] -&gt; Value
 ApplicationStatus -&gt; Encoding
 ApplicationStatus -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ApplicationStatus -&gt; Encoding
 toJSON :: ApplicationStatus -&gt; Value
 $ctoJSON :: ApplicationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679204622"><span id="local-6989586621679204624"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679204631"><span id="local-6989586621679204633"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationStatus]
 ToJSONKeyFunction ApplicationStatus
 ToJSONKeyFunction ApplicationStatus
 -&gt; ToJSONKeyFunction [ApplicationStatus]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApplicationStatus]
 toJSONKey :: ToJSONKeyFunction ApplicationStatus
 $ctoJSONKey :: ToJSONKeyFunction ApplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679204619"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679204628"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationStatus
 ([Node] -&gt; Either String ApplicationStatus)
 -&gt; FromXML ApplicationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApplicationStatus
 $cparseXML :: [Node] -&gt; Either String ApplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679204616"><span class="annot"><span class="annottext">ApplicationStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679204625"><span class="annot"><span class="annottext">ApplicationStatus -&gt; XML
 (ApplicationStatus -&gt; XML) -&gt; ToXML ApplicationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApplicationStatus -&gt; XML

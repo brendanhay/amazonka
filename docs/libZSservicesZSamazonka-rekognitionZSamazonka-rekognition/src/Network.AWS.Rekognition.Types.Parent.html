@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A parent label for a label. A label can have 0, 1, or more parents.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newParent' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679326919"><span id="local-6989586621679326920"></span></span><span class="hs-keyword">data</span><span> </span><span id="Parent"><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-var">Parent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Parent%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent%27"><span class="hs-identifier hs-var">Parent'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679326928"><span id="local-6989586621679326929"></span></span><span class="hs-keyword">data</span><span> </span><span id="Parent"><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-var">Parent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Parent%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent%27"><span class="hs-identifier hs-var">Parent'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the parent label.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AParent%27"><span class="annot"><span class="annottext">Parent -&gt; Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.Parent.html#%24sel%3Aname%3AParent%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326913"><span id="local-6989586621679326915"><span class="annot"><span class="annottext">Parent -&gt; Parent -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326922"><span id="local-6989586621679326924"><span class="annot"><span class="annottext">Parent -&gt; Parent -&gt; Bool
 (Parent -&gt; Parent -&gt; Bool)
 -&gt; (Parent -&gt; Parent -&gt; Bool) -&gt; Eq Parent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Parent -&gt; Parent -&gt; Bool
 == :: Parent -&gt; Parent -&gt; Bool
 $c== :: Parent -&gt; Parent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326904"><span id="local-6989586621679326906"><span id="local-6989586621679326908"><span id="local-6989586621679326910"><span class="annot"><span class="annottext">ReadPrec [Parent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326913"><span id="local-6989586621679326915"><span id="local-6989586621679326917"><span id="local-6989586621679326919"><span class="annot"><span class="annottext">ReadPrec [Parent]
 ReadPrec Parent
 Int -&gt; ReadS Parent
 ReadS [Parent]
@@ -59,7 +59,7 @@ readList :: ReadS [Parent]
 $creadList :: ReadS [Parent]
 readsPrec :: Int -&gt; ReadS Parent
 $creadsPrec :: Int -&gt; ReadS Parent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326897"><span id="local-6989586621679326899"><span id="local-6989586621679326901"><span class="annot"><span class="annottext">Int -&gt; Parent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326906"><span id="local-6989586621679326908"><span id="local-6989586621679326910"><span class="annot"><span class="annottext">Int -&gt; Parent -&gt; ShowS
 [Parent] -&gt; ShowS
 Parent -&gt; String
 (Int -&gt; Parent -&gt; ShowS)
@@ -107,36 +107,36 @@ forall a. Maybe a
 -&gt; (Parent -&gt; Maybe Text -&gt; Parent)
 -&gt; Lens Parent Parent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent%27"><span class="hs-identifier hs-type">Parent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326888"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent%27"><span class="hs-identifier hs-type">Parent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326897"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Parent' :: Parent -&gt; Maybe Text
-</span><a href="#local-6989586621679326888"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326888"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326887"><span class="annot"><span class="annottext">s :: Parent
-</span><a href="#local-6989586621679326887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent%27"><span class="hs-identifier hs-type">Parent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326886"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parent
-</span><a href="#local-6989586621679326887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Parent' :: Maybe Text
+</span><a href="#local-6989586621679326897"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326897"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326896"><span class="annot"><span class="annottext">s :: Parent
+</span><a href="#local-6989586621679326896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent%27"><span class="hs-identifier hs-type">Parent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parent
+</span><a href="#local-6989586621679326896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Parent' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.Parent.html#%24sel%3Aname%3AParent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326883"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679326881"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Parent
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326892"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679326890"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Parent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Parent) -&gt; Value -&gt; Parser Parent
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Parent&quot;</span></span><span>
-</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326878"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326878"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Parent
+</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326887"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Parent
 </span><a href="Network.AWS.Rekognition.Types.Parent.html#Parent%27"><span class="hs-identifier hs-var">Parent'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Parent) -&gt; Parser (Maybe Text) -&gt; Parser Parent
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679326887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326872"><span id="local-6989586621679326874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326881"><span id="local-6989586621679326883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Parent.html#Parent"><span class="hs-identifier hs-type">Parent</span></a></span></span><span>
 </span><span id="line-61"></span></pre></body></html>

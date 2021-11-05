@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679703591"><span id="local-6989586621679703592"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TriggerState"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerState.html#TriggerState"><span class="hs-identifier hs-var">TriggerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TriggerState%27"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerState.html#TriggerState%27"><span class="hs-identifier hs-var">TriggerState'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679703600"><span id="local-6989586621679703601"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TriggerState"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerState.html#TriggerState"><span class="hs-identifier hs-var">TriggerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TriggerState%27"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerState.html#TriggerState%27"><span class="hs-identifier hs-var">TriggerState'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTriggerState"><span class="annot"><span class="annottext">TriggerState -&gt; Text
 </span><a href="Network.AWS.Glue.Types.TriggerState.html#fromTriggerState"><span class="hs-identifier hs-var hs-var">fromTriggerState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679703583"><span id="local-6989586621679703585"><span id="local-6989586621679703587"><span class="annot"><span class="annottext">Int -&gt; TriggerState -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679703592"><span id="local-6989586621679703594"><span id="local-6989586621679703596"><span class="annot"><span class="annottext">Int -&gt; TriggerState -&gt; ShowS
 [TriggerState] -&gt; ShowS
 TriggerState -&gt; String
 (Int -&gt; TriggerState -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: TriggerState -&gt; String
 showsPrec :: Int -&gt; TriggerState -&gt; ShowS
 $cshowsPrec :: Int -&gt; TriggerState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679703574"><span id="local-6989586621679703576"><span id="local-6989586621679703578"><span id="local-6989586621679703580"><span class="annot"><span class="annottext">ReadPrec [TriggerState]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679703583"><span id="local-6989586621679703585"><span id="local-6989586621679703587"><span id="local-6989586621679703589"><span class="annot"><span class="annottext">ReadPrec [TriggerState]
 ReadPrec TriggerState
 Int -&gt; ReadS TriggerState
 ReadS [TriggerState]
@@ -78,7 +78,7 @@ $creadList :: ReadS [TriggerState]
 readsPrec :: Int -&gt; ReadS TriggerState
 $creadsPrec :: Int -&gt; ReadS TriggerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679703569"><span id="local-6989586621679703571"><span class="annot"><span class="annottext">TriggerState -&gt; TriggerState -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679703578"><span id="local-6989586621679703580"><span class="annot"><span class="annottext">TriggerState -&gt; TriggerState -&gt; Bool
 (TriggerState -&gt; TriggerState -&gt; Bool)
 -&gt; (TriggerState -&gt; TriggerState -&gt; Bool) -&gt; Eq TriggerState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: TriggerState -&gt; TriggerState -&gt; Bool
 == :: TriggerState -&gt; TriggerState -&gt; Bool
 $c== :: TriggerState -&gt; TriggerState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679703553"><span id="local-6989586621679703555"><span id="local-6989586621679703557"><span id="local-6989586621679703559"><span id="local-6989586621679703561"><span id="local-6989586621679703563"><span id="local-6989586621679703565"><span class="annot"><span class="annottext">Eq TriggerState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679703562"><span id="local-6989586621679703564"><span id="local-6989586621679703566"><span id="local-6989586621679703568"><span id="local-6989586621679703570"><span id="local-6989586621679703572"><span id="local-6989586621679703574"><span class="annot"><span class="annottext">Eq TriggerState
 Eq TriggerState
 -&gt; (TriggerState -&gt; TriggerState -&gt; Ordering)
 -&gt; (TriggerState -&gt; TriggerState -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. TriggerState -&gt; Rep TriggerState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679703545"><span id="local-6989586621679703547"><span class="annot"><span class="annottext">Int -&gt; TriggerState -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679703554"><span id="local-6989586621679703556"><span class="annot"><span class="annottext">Int -&gt; TriggerState -&gt; Int
 TriggerState -&gt; Int
 (Int -&gt; TriggerState -&gt; Int)
 -&gt; (TriggerState -&gt; Int) -&gt; Hashable TriggerState
@@ -148,49 +148,49 @@ $chash :: TriggerState -&gt; Int
 hashWithSalt :: Int -&gt; TriggerState -&gt; Int
 $chashWithSalt :: Int -&gt; TriggerState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679703542"><span class="annot"><span class="annottext">TriggerState -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679703551"><span class="annot"><span class="annottext">TriggerState -&gt; ()
 (TriggerState -&gt; ()) -&gt; NFData TriggerState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TriggerState -&gt; ()
 $crnf :: TriggerState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679703539"><span class="annot"><span class="annottext">Text -&gt; Either String TriggerState
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679703548"><span class="annot"><span class="annottext">Text -&gt; Either String TriggerState
 (Text -&gt; Either String TriggerState) -&gt; FromText TriggerState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TriggerState
 $cfromText :: Text -&gt; Either String TriggerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679703536"><span class="annot"><span class="annottext">TriggerState -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679703545"><span class="annot"><span class="annottext">TriggerState -&gt; Text
 (TriggerState -&gt; Text) -&gt; ToText TriggerState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TriggerState -&gt; Text
 $ctoText :: TriggerState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679703533"><span class="annot"><span class="annottext">TriggerState -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679703542"><span class="annot"><span class="annottext">TriggerState -&gt; ByteString
 (TriggerState -&gt; ByteString) -&gt; ToByteString TriggerState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TriggerState -&gt; ByteString
 $ctoBS :: TriggerState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679703530"><span class="annot"><span class="annottext">TriggerState -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679703539"><span class="annot"><span class="annottext">TriggerState -&gt; ByteStringBuilder
 (TriggerState -&gt; ByteStringBuilder) -&gt; ToLog TriggerState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TriggerState -&gt; ByteStringBuilder
 $cbuild :: TriggerState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679703527"><span class="annot"><span class="annottext">HeaderName -&gt; TriggerState -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679703536"><span class="annot"><span class="annottext">HeaderName -&gt; TriggerState -&gt; [Header]
 (HeaderName -&gt; TriggerState -&gt; [Header]) -&gt; ToHeader TriggerState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TriggerState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TriggerState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679703524"><span class="annot"><span class="annottext">TriggerState -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679703533"><span class="annot"><span class="annottext">TriggerState -&gt; QueryString
 (TriggerState -&gt; QueryString) -&gt; ToQuery TriggerState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TriggerState -&gt; QueryString
 $ctoQuery :: TriggerState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679703519"><span id="local-6989586621679703521"><span class="annot"><span class="annottext">Value -&gt; Parser [TriggerState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679703528"><span id="local-6989586621679703530"><span class="annot"><span class="annottext">Value -&gt; Parser [TriggerState]
 Value -&gt; Parser TriggerState
 (Value -&gt; Parser TriggerState)
 -&gt; (Value -&gt; Parser [TriggerState]) -&gt; FromJSON TriggerState
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [TriggerState]
 parseJSON :: Value -&gt; Parser TriggerState
 $cparseJSON :: Value -&gt; Parser TriggerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679703514"><span id="local-6989586621679703516"><span class="annot"><span class="annottext">FromJSONKeyFunction [TriggerState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679703523"><span id="local-6989586621679703525"><span class="annot"><span class="annottext">FromJSONKeyFunction [TriggerState]
 FromJSONKeyFunction TriggerState
 FromJSONKeyFunction TriggerState
 -&gt; FromJSONKeyFunction [TriggerState] -&gt; FromJSONKey TriggerState
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TriggerState]
 fromJSONKey :: FromJSONKeyFunction TriggerState
 $cfromJSONKey :: FromJSONKeyFunction TriggerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679703505"><span id="local-6989586621679703507"><span id="local-6989586621679703509"><span id="local-6989586621679703511"><span class="annot"><span class="annottext">[TriggerState] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679703514"><span id="local-6989586621679703516"><span id="local-6989586621679703518"><span id="local-6989586621679703520"><span class="annot"><span class="annottext">[TriggerState] -&gt; Encoding
 [TriggerState] -&gt; Value
 TriggerState -&gt; Encoding
 TriggerState -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: TriggerState -&gt; Encoding
 toJSON :: TriggerState -&gt; Value
 $ctoJSON :: TriggerState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679703500"><span id="local-6989586621679703502"><span class="annot"><span class="annottext">ToJSONKeyFunction [TriggerState]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679703509"><span id="local-6989586621679703511"><span class="annot"><span class="annottext">ToJSONKeyFunction [TriggerState]
 ToJSONKeyFunction TriggerState
 ToJSONKeyFunction TriggerState
 -&gt; ToJSONKeyFunction [TriggerState] -&gt; ToJSONKey TriggerState
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TriggerState]
 toJSONKey :: ToJSONKeyFunction TriggerState
 $ctoJSONKey :: ToJSONKeyFunction TriggerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679703497"><span class="annot"><span class="annottext">[Node] -&gt; Either String TriggerState
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679703506"><span class="annot"><span class="annottext">[Node] -&gt; Either String TriggerState
 ([Node] -&gt; Either String TriggerState) -&gt; FromXML TriggerState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TriggerState
 $cparseXML :: [Node] -&gt; Either String TriggerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679703494"><span class="annot"><span class="annottext">TriggerState -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679703503"><span class="annot"><span class="annottext">TriggerState -&gt; XML
 (TriggerState -&gt; XML) -&gt; ToXML TriggerState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TriggerState -&gt; XML

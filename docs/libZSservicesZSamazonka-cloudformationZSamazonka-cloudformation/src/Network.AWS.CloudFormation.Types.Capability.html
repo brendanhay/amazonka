@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679414693"><span id="local-6989586621679414694"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Capability"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Capability.html#Capability"><span class="hs-identifier hs-var">Capability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Capability%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Capability.html#Capability%27"><span class="hs-identifier hs-var">Capability'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679414702"><span id="local-6989586621679414703"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Capability"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Capability.html#Capability"><span class="hs-identifier hs-var">Capability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Capability%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Capability.html#Capability%27"><span class="hs-identifier hs-var">Capability'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCapability"><span class="annot"><span class="annottext">Capability -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.Capability.html#fromCapability"><span class="hs-identifier hs-var hs-var">fromCapability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414685"><span id="local-6989586621679414687"><span id="local-6989586621679414689"><span class="annot"><span class="annottext">Int -&gt; Capability -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414694"><span id="local-6989586621679414696"><span id="local-6989586621679414698"><span class="annot"><span class="annottext">Int -&gt; Capability -&gt; ShowS
 [Capability] -&gt; ShowS
 Capability -&gt; String
 (Int -&gt; Capability -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Capability -&gt; String
 showsPrec :: Int -&gt; Capability -&gt; ShowS
 $cshowsPrec :: Int -&gt; Capability -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679414676"><span id="local-6989586621679414678"><span id="local-6989586621679414680"><span id="local-6989586621679414682"><span class="annot"><span class="annottext">ReadPrec [Capability]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679414685"><span id="local-6989586621679414687"><span id="local-6989586621679414689"><span id="local-6989586621679414691"><span class="annot"><span class="annottext">ReadPrec [Capability]
 ReadPrec Capability
 Int -&gt; ReadS Capability
 ReadS [Capability]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Capability]
 readsPrec :: Int -&gt; ReadS Capability
 $creadsPrec :: Int -&gt; ReadS Capability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679414671"><span id="local-6989586621679414673"><span class="annot"><span class="annottext">Capability -&gt; Capability -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679414680"><span id="local-6989586621679414682"><span class="annot"><span class="annottext">Capability -&gt; Capability -&gt; Bool
 (Capability -&gt; Capability -&gt; Bool)
 -&gt; (Capability -&gt; Capability -&gt; Bool) -&gt; Eq Capability
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: Capability -&gt; Capability -&gt; Bool
 == :: Capability -&gt; Capability -&gt; Bool
 $c== :: Capability -&gt; Capability -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679414655"><span id="local-6989586621679414657"><span id="local-6989586621679414659"><span id="local-6989586621679414661"><span id="local-6989586621679414663"><span id="local-6989586621679414665"><span id="local-6989586621679414667"><span class="annot"><span class="annottext">Eq Capability
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679414664"><span id="local-6989586621679414666"><span id="local-6989586621679414668"><span id="local-6989586621679414670"><span id="local-6989586621679414672"><span id="local-6989586621679414674"><span id="local-6989586621679414676"><span class="annot"><span class="annottext">Eq Capability
 Eq Capability
 -&gt; (Capability -&gt; Capability -&gt; Ordering)
 -&gt; (Capability -&gt; Capability -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Capability -&gt; Rep Capability x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414647"><span id="local-6989586621679414649"><span class="annot"><span class="annottext">Int -&gt; Capability -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414656"><span id="local-6989586621679414658"><span class="annot"><span class="annottext">Int -&gt; Capability -&gt; Int
 Capability -&gt; Int
 (Int -&gt; Capability -&gt; Int)
 -&gt; (Capability -&gt; Int) -&gt; Hashable Capability
@@ -142,49 +142,49 @@ $chash :: Capability -&gt; Int
 hashWithSalt :: Int -&gt; Capability -&gt; Int
 $chashWithSalt :: Int -&gt; Capability -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679414644"><span class="annot"><span class="annottext">Capability -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679414653"><span class="annot"><span class="annottext">Capability -&gt; ()
 (Capability -&gt; ()) -&gt; NFData Capability
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Capability -&gt; ()
 $crnf :: Capability -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679414641"><span class="annot"><span class="annottext">Text -&gt; Either String Capability
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679414650"><span class="annot"><span class="annottext">Text -&gt; Either String Capability
 (Text -&gt; Either String Capability) -&gt; FromText Capability
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Capability
 $cfromText :: Text -&gt; Either String Capability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679414638"><span class="annot"><span class="annottext">Capability -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679414647"><span class="annot"><span class="annottext">Capability -&gt; Text
 (Capability -&gt; Text) -&gt; ToText Capability
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Capability -&gt; Text
 $ctoText :: Capability -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679414635"><span class="annot"><span class="annottext">Capability -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679414644"><span class="annot"><span class="annottext">Capability -&gt; ByteString
 (Capability -&gt; ByteString) -&gt; ToByteString Capability
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Capability -&gt; ByteString
 $ctoBS :: Capability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679414632"><span class="annot"><span class="annottext">Capability -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679414641"><span class="annot"><span class="annottext">Capability -&gt; ByteStringBuilder
 (Capability -&gt; ByteStringBuilder) -&gt; ToLog Capability
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Capability -&gt; ByteStringBuilder
 $cbuild :: Capability -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679414629"><span class="annot"><span class="annottext">HeaderName -&gt; Capability -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679414638"><span class="annot"><span class="annottext">HeaderName -&gt; Capability -&gt; [Header]
 (HeaderName -&gt; Capability -&gt; [Header]) -&gt; ToHeader Capability
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Capability -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Capability -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679414626"><span class="annot"><span class="annottext">Capability -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679414635"><span class="annot"><span class="annottext">Capability -&gt; QueryString
 (Capability -&gt; QueryString) -&gt; ToQuery Capability
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Capability -&gt; QueryString
 $ctoQuery :: Capability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679414621"><span id="local-6989586621679414623"><span class="annot"><span class="annottext">Value -&gt; Parser [Capability]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679414630"><span id="local-6989586621679414632"><span class="annot"><span class="annottext">Value -&gt; Parser [Capability]
 Value -&gt; Parser Capability
 (Value -&gt; Parser Capability)
 -&gt; (Value -&gt; Parser [Capability]) -&gt; FromJSON Capability
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [Capability]
 parseJSON :: Value -&gt; Parser Capability
 $cparseJSON :: Value -&gt; Parser Capability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679414616"><span id="local-6989586621679414618"><span class="annot"><span class="annottext">FromJSONKeyFunction [Capability]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679414625"><span id="local-6989586621679414627"><span class="annot"><span class="annottext">FromJSONKeyFunction [Capability]
 FromJSONKeyFunction Capability
 FromJSONKeyFunction Capability
 -&gt; FromJSONKeyFunction [Capability] -&gt; FromJSONKey Capability
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Capability]
 fromJSONKey :: FromJSONKeyFunction Capability
 $cfromJSONKey :: FromJSONKeyFunction Capability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679414607"><span id="local-6989586621679414609"><span id="local-6989586621679414611"><span id="local-6989586621679414613"><span class="annot"><span class="annottext">[Capability] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679414616"><span id="local-6989586621679414618"><span id="local-6989586621679414620"><span id="local-6989586621679414622"><span class="annot"><span class="annottext">[Capability] -&gt; Encoding
 [Capability] -&gt; Value
 Capability -&gt; Encoding
 Capability -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: Capability -&gt; Encoding
 toJSON :: Capability -&gt; Value
 $ctoJSON :: Capability -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679414602"><span id="local-6989586621679414604"><span class="annot"><span class="annottext">ToJSONKeyFunction [Capability]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679414611"><span id="local-6989586621679414613"><span class="annot"><span class="annottext">ToJSONKeyFunction [Capability]
 ToJSONKeyFunction Capability
 ToJSONKeyFunction Capability
 -&gt; ToJSONKeyFunction [Capability] -&gt; ToJSONKey Capability
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Capability]
 toJSONKey :: ToJSONKeyFunction Capability
 $ctoJSONKey :: ToJSONKeyFunction Capability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679414599"><span class="annot"><span class="annottext">[Node] -&gt; Either String Capability
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679414608"><span class="annot"><span class="annottext">[Node] -&gt; Either String Capability
 ([Node] -&gt; Either String Capability) -&gt; FromXML Capability
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Capability
 $cparseXML :: [Node] -&gt; Either String Capability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679414596"><span class="annot"><span class="annottext">Capability -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679414605"><span class="annot"><span class="annottext">Capability -&gt; XML
 (Capability -&gt; XML) -&gt; ToXML Capability
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Capability -&gt; XML

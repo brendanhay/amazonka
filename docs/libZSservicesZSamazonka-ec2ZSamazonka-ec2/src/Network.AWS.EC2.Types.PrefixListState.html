@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span id="local-6989586621681138454"><span id="local-6989586621681138455"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PrefixListState"><span class="annot"><a href="Network.AWS.EC2.Types.PrefixListState.html#PrefixListState"><span class="hs-identifier hs-var">PrefixListState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrefixListState%27"><span class="annot"><a href="Network.AWS.EC2.Types.PrefixListState.html#PrefixListState%27"><span class="hs-identifier hs-var">PrefixListState'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621681138463"><span id="local-6989586621681138464"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PrefixListState"><span class="annot"><a href="Network.AWS.EC2.Types.PrefixListState.html#PrefixListState"><span class="hs-identifier hs-var">PrefixListState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrefixListState%27"><span class="annot"><a href="Network.AWS.EC2.Types.PrefixListState.html#PrefixListState%27"><span class="hs-identifier hs-var">PrefixListState'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPrefixListState"><span class="annot"><span class="annottext">PrefixListState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.PrefixListState.html#fromPrefixListState"><span class="hs-identifier hs-var hs-var">fromPrefixListState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681138446"><span id="local-6989586621681138448"><span id="local-6989586621681138450"><span class="annot"><span class="annottext">Int -&gt; PrefixListState -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681138455"><span id="local-6989586621681138457"><span id="local-6989586621681138459"><span class="annot"><span class="annottext">Int -&gt; PrefixListState -&gt; ShowS
 [PrefixListState] -&gt; ShowS
 PrefixListState -&gt; String
 (Int -&gt; PrefixListState -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: PrefixListState -&gt; String
 showsPrec :: Int -&gt; PrefixListState -&gt; ShowS
 $cshowsPrec :: Int -&gt; PrefixListState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681138437"><span id="local-6989586621681138439"><span id="local-6989586621681138441"><span id="local-6989586621681138443"><span class="annot"><span class="annottext">ReadPrec [PrefixListState]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681138446"><span id="local-6989586621681138448"><span id="local-6989586621681138450"><span id="local-6989586621681138452"><span class="annot"><span class="annottext">ReadPrec [PrefixListState]
 ReadPrec PrefixListState
 Int -&gt; ReadS PrefixListState
 ReadS [PrefixListState]
@@ -83,7 +83,7 @@ $creadList :: ReadS [PrefixListState]
 readsPrec :: Int -&gt; ReadS PrefixListState
 $creadsPrec :: Int -&gt; ReadS PrefixListState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681138432"><span id="local-6989586621681138434"><span class="annot"><span class="annottext">PrefixListState -&gt; PrefixListState -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681138441"><span id="local-6989586621681138443"><span class="annot"><span class="annottext">PrefixListState -&gt; PrefixListState -&gt; Bool
 (PrefixListState -&gt; PrefixListState -&gt; Bool)
 -&gt; (PrefixListState -&gt; PrefixListState -&gt; Bool)
 -&gt; Eq PrefixListState
@@ -93,7 +93,7 @@ $c/= :: PrefixListState -&gt; PrefixListState -&gt; Bool
 == :: PrefixListState -&gt; PrefixListState -&gt; Bool
 $c== :: PrefixListState -&gt; PrefixListState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681138416"><span id="local-6989586621681138418"><span id="local-6989586621681138420"><span id="local-6989586621681138422"><span id="local-6989586621681138424"><span id="local-6989586621681138426"><span id="local-6989586621681138428"><span class="annot"><span class="annottext">Eq PrefixListState
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681138425"><span id="local-6989586621681138427"><span id="local-6989586621681138429"><span id="local-6989586621681138431"><span id="local-6989586621681138433"><span id="local-6989586621681138435"><span id="local-6989586621681138437"><span class="annot"><span class="annottext">Eq PrefixListState
 Eq PrefixListState
 -&gt; (PrefixListState -&gt; PrefixListState -&gt; Ordering)
 -&gt; (PrefixListState -&gt; PrefixListState -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. PrefixListState -&gt; Rep PrefixListState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681138408"><span id="local-6989586621681138410"><span class="annot"><span class="annottext">Int -&gt; PrefixListState -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681138417"><span id="local-6989586621681138419"><span class="annot"><span class="annottext">Int -&gt; PrefixListState -&gt; Int
 PrefixListState -&gt; Int
 (Int -&gt; PrefixListState -&gt; Int)
 -&gt; (PrefixListState -&gt; Int) -&gt; Hashable PrefixListState
@@ -154,50 +154,50 @@ $chash :: PrefixListState -&gt; Int
 hashWithSalt :: Int -&gt; PrefixListState -&gt; Int
 $chashWithSalt :: Int -&gt; PrefixListState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681138405"><span class="annot"><span class="annottext">PrefixListState -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681138414"><span class="annot"><span class="annottext">PrefixListState -&gt; ()
 (PrefixListState -&gt; ()) -&gt; NFData PrefixListState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PrefixListState -&gt; ()
 $crnf :: PrefixListState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681138402"><span class="annot"><span class="annottext">Text -&gt; Either String PrefixListState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681138411"><span class="annot"><span class="annottext">Text -&gt; Either String PrefixListState
 (Text -&gt; Either String PrefixListState) -&gt; FromText PrefixListState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PrefixListState
 $cfromText :: Text -&gt; Either String PrefixListState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681138399"><span class="annot"><span class="annottext">PrefixListState -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681138408"><span class="annot"><span class="annottext">PrefixListState -&gt; Text
 (PrefixListState -&gt; Text) -&gt; ToText PrefixListState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PrefixListState -&gt; Text
 $ctoText :: PrefixListState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681138396"><span class="annot"><span class="annottext">PrefixListState -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681138405"><span class="annot"><span class="annottext">PrefixListState -&gt; ByteString
 (PrefixListState -&gt; ByteString) -&gt; ToByteString PrefixListState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PrefixListState -&gt; ByteString
 $ctoBS :: PrefixListState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681138393"><span class="annot"><span class="annottext">PrefixListState -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681138402"><span class="annot"><span class="annottext">PrefixListState -&gt; ByteStringBuilder
 (PrefixListState -&gt; ByteStringBuilder) -&gt; ToLog PrefixListState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PrefixListState -&gt; ByteStringBuilder
 $cbuild :: PrefixListState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681138390"><span class="annot"><span class="annottext">HeaderName -&gt; PrefixListState -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681138399"><span class="annot"><span class="annottext">HeaderName -&gt; PrefixListState -&gt; [Header]
 (HeaderName -&gt; PrefixListState -&gt; [Header])
 -&gt; ToHeader PrefixListState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PrefixListState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PrefixListState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681138387"><span class="annot"><span class="annottext">PrefixListState -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681138396"><span class="annot"><span class="annottext">PrefixListState -&gt; QueryString
 (PrefixListState -&gt; QueryString) -&gt; ToQuery PrefixListState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PrefixListState -&gt; QueryString
 $ctoQuery :: PrefixListState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681138382"><span id="local-6989586621681138384"><span class="annot"><span class="annottext">Value -&gt; Parser [PrefixListState]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681138391"><span id="local-6989586621681138393"><span class="annot"><span class="annottext">Value -&gt; Parser [PrefixListState]
 Value -&gt; Parser PrefixListState
 (Value -&gt; Parser PrefixListState)
 -&gt; (Value -&gt; Parser [PrefixListState]) -&gt; FromJSON PrefixListState
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [PrefixListState]
 parseJSON :: Value -&gt; Parser PrefixListState
 $cparseJSON :: Value -&gt; Parser PrefixListState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621681138377"><span id="local-6989586621681138379"><span class="annot"><span class="annottext">FromJSONKeyFunction [PrefixListState]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621681138386"><span id="local-6989586621681138388"><span class="annot"><span class="annottext">FromJSONKeyFunction [PrefixListState]
 FromJSONKeyFunction PrefixListState
 FromJSONKeyFunction PrefixListState
 -&gt; FromJSONKeyFunction [PrefixListState]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PrefixListState]
 fromJSONKey :: FromJSONKeyFunction PrefixListState
 $cfromJSONKey :: FromJSONKeyFunction PrefixListState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621681138368"><span id="local-6989586621681138370"><span id="local-6989586621681138372"><span id="local-6989586621681138374"><span class="annot"><span class="annottext">[PrefixListState] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621681138377"><span id="local-6989586621681138379"><span id="local-6989586621681138381"><span id="local-6989586621681138383"><span class="annot"><span class="annottext">[PrefixListState] -&gt; Encoding
 [PrefixListState] -&gt; Value
 PrefixListState -&gt; Encoding
 PrefixListState -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: PrefixListState -&gt; Encoding
 toJSON :: PrefixListState -&gt; Value
 $ctoJSON :: PrefixListState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621681138363"><span id="local-6989586621681138365"><span class="annot"><span class="annottext">ToJSONKeyFunction [PrefixListState]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621681138372"><span id="local-6989586621681138374"><span class="annot"><span class="annottext">ToJSONKeyFunction [PrefixListState]
 ToJSONKeyFunction PrefixListState
 ToJSONKeyFunction PrefixListState
 -&gt; ToJSONKeyFunction [PrefixListState] -&gt; ToJSONKey PrefixListState
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PrefixListState]
 toJSONKey :: ToJSONKeyFunction PrefixListState
 $ctoJSONKey :: ToJSONKeyFunction PrefixListState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621681138360"><span class="annot"><span class="annottext">[Node] -&gt; Either String PrefixListState
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621681138369"><span class="annot"><span class="annottext">[Node] -&gt; Either String PrefixListState
 ([Node] -&gt; Either String PrefixListState)
 -&gt; FromXML PrefixListState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PrefixListState
 $cparseXML :: [Node] -&gt; Either String PrefixListState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621681138357"><span class="annot"><span class="annottext">PrefixListState -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621681138366"><span class="annot"><span class="annottext">PrefixListState -&gt; XML
 (PrefixListState -&gt; XML) -&gt; ToXML PrefixListState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PrefixListState -&gt; XML

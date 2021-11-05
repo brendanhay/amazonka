@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- settings, then the query uses the workgroup settings.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newResultConfiguration' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679218082"><span id="local-6989586621679218083"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultConfiguration"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-var">ResultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultConfiguration%27"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-var">ResultConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679218091"><span id="local-6989586621679218092"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultConfiguration"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-var">ResultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultConfiguration%27"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-var">ResultConfiguration'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If query results are encrypted in Amazon S3, indicates the encryption</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- This is a client-side setting. If workgroup settings override</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AoutputLocation%3AResultConfiguration%27"><span class="annot"><span class="annottext">ResultConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.Types.ResultConfiguration.html#%24sel%3AoutputLocation%3AResultConfiguration%27"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218075"><span id="local-6989586621679218077"><span class="annot"><span class="annottext">ResultConfiguration -&gt; ResultConfiguration -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218084"><span id="local-6989586621679218086"><span class="annot"><span class="annottext">ResultConfiguration -&gt; ResultConfiguration -&gt; Bool
 (ResultConfiguration -&gt; ResultConfiguration -&gt; Bool)
 -&gt; (ResultConfiguration -&gt; ResultConfiguration -&gt; Bool)
 -&gt; Eq ResultConfiguration
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResultConfiguration -&gt; ResultConfiguration -&gt; Bool
 == :: ResultConfiguration -&gt; ResultConfiguration -&gt; Bool
 $c== :: ResultConfiguration -&gt; ResultConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218066"><span id="local-6989586621679218068"><span id="local-6989586621679218070"><span id="local-6989586621679218072"><span class="annot"><span class="annottext">ReadPrec [ResultConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218075"><span id="local-6989586621679218077"><span id="local-6989586621679218079"><span id="local-6989586621679218081"><span class="annot"><span class="annottext">ReadPrec [ResultConfiguration]
 ReadPrec ResultConfiguration
 Int -&gt; ReadS ResultConfiguration
 ReadS [ResultConfiguration]
@@ -83,7 +83,7 @@ readList :: ReadS [ResultConfiguration]
 $creadList :: ReadS [ResultConfiguration]
 readsPrec :: Int -&gt; ReadS ResultConfiguration
 $creadsPrec :: Int -&gt; ReadS ResultConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218059"><span id="local-6989586621679218061"><span id="local-6989586621679218063"><span class="annot"><span class="annottext">Int -&gt; ResultConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218068"><span id="local-6989586621679218070"><span id="local-6989586621679218072"><span class="annot"><span class="annottext">Int -&gt; ResultConfiguration -&gt; ShowS
 [ResultConfiguration] -&gt; ShowS
 ResultConfiguration -&gt; String
 (Int -&gt; ResultConfiguration -&gt; ShowS)
@@ -174,16 +174,16 @@ forall a. Maybe a
      (Maybe EncryptionConfiguration)
      (Maybe EncryptionConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218050"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218059"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
 encryptionConfiguration :: Maybe EncryptionConfiguration
 $sel:encryptionConfiguration:ResultConfiguration' :: ResultConfiguration -&gt; Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218050"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218050"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218049"><span class="annot"><span class="annottext">s :: ResultConfiguration
-</span><a href="#local-6989586621679218049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218048"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfiguration
-</span><a href="#local-6989586621679218049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ResultConfiguration' :: Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679218059"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679218059"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218058"><span class="annot"><span class="annottext">s :: ResultConfiguration
+</span><a href="#local-6989586621679218058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218057"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679218057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfiguration
+</span><a href="#local-6989586621679218058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ResultConfiguration' :: Maybe EncryptionConfiguration
 </span><a href="Network.AWS.Athena.Types.ResultConfiguration.html#%24sel%3AencryptionConfiguration%3AResultConfiguration%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The location in Amazon S3 where your query results are stored, such as</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify</span><span>
@@ -203,19 +203,19 @@ $sel:encryptionConfiguration:ResultConfiguration' :: ResultConfiguration -&gt; M
 -&gt; Lens
      ResultConfiguration ResultConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218046"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218055"><span class="annot"><span class="annottext">Maybe Text
 outputLocation :: Maybe Text
 $sel:outputLocation:ResultConfiguration' :: ResultConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679218046"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218046"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218045"><span class="annot"><span class="annottext">s :: ResultConfiguration
-</span><a href="#local-6989586621679218045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218044"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfiguration
-</span><a href="#local-6989586621679218045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:ResultConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679218055"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218055"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218054"><span class="annot"><span class="annottext">s :: ResultConfiguration
+</span><a href="#local-6989586621679218054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218053"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfiguration
+</span><a href="#local-6989586621679218054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:ResultConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.ResultConfiguration.html#%24sel%3AoutputLocation%3AResultConfiguration%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218041"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679218039"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResultConfiguration
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218050"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679218048"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResultConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResultConfiguration)
@@ -225,8 +225,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResultConfiguration&quot;</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218036"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218036"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218045"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218045"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration -&gt; Maybe Text -&gt; ResultConfiguration
 </span><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-var">ResultConfiguration'</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionConfiguration
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ResultConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfiguration)
+</span><a href="#local-6989586621679218045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,25 +243,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ResultConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679218045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputLocation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218030"><span id="local-6989586621679218032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218039"><span id="local-6989586621679218041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218019"><span id="local-6989586621679218021"><span id="local-6989586621679218023"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679218017"><span class="annot"><span class="annottext">toJSON :: ResultConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218014"><span id="local-6989586621679218015"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218028"><span id="local-6989586621679218030"><span id="local-6989586621679218032"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679218026"><span class="annot"><span class="annottext">toJSON :: ResultConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration%27"><span class="hs-identifier hs-type">ResultConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218023"><span id="local-6989586621679218024"><span class="annot"><span class="annottext">Maybe Text
 Maybe EncryptionConfiguration
 outputLocation :: Maybe Text
 encryptionConfiguration :: Maybe EncryptionConfiguration
 $sel:outputLocation:ResultConfiguration' :: ResultConfiguration -&gt; Maybe Text
 $sel:encryptionConfiguration:ResultConfiguration' :: ResultConfiguration -&gt; Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218014"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679218023"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -275,7 +275,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EncryptionConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218015"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679218024"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -283,7 +283,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218014"><span class="hs-identifier hs-var">outputLocation</span></a></span><span>
+</span><a href="#local-6989586621679218023"><span class="hs-identifier hs-var">outputLocation</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span></pre></body></html>

@@ -94,7 +94,7 @@
 </span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | /See:/ 'newUpdateShardCount' smart constructor.</span><span>
-</span><span id="line-97"></span><span id="local-6989586621679206038"><span id="local-6989586621679206039"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateShardCount"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-var">UpdateShardCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateShardCount%27"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-var">UpdateShardCount'</span></a></span></span><span>
+</span><span id="line-97"></span><span id="local-6989586621679206047"><span id="local-6989586621679206048"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateShardCount"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-var">UpdateShardCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateShardCount%27"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-var">UpdateShardCount'</span></a></span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stream.</span><span>
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AstreamName%3AUpdateShardCount%27"><span class="annot"><span class="annottext">UpdateShardCount -&gt; Text
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AstreamName%3AUpdateShardCount%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -118,7 +118,7 @@
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AscalingType%3AUpdateShardCount%27"><span class="annot"><span class="annottext">UpdateShardCount -&gt; ScalingType
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AscalingType%3AUpdateShardCount%27"><span class="hs-identifier hs-var hs-var">scalingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-type">ScalingType</span></a></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206030"><span id="local-6989586621679206032"><span class="annot"><span class="annottext">UpdateShardCount -&gt; UpdateShardCount -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206039"><span id="local-6989586621679206041"><span class="annot"><span class="annottext">UpdateShardCount -&gt; UpdateShardCount -&gt; Bool
 (UpdateShardCount -&gt; UpdateShardCount -&gt; Bool)
 -&gt; (UpdateShardCount -&gt; UpdateShardCount -&gt; Bool)
 -&gt; Eq UpdateShardCount
@@ -127,7 +127,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateShardCount -&gt; UpdateShardCount -&gt; Bool
 == :: UpdateShardCount -&gt; UpdateShardCount -&gt; Bool
 $c== :: UpdateShardCount -&gt; UpdateShardCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206021"><span id="local-6989586621679206023"><span id="local-6989586621679206025"><span id="local-6989586621679206027"><span class="annot"><span class="annottext">ReadPrec [UpdateShardCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206030"><span id="local-6989586621679206032"><span id="local-6989586621679206034"><span id="local-6989586621679206036"><span class="annot"><span class="annottext">ReadPrec [UpdateShardCount]
 ReadPrec UpdateShardCount
 Int -&gt; ReadS UpdateShardCount
 ReadS [UpdateShardCount]
@@ -147,7 +147,7 @@ readList :: ReadS [UpdateShardCount]
 $creadList :: ReadS [UpdateShardCount]
 readsPrec :: Int -&gt; ReadS UpdateShardCount
 $creadsPrec :: Int -&gt; ReadS UpdateShardCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206014"><span id="local-6989586621679206016"><span id="local-6989586621679206018"><span class="annot"><span class="annottext">Int -&gt; UpdateShardCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206023"><span id="local-6989586621679206025"><span id="local-6989586621679206027"><span class="annot"><span class="annottext">Int -&gt; UpdateShardCount -&gt; ShowS
 [UpdateShardCount] -&gt; ShowS
 UpdateShardCount -&gt; String
 (Int -&gt; UpdateShardCount -&gt; ShowS)
@@ -209,23 +209,23 @@ $cfrom :: forall x. UpdateShardCount -&gt; Rep UpdateShardCount x
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span>
 </span><span id="line-154"></span><span id="newUpdateShardCount"><span class="annot"><span class="annottext">newUpdateShardCount :: Text -&gt; Natural -&gt; ScalingType -&gt; UpdateShardCount
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#newUpdateShardCount"><span class="hs-identifier hs-var hs-var">newUpdateShardCount</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679206009"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206009"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679206008"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679206008"><span class="hs-identifier hs-var">pTargetShardCount_</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679206007"><span class="annot"><span class="annottext">ScalingType
-</span><a href="#local-6989586621679206007"><span class="hs-identifier hs-var">pScalingType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679206018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206018"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679206017"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679206017"><span class="hs-identifier hs-var">pTargetShardCount_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679206016"><span class="annot"><span class="annottext">ScalingType
+</span><a href="#local-6989586621679206016"><span class="hs-identifier hs-var">pScalingType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">UpdateShardCount' :: Text -&gt; Natural -&gt; ScalingType -&gt; UpdateShardCount
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamName:UpdateShardCount' :: Text
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AstreamName%3AUpdateShardCount%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206009"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206018"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetShardCount:UpdateShardCount' :: Natural
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AtargetShardCount%3AUpdateShardCount%27"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679206008"><span class="hs-identifier hs-var">pTargetShardCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206017"><span class="hs-identifier hs-var">pTargetShardCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingType:UpdateShardCount' :: ScalingType
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AscalingType%3AUpdateShardCount%27"><span class="hs-identifier hs-var">scalingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingType
-</span><a href="#local-6989586621679206007"><span class="hs-identifier hs-var">pScalingType_</span></a></span><span>
+</span><a href="#local-6989586621679206016"><span class="hs-identifier hs-var">pScalingType_</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The name of the stream.</span><span>
@@ -235,16 +235,16 @@ $cfrom :: forall x. UpdateShardCount -&gt; Rep UpdateShardCount x
 -&gt; (UpdateShardCount -&gt; Text -&gt; UpdateShardCount)
 -&gt; Lens UpdateShardCount UpdateShardCount Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206004"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206013"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:UpdateShardCount' :: UpdateShardCount -&gt; Text
-</span><a href="#local-6989586621679206004"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206004"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206003"><span class="annot"><span class="annottext">s :: UpdateShardCount
-</span><a href="#local-6989586621679206003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206002"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCount
-</span><a href="#local-6989586621679206003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:UpdateShardCount' :: Text
+</span><a href="#local-6989586621679206013"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206013"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206012"><span class="annot"><span class="annottext">s :: UpdateShardCount
+</span><a href="#local-6989586621679206012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCount
+</span><a href="#local-6989586621679206012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:UpdateShardCount' :: Text
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AstreamName%3AUpdateShardCount%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The new number of shards. This value has the following default limits.</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- By default, you cannot do the following:</span><span>
@@ -266,16 +266,16 @@ $sel:streamName:UpdateShardCount' :: UpdateShardCount -&gt; Text
 -&gt; (UpdateShardCount -&gt; Natural -&gt; UpdateShardCount)
 -&gt; Lens UpdateShardCount UpdateShardCount Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206001"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206010"><span class="annot"><span class="annottext">Natural
 targetShardCount :: Natural
 $sel:targetShardCount:UpdateShardCount' :: UpdateShardCount -&gt; Natural
-</span><a href="#local-6989586621679206001"><span class="hs-identifier hs-var hs-var">targetShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679206001"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206000"><span class="annot"><span class="annottext">s :: UpdateShardCount
-</span><a href="#local-6989586621679206000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205999"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCount
-</span><a href="#local-6989586621679206000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetShardCount:UpdateShardCount' :: Natural
+</span><a href="#local-6989586621679206010"><span class="hs-identifier hs-var hs-var">targetShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679206010"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206009"><span class="annot"><span class="annottext">s :: UpdateShardCount
+</span><a href="#local-6989586621679206009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206008"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679206008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCount
+</span><a href="#local-6989586621679206009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetShardCount:UpdateShardCount' :: Natural
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AtargetShardCount%3AUpdateShardCount%27"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The scaling type. Uniform scaling creates shards of equal size.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#updateShardCount_scalingType"><span class="hs-identifier hs-type">updateShardCount_scalingType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-type">ScalingType</span></a></span><span>
@@ -285,27 +285,27 @@ $sel:targetShardCount:UpdateShardCount' :: UpdateShardCount -&gt; Natural
 -&gt; (UpdateShardCount -&gt; ScalingType -&gt; UpdateShardCount)
 -&gt; Lens UpdateShardCount UpdateShardCount ScalingType ScalingType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205998"><span class="annot"><span class="annottext">ScalingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206007"><span class="annot"><span class="annottext">ScalingType
 scalingType :: ScalingType
 $sel:scalingType:UpdateShardCount' :: UpdateShardCount -&gt; ScalingType
-</span><a href="#local-6989586621679205998"><span class="hs-identifier hs-var hs-var">scalingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingType
-</span><a href="#local-6989586621679205998"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205997"><span class="annot"><span class="annottext">s :: UpdateShardCount
-</span><a href="#local-6989586621679205997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205996"><span class="annot"><span class="annottext">ScalingType
-</span><a href="#local-6989586621679205996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCount
-</span><a href="#local-6989586621679205997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingType:UpdateShardCount' :: ScalingType
+</span><a href="#local-6989586621679206007"><span class="hs-identifier hs-var hs-var">scalingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingType
+</span><a href="#local-6989586621679206007"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206006"><span class="annot"><span class="annottext">s :: UpdateShardCount
+</span><a href="#local-6989586621679206006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206005"><span class="annot"><span class="annottext">ScalingType
+</span><a href="#local-6989586621679206005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCount
+</span><a href="#local-6989586621679206006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingType:UpdateShardCount' :: ScalingType
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AscalingType%3AUpdateShardCount%27"><span class="hs-identifier hs-var">scalingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingType
-</span><a href="#local-6989586621679205996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-191"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679205992"><span class="annot"><span class="annottext">request :: UpdateShardCount -&gt; Request UpdateShardCount
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679206001"><span class="annot"><span class="annottext">request :: UpdateShardCount -&gt; Request UpdateShardCount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateShardCount -&gt; Request UpdateShardCount
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679205988"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679205997"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateShardCount
 -&gt; ClientResponse ClientBody
@@ -329,10 +329,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205985"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205985"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205984"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679205984"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205983"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205994"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205994"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205993"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205993"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; UpdateShardCountResponse
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-var">UpdateShardCountResponse'</span></a></span><span>
@@ -344,7 +344,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; UpdateShardCountResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679205992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetShardCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,7 +355,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Natural -&gt; Int -&gt; UpdateShardCountResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679205992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span class="hs-special">)</span><span>
@@ -364,7 +364,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; UpdateShardCountResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679205992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CurrentShardCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -376,15 +376,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205985"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205994"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205975"><span id="local-6989586621679205977"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205984"><span id="local-6989586621679205986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span></span></span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span></span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679205968"><span class="annot"><span class="annottext">toHeaders :: UpdateShardCount -&gt; ResponseHeaders
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679205977"><span class="annot"><span class="annottext">toHeaders :: UpdateShardCount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateShardCount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -411,9 +411,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205958"><span id="local-6989586621679205960"><span id="local-6989586621679205962"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679205956"><span class="annot"><span class="annottext">toJSON :: UpdateShardCount -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205952"><span id="local-6989586621679205953"><span id="local-6989586621679205954"><span class="annot"><span class="annottext">Natural
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205967"><span id="local-6989586621679205969"><span id="local-6989586621679205971"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679205965"><span class="annot"><span class="annottext">toJSON :: UpdateShardCount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount%27"><span class="hs-identifier hs-type">UpdateShardCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205961"><span id="local-6989586621679205962"><span id="local-6989586621679205963"><span class="annot"><span class="annottext">Natural
 Text
 ScalingType
 scalingType :: ScalingType
@@ -422,7 +422,7 @@ streamName :: Text
 $sel:scalingType:UpdateShardCount' :: UpdateShardCount -&gt; ScalingType
 $sel:targetShardCount:UpdateShardCount' :: UpdateShardCount -&gt; Natural
 $sel:streamName:UpdateShardCount' :: UpdateShardCount -&gt; Text
-</span><a href="#local-6989586621679205952"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679205961"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -434,7 +434,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205954"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679205963"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -442,26 +442,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TargetShardCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205953"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679205962"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalingType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScalingType
-</span><a href="#local-6989586621679205952"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205961"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679205946"><span class="annot"><span class="annottext">toPath :: UpdateShardCount -&gt; ByteString
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679205955"><span class="annot"><span class="annottext">toPath :: UpdateShardCount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateShardCount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCount"><span class="hs-identifier hs-type">UpdateShardCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679205942"><span class="annot"><span class="annottext">toQuery :: UpdateShardCount -&gt; QueryString
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679205951"><span class="annot"><span class="annottext">toQuery :: UpdateShardCount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateShardCount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -469,7 +469,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | /See:/ 'newUpdateShardCountResponse' smart constructor.</span><span>
-</span><span id="line-241"></span><span id="local-6989586621679205939"><span id="local-6989586621679205940"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateShardCountResponse"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-var">UpdateShardCountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateShardCountResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-var">UpdateShardCountResponse'</span></a></span></span><span>
+</span><span id="line-241"></span><span id="local-6989586621679205948"><span id="local-6989586621679205949"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateShardCountResponse"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-var">UpdateShardCountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateShardCountResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-var">UpdateShardCountResponse'</span></a></span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated number of shards.</span><span>
 </span><span id="line-243"></span><span>    </span><span id="%24sel%3AtargetShardCount%3AUpdateShardCountResponse%27"><span class="annot"><span class="annottext">UpdateShardCountResponse -&gt; Maybe Natural
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AtargetShardCount%3AUpdateShardCountResponse%27"><span class="hs-identifier hs-var hs-var">targetShardCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -483,7 +483,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-249"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateShardCountResponse%27"><span class="annot"><span class="annottext">UpdateShardCountResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AhttpStatus%3AUpdateShardCountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-250"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-251"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205931"><span id="local-6989586621679205933"><span class="annot"><span class="annottext">UpdateShardCountResponse -&gt; UpdateShardCountResponse -&gt; Bool
+</span><span id="line-251"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205940"><span id="local-6989586621679205942"><span class="annot"><span class="annottext">UpdateShardCountResponse -&gt; UpdateShardCountResponse -&gt; Bool
 (UpdateShardCountResponse -&gt; UpdateShardCountResponse -&gt; Bool)
 -&gt; (UpdateShardCountResponse -&gt; UpdateShardCountResponse -&gt; Bool)
 -&gt; Eq UpdateShardCountResponse
@@ -492,7 +492,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateShardCountResponse -&gt; UpdateShardCountResponse -&gt; Bool
 == :: UpdateShardCountResponse -&gt; UpdateShardCountResponse -&gt; Bool
 $c== :: UpdateShardCountResponse -&gt; UpdateShardCountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205923"><span id="local-6989586621679205925"><span id="local-6989586621679205927"><span id="local-6989586621679205929"><span class="annot"><span class="annottext">ReadPrec [UpdateShardCountResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205932"><span id="local-6989586621679205934"><span id="local-6989586621679205936"><span id="local-6989586621679205938"><span class="annot"><span class="annottext">ReadPrec [UpdateShardCountResponse]
 ReadPrec UpdateShardCountResponse
 Int -&gt; ReadS UpdateShardCountResponse
 ReadS [UpdateShardCountResponse]
@@ -512,7 +512,7 @@ readList :: ReadS [UpdateShardCountResponse]
 $creadList :: ReadS [UpdateShardCountResponse]
 readsPrec :: Int -&gt; ReadS UpdateShardCountResponse
 $creadsPrec :: Int -&gt; ReadS UpdateShardCountResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205917"><span id="local-6989586621679205919"><span id="local-6989586621679205921"><span class="annot"><span class="annottext">Int -&gt; UpdateShardCountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205926"><span id="local-6989586621679205928"><span id="local-6989586621679205930"><span class="annot"><span class="annottext">Int -&gt; UpdateShardCountResponse -&gt; ShowS
 [UpdateShardCountResponse] -&gt; ShowS
 UpdateShardCountResponse -&gt; String
 (Int -&gt; UpdateShardCountResponse -&gt; ShowS)
@@ -564,8 +564,8 @@ UpdateShardCountResponse -&gt; Rep UpdateShardCountResponse x
 </span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-271"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span>
 </span><span id="line-272"></span><span id="newUpdateShardCountResponse"><span class="annot"><span class="annottext">newUpdateShardCountResponse :: Int -&gt; UpdateShardCountResponse
-</span><a href="Network.AWS.Kinesis.UpdateShardCount.html#newUpdateShardCountResponse"><span class="hs-identifier hs-var hs-var">newUpdateShardCountResponse</span></a></span></span><span> </span><span id="local-6989586621679205914"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205914"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.UpdateShardCount.html#newUpdateShardCountResponse"><span class="hs-identifier hs-var hs-var">newUpdateShardCountResponse</span></a></span></span><span> </span><span id="local-6989586621679205923"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>  </span><span class="annot"><span class="annottext">UpdateShardCountResponse' :: Maybe Natural
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; UpdateShardCountResponse
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span>
@@ -584,7 +584,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateShardCountResponse' :: Int
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AhttpStatus%3AUpdateShardCountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205914"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679205923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-279"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | The updated number of shards.</span><span>
@@ -600,16 +600,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205913"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205922"><span class="annot"><span class="annottext">Maybe Natural
 targetShardCount :: Maybe Natural
 $sel:targetShardCount:UpdateShardCountResponse' :: UpdateShardCountResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679205913"><span class="hs-identifier hs-var hs-var">targetShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205913"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205912"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
-</span><a href="#local-6989586621679205912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205911"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
-</span><a href="#local-6989586621679205912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetShardCount:UpdateShardCountResponse' :: Maybe Natural
+</span><a href="#local-6989586621679205922"><span class="hs-identifier hs-var hs-var">targetShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205922"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205921"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
+</span><a href="#local-6989586621679205921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205920"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
+</span><a href="#local-6989586621679205921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetShardCount:UpdateShardCountResponse' :: Maybe Natural
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AtargetShardCount%3AUpdateShardCountResponse%27"><span class="hs-identifier hs-var">targetShardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | The name of the stream.</span><span>
 </span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#updateShardCountResponse_streamName"><span class="hs-identifier hs-type">updateShardCountResponse_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -624,16 +624,16 @@ $sel:targetShardCount:UpdateShardCountResponse' :: UpdateShardCountResponse -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205910"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205919"><span class="annot"><span class="annottext">Maybe Text
 streamName :: Maybe Text
 $sel:streamName:UpdateShardCountResponse' :: UpdateShardCountResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679205910"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205910"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205909"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
-</span><a href="#local-6989586621679205909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205908"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
-</span><a href="#local-6989586621679205909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:UpdateShardCountResponse' :: Maybe Text
+</span><a href="#local-6989586621679205919"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205919"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205918"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
+</span><a href="#local-6989586621679205918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
+</span><a href="#local-6989586621679205918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:UpdateShardCountResponse' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AstreamName%3AUpdateShardCountResponse%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The current number of shards.</span><span>
 </span><span id="line-290"></span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#updateShardCountResponse_currentShardCount"><span class="hs-identifier hs-type">updateShardCountResponse_currentShardCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -648,16 +648,16 @@ $sel:streamName:UpdateShardCountResponse' :: UpdateShardCountResponse -&gt; Mayb
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205907"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205916"><span class="annot"><span class="annottext">Maybe Natural
 currentShardCount :: Maybe Natural
 $sel:currentShardCount:UpdateShardCountResponse' :: UpdateShardCountResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679205907"><span class="hs-identifier hs-var hs-var">currentShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205907"><span class="hs-identifier hs-var">currentShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205906"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
-</span><a href="#local-6989586621679205906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205905"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
-</span><a href="#local-6989586621679205906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentShardCount:UpdateShardCountResponse' :: Maybe Natural
+</span><a href="#local-6989586621679205916"><span class="hs-identifier hs-var hs-var">currentShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205916"><span class="hs-identifier hs-var">currentShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205915"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
+</span><a href="#local-6989586621679205915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205914"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
+</span><a href="#local-6989586621679205915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentShardCount:UpdateShardCountResponse' :: Maybe Natural
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AcurrentShardCount%3AUpdateShardCountResponse%27"><span class="hs-identifier hs-var">currentShardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-294"></span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#updateShardCountResponse_httpStatus"><span class="hs-identifier hs-type">updateShardCountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -667,16 +667,16 @@ $sel:currentShardCount:UpdateShardCountResponse' :: UpdateShardCountResponse -&g
 -&gt; (UpdateShardCountResponse -&gt; Int -&gt; UpdateShardCountResponse)
 -&gt; Lens UpdateShardCountResponse UpdateShardCountResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205904"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205913"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateShardCountResponse' :: UpdateShardCountResponse -&gt; Int
-</span><a href="#local-6989586621679205904"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205904"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205903"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
-</span><a href="#local-6989586621679205903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205902"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
-</span><a href="#local-6989586621679205903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateShardCountResponse' :: Int
+</span><a href="#local-6989586621679205913"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205913"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205912"><span class="annot"><span class="annottext">s :: UpdateShardCountResponse
+</span><a href="#local-6989586621679205912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse%27"><span class="hs-identifier hs-type">UpdateShardCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205911"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateShardCountResponse
+</span><a href="#local-6989586621679205912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateShardCountResponse' :: Int
 </span><a href="Network.AWS.Kinesis.UpdateShardCount.html#%24sel%3AhttpStatus%3AUpdateShardCountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>
-</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.UpdateShardCount.html#UpdateShardCountResponse"><span class="hs-identifier hs-type">UpdateShardCountResponse</span></a></span></span><span>
 </span><span id="line-298"></span></pre></body></html>

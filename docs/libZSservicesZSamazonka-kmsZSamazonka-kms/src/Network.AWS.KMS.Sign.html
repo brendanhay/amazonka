@@ -105,7 +105,7 @@
 </span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newSign' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679251499"><span id="local-6989586621679251500"></span></span><span class="hs-keyword">data</span><span> </span><span id="Sign"><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-var">Sign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Sign%27"><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-var">Sign'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679251508"><span id="local-6989586621679251509"></span></span><span class="hs-keyword">data</span><span> </span><span id="Sign"><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-var">Sign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Sign%27"><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-var">Sign'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- message digest. The default value, RAW, indicates a message. To indicate</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">-- a message digest, enter @DIGEST@.</span><span>
@@ -161,14 +161,14 @@
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AsigningAlgorithm%3ASign%27"><span class="annot"><span class="annottext">Sign -&gt; SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AsigningAlgorithm%3ASign%27"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.SigningAlgorithmSpec.html#SigningAlgorithmSpec"><span class="hs-identifier hs-type">SigningAlgorithmSpec</span></a></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251489"><span id="local-6989586621679251491"><span class="annot"><span class="annottext">Sign -&gt; Sign -&gt; Bool
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251498"><span id="local-6989586621679251500"><span class="annot"><span class="annottext">Sign -&gt; Sign -&gt; Bool
 (Sign -&gt; Sign -&gt; Bool) -&gt; (Sign -&gt; Sign -&gt; Bool) -&gt; Eq Sign
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Sign -&gt; Sign -&gt; Bool
 $c/= :: Sign -&gt; Sign -&gt; Bool
 == :: Sign -&gt; Sign -&gt; Bool
 $c== :: Sign -&gt; Sign -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251482"><span id="local-6989586621679251484"><span id="local-6989586621679251486"><span class="annot"><span class="annottext">Int -&gt; Sign -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251491"><span id="local-6989586621679251493"><span id="local-6989586621679251495"><span class="annot"><span class="annottext">Int -&gt; Sign -&gt; ShowS
 [Sign] -&gt; ShowS
 Sign -&gt; String
 (Int -&gt; Sign -&gt; ShowS)
@@ -260,10 +260,10 @@ $cfrom :: forall x. Sign -&gt; Rep Sign x
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.SigningAlgorithmSpec.html#SigningAlgorithmSpec"><span class="hs-identifier hs-type">SigningAlgorithmSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-228"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span>
 </span><span id="line-229"></span><span id="newSign"><span class="annot"><span class="annottext">newSign :: Text -&gt; ByteString -&gt; SigningAlgorithmSpec -&gt; Sign
-</span><a href="Network.AWS.KMS.Sign.html#newSign"><span class="hs-identifier hs-var hs-var">newSign</span></a></span></span><span> </span><span id="local-6989586621679251477"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251477"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679251476"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679251476"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span id="local-6989586621679251475"><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679251475"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.Sign.html#newSign"><span class="hs-identifier hs-var hs-var">newSign</span></a></span></span><span> </span><span id="local-6989586621679251486"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251486"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679251485"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679251485"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span id="local-6989586621679251484"><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><a href="#local-6989586621679251484"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>  </span><span class="annot"><span class="annottext">Sign' :: Maybe MessageType
 -&gt; Maybe [Text]
 -&gt; Text
@@ -281,7 +281,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:Sign' :: Text
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AkeyId%3ASign%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251477"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251486"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:Sign' :: Sensitive Base64
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3Amessage%3ASign%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Tagged Base64 (Identity Base64)
@@ -303,10 +303,10 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Sensitive Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679251476"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251485"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:signingAlgorithm:Sign' :: SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AsigningAlgorithm%3ASign%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679251475"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span><span>
+</span><a href="#local-6989586621679251484"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
@@ -318,16 +318,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Sign -&gt; Maybe MessageType -&gt; Sign)
 -&gt; Lens Sign Sign (Maybe MessageType) (Maybe MessageType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251468"><span class="annot"><span class="annottext">Maybe MessageType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251477"><span class="annot"><span class="annottext">Maybe MessageType
 messageType :: Maybe MessageType
 $sel:messageType:Sign' :: Sign -&gt; Maybe MessageType
-</span><a href="#local-6989586621679251468"><span class="hs-identifier hs-var hs-var">messageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679251468"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251467"><span class="annot"><span class="annottext">s :: Sign
-</span><a href="#local-6989586621679251467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251466"><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679251466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
-</span><a href="#local-6989586621679251467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageType:Sign' :: Maybe MessageType
+</span><a href="#local-6989586621679251477"><span class="hs-identifier hs-var hs-var">messageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
+</span><a href="#local-6989586621679251477"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251476"><span class="annot"><span class="annottext">s :: Sign
+</span><a href="#local-6989586621679251476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251475"><span class="annot"><span class="annottext">Maybe MessageType
+</span><a href="#local-6989586621679251475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
+</span><a href="#local-6989586621679251476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageType:Sign' :: Maybe MessageType
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AmessageType%3ASign%27"><span class="hs-identifier hs-var">messageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679251466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | A list of grant tokens.</span><span>
 </span><span id="line-247"></span><span class="hs-comment">--</span><span>
@@ -344,16 +344,16 @@ $sel:messageType:Sign' :: Sign -&gt; Maybe MessageType
 -&gt; (Sign -&gt; Maybe [Text] -&gt; Sign)
 -&gt; Lens Sign Sign (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251465"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251474"><span class="annot"><span class="annottext">Maybe [Text]
 grantTokens :: Maybe [Text]
 $sel:grantTokens:Sign' :: Sign -&gt; Maybe [Text]
-</span><a href="#local-6989586621679251465"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679251465"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251464"><span class="annot"><span class="annottext">s :: Sign
-</span><a href="#local-6989586621679251464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251463"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679251463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
-</span><a href="#local-6989586621679251464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:Sign' :: Maybe [Text]
+</span><a href="#local-6989586621679251474"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679251474"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251473"><span class="annot"><span class="annottext">s :: Sign
+</span><a href="#local-6989586621679251473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251472"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679251472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
+</span><a href="#local-6989586621679251473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:Sign' :: Maybe [Text]
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AgrantTokens%3ASign%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679251463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Sign -&gt; f Sign)
+</span><a href="#local-6989586621679251472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Sign -&gt; f Sign)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -397,16 +397,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.KMS.Sign.html#sign_keyId"><span class="hs-identifier hs-var hs-var">sign_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Sign -&gt; Text)
 -&gt; (Sign -&gt; Text -&gt; Sign) -&gt; Lens Sign Sign Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251460"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251469"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:Sign' :: Sign -&gt; Text
-</span><a href="#local-6989586621679251460"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251460"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251459"><span class="annot"><span class="annottext">s :: Sign
-</span><a href="#local-6989586621679251459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251458"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
-</span><a href="#local-6989586621679251459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:Sign' :: Text
+</span><a href="#local-6989586621679251469"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251469"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251468"><span class="annot"><span class="annottext">s :: Sign
+</span><a href="#local-6989586621679251468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
+</span><a href="#local-6989586621679251468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:Sign' :: Text
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AkeyId%3ASign%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | Specifies the message or message digest to sign. Messages can be 0-4096</span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- bytes. To sign a larger message, provide the message digest.</span><span>
@@ -423,16 +423,16 @@ $sel:keyId:Sign' :: Sign -&gt; Text
 -&gt; (Sign -&gt; Sensitive Base64 -&gt; Sign)
 -&gt; Lens Sign Sign (Sensitive Base64) (Sensitive Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251457"><span class="annot"><span class="annottext">Sensitive Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251466"><span class="annot"><span class="annottext">Sensitive Base64
 message :: Sensitive Base64
 $sel:message:Sign' :: Sign -&gt; Sensitive Base64
-</span><a href="#local-6989586621679251457"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679251457"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251456"><span class="annot"><span class="annottext">s :: Sign
-</span><a href="#local-6989586621679251456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251455"><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679251455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
-</span><a href="#local-6989586621679251456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Sign' :: Sensitive Base64
+</span><a href="#local-6989586621679251466"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
+</span><a href="#local-6989586621679251466"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251465"><span class="annot"><span class="annottext">s :: Sign
+</span><a href="#local-6989586621679251465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251464"><span class="annot"><span class="annottext">Sensitive Base64
+</span><a href="#local-6989586621679251464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
+</span><a href="#local-6989586621679251465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Sign' :: Sensitive Base64
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3Amessage%3ASign%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679251455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Base64 -&gt; f (Sensitive Base64)) -&gt; Sign -&gt; f Sign)
+</span><a href="#local-6989586621679251464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Base64 -&gt; f (Sensitive Base64)) -&gt; Sign -&gt; f Sign)
 -&gt; ((ByteString -&gt; f ByteString)
     -&gt; Sensitive Base64 -&gt; f (Sensitive Base64))
 -&gt; (ByteString -&gt; f ByteString)
@@ -461,25 +461,25 @@ Iso' Base64 ByteString
 -&gt; (Sign -&gt; SigningAlgorithmSpec -&gt; Sign)
 -&gt; Lens Sign Sign SigningAlgorithmSpec SigningAlgorithmSpec
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251454"><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251463"><span class="annot"><span class="annottext">SigningAlgorithmSpec
 signingAlgorithm :: SigningAlgorithmSpec
 $sel:signingAlgorithm:Sign' :: Sign -&gt; SigningAlgorithmSpec
-</span><a href="#local-6989586621679251454"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679251454"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251453"><span class="annot"><span class="annottext">s :: Sign
-</span><a href="#local-6989586621679251453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251452"><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679251452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
-</span><a href="#local-6989586621679251453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:Sign' :: SigningAlgorithmSpec
+</span><a href="#local-6989586621679251463"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><a href="#local-6989586621679251463"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251462"><span class="annot"><span class="annottext">s :: Sign
+</span><a href="#local-6989586621679251462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251461"><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><a href="#local-6989586621679251461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sign
+</span><a href="#local-6989586621679251462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:Sign' :: SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AsigningAlgorithm%3ASign%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679251452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-304"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span>
-</span><span id="line-305"></span><span>  </span><span id="local-6989586621679251448"><span class="annot"><span class="annottext">request :: Sign -&gt; Request Sign
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679251457"><span class="annot"><span class="annottext">request :: Sign -&gt; Request Sign
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Sign -&gt; Request Sign
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621679251444"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679251453"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Sign
 -&gt; ClientResponse ClientBody
@@ -501,10 +501,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-308"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251441"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251441"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251440"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679251440"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251439"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251439"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251450"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251450"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251449"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679251449"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251448"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-309"></span><span>          </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
 -&gt; Maybe Base64 -&gt; Maybe Text -&gt; Int -&gt; SignResponse
 </span><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-var">SignResponse'</span></a></span><span>
@@ -515,7 +515,7 @@ MonadResource m =&gt;
      String (Maybe Base64 -&gt; Maybe Text -&gt; Int -&gt; SignResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251439"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SigningAlgorithmSpec)
+</span><a href="#local-6989586621679251448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SigningAlgorithmSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SigningAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
@@ -524,7 +524,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; SignResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251439"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
+</span><a href="#local-6989586621679251448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Signature&quot;</span></span><span class="hs-special">)</span><span>
@@ -533,7 +533,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; SignResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251439"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679251448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -545,15 +545,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251441"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251450"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
-</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251431"><span id="local-6989586621679251433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span></span></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251440"><span id="local-6989586621679251442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span></span></span><span>
 </span><span id="line-317"></span><span>
-</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span></span><span>
 </span><span id="line-319"></span><span>
 </span><span id="line-320"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-321"></span><span>  </span><span id="local-6989586621679251424"><span class="annot"><span class="annottext">toHeaders :: Sign -&gt; ResponseHeaders
+</span><span id="line-321"></span><span>  </span><span id="local-6989586621679251433"><span class="annot"><span class="annottext">toHeaders :: Sign -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-322"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Sign -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -578,9 +578,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-330"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-331"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251414"><span id="local-6989586621679251416"><span id="local-6989586621679251418"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-334"></span><span>  </span><span id="local-6989586621679251412"><span class="annot"><span class="annottext">toJSON :: Sign -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251406"><span id="local-6989586621679251407"><span id="local-6989586621679251408"><span id="local-6989586621679251409"><span id="local-6989586621679251410"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251423"><span id="local-6989586621679251425"><span id="local-6989586621679251427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679251421"><span class="annot"><span class="annottext">toJSON :: Sign -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign%27"><span class="hs-identifier hs-type">Sign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251415"><span id="local-6989586621679251416"><span id="local-6989586621679251417"><span id="local-6989586621679251418"><span id="local-6989586621679251419"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe MessageType
 Text
 Sensitive Base64
@@ -595,7 +595,7 @@ $sel:message:Sign' :: Sign -&gt; Sensitive Base64
 $sel:keyId:Sign' :: Sign -&gt; Text
 $sel:grantTokens:Sign' :: Sign -&gt; Maybe [Text]
 $sel:messageType:Sign' :: Sign -&gt; Maybe MessageType
-</span><a href="#local-6989586621679251406"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679251415"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -607,28 +607,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MessageType -&gt; Pair) -&gt; Maybe MessageType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679251410"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251419"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-338"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679251409"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251418"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251408"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251417"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-340"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679251407"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251416"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -636,19 +636,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SigningAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SigningAlgorithmSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679251406"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251415"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-344"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-345"></span><span>
 </span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-347"></span><span>  </span><span id="local-6989586621679251400"><span class="annot"><span class="annottext">toPath :: Sign -&gt; ByteString
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679251409"><span class="annot"><span class="annottext">toPath :: Sign -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Sign -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-348"></span><span>
 </span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#Sign"><span class="hs-identifier hs-type">Sign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-350"></span><span>  </span><span id="local-6989586621679251396"><span class="annot"><span class="annottext">toQuery :: Sign -&gt; QueryString
+</span><span id="line-350"></span><span>  </span><span id="local-6989586621679251405"><span class="annot"><span class="annottext">toQuery :: Sign -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; Sign -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -656,7 +656,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-351"></span><span>
 </span><span id="line-352"></span><span class="hs-comment">-- | /See:/ 'newSignResponse' smart constructor.</span><span>
-</span><span id="line-353"></span><span id="local-6989586621679251393"><span id="local-6989586621679251394"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignResponse"><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-var">SignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignResponse%27"><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-var">SignResponse'</span></a></span></span><span>
+</span><span id="line-353"></span><span id="local-6989586621679251402"><span id="local-6989586621679251403"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignResponse"><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-var">SignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignResponse%27"><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-var">SignResponse'</span></a></span></span><span>
 </span><span id="line-354"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The signing algorithm that was used to sign the message.</span><span>
 </span><span id="line-355"></span><span>    </span><span id="%24sel%3AsigningAlgorithm%3ASignResponse%27"><span class="annot"><span class="annottext">SignResponse -&gt; Maybe SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AsigningAlgorithm%3ASignResponse%27"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.SigningAlgorithmSpec.html#SigningAlgorithmSpec"><span class="hs-identifier hs-type">SigningAlgorithmSpec</span></a></span><span class="hs-special">,</span><span>
@@ -686,7 +686,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-377"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASignResponse%27"><span class="annot"><span class="annottext">SignResponse -&gt; Int
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AhttpStatus%3ASignResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-378"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-379"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251385"><span id="local-6989586621679251387"><span class="annot"><span class="annottext">SignResponse -&gt; SignResponse -&gt; Bool
+</span><span id="line-379"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251394"><span id="local-6989586621679251396"><span class="annot"><span class="annottext">SignResponse -&gt; SignResponse -&gt; Bool
 (SignResponse -&gt; SignResponse -&gt; Bool)
 -&gt; (SignResponse -&gt; SignResponse -&gt; Bool) -&gt; Eq SignResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -694,7 +694,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SignResponse -&gt; SignResponse -&gt; Bool
 == :: SignResponse -&gt; SignResponse -&gt; Bool
 $c== :: SignResponse -&gt; SignResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251377"><span id="local-6989586621679251379"><span id="local-6989586621679251381"><span id="local-6989586621679251383"><span class="annot"><span class="annottext">ReadPrec [SignResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251386"><span id="local-6989586621679251388"><span id="local-6989586621679251390"><span id="local-6989586621679251392"><span class="annot"><span class="annottext">ReadPrec [SignResponse]
 ReadPrec SignResponse
 Int -&gt; ReadS SignResponse
 ReadS [SignResponse]
@@ -714,7 +714,7 @@ readList :: ReadS [SignResponse]
 $creadList :: ReadS [SignResponse]
 readsPrec :: Int -&gt; ReadS SignResponse
 $creadsPrec :: Int -&gt; ReadS SignResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251370"><span id="local-6989586621679251372"><span id="local-6989586621679251374"><span class="annot"><span class="annottext">Int -&gt; SignResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251379"><span id="local-6989586621679251381"><span id="local-6989586621679251383"><span class="annot"><span class="annottext">Int -&gt; SignResponse -&gt; ShowS
 [SignResponse] -&gt; ShowS
 SignResponse -&gt; String
 (Int -&gt; SignResponse -&gt; ShowS)
@@ -780,8 +780,8 @@ $cfrom :: forall x. SignResponse -&gt; Rep SignResponse x
 </span><span id="line-418"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-419"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span>
 </span><span id="line-420"></span><span id="newSignResponse"><span class="annot"><span class="annottext">newSignResponse :: Int -&gt; SignResponse
-</span><a href="Network.AWS.KMS.Sign.html#newSignResponse"><span class="hs-identifier hs-var hs-var">newSignResponse</span></a></span></span><span> </span><span id="local-6989586621679251367"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251367"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.Sign.html#newSignResponse"><span class="hs-identifier hs-var hs-var">newSignResponse</span></a></span></span><span> </span><span id="local-6989586621679251376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-421"></span><span>  </span><span class="annot"><span class="annottext">SignResponse' :: Maybe SigningAlgorithmSpec
 -&gt; Maybe Base64 -&gt; Maybe Text -&gt; Int -&gt; SignResponse
 </span><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span>
@@ -799,7 +799,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-425"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SignResponse' :: Int
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AhttpStatus%3ASignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251367"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679251376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-426"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-427"></span><span>
 </span><span id="line-428"></span><span class="hs-comment">-- | The signing algorithm that was used to sign the message.</span><span>
@@ -814,16 +814,16 @@ forall a. Maybe a
      (Maybe SigningAlgorithmSpec)
      (Maybe SigningAlgorithmSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251366"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251375"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
 signingAlgorithm :: Maybe SigningAlgorithmSpec
 $sel:signingAlgorithm:SignResponse' :: SignResponse -&gt; Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679251366"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679251366"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251365"><span class="annot"><span class="annottext">s :: SignResponse
-</span><a href="#local-6989586621679251365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251364"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679251364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
-</span><a href="#local-6989586621679251365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:SignResponse' :: Maybe SigningAlgorithmSpec
+</span><a href="#local-6989586621679251375"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
+</span><a href="#local-6989586621679251375"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251374"><span class="annot"><span class="annottext">s :: SignResponse
+</span><a href="#local-6989586621679251374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251373"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
+</span><a href="#local-6989586621679251373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
+</span><a href="#local-6989586621679251374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:SignResponse' :: Maybe SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AsigningAlgorithm%3ASignResponse%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679251364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-431"></span><span>
 </span><span id="line-432"></span><span class="hs-comment">-- | The cryptographic signature that was generated for the message.</span><span>
 </span><span id="line-433"></span><span class="hs-comment">--</span><span>
@@ -851,16 +851,16 @@ $sel:signingAlgorithm:SignResponse' :: SignResponse -&gt; Maybe SigningAlgorithm
 -&gt; (SignResponse -&gt; Maybe Base64 -&gt; SignResponse)
 -&gt; Lens SignResponse SignResponse (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251363"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251372"><span class="annot"><span class="annottext">Maybe Base64
 signature :: Maybe Base64
 $sel:signature:SignResponse' :: SignResponse -&gt; Maybe Base64
-</span><a href="#local-6989586621679251363"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679251363"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251362"><span class="annot"><span class="annottext">s :: SignResponse
-</span><a href="#local-6989586621679251362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251361"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679251361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
-</span><a href="#local-6989586621679251362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:SignResponse' :: Maybe Base64
+</span><a href="#local-6989586621679251372"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679251372"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251371"><span class="annot"><span class="annottext">s :: SignResponse
+</span><a href="#local-6989586621679251371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251370"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679251370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
+</span><a href="#local-6989586621679251371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:SignResponse' :: Maybe Base64
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3Asignature%3ASignResponse%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679251361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679251370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; SignResponse -&gt; f SignResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -887,16 +887,16 @@ Iso' Base64 ByteString
 -&gt; (SignResponse -&gt; Maybe Text -&gt; SignResponse)
 -&gt; Lens SignResponse SignResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251360"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251369"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:SignResponse' :: SignResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679251360"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251360"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251359"><span class="annot"><span class="annottext">s :: SignResponse
-</span><a href="#local-6989586621679251359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251358"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
-</span><a href="#local-6989586621679251359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:SignResponse' :: Maybe Text
+</span><a href="#local-6989586621679251369"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251369"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251368"><span class="annot"><span class="annottext">s :: SignResponse
+</span><a href="#local-6989586621679251368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
+</span><a href="#local-6989586621679251368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:SignResponse' :: Maybe Text
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AkeyId%3ASignResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-459"></span><span>
 </span><span id="line-460"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-461"></span><span class="annot"><a href="Network.AWS.KMS.Sign.html#signResponse_httpStatus"><span class="hs-identifier hs-type">signResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -905,16 +905,16 @@ $sel:keyId:SignResponse' :: SignResponse -&gt; Maybe Text
 -&gt; (SignResponse -&gt; Int -&gt; SignResponse)
 -&gt; Lens SignResponse SignResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251357"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251366"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SignResponse' :: SignResponse -&gt; Int
-</span><a href="#local-6989586621679251357"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251357"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251356"><span class="annot"><span class="annottext">s :: SignResponse
-</span><a href="#local-6989586621679251356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251355"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
-</span><a href="#local-6989586621679251356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SignResponse' :: Int
+</span><a href="#local-6989586621679251366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251365"><span class="annot"><span class="annottext">s :: SignResponse
+</span><a href="#local-6989586621679251365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse%27"><span class="hs-identifier hs-type">SignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignResponse
+</span><a href="#local-6989586621679251365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SignResponse' :: Int
 </span><a href="Network.AWS.KMS.Sign.html#%24sel%3AhttpStatus%3ASignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-463"></span><span>
-</span><span id="line-464"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span></span><span>
+</span><span id="line-464"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Sign.html#SignResponse"><span class="hs-identifier hs-type">SignResponse</span></a></span></span><span>
 </span><span id="line-465"></span></pre></body></html>

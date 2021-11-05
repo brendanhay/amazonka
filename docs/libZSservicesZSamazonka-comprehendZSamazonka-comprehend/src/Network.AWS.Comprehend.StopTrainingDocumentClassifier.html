@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newStopTrainingDocumentClassifier' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679353111"><span id="local-6989586621679353112"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTrainingDocumentClassifier"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-var">StopTrainingDocumentClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTrainingDocumentClassifier%27"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-var">StopTrainingDocumentClassifier'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679353120"><span id="local-6989586621679353121"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTrainingDocumentClassifier"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-var">StopTrainingDocumentClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTrainingDocumentClassifier%27"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-var">StopTrainingDocumentClassifier'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the document classifier</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- currently being trained.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdocumentClassifierArn%3AStopTrainingDocumentClassifier%27"><span class="annot"><span class="annottext">StopTrainingDocumentClassifier -&gt; Text
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#%24sel%3AdocumentClassifierArn%3AStopTrainingDocumentClassifier%27"><span class="hs-identifier hs-var hs-var">documentClassifierArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353105"><span id="local-6989586621679353107"><span class="annot"><span class="annottext">StopTrainingDocumentClassifier
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353114"><span id="local-6989586621679353116"><span class="annot"><span class="annottext">StopTrainingDocumentClassifier
 -&gt; StopTrainingDocumentClassifier -&gt; Bool
 (StopTrainingDocumentClassifier
  -&gt; StopTrainingDocumentClassifier -&gt; Bool)
@@ -74,7 +74,7 @@ $c/= :: StopTrainingDocumentClassifier
 -&gt; StopTrainingDocumentClassifier -&gt; Bool
 $c== :: StopTrainingDocumentClassifier
 -&gt; StopTrainingDocumentClassifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353096"><span id="local-6989586621679353098"><span id="local-6989586621679353100"><span id="local-6989586621679353102"><span class="annot"><span class="annottext">ReadPrec [StopTrainingDocumentClassifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353105"><span id="local-6989586621679353107"><span id="local-6989586621679353109"><span id="local-6989586621679353111"><span class="annot"><span class="annottext">ReadPrec [StopTrainingDocumentClassifier]
 ReadPrec StopTrainingDocumentClassifier
 Int -&gt; ReadS StopTrainingDocumentClassifier
 ReadS [StopTrainingDocumentClassifier]
@@ -94,7 +94,7 @@ readList :: ReadS [StopTrainingDocumentClassifier]
 $creadList :: ReadS [StopTrainingDocumentClassifier]
 readsPrec :: Int -&gt; ReadS StopTrainingDocumentClassifier
 $creadsPrec :: Int -&gt; ReadS StopTrainingDocumentClassifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353089"><span id="local-6989586621679353091"><span id="local-6989586621679353093"><span class="annot"><span class="annottext">Int -&gt; StopTrainingDocumentClassifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353098"><span id="local-6989586621679353100"><span id="local-6989586621679353102"><span class="annot"><span class="annottext">Int -&gt; StopTrainingDocumentClassifier -&gt; ShowS
 [StopTrainingDocumentClassifier] -&gt; ShowS
 StopTrainingDocumentClassifier -&gt; String
 (Int -&gt; StopTrainingDocumentClassifier -&gt; ShowS)
@@ -148,14 +148,14 @@ StopTrainingDocumentClassifier
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span><span>
 </span><span id="line-76"></span><span id="newStopTrainingDocumentClassifier"><span class="annot"><span class="annottext">newStopTrainingDocumentClassifier :: Text -&gt; StopTrainingDocumentClassifier
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#newStopTrainingDocumentClassifier"><span class="hs-identifier hs-var hs-var">newStopTrainingDocumentClassifier</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679353084"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353084"><span class="hs-identifier hs-var">pDocumentClassifierArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679353093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353093"><span class="hs-identifier hs-var">pDocumentClassifierArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">StopTrainingDocumentClassifier' :: Text -&gt; StopTrainingDocumentClassifier
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier'</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documentClassifierArn:StopTrainingDocumentClassifier' :: Text
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#%24sel%3AdocumentClassifierArn%3AStopTrainingDocumentClassifier%27"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353084"><span class="hs-identifier hs-var">pDocumentClassifierArn_</span></a></span><span>
+</span><a href="#local-6989586621679353093"><span class="hs-identifier hs-var">pDocumentClassifierArn_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the document classifier</span><span>
@@ -173,16 +173,16 @@ StopTrainingDocumentClassifier
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353081"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353090"><span class="annot"><span class="annottext">Text
 documentClassifierArn :: Text
 $sel:documentClassifierArn:StopTrainingDocumentClassifier' :: StopTrainingDocumentClassifier -&gt; Text
-</span><a href="#local-6989586621679353081"><span class="hs-identifier hs-var hs-var">documentClassifierArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353081"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353080"><span class="annot"><span class="annottext">s :: StopTrainingDocumentClassifier
-</span><a href="#local-6989586621679353080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353079"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTrainingDocumentClassifier
-</span><a href="#local-6989586621679353080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentClassifierArn:StopTrainingDocumentClassifier' :: Text
+</span><a href="#local-6989586621679353090"><span class="hs-identifier hs-var hs-var">documentClassifierArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353090"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353089"><span class="annot"><span class="annottext">s :: StopTrainingDocumentClassifier
+</span><a href="#local-6989586621679353089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTrainingDocumentClassifier
+</span><a href="#local-6989586621679353089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentClassifierArn:StopTrainingDocumentClassifier' :: Text
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#%24sel%3AdocumentClassifierArn%3AStopTrainingDocumentClassifier%27"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -191,7 +191,7 @@ $sel:documentClassifierArn:StopTrainingDocumentClassifier' :: StopTrainingDocume
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679353075"><span class="annot"><span class="annottext">request :: StopTrainingDocumentClassifier
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679353084"><span class="annot"><span class="annottext">request :: StopTrainingDocumentClassifier
 -&gt; Request StopTrainingDocumentClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StopTrainingDocumentClassifier
@@ -199,7 +199,7 @@ $sel:documentClassifierArn:StopTrainingDocumentClassifier' :: StopTrainingDocume
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679353071"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679353080"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopTrainingDocumentClassifier
 -&gt; ClientResponse ClientBody
@@ -227,10 +227,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353068"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353068"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679353067"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679353067"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679353066"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679353066"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353077"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353077"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679353076"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679353076"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679353075"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679353075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopTrainingDocumentClassifierResponse
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-var">StopTrainingDocumentClassifierResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopTrainingDocumentClassifierResponse)
@@ -242,22 +242,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353068"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353077"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679353059"><span id="local-6989586621679353061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679353068"><span id="local-6989586621679353070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679353056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679353065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679353052"><span class="annot"><span class="annottext">toHeaders :: StopTrainingDocumentClassifier -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679353061"><span class="annot"><span class="annottext">toHeaders :: StopTrainingDocumentClassifier -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; StopTrainingDocumentClassifier -&gt; ResponseHeaders
@@ -285,12 +285,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353042"><span id="local-6989586621679353044"><span id="local-6989586621679353046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679353040"><span class="annot"><span class="annottext">toJSON :: StopTrainingDocumentClassifier -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353038"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353051"><span id="local-6989586621679353053"><span id="local-6989586621679353055"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679353049"><span class="annot"><span class="annottext">toJSON :: StopTrainingDocumentClassifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353047"><span class="annot"><span class="annottext">Text
 documentClassifierArn :: Text
 $sel:documentClassifierArn:StopTrainingDocumentClassifier' :: StopTrainingDocumentClassifier -&gt; Text
-</span><a href="#local-6989586621679353038"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679353047"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,20 +304,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-135"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353038"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span>
+</span><a href="#local-6989586621679353047"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span>
 </span><span id="line-136"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679353032"><span class="annot"><span class="annottext">toPath :: StopTrainingDocumentClassifier -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679353041"><span class="annot"><span class="annottext">toPath :: StopTrainingDocumentClassifier -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopTrainingDocumentClassifier -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifier"><span class="hs-identifier hs-type">StopTrainingDocumentClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679353028"><span class="annot"><span class="annottext">toQuery :: StopTrainingDocumentClassifier -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679353037"><span class="annot"><span class="annottext">toQuery :: StopTrainingDocumentClassifier -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopTrainingDocumentClassifier -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -325,12 +325,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newStopTrainingDocumentClassifierResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679353025"><span id="local-6989586621679353026"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTrainingDocumentClassifierResponse"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-var">StopTrainingDocumentClassifierResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTrainingDocumentClassifierResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-var">StopTrainingDocumentClassifierResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679353034"><span id="local-6989586621679353035"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTrainingDocumentClassifierResponse"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-var">StopTrainingDocumentClassifierResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTrainingDocumentClassifierResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-var">StopTrainingDocumentClassifierResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopTrainingDocumentClassifierResponse%27"><span class="annot"><span class="annottext">StopTrainingDocumentClassifierResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#%24sel%3AhttpStatus%3AStopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353020"><span id="local-6989586621679353022"><span class="annot"><span class="annottext">StopTrainingDocumentClassifierResponse
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353029"><span id="local-6989586621679353031"><span class="annot"><span class="annottext">StopTrainingDocumentClassifierResponse
 -&gt; StopTrainingDocumentClassifierResponse -&gt; Bool
 (StopTrainingDocumentClassifierResponse
  -&gt; StopTrainingDocumentClassifierResponse -&gt; Bool)
@@ -346,7 +346,7 @@ $c/= :: StopTrainingDocumentClassifierResponse
 -&gt; StopTrainingDocumentClassifierResponse -&gt; Bool
 $c== :: StopTrainingDocumentClassifierResponse
 -&gt; StopTrainingDocumentClassifierResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353012"><span id="local-6989586621679353014"><span id="local-6989586621679353016"><span id="local-6989586621679353018"><span class="annot"><span class="annottext">ReadPrec [StopTrainingDocumentClassifierResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353021"><span id="local-6989586621679353023"><span id="local-6989586621679353025"><span id="local-6989586621679353027"><span class="annot"><span class="annottext">ReadPrec [StopTrainingDocumentClassifierResponse]
 ReadPrec StopTrainingDocumentClassifierResponse
 Int -&gt; ReadS StopTrainingDocumentClassifierResponse
 ReadS [StopTrainingDocumentClassifierResponse]
@@ -366,7 +366,7 @@ readList :: ReadS [StopTrainingDocumentClassifierResponse]
 $creadList :: ReadS [StopTrainingDocumentClassifierResponse]
 readsPrec :: Int -&gt; ReadS StopTrainingDocumentClassifierResponse
 $creadsPrec :: Int -&gt; ReadS StopTrainingDocumentClassifierResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353006"><span id="local-6989586621679353008"><span id="local-6989586621679353010"><span class="annot"><span class="annottext">Int -&gt; StopTrainingDocumentClassifierResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353015"><span id="local-6989586621679353017"><span id="local-6989586621679353019"><span class="annot"><span class="annottext">Int -&gt; StopTrainingDocumentClassifierResponse -&gt; ShowS
 [StopTrainingDocumentClassifierResponse] -&gt; ShowS
 StopTrainingDocumentClassifierResponse -&gt; String
 (Int -&gt; StopTrainingDocumentClassifierResponse -&gt; ShowS)
@@ -419,14 +419,14 @@ StopTrainingDocumentClassifierResponse
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newStopTrainingDocumentClassifierResponse"><span class="annot"><span class="annottext">newStopTrainingDocumentClassifierResponse :: Int -&gt; StopTrainingDocumentClassifierResponse
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#newStopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-var hs-var">newStopTrainingDocumentClassifierResponse</span></a></span></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679353003"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353003"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679353012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353012"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">StopTrainingDocumentClassifierResponse' :: Int -&gt; StopTrainingDocumentClassifierResponse
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopTrainingDocumentClassifierResponse' :: Int
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#%24sel%3AhttpStatus%3AStopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353003"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679353012"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -443,18 +443,18 @@ StopTrainingDocumentClassifierResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353002"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353011"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopTrainingDocumentClassifierResponse' :: StopTrainingDocumentClassifierResponse -&gt; Int
-</span><a href="#local-6989586621679353002"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353002"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353001"><span class="annot"><span class="annottext">s :: StopTrainingDocumentClassifierResponse
-</span><a href="#local-6989586621679353001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353000"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTrainingDocumentClassifierResponse
-</span><a href="#local-6989586621679353001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopTrainingDocumentClassifierResponse' :: Int
+</span><a href="#local-6989586621679353011"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353011"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353010"><span class="annot"><span class="annottext">s :: StopTrainingDocumentClassifierResponse
+</span><a href="#local-6989586621679353010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTrainingDocumentClassifierResponse
+</span><a href="#local-6989586621679353010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopTrainingDocumentClassifierResponse' :: Int
 </span><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#%24sel%3AhttpStatus%3AStopTrainingDocumentClassifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679352998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679353007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopTrainingDocumentClassifier.html#StopTrainingDocumentClassifierResponse"><span class="hs-identifier hs-type">StopTrainingDocumentClassifierResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

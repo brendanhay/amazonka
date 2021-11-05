@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.UpdateWirelessDevice</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates properties of a wireless device.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.UpdateWirelessDevice</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#newUpdateWirelessDevice"><span class="hs-identifier">newUpdateWirelessDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_loRaWAN"><span class="hs-identifier">updateWirelessDevice_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_name"><span class="hs-identifier">updateWirelessDevice_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_destinationName"><span class="hs-identifier">updateWirelessDevice_destinationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_description"><span class="hs-identifier">updateWirelessDevice_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_id"><span class="hs-identifier">updateWirelessDevice_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse"><span class="hs-identifier">UpdateWirelessDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#newUpdateWirelessDeviceResponse"><span class="hs-identifier">newUpdateWirelessDeviceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDeviceResponse_httpStatus"><span class="hs-identifier">updateWirelessDeviceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateWirelessDevice' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679293473"><span id="local-6989586621679293474"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWirelessDevice"><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-var">UpdateWirelessDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWirelessDevice%27"><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-var">UpdateWirelessDevice'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated wireless device\'s configuration.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AloRaWAN%3AUpdateWirelessDevice%27"><span class="annot"><span class="annottext">UpdateWirelessDevice -&gt; Maybe LoRaWANUpdateDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AloRaWAN%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice.html#LoRaWANUpdateDevice"><span class="hs-identifier hs-type">LoRaWANUpdateDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The new name of the resource.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3AUpdateWirelessDevice%27"><span class="annot"><span class="annottext">UpdateWirelessDevice -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Aname%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the new destination for the device.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdestinationName%3AUpdateWirelessDevice%27"><span class="annot"><span class="annottext">UpdateWirelessDevice -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AdestinationName%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A new description of the resource.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateWirelessDevice%27"><span class="annot"><span class="annottext">UpdateWirelessDevice -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Adescription%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the resource to update.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aid%3AUpdateWirelessDevice%27"><span class="annot"><span class="annottext">UpdateWirelessDevice -&gt; Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Aid%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293463"><span id="local-6989586621679293465"><span class="annot"><span class="annottext">UpdateWirelessDevice -&gt; UpdateWirelessDevice -&gt; Bool
+(UpdateWirelessDevice -&gt; UpdateWirelessDevice -&gt; Bool)
+-&gt; (UpdateWirelessDevice -&gt; UpdateWirelessDevice -&gt; Bool)
+-&gt; Eq UpdateWirelessDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateWirelessDevice -&gt; UpdateWirelessDevice -&gt; Bool
+$c/= :: UpdateWirelessDevice -&gt; UpdateWirelessDevice -&gt; Bool
+== :: UpdateWirelessDevice -&gt; UpdateWirelessDevice -&gt; Bool
+$c== :: UpdateWirelessDevice -&gt; UpdateWirelessDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293454"><span id="local-6989586621679293456"><span id="local-6989586621679293458"><span id="local-6989586621679293460"><span class="annot"><span class="annottext">ReadPrec [UpdateWirelessDevice]
+ReadPrec UpdateWirelessDevice
+Int -&gt; ReadS UpdateWirelessDevice
+ReadS [UpdateWirelessDevice]
+(Int -&gt; ReadS UpdateWirelessDevice)
+-&gt; ReadS [UpdateWirelessDevice]
+-&gt; ReadPrec UpdateWirelessDevice
+-&gt; ReadPrec [UpdateWirelessDevice]
+-&gt; Read UpdateWirelessDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateWirelessDevice]
+$creadListPrec :: ReadPrec [UpdateWirelessDevice]
+readPrec :: ReadPrec UpdateWirelessDevice
+$creadPrec :: ReadPrec UpdateWirelessDevice
+readList :: ReadS [UpdateWirelessDevice]
+$creadList :: ReadS [UpdateWirelessDevice]
+readsPrec :: Int -&gt; ReadS UpdateWirelessDevice
+$creadsPrec :: Int -&gt; ReadS UpdateWirelessDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293447"><span id="local-6989586621679293449"><span id="local-6989586621679293451"><span class="annot"><span class="annottext">Int -&gt; UpdateWirelessDevice -&gt; ShowS
+[UpdateWirelessDevice] -&gt; ShowS
+UpdateWirelessDevice -&gt; String
+(Int -&gt; UpdateWirelessDevice -&gt; ShowS)
+-&gt; (UpdateWirelessDevice -&gt; String)
+-&gt; ([UpdateWirelessDevice] -&gt; ShowS)
+-&gt; Show UpdateWirelessDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateWirelessDevice] -&gt; ShowS
+$cshowList :: [UpdateWirelessDevice] -&gt; ShowS
+show :: UpdateWirelessDevice -&gt; String
+$cshow :: UpdateWirelessDevice -&gt; String
+showsPrec :: Int -&gt; UpdateWirelessDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateWirelessDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateWirelessDevice -&gt; Rep UpdateWirelessDevice x)
+-&gt; (forall x. Rep UpdateWirelessDevice x -&gt; UpdateWirelessDevice)
+-&gt; Generic UpdateWirelessDevice
+forall x. Rep UpdateWirelessDevice x -&gt; UpdateWirelessDevice
+forall x. UpdateWirelessDevice -&gt; Rep UpdateWirelessDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateWirelessDevice x -&gt; UpdateWirelessDevice
+$cfrom :: forall x. UpdateWirelessDevice -&gt; Rep UpdateWirelessDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateWirelessDevice' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'loRaWAN', 'updateWirelessDevice_loRaWAN' - The updated wireless device\'s configuration.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'updateWirelessDevice_name' - The new name of the resource.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'destinationName', 'updateWirelessDevice_destinationName' - The name of the new destination for the device.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'description', 'updateWirelessDevice_description' - A new description of the resource.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'id', 'updateWirelessDevice_id' - The ID of the resource to update.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#newUpdateWirelessDevice"><span class="hs-identifier hs-type">newUpdateWirelessDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span>
+</span><span id="line-88"></span><span id="newUpdateWirelessDevice"><span class="annot"><span class="annottext">newUpdateWirelessDevice :: Text -&gt; UpdateWirelessDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#newUpdateWirelessDevice"><span class="hs-identifier hs-var hs-var">newUpdateWirelessDevice</span></a></span></span><span> </span><span id="local-6989586621679293442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293442"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">UpdateWirelessDevice' :: Maybe LoRaWANUpdateDevice
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateWirelessDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loRaWAN:UpdateWirelessDevice' :: Maybe LoRaWANUpdateDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AloRaWAN%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANUpdateDevice
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateWirelessDevice' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Aname%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationName:UpdateWirelessDevice' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AdestinationName%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateWirelessDevice' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Adescription%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UpdateWirelessDevice' :: Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Aid%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293442"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The updated wireless device\'s configuration.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_loRaWAN"><span class="hs-identifier hs-type">updateWirelessDevice_loRaWAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice.html#LoRaWANUpdateDevice"><span class="hs-identifier hs-type">LoRaWANUpdateDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="updateWirelessDevice_loRaWAN"><span class="annot"><span class="annottext">updateWirelessDevice_loRaWAN :: (Maybe LoRaWANUpdateDevice -&gt; f (Maybe LoRaWANUpdateDevice))
+-&gt; UpdateWirelessDevice -&gt; f UpdateWirelessDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_loRaWAN"><span class="hs-identifier hs-var hs-var">updateWirelessDevice_loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWirelessDevice -&gt; Maybe LoRaWANUpdateDevice)
+-&gt; (UpdateWirelessDevice
+    -&gt; Maybe LoRaWANUpdateDevice -&gt; UpdateWirelessDevice)
+-&gt; Lens
+     UpdateWirelessDevice
+     UpdateWirelessDevice
+     (Maybe LoRaWANUpdateDevice)
+     (Maybe LoRaWANUpdateDevice)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293439"><span class="annot"><span class="annottext">Maybe LoRaWANUpdateDevice
+loRaWAN :: Maybe LoRaWANUpdateDevice
+$sel:loRaWAN:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe LoRaWANUpdateDevice
+</span><a href="#local-6989586621679293439"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANUpdateDevice
+</span><a href="#local-6989586621679293439"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293438"><span class="annot"><span class="annottext">s :: UpdateWirelessDevice
+</span><a href="#local-6989586621679293438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293437"><span class="annot"><span class="annottext">Maybe LoRaWANUpdateDevice
+</span><a href="#local-6989586621679293437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWirelessDevice
+</span><a href="#local-6989586621679293438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loRaWAN:UpdateWirelessDevice' :: Maybe LoRaWANUpdateDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AloRaWAN%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANUpdateDevice
+</span><a href="#local-6989586621679293437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The new name of the resource.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_name"><span class="hs-identifier hs-type">updateWirelessDevice_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="updateWirelessDevice_name"><span class="annot"><span class="annottext">updateWirelessDevice_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWirelessDevice -&gt; f UpdateWirelessDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_name"><span class="hs-identifier hs-var hs-var">updateWirelessDevice_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWirelessDevice -&gt; Maybe Text)
+-&gt; (UpdateWirelessDevice -&gt; Maybe Text -&gt; UpdateWirelessDevice)
+-&gt; Lens
+     UpdateWirelessDevice UpdateWirelessDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293436"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679293436"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293436"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293435"><span class="annot"><span class="annottext">s :: UpdateWirelessDevice
+</span><a href="#local-6989586621679293435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293434"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWirelessDevice
+</span><a href="#local-6989586621679293435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateWirelessDevice' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Aname%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the new destination for the device.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_destinationName"><span class="hs-identifier hs-type">updateWirelessDevice_destinationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="updateWirelessDevice_destinationName"><span class="annot"><span class="annottext">updateWirelessDevice_destinationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWirelessDevice -&gt; f UpdateWirelessDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_destinationName"><span class="hs-identifier hs-var hs-var">updateWirelessDevice_destinationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWirelessDevice -&gt; Maybe Text)
+-&gt; (UpdateWirelessDevice -&gt; Maybe Text -&gt; UpdateWirelessDevice)
+-&gt; Lens
+     UpdateWirelessDevice UpdateWirelessDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293433"><span class="annot"><span class="annottext">Maybe Text
+destinationName :: Maybe Text
+$sel:destinationName:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679293433"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293433"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293432"><span class="annot"><span class="annottext">s :: UpdateWirelessDevice
+</span><a href="#local-6989586621679293432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293431"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWirelessDevice
+</span><a href="#local-6989586621679293432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationName:UpdateWirelessDevice' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AdestinationName%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | A new description of the resource.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_description"><span class="hs-identifier hs-type">updateWirelessDevice_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="updateWirelessDevice_description"><span class="annot"><span class="annottext">updateWirelessDevice_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWirelessDevice -&gt; f UpdateWirelessDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_description"><span class="hs-identifier hs-var hs-var">updateWirelessDevice_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWirelessDevice -&gt; Maybe Text)
+-&gt; (UpdateWirelessDevice -&gt; Maybe Text -&gt; UpdateWirelessDevice)
+-&gt; Lens
+     UpdateWirelessDevice UpdateWirelessDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293430"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679293430"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293430"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293429"><span class="annot"><span class="annottext">s :: UpdateWirelessDevice
+</span><a href="#local-6989586621679293429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWirelessDevice
+</span><a href="#local-6989586621679293429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateWirelessDevice' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Adescription%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The ID of the resource to update.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_id"><span class="hs-identifier hs-type">updateWirelessDevice_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="updateWirelessDevice_id"><span class="annot"><span class="annottext">updateWirelessDevice_id :: (Text -&gt; f Text) -&gt; UpdateWirelessDevice -&gt; f UpdateWirelessDevice
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDevice_id"><span class="hs-identifier hs-var hs-var">updateWirelessDevice_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWirelessDevice -&gt; Text)
+-&gt; (UpdateWirelessDevice -&gt; Text -&gt; UpdateWirelessDevice)
+-&gt; Lens UpdateWirelessDevice UpdateWirelessDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293427"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Text
+</span><a href="#local-6989586621679293427"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293427"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293426"><span class="annot"><span class="annottext">s :: UpdateWirelessDevice
+</span><a href="#local-6989586621679293426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWirelessDevice
+</span><a href="#local-6989586621679293426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateWirelessDevice' :: Text
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3Aid%3AUpdateWirelessDevice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679293421"><span class="annot"><span class="annottext">request :: UpdateWirelessDevice -&gt; Request UpdateWirelessDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateWirelessDevice -&gt; Request UpdateWirelessDevice
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679293417"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateWirelessDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateWirelessDevice)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateWirelessDevice))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateWirelessDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateWirelessDevice)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293414"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293413"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293413"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293412"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679293412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateWirelessDeviceResponse
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-var">UpdateWirelessDeviceResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateWirelessDeviceResponse)
+-&gt; Either String Int -&gt; Either String UpdateWirelessDeviceResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293414"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293405"><span id="local-6989586621679293407"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679293398"><span class="annot"><span class="annottext">toHeaders :: UpdateWirelessDevice -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateWirelessDevice -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293389"><span id="local-6989586621679293391"><span id="local-6989586621679293393"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679293387"><span class="annot"><span class="annottext">toJSON :: UpdateWirelessDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293381"><span id="local-6989586621679293382"><span id="local-6989586621679293383"><span id="local-6989586621679293384"><span id="local-6989586621679293385"><span class="annot"><span class="annottext">Maybe Text
+Maybe LoRaWANUpdateDevice
+Text
+id :: Text
+description :: Maybe Text
+destinationName :: Maybe Text
+name :: Maybe Text
+loRaWAN :: Maybe LoRaWANUpdateDevice
+$sel:id:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Text
+$sel:description:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+$sel:destinationName:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+$sel:name:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+$sel:loRaWAN:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe LoRaWANUpdateDevice
+</span><a href="#local-6989586621679293381"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoRaWAN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LoRaWANUpdateDevice -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LoRaWANUpdateDevice -&gt; Pair)
+-&gt; Maybe LoRaWANUpdateDevice -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANUpdateDevice
+</span><a href="#local-6989586621679293385"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293384"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293383"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293382"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679293375"><span class="annot"><span class="annottext">toPath :: UpdateWirelessDevice -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice%27"><span class="hs-identifier hs-type">UpdateWirelessDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293369"><span id="local-6989586621679293370"><span id="local-6989586621679293371"><span id="local-6989586621679293372"><span id="local-6989586621679293373"><span class="annot"><span class="annottext">Maybe Text
+Maybe LoRaWANUpdateDevice
+Text
+id :: Text
+description :: Maybe Text
+destinationName :: Maybe Text
+name :: Maybe Text
+loRaWAN :: Maybe LoRaWANUpdateDevice
+$sel:id:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Text
+$sel:description:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+$sel:destinationName:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+$sel:name:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe Text
+$sel:loRaWAN:UpdateWirelessDevice' :: UpdateWirelessDevice -&gt; Maybe LoRaWANUpdateDevice
+</span><a href="#local-6989586621679293369"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/wireless-devices/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293369"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDevice"><span class="hs-identifier hs-type">UpdateWirelessDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679293365"><span class="annot"><span class="annottext">toQuery :: UpdateWirelessDevice -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateWirelessDevice -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newUpdateWirelessDeviceResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679293362"><span id="local-6989586621679293363"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWirelessDeviceResponse"><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse"><span class="hs-identifier hs-var">UpdateWirelessDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWirelessDeviceResponse%27"><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-var">UpdateWirelessDeviceResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateWirelessDeviceResponse%27"><span class="annot"><span class="annottext">UpdateWirelessDeviceResponse -&gt; Int
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AhttpStatus%3AUpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293357"><span id="local-6989586621679293359"><span class="annot"><span class="annottext">UpdateWirelessDeviceResponse
+-&gt; UpdateWirelessDeviceResponse -&gt; Bool
+(UpdateWirelessDeviceResponse
+ -&gt; UpdateWirelessDeviceResponse -&gt; Bool)
+-&gt; (UpdateWirelessDeviceResponse
+    -&gt; UpdateWirelessDeviceResponse -&gt; Bool)
+-&gt; Eq UpdateWirelessDeviceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateWirelessDeviceResponse
+-&gt; UpdateWirelessDeviceResponse -&gt; Bool
+$c/= :: UpdateWirelessDeviceResponse
+-&gt; UpdateWirelessDeviceResponse -&gt; Bool
+== :: UpdateWirelessDeviceResponse
+-&gt; UpdateWirelessDeviceResponse -&gt; Bool
+$c== :: UpdateWirelessDeviceResponse
+-&gt; UpdateWirelessDeviceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293349"><span id="local-6989586621679293351"><span id="local-6989586621679293353"><span id="local-6989586621679293355"><span class="annot"><span class="annottext">ReadPrec [UpdateWirelessDeviceResponse]
+ReadPrec UpdateWirelessDeviceResponse
+Int -&gt; ReadS UpdateWirelessDeviceResponse
+ReadS [UpdateWirelessDeviceResponse]
+(Int -&gt; ReadS UpdateWirelessDeviceResponse)
+-&gt; ReadS [UpdateWirelessDeviceResponse]
+-&gt; ReadPrec UpdateWirelessDeviceResponse
+-&gt; ReadPrec [UpdateWirelessDeviceResponse]
+-&gt; Read UpdateWirelessDeviceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateWirelessDeviceResponse]
+$creadListPrec :: ReadPrec [UpdateWirelessDeviceResponse]
+readPrec :: ReadPrec UpdateWirelessDeviceResponse
+$creadPrec :: ReadPrec UpdateWirelessDeviceResponse
+readList :: ReadS [UpdateWirelessDeviceResponse]
+$creadList :: ReadS [UpdateWirelessDeviceResponse]
+readsPrec :: Int -&gt; ReadS UpdateWirelessDeviceResponse
+$creadsPrec :: Int -&gt; ReadS UpdateWirelessDeviceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293343"><span id="local-6989586621679293345"><span id="local-6989586621679293347"><span class="annot"><span class="annottext">Int -&gt; UpdateWirelessDeviceResponse -&gt; ShowS
+[UpdateWirelessDeviceResponse] -&gt; ShowS
+UpdateWirelessDeviceResponse -&gt; String
+(Int -&gt; UpdateWirelessDeviceResponse -&gt; ShowS)
+-&gt; (UpdateWirelessDeviceResponse -&gt; String)
+-&gt; ([UpdateWirelessDeviceResponse] -&gt; ShowS)
+-&gt; Show UpdateWirelessDeviceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateWirelessDeviceResponse] -&gt; ShowS
+$cshowList :: [UpdateWirelessDeviceResponse] -&gt; ShowS
+show :: UpdateWirelessDeviceResponse -&gt; String
+$cshow :: UpdateWirelessDeviceResponse -&gt; String
+showsPrec :: Int -&gt; UpdateWirelessDeviceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateWirelessDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateWirelessDeviceResponse -&gt; Rep UpdateWirelessDeviceResponse x)
+-&gt; (forall x.
+    Rep UpdateWirelessDeviceResponse x -&gt; UpdateWirelessDeviceResponse)
+-&gt; Generic UpdateWirelessDeviceResponse
+forall x.
+Rep UpdateWirelessDeviceResponse x -&gt; UpdateWirelessDeviceResponse
+forall x.
+UpdateWirelessDeviceResponse -&gt; Rep UpdateWirelessDeviceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateWirelessDeviceResponse x -&gt; UpdateWirelessDeviceResponse
+$cfrom :: forall x.
+UpdateWirelessDeviceResponse -&gt; Rep UpdateWirelessDeviceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'UpdateWirelessDeviceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'updateWirelessDeviceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#newUpdateWirelessDeviceResponse"><span class="hs-identifier hs-type">newUpdateWirelessDeviceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newUpdateWirelessDeviceResponse"><span class="annot"><span class="annottext">newUpdateWirelessDeviceResponse :: Int -&gt; UpdateWirelessDeviceResponse
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#newUpdateWirelessDeviceResponse"><span class="hs-identifier hs-var hs-var">newUpdateWirelessDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679293340"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293340"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">UpdateWirelessDeviceResponse' :: Int -&gt; UpdateWirelessDeviceResponse
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWirelessDeviceResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AhttpStatus%3AUpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293340"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDeviceResponse_httpStatus"><span class="hs-identifier hs-type">updateWirelessDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span id="updateWirelessDeviceResponse_httpStatus"><span class="annot"><span class="annottext">updateWirelessDeviceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateWirelessDeviceResponse -&gt; f UpdateWirelessDeviceResponse
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#updateWirelessDeviceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateWirelessDeviceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWirelessDeviceResponse -&gt; Int)
+-&gt; (UpdateWirelessDeviceResponse
+    -&gt; Int -&gt; UpdateWirelessDeviceResponse)
+-&gt; Lens
+     UpdateWirelessDeviceResponse UpdateWirelessDeviceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293339"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateWirelessDeviceResponse' :: UpdateWirelessDeviceResponse -&gt; Int
+</span><a href="#local-6989586621679293339"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293339"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293338"><span class="annot"><span class="annottext">s :: UpdateWirelessDeviceResponse
+</span><a href="#local-6989586621679293338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293337"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWirelessDeviceResponse
+</span><a href="#local-6989586621679293338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWirelessDeviceResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#%24sel%3AhttpStatus%3AUpdateWirelessDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.UpdateWirelessDevice.html#UpdateWirelessDeviceResponse"><span class="hs-identifier hs-type">UpdateWirelessDeviceResponse</span></a></span></span><span>
+</span><span id="line-187"></span></pre></body></html>

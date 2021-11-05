@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newDeleteClusterSecurityGroup' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679523979"><span id="local-6989586621679523980"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterSecurityGroup"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-var">DeleteClusterSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterSecurityGroup%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-var">DeleteClusterSecurityGroup'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679523988"><span id="local-6989586621679523989"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterSecurityGroup"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-var">DeleteClusterSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterSecurityGroup%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-var">DeleteClusterSecurityGroup'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cluster security group to be deleted.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AclusterSecurityGroupName%3ADeleteClusterSecurityGroup%27"><span class="annot"><span class="annottext">DeleteClusterSecurityGroup -&gt; Text
 </span><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#%24sel%3AclusterSecurityGroupName%3ADeleteClusterSecurityGroup%27"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679523973"><span id="local-6989586621679523975"><span class="annot"><span class="annottext">DeleteClusterSecurityGroup -&gt; DeleteClusterSecurityGroup -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679523982"><span id="local-6989586621679523984"><span class="annot"><span class="annottext">DeleteClusterSecurityGroup -&gt; DeleteClusterSecurityGroup -&gt; Bool
 (DeleteClusterSecurityGroup -&gt; DeleteClusterSecurityGroup -&gt; Bool)
 -&gt; (DeleteClusterSecurityGroup
     -&gt; DeleteClusterSecurityGroup -&gt; Bool)
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteClusterSecurityGroup -&gt; DeleteClusterSecurityGroup -&gt; Bool
 == :: DeleteClusterSecurityGroup -&gt; DeleteClusterSecurityGroup -&gt; Bool
 $c== :: DeleteClusterSecurityGroup -&gt; DeleteClusterSecurityGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523964"><span id="local-6989586621679523966"><span id="local-6989586621679523968"><span id="local-6989586621679523970"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterSecurityGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523973"><span id="local-6989586621679523975"><span id="local-6989586621679523977"><span id="local-6989586621679523979"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterSecurityGroup]
 ReadPrec DeleteClusterSecurityGroup
 Int -&gt; ReadS DeleteClusterSecurityGroup
 ReadS [DeleteClusterSecurityGroup]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteClusterSecurityGroup]
 $creadList :: ReadS [DeleteClusterSecurityGroup]
 readsPrec :: Int -&gt; ReadS DeleteClusterSecurityGroup
 $creadsPrec :: Int -&gt; ReadS DeleteClusterSecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523957"><span id="local-6989586621679523959"><span id="local-6989586621679523961"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterSecurityGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523966"><span id="local-6989586621679523968"><span id="local-6989586621679523970"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterSecurityGroup -&gt; ShowS
 [DeleteClusterSecurityGroup] -&gt; ShowS
 DeleteClusterSecurityGroup -&gt; String
 (Int -&gt; DeleteClusterSecurityGroup -&gt; ShowS)
@@ -134,14 +134,14 @@ DeleteClusterSecurityGroup -&gt; Rep DeleteClusterSecurityGroup x
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteClusterSecurityGroup"><span class="annot"><span class="annottext">newDeleteClusterSecurityGroup :: Text -&gt; DeleteClusterSecurityGroup
 </span><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#newDeleteClusterSecurityGroup"><span class="hs-identifier hs-var hs-var">newDeleteClusterSecurityGroup</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679523952"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523952"><span class="hs-identifier hs-var">pClusterSecurityGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679523961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679523961"><span class="hs-identifier hs-var">pClusterSecurityGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">DeleteClusterSecurityGroup' :: Text -&gt; DeleteClusterSecurityGroup
 </span><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupName:DeleteClusterSecurityGroup' :: Text
 </span><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#%24sel%3AclusterSecurityGroupName%3ADeleteClusterSecurityGroup%27"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523952"><span class="hs-identifier hs-var">pClusterSecurityGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679523961"><span class="hs-identifier hs-var">pClusterSecurityGroupName_</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The name of the cluster security group to be deleted.</span><span>
@@ -154,28 +154,28 @@ DeleteClusterSecurityGroup -&gt; Rep DeleteClusterSecurityGroup x
 -&gt; Lens
      DeleteClusterSecurityGroup DeleteClusterSecurityGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523949"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523958"><span class="annot"><span class="annottext">Text
 clusterSecurityGroupName :: Text
 $sel:clusterSecurityGroupName:DeleteClusterSecurityGroup' :: DeleteClusterSecurityGroup -&gt; Text
-</span><a href="#local-6989586621679523949"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523949"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679523948"><span class="annot"><span class="annottext">s :: DeleteClusterSecurityGroup
-</span><a href="#local-6989586621679523948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679523947"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterSecurityGroup
-</span><a href="#local-6989586621679523948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupName:DeleteClusterSecurityGroup' :: Text
+</span><a href="#local-6989586621679523958"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679523958"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679523957"><span class="annot"><span class="annottext">s :: DeleteClusterSecurityGroup
+</span><a href="#local-6989586621679523957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679523956"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679523956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterSecurityGroup
+</span><a href="#local-6989586621679523957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupName:DeleteClusterSecurityGroup' :: Text
 </span><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#%24sel%3AclusterSecurityGroupName%3ADeleteClusterSecurityGroup%27"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679523956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse"><span class="hs-identifier hs-type">DeleteClusterSecurityGroupResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679523943"><span class="annot"><span class="annottext">request :: DeleteClusterSecurityGroup -&gt; Request DeleteClusterSecurityGroup
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679523952"><span class="annot"><span class="annottext">request :: DeleteClusterSecurityGroup -&gt; Request DeleteClusterSecurityGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteClusterSecurityGroup -&gt; Request DeleteClusterSecurityGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679523939"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679523948"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteClusterSecurityGroup
 -&gt; ClientResponse ClientBody
@@ -202,12 +202,12 @@ AWSResponse a
 DeleteClusterSecurityGroupResponse
 </span><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse%27"><span class="hs-identifier hs-var">DeleteClusterSecurityGroupResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523932"><span id="local-6989586621679523934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523941"><span id="local-6989586621679523943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679523925"><span class="annot"><span class="annottext">toHeaders :: DeleteClusterSecurityGroup -&gt; [Header]
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679523934"><span class="annot"><span class="annottext">toHeaders :: DeleteClusterSecurityGroup -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteClusterSecurityGroup -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -215,18 +215,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679523920"><span class="annot"><span class="annottext">toPath :: DeleteClusterSecurityGroup -&gt; ByteString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679523929"><span class="annot"><span class="annottext">toPath :: DeleteClusterSecurityGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteClusterSecurityGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679523916"><span class="annot"><span class="annottext">toQuery :: DeleteClusterSecurityGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523914"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679523925"><span class="annot"><span class="annottext">toQuery :: DeleteClusterSecurityGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroup%27"><span class="hs-identifier hs-type">DeleteClusterSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523923"><span class="annot"><span class="annottext">Text
 clusterSecurityGroupName :: Text
 $sel:clusterSecurityGroupName:DeleteClusterSecurityGroup' :: DeleteClusterSecurityGroup -&gt; Text
-</span><a href="#local-6989586621679523914"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679523923"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -247,14 +247,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523914"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span>
+</span><a href="#local-6989586621679523923"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteClusterSecurityGroupResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679523911"><span id="local-6989586621679523912"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterSecurityGroupResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse"><span class="hs-identifier hs-var">DeleteClusterSecurityGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterSecurityGroupResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse%27"><span class="hs-identifier hs-var">DeleteClusterSecurityGroupResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679523920"><span id="local-6989586621679523921"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterSecurityGroupResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse"><span class="hs-identifier hs-var">DeleteClusterSecurityGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterSecurityGroupResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse%27"><span class="hs-identifier hs-var">DeleteClusterSecurityGroupResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679523907"><span id="local-6989586621679523909"><span class="annot"><span class="annottext">DeleteClusterSecurityGroupResponse
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679523916"><span id="local-6989586621679523918"><span class="annot"><span class="annottext">DeleteClusterSecurityGroupResponse
 -&gt; DeleteClusterSecurityGroupResponse -&gt; Bool
 (DeleteClusterSecurityGroupResponse
  -&gt; DeleteClusterSecurityGroupResponse -&gt; Bool)
@@ -270,7 +270,7 @@ $c/= :: DeleteClusterSecurityGroupResponse
 -&gt; DeleteClusterSecurityGroupResponse -&gt; Bool
 $c== :: DeleteClusterSecurityGroupResponse
 -&gt; DeleteClusterSecurityGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523899"><span id="local-6989586621679523901"><span id="local-6989586621679523903"><span id="local-6989586621679523905"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterSecurityGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523908"><span id="local-6989586621679523910"><span id="local-6989586621679523912"><span id="local-6989586621679523914"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterSecurityGroupResponse]
 ReadPrec DeleteClusterSecurityGroupResponse
 Int -&gt; ReadS DeleteClusterSecurityGroupResponse
 ReadS [DeleteClusterSecurityGroupResponse]
@@ -290,7 +290,7 @@ readList :: ReadS [DeleteClusterSecurityGroupResponse]
 $creadList :: ReadS [DeleteClusterSecurityGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteClusterSecurityGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteClusterSecurityGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523893"><span id="local-6989586621679523895"><span id="local-6989586621679523897"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterSecurityGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523902"><span id="local-6989586621679523904"><span id="local-6989586621679523906"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterSecurityGroupResponse -&gt; ShowS
 [DeleteClusterSecurityGroupResponse] -&gt; ShowS
 DeleteClusterSecurityGroupResponse -&gt; String
 (Int -&gt; DeleteClusterSecurityGroupResponse -&gt; ShowS)
@@ -340,6 +340,6 @@ DeleteClusterSecurityGroupResponse
 </span><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse%27"><span class="hs-identifier hs-var">DeleteClusterSecurityGroupResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679523889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679523898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DeleteClusterSecurityGroup.html#DeleteClusterSecurityGroupResponse"><span class="hs-identifier hs-type">DeleteClusterSecurityGroupResponse</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

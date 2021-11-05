@@ -126,7 +126,7 @@
 </span><span id="line-126"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newCreateAccount' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679250824"><span id="local-6989586621679250825"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccount"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-var">CreateAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccount%27"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-var">CreateAccount'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679250833"><span id="local-6989586621679250834"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccount"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-var">CreateAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccount%27"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-var">CreateAccount'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to @ALLOW@, the new account enables IAM users to access account</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- billing information /if/ they have the required permissions. If set to</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- @DENY@, only the root user of the new account can access account billing</span><span>
@@ -189,7 +189,7 @@
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AaccountName%3ACreateAccount%27"><span class="annot"><span class="annottext">CreateAccount -&gt; Sensitive Text
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AaccountName%3ACreateAccount%27"><span class="hs-identifier hs-var hs-var">accountName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250814"><span id="local-6989586621679250816"><span class="annot"><span class="annottext">CreateAccount -&gt; CreateAccount -&gt; Bool
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250823"><span id="local-6989586621679250825"><span class="annot"><span class="annottext">CreateAccount -&gt; CreateAccount -&gt; Bool
 (CreateAccount -&gt; CreateAccount -&gt; Bool)
 -&gt; (CreateAccount -&gt; CreateAccount -&gt; Bool) -&gt; Eq CreateAccount
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -197,7 +197,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAccount -&gt; CreateAccount -&gt; Bool
 == :: CreateAccount -&gt; CreateAccount -&gt; Bool
 $c== :: CreateAccount -&gt; CreateAccount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250807"><span id="local-6989586621679250809"><span id="local-6989586621679250811"><span class="annot"><span class="annottext">Int -&gt; CreateAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250816"><span id="local-6989586621679250818"><span id="local-6989586621679250820"><span class="annot"><span class="annottext">Int -&gt; CreateAccount -&gt; ShowS
 [CreateAccount] -&gt; ShowS
 CreateAccount -&gt; String
 (Int -&gt; CreateAccount -&gt; ShowS)
@@ -293,9 +293,9 @@ $cfrom :: forall x. CreateAccount -&gt; Rep CreateAccount x
 </span><span id="line-256"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-257"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span>
 </span><span id="line-258"></span><span id="newCreateAccount"><span class="annot"><span class="annottext">newCreateAccount :: Text -&gt; Text -&gt; CreateAccount
-</span><a href="Network.AWS.Organizations.CreateAccount.html#newCreateAccount"><span class="hs-identifier hs-var hs-var">newCreateAccount</span></a></span></span><span> </span><span id="local-6989586621679250802"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250802"><span class="hs-identifier hs-var">pEmail_</span></a></span></span><span> </span><span id="local-6989586621679250801"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250801"><span class="hs-identifier hs-var">pAccountName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.CreateAccount.html#newCreateAccount"><span class="hs-identifier hs-var hs-var">newCreateAccount</span></a></span></span><span> </span><span id="local-6989586621679250811"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250811"><span class="hs-identifier hs-var">pEmail_</span></a></span></span><span> </span><span id="local-6989586621679250810"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250810"><span class="hs-identifier hs-var">pAccountName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="annottext">CreateAccount' :: Maybe IAMUserAccessToBilling
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
@@ -325,7 +325,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250802"><span class="hs-identifier hs-var">pEmail_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250811"><span class="hs-identifier hs-var">pEmail_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountName:CreateAccount' :: Sensitive Text
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AaccountName%3ACreateAccount%27"><span class="hs-identifier hs-var">accountName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -335,7 +335,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250801"><span class="hs-identifier hs-var">pAccountName_</span></a></span><span>
+</span><a href="#local-6989586621679250810"><span class="hs-identifier hs-var">pAccountName_</span></a></span><span>
 </span><span id="line-266"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | If set to @ALLOW@, the new account enables IAM users to access account</span><span>
@@ -359,16 +359,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe IAMUserAccessToBilling)
      (Maybe IAMUserAccessToBilling)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250796"><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250805"><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
 iamUserAccessToBilling :: Maybe IAMUserAccessToBilling
 $sel:iamUserAccessToBilling:CreateAccount' :: CreateAccount -&gt; Maybe IAMUserAccessToBilling
-</span><a href="#local-6989586621679250796"><span class="hs-identifier hs-var hs-var">iamUserAccessToBilling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
-</span><a href="#local-6989586621679250796"><span class="hs-identifier hs-var">iamUserAccessToBilling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250795"><span class="annot"><span class="annottext">s :: CreateAccount
-</span><a href="#local-6989586621679250795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250794"><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
-</span><a href="#local-6989586621679250794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
-</span><a href="#local-6989586621679250795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserAccessToBilling:CreateAccount' :: Maybe IAMUserAccessToBilling
+</span><a href="#local-6989586621679250805"><span class="hs-identifier hs-var hs-var">iamUserAccessToBilling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
+</span><a href="#local-6989586621679250805"><span class="hs-identifier hs-var">iamUserAccessToBilling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250804"><span class="annot"><span class="annottext">s :: CreateAccount
+</span><a href="#local-6989586621679250804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250803"><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
+</span><a href="#local-6989586621679250803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
+</span><a href="#local-6989586621679250804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserAccessToBilling:CreateAccount' :: Maybe IAMUserAccessToBilling
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AiamUserAccessToBilling%3ACreateAccount%27"><span class="hs-identifier hs-var">iamUserAccessToBilling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
-</span><a href="#local-6989586621679250794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | (Optional)</span><span>
 </span><span id="line-282"></span><span class="hs-comment">--</span><span>
@@ -401,16 +401,16 @@ $sel:iamUserAccessToBilling:CreateAccount' :: CreateAccount -&gt; Maybe IAMUserA
 -&gt; (CreateAccount -&gt; Maybe Text -&gt; CreateAccount)
 -&gt; Lens CreateAccount CreateAccount (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250793"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250802"><span class="annot"><span class="annottext">Maybe Text
 roleName :: Maybe Text
 $sel:roleName:CreateAccount' :: CreateAccount -&gt; Maybe Text
-</span><a href="#local-6989586621679250793"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250793"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250792"><span class="annot"><span class="annottext">s :: CreateAccount
-</span><a href="#local-6989586621679250792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250791"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
-</span><a href="#local-6989586621679250792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:CreateAccount' :: Maybe Text
+</span><a href="#local-6989586621679250802"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250802"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250801"><span class="annot"><span class="annottext">s :: CreateAccount
+</span><a href="#local-6989586621679250801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
+</span><a href="#local-6989586621679250801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:CreateAccount' :: Maybe Text
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AroleName%3ACreateAccount%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | A list of tags that you want to attach to the newly created account. For</span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- each tag in the list, you must specify both a tag key and a value. You</span><span>
@@ -429,16 +429,16 @@ $sel:roleName:CreateAccount' :: CreateAccount -&gt; Maybe Text
 -&gt; (CreateAccount -&gt; Maybe [Tag] -&gt; CreateAccount)
 -&gt; Lens CreateAccount CreateAccount (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250790"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250799"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateAccount' :: CreateAccount -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679250790"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679250790"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250789"><span class="annot"><span class="annottext">s :: CreateAccount
-</span><a href="#local-6989586621679250789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250788"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679250788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
-</span><a href="#local-6989586621679250789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAccount' :: Maybe [Tag]
+</span><a href="#local-6989586621679250799"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679250799"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250798"><span class="annot"><span class="annottext">s :: CreateAccount
+</span><a href="#local-6989586621679250798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250797"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679250797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
+</span><a href="#local-6989586621679250798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAccount' :: Maybe [Tag]
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3Atags%3ACreateAccount%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679250788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679250797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateAccount -&gt; f CreateAccount)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -467,16 +467,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      CreateAccount CreateAccount (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250784"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250793"><span class="annot"><span class="annottext">Sensitive Text
 email :: Sensitive Text
 $sel:email:CreateAccount' :: CreateAccount -&gt; Sensitive Text
-</span><a href="#local-6989586621679250784"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250784"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250783"><span class="annot"><span class="annottext">s :: CreateAccount
-</span><a href="#local-6989586621679250783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250782"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
-</span><a href="#local-6989586621679250783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:CreateAccount' :: Sensitive Text
+</span><a href="#local-6989586621679250793"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679250793"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250792"><span class="annot"><span class="annottext">s :: CreateAccount
+</span><a href="#local-6989586621679250792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250791"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679250791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
+</span><a href="#local-6989586621679250792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:CreateAccount' :: Sensitive Text
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3Aemail%3ACreateAccount%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679250791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; CreateAccount -&gt; f CreateAccount)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -495,16 +495,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      CreateAccount CreateAccount (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250781"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250790"><span class="annot"><span class="annottext">Sensitive Text
 accountName :: Sensitive Text
 $sel:accountName:CreateAccount' :: CreateAccount -&gt; Sensitive Text
-</span><a href="#local-6989586621679250781"><span class="hs-identifier hs-var hs-var">accountName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250781"><span class="hs-identifier hs-var">accountName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250780"><span class="annot"><span class="annottext">s :: CreateAccount
-</span><a href="#local-6989586621679250780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250779"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
-</span><a href="#local-6989586621679250780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountName:CreateAccount' :: Sensitive Text
+</span><a href="#local-6989586621679250790"><span class="hs-identifier hs-var hs-var">accountName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679250790"><span class="hs-identifier hs-var">accountName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250789"><span class="annot"><span class="annottext">s :: CreateAccount
+</span><a href="#local-6989586621679250789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250788"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679250788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccount
+</span><a href="#local-6989586621679250789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountName:CreateAccount' :: Sensitive Text
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AaccountName%3ACreateAccount%27"><span class="hs-identifier hs-var">accountName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679250788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; CreateAccount -&gt; f CreateAccount)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -519,12 +519,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-335"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-336"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-337"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span><span>
-</span><span id="line-338"></span><span>  </span><span id="local-6989586621679250775"><span class="annot"><span class="annottext">request :: CreateAccount -&gt; Request CreateAccount
+</span><span id="line-338"></span><span>  </span><span id="local-6989586621679250784"><span class="annot"><span class="annottext">request :: CreateAccount -&gt; Request CreateAccount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAccount -&gt; Request CreateAccount
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-339"></span><span>  </span><span id="local-6989586621679250771"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-339"></span><span>  </span><span id="local-6989586621679250780"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateAccount
 -&gt; ClientResponse ClientBody
@@ -548,10 +548,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-341"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250768"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679250767"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679250767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679250766"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-341"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250777"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679250776"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679250776"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679250775"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-342"></span><span>          </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus -&gt; Int -&gt; CreateAccountResponse
 </span><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-var">CreateAccountResponse'</span></a></span><span>
 </span><span id="line-343"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CreateAccountStatus -&gt; Int -&gt; CreateAccountResponse)
@@ -559,7 +559,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateAccountResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CreateAccountStatus)
+</span><a href="#local-6989586621679250775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CreateAccountStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateAccountStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -571,15 +571,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250777"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-345"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-346"></span><span>
-</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250758"><span id="local-6989586621679250760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span></span></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250767"><span id="local-6989586621679250769"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span></span></span><span>
 </span><span id="line-348"></span><span>
-</span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span></span><span>
 </span><span id="line-350"></span><span>
 </span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-352"></span><span>  </span><span id="local-6989586621679250751"><span class="annot"><span class="annottext">toHeaders :: CreateAccount -&gt; ResponseHeaders
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621679250760"><span class="annot"><span class="annottext">toHeaders :: CreateAccount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-353"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAccount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -606,9 +606,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-363"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-364"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-365"></span><span>
-</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250741"><span id="local-6989586621679250743"><span id="local-6989586621679250745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-367"></span><span>  </span><span id="local-6989586621679250739"><span class="annot"><span class="annottext">toJSON :: CreateAccount -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250733"><span id="local-6989586621679250734"><span id="local-6989586621679250735"><span id="local-6989586621679250736"><span id="local-6989586621679250737"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250750"><span id="local-6989586621679250752"><span id="local-6989586621679250754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-367"></span><span>  </span><span id="local-6989586621679250748"><span class="annot"><span class="annottext">toJSON :: CreateAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount%27"><span class="hs-identifier hs-type">CreateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250742"><span id="local-6989586621679250743"><span id="local-6989586621679250744"><span id="local-6989586621679250745"><span id="local-6989586621679250746"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Maybe IAMUserAccessToBilling
 Sensitive Text
@@ -622,7 +622,7 @@ $sel:email:CreateAccount' :: CreateAccount -&gt; Sensitive Text
 $sel:tags:CreateAccount' :: CreateAccount -&gt; Maybe [Tag]
 $sel:roleName:CreateAccount' :: CreateAccount -&gt; Maybe Text
 $sel:iamUserAccessToBilling:CreateAccount' :: CreateAccount -&gt; Maybe IAMUserAccessToBilling
-</span><a href="#local-6989586621679250733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250742"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-368"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-369"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -636,47 +636,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe IAMUserAccessToBilling -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IAMUserAccessToBilling
-</span><a href="#local-6989586621679250737"><span class="hs-identifier hs-var">iamUserAccessToBilling</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250746"><span class="hs-identifier hs-var">iamUserAccessToBilling</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-372"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250736"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250745"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-373"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679250735"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250744"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-374"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Email&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250734"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250743"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-375"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679250733"><span class="hs-identifier hs-var">accountName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250742"><span class="hs-identifier hs-var">accountName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-376"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-377"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-378"></span><span>
 </span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-380"></span><span>  </span><span id="local-6989586621679250727"><span class="annot"><span class="annottext">toPath :: CreateAccount -&gt; ByteString
+</span><span id="line-380"></span><span>  </span><span id="local-6989586621679250736"><span class="annot"><span class="annottext">toPath :: CreateAccount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAccount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-381"></span><span>
 </span><span id="line-382"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccount"><span class="hs-identifier hs-type">CreateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-383"></span><span>  </span><span id="local-6989586621679250723"><span class="annot"><span class="annottext">toQuery :: CreateAccount -&gt; QueryString
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679250732"><span class="annot"><span class="annottext">toQuery :: CreateAccount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAccount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -684,7 +684,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-384"></span><span>
 </span><span id="line-385"></span><span class="hs-comment">-- | /See:/ 'newCreateAccountResponse' smart constructor.</span><span>
-</span><span id="line-386"></span><span id="local-6989586621679250720"><span id="local-6989586621679250721"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccountResponse"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-var">CreateAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccountResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-var">CreateAccountResponse'</span></a></span></span><span>
+</span><span id="line-386"></span><span id="local-6989586621679250729"><span id="local-6989586621679250730"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccountResponse"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-var">CreateAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccountResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-var">CreateAccountResponse'</span></a></span></span><span>
 </span><span id="line-387"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the request to create an</span><span>
 </span><span id="line-388"></span><span>    </span><span class="hs-comment">-- account. This response structure might not be fully populated when you</span><span>
 </span><span id="line-389"></span><span>    </span><span class="hs-comment">-- first receive it because account creation is an asynchronous process.</span><span>
@@ -700,7 +700,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-398"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAccountResponse%27"><span class="annot"><span class="annottext">CreateAccountResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AhttpStatus%3ACreateAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-399"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-400"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250714"><span id="local-6989586621679250716"><span class="annot"><span class="annottext">CreateAccountResponse -&gt; CreateAccountResponse -&gt; Bool
+</span><span id="line-400"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250723"><span id="local-6989586621679250725"><span class="annot"><span class="annottext">CreateAccountResponse -&gt; CreateAccountResponse -&gt; Bool
 (CreateAccountResponse -&gt; CreateAccountResponse -&gt; Bool)
 -&gt; (CreateAccountResponse -&gt; CreateAccountResponse -&gt; Bool)
 -&gt; Eq CreateAccountResponse
@@ -709,7 +709,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAccountResponse -&gt; CreateAccountResponse -&gt; Bool
 == :: CreateAccountResponse -&gt; CreateAccountResponse -&gt; Bool
 $c== :: CreateAccountResponse -&gt; CreateAccountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250708"><span id="local-6989586621679250710"><span id="local-6989586621679250712"><span class="annot"><span class="annottext">Int -&gt; CreateAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250717"><span id="local-6989586621679250719"><span id="local-6989586621679250721"><span class="annot"><span class="annottext">Int -&gt; CreateAccountResponse -&gt; ShowS
 [CreateAccountResponse] -&gt; ShowS
 CreateAccountResponse -&gt; String
 (Int -&gt; CreateAccountResponse -&gt; ShowS)
@@ -759,8 +759,8 @@ $cfrom :: forall x. CreateAccountResponse -&gt; Rep CreateAccountResponse x
 </span><span id="line-423"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-424"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span><span>
 </span><span id="line-425"></span><span id="newCreateAccountResponse"><span class="annot"><span class="annottext">newCreateAccountResponse :: Int -&gt; CreateAccountResponse
-</span><a href="Network.AWS.Organizations.CreateAccount.html#newCreateAccountResponse"><span class="hs-identifier hs-var hs-var">newCreateAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679250705"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.CreateAccount.html#newCreateAccountResponse"><span class="hs-identifier hs-var hs-var">newCreateAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679250714"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250714"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-426"></span><span>  </span><span class="annot"><span class="annottext">CreateAccountResponse' :: Maybe CreateAccountStatus -&gt; Int -&gt; CreateAccountResponse
 </span><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span>
 </span><span id="line-427"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createAccountStatus:CreateAccountResponse' :: Maybe CreateAccountStatus
@@ -770,7 +770,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-429"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAccountResponse' :: Int
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AhttpStatus%3ACreateAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679250714"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-430"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-431"></span><span>
 </span><span id="line-432"></span><span class="hs-comment">-- | A structure that contains details about the request to create an</span><span>
@@ -794,16 +794,16 @@ forall a. Maybe a
      (Maybe CreateAccountStatus)
      (Maybe CreateAccountStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250704"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250713"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
 createAccountStatus :: Maybe CreateAccountStatus
 $sel:createAccountStatus:CreateAccountResponse' :: CreateAccountResponse -&gt; Maybe CreateAccountStatus
-</span><a href="#local-6989586621679250704"><span class="hs-identifier hs-var hs-var">createAccountStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus
-</span><a href="#local-6989586621679250704"><span class="hs-identifier hs-var">createAccountStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250703"><span class="annot"><span class="annottext">s :: CreateAccountResponse
-</span><a href="#local-6989586621679250703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250702"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
-</span><a href="#local-6989586621679250702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccountResponse
-</span><a href="#local-6989586621679250703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createAccountStatus:CreateAccountResponse' :: Maybe CreateAccountStatus
+</span><a href="#local-6989586621679250713"><span class="hs-identifier hs-var hs-var">createAccountStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus
+</span><a href="#local-6989586621679250713"><span class="hs-identifier hs-var">createAccountStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250712"><span class="annot"><span class="annottext">s :: CreateAccountResponse
+</span><a href="#local-6989586621679250712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250711"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
+</span><a href="#local-6989586621679250711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccountResponse
+</span><a href="#local-6989586621679250712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createAccountStatus:CreateAccountResponse' :: Maybe CreateAccountStatus
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AcreateAccountStatus%3ACreateAccountResponse%27"><span class="hs-identifier hs-var">createAccountStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus
-</span><a href="#local-6989586621679250702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-443"></span><span>
 </span><span id="line-444"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-445"></span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#createAccountResponse_httpStatus"><span class="hs-identifier hs-type">createAccountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -812,16 +812,16 @@ $sel:createAccountStatus:CreateAccountResponse' :: CreateAccountResponse -&gt; M
 -&gt; (CreateAccountResponse -&gt; Int -&gt; CreateAccountResponse)
 -&gt; Lens CreateAccountResponse CreateAccountResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250701"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250710"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateAccountResponse' :: CreateAccountResponse -&gt; Int
-</span><a href="#local-6989586621679250701"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250701"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250700"><span class="annot"><span class="annottext">s :: CreateAccountResponse
-</span><a href="#local-6989586621679250700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250699"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccountResponse
-</span><a href="#local-6989586621679250700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAccountResponse' :: Int
+</span><a href="#local-6989586621679250710"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250710"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250709"><span class="annot"><span class="annottext">s :: CreateAccountResponse
+</span><a href="#local-6989586621679250709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse%27"><span class="hs-identifier hs-type">CreateAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250708"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccountResponse
+</span><a href="#local-6989586621679250709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAccountResponse' :: Int
 </span><a href="Network.AWS.Organizations.CreateAccount.html#%24sel%3AhttpStatus%3ACreateAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-447"></span><span>
-</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span></span><span>
+</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateAccount.html#CreateAccountResponse"><span class="hs-identifier hs-type">CreateAccountResponse</span></a></span></span><span>
 </span><span id="line-449"></span></pre></body></html>

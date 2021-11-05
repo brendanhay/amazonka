@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- transform job invocation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newModelClientConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680317438"><span id="local-6989586621680317439"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelClientConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-var">ModelClientConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelClientConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-var">ModelClientConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680317447"><span id="local-6989586621680317448"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelClientConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-var">ModelClientConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelClientConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-var">ModelClientConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timeout value in seconds for an invocation request.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AinvocationsTimeoutInSeconds%3AModelClientConfig%27"><span class="annot"><span class="annottext">ModelClientConfig -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#%24sel%3AinvocationsTimeoutInSeconds%3AModelClientConfig%27"><span class="hs-identifier hs-var hs-var">invocationsTimeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AinvocationsMaxRetries%3AModelClientConfig%27"><span class="annot"><span class="annottext">ModelClientConfig -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#%24sel%3AinvocationsMaxRetries%3AModelClientConfig%27"><span class="hs-identifier hs-var hs-var">invocationsMaxRetries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317431"><span id="local-6989586621680317433"><span class="annot"><span class="annottext">ModelClientConfig -&gt; ModelClientConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317440"><span id="local-6989586621680317442"><span class="annot"><span class="annottext">ModelClientConfig -&gt; ModelClientConfig -&gt; Bool
 (ModelClientConfig -&gt; ModelClientConfig -&gt; Bool)
 -&gt; (ModelClientConfig -&gt; ModelClientConfig -&gt; Bool)
 -&gt; Eq ModelClientConfig
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelClientConfig -&gt; ModelClientConfig -&gt; Bool
 == :: ModelClientConfig -&gt; ModelClientConfig -&gt; Bool
 $c== :: ModelClientConfig -&gt; ModelClientConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317422"><span id="local-6989586621680317424"><span id="local-6989586621680317426"><span id="local-6989586621680317428"><span class="annot"><span class="annottext">ReadPrec [ModelClientConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317431"><span id="local-6989586621680317433"><span id="local-6989586621680317435"><span id="local-6989586621680317437"><span class="annot"><span class="annottext">ReadPrec [ModelClientConfig]
 ReadPrec ModelClientConfig
 Int -&gt; ReadS ModelClientConfig
 ReadS [ModelClientConfig]
@@ -64,7 +64,7 @@ readList :: ReadS [ModelClientConfig]
 $creadList :: ReadS [ModelClientConfig]
 readsPrec :: Int -&gt; ReadS ModelClientConfig
 $creadsPrec :: Int -&gt; ReadS ModelClientConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317415"><span id="local-6989586621680317417"><span id="local-6989586621680317419"><span class="annot"><span class="annottext">Int -&gt; ModelClientConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317424"><span id="local-6989586621680317426"><span id="local-6989586621680317428"><span class="annot"><span class="annottext">Int -&gt; ModelClientConfig -&gt; ShowS
 [ModelClientConfig] -&gt; ShowS
 ModelClientConfig -&gt; String
 (Int -&gt; ModelClientConfig -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; Lens
      ModelClientConfig ModelClientConfig (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317406"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317415"><span class="annot"><span class="annottext">Maybe Natural
 invocationsTimeoutInSeconds :: Maybe Natural
 $sel:invocationsTimeoutInSeconds:ModelClientConfig' :: ModelClientConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621680317406"><span class="hs-identifier hs-var hs-var">invocationsTimeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317406"><span class="hs-identifier hs-var">invocationsTimeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317405"><span class="annot"><span class="annottext">s :: ModelClientConfig
-</span><a href="#local-6989586621680317405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317404"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelClientConfig
-</span><a href="#local-6989586621680317405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationsTimeoutInSeconds:ModelClientConfig' :: Maybe Natural
+</span><a href="#local-6989586621680317415"><span class="hs-identifier hs-var hs-var">invocationsTimeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680317415"><span class="hs-identifier hs-var">invocationsTimeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317414"><span class="annot"><span class="annottext">s :: ModelClientConfig
+</span><a href="#local-6989586621680317414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317413"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680317413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelClientConfig
+</span><a href="#local-6989586621680317414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationsTimeoutInSeconds:ModelClientConfig' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#%24sel%3AinvocationsTimeoutInSeconds%3AModelClientConfig%27"><span class="hs-identifier hs-var">invocationsTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The maximum number of retries when invocation requests are failing.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#modelClientConfig_invocationsMaxRetries"><span class="hs-identifier hs-type">modelClientConfig_invocationsMaxRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -147,19 +147,19 @@ $sel:invocationsTimeoutInSeconds:ModelClientConfig' :: ModelClientConfig -&gt; M
 -&gt; Lens
      ModelClientConfig ModelClientConfig (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317402"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317411"><span class="annot"><span class="annottext">Maybe Natural
 invocationsMaxRetries :: Maybe Natural
 $sel:invocationsMaxRetries:ModelClientConfig' :: ModelClientConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621680317402"><span class="hs-identifier hs-var hs-var">invocationsMaxRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317402"><span class="hs-identifier hs-var">invocationsMaxRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317401"><span class="annot"><span class="annottext">s :: ModelClientConfig
-</span><a href="#local-6989586621680317401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317400"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelClientConfig
-</span><a href="#local-6989586621680317401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationsMaxRetries:ModelClientConfig' :: Maybe Natural
+</span><a href="#local-6989586621680317411"><span class="hs-identifier hs-var hs-var">invocationsMaxRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680317411"><span class="hs-identifier hs-var">invocationsMaxRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317410"><span class="annot"><span class="annottext">s :: ModelClientConfig
+</span><a href="#local-6989586621680317410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317409"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680317409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelClientConfig
+</span><a href="#local-6989586621680317410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationsMaxRetries:ModelClientConfig' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#%24sel%3AinvocationsMaxRetries%3AModelClientConfig%27"><span class="hs-identifier hs-var">invocationsMaxRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621680317395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelClientConfig
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317406"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621680317404"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelClientConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelClientConfig)
@@ -169,8 +169,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelClientConfig&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317392"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317401"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317401"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; ModelClientConfig
 </span><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-var">ModelClientConfig'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; ModelClientConfig)
@@ -178,7 +178,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; ModelClientConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680317401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InvocationsTimeoutInSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,24 +186,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser ModelClientConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680317401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InvocationsMaxRetries&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317386"><span id="local-6989586621680317388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317395"><span id="local-6989586621680317397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317375"><span id="local-6989586621680317377"><span id="local-6989586621680317379"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621680317373"><span class="annot"><span class="annottext">toJSON :: ModelClientConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317370"><span id="local-6989586621680317371"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317384"><span id="local-6989586621680317386"><span id="local-6989586621680317388"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680317382"><span class="annot"><span class="annottext">toJSON :: ModelClientConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelClientConfig.html#ModelClientConfig%27"><span class="hs-identifier hs-type">ModelClientConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317379"><span id="local-6989586621680317380"><span class="annot"><span class="annottext">Maybe Natural
 invocationsMaxRetries :: Maybe Natural
 invocationsTimeoutInSeconds :: Maybe Natural
 $sel:invocationsMaxRetries:ModelClientConfig' :: ModelClientConfig -&gt; Maybe Natural
 $sel:invocationsTimeoutInSeconds:ModelClientConfig' :: ModelClientConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621680317370"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680317379"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -216,7 +216,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-85"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317371"><span class="hs-identifier hs-var">invocationsTimeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680317380"><span class="hs-identifier hs-var">invocationsTimeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InvocationsMaxRetries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -224,7 +224,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317370"><span class="hs-identifier hs-var">invocationsMaxRetries</span></a></span><span>
+</span><a href="#local-6989586621680317379"><span class="hs-identifier hs-var">invocationsMaxRetries</span></a></span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

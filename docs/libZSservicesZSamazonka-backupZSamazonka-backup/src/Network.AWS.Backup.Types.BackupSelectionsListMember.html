@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.Types.BackupSelectionsListMember</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.Types.BackupSelectionsListMember</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains metadata about a @BackupSelection@ object.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBackupSelectionsListMember' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679305783"><span id="local-6989586621679305784"></span></span><span class="hs-keyword">data</span><span> </span><span id="BackupSelectionsListMember"><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-var">BackupSelectionsListMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackupSelectionsListMember%27"><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-var">BackupSelectionsListMember'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the IAM role Amazon Resource Name (ARN) to create the target</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- recovery point; for example, @arn:aws:iam::123456789012:role\/S3Access@.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AiamRoleArn%3ABackupSelectionsListMember%27"><span class="annot"><span class="annottext">BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AiamRoleArn%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The display name of a resource selection document.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AselectionName%3ABackupSelectionsListMember%27"><span class="annot"><span class="annottext">BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AselectionName%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var hs-var">selectionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Uniquely identifies a request to assign a set of resources to a backup</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AselectionId%3ABackupSelectionsListMember%27"><span class="annot"><span class="annottext">BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AselectionId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var hs-var">selectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Uniquely identifies a backup plan.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbackupPlanId%3ABackupSelectionsListMember%27"><span class="annot"><span class="annottext">BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AbackupPlanId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var hs-var">backupPlanId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A unique string that identifies the request and allows failed requests</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to be retried without the risk of running the operation twice.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreatorRequestId%3ABackupSelectionsListMember%27"><span class="annot"><span class="annottext">BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AcreatorRequestId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The date and time a backup plan is created, in Unix format and</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationDate@ is</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcreationDate%3ABackupSelectionsListMember%27"><span class="annot"><span class="annottext">BackupSelectionsListMember -&gt; Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AcreationDate%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305772"><span id="local-6989586621679305774"><span class="annot"><span class="annottext">BackupSelectionsListMember -&gt; BackupSelectionsListMember -&gt; Bool
+(BackupSelectionsListMember -&gt; BackupSelectionsListMember -&gt; Bool)
+-&gt; (BackupSelectionsListMember
+    -&gt; BackupSelectionsListMember -&gt; Bool)
+-&gt; Eq BackupSelectionsListMember
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BackupSelectionsListMember -&gt; BackupSelectionsListMember -&gt; Bool
+$c/= :: BackupSelectionsListMember -&gt; BackupSelectionsListMember -&gt; Bool
+== :: BackupSelectionsListMember -&gt; BackupSelectionsListMember -&gt; Bool
+$c== :: BackupSelectionsListMember -&gt; BackupSelectionsListMember -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305763"><span id="local-6989586621679305765"><span id="local-6989586621679305767"><span id="local-6989586621679305769"><span class="annot"><span class="annottext">ReadPrec [BackupSelectionsListMember]
+ReadPrec BackupSelectionsListMember
+Int -&gt; ReadS BackupSelectionsListMember
+ReadS [BackupSelectionsListMember]
+(Int -&gt; ReadS BackupSelectionsListMember)
+-&gt; ReadS [BackupSelectionsListMember]
+-&gt; ReadPrec BackupSelectionsListMember
+-&gt; ReadPrec [BackupSelectionsListMember]
+-&gt; Read BackupSelectionsListMember
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BackupSelectionsListMember]
+$creadListPrec :: ReadPrec [BackupSelectionsListMember]
+readPrec :: ReadPrec BackupSelectionsListMember
+$creadPrec :: ReadPrec BackupSelectionsListMember
+readList :: ReadS [BackupSelectionsListMember]
+$creadList :: ReadS [BackupSelectionsListMember]
+readsPrec :: Int -&gt; ReadS BackupSelectionsListMember
+$creadsPrec :: Int -&gt; ReadS BackupSelectionsListMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305756"><span id="local-6989586621679305758"><span id="local-6989586621679305760"><span class="annot"><span class="annottext">Int -&gt; BackupSelectionsListMember -&gt; ShowS
+[BackupSelectionsListMember] -&gt; ShowS
+BackupSelectionsListMember -&gt; String
+(Int -&gt; BackupSelectionsListMember -&gt; ShowS)
+-&gt; (BackupSelectionsListMember -&gt; String)
+-&gt; ([BackupSelectionsListMember] -&gt; ShowS)
+-&gt; Show BackupSelectionsListMember
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BackupSelectionsListMember] -&gt; ShowS
+$cshowList :: [BackupSelectionsListMember] -&gt; ShowS
+show :: BackupSelectionsListMember -&gt; String
+$cshow :: BackupSelectionsListMember -&gt; String
+showsPrec :: Int -&gt; BackupSelectionsListMember -&gt; ShowS
+$cshowsPrec :: Int -&gt; BackupSelectionsListMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BackupSelectionsListMember -&gt; Rep BackupSelectionsListMember x)
+-&gt; (forall x.
+    Rep BackupSelectionsListMember x -&gt; BackupSelectionsListMember)
+-&gt; Generic BackupSelectionsListMember
+forall x.
+Rep BackupSelectionsListMember x -&gt; BackupSelectionsListMember
+forall x.
+BackupSelectionsListMember -&gt; Rep BackupSelectionsListMember x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BackupSelectionsListMember x -&gt; BackupSelectionsListMember
+$cfrom :: forall x.
+BackupSelectionsListMember -&gt; Rep BackupSelectionsListMember x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'BackupSelectionsListMember' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'iamRoleArn', 'backupSelectionsListMember_iamRoleArn' - Specifies the IAM role Amazon Resource Name (ARN) to create the target</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- recovery point; for example, @arn:aws:iam::123456789012:role\/S3Access@.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'selectionName', 'backupSelectionsListMember_selectionName' - The display name of a resource selection document.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'selectionId', 'backupSelectionsListMember_selectionId' - Uniquely identifies a request to assign a set of resources to a backup</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'backupPlanId', 'backupSelectionsListMember_backupPlanId' - Uniquely identifies a backup plan.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'creatorRequestId', 'backupSelectionsListMember_creatorRequestId' - A unique string that identifies the request and allows failed requests</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- to be retried without the risk of running the operation twice.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'creationDate', 'backupSelectionsListMember_creationDate' - The date and time a backup plan is created, in Unix format and</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationDate@ is</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#newBackupSelectionsListMember"><span class="hs-identifier hs-type">newBackupSelectionsListMember</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span>
+</span><span id="line-78"></span><span id="newBackupSelectionsListMember"><span class="annot"><span class="annottext">newBackupSelectionsListMember :: BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#newBackupSelectionsListMember"><span class="hs-identifier hs-var hs-var">newBackupSelectionsListMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">BackupSelectionsListMember' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iamRoleArn:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AiamRoleArn%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectionName:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AselectionName%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">selectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectionId:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AselectionId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">selectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupPlanId:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AbackupPlanId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">backupPlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:creatorRequestId:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AcreatorRequestId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:BackupSelectionsListMember' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AcreationDate%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Specifies the IAM role Amazon Resource Name (ARN) to create the target</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- recovery point; for example, @arn:aws:iam::123456789012:role\/S3Access@.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_iamRoleArn"><span class="hs-identifier hs-type">backupSelectionsListMember_iamRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="backupSelectionsListMember_iamRoleArn"><span class="annot"><span class="annottext">backupSelectionsListMember_iamRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackupSelectionsListMember -&gt; f BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_iamRoleArn"><span class="hs-identifier hs-var hs-var">backupSelectionsListMember_iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackupSelectionsListMember -&gt; Maybe Text)
+-&gt; (BackupSelectionsListMember
+    -&gt; Maybe Text -&gt; BackupSelectionsListMember)
+-&gt; Lens
+     BackupSelectionsListMember
+     BackupSelectionsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305747"><span class="annot"><span class="annottext">Maybe Text
+iamRoleArn :: Maybe Text
+$sel:iamRoleArn:BackupSelectionsListMember' :: BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679305747"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305747"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305746"><span class="annot"><span class="annottext">s :: BackupSelectionsListMember
+</span><a href="#local-6989586621679305746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305745"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupSelectionsListMember
+</span><a href="#local-6989586621679305746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AiamRoleArn%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The display name of a resource selection document.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_selectionName"><span class="hs-identifier hs-type">backupSelectionsListMember_selectionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="backupSelectionsListMember_selectionName"><span class="annot"><span class="annottext">backupSelectionsListMember_selectionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackupSelectionsListMember -&gt; f BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_selectionName"><span class="hs-identifier hs-var hs-var">backupSelectionsListMember_selectionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackupSelectionsListMember -&gt; Maybe Text)
+-&gt; (BackupSelectionsListMember
+    -&gt; Maybe Text -&gt; BackupSelectionsListMember)
+-&gt; Lens
+     BackupSelectionsListMember
+     BackupSelectionsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305743"><span class="annot"><span class="annottext">Maybe Text
+selectionName :: Maybe Text
+$sel:selectionName:BackupSelectionsListMember' :: BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679305743"><span class="hs-identifier hs-var hs-var">selectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305743"><span class="hs-identifier hs-var">selectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305742"><span class="annot"><span class="annottext">s :: BackupSelectionsListMember
+</span><a href="#local-6989586621679305742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupSelectionsListMember
+</span><a href="#local-6989586621679305742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectionName:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AselectionName%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">selectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Uniquely identifies a request to assign a set of resources to a backup</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_selectionId"><span class="hs-identifier hs-type">backupSelectionsListMember_selectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="backupSelectionsListMember_selectionId"><span class="annot"><span class="annottext">backupSelectionsListMember_selectionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackupSelectionsListMember -&gt; f BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_selectionId"><span class="hs-identifier hs-var hs-var">backupSelectionsListMember_selectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackupSelectionsListMember -&gt; Maybe Text)
+-&gt; (BackupSelectionsListMember
+    -&gt; Maybe Text -&gt; BackupSelectionsListMember)
+-&gt; Lens
+     BackupSelectionsListMember
+     BackupSelectionsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305739"><span class="annot"><span class="annottext">Maybe Text
+selectionId :: Maybe Text
+$sel:selectionId:BackupSelectionsListMember' :: BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679305739"><span class="hs-identifier hs-var hs-var">selectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305739"><span class="hs-identifier hs-var">selectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305738"><span class="annot"><span class="annottext">s :: BackupSelectionsListMember
+</span><a href="#local-6989586621679305738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305737"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupSelectionsListMember
+</span><a href="#local-6989586621679305738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectionId:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AselectionId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">selectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Uniquely identifies a backup plan.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_backupPlanId"><span class="hs-identifier hs-type">backupSelectionsListMember_backupPlanId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="backupSelectionsListMember_backupPlanId"><span class="annot"><span class="annottext">backupSelectionsListMember_backupPlanId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackupSelectionsListMember -&gt; f BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_backupPlanId"><span class="hs-identifier hs-var hs-var">backupSelectionsListMember_backupPlanId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackupSelectionsListMember -&gt; Maybe Text)
+-&gt; (BackupSelectionsListMember
+    -&gt; Maybe Text -&gt; BackupSelectionsListMember)
+-&gt; Lens
+     BackupSelectionsListMember
+     BackupSelectionsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305735"><span class="annot"><span class="annottext">Maybe Text
+backupPlanId :: Maybe Text
+$sel:backupPlanId:BackupSelectionsListMember' :: BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679305735"><span class="hs-identifier hs-var hs-var">backupPlanId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305735"><span class="hs-identifier hs-var">backupPlanId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305734"><span class="annot"><span class="annottext">s :: BackupSelectionsListMember
+</span><a href="#local-6989586621679305734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupSelectionsListMember
+</span><a href="#local-6989586621679305734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupPlanId:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AbackupPlanId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">backupPlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | A unique string that identifies the request and allows failed requests</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- to be retried without the risk of running the operation twice.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_creatorRequestId"><span class="hs-identifier hs-type">backupSelectionsListMember_creatorRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="backupSelectionsListMember_creatorRequestId"><span class="annot"><span class="annottext">backupSelectionsListMember_creatorRequestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackupSelectionsListMember -&gt; f BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_creatorRequestId"><span class="hs-identifier hs-var hs-var">backupSelectionsListMember_creatorRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackupSelectionsListMember -&gt; Maybe Text)
+-&gt; (BackupSelectionsListMember
+    -&gt; Maybe Text -&gt; BackupSelectionsListMember)
+-&gt; Lens
+     BackupSelectionsListMember
+     BackupSelectionsListMember
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305731"><span class="annot"><span class="annottext">Maybe Text
+creatorRequestId :: Maybe Text
+$sel:creatorRequestId:BackupSelectionsListMember' :: BackupSelectionsListMember -&gt; Maybe Text
+</span><a href="#local-6989586621679305731"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305731"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305730"><span class="annot"><span class="annottext">s :: BackupSelectionsListMember
+</span><a href="#local-6989586621679305730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupSelectionsListMember
+</span><a href="#local-6989586621679305730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creatorRequestId:BackupSelectionsListMember' :: Maybe Text
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AcreatorRequestId%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The date and time a backup plan is created, in Unix format and</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationDate@ is</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_creationDate"><span class="hs-identifier hs-type">backupSelectionsListMember_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="backupSelectionsListMember_creationDate"><span class="annot"><span class="annottext">backupSelectionsListMember_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BackupSelectionsListMember -&gt; f BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_creationDate"><span class="hs-identifier hs-var hs-var">backupSelectionsListMember_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackupSelectionsListMember -&gt; Maybe POSIX)
+-&gt; (BackupSelectionsListMember
+    -&gt; Maybe POSIX -&gt; BackupSelectionsListMember)
+-&gt; Lens
+     BackupSelectionsListMember
+     BackupSelectionsListMember
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305727"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:BackupSelectionsListMember' :: BackupSelectionsListMember -&gt; Maybe POSIX
+</span><a href="#local-6989586621679305727"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679305727"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305726"><span class="annot"><span class="annottext">s :: BackupSelectionsListMember
+</span><a href="#local-6989586621679305726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-type">BackupSelectionsListMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305725"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679305725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupSelectionsListMember
+</span><a href="#local-6989586621679305726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:BackupSelectionsListMember' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#%24sel%3AcreationDate%3ABackupSelectionsListMember%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679305725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BackupSelectionsListMember -&gt; f BackupSelectionsListMember)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BackupSelectionsListMember
+-&gt; f BackupSelectionsListMember
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679305717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BackupSelectionsListMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BackupSelectionsListMember)
+-&gt; Value
+-&gt; Parser BackupSelectionsListMember
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BackupSelectionsListMember&quot;</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; BackupSelectionsListMember
+</span><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember%27"><span class="hs-identifier hs-var">BackupSelectionsListMember'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; BackupSelectionsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; BackupSelectionsListMember)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; BackupSelectionsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; BackupSelectionsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SelectionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; BackupSelectionsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; BackupSelectionsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SelectionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; BackupSelectionsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; BackupSelectionsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupPlanId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; BackupSelectionsListMember)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; BackupSelectionsListMember)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatorRequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; BackupSelectionsListMember)
+-&gt; Parser (Maybe POSIX) -&gt; Parser BackupSelectionsListMember
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305708"><span id="local-6989586621679305710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier hs-type">BackupSelectionsListMember</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

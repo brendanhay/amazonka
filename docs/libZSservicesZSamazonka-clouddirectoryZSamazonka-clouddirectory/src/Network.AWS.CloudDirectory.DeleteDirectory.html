@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteDirectory' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679346529"><span id="local-6989586621679346530"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDirectory"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-var">DeleteDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDirectory%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-var">DeleteDirectory'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679346538"><span id="local-6989586621679346539"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDirectory"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-var">DeleteDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDirectory%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-var">DeleteDirectory'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the directory to delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADeleteDirectory%27"><span class="annot"><span class="annottext">DeleteDirectory -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AdirectoryArn%3ADeleteDirectory%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346523"><span id="local-6989586621679346525"><span class="annot"><span class="annottext">DeleteDirectory -&gt; DeleteDirectory -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346532"><span id="local-6989586621679346534"><span class="annot"><span class="annottext">DeleteDirectory -&gt; DeleteDirectory -&gt; Bool
 (DeleteDirectory -&gt; DeleteDirectory -&gt; Bool)
 -&gt; (DeleteDirectory -&gt; DeleteDirectory -&gt; Bool)
 -&gt; Eq DeleteDirectory
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDirectory -&gt; DeleteDirectory -&gt; Bool
 == :: DeleteDirectory -&gt; DeleteDirectory -&gt; Bool
 $c== :: DeleteDirectory -&gt; DeleteDirectory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346514"><span id="local-6989586621679346516"><span id="local-6989586621679346518"><span id="local-6989586621679346520"><span class="annot"><span class="annottext">ReadPrec [DeleteDirectory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346523"><span id="local-6989586621679346525"><span id="local-6989586621679346527"><span id="local-6989586621679346529"><span class="annot"><span class="annottext">ReadPrec [DeleteDirectory]
 ReadPrec DeleteDirectory
 Int -&gt; ReadS DeleteDirectory
 ReadS [DeleteDirectory]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteDirectory]
 $creadList :: ReadS [DeleteDirectory]
 readsPrec :: Int -&gt; ReadS DeleteDirectory
 $creadsPrec :: Int -&gt; ReadS DeleteDirectory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346507"><span id="local-6989586621679346509"><span id="local-6989586621679346511"><span class="annot"><span class="annottext">Int -&gt; DeleteDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346516"><span id="local-6989586621679346518"><span id="local-6989586621679346520"><span class="annot"><span class="annottext">Int -&gt; DeleteDirectory -&gt; ShowS
 [DeleteDirectory] -&gt; ShowS
 DeleteDirectory -&gt; String
 (Int -&gt; DeleteDirectory -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. DeleteDirectory -&gt; Rep DeleteDirectory x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteDirectory"><span class="annot"><span class="annottext">newDeleteDirectory :: Text -&gt; DeleteDirectory
-</span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#newDeleteDirectory"><span class="hs-identifier hs-var hs-var">newDeleteDirectory</span></a></span></span><span> </span><span id="local-6989586621679346502"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346502"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#newDeleteDirectory"><span class="hs-identifier hs-var hs-var">newDeleteDirectory</span></a></span></span><span> </span><span id="local-6989586621679346511"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346511"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteDirectory' :: Text -&gt; DeleteDirectory
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-type">DeleteDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DeleteDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AdirectoryArn%3ADeleteDirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346502"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679346511"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the directory to delete.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#deleteDirectory_directoryArn"><span class="hs-identifier hs-type">deleteDirectory_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteDirectory -&gt; Rep DeleteDirectory x
 -&gt; (DeleteDirectory -&gt; Text -&gt; DeleteDirectory)
 -&gt; Lens DeleteDirectory DeleteDirectory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-type">DeleteDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346499"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-type">DeleteDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346508"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DeleteDirectory' :: DeleteDirectory -&gt; Text
-</span><a href="#local-6989586621679346499"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346499"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346498"><span class="annot"><span class="annottext">s :: DeleteDirectory
-</span><a href="#local-6989586621679346498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-type">DeleteDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDirectory
-</span><a href="#local-6989586621679346498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DeleteDirectory' :: Text
+</span><a href="#local-6989586621679346508"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346508"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346507"><span class="annot"><span class="annottext">s :: DeleteDirectory
+</span><a href="#local-6989586621679346507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-type">DeleteDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDirectory
+</span><a href="#local-6989586621679346507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DeleteDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AdirectoryArn%3ADeleteDirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679346493"><span class="annot"><span class="annottext">request :: DeleteDirectory -&gt; Request DeleteDirectory
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679346502"><span class="annot"><span class="annottext">request :: DeleteDirectory -&gt; Request DeleteDirectory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDirectory -&gt; Request DeleteDirectory
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679346489"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679346498"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDirectory
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346486"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346486"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346485"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679346485"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346484"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346495"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346495"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346494"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679346494"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346493"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; DeleteDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-var">DeleteDirectoryResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; DeleteDirectoryResponse)
@@ -196,27 +196,27 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346486"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346495"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; DeleteDirectoryResponse)
 -&gt; Either String Text -&gt; Either String DeleteDirectoryResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679346493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346476"><span id="local-6989586621679346478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346485"><span id="local-6989586621679346487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679346469"><span class="annot"><span class="annottext">toHeaders :: DeleteDirectory -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-type">DeleteDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346467"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679346478"><span class="annot"><span class="annottext">toHeaders :: DeleteDirectory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory%27"><span class="hs-identifier hs-type">DeleteDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346476"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DeleteDirectory' :: DeleteDirectory -&gt; Text
-</span><a href="#local-6989586621679346467"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679346476"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -224,10 +224,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346467"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679346476"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346459"><span id="local-6989586621679346461"><span id="local-6989586621679346463"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679346457"><span class="annot"><span class="annottext">toJSON :: DeleteDirectory -&gt; Value
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346468"><span id="local-6989586621679346470"><span id="local-6989586621679346472"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679346466"><span class="annot"><span class="annottext">toJSON :: DeleteDirectory -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DeleteDirectory -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679346451"><span class="annot"><span class="annottext">toPath :: DeleteDirectory -&gt; ByteString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679346460"><span class="annot"><span class="annottext">toPath :: DeleteDirectory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDirectory -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -245,7 +245,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/directory&quot;</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectory"><span class="hs-identifier hs-type">DeleteDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679346447"><span class="annot"><span class="annottext">toQuery :: DeleteDirectory -&gt; QueryString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679346456"><span class="annot"><span class="annottext">toQuery :: DeleteDirectory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDirectory -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -253,7 +253,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDeleteDirectoryResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679346444"><span id="local-6989586621679346445"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDirectoryResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-var">DeleteDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDirectoryResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-var">DeleteDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679346453"><span id="local-6989586621679346454"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDirectoryResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-var">DeleteDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDirectoryResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-var">DeleteDirectoryResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDirectoryResponse%27"><span class="annot"><span class="annottext">DeleteDirectoryResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AhttpStatus%3ADeleteDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -261,7 +261,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADeleteDirectoryResponse%27"><span class="annot"><span class="annottext">DeleteDirectoryResponse -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AdirectoryArn%3ADeleteDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346438"><span id="local-6989586621679346440"><span class="annot"><span class="annottext">DeleteDirectoryResponse -&gt; DeleteDirectoryResponse -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346447"><span id="local-6989586621679346449"><span class="annot"><span class="annottext">DeleteDirectoryResponse -&gt; DeleteDirectoryResponse -&gt; Bool
 (DeleteDirectoryResponse -&gt; DeleteDirectoryResponse -&gt; Bool)
 -&gt; (DeleteDirectoryResponse -&gt; DeleteDirectoryResponse -&gt; Bool)
 -&gt; Eq DeleteDirectoryResponse
@@ -270,7 +270,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDirectoryResponse -&gt; DeleteDirectoryResponse -&gt; Bool
 == :: DeleteDirectoryResponse -&gt; DeleteDirectoryResponse -&gt; Bool
 $c== :: DeleteDirectoryResponse -&gt; DeleteDirectoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346430"><span id="local-6989586621679346432"><span id="local-6989586621679346434"><span id="local-6989586621679346436"><span class="annot"><span class="annottext">ReadPrec [DeleteDirectoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346439"><span id="local-6989586621679346441"><span id="local-6989586621679346443"><span id="local-6989586621679346445"><span class="annot"><span class="annottext">ReadPrec [DeleteDirectoryResponse]
 ReadPrec DeleteDirectoryResponse
 Int -&gt; ReadS DeleteDirectoryResponse
 ReadS [DeleteDirectoryResponse]
@@ -290,7 +290,7 @@ readList :: ReadS [DeleteDirectoryResponse]
 $creadList :: ReadS [DeleteDirectoryResponse]
 readsPrec :: Int -&gt; ReadS DeleteDirectoryResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDirectoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346424"><span id="local-6989586621679346426"><span id="local-6989586621679346428"><span class="annot"><span class="annottext">Int -&gt; DeleteDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346433"><span id="local-6989586621679346435"><span id="local-6989586621679346437"><span class="annot"><span class="annottext">Int -&gt; DeleteDirectoryResponse -&gt; ShowS
 [DeleteDirectoryResponse] -&gt; ShowS
 DeleteDirectoryResponse -&gt; String
 (Int -&gt; DeleteDirectoryResponse -&gt; ShowS)
@@ -337,18 +337,18 @@ $cfrom :: forall x. DeleteDirectoryResponse -&gt; Rep DeleteDirectoryResponse x
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span><span>
 </span><span id="line-137"></span><span id="newDeleteDirectoryResponse"><span class="annot"><span class="annottext">newDeleteDirectoryResponse :: Int -&gt; Text -&gt; DeleteDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#newDeleteDirectoryResponse"><span class="hs-identifier hs-var hs-var">newDeleteDirectoryResponse</span></a></span></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679346421"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679346420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346420"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679346430"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346430"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679346429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346429"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">DeleteDirectoryResponse' :: Int -&gt; Text -&gt; DeleteDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDirectoryResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AhttpStatus%3ADeleteDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346430"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryArn:DeleteDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AdirectoryArn%3ADeleteDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346420"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span>
+</span><a href="#local-6989586621679346429"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -359,16 +359,16 @@ $cfrom :: forall x. DeleteDirectoryResponse -&gt; Rep DeleteDirectoryResponse x
 -&gt; (DeleteDirectoryResponse -&gt; Int -&gt; DeleteDirectoryResponse)
 -&gt; Lens DeleteDirectoryResponse DeleteDirectoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346419"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346428"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDirectoryResponse' :: DeleteDirectoryResponse -&gt; Int
-</span><a href="#local-6989586621679346419"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346419"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346418"><span class="annot"><span class="annottext">s :: DeleteDirectoryResponse
-</span><a href="#local-6989586621679346418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346417"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDirectoryResponse
-</span><a href="#local-6989586621679346418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDirectoryResponse' :: Int
+</span><a href="#local-6989586621679346428"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346428"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346427"><span class="annot"><span class="annottext">s :: DeleteDirectoryResponse
+</span><a href="#local-6989586621679346427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346426"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDirectoryResponse
+</span><a href="#local-6989586621679346427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDirectoryResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AhttpStatus%3ADeleteDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The ARN of the deleted directory.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#deleteDirectoryResponse_directoryArn"><span class="hs-identifier hs-type">deleteDirectoryResponse_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -378,16 +378,16 @@ $sel:httpStatus:DeleteDirectoryResponse' :: DeleteDirectoryResponse -&gt; Int
 -&gt; (DeleteDirectoryResponse -&gt; Text -&gt; DeleteDirectoryResponse)
 -&gt; Lens DeleteDirectoryResponse DeleteDirectoryResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346416"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346425"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DeleteDirectoryResponse' :: DeleteDirectoryResponse -&gt; Text
-</span><a href="#local-6989586621679346416"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346416"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346415"><span class="annot"><span class="annottext">s :: DeleteDirectoryResponse
-</span><a href="#local-6989586621679346415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346414"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDirectoryResponse
-</span><a href="#local-6989586621679346415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DeleteDirectoryResponse' :: Text
+</span><a href="#local-6989586621679346425"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346425"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346424"><span class="annot"><span class="annottext">s :: DeleteDirectoryResponse
+</span><a href="#local-6989586621679346424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse%27"><span class="hs-identifier hs-type">DeleteDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346423"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDirectoryResponse
+</span><a href="#local-6989586621679346424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DeleteDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#%24sel%3AdirectoryArn%3ADeleteDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DeleteDirectory.html#DeleteDirectoryResponse"><span class="hs-identifier hs-type">DeleteDirectoryResponse</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

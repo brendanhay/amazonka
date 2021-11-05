@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newAssociateKmsKey' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679233336"><span id="local-6989586621679233337"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateKmsKey"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-var">AssociateKmsKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateKmsKey%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-var">AssociateKmsKey'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679233345"><span id="local-6989586621679233346"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateKmsKey"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-var">AssociateKmsKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateKmsKey%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-var">AssociateKmsKey'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="annot"><span class="annottext">AssociateKmsKey -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="annot"><span class="annottext">AssociateKmsKey -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233329"><span id="local-6989586621679233331"><span class="annot"><span class="annottext">AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233338"><span id="local-6989586621679233340"><span class="annot"><span class="annottext">AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
 (AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool)
 -&gt; (AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool)
 -&gt; Eq AssociateKmsKey
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
 == :: AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
 $c== :: AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233320"><span id="local-6989586621679233322"><span id="local-6989586621679233324"><span id="local-6989586621679233326"><span class="annot"><span class="annottext">ReadPrec [AssociateKmsKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233329"><span id="local-6989586621679233331"><span id="local-6989586621679233333"><span id="local-6989586621679233335"><span class="annot"><span class="annottext">ReadPrec [AssociateKmsKey]
 ReadPrec AssociateKmsKey
 Int -&gt; ReadS AssociateKmsKey
 ReadS [AssociateKmsKey]
@@ -103,7 +103,7 @@ readList :: ReadS [AssociateKmsKey]
 $creadList :: ReadS [AssociateKmsKey]
 readsPrec :: Int -&gt; ReadS AssociateKmsKey
 $creadsPrec :: Int -&gt; ReadS AssociateKmsKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233313"><span id="local-6989586621679233315"><span id="local-6989586621679233317"><span class="annot"><span class="annottext">Int -&gt; AssociateKmsKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233322"><span id="local-6989586621679233324"><span id="local-6989586621679233326"><span class="annot"><span class="annottext">Int -&gt; AssociateKmsKey -&gt; ShowS
 [AssociateKmsKey] -&gt; ShowS
 AssociateKmsKey -&gt; String
 (Int -&gt; AssociateKmsKey -&gt; ShowS)
@@ -151,17 +151,17 @@ $cfrom :: forall x. AssociateKmsKey -&gt; Rep AssociateKmsKey x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span>
 </span><span id="line-98"></span><span id="newAssociateKmsKey"><span class="annot"><span class="annottext">newAssociateKmsKey :: Text -&gt; Text -&gt; AssociateKmsKey
-</span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKey"><span class="hs-identifier hs-var hs-var">newAssociateKmsKey</span></a></span></span><span> </span><span id="local-6989586621679233308"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233308"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span id="local-6989586621679233307"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233307"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKey"><span class="hs-identifier hs-var hs-var">newAssociateKmsKey</span></a></span></span><span> </span><span id="local-6989586621679233317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233317"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span id="local-6989586621679233316"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233316"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">AssociateKmsKey' :: Text -&gt; Text -&gt; AssociateKmsKey
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logGroupName:AssociateKmsKey' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233308"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679233317"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:AssociateKmsKey' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233307"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679233316"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the log group.</span><span>
@@ -171,16 +171,16 @@ $cfrom :: forall x. AssociateKmsKey -&gt; Rep AssociateKmsKey x
 -&gt; (AssociateKmsKey -&gt; Text -&gt; AssociateKmsKey)
 -&gt; Lens AssociateKmsKey AssociateKmsKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233304"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233313"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
-</span><a href="#local-6989586621679233304"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233304"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233303"><span class="annot"><span class="annottext">s :: AssociateKmsKey
-</span><a href="#local-6989586621679233303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKey
-</span><a href="#local-6989586621679233303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:AssociateKmsKey' :: Text
+</span><a href="#local-6989586621679233313"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233313"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233312"><span class="annot"><span class="annottext">s :: AssociateKmsKey
+</span><a href="#local-6989586621679233312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKey
+</span><a href="#local-6989586621679233312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:AssociateKmsKey' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- data. This must be a symmetric CMK. For more information, see</span><span>
@@ -193,27 +193,27 @@ $sel:logGroupName:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
 -&gt; (AssociateKmsKey -&gt; Text -&gt; AssociateKmsKey)
 -&gt; Lens AssociateKmsKey AssociateKmsKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233301"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233310"><span class="annot"><span class="annottext">Text
 kmsKeyId :: Text
 $sel:kmsKeyId:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
-</span><a href="#local-6989586621679233301"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233301"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233300"><span class="annot"><span class="annottext">s :: AssociateKmsKey
-</span><a href="#local-6989586621679233300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233299"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKey
-</span><a href="#local-6989586621679233300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:AssociateKmsKey' :: Text
+</span><a href="#local-6989586621679233310"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233310"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233309"><span class="annot"><span class="annottext">s :: AssociateKmsKey
+</span><a href="#local-6989586621679233309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233308"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKey
+</span><a href="#local-6989586621679233309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:AssociateKmsKey' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-type">AssociateKmsKeyResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679233295"><span class="annot"><span class="annottext">request :: AssociateKmsKey -&gt; Request AssociateKmsKey
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679233304"><span class="annot"><span class="annottext">request :: AssociateKmsKey -&gt; Request AssociateKmsKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateKmsKey -&gt; Request AssociateKmsKey
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679233291"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679233300"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateKmsKey
 -&gt; ClientResponse ClientBody
@@ -237,12 +237,12 @@ AWSResponse a
 AssociateKmsKeyResponse
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse%27"><span class="hs-identifier hs-var">AssociateKmsKeyResponse'</span></a></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233284"><span id="local-6989586621679233286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233293"><span id="local-6989586621679233295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679233277"><span class="annot"><span class="annottext">toHeaders :: AssociateKmsKey -&gt; [Header]
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679233286"><span class="annot"><span class="annottext">toHeaders :: AssociateKmsKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateKmsKey -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -269,14 +269,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233267"><span id="local-6989586621679233269"><span id="local-6989586621679233271"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679233265"><span class="annot"><span class="annottext">toJSON :: AssociateKmsKey -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233262"><span id="local-6989586621679233263"><span class="annot"><span class="annottext">Text
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233276"><span id="local-6989586621679233278"><span id="local-6989586621679233280"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679233274"><span class="annot"><span class="annottext">toJSON :: AssociateKmsKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233271"><span id="local-6989586621679233272"><span class="annot"><span class="annottext">Text
 kmsKeyId :: Text
 logGroupName :: Text
 $sel:kmsKeyId:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
 $sel:logGroupName:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
-</span><a href="#local-6989586621679233262"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679233271"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,26 +288,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233263"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679233272"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233262"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233271"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679233256"><span class="annot"><span class="annottext">toPath :: AssociateKmsKey -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679233265"><span class="annot"><span class="annottext">toPath :: AssociateKmsKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateKmsKey -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679233252"><span class="annot"><span class="annottext">toQuery :: AssociateKmsKey -&gt; QueryString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679233261"><span class="annot"><span class="annottext">toQuery :: AssociateKmsKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateKmsKey -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -315,10 +315,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newAssociateKmsKeyResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679233249"><span id="local-6989586621679233250"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateKmsKeyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-var">AssociateKmsKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateKmsKeyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse%27"><span class="hs-identifier hs-var">AssociateKmsKeyResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679233258"><span id="local-6989586621679233259"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateKmsKeyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-var">AssociateKmsKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateKmsKeyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse%27"><span class="hs-identifier hs-var">AssociateKmsKeyResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233245"><span id="local-6989586621679233247"><span class="annot"><span class="annottext">AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233254"><span id="local-6989586621679233256"><span class="annot"><span class="annottext">AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
 (AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool)
 -&gt; (AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool)
 -&gt; Eq AssociateKmsKeyResponse
@@ -327,7 +327,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
 == :: AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
 $c== :: AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233237"><span id="local-6989586621679233239"><span id="local-6989586621679233241"><span id="local-6989586621679233243"><span class="annot"><span class="annottext">ReadPrec [AssociateKmsKeyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233246"><span id="local-6989586621679233248"><span id="local-6989586621679233250"><span id="local-6989586621679233252"><span class="annot"><span class="annottext">ReadPrec [AssociateKmsKeyResponse]
 ReadPrec AssociateKmsKeyResponse
 Int -&gt; ReadS AssociateKmsKeyResponse
 ReadS [AssociateKmsKeyResponse]
@@ -347,7 +347,7 @@ readList :: ReadS [AssociateKmsKeyResponse]
 $creadList :: ReadS [AssociateKmsKeyResponse]
 readsPrec :: Int -&gt; ReadS AssociateKmsKeyResponse
 $creadsPrec :: Int -&gt; ReadS AssociateKmsKeyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233231"><span id="local-6989586621679233233"><span id="local-6989586621679233235"><span class="annot"><span class="annottext">Int -&gt; AssociateKmsKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233240"><span id="local-6989586621679233242"><span id="local-6989586621679233244"><span class="annot"><span class="annottext">Int -&gt; AssociateKmsKeyResponse -&gt; ShowS
 [AssociateKmsKeyResponse] -&gt; ShowS
 AssociateKmsKeyResponse -&gt; String
 (Int -&gt; AssociateKmsKeyResponse -&gt; ShowS)
@@ -385,5 +385,5 @@ $cfrom :: forall x. AssociateKmsKeyResponse -&gt; Rep AssociateKmsKeyResponse x
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKeyResponse"><span class="hs-identifier hs-var hs-var">newAssociateKmsKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKeyResponse
 </span><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse%27"><span class="hs-identifier hs-var">AssociateKmsKeyResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-type">AssociateKmsKeyResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-type">AssociateKmsKeyResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

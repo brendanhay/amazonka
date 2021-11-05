@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDeleteDisk' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679654373"><span id="local-6989586621679654374"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDisk"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-var">DeleteDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-var">DeleteDisk'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679654382"><span id="local-6989586621679654383"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDisk"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-var">DeleteDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-var">DeleteDisk'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value to indicate whether to delete the enabled add-ons for</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the disk.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AforceDeleteAddOns%3ADeleteDisk%27"><span class="annot"><span class="annottext">DeleteDisk -&gt; Maybe Bool
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AdiskName%3ADeleteDisk%27"><span class="annot"><span class="annottext">DeleteDisk -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3AdiskName%3ADeleteDisk%27"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654366"><span id="local-6989586621679654368"><span class="annot"><span class="annottext">DeleteDisk -&gt; DeleteDisk -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654375"><span id="local-6989586621679654377"><span class="annot"><span class="annottext">DeleteDisk -&gt; DeleteDisk -&gt; Bool
 (DeleteDisk -&gt; DeleteDisk -&gt; Bool)
 -&gt; (DeleteDisk -&gt; DeleteDisk -&gt; Bool) -&gt; Eq DeleteDisk
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDisk -&gt; DeleteDisk -&gt; Bool
 == :: DeleteDisk -&gt; DeleteDisk -&gt; Bool
 $c== :: DeleteDisk -&gt; DeleteDisk -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654357"><span id="local-6989586621679654359"><span id="local-6989586621679654361"><span id="local-6989586621679654363"><span class="annot"><span class="annottext">ReadPrec [DeleteDisk]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654366"><span id="local-6989586621679654368"><span id="local-6989586621679654370"><span id="local-6989586621679654372"><span class="annot"><span class="annottext">ReadPrec [DeleteDisk]
 ReadPrec DeleteDisk
 Int -&gt; ReadS DeleteDisk
 ReadS [DeleteDisk]
@@ -93,7 +93,7 @@ readList :: ReadS [DeleteDisk]
 $creadList :: ReadS [DeleteDisk]
 readsPrec :: Int -&gt; ReadS DeleteDisk
 $creadsPrec :: Int -&gt; ReadS DeleteDisk
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654350"><span id="local-6989586621679654352"><span id="local-6989586621679654354"><span class="annot"><span class="annottext">Int -&gt; DeleteDisk -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654359"><span id="local-6989586621679654361"><span id="local-6989586621679654363"><span class="annot"><span class="annottext">Int -&gt; DeleteDisk -&gt; ShowS
 [DeleteDisk] -&gt; ShowS
 DeleteDisk -&gt; String
 (Int -&gt; DeleteDisk -&gt; ShowS)
@@ -135,8 +135,8 @@ $cfrom :: forall x. DeleteDisk -&gt; Rep DeleteDisk x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span>
 </span><span id="line-84"></span><span id="newDeleteDisk"><span class="annot"><span class="annottext">newDeleteDisk :: Text -&gt; DeleteDisk
-</span><a href="Network.AWS.Lightsail.DeleteDisk.html#newDeleteDisk"><span class="hs-identifier hs-var hs-var">newDeleteDisk</span></a></span></span><span> </span><span id="local-6989586621679654345"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654345"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteDisk.html#newDeleteDisk"><span class="hs-identifier hs-var hs-var">newDeleteDisk</span></a></span></span><span> </span><span id="local-6989586621679654354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654354"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DeleteDisk' :: Maybe Bool -&gt; Text -&gt; DeleteDisk
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:forceDeleteAddOns:DeleteDisk' :: Maybe Bool
@@ -145,7 +145,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskName:DeleteDisk' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3AdiskName%3ADeleteDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654345"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span>
+</span><a href="#local-6989586621679654354"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | A Boolean value to indicate whether to delete the enabled add-ons for</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (DeleteDisk -&gt; Maybe Bool -&gt; DeleteDisk)
 -&gt; Lens DeleteDisk DeleteDisk (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654342"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654351"><span class="annot"><span class="annottext">Maybe Bool
 forceDeleteAddOns :: Maybe Bool
 $sel:forceDeleteAddOns:DeleteDisk' :: DeleteDisk -&gt; Maybe Bool
-</span><a href="#local-6989586621679654342"><span class="hs-identifier hs-var hs-var">forceDeleteAddOns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654342"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654341"><span class="annot"><span class="annottext">s :: DeleteDisk
-</span><a href="#local-6989586621679654341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654340"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDisk
-</span><a href="#local-6989586621679654341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDeleteAddOns:DeleteDisk' :: Maybe Bool
+</span><a href="#local-6989586621679654351"><span class="hs-identifier hs-var hs-var">forceDeleteAddOns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679654351"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654350"><span class="annot"><span class="annottext">s :: DeleteDisk
+</span><a href="#local-6989586621679654350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654349"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679654349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDisk
+</span><a href="#local-6989586621679654350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDeleteAddOns:DeleteDisk' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3AforceDeleteAddOns%3ADeleteDisk%27"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The unique name of the disk you want to delete (e.g., @my-disk@).</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#deleteDisk_diskName"><span class="hs-identifier hs-type">deleteDisk_diskName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,25 +174,25 @@ $sel:forceDeleteAddOns:DeleteDisk' :: DeleteDisk -&gt; Maybe Bool
 -&gt; (DeleteDisk -&gt; Text -&gt; DeleteDisk)
 -&gt; Lens DeleteDisk DeleteDisk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654339"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654348"><span class="annot"><span class="annottext">Text
 diskName :: Text
 $sel:diskName:DeleteDisk' :: DeleteDisk -&gt; Text
-</span><a href="#local-6989586621679654339"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654339"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654338"><span class="annot"><span class="annottext">s :: DeleteDisk
-</span><a href="#local-6989586621679654338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654337"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDisk
-</span><a href="#local-6989586621679654338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:DeleteDisk' :: Text
+</span><a href="#local-6989586621679654348"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654348"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654347"><span class="annot"><span class="annottext">s :: DeleteDisk
+</span><a href="#local-6989586621679654347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654346"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDisk
+</span><a href="#local-6989586621679654347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:DeleteDisk' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3AdiskName%3ADeleteDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679654333"><span class="annot"><span class="annottext">request :: DeleteDisk -&gt; Request DeleteDisk
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679654342"><span class="annot"><span class="annottext">request :: DeleteDisk -&gt; Request DeleteDisk
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDisk -&gt; Request DeleteDisk
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679654329"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679654338"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDisk
 -&gt; ClientResponse ClientBody
@@ -216,10 +216,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679654326"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654326"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679654325"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679654325"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679654324"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679654324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679654335"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654335"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679654334"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679654334"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679654333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679654333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteDiskResponse
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-var">DeleteDiskResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteDiskResponse)
@@ -227,7 +227,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteDiskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679654324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679654333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -244,15 +244,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654326"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654335"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654315"><span id="local-6989586621679654317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654324"><span id="local-6989586621679654326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679654308"><span class="annot"><span class="annottext">toHeaders :: DeleteDisk -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679654317"><span class="annot"><span class="annottext">toHeaders :: DeleteDisk -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDisk -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -279,15 +279,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654298"><span id="local-6989586621679654300"><span id="local-6989586621679654302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679654296"><span class="annot"><span class="annottext">toJSON :: DeleteDisk -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654293"><span id="local-6989586621679654294"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654307"><span id="local-6989586621679654309"><span id="local-6989586621679654311"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679654305"><span class="annot"><span class="annottext">toJSON :: DeleteDisk -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk%27"><span class="hs-identifier hs-type">DeleteDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654302"><span id="local-6989586621679654303"><span class="annot"><span class="annottext">Maybe Bool
 Text
 diskName :: Text
 forceDeleteAddOns :: Maybe Bool
 $sel:diskName:DeleteDisk' :: DeleteDisk -&gt; Text
 $sel:forceDeleteAddOns:DeleteDisk' :: DeleteDisk -&gt; Maybe Bool
-</span><a href="#local-6989586621679654293"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679654302"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,26 +300,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654294"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679654303"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;diskName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654293"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654302"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679654287"><span class="annot"><span class="annottext">toPath :: DeleteDisk -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679654296"><span class="annot"><span class="annottext">toPath :: DeleteDisk -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDisk -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDisk"><span class="hs-identifier hs-type">DeleteDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679654283"><span class="annot"><span class="annottext">toQuery :: DeleteDisk -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679654292"><span class="annot"><span class="annottext">toQuery :: DeleteDisk -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDisk -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -327,7 +327,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDeleteDiskResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679654280"><span id="local-6989586621679654281"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-var">DeleteDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-var">DeleteDiskResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679654289"><span id="local-6989586621679654290"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-var">DeleteDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-var">DeleteDiskResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -337,7 +337,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDiskResponse%27"><span class="annot"><span class="annottext">DeleteDiskResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3AhttpStatus%3ADeleteDiskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654274"><span id="local-6989586621679654276"><span class="annot"><span class="annottext">DeleteDiskResponse -&gt; DeleteDiskResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654283"><span id="local-6989586621679654285"><span class="annot"><span class="annottext">DeleteDiskResponse -&gt; DeleteDiskResponse -&gt; Bool
 (DeleteDiskResponse -&gt; DeleteDiskResponse -&gt; Bool)
 -&gt; (DeleteDiskResponse -&gt; DeleteDiskResponse -&gt; Bool)
 -&gt; Eq DeleteDiskResponse
@@ -346,7 +346,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDiskResponse -&gt; DeleteDiskResponse -&gt; Bool
 == :: DeleteDiskResponse -&gt; DeleteDiskResponse -&gt; Bool
 $c== :: DeleteDiskResponse -&gt; DeleteDiskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654266"><span id="local-6989586621679654268"><span id="local-6989586621679654270"><span id="local-6989586621679654272"><span class="annot"><span class="annottext">ReadPrec [DeleteDiskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654275"><span id="local-6989586621679654277"><span id="local-6989586621679654279"><span id="local-6989586621679654281"><span class="annot"><span class="annottext">ReadPrec [DeleteDiskResponse]
 ReadPrec DeleteDiskResponse
 Int -&gt; ReadS DeleteDiskResponse
 ReadS [DeleteDiskResponse]
@@ -366,7 +366,7 @@ readList :: ReadS [DeleteDiskResponse]
 $creadList :: ReadS [DeleteDiskResponse]
 readsPrec :: Int -&gt; ReadS DeleteDiskResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDiskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654260"><span id="local-6989586621679654262"><span id="local-6989586621679654264"><span class="annot"><span class="annottext">Int -&gt; DeleteDiskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654269"><span id="local-6989586621679654271"><span id="local-6989586621679654273"><span class="annot"><span class="annottext">Int -&gt; DeleteDiskResponse -&gt; ShowS
 [DeleteDiskResponse] -&gt; ShowS
 DeleteDiskResponse -&gt; String
 (Int -&gt; DeleteDiskResponse -&gt; ShowS)
@@ -410,8 +410,8 @@ $cfrom :: forall x. DeleteDiskResponse -&gt; Rep DeleteDiskResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newDeleteDiskResponse"><span class="annot"><span class="annottext">newDeleteDiskResponse :: Int -&gt; DeleteDiskResponse
-</span><a href="Network.AWS.Lightsail.DeleteDisk.html#newDeleteDiskResponse"><span class="hs-identifier hs-var hs-var">newDeleteDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679654257"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteDisk.html#newDeleteDiskResponse"><span class="hs-identifier hs-var hs-var">newDeleteDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679654266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">DeleteDiskResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteDiskResponse
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteDiskResponse' :: Maybe [Operation]
@@ -420,7 +420,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3AhttpStatus%3ADeleteDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679654266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -437,16 +437,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654256"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654265"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteDiskResponse' :: DeleteDiskResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679654256"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679654256"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654255"><span class="annot"><span class="annottext">s :: DeleteDiskResponse
-</span><a href="#local-6989586621679654255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654254"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679654254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskResponse
-</span><a href="#local-6989586621679654255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteDiskResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679654265"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679654265"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654264"><span class="annot"><span class="annottext">s :: DeleteDiskResponse
+</span><a href="#local-6989586621679654264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654263"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679654263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskResponse
+</span><a href="#local-6989586621679654264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteDiskResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3Aoperations%3ADeleteDiskResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679654254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679654263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteDiskResponse -&gt; f DeleteDiskResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -474,16 +474,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteDiskResponse -&gt; Int -&gt; DeleteDiskResponse)
 -&gt; Lens DeleteDiskResponse DeleteDiskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654250"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654259"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDiskResponse' :: DeleteDiskResponse -&gt; Int
-</span><a href="#local-6989586621679654250"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654250"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654249"><span class="annot"><span class="annottext">s :: DeleteDiskResponse
-</span><a href="#local-6989586621679654249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskResponse
-</span><a href="#local-6989586621679654249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDiskResponse' :: Int
+</span><a href="#local-6989586621679654259"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654259"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654258"><span class="annot"><span class="annottext">s :: DeleteDiskResponse
+</span><a href="#local-6989586621679654258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse%27"><span class="hs-identifier hs-type">DeleteDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskResponse
+</span><a href="#local-6989586621679654258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteDisk.html#%24sel%3AhttpStatus%3ADeleteDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDisk.html#DeleteDiskResponse"><span class="hs-identifier hs-type">DeleteDiskResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

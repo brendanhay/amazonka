@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchGetBlueprints' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679744909"><span id="local-6989586621679744910"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetBlueprints"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-var">BatchGetBlueprints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetBlueprints%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-var">BatchGetBlueprints'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679744918"><span id="local-6989586621679744919"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetBlueprints"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-var">BatchGetBlueprints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetBlueprints%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-var">BatchGetBlueprints'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether or not to include the parameters, as a JSON string,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- for the blueprint in the response.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AincludeParameterSpec%3ABatchGetBlueprints%27"><span class="annot"><span class="annottext">BatchGetBlueprints -&gt; Maybe Bool
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Anames%3ABatchGetBlueprints%27"><span class="annot"><span class="annottext">BatchGetBlueprints -&gt; NonEmpty Text
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3Anames%3ABatchGetBlueprints%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744901"><span id="local-6989586621679744903"><span class="annot"><span class="annottext">BatchGetBlueprints -&gt; BatchGetBlueprints -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744910"><span id="local-6989586621679744912"><span class="annot"><span class="annottext">BatchGetBlueprints -&gt; BatchGetBlueprints -&gt; Bool
 (BatchGetBlueprints -&gt; BatchGetBlueprints -&gt; Bool)
 -&gt; (BatchGetBlueprints -&gt; BatchGetBlueprints -&gt; Bool)
 -&gt; Eq BatchGetBlueprints
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetBlueprints -&gt; BatchGetBlueprints -&gt; Bool
 == :: BatchGetBlueprints -&gt; BatchGetBlueprints -&gt; Bool
 $c== :: BatchGetBlueprints -&gt; BatchGetBlueprints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744892"><span id="local-6989586621679744894"><span id="local-6989586621679744896"><span id="local-6989586621679744898"><span class="annot"><span class="annottext">ReadPrec [BatchGetBlueprints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744901"><span id="local-6989586621679744903"><span id="local-6989586621679744905"><span id="local-6989586621679744907"><span class="annot"><span class="annottext">ReadPrec [BatchGetBlueprints]
 ReadPrec BatchGetBlueprints
 Int -&gt; ReadS BatchGetBlueprints
 ReadS [BatchGetBlueprints]
@@ -91,7 +91,7 @@ readList :: ReadS [BatchGetBlueprints]
 $creadList :: ReadS [BatchGetBlueprints]
 readsPrec :: Int -&gt; ReadS BatchGetBlueprints
 $creadsPrec :: Int -&gt; ReadS BatchGetBlueprints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744885"><span id="local-6989586621679744887"><span id="local-6989586621679744889"><span class="annot"><span class="annottext">Int -&gt; BatchGetBlueprints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744894"><span id="local-6989586621679744896"><span id="local-6989586621679744898"><span class="annot"><span class="annottext">Int -&gt; BatchGetBlueprints -&gt; ShowS
 [BatchGetBlueprints] -&gt; ShowS
 BatchGetBlueprints -&gt; String
 (Int -&gt; BatchGetBlueprints -&gt; ShowS)
@@ -136,8 +136,8 @@ $cfrom :: forall x. BatchGetBlueprints -&gt; Rep BatchGetBlueprints x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span>
 </span><span id="line-82"></span><span id="newBatchGetBlueprints"><span class="annot"><span class="annottext">newBatchGetBlueprints :: NonEmpty Text -&gt; BatchGetBlueprints
-</span><a href="Network.AWS.Glue.BatchGetBlueprints.html#newBatchGetBlueprints"><span class="hs-identifier hs-var hs-var">newBatchGetBlueprints</span></a></span></span><span> </span><span id="local-6989586621679744880"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679744880"><span class="hs-identifier hs-var">pNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.BatchGetBlueprints.html#newBatchGetBlueprints"><span class="hs-identifier hs-var hs-var">newBatchGetBlueprints</span></a></span></span><span> </span><span id="local-6989586621679744889"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679744889"><span class="hs-identifier hs-var">pNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">BatchGetBlueprints' :: Maybe Bool -&gt; Maybe Bool -&gt; NonEmpty Text -&gt; BatchGetBlueprints
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeParameterSpec:BatchGetBlueprints' :: Maybe Bool
@@ -158,7 +158,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679744880"><span class="hs-identifier hs-var">pNames_</span></a></span><span>
+</span><a href="#local-6989586621679744889"><span class="hs-identifier hs-var">pNames_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Specifies whether or not to include the parameters, as a JSON string,</span><span>
@@ -171,16 +171,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      BatchGetBlueprints BatchGetBlueprints (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744875"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744884"><span class="annot"><span class="annottext">Maybe Bool
 includeParameterSpec :: Maybe Bool
 $sel:includeParameterSpec:BatchGetBlueprints' :: BatchGetBlueprints -&gt; Maybe Bool
-</span><a href="#local-6989586621679744875"><span class="hs-identifier hs-var hs-var">includeParameterSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744875"><span class="hs-identifier hs-var">includeParameterSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744874"><span class="annot"><span class="annottext">s :: BatchGetBlueprints
-</span><a href="#local-6989586621679744874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744873"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprints
-</span><a href="#local-6989586621679744874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeParameterSpec:BatchGetBlueprints' :: Maybe Bool
+</span><a href="#local-6989586621679744884"><span class="hs-identifier hs-var hs-var">includeParameterSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679744884"><span class="hs-identifier hs-var">includeParameterSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744883"><span class="annot"><span class="annottext">s :: BatchGetBlueprints
+</span><a href="#local-6989586621679744883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744882"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679744882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprints
+</span><a href="#local-6989586621679744883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeParameterSpec:BatchGetBlueprints' :: Maybe Bool
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3AincludeParameterSpec%3ABatchGetBlueprints%27"><span class="hs-identifier hs-var">includeParameterSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Specifies whether or not to include the blueprint in the response.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#batchGetBlueprints_includeBlueprint"><span class="hs-identifier hs-type">batchGetBlueprints_includeBlueprint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -191,16 +191,16 @@ $sel:includeParameterSpec:BatchGetBlueprints' :: BatchGetBlueprints -&gt; Maybe 
 -&gt; Lens
      BatchGetBlueprints BatchGetBlueprints (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744872"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744881"><span class="annot"><span class="annottext">Maybe Bool
 includeBlueprint :: Maybe Bool
 $sel:includeBlueprint:BatchGetBlueprints' :: BatchGetBlueprints -&gt; Maybe Bool
-</span><a href="#local-6989586621679744872"><span class="hs-identifier hs-var hs-var">includeBlueprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744872"><span class="hs-identifier hs-var">includeBlueprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744871"><span class="annot"><span class="annottext">s :: BatchGetBlueprints
-</span><a href="#local-6989586621679744871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744870"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprints
-</span><a href="#local-6989586621679744871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeBlueprint:BatchGetBlueprints' :: Maybe Bool
+</span><a href="#local-6989586621679744881"><span class="hs-identifier hs-var hs-var">includeBlueprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679744881"><span class="hs-identifier hs-var">includeBlueprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744880"><span class="annot"><span class="annottext">s :: BatchGetBlueprints
+</span><a href="#local-6989586621679744880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744879"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679744879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprints
+</span><a href="#local-6989586621679744880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeBlueprint:BatchGetBlueprints' :: Maybe Bool
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3AincludeBlueprint%3ABatchGetBlueprints%27"><span class="hs-identifier hs-var">includeBlueprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | A list of blueprint names.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#batchGetBlueprints_names"><span class="hs-identifier hs-type">batchGetBlueprints_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -214,16 +214,16 @@ $sel:includeBlueprint:BatchGetBlueprints' :: BatchGetBlueprints -&gt; Maybe Bool
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744869"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744878"><span class="annot"><span class="annottext">NonEmpty Text
 names :: NonEmpty Text
 $sel:names:BatchGetBlueprints' :: BatchGetBlueprints -&gt; NonEmpty Text
-</span><a href="#local-6989586621679744869"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679744869"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744868"><span class="annot"><span class="annottext">s :: BatchGetBlueprints
-</span><a href="#local-6989586621679744868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744867"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679744867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprints
-</span><a href="#local-6989586621679744868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:BatchGetBlueprints' :: NonEmpty Text
+</span><a href="#local-6989586621679744878"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679744878"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744877"><span class="annot"><span class="annottext">s :: BatchGetBlueprints
+</span><a href="#local-6989586621679744877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744876"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679744876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprints
+</span><a href="#local-6989586621679744877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:BatchGetBlueprints' :: NonEmpty Text
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3Anames%3ABatchGetBlueprints%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679744867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679744876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; BatchGetBlueprints -&gt; f BatchGetBlueprints)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -240,12 +240,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679744862"><span class="annot"><span class="annottext">request :: BatchGetBlueprints -&gt; Request BatchGetBlueprints
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679744871"><span class="annot"><span class="annottext">request :: BatchGetBlueprints -&gt; Request BatchGetBlueprints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetBlueprints -&gt; Request BatchGetBlueprints
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679744858"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679744867"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetBlueprints
 -&gt; ClientResponse ClientBody
@@ -271,10 +271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679744855"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679744855"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679744854"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679744854"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679744853"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679744853"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679744864"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744864"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679744863"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679744863"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679744862"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679744862"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Blueprint]
 -&gt; Maybe [Text] -&gt; Int -&gt; BatchGetBlueprintsResponse
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var">BatchGetBlueprintsResponse'</span></a></span><span>
@@ -285,7 +285,7 @@ MonadResource m =&gt;
      String (Maybe [Text] -&gt; Int -&gt; BatchGetBlueprintsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679744853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Blueprint]))
+</span><a href="#local-6989586621679744862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Blueprint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Blueprints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Blueprint]))
@@ -299,7 +299,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchGetBlueprintsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679744853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679744862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MissingBlueprints&quot;</span></span><span>
@@ -318,15 +318,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679744855"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744864"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744844"><span id="local-6989586621679744846"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744853"><span id="local-6989586621679744855"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679744837"><span class="annot"><span class="annottext">toHeaders :: BatchGetBlueprints -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679744846"><span class="annot"><span class="annottext">toHeaders :: BatchGetBlueprints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetBlueprints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -351,9 +351,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744827"><span id="local-6989586621679744829"><span id="local-6989586621679744831"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679744825"><span class="annot"><span class="annottext">toJSON :: BatchGetBlueprints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744821"><span id="local-6989586621679744822"><span id="local-6989586621679744823"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744836"><span id="local-6989586621679744838"><span id="local-6989586621679744840"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679744834"><span class="annot"><span class="annottext">toJSON :: BatchGetBlueprints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints%27"><span class="hs-identifier hs-type">BatchGetBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744830"><span id="local-6989586621679744831"><span id="local-6989586621679744832"><span class="annot"><span class="annottext">Maybe Bool
 NonEmpty Text
 names :: NonEmpty Text
 includeBlueprint :: Maybe Bool
@@ -361,7 +361,7 @@ includeParameterSpec :: Maybe Bool
 $sel:names:BatchGetBlueprints' :: BatchGetBlueprints -&gt; NonEmpty Text
 $sel:includeBlueprint:BatchGetBlueprints' :: BatchGetBlueprints -&gt; Maybe Bool
 $sel:includeParameterSpec:BatchGetBlueprints' :: BatchGetBlueprints -&gt; Maybe Bool
-</span><a href="#local-6989586621679744821"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679744830"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -374,7 +374,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744823"><span class="hs-identifier hs-var">includeParameterSpec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679744832"><span class="hs-identifier hs-var">includeParameterSpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeBlueprint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -382,26 +382,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679744822"><span class="hs-identifier hs-var">includeBlueprint</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679744831"><span class="hs-identifier hs-var">includeBlueprint</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679744821"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744830"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679744815"><span class="annot"><span class="annottext">toPath :: BatchGetBlueprints -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679744824"><span class="annot"><span class="annottext">toPath :: BatchGetBlueprints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetBlueprints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprints"><span class="hs-identifier hs-type">BatchGetBlueprints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679744811"><span class="annot"><span class="annottext">toQuery :: BatchGetBlueprints -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679744820"><span class="annot"><span class="annottext">toQuery :: BatchGetBlueprints -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetBlueprints -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -409,7 +409,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newBatchGetBlueprintsResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679744808"><span id="local-6989586621679744809"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetBlueprintsResponse"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-var">BatchGetBlueprintsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetBlueprintsResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var">BatchGetBlueprintsResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679744817"><span id="local-6989586621679744818"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetBlueprintsResponse"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-var">BatchGetBlueprintsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetBlueprintsResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var">BatchGetBlueprintsResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a list of blueprint as a @Blueprints@ object.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3Ablueprints%3ABatchGetBlueprintsResponse%27"><span class="annot"><span class="annottext">BatchGetBlueprintsResponse -&gt; Maybe [Blueprint]
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3Ablueprints%3ABatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var hs-var">blueprints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Blueprint.html#Blueprint"><span class="hs-identifier hs-type">Blueprint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -420,7 +420,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetBlueprintsResponse%27"><span class="annot"><span class="annottext">BatchGetBlueprintsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3AhttpStatus%3ABatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744801"><span id="local-6989586621679744803"><span class="annot"><span class="annottext">BatchGetBlueprintsResponse -&gt; BatchGetBlueprintsResponse -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744810"><span id="local-6989586621679744812"><span class="annot"><span class="annottext">BatchGetBlueprintsResponse -&gt; BatchGetBlueprintsResponse -&gt; Bool
 (BatchGetBlueprintsResponse -&gt; BatchGetBlueprintsResponse -&gt; Bool)
 -&gt; (BatchGetBlueprintsResponse
     -&gt; BatchGetBlueprintsResponse -&gt; Bool)
@@ -430,7 +430,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetBlueprintsResponse -&gt; BatchGetBlueprintsResponse -&gt; Bool
 == :: BatchGetBlueprintsResponse -&gt; BatchGetBlueprintsResponse -&gt; Bool
 $c== :: BatchGetBlueprintsResponse -&gt; BatchGetBlueprintsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744793"><span id="local-6989586621679744795"><span id="local-6989586621679744797"><span id="local-6989586621679744799"><span class="annot"><span class="annottext">ReadPrec [BatchGetBlueprintsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744802"><span id="local-6989586621679744804"><span id="local-6989586621679744806"><span id="local-6989586621679744808"><span class="annot"><span class="annottext">ReadPrec [BatchGetBlueprintsResponse]
 ReadPrec BatchGetBlueprintsResponse
 Int -&gt; ReadS BatchGetBlueprintsResponse
 ReadS [BatchGetBlueprintsResponse]
@@ -450,7 +450,7 @@ readList :: ReadS [BatchGetBlueprintsResponse]
 $creadList :: ReadS [BatchGetBlueprintsResponse]
 readsPrec :: Int -&gt; ReadS BatchGetBlueprintsResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetBlueprintsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744787"><span id="local-6989586621679744789"><span id="local-6989586621679744791"><span class="annot"><span class="annottext">Int -&gt; BatchGetBlueprintsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744796"><span id="local-6989586621679744798"><span id="local-6989586621679744800"><span class="annot"><span class="annottext">Int -&gt; BatchGetBlueprintsResponse -&gt; ShowS
 [BatchGetBlueprintsResponse] -&gt; ShowS
 BatchGetBlueprintsResponse -&gt; String
 (Int -&gt; BatchGetBlueprintsResponse -&gt; ShowS)
@@ -500,8 +500,8 @@ BatchGetBlueprintsResponse -&gt; Rep BatchGetBlueprintsResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newBatchGetBlueprintsResponse"><span class="annot"><span class="annottext">newBatchGetBlueprintsResponse :: Int -&gt; BatchGetBlueprintsResponse
-</span><a href="Network.AWS.Glue.BatchGetBlueprints.html#newBatchGetBlueprintsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetBlueprintsResponse</span></a></span></span><span> </span><span id="local-6989586621679744784"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679744784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.BatchGetBlueprints.html#newBatchGetBlueprintsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetBlueprintsResponse</span></a></span></span><span> </span><span id="local-6989586621679744793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">BatchGetBlueprintsResponse' :: Maybe [Blueprint]
 -&gt; Maybe [Text] -&gt; Int -&gt; BatchGetBlueprintsResponse
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span>
@@ -516,7 +516,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetBlueprintsResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3AhttpStatus%3ABatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679744784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679744793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | Returns a list of blueprint as a @Blueprints@ object.</span><span>
@@ -532,16 +532,16 @@ forall a. Maybe a
      (Maybe [Blueprint])
      (Maybe [Blueprint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744783"><span class="annot"><span class="annottext">Maybe [Blueprint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744792"><span class="annot"><span class="annottext">Maybe [Blueprint]
 blueprints :: Maybe [Blueprint]
 $sel:blueprints:BatchGetBlueprintsResponse' :: BatchGetBlueprintsResponse -&gt; Maybe [Blueprint]
-</span><a href="#local-6989586621679744783"><span class="hs-identifier hs-var hs-var">blueprints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Blueprint]
-</span><a href="#local-6989586621679744783"><span class="hs-identifier hs-var">blueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744782"><span class="annot"><span class="annottext">s :: BatchGetBlueprintsResponse
-</span><a href="#local-6989586621679744782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744781"><span class="annot"><span class="annottext">Maybe [Blueprint]
-</span><a href="#local-6989586621679744781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprintsResponse
-</span><a href="#local-6989586621679744782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprints:BatchGetBlueprintsResponse' :: Maybe [Blueprint]
+</span><a href="#local-6989586621679744792"><span class="hs-identifier hs-var hs-var">blueprints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Blueprint]
+</span><a href="#local-6989586621679744792"><span class="hs-identifier hs-var">blueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744791"><span class="annot"><span class="annottext">s :: BatchGetBlueprintsResponse
+</span><a href="#local-6989586621679744791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744790"><span class="annot"><span class="annottext">Maybe [Blueprint]
+</span><a href="#local-6989586621679744790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprintsResponse
+</span><a href="#local-6989586621679744791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprints:BatchGetBlueprintsResponse' :: Maybe [Blueprint]
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3Ablueprints%3ABatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var">blueprints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Blueprint]
-</span><a href="#local-6989586621679744781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Blueprint] -&gt; f (Maybe [Blueprint]))
+</span><a href="#local-6989586621679744790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Blueprint] -&gt; f (Maybe [Blueprint]))
  -&gt; BatchGetBlueprintsResponse -&gt; f BatchGetBlueprintsResponse)
 -&gt; ((Maybe [Blueprint] -&gt; f (Maybe [Blueprint]))
     -&gt; Maybe [Blueprint] -&gt; f (Maybe [Blueprint]))
@@ -575,16 +575,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744779"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744788"><span class="annot"><span class="annottext">Maybe [Text]
 missingBlueprints :: Maybe [Text]
 $sel:missingBlueprints:BatchGetBlueprintsResponse' :: BatchGetBlueprintsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679744779"><span class="hs-identifier hs-var hs-var">missingBlueprints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679744779"><span class="hs-identifier hs-var">missingBlueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744778"><span class="annot"><span class="annottext">s :: BatchGetBlueprintsResponse
-</span><a href="#local-6989586621679744778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744777"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679744777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprintsResponse
-</span><a href="#local-6989586621679744778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missingBlueprints:BatchGetBlueprintsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679744788"><span class="hs-identifier hs-var hs-var">missingBlueprints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679744788"><span class="hs-identifier hs-var">missingBlueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744787"><span class="annot"><span class="annottext">s :: BatchGetBlueprintsResponse
+</span><a href="#local-6989586621679744787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744786"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679744786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprintsResponse
+</span><a href="#local-6989586621679744787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missingBlueprints:BatchGetBlueprintsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3AmissingBlueprints%3ABatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var">missingBlueprints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679744777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679744786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchGetBlueprintsResponse -&gt; f BatchGetBlueprintsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -611,16 +611,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      BatchGetBlueprintsResponse BatchGetBlueprintsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744776"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744785"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetBlueprintsResponse' :: BatchGetBlueprintsResponse -&gt; Int
-</span><a href="#local-6989586621679744776"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679744776"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744775"><span class="annot"><span class="annottext">s :: BatchGetBlueprintsResponse
-</span><a href="#local-6989586621679744775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744774"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679744774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprintsResponse
-</span><a href="#local-6989586621679744775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetBlueprintsResponse' :: Int
+</span><a href="#local-6989586621679744785"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744785"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744784"><span class="annot"><span class="annottext">s :: BatchGetBlueprintsResponse
+</span><a href="#local-6989586621679744784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse%27"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744783"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetBlueprintsResponse
+</span><a href="#local-6989586621679744784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetBlueprintsResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchGetBlueprints.html#%24sel%3AhttpStatus%3ABatchGetBlueprintsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679744774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetBlueprints.html#BatchGetBlueprintsResponse"><span class="hs-identifier hs-type">BatchGetBlueprintsResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

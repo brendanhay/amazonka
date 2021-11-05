@@ -26,14 +26,14 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The OpsItem data type to return.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOpsResultAttribute' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679805639"><span id="local-6989586621679805640"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsResultAttribute"><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-var">OpsResultAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsResultAttribute%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-var">OpsResultAttribute'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679805648"><span id="local-6989586621679805649"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsResultAttribute"><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-var">OpsResultAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsResultAttribute%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-var">OpsResultAttribute'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the data type. Valid value: @AWS:OpsItem@,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- @AWS:EC2InstanceInformation@, @AWS:OpsItemTrendline@, or</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @AWS:ComplianceSummary@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtypeName%3AOpsResultAttribute%27"><span class="annot"><span class="annottext">OpsResultAttribute -&gt; Text
 </span><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#%24sel%3AtypeName%3AOpsResultAttribute%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805633"><span id="local-6989586621679805635"><span class="annot"><span class="annottext">OpsResultAttribute -&gt; OpsResultAttribute -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805642"><span id="local-6989586621679805644"><span class="annot"><span class="annottext">OpsResultAttribute -&gt; OpsResultAttribute -&gt; Bool
 (OpsResultAttribute -&gt; OpsResultAttribute -&gt; Bool)
 -&gt; (OpsResultAttribute -&gt; OpsResultAttribute -&gt; Bool)
 -&gt; Eq OpsResultAttribute
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpsResultAttribute -&gt; OpsResultAttribute -&gt; Bool
 == :: OpsResultAttribute -&gt; OpsResultAttribute -&gt; Bool
 $c== :: OpsResultAttribute -&gt; OpsResultAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805624"><span id="local-6989586621679805626"><span id="local-6989586621679805628"><span id="local-6989586621679805630"><span class="annot"><span class="annottext">ReadPrec [OpsResultAttribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805633"><span id="local-6989586621679805635"><span id="local-6989586621679805637"><span id="local-6989586621679805639"><span class="annot"><span class="annottext">ReadPrec [OpsResultAttribute]
 ReadPrec OpsResultAttribute
 Int -&gt; ReadS OpsResultAttribute
 ReadS [OpsResultAttribute]
@@ -62,7 +62,7 @@ readList :: ReadS [OpsResultAttribute]
 $creadList :: ReadS [OpsResultAttribute]
 readsPrec :: Int -&gt; ReadS OpsResultAttribute
 $creadsPrec :: Int -&gt; ReadS OpsResultAttribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805617"><span id="local-6989586621679805619"><span id="local-6989586621679805621"><span class="annot"><span class="annottext">Int -&gt; OpsResultAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805626"><span id="local-6989586621679805628"><span id="local-6989586621679805630"><span class="annot"><span class="annottext">Int -&gt; OpsResultAttribute -&gt; ShowS
 [OpsResultAttribute] -&gt; ShowS
 OpsResultAttribute -&gt; String
 (Int -&gt; OpsResultAttribute -&gt; ShowS)
@@ -104,12 +104,12 @@ $cfrom :: forall x. OpsResultAttribute -&gt; Rep OpsResultAttribute x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span><span>
 </span><span id="line-52"></span><span id="newOpsResultAttribute"><span class="annot"><span class="annottext">newOpsResultAttribute :: Text -&gt; OpsResultAttribute
-</span><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#newOpsResultAttribute"><span class="hs-identifier hs-var hs-var">newOpsResultAttribute</span></a></span></span><span> </span><span id="local-6989586621679805611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679805611"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#newOpsResultAttribute"><span class="hs-identifier hs-var hs-var">newOpsResultAttribute</span></a></span></span><span> </span><span id="local-6989586621679805620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679805620"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">OpsResultAttribute' :: Text -&gt; OpsResultAttribute
 </span><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-type">OpsResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:OpsResultAttribute' :: Text
 </span><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#%24sel%3AtypeName%3AOpsResultAttribute%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679805611"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679805620"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Name of the data type. Valid value: @AWS:OpsItem@,</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- @AWS:EC2InstanceInformation@, @AWS:OpsItemTrendline@, or</span><span>
@@ -120,27 +120,27 @@ $cfrom :: forall x. OpsResultAttribute -&gt; Rep OpsResultAttribute x
 -&gt; (OpsResultAttribute -&gt; Text -&gt; OpsResultAttribute)
 -&gt; Lens OpsResultAttribute OpsResultAttribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-type">OpsResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805607"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-type">OpsResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805616"><span class="annot"><span class="annottext">Text
 typeName :: Text
 $sel:typeName:OpsResultAttribute' :: OpsResultAttribute -&gt; Text
-</span><a href="#local-6989586621679805607"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679805607"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805606"><span class="annot"><span class="annottext">s :: OpsResultAttribute
-</span><a href="#local-6989586621679805606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-type">OpsResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805605"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679805605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsResultAttribute
-</span><a href="#local-6989586621679805606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:OpsResultAttribute' :: Text
+</span><a href="#local-6989586621679805616"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679805616"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805615"><span class="annot"><span class="annottext">s :: OpsResultAttribute
+</span><a href="#local-6989586621679805615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-type">OpsResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805614"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679805614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsResultAttribute
+</span><a href="#local-6989586621679805615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:OpsResultAttribute' :: Text
 </span><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#%24sel%3AtypeName%3AOpsResultAttribute%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679805605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805601"><span id="local-6989586621679805603"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805610"><span id="local-6989586621679805612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805590"><span id="local-6989586621679805592"><span id="local-6989586621679805594"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679805588"><span class="annot"><span class="annottext">toJSON :: OpsResultAttribute -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-type">OpsResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805586"><span class="annot"><span class="annottext">Text
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805599"><span id="local-6989586621679805601"><span id="local-6989586621679805603"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679805597"><span class="annot"><span class="annottext">toJSON :: OpsResultAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute%27"><span class="hs-identifier hs-type">OpsResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805595"><span class="annot"><span class="annottext">Text
 typeName :: Text
 $sel:typeName:OpsResultAttribute' :: OpsResultAttribute -&gt; Text
-</span><a href="#local-6989586621679805586"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679805595"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -152,6 +152,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679805586"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679805595"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

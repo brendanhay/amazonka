@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newRetryBuildBatch' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679384397"><span id="local-6989586621679384398"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryBuildBatch"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-var">RetryBuildBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryBuildBatch%27"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-var">RetryBuildBatch'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679384406"><span id="local-6989586621679384407"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryBuildBatch"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-var">RetryBuildBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryBuildBatch%27"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-var">RetryBuildBatch'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case sensitive identifier you provide to ensure the</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- idempotency of the @RetryBuildBatch@ request. The token is included in</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the @RetryBuildBatch@ request and is valid for five minutes. If you</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AretryType%3ARetryBuildBatch%27"><span class="annot"><span class="annottext">RetryBuildBatch -&gt; Maybe RetryBuildBatchType
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AretryType%3ARetryBuildBatch%27"><span class="hs-identifier hs-var hs-var">retryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.RetryBuildBatchType.html#RetryBuildBatchType"><span class="hs-identifier hs-type">RetryBuildBatchType</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384389"><span id="local-6989586621679384391"><span class="annot"><span class="annottext">RetryBuildBatch -&gt; RetryBuildBatch -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384398"><span id="local-6989586621679384400"><span class="annot"><span class="annottext">RetryBuildBatch -&gt; RetryBuildBatch -&gt; Bool
 (RetryBuildBatch -&gt; RetryBuildBatch -&gt; Bool)
 -&gt; (RetryBuildBatch -&gt; RetryBuildBatch -&gt; Bool)
 -&gt; Eq RetryBuildBatch
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RetryBuildBatch -&gt; RetryBuildBatch -&gt; Bool
 == :: RetryBuildBatch -&gt; RetryBuildBatch -&gt; Bool
 $c== :: RetryBuildBatch -&gt; RetryBuildBatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384380"><span id="local-6989586621679384382"><span id="local-6989586621679384384"><span id="local-6989586621679384386"><span class="annot"><span class="annottext">ReadPrec [RetryBuildBatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384389"><span id="local-6989586621679384391"><span id="local-6989586621679384393"><span id="local-6989586621679384395"><span class="annot"><span class="annottext">ReadPrec [RetryBuildBatch]
 ReadPrec RetryBuildBatch
 Int -&gt; ReadS RetryBuildBatch
 ReadS [RetryBuildBatch]
@@ -94,7 +94,7 @@ readList :: ReadS [RetryBuildBatch]
 $creadList :: ReadS [RetryBuildBatch]
 readsPrec :: Int -&gt; ReadS RetryBuildBatch
 $creadsPrec :: Int -&gt; ReadS RetryBuildBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384373"><span id="local-6989586621679384375"><span id="local-6989586621679384377"><span class="annot"><span class="annottext">Int -&gt; RetryBuildBatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384382"><span id="local-6989586621679384384"><span id="local-6989586621679384386"><span class="annot"><span class="annottext">Int -&gt; RetryBuildBatch -&gt; ShowS
 [RetryBuildBatch] -&gt; ShowS
 RetryBuildBatch -&gt; String
 (Int -&gt; RetryBuildBatch -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; (RetryBuildBatch -&gt; Maybe Text -&gt; RetryBuildBatch)
 -&gt; Lens RetryBuildBatch RetryBuildBatch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384366"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384375"><span class="annot"><span class="annottext">Maybe Text
 idempotencyToken :: Maybe Text
 $sel:idempotencyToken:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe Text
-</span><a href="#local-6989586621679384366"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384366"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384365"><span class="annot"><span class="annottext">s :: RetryBuildBatch
-</span><a href="#local-6989586621679384365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384364"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatch
-</span><a href="#local-6989586621679384365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:RetryBuildBatch' :: Maybe Text
+</span><a href="#local-6989586621679384375"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384375"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384374"><span class="annot"><span class="annottext">s :: RetryBuildBatch
+</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatch
+</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:RetryBuildBatch' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AidempotencyToken%3ARetryBuildBatch%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | Specifies the identifier of the batch build to restart.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#retryBuildBatch_id"><span class="hs-identifier hs-type">retryBuildBatch_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -190,16 +190,16 @@ $sel:idempotencyToken:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe Text
 -&gt; (RetryBuildBatch -&gt; Maybe Text -&gt; RetryBuildBatch)
 -&gt; Lens RetryBuildBatch RetryBuildBatch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384363"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384372"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe Text
-</span><a href="#local-6989586621679384363"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384363"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384362"><span class="annot"><span class="annottext">s :: RetryBuildBatch
-</span><a href="#local-6989586621679384362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384361"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatch
-</span><a href="#local-6989586621679384362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:RetryBuildBatch' :: Maybe Text
+</span><a href="#local-6989586621679384372"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384372"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384371"><span class="annot"><span class="annottext">s :: RetryBuildBatch
+</span><a href="#local-6989586621679384371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatch
+</span><a href="#local-6989586621679384371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:RetryBuildBatch' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3Aid%3ARetryBuildBatch%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | Specifies the type of retry to perform.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#retryBuildBatch_retryType"><span class="hs-identifier hs-type">retryBuildBatch_retryType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.RetryBuildBatchType.html#RetryBuildBatchType"><span class="hs-identifier hs-type">RetryBuildBatchType</span></a></span><span class="hs-special">)</span><span>
@@ -214,27 +214,27 @@ $sel:id:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe Text
      (Maybe RetryBuildBatchType)
      (Maybe RetryBuildBatchType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384360"><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384369"><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
 retryType :: Maybe RetryBuildBatchType
 $sel:retryType:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe RetryBuildBatchType
-</span><a href="#local-6989586621679384360"><span class="hs-identifier hs-var hs-var">retryType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
-</span><a href="#local-6989586621679384360"><span class="hs-identifier hs-var">retryType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384359"><span class="annot"><span class="annottext">s :: RetryBuildBatch
-</span><a href="#local-6989586621679384359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384358"><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
-</span><a href="#local-6989586621679384358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatch
-</span><a href="#local-6989586621679384359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryType:RetryBuildBatch' :: Maybe RetryBuildBatchType
+</span><a href="#local-6989586621679384369"><span class="hs-identifier hs-var hs-var">retryType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
+</span><a href="#local-6989586621679384369"><span class="hs-identifier hs-var">retryType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384368"><span class="annot"><span class="annottext">s :: RetryBuildBatch
+</span><a href="#local-6989586621679384368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384367"><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
+</span><a href="#local-6989586621679384367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatch
+</span><a href="#local-6989586621679384368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryType:RetryBuildBatch' :: Maybe RetryBuildBatchType
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AretryType%3ARetryBuildBatch%27"><span class="hs-identifier hs-var">retryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
-</span><a href="#local-6989586621679384358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679384354"><span class="annot"><span class="annottext">request :: RetryBuildBatch -&gt; Request RetryBuildBatch
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679384363"><span class="annot"><span class="annottext">request :: RetryBuildBatch -&gt; Request RetryBuildBatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RetryBuildBatch -&gt; Request RetryBuildBatch
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679384350"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679384359"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RetryBuildBatch
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384347"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384347"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384346"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679384346"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384345"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384356"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384356"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384355"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384355"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384354"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384354"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe BuildBatch -&gt; Int -&gt; RetryBuildBatchResponse
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-var">RetryBuildBatchResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BuildBatch -&gt; Int -&gt; RetryBuildBatchResponse)
@@ -269,7 +269,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RetryBuildBatchResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BuildBatch)
+</span><a href="#local-6989586621679384354"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BuildBatch)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildBatch&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,15 +281,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384347"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384356"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384337"><span id="local-6989586621679384339"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384346"><span id="local-6989586621679384348"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384334"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679384330"><span class="annot"><span class="annottext">toHeaders :: RetryBuildBatch -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679384339"><span class="annot"><span class="annottext">toHeaders :: RetryBuildBatch -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RetryBuildBatch -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -316,9 +316,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384320"><span id="local-6989586621679384322"><span id="local-6989586621679384324"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679384318"><span class="annot"><span class="annottext">toJSON :: RetryBuildBatch -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384314"><span id="local-6989586621679384315"><span id="local-6989586621679384316"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384329"><span id="local-6989586621679384331"><span id="local-6989586621679384333"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679384327"><span class="annot"><span class="annottext">toJSON :: RetryBuildBatch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch%27"><span class="hs-identifier hs-type">RetryBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384323"><span id="local-6989586621679384324"><span id="local-6989586621679384325"><span class="annot"><span class="annottext">Maybe Text
 Maybe RetryBuildBatchType
 retryType :: Maybe RetryBuildBatchType
 id :: Maybe Text
@@ -326,7 +326,7 @@ idempotencyToken :: Maybe Text
 $sel:retryType:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe RetryBuildBatchType
 $sel:id:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe Text
 $sel:idempotencyToken:RetryBuildBatch' :: RetryBuildBatch -&gt; Maybe Text
-</span><a href="#local-6989586621679384314"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384323"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,14 +339,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384316"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384325"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384315"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384324"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retryType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetryBuildBatchType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -354,19 +354,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RetryBuildBatchType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetryBuildBatchType
-</span><a href="#local-6989586621679384314"><span class="hs-identifier hs-var">retryType</span></a></span><span>
+</span><a href="#local-6989586621679384323"><span class="hs-identifier hs-var">retryType</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679384308"><span class="annot"><span class="annottext">toPath :: RetryBuildBatch -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679384317"><span class="annot"><span class="annottext">toPath :: RetryBuildBatch -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RetryBuildBatch -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatch"><span class="hs-identifier hs-type">RetryBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679384304"><span class="annot"><span class="annottext">toQuery :: RetryBuildBatch -&gt; QueryString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679384313"><span class="annot"><span class="annottext">toQuery :: RetryBuildBatch -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RetryBuildBatch -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -374,14 +374,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newRetryBuildBatchResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679384301"><span id="local-6989586621679384302"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryBuildBatchResponse"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-var">RetryBuildBatchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryBuildBatchResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-var">RetryBuildBatchResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621679384310"><span id="local-6989586621679384311"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryBuildBatchResponse"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-var">RetryBuildBatchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryBuildBatchResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-var">RetryBuildBatchResponse'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AbuildBatch%3ARetryBuildBatchResponse%27"><span class="annot"><span class="annottext">RetryBuildBatchResponse -&gt; Maybe BuildBatch
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AbuildBatch%3ARetryBuildBatchResponse%27"><span class="hs-identifier hs-var hs-var">buildBatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildBatch.html#BuildBatch"><span class="hs-identifier hs-type">BuildBatch</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARetryBuildBatchResponse%27"><span class="annot"><span class="annottext">RetryBuildBatchResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AhttpStatus%3ARetryBuildBatchResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384295"><span id="local-6989586621679384297"><span class="annot"><span class="annottext">RetryBuildBatchResponse -&gt; RetryBuildBatchResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384304"><span id="local-6989586621679384306"><span class="annot"><span class="annottext">RetryBuildBatchResponse -&gt; RetryBuildBatchResponse -&gt; Bool
 (RetryBuildBatchResponse -&gt; RetryBuildBatchResponse -&gt; Bool)
 -&gt; (RetryBuildBatchResponse -&gt; RetryBuildBatchResponse -&gt; Bool)
 -&gt; Eq RetryBuildBatchResponse
@@ -390,7 +390,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RetryBuildBatchResponse -&gt; RetryBuildBatchResponse -&gt; Bool
 == :: RetryBuildBatchResponse -&gt; RetryBuildBatchResponse -&gt; Bool
 $c== :: RetryBuildBatchResponse -&gt; RetryBuildBatchResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384287"><span id="local-6989586621679384289"><span id="local-6989586621679384291"><span id="local-6989586621679384293"><span class="annot"><span class="annottext">ReadPrec [RetryBuildBatchResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384296"><span id="local-6989586621679384298"><span id="local-6989586621679384300"><span id="local-6989586621679384302"><span class="annot"><span class="annottext">ReadPrec [RetryBuildBatchResponse]
 ReadPrec RetryBuildBatchResponse
 Int -&gt; ReadS RetryBuildBatchResponse
 ReadS [RetryBuildBatchResponse]
@@ -410,7 +410,7 @@ readList :: ReadS [RetryBuildBatchResponse]
 $creadList :: ReadS [RetryBuildBatchResponse]
 readsPrec :: Int -&gt; ReadS RetryBuildBatchResponse
 $creadsPrec :: Int -&gt; ReadS RetryBuildBatchResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384281"><span id="local-6989586621679384283"><span id="local-6989586621679384285"><span class="annot"><span class="annottext">Int -&gt; RetryBuildBatchResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384290"><span id="local-6989586621679384292"><span id="local-6989586621679384294"><span class="annot"><span class="annottext">Int -&gt; RetryBuildBatchResponse -&gt; ShowS
 [RetryBuildBatchResponse] -&gt; ShowS
 RetryBuildBatchResponse -&gt; String
 (Int -&gt; RetryBuildBatchResponse -&gt; ShowS)
@@ -454,8 +454,8 @@ $cfrom :: forall x. RetryBuildBatchResponse -&gt; Rep RetryBuildBatchResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newRetryBuildBatchResponse"><span class="annot"><span class="annottext">newRetryBuildBatchResponse :: Int -&gt; RetryBuildBatchResponse
-</span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#newRetryBuildBatchResponse"><span class="hs-identifier hs-var hs-var">newRetryBuildBatchResponse</span></a></span></span><span> </span><span id="local-6989586621679384278"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384278"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#newRetryBuildBatchResponse"><span class="hs-identifier hs-var hs-var">newRetryBuildBatchResponse</span></a></span></span><span> </span><span id="local-6989586621679384287"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">RetryBuildBatchResponse' :: Maybe BuildBatch -&gt; Int -&gt; RetryBuildBatchResponse
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:buildBatch:RetryBuildBatchResponse' :: Maybe BuildBatch
@@ -465,7 +465,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RetryBuildBatchResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AhttpStatus%3ARetryBuildBatchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384278"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679384287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -481,16 +481,16 @@ forall a. Maybe a
      (Maybe BuildBatch)
      (Maybe BuildBatch)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384277"><span class="annot"><span class="annottext">Maybe BuildBatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384286"><span class="annot"><span class="annottext">Maybe BuildBatch
 buildBatch :: Maybe BuildBatch
 $sel:buildBatch:RetryBuildBatchResponse' :: RetryBuildBatchResponse -&gt; Maybe BuildBatch
-</span><a href="#local-6989586621679384277"><span class="hs-identifier hs-var hs-var">buildBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildBatch
-</span><a href="#local-6989586621679384277"><span class="hs-identifier hs-var">buildBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384276"><span class="annot"><span class="annottext">s :: RetryBuildBatchResponse
-</span><a href="#local-6989586621679384276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384275"><span class="annot"><span class="annottext">Maybe BuildBatch
-</span><a href="#local-6989586621679384275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatchResponse
-</span><a href="#local-6989586621679384276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildBatch:RetryBuildBatchResponse' :: Maybe BuildBatch
+</span><a href="#local-6989586621679384286"><span class="hs-identifier hs-var hs-var">buildBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildBatch
+</span><a href="#local-6989586621679384286"><span class="hs-identifier hs-var">buildBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384285"><span class="annot"><span class="annottext">s :: RetryBuildBatchResponse
+</span><a href="#local-6989586621679384285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384284"><span class="annot"><span class="annottext">Maybe BuildBatch
+</span><a href="#local-6989586621679384284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatchResponse
+</span><a href="#local-6989586621679384285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildBatch:RetryBuildBatchResponse' :: Maybe BuildBatch
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AbuildBatch%3ARetryBuildBatchResponse%27"><span class="hs-identifier hs-var">buildBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildBatch
-</span><a href="#local-6989586621679384275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#retryBuildBatchResponse_httpStatus"><span class="hs-identifier hs-type">retryBuildBatchResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -500,16 +500,16 @@ $sel:buildBatch:RetryBuildBatchResponse' :: RetryBuildBatchResponse -&gt; Maybe 
 -&gt; (RetryBuildBatchResponse -&gt; Int -&gt; RetryBuildBatchResponse)
 -&gt; Lens RetryBuildBatchResponse RetryBuildBatchResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384274"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384283"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RetryBuildBatchResponse' :: RetryBuildBatchResponse -&gt; Int
-</span><a href="#local-6989586621679384274"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384274"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384273"><span class="annot"><span class="annottext">s :: RetryBuildBatchResponse
-</span><a href="#local-6989586621679384273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384272"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatchResponse
-</span><a href="#local-6989586621679384273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RetryBuildBatchResponse' :: Int
+</span><a href="#local-6989586621679384283"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384283"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384282"><span class="annot"><span class="annottext">s :: RetryBuildBatchResponse
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse%27"><span class="hs-identifier hs-type">RetryBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384281"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryBuildBatchResponse
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RetryBuildBatchResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#%24sel%3AhttpStatus%3ARetryBuildBatchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.RetryBuildBatch.html#RetryBuildBatchResponse"><span class="hs-identifier hs-type">RetryBuildBatchResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

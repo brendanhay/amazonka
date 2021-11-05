@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A structure for returning a resource policy.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGluePolicy' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679687566"><span id="local-6989586621679687567"></span></span><span class="hs-keyword">data</span><span> </span><span id="GluePolicy"><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-var">GluePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GluePolicy%27"><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-var">GluePolicy'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679687575"><span id="local-6989586621679687576"></span></span><span class="hs-keyword">data</span><span> </span><span id="GluePolicy"><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-var">GluePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GluePolicy%27"><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-var">GluePolicy'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the requested policy document, in JSON format.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3ApolicyInJson%3AGluePolicy%27"><span class="annot"><span class="annottext">GluePolicy -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.GluePolicy.html#%24sel%3ApolicyInJson%3AGluePolicy%27"><span class="hs-identifier hs-var hs-var">policyInJson</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreateTime%3AGluePolicy%27"><span class="annot"><span class="annottext">GluePolicy -&gt; Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.GluePolicy.html#%24sel%3AcreateTime%3AGluePolicy%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679687557"><span id="local-6989586621679687559"><span class="annot"><span class="annottext">GluePolicy -&gt; GluePolicy -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679687566"><span id="local-6989586621679687568"><span class="annot"><span class="annottext">GluePolicy -&gt; GluePolicy -&gt; Bool
 (GluePolicy -&gt; GluePolicy -&gt; Bool)
 -&gt; (GluePolicy -&gt; GluePolicy -&gt; Bool) -&gt; Eq GluePolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GluePolicy -&gt; GluePolicy -&gt; Bool
 == :: GluePolicy -&gt; GluePolicy -&gt; Bool
 $c== :: GluePolicy -&gt; GluePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687548"><span id="local-6989586621679687550"><span id="local-6989586621679687552"><span id="local-6989586621679687554"><span class="annot"><span class="annottext">ReadPrec [GluePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687557"><span id="local-6989586621679687559"><span id="local-6989586621679687561"><span id="local-6989586621679687563"><span class="annot"><span class="annottext">ReadPrec [GluePolicy]
 ReadPrec GluePolicy
 Int -&gt; ReadS GluePolicy
 ReadS [GluePolicy]
@@ -68,7 +68,7 @@ readList :: ReadS [GluePolicy]
 $creadList :: ReadS [GluePolicy]
 readsPrec :: Int -&gt; ReadS GluePolicy
 $creadsPrec :: Int -&gt; ReadS GluePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687541"><span id="local-6989586621679687543"><span id="local-6989586621679687545"><span class="annot"><span class="annottext">Int -&gt; GluePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687550"><span id="local-6989586621679687552"><span id="local-6989586621679687554"><span class="annot"><span class="annottext">Int -&gt; GluePolicy -&gt; ShowS
 [GluePolicy] -&gt; ShowS
 GluePolicy -&gt; String
 (Int -&gt; GluePolicy -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (GluePolicy -&gt; Maybe Text -&gt; GluePolicy)
 -&gt; Lens GluePolicy GluePolicy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687532"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687541"><span class="annot"><span class="annottext">Maybe Text
 policyInJson :: Maybe Text
 $sel:policyInJson:GluePolicy' :: GluePolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679687532"><span class="hs-identifier hs-var hs-var">policyInJson</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687532"><span class="hs-identifier hs-var">policyInJson</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687531"><span class="annot"><span class="annottext">s :: GluePolicy
-</span><a href="#local-6989586621679687531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
-</span><a href="#local-6989586621679687531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyInJson:GluePolicy' :: Maybe Text
+</span><a href="#local-6989586621679687541"><span class="hs-identifier hs-var hs-var">policyInJson</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679687541"><span class="hs-identifier hs-var">policyInJson</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687540"><span class="annot"><span class="annottext">s :: GluePolicy
+</span><a href="#local-6989586621679687540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687539"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679687539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
+</span><a href="#local-6989586621679687540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyInJson:GluePolicy' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.GluePolicy.html#%24sel%3ApolicyInJson%3AGluePolicy%27"><span class="hs-identifier hs-var">policyInJson</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679687539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The date and time at which the policy was last updated.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#gluePolicy_updateTime"><span class="hs-identifier hs-type">gluePolicy_updateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -158,16 +158,16 @@ $sel:policyInJson:GluePolicy' :: GluePolicy -&gt; Maybe Text
 -&gt; (GluePolicy -&gt; Maybe POSIX -&gt; GluePolicy)
 -&gt; Lens GluePolicy GluePolicy (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687528"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687537"><span class="annot"><span class="annottext">Maybe POSIX
 updateTime :: Maybe POSIX
 $sel:updateTime:GluePolicy' :: GluePolicy -&gt; Maybe POSIX
-</span><a href="#local-6989586621679687528"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687528"><span class="hs-identifier hs-var">updateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687527"><span class="annot"><span class="annottext">s :: GluePolicy
-</span><a href="#local-6989586621679687527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687526"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
-</span><a href="#local-6989586621679687527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTime:GluePolicy' :: Maybe POSIX
+</span><a href="#local-6989586621679687537"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687537"><span class="hs-identifier hs-var">updateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687536"><span class="annot"><span class="annottext">s :: GluePolicy
+</span><a href="#local-6989586621679687536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687535"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
+</span><a href="#local-6989586621679687536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTime:GluePolicy' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.GluePolicy.html#%24sel%3AupdateTime%3AGluePolicy%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; GluePolicy -&gt; f GluePolicy)
+</span><a href="#local-6989586621679687535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; GluePolicy -&gt; f GluePolicy)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -190,16 +190,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (GluePolicy -&gt; Maybe Text -&gt; GluePolicy)
 -&gt; Lens GluePolicy GluePolicy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687521"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687530"><span class="annot"><span class="annottext">Maybe Text
 policyHash :: Maybe Text
 $sel:policyHash:GluePolicy' :: GluePolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679687521"><span class="hs-identifier hs-var hs-var">policyHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687521"><span class="hs-identifier hs-var">policyHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687520"><span class="annot"><span class="annottext">s :: GluePolicy
-</span><a href="#local-6989586621679687520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687519"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
-</span><a href="#local-6989586621679687520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyHash:GluePolicy' :: Maybe Text
+</span><a href="#local-6989586621679687530"><span class="hs-identifier hs-var hs-var">policyHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679687530"><span class="hs-identifier hs-var">policyHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687529"><span class="annot"><span class="annottext">s :: GluePolicy
+</span><a href="#local-6989586621679687529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679687528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
+</span><a href="#local-6989586621679687529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyHash:GluePolicy' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.GluePolicy.html#%24sel%3ApolicyHash%3AGluePolicy%27"><span class="hs-identifier hs-var">policyHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679687528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The date and time at which the policy was created.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#gluePolicy_createTime"><span class="hs-identifier hs-type">gluePolicy_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -208,16 +208,16 @@ $sel:policyHash:GluePolicy' :: GluePolicy -&gt; Maybe Text
 -&gt; (GluePolicy -&gt; Maybe POSIX -&gt; GluePolicy)
 -&gt; Lens GluePolicy GluePolicy (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687517"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687526"><span class="annot"><span class="annottext">Maybe POSIX
 createTime :: Maybe POSIX
 $sel:createTime:GluePolicy' :: GluePolicy -&gt; Maybe POSIX
-</span><a href="#local-6989586621679687517"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687517"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687516"><span class="annot"><span class="annottext">s :: GluePolicy
-</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687515"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
-</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:GluePolicy' :: Maybe POSIX
+</span><a href="#local-6989586621679687526"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687526"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687525"><span class="annot"><span class="annottext">s :: GluePolicy
+</span><a href="#local-6989586621679687525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-type">GluePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687524"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679687524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GluePolicy
+</span><a href="#local-6989586621679687525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:GluePolicy' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.GluePolicy.html#%24sel%3AcreateTime%3AGluePolicy%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; GluePolicy -&gt; f GluePolicy)
+</span><a href="#local-6989586621679687524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; GluePolicy -&gt; f GluePolicy)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -233,8 +233,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687512"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679687510"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GluePolicy
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687521"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679687519"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GluePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GluePolicy) -&gt; Value -&gt; Parser GluePolicy
@@ -242,8 +242,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GluePolicy&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679687507"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679687516"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; GluePolicy
 </span><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy%27"><span class="hs-identifier hs-var">GluePolicy'</span></a></span><span>
@@ -253,7 +253,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; GluePolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyInJson&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,7 +262,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; GluePolicy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,7 +270,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; GluePolicy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyHash&quot;</span></span><span class="hs-special">)</span><span>
@@ -278,13 +278,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser GluePolicy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679687516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687501"><span id="local-6989586621679687503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687510"><span id="local-6989586621679687512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GluePolicy.html#GluePolicy"><span class="hs-identifier hs-type">GluePolicy</span></a></span></span><span>
 </span><span id="line-97"></span></pre></body></html>

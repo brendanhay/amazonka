@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.Types.DescribeSourceServersRequestFilters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.Types.DescribeSourceServersRequestFilters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Request to filter Source Servers list.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDescribeSourceServersRequestFilters' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679225479"><span id="local-6989586621679225480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSourceServersRequestFilters"><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-var">DescribeSourceServersRequestFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSourceServersRequestFilters%27"><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-var">DescribeSourceServersRequestFilters'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Request to filter Source Servers list by Source Server ID.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AsourceServerIDs%3ADescribeSourceServersRequestFilters%27"><span class="annot"><span class="annottext">DescribeSourceServersRequestFilters -&gt; Maybe [Text]
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#%24sel%3AsourceServerIDs%3ADescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-var hs-var">sourceServerIDs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Request to filter Source Servers list by archived.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AisArchived%3ADescribeSourceServersRequestFilters%27"><span class="annot"><span class="annottext">DescribeSourceServersRequestFilters -&gt; Maybe Bool
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#%24sel%3AisArchived%3ADescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225472"><span id="local-6989586621679225474"><span class="annot"><span class="annottext">DescribeSourceServersRequestFilters
+-&gt; DescribeSourceServersRequestFilters -&gt; Bool
+(DescribeSourceServersRequestFilters
+ -&gt; DescribeSourceServersRequestFilters -&gt; Bool)
+-&gt; (DescribeSourceServersRequestFilters
+    -&gt; DescribeSourceServersRequestFilters -&gt; Bool)
+-&gt; Eq DescribeSourceServersRequestFilters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeSourceServersRequestFilters
+-&gt; DescribeSourceServersRequestFilters -&gt; Bool
+$c/= :: DescribeSourceServersRequestFilters
+-&gt; DescribeSourceServersRequestFilters -&gt; Bool
+== :: DescribeSourceServersRequestFilters
+-&gt; DescribeSourceServersRequestFilters -&gt; Bool
+$c== :: DescribeSourceServersRequestFilters
+-&gt; DescribeSourceServersRequestFilters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225463"><span id="local-6989586621679225465"><span id="local-6989586621679225467"><span id="local-6989586621679225469"><span class="annot"><span class="annottext">ReadPrec [DescribeSourceServersRequestFilters]
+ReadPrec DescribeSourceServersRequestFilters
+Int -&gt; ReadS DescribeSourceServersRequestFilters
+ReadS [DescribeSourceServersRequestFilters]
+(Int -&gt; ReadS DescribeSourceServersRequestFilters)
+-&gt; ReadS [DescribeSourceServersRequestFilters]
+-&gt; ReadPrec DescribeSourceServersRequestFilters
+-&gt; ReadPrec [DescribeSourceServersRequestFilters]
+-&gt; Read DescribeSourceServersRequestFilters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeSourceServersRequestFilters]
+$creadListPrec :: ReadPrec [DescribeSourceServersRequestFilters]
+readPrec :: ReadPrec DescribeSourceServersRequestFilters
+$creadPrec :: ReadPrec DescribeSourceServersRequestFilters
+readList :: ReadS [DescribeSourceServersRequestFilters]
+$creadList :: ReadS [DescribeSourceServersRequestFilters]
+readsPrec :: Int -&gt; ReadS DescribeSourceServersRequestFilters
+$creadsPrec :: Int -&gt; ReadS DescribeSourceServersRequestFilters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225456"><span id="local-6989586621679225458"><span id="local-6989586621679225460"><span class="annot"><span class="annottext">Int -&gt; DescribeSourceServersRequestFilters -&gt; ShowS
+[DescribeSourceServersRequestFilters] -&gt; ShowS
+DescribeSourceServersRequestFilters -&gt; String
+(Int -&gt; DescribeSourceServersRequestFilters -&gt; ShowS)
+-&gt; (DescribeSourceServersRequestFilters -&gt; String)
+-&gt; ([DescribeSourceServersRequestFilters] -&gt; ShowS)
+-&gt; Show DescribeSourceServersRequestFilters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeSourceServersRequestFilters] -&gt; ShowS
+$cshowList :: [DescribeSourceServersRequestFilters] -&gt; ShowS
+show :: DescribeSourceServersRequestFilters -&gt; String
+$cshow :: DescribeSourceServersRequestFilters -&gt; String
+showsPrec :: Int -&gt; DescribeSourceServersRequestFilters -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeSourceServersRequestFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeSourceServersRequestFilters
+ -&gt; Rep DescribeSourceServersRequestFilters x)
+-&gt; (forall x.
+    Rep DescribeSourceServersRequestFilters x
+    -&gt; DescribeSourceServersRequestFilters)
+-&gt; Generic DescribeSourceServersRequestFilters
+forall x.
+Rep DescribeSourceServersRequestFilters x
+-&gt; DescribeSourceServersRequestFilters
+forall x.
+DescribeSourceServersRequestFilters
+-&gt; Rep DescribeSourceServersRequestFilters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeSourceServersRequestFilters x
+-&gt; DescribeSourceServersRequestFilters
+$cfrom :: forall x.
+DescribeSourceServersRequestFilters
+-&gt; Rep DescribeSourceServersRequestFilters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'DescribeSourceServersRequestFilters' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'sourceServerIDs', 'describeSourceServersRequestFilters_sourceServerIDs' - Request to filter Source Servers list by Source Server ID.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'isArchived', 'describeSourceServersRequestFilters_isArchived' - Request to filter Source Servers list by archived.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#newDescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">newDescribeSourceServersRequestFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span><span>
+</span><span id="line-50"></span><span id="newDescribeSourceServersRequestFilters"><span class="annot"><span class="annottext">newDescribeSourceServersRequestFilters :: DescribeSourceServersRequestFilters
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#newDescribeSourceServersRequestFilters"><span class="hs-identifier hs-var hs-var">newDescribeSourceServersRequestFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">DescribeSourceServersRequestFilters' :: Maybe [Text] -&gt; Maybe Bool -&gt; DescribeSourceServersRequestFilters
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceServerIDs:DescribeSourceServersRequestFilters' :: Maybe [Text]
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#%24sel%3AsourceServerIDs%3ADescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-var">sourceServerIDs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:isArchived:DescribeSourceServersRequestFilters' :: Maybe Bool
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#%24sel%3AisArchived%3ADescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-var">isArchived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Request to filter Source Servers list by Source Server ID.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#describeSourceServersRequestFilters_sourceServerIDs"><span class="hs-identifier hs-type">describeSourceServersRequestFilters_sourceServerIDs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="describeSourceServersRequestFilters_sourceServerIDs"><span class="annot"><span class="annottext">describeSourceServersRequestFilters_sourceServerIDs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeSourceServersRequestFilters
+-&gt; f DescribeSourceServersRequestFilters
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#describeSourceServersRequestFilters_sourceServerIDs"><span class="hs-identifier hs-var hs-var">describeSourceServersRequestFilters_sourceServerIDs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSourceServersRequestFilters -&gt; Maybe [Text])
+-&gt; (DescribeSourceServersRequestFilters
+    -&gt; Maybe [Text] -&gt; DescribeSourceServersRequestFilters)
+-&gt; Lens
+     DescribeSourceServersRequestFilters
+     DescribeSourceServersRequestFilters
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225447"><span class="annot"><span class="annottext">Maybe [Text]
+sourceServerIDs :: Maybe [Text]
+$sel:sourceServerIDs:DescribeSourceServersRequestFilters' :: DescribeSourceServersRequestFilters -&gt; Maybe [Text]
+</span><a href="#local-6989586621679225447"><span class="hs-identifier hs-var hs-var">sourceServerIDs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679225447"><span class="hs-identifier hs-var">sourceServerIDs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225446"><span class="annot"><span class="annottext">s :: DescribeSourceServersRequestFilters
+</span><a href="#local-6989586621679225446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225445"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679225445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSourceServersRequestFilters
+</span><a href="#local-6989586621679225446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceServerIDs:DescribeSourceServersRequestFilters' :: Maybe [Text]
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#%24sel%3AsourceServerIDs%3ADescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-var">sourceServerIDs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679225445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeSourceServersRequestFilters
+ -&gt; f DescribeSourceServersRequestFilters)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeSourceServersRequestFilters
+-&gt; f DescribeSourceServersRequestFilters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Request to filter Source Servers list by archived.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#describeSourceServersRequestFilters_isArchived"><span class="hs-identifier hs-type">describeSourceServersRequestFilters_isArchived</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="describeSourceServersRequestFilters_isArchived"><span class="annot"><span class="annottext">describeSourceServersRequestFilters_isArchived :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeSourceServersRequestFilters
+-&gt; f DescribeSourceServersRequestFilters
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#describeSourceServersRequestFilters_isArchived"><span class="hs-identifier hs-var hs-var">describeSourceServersRequestFilters_isArchived</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSourceServersRequestFilters -&gt; Maybe Bool)
+-&gt; (DescribeSourceServersRequestFilters
+    -&gt; Maybe Bool -&gt; DescribeSourceServersRequestFilters)
+-&gt; Lens
+     DescribeSourceServersRequestFilters
+     DescribeSourceServersRequestFilters
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225440"><span class="annot"><span class="annottext">Maybe Bool
+isArchived :: Maybe Bool
+$sel:isArchived:DescribeSourceServersRequestFilters' :: DescribeSourceServersRequestFilters -&gt; Maybe Bool
+</span><a href="#local-6989586621679225440"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225440"><span class="hs-identifier hs-var">isArchived</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225439"><span class="annot"><span class="annottext">s :: DescribeSourceServersRequestFilters
+</span><a href="#local-6989586621679225439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225438"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSourceServersRequestFilters
+</span><a href="#local-6989586621679225439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isArchived:DescribeSourceServersRequestFilters' :: Maybe Bool
+</span><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#%24sel%3AisArchived%3ADescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-var">isArchived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679225434"><span id="local-6989586621679225436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679225431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679225423"><span id="local-6989586621679225425"><span id="local-6989586621679225427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters</span></a></span></span></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679225421"><span class="annot"><span class="annottext">toJSON :: DescribeSourceServersRequestFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DescribeSourceServersRequestFilters.html#DescribeSourceServersRequestFilters%27"><span class="hs-identifier hs-type">DescribeSourceServersRequestFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225418"><span id="local-6989586621679225419"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+isArchived :: Maybe Bool
+sourceServerIDs :: Maybe [Text]
+$sel:isArchived:DescribeSourceServersRequestFilters' :: DescribeSourceServersRequestFilters -&gt; Maybe Bool
+$sel:sourceServerIDs:DescribeSourceServersRequestFilters' :: DescribeSourceServersRequestFilters -&gt; Maybe [Text]
+</span><a href="#local-6989586621679225418"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-80"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceServerIDs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679225419"><span class="hs-identifier hs-var">sourceServerIDs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isArchived&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225418"><span class="hs-identifier hs-var">isArchived</span></a></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span></pre></body></html>

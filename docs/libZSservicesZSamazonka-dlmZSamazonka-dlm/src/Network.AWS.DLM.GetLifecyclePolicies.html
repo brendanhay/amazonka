@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DLM.GetLifecyclePolicies</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets summary information about all or the specified data lifecycle</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- policies.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- To get complete information about a policy, use GetLifecyclePolicy.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DLM.GetLifecyclePolicies</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#newGetLifecyclePolicies"><span class="hs-identifier">newGetLifecyclePolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_state"><span class="hs-identifier">getLifecyclePolicies_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_targetTags"><span class="hs-identifier">getLifecyclePolicies_targetTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_tagsToAdd"><span class="hs-identifier">getLifecyclePolicies_tagsToAdd</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_policyIds"><span class="hs-identifier">getLifecyclePolicies_policyIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_resourceTypes"><span class="hs-identifier">getLifecyclePolicies_resourceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier">GetLifecyclePoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#newGetLifecyclePoliciesResponse"><span class="hs-identifier">newGetLifecyclePoliciesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePoliciesResponse_policies"><span class="hs-identifier">getLifecyclePoliciesResponse_policies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePoliciesResponse_httpStatus"><span class="hs-identifier">getLifecyclePoliciesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.html"><span class="hs-identifier">Network.AWS.DLM.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetLifecyclePolicies' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679182538"><span id="local-6989586621679182539"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLifecyclePolicies"><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-var">GetLifecyclePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLifecyclePolicies%27"><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-var">GetLifecyclePolicies'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The activation state.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astate%3AGetLifecyclePolicies%27"><span class="annot"><span class="annottext">GetLifecyclePolicies -&gt; Maybe GettablePolicyStateValues
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3Astate%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues"><span class="hs-identifier hs-type">GettablePolicyStateValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The target tag for a policy.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Tags are strings in the format @key=value@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AtargetTags%3AGetLifecyclePolicies%27"><span class="annot"><span class="annottext">GetLifecyclePolicies -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AtargetTags%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var hs-var">targetTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The tags to add to objects created by the policy.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Tags are strings in the format @key=value@.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- These user-defined tags are added in addition to the Amazon Web</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Services-added lifecycle tags.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AtagsToAdd%3AGetLifecyclePolicies%27"><span class="annot"><span class="annottext">GetLifecyclePolicies -&gt; Maybe [Text]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AtagsToAdd%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var hs-var">tagsToAdd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The identifiers of the data lifecycle policies.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3ApolicyIds%3AGetLifecyclePolicies%27"><span class="annot"><span class="annottext">GetLifecyclePolicies -&gt; Maybe [Text]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3ApolicyIds%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var hs-var">policyIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The resource type.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AresourceTypes%3AGetLifecyclePolicies%27"><span class="annot"><span class="annottext">GetLifecyclePolicies -&gt; Maybe (NonEmpty ResourceTypeValues)
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AresourceTypes%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceTypeValues.html#ResourceTypeValues"><span class="hs-identifier hs-type">ResourceTypeValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182528"><span id="local-6989586621679182530"><span class="annot"><span class="annottext">GetLifecyclePolicies -&gt; GetLifecyclePolicies -&gt; Bool
+(GetLifecyclePolicies -&gt; GetLifecyclePolicies -&gt; Bool)
+-&gt; (GetLifecyclePolicies -&gt; GetLifecyclePolicies -&gt; Bool)
+-&gt; Eq GetLifecyclePolicies
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLifecyclePolicies -&gt; GetLifecyclePolicies -&gt; Bool
+$c/= :: GetLifecyclePolicies -&gt; GetLifecyclePolicies -&gt; Bool
+== :: GetLifecyclePolicies -&gt; GetLifecyclePolicies -&gt; Bool
+$c== :: GetLifecyclePolicies -&gt; GetLifecyclePolicies -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182519"><span id="local-6989586621679182521"><span id="local-6989586621679182523"><span id="local-6989586621679182525"><span class="annot"><span class="annottext">ReadPrec [GetLifecyclePolicies]
+ReadPrec GetLifecyclePolicies
+Int -&gt; ReadS GetLifecyclePolicies
+ReadS [GetLifecyclePolicies]
+(Int -&gt; ReadS GetLifecyclePolicies)
+-&gt; ReadS [GetLifecyclePolicies]
+-&gt; ReadPrec GetLifecyclePolicies
+-&gt; ReadPrec [GetLifecyclePolicies]
+-&gt; Read GetLifecyclePolicies
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLifecyclePolicies]
+$creadListPrec :: ReadPrec [GetLifecyclePolicies]
+readPrec :: ReadPrec GetLifecyclePolicies
+$creadPrec :: ReadPrec GetLifecyclePolicies
+readList :: ReadS [GetLifecyclePolicies]
+$creadList :: ReadS [GetLifecyclePolicies]
+readsPrec :: Int -&gt; ReadS GetLifecyclePolicies
+$creadsPrec :: Int -&gt; ReadS GetLifecyclePolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182512"><span id="local-6989586621679182514"><span id="local-6989586621679182516"><span class="annot"><span class="annottext">Int -&gt; GetLifecyclePolicies -&gt; ShowS
+[GetLifecyclePolicies] -&gt; ShowS
+GetLifecyclePolicies -&gt; String
+(Int -&gt; GetLifecyclePolicies -&gt; ShowS)
+-&gt; (GetLifecyclePolicies -&gt; String)
+-&gt; ([GetLifecyclePolicies] -&gt; ShowS)
+-&gt; Show GetLifecyclePolicies
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLifecyclePolicies] -&gt; ShowS
+$cshowList :: [GetLifecyclePolicies] -&gt; ShowS
+show :: GetLifecyclePolicies -&gt; String
+$cshow :: GetLifecyclePolicies -&gt; String
+showsPrec :: Int -&gt; GetLifecyclePolicies -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLifecyclePolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetLifecyclePolicies -&gt; Rep GetLifecyclePolicies x)
+-&gt; (forall x. Rep GetLifecyclePolicies x -&gt; GetLifecyclePolicies)
+-&gt; Generic GetLifecyclePolicies
+forall x. Rep GetLifecyclePolicies x -&gt; GetLifecyclePolicies
+forall x. GetLifecyclePolicies -&gt; Rep GetLifecyclePolicies x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetLifecyclePolicies x -&gt; GetLifecyclePolicies
+$cfrom :: forall x. GetLifecyclePolicies -&gt; Rep GetLifecyclePolicies x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'GetLifecyclePolicies' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'state', 'getLifecyclePolicies_state' - The activation state.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'targetTags', 'getLifecyclePolicies_targetTags' - The target tag for a policy.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Tags are strings in the format @key=value@.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tagsToAdd', 'getLifecyclePolicies_tagsToAdd' - The tags to add to objects created by the policy.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Tags are strings in the format @key=value@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- These user-defined tags are added in addition to the Amazon Web</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Services-added lifecycle tags.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'policyIds', 'getLifecyclePolicies_policyIds' - The identifiers of the data lifecycle policies.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'resourceTypes', 'getLifecyclePolicies_resourceTypes' - The resource type.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#newGetLifecyclePolicies"><span class="hs-identifier hs-type">newGetLifecyclePolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span>
+</span><span id="line-104"></span><span id="newGetLifecyclePolicies"><span class="annot"><span class="annottext">newGetLifecyclePolicies :: GetLifecyclePolicies
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#newGetLifecyclePolicies"><span class="hs-identifier hs-var hs-var">newGetLifecyclePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">GetLifecyclePolicies' :: Maybe GettablePolicyStateValues
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe (NonEmpty ResourceTypeValues)
+-&gt; GetLifecyclePolicies
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:GetLifecyclePolicies' :: Maybe GettablePolicyStateValues
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3Astate%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GettablePolicyStateValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetTags:GetLifecyclePolicies' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AtargetTags%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">targetTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagsToAdd:GetLifecyclePolicies' :: Maybe [Text]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AtagsToAdd%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">tagsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyIds:GetLifecyclePolicies' :: Maybe [Text]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3ApolicyIds%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">policyIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTypes:GetLifecyclePolicies' :: Maybe (NonEmpty ResourceTypeValues)
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AresourceTypes%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The activation state.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_state"><span class="hs-identifier hs-type">getLifecyclePolicies_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues"><span class="hs-identifier hs-type">GettablePolicyStateValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="getLifecyclePolicies_state"><span class="annot"><span class="annottext">getLifecyclePolicies_state :: (Maybe GettablePolicyStateValues
+ -&gt; f (Maybe GettablePolicyStateValues))
+-&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_state"><span class="hs-identifier hs-var hs-var">getLifecyclePolicies_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLifecyclePolicies -&gt; Maybe GettablePolicyStateValues)
+-&gt; (GetLifecyclePolicies
+    -&gt; Maybe GettablePolicyStateValues -&gt; GetLifecyclePolicies)
+-&gt; Lens
+     GetLifecyclePolicies
+     GetLifecyclePolicies
+     (Maybe GettablePolicyStateValues)
+     (Maybe GettablePolicyStateValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182505"><span class="annot"><span class="annottext">Maybe GettablePolicyStateValues
+state :: Maybe GettablePolicyStateValues
+$sel:state:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe GettablePolicyStateValues
+</span><a href="#local-6989586621679182505"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GettablePolicyStateValues
+</span><a href="#local-6989586621679182505"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182504"><span class="annot"><span class="annottext">s :: GetLifecyclePolicies
+</span><a href="#local-6989586621679182504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182503"><span class="annot"><span class="annottext">Maybe GettablePolicyStateValues
+</span><a href="#local-6989586621679182503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLifecyclePolicies
+</span><a href="#local-6989586621679182504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:GetLifecyclePolicies' :: Maybe GettablePolicyStateValues
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3Astate%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GettablePolicyStateValues
+</span><a href="#local-6989586621679182503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The target tag for a policy.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Tags are strings in the format @key=value@.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_targetTags"><span class="hs-identifier hs-type">getLifecyclePolicies_targetTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="getLifecyclePolicies_targetTags"><span class="annot"><span class="annottext">getLifecyclePolicies_targetTags :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_targetTags"><span class="hs-identifier hs-var hs-var">getLifecyclePolicies_targetTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLifecyclePolicies -&gt; Maybe (NonEmpty Text))
+-&gt; (GetLifecyclePolicies
+    -&gt; Maybe (NonEmpty Text) -&gt; GetLifecyclePolicies)
+-&gt; Lens
+     GetLifecyclePolicies
+     GetLifecyclePolicies
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182502"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+targetTags :: Maybe (NonEmpty Text)
+$sel:targetTags:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679182502"><span class="hs-identifier hs-var hs-var">targetTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679182502"><span class="hs-identifier hs-var">targetTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182501"><span class="annot"><span class="annottext">s :: GetLifecyclePolicies
+</span><a href="#local-6989586621679182501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182500"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679182500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLifecyclePolicies
+</span><a href="#local-6989586621679182501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetTags:GetLifecyclePolicies' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AtargetTags%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">targetTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679182500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetLifecyclePolicies
+-&gt; f GetLifecyclePolicies
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The tags to add to objects created by the policy.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Tags are strings in the format @key=value@.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- These user-defined tags are added in addition to the Amazon Web</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Services-added lifecycle tags.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_tagsToAdd"><span class="hs-identifier hs-type">getLifecyclePolicies_tagsToAdd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="getLifecyclePolicies_tagsToAdd"><span class="annot"><span class="annottext">getLifecyclePolicies_tagsToAdd :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_tagsToAdd"><span class="hs-identifier hs-var hs-var">getLifecyclePolicies_tagsToAdd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLifecyclePolicies -&gt; Maybe [Text])
+-&gt; (GetLifecyclePolicies -&gt; Maybe [Text] -&gt; GetLifecyclePolicies)
+-&gt; Lens
+     GetLifecyclePolicies
+     GetLifecyclePolicies
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182496"><span class="annot"><span class="annottext">Maybe [Text]
+tagsToAdd :: Maybe [Text]
+$sel:tagsToAdd:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe [Text]
+</span><a href="#local-6989586621679182496"><span class="hs-identifier hs-var hs-var">tagsToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182496"><span class="hs-identifier hs-var">tagsToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182495"><span class="annot"><span class="annottext">s :: GetLifecyclePolicies
+</span><a href="#local-6989586621679182495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182494"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLifecyclePolicies
+</span><a href="#local-6989586621679182495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagsToAdd:GetLifecyclePolicies' :: Maybe [Text]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AtagsToAdd%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">tagsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetLifecyclePolicies
+-&gt; f GetLifecyclePolicies
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The identifiers of the data lifecycle policies.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_policyIds"><span class="hs-identifier hs-type">getLifecyclePolicies_policyIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="getLifecyclePolicies_policyIds"><span class="annot"><span class="annottext">getLifecyclePolicies_policyIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_policyIds"><span class="hs-identifier hs-var hs-var">getLifecyclePolicies_policyIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLifecyclePolicies -&gt; Maybe [Text])
+-&gt; (GetLifecyclePolicies -&gt; Maybe [Text] -&gt; GetLifecyclePolicies)
+-&gt; Lens
+     GetLifecyclePolicies
+     GetLifecyclePolicies
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182493"><span class="annot"><span class="annottext">Maybe [Text]
+policyIds :: Maybe [Text]
+$sel:policyIds:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe [Text]
+</span><a href="#local-6989586621679182493"><span class="hs-identifier hs-var hs-var">policyIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182493"><span class="hs-identifier hs-var">policyIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182492"><span class="annot"><span class="annottext">s :: GetLifecyclePolicies
+</span><a href="#local-6989586621679182492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182491"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLifecyclePolicies
+</span><a href="#local-6989586621679182492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyIds:GetLifecyclePolicies' :: Maybe [Text]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3ApolicyIds%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">policyIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetLifecyclePolicies
+-&gt; f GetLifecyclePolicies
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The resource type.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_resourceTypes"><span class="hs-identifier hs-type">getLifecyclePolicies_resourceTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceTypeValues.html#ResourceTypeValues"><span class="hs-identifier hs-type">ResourceTypeValues</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="getLifecyclePolicies_resourceTypes"><span class="annot"><span class="annottext">getLifecyclePolicies_resourceTypes :: (Maybe (NonEmpty ResourceTypeValues)
+ -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+-&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePolicies_resourceTypes"><span class="hs-identifier hs-var hs-var">getLifecyclePolicies_resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLifecyclePolicies -&gt; Maybe (NonEmpty ResourceTypeValues))
+-&gt; (GetLifecyclePolicies
+    -&gt; Maybe (NonEmpty ResourceTypeValues) -&gt; GetLifecyclePolicies)
+-&gt; Lens
+     GetLifecyclePolicies
+     GetLifecyclePolicies
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182490"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+resourceTypes :: Maybe (NonEmpty ResourceTypeValues)
+$sel:resourceTypes:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679182490"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679182490"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182489"><span class="annot"><span class="annottext">s :: GetLifecyclePolicies
+</span><a href="#local-6989586621679182489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182488"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679182488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLifecyclePolicies
+</span><a href="#local-6989586621679182489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypes:GetLifecyclePolicies' :: Maybe (NonEmpty ResourceTypeValues)
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AresourceTypes%3AGetLifecyclePolicies%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679182488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceTypeValues)
+  -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+ -&gt; GetLifecyclePolicies -&gt; f GetLifecyclePolicies)
+-&gt; ((Maybe (NonEmpty ResourceTypeValues)
+     -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+    -&gt; Maybe (NonEmpty ResourceTypeValues)
+    -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+-&gt; (Maybe (NonEmpty ResourceTypeValues)
+    -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+-&gt; GetLifecyclePolicies
+-&gt; f GetLifecyclePolicies
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+-&gt; Iso
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-142"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679182484"><span class="annot"><span class="annottext">request :: GetLifecyclePolicies -&gt; Request GetLifecyclePolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetLifecyclePolicies -&gt; Request GetLifecyclePolicies
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DLM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679182480"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetLifecyclePolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetLifecyclePolicies)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetLifecyclePolicies))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetLifecyclePolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetLifecyclePolicies)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182477"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679182476"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679182476"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679182475"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LifecyclePolicySummary]
+-&gt; Int -&gt; GetLifecyclePoliciesResponse
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var">GetLifecyclePoliciesResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LifecyclePolicySummary]
+ -&gt; Int -&gt; GetLifecyclePoliciesResponse)
+-&gt; Either String (Maybe [LifecyclePolicySummary])
+-&gt; Either String (Int -&gt; GetLifecyclePoliciesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [LifecyclePolicySummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LifecyclePolicySummary]))
+-&gt; Maybe [LifecyclePolicySummary]
+-&gt; Either String (Maybe [LifecyclePolicySummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LifecyclePolicySummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetLifecyclePoliciesResponse)
+-&gt; Either String Int -&gt; Either String GetLifecyclePoliciesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182477"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182466"><span id="local-6989586621679182468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679182459"><span class="annot"><span class="annottext">toHeaders :: GetLifecyclePolicies -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetLifecyclePolicies -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679182453"><span class="annot"><span class="annottext">toPath :: GetLifecyclePolicies -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetLifecyclePolicies -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/policies&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies"><span class="hs-identifier hs-type">GetLifecyclePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679182449"><span class="annot"><span class="annottext">toQuery :: GetLifecyclePolicies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePolicies%27"><span class="hs-identifier hs-type">GetLifecyclePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182443"><span id="local-6989586621679182444"><span id="local-6989586621679182445"><span id="local-6989586621679182446"><span id="local-6989586621679182447"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe (NonEmpty Text)
+Maybe (NonEmpty ResourceTypeValues)
+Maybe GettablePolicyStateValues
+resourceTypes :: Maybe (NonEmpty ResourceTypeValues)
+policyIds :: Maybe [Text]
+tagsToAdd :: Maybe [Text]
+targetTags :: Maybe (NonEmpty Text)
+state :: Maybe GettablePolicyStateValues
+$sel:resourceTypes:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe (NonEmpty ResourceTypeValues)
+$sel:policyIds:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe [Text]
+$sel:tagsToAdd:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe [Text]
+$sel:targetTags:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe (NonEmpty Text)
+$sel:state:GetLifecyclePolicies' :: GetLifecyclePolicies -&gt; Maybe GettablePolicyStateValues
+</span><a href="#local-6989586621679182443"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;state&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe GettablePolicyStateValues -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe GettablePolicyStateValues
+</span><a href="#local-6989586621679182447"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;targetTags&quot;</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Text -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; QueryString)
+-&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679182446"><span class="hs-identifier hs-var">targetTags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;tagsToAdd&quot;</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182445"><span class="hs-identifier hs-var">tagsToAdd</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;policyIds&quot;</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182444"><span class="hs-identifier hs-var">policyIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;resourceTypes&quot;</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty ResourceTypeValues -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-187"></span><span>                </span><span class="annot"><span class="annottext">(NonEmpty ResourceTypeValues -&gt; QueryString)
+-&gt; Maybe (NonEmpty ResourceTypeValues) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679182443"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newGetLifecyclePoliciesResponse' smart constructor.</span><span>
+</span><span id="line-192"></span><span id="local-6989586621679182439"><span id="local-6989586621679182440"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLifecyclePoliciesResponse"><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-var">GetLifecyclePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLifecyclePoliciesResponse%27"><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var">GetLifecyclePoliciesResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Summary information about the lifecycle policies.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3Apolicies%3AGetLifecyclePoliciesResponse%27"><span class="annot"><span class="annottext">GetLifecyclePoliciesResponse -&gt; Maybe [LifecyclePolicySummary]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3Apolicies%3AGetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DLM.Types.LifecyclePolicySummary.html#LifecyclePolicySummary"><span class="hs-identifier hs-type">LifecyclePolicySummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetLifecyclePoliciesResponse%27"><span class="annot"><span class="annottext">GetLifecyclePoliciesResponse -&gt; Int
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AhttpStatus%3AGetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182433"><span id="local-6989586621679182435"><span class="annot"><span class="annottext">GetLifecyclePoliciesResponse
+-&gt; GetLifecyclePoliciesResponse -&gt; Bool
+(GetLifecyclePoliciesResponse
+ -&gt; GetLifecyclePoliciesResponse -&gt; Bool)
+-&gt; (GetLifecyclePoliciesResponse
+    -&gt; GetLifecyclePoliciesResponse -&gt; Bool)
+-&gt; Eq GetLifecyclePoliciesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLifecyclePoliciesResponse
+-&gt; GetLifecyclePoliciesResponse -&gt; Bool
+$c/= :: GetLifecyclePoliciesResponse
+-&gt; GetLifecyclePoliciesResponse -&gt; Bool
+== :: GetLifecyclePoliciesResponse
+-&gt; GetLifecyclePoliciesResponse -&gt; Bool
+$c== :: GetLifecyclePoliciesResponse
+-&gt; GetLifecyclePoliciesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182425"><span id="local-6989586621679182427"><span id="local-6989586621679182429"><span id="local-6989586621679182431"><span class="annot"><span class="annottext">ReadPrec [GetLifecyclePoliciesResponse]
+ReadPrec GetLifecyclePoliciesResponse
+Int -&gt; ReadS GetLifecyclePoliciesResponse
+ReadS [GetLifecyclePoliciesResponse]
+(Int -&gt; ReadS GetLifecyclePoliciesResponse)
+-&gt; ReadS [GetLifecyclePoliciesResponse]
+-&gt; ReadPrec GetLifecyclePoliciesResponse
+-&gt; ReadPrec [GetLifecyclePoliciesResponse]
+-&gt; Read GetLifecyclePoliciesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLifecyclePoliciesResponse]
+$creadListPrec :: ReadPrec [GetLifecyclePoliciesResponse]
+readPrec :: ReadPrec GetLifecyclePoliciesResponse
+$creadPrec :: ReadPrec GetLifecyclePoliciesResponse
+readList :: ReadS [GetLifecyclePoliciesResponse]
+$creadList :: ReadS [GetLifecyclePoliciesResponse]
+readsPrec :: Int -&gt; ReadS GetLifecyclePoliciesResponse
+$creadsPrec :: Int -&gt; ReadS GetLifecyclePoliciesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182419"><span id="local-6989586621679182421"><span id="local-6989586621679182423"><span class="annot"><span class="annottext">Int -&gt; GetLifecyclePoliciesResponse -&gt; ShowS
+[GetLifecyclePoliciesResponse] -&gt; ShowS
+GetLifecyclePoliciesResponse -&gt; String
+(Int -&gt; GetLifecyclePoliciesResponse -&gt; ShowS)
+-&gt; (GetLifecyclePoliciesResponse -&gt; String)
+-&gt; ([GetLifecyclePoliciesResponse] -&gt; ShowS)
+-&gt; Show GetLifecyclePoliciesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLifecyclePoliciesResponse] -&gt; ShowS
+$cshowList :: [GetLifecyclePoliciesResponse] -&gt; ShowS
+show :: GetLifecyclePoliciesResponse -&gt; String
+$cshow :: GetLifecyclePoliciesResponse -&gt; String
+showsPrec :: Int -&gt; GetLifecyclePoliciesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLifecyclePoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetLifecyclePoliciesResponse -&gt; Rep GetLifecyclePoliciesResponse x)
+-&gt; (forall x.
+    Rep GetLifecyclePoliciesResponse x -&gt; GetLifecyclePoliciesResponse)
+-&gt; Generic GetLifecyclePoliciesResponse
+forall x.
+Rep GetLifecyclePoliciesResponse x -&gt; GetLifecyclePoliciesResponse
+forall x.
+GetLifecyclePoliciesResponse -&gt; Rep GetLifecyclePoliciesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetLifecyclePoliciesResponse x -&gt; GetLifecyclePoliciesResponse
+$cfrom :: forall x.
+GetLifecyclePoliciesResponse -&gt; Rep GetLifecyclePoliciesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Create a value of 'GetLifecyclePoliciesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'policies', 'getLifecyclePoliciesResponse_policies' - Summary information about the lifecycle policies.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'httpStatus', 'getLifecyclePoliciesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#newGetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">newGetLifecyclePoliciesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse</span></a></span><span>
+</span><span id="line-215"></span><span id="newGetLifecyclePoliciesResponse"><span class="annot"><span class="annottext">newGetLifecyclePoliciesResponse :: Int -&gt; GetLifecyclePoliciesResponse
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#newGetLifecyclePoliciesResponse"><span class="hs-identifier hs-var hs-var">newGetLifecyclePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679182416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">GetLifecyclePoliciesResponse' :: Maybe [LifecyclePolicySummary]
+-&gt; Int -&gt; GetLifecyclePoliciesResponse
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse'</span></a></span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policies:GetLifecyclePoliciesResponse' :: Maybe [LifecyclePolicySummary]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3Apolicies%3AGetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LifecyclePolicySummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetLifecyclePoliciesResponse' :: Int
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AhttpStatus%3AGetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Summary information about the lifecycle policies.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePoliciesResponse_policies"><span class="hs-identifier hs-type">getLifecyclePoliciesResponse_policies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DLM.Types.LifecyclePolicySummary.html#LifecyclePolicySummary"><span class="hs-identifier hs-type">LifecyclePolicySummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="getLifecyclePoliciesResponse_policies"><span class="annot"><span class="annottext">getLifecyclePoliciesResponse_policies :: (Maybe [LifecyclePolicySummary]
+ -&gt; f (Maybe [LifecyclePolicySummary]))
+-&gt; GetLifecyclePoliciesResponse -&gt; f GetLifecyclePoliciesResponse
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePoliciesResponse_policies"><span class="hs-identifier hs-var hs-var">getLifecyclePoliciesResponse_policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLifecyclePoliciesResponse -&gt; Maybe [LifecyclePolicySummary])
+-&gt; (GetLifecyclePoliciesResponse
+    -&gt; Maybe [LifecyclePolicySummary] -&gt; GetLifecyclePoliciesResponse)
+-&gt; Lens
+     GetLifecyclePoliciesResponse
+     GetLifecyclePoliciesResponse
+     (Maybe [LifecyclePolicySummary])
+     (Maybe [LifecyclePolicySummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182415"><span class="annot"><span class="annottext">Maybe [LifecyclePolicySummary]
+policies :: Maybe [LifecyclePolicySummary]
+$sel:policies:GetLifecyclePoliciesResponse' :: GetLifecyclePoliciesResponse -&gt; Maybe [LifecyclePolicySummary]
+</span><a href="#local-6989586621679182415"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LifecyclePolicySummary]
+</span><a href="#local-6989586621679182415"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182414"><span class="annot"><span class="annottext">s :: GetLifecyclePoliciesResponse
+</span><a href="#local-6989586621679182414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182413"><span class="annot"><span class="annottext">Maybe [LifecyclePolicySummary]
+</span><a href="#local-6989586621679182413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLifecyclePoliciesResponse
+</span><a href="#local-6989586621679182414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:GetLifecyclePoliciesResponse' :: Maybe [LifecyclePolicySummary]
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3Apolicies%3AGetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LifecyclePolicySummary]
+</span><a href="#local-6989586621679182413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LifecyclePolicySummary]
+  -&gt; f (Maybe [LifecyclePolicySummary]))
+ -&gt; GetLifecyclePoliciesResponse -&gt; f GetLifecyclePoliciesResponse)
+-&gt; ((Maybe [LifecyclePolicySummary]
+     -&gt; f (Maybe [LifecyclePolicySummary]))
+    -&gt; Maybe [LifecyclePolicySummary]
+    -&gt; f (Maybe [LifecyclePolicySummary]))
+-&gt; (Maybe [LifecyclePolicySummary]
+    -&gt; f (Maybe [LifecyclePolicySummary]))
+-&gt; GetLifecyclePoliciesResponse
+-&gt; f GetLifecyclePoliciesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LifecyclePolicySummary]
+  [LifecyclePolicySummary]
+  [LifecyclePolicySummary]
+  [LifecyclePolicySummary]
+-&gt; Iso
+     (Maybe [LifecyclePolicySummary])
+     (Maybe [LifecyclePolicySummary])
+     (Maybe [LifecyclePolicySummary])
+     (Maybe [LifecyclePolicySummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LifecyclePolicySummary]
+  [LifecyclePolicySummary]
+  [LifecyclePolicySummary]
+  [LifecyclePolicySummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePoliciesResponse_httpStatus"><span class="hs-identifier hs-type">getLifecyclePoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span id="getLifecyclePoliciesResponse_httpStatus"><span class="annot"><span class="annottext">getLifecyclePoliciesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetLifecyclePoliciesResponse -&gt; f GetLifecyclePoliciesResponse
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#getLifecyclePoliciesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getLifecyclePoliciesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLifecyclePoliciesResponse -&gt; Int)
+-&gt; (GetLifecyclePoliciesResponse
+    -&gt; Int -&gt; GetLifecyclePoliciesResponse)
+-&gt; Lens
+     GetLifecyclePoliciesResponse GetLifecyclePoliciesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182412"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetLifecyclePoliciesResponse' :: GetLifecyclePoliciesResponse -&gt; Int
+</span><a href="#local-6989586621679182412"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182412"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182411"><span class="annot"><span class="annottext">s :: GetLifecyclePoliciesResponse
+</span><a href="#local-6989586621679182411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLifecyclePoliciesResponse
+</span><a href="#local-6989586621679182411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetLifecyclePoliciesResponse' :: Int
+</span><a href="Network.AWS.DLM.GetLifecyclePolicies.html#%24sel%3AhttpStatus%3AGetLifecyclePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.GetLifecyclePolicies.html#GetLifecyclePoliciesResponse"><span class="hs-identifier hs-type">GetLifecyclePoliciesResponse</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

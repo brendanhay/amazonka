@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679175436"><span id="local-6989586621679175437"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelRole"><span class="annot"><a href="Network.AWS.KinesisVideo.Types.ChannelRole.html#ChannelRole"><span class="hs-identifier hs-var">ChannelRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelRole%27"><span class="annot"><a href="Network.AWS.KinesisVideo.Types.ChannelRole.html#ChannelRole%27"><span class="hs-identifier hs-var">ChannelRole'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679175445"><span id="local-6989586621679175446"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelRole"><span class="annot"><a href="Network.AWS.KinesisVideo.Types.ChannelRole.html#ChannelRole"><span class="hs-identifier hs-var">ChannelRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelRole%27"><span class="annot"><a href="Network.AWS.KinesisVideo.Types.ChannelRole.html#ChannelRole%27"><span class="hs-identifier hs-var">ChannelRole'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChannelRole"><span class="annot"><span class="annottext">ChannelRole -&gt; Text
 </span><a href="Network.AWS.KinesisVideo.Types.ChannelRole.html#fromChannelRole"><span class="hs-identifier hs-var hs-var">fromChannelRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175428"><span id="local-6989586621679175430"><span id="local-6989586621679175432"><span class="annot"><span class="annottext">Int -&gt; ChannelRole -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175437"><span id="local-6989586621679175439"><span id="local-6989586621679175441"><span class="annot"><span class="annottext">Int -&gt; ChannelRole -&gt; ShowS
 [ChannelRole] -&gt; ShowS
 ChannelRole -&gt; String
 (Int -&gt; ChannelRole -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ChannelRole -&gt; String
 showsPrec :: Int -&gt; ChannelRole -&gt; ShowS
 $cshowsPrec :: Int -&gt; ChannelRole -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679175419"><span id="local-6989586621679175421"><span id="local-6989586621679175423"><span id="local-6989586621679175425"><span class="annot"><span class="annottext">ReadPrec [ChannelRole]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679175428"><span id="local-6989586621679175430"><span id="local-6989586621679175432"><span id="local-6989586621679175434"><span class="annot"><span class="annottext">ReadPrec [ChannelRole]
 ReadPrec ChannelRole
 Int -&gt; ReadS ChannelRole
 ReadS [ChannelRole]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ChannelRole]
 readsPrec :: Int -&gt; ReadS ChannelRole
 $creadsPrec :: Int -&gt; ReadS ChannelRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679175414"><span id="local-6989586621679175416"><span class="annot"><span class="annottext">ChannelRole -&gt; ChannelRole -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679175423"><span id="local-6989586621679175425"><span class="annot"><span class="annottext">ChannelRole -&gt; ChannelRole -&gt; Bool
 (ChannelRole -&gt; ChannelRole -&gt; Bool)
 -&gt; (ChannelRole -&gt; ChannelRole -&gt; Bool) -&gt; Eq ChannelRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ChannelRole -&gt; ChannelRole -&gt; Bool
 == :: ChannelRole -&gt; ChannelRole -&gt; Bool
 $c== :: ChannelRole -&gt; ChannelRole -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679175398"><span id="local-6989586621679175400"><span id="local-6989586621679175402"><span id="local-6989586621679175404"><span id="local-6989586621679175406"><span id="local-6989586621679175408"><span id="local-6989586621679175410"><span class="annot"><span class="annottext">Eq ChannelRole
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679175407"><span id="local-6989586621679175409"><span id="local-6989586621679175411"><span id="local-6989586621679175413"><span id="local-6989586621679175415"><span id="local-6989586621679175417"><span id="local-6989586621679175419"><span class="annot"><span class="annottext">Eq ChannelRole
 Eq ChannelRole
 -&gt; (ChannelRole -&gt; ChannelRole -&gt; Ordering)
 -&gt; (ChannelRole -&gt; ChannelRole -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ChannelRole -&gt; Rep ChannelRole x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175390"><span id="local-6989586621679175392"><span class="annot"><span class="annottext">Int -&gt; ChannelRole -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175399"><span id="local-6989586621679175401"><span class="annot"><span class="annottext">Int -&gt; ChannelRole -&gt; Int
 ChannelRole -&gt; Int
 (Int -&gt; ChannelRole -&gt; Int)
 -&gt; (ChannelRole -&gt; Int) -&gt; Hashable ChannelRole
@@ -142,49 +142,49 @@ $chash :: ChannelRole -&gt; Int
 hashWithSalt :: Int -&gt; ChannelRole -&gt; Int
 $chashWithSalt :: Int -&gt; ChannelRole -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679175387"><span class="annot"><span class="annottext">ChannelRole -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679175396"><span class="annot"><span class="annottext">ChannelRole -&gt; ()
 (ChannelRole -&gt; ()) -&gt; NFData ChannelRole
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ChannelRole -&gt; ()
 $crnf :: ChannelRole -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679175384"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelRole
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679175393"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelRole
 (Text -&gt; Either String ChannelRole) -&gt; FromText ChannelRole
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ChannelRole
 $cfromText :: Text -&gt; Either String ChannelRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679175381"><span class="annot"><span class="annottext">ChannelRole -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679175390"><span class="annot"><span class="annottext">ChannelRole -&gt; Text
 (ChannelRole -&gt; Text) -&gt; ToText ChannelRole
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ChannelRole -&gt; Text
 $ctoText :: ChannelRole -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175378"><span class="annot"><span class="annottext">ChannelRole -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175387"><span class="annot"><span class="annottext">ChannelRole -&gt; ByteString
 (ChannelRole -&gt; ByteString) -&gt; ToByteString ChannelRole
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ChannelRole -&gt; ByteString
 $ctoBS :: ChannelRole -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175375"><span class="annot"><span class="annottext">ChannelRole -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175384"><span class="annot"><span class="annottext">ChannelRole -&gt; ByteStringBuilder
 (ChannelRole -&gt; ByteStringBuilder) -&gt; ToLog ChannelRole
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ChannelRole -&gt; ByteStringBuilder
 $cbuild :: ChannelRole -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175372"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelRole -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175381"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelRole -&gt; [Header]
 (HeaderName -&gt; ChannelRole -&gt; [Header]) -&gt; ToHeader ChannelRole
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ChannelRole -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ChannelRole -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175369"><span class="annot"><span class="annottext">ChannelRole -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175378"><span class="annot"><span class="annottext">ChannelRole -&gt; QueryString
 (ChannelRole -&gt; QueryString) -&gt; ToQuery ChannelRole
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ChannelRole -&gt; QueryString
 $ctoQuery :: ChannelRole -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175364"><span id="local-6989586621679175366"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelRole]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175373"><span id="local-6989586621679175375"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelRole]
 Value -&gt; Parser ChannelRole
 (Value -&gt; Parser ChannelRole)
 -&gt; (Value -&gt; Parser [ChannelRole]) -&gt; FromJSON ChannelRole
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ChannelRole]
 parseJSON :: Value -&gt; Parser ChannelRole
 $cparseJSON :: Value -&gt; Parser ChannelRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175359"><span id="local-6989586621679175361"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelRole]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175368"><span id="local-6989586621679175370"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelRole]
 FromJSONKeyFunction ChannelRole
 FromJSONKeyFunction ChannelRole
 -&gt; FromJSONKeyFunction [ChannelRole] -&gt; FromJSONKey ChannelRole
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ChannelRole]
 fromJSONKey :: FromJSONKeyFunction ChannelRole
 $cfromJSONKey :: FromJSONKeyFunction ChannelRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175350"><span id="local-6989586621679175352"><span id="local-6989586621679175354"><span id="local-6989586621679175356"><span class="annot"><span class="annottext">[ChannelRole] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175359"><span id="local-6989586621679175361"><span id="local-6989586621679175363"><span id="local-6989586621679175365"><span class="annot"><span class="annottext">[ChannelRole] -&gt; Encoding
 [ChannelRole] -&gt; Value
 ChannelRole -&gt; Encoding
 ChannelRole -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ChannelRole -&gt; Encoding
 toJSON :: ChannelRole -&gt; Value
 $ctoJSON :: ChannelRole -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175345"><span id="local-6989586621679175347"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelRole]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175354"><span id="local-6989586621679175356"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelRole]
 ToJSONKeyFunction ChannelRole
 ToJSONKeyFunction ChannelRole
 -&gt; ToJSONKeyFunction [ChannelRole] -&gt; ToJSONKey ChannelRole
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ChannelRole]
 toJSONKey :: ToJSONKeyFunction ChannelRole
 $ctoJSONKey :: ToJSONKeyFunction ChannelRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175342"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelRole
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175351"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelRole
 ([Node] -&gt; Either String ChannelRole) -&gt; FromXML ChannelRole
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ChannelRole
 $cparseXML :: [Node] -&gt; Either String ChannelRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175339"><span class="annot"><span class="annottext">ChannelRole -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175348"><span class="annot"><span class="annottext">ChannelRole -&gt; XML
 (ChannelRole -&gt; XML) -&gt; ToXML ChannelRole
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ChannelRole -&gt; XML

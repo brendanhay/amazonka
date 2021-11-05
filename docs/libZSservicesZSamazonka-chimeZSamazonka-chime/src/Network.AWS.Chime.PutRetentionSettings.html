@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.PutRetentionSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Puts retention settings for the specified Amazon Chime Enterprise</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account. We recommend using AWS CloudTrail to monitor usage of this API</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for your account. For more information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html Logging Amazon Chime API Calls with AWS CloudTrail&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon Chime Administration Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- To turn off existing retention settings, remove the number of days from</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the corresponding __RetentionDays__ field in the __RetentionSettings__</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- object. For more information about retention settings, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html Managing Chat Retention Policies&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon Chime Administration Guide/.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.PutRetentionSettings</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier">PutRetentionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#newPutRetentionSettings"><span class="hs-identifier">newPutRetentionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettings_accountId"><span class="hs-identifier">putRetentionSettings_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettings_retentionSettings"><span class="hs-identifier">putRetentionSettings_retentionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier">PutRetentionSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#newPutRetentionSettingsResponse"><span class="hs-identifier">newPutRetentionSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_retentionSettings"><span class="hs-identifier">putRetentionSettingsResponse_retentionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_initiateDeletionTimestamp"><span class="hs-identifier">putRetentionSettingsResponse_initiateDeletionTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_httpStatus"><span class="hs-identifier">putRetentionSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newPutRetentionSettings' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679529654"><span id="local-6989586621679529655"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionSettings"><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-var">PutRetentionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionSettings%27"><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-var">PutRetentionSettings'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AaccountId%3APutRetentionSettings%27"><span class="annot"><span class="annottext">PutRetentionSettings -&gt; Text
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AaccountId%3APutRetentionSettings%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The retention settings.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AretentionSettings%3APutRetentionSettings%27"><span class="annot"><span class="annottext">PutRetentionSettings -&gt; RetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AretentionSettings%3APutRetentionSettings%27"><span class="hs-identifier hs-var hs-var">retentionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.RetentionSettings.html#RetentionSettings"><span class="hs-identifier hs-type">RetentionSettings</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529647"><span id="local-6989586621679529649"><span class="annot"><span class="annottext">PutRetentionSettings -&gt; PutRetentionSettings -&gt; Bool
+(PutRetentionSettings -&gt; PutRetentionSettings -&gt; Bool)
+-&gt; (PutRetentionSettings -&gt; PutRetentionSettings -&gt; Bool)
+-&gt; Eq PutRetentionSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRetentionSettings -&gt; PutRetentionSettings -&gt; Bool
+$c/= :: PutRetentionSettings -&gt; PutRetentionSettings -&gt; Bool
+== :: PutRetentionSettings -&gt; PutRetentionSettings -&gt; Bool
+$c== :: PutRetentionSettings -&gt; PutRetentionSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529638"><span id="local-6989586621679529640"><span id="local-6989586621679529642"><span id="local-6989586621679529644"><span class="annot"><span class="annottext">ReadPrec [PutRetentionSettings]
+ReadPrec PutRetentionSettings
+Int -&gt; ReadS PutRetentionSettings
+ReadS [PutRetentionSettings]
+(Int -&gt; ReadS PutRetentionSettings)
+-&gt; ReadS [PutRetentionSettings]
+-&gt; ReadPrec PutRetentionSettings
+-&gt; ReadPrec [PutRetentionSettings]
+-&gt; Read PutRetentionSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRetentionSettings]
+$creadListPrec :: ReadPrec [PutRetentionSettings]
+readPrec :: ReadPrec PutRetentionSettings
+$creadPrec :: ReadPrec PutRetentionSettings
+readList :: ReadS [PutRetentionSettings]
+$creadList :: ReadS [PutRetentionSettings]
+readsPrec :: Int -&gt; ReadS PutRetentionSettings
+$creadsPrec :: Int -&gt; ReadS PutRetentionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529631"><span id="local-6989586621679529633"><span id="local-6989586621679529635"><span class="annot"><span class="annottext">Int -&gt; PutRetentionSettings -&gt; ShowS
+[PutRetentionSettings] -&gt; ShowS
+PutRetentionSettings -&gt; String
+(Int -&gt; PutRetentionSettings -&gt; ShowS)
+-&gt; (PutRetentionSettings -&gt; String)
+-&gt; ([PutRetentionSettings] -&gt; ShowS)
+-&gt; Show PutRetentionSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRetentionSettings] -&gt; ShowS
+$cshowList :: [PutRetentionSettings] -&gt; ShowS
+show :: PutRetentionSettings -&gt; String
+$cshow :: PutRetentionSettings -&gt; String
+showsPrec :: Int -&gt; PutRetentionSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRetentionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutRetentionSettings -&gt; Rep PutRetentionSettings x)
+-&gt; (forall x. Rep PutRetentionSettings x -&gt; PutRetentionSettings)
+-&gt; Generic PutRetentionSettings
+forall x. Rep PutRetentionSettings x -&gt; PutRetentionSettings
+forall x. PutRetentionSettings -&gt; Rep PutRetentionSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutRetentionSettings x -&gt; PutRetentionSettings
+$cfrom :: forall x. PutRetentionSettings -&gt; Rep PutRetentionSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'PutRetentionSettings' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'accountId', 'putRetentionSettings_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'retentionSettings', 'putRetentionSettings_retentionSettings' - The retention settings.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#newPutRetentionSettings"><span class="hs-identifier hs-type">newPutRetentionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'retentionSettings'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.RetentionSettings.html#RetentionSettings"><span class="hs-identifier hs-type">RetentionSettings</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span>
+</span><span id="line-87"></span><span id="newPutRetentionSettings"><span class="annot"><span class="annottext">newPutRetentionSettings :: Text -&gt; RetentionSettings -&gt; PutRetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#newPutRetentionSettings"><span class="hs-identifier hs-var hs-var">newPutRetentionSettings</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679529626"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529626"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679529625"><span class="annot"><span class="annottext">RetentionSettings
+</span><a href="#local-6989586621679529625"><span class="hs-identifier hs-var">pRetentionSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">PutRetentionSettings' :: Text -&gt; RetentionSettings -&gt; PutRetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-type">PutRetentionSettings'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:PutRetentionSettings' :: Text
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AaccountId%3APutRetentionSettings%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529626"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:retentionSettings:PutRetentionSettings' :: RetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AretentionSettings%3APutRetentionSettings%27"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RetentionSettings
+</span><a href="#local-6989586621679529625"><span class="hs-identifier hs-var">pRetentionSettings_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettings_accountId"><span class="hs-identifier hs-type">putRetentionSettings_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="putRetentionSettings_accountId"><span class="annot"><span class="annottext">putRetentionSettings_accountId :: (Text -&gt; f Text) -&gt; PutRetentionSettings -&gt; f PutRetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettings_accountId"><span class="hs-identifier hs-var hs-var">putRetentionSettings_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRetentionSettings -&gt; Text)
+-&gt; (PutRetentionSettings -&gt; Text -&gt; PutRetentionSettings)
+-&gt; Lens PutRetentionSettings PutRetentionSettings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-type">PutRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529622"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:PutRetentionSettings' :: PutRetentionSettings -&gt; Text
+</span><a href="#local-6989586621679529622"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529622"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529621"><span class="annot"><span class="annottext">s :: PutRetentionSettings
+</span><a href="#local-6989586621679529621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-type">PutRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionSettings
+</span><a href="#local-6989586621679529621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:PutRetentionSettings' :: Text
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AaccountId%3APutRetentionSettings%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The retention settings.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettings_retentionSettings"><span class="hs-identifier hs-type">putRetentionSettings_retentionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.RetentionSettings.html#RetentionSettings"><span class="hs-identifier hs-type">RetentionSettings</span></a></span><span>
+</span><span id="line-101"></span><span id="putRetentionSettings_retentionSettings"><span class="annot"><span class="annottext">putRetentionSettings_retentionSettings :: (RetentionSettings -&gt; f RetentionSettings)
+-&gt; PutRetentionSettings -&gt; f PutRetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettings_retentionSettings"><span class="hs-identifier hs-var hs-var">putRetentionSettings_retentionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRetentionSettings -&gt; RetentionSettings)
+-&gt; (PutRetentionSettings
+    -&gt; RetentionSettings -&gt; PutRetentionSettings)
+-&gt; Lens
+     PutRetentionSettings
+     PutRetentionSettings
+     RetentionSettings
+     RetentionSettings
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-type">PutRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529619"><span class="annot"><span class="annottext">RetentionSettings
+retentionSettings :: RetentionSettings
+$sel:retentionSettings:PutRetentionSettings' :: PutRetentionSettings -&gt; RetentionSettings
+</span><a href="#local-6989586621679529619"><span class="hs-identifier hs-var hs-var">retentionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionSettings
+</span><a href="#local-6989586621679529619"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529618"><span class="annot"><span class="annottext">s :: PutRetentionSettings
+</span><a href="#local-6989586621679529618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-type">PutRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529617"><span class="annot"><span class="annottext">RetentionSettings
+</span><a href="#local-6989586621679529617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionSettings
+</span><a href="#local-6989586621679529618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionSettings:PutRetentionSettings' :: RetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AretentionSettings%3APutRetentionSettings%27"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RetentionSettings
+</span><a href="#local-6989586621679529617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679529613"><span class="annot"><span class="annottext">request :: PutRetentionSettings -&gt; Request PutRetentionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRetentionSettings -&gt; Request PutRetentionSettings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679529609"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutRetentionSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutRetentionSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutRetentionSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutRetentionSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutRetentionSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679529606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529606"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529605"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679529605"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529604"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679529604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+-&gt; Maybe POSIX -&gt; Int -&gt; PutRetentionSettingsResponse
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">PutRetentionSettingsResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RetentionSettings
+ -&gt; Maybe POSIX -&gt; Int -&gt; PutRetentionSettingsResponse)
+-&gt; Either String (Maybe RetentionSettings)
+-&gt; Either
+     String (Maybe POSIX -&gt; Int -&gt; PutRetentionSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679529604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RetentionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetentionSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; PutRetentionSettingsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; PutRetentionSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679529604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitiateDeletionTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutRetentionSettingsResponse)
+-&gt; Either String Int -&gt; Either String PutRetentionSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529606"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529596"><span id="local-6989586621679529598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679529589"><span class="annot"><span class="annottext">toHeaders :: PutRetentionSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRetentionSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529580"><span id="local-6989586621679529582"><span id="local-6989586621679529584"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679529578"><span class="annot"><span class="annottext">toJSON :: PutRetentionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-type">PutRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529575"><span id="local-6989586621679529576"><span class="annot"><span class="annottext">Text
+RetentionSettings
+retentionSettings :: RetentionSettings
+accountId :: Text
+$sel:retentionSettings:PutRetentionSettings' :: PutRetentionSettings -&gt; RetentionSettings
+$sel:accountId:PutRetentionSettings' :: PutRetentionSettings -&gt; Text
+</span><a href="#local-6989586621679529575"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetentionSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetentionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RetentionSettings
+</span><a href="#local-6989586621679529575"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679529569"><span class="annot"><span class="annottext">toPath :: PutRetentionSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings%27"><span class="hs-identifier hs-type">PutRetentionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529566"><span id="local-6989586621679529567"><span class="annot"><span class="annottext">Text
+RetentionSettings
+retentionSettings :: RetentionSettings
+accountId :: Text
+$sel:retentionSettings:PutRetentionSettings' :: PutRetentionSettings -&gt; RetentionSettings
+$sel:accountId:PutRetentionSettings' :: PutRetentionSettings -&gt; Text
+</span><a href="#local-6989586621679529566"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529567"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/retention-settings&quot;</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettings"><span class="hs-identifier hs-type">PutRetentionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679529562"><span class="annot"><span class="annottext">toQuery :: PutRetentionSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRetentionSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newPutRetentionSettingsResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679529559"><span id="local-6989586621679529560"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionSettingsResponse"><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-var">PutRetentionSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionSettingsResponse%27"><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">PutRetentionSettingsResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The retention settings.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AretentionSettings%3APutRetentionSettingsResponse%27"><span class="annot"><span class="annottext">PutRetentionSettingsResponse -&gt; Maybe RetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AretentionSettings%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var hs-var">retentionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.RetentionSettings.html#RetentionSettings"><span class="hs-identifier hs-type">RetentionSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The timestamp representing the time at which the specified items are</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- permanently deleted, in ISO 8601 format.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AinitiateDeletionTimestamp%3APutRetentionSettingsResponse%27"><span class="annot"><span class="annottext">PutRetentionSettingsResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AinitiateDeletionTimestamp%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var hs-var">initiateDeletionTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRetentionSettingsResponse%27"><span class="annot"><span class="annottext">PutRetentionSettingsResponse -&gt; Int
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AhttpStatus%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529552"><span id="local-6989586621679529554"><span class="annot"><span class="annottext">PutRetentionSettingsResponse
+-&gt; PutRetentionSettingsResponse -&gt; Bool
+(PutRetentionSettingsResponse
+ -&gt; PutRetentionSettingsResponse -&gt; Bool)
+-&gt; (PutRetentionSettingsResponse
+    -&gt; PutRetentionSettingsResponse -&gt; Bool)
+-&gt; Eq PutRetentionSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRetentionSettingsResponse
+-&gt; PutRetentionSettingsResponse -&gt; Bool
+$c/= :: PutRetentionSettingsResponse
+-&gt; PutRetentionSettingsResponse -&gt; Bool
+== :: PutRetentionSettingsResponse
+-&gt; PutRetentionSettingsResponse -&gt; Bool
+$c== :: PutRetentionSettingsResponse
+-&gt; PutRetentionSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529544"><span id="local-6989586621679529546"><span id="local-6989586621679529548"><span id="local-6989586621679529550"><span class="annot"><span class="annottext">ReadPrec [PutRetentionSettingsResponse]
+ReadPrec PutRetentionSettingsResponse
+Int -&gt; ReadS PutRetentionSettingsResponse
+ReadS [PutRetentionSettingsResponse]
+(Int -&gt; ReadS PutRetentionSettingsResponse)
+-&gt; ReadS [PutRetentionSettingsResponse]
+-&gt; ReadPrec PutRetentionSettingsResponse
+-&gt; ReadPrec [PutRetentionSettingsResponse]
+-&gt; Read PutRetentionSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRetentionSettingsResponse]
+$creadListPrec :: ReadPrec [PutRetentionSettingsResponse]
+readPrec :: ReadPrec PutRetentionSettingsResponse
+$creadPrec :: ReadPrec PutRetentionSettingsResponse
+readList :: ReadS [PutRetentionSettingsResponse]
+$creadList :: ReadS [PutRetentionSettingsResponse]
+readsPrec :: Int -&gt; ReadS PutRetentionSettingsResponse
+$creadsPrec :: Int -&gt; ReadS PutRetentionSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529538"><span id="local-6989586621679529540"><span id="local-6989586621679529542"><span class="annot"><span class="annottext">Int -&gt; PutRetentionSettingsResponse -&gt; ShowS
+[PutRetentionSettingsResponse] -&gt; ShowS
+PutRetentionSettingsResponse -&gt; String
+(Int -&gt; PutRetentionSettingsResponse -&gt; ShowS)
+-&gt; (PutRetentionSettingsResponse -&gt; String)
+-&gt; ([PutRetentionSettingsResponse] -&gt; ShowS)
+-&gt; Show PutRetentionSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRetentionSettingsResponse] -&gt; ShowS
+$cshowList :: [PutRetentionSettingsResponse] -&gt; ShowS
+show :: PutRetentionSettingsResponse -&gt; String
+$cshow :: PutRetentionSettingsResponse -&gt; String
+showsPrec :: Int -&gt; PutRetentionSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRetentionSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutRetentionSettingsResponse -&gt; Rep PutRetentionSettingsResponse x)
+-&gt; (forall x.
+    Rep PutRetentionSettingsResponse x -&gt; PutRetentionSettingsResponse)
+-&gt; Generic PutRetentionSettingsResponse
+forall x.
+Rep PutRetentionSettingsResponse x -&gt; PutRetentionSettingsResponse
+forall x.
+PutRetentionSettingsResponse -&gt; Rep PutRetentionSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutRetentionSettingsResponse x -&gt; PutRetentionSettingsResponse
+$cfrom :: forall x.
+PutRetentionSettingsResponse -&gt; Rep PutRetentionSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'PutRetentionSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'retentionSettings', 'putRetentionSettingsResponse_retentionSettings' - The retention settings.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'initiateDeletionTimestamp', 'putRetentionSettingsResponse_initiateDeletionTimestamp' - The timestamp representing the time at which the specified items are</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- permanently deleted, in ISO 8601 format.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'putRetentionSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#newPutRetentionSettingsResponse"><span class="hs-identifier hs-type">newPutRetentionSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newPutRetentionSettingsResponse"><span class="annot"><span class="annottext">newPutRetentionSettingsResponse :: Int -&gt; PutRetentionSettingsResponse
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#newPutRetentionSettingsResponse"><span class="hs-identifier hs-var hs-var">newPutRetentionSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679529535"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529535"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">PutRetentionSettingsResponse' :: Maybe RetentionSettings
+-&gt; Maybe POSIX -&gt; Int -&gt; PutRetentionSettingsResponse
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-type">PutRetentionSettingsResponse'</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:retentionSettings:PutRetentionSettingsResponse' :: Maybe RetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AretentionSettings%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:initiateDeletionTimestamp:PutRetentionSettingsResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AinitiateDeletionTimestamp%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">initiateDeletionTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRetentionSettingsResponse' :: Int
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AhttpStatus%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529535"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The retention settings.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_retentionSettings"><span class="hs-identifier hs-type">putRetentionSettingsResponse_retentionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.RetentionSettings.html#RetentionSettings"><span class="hs-identifier hs-type">RetentionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="putRetentionSettingsResponse_retentionSettings"><span class="annot"><span class="annottext">putRetentionSettingsResponse_retentionSettings :: (Maybe RetentionSettings -&gt; f (Maybe RetentionSettings))
+-&gt; PutRetentionSettingsResponse -&gt; f PutRetentionSettingsResponse
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_retentionSettings"><span class="hs-identifier hs-var hs-var">putRetentionSettingsResponse_retentionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRetentionSettingsResponse -&gt; Maybe RetentionSettings)
+-&gt; (PutRetentionSettingsResponse
+    -&gt; Maybe RetentionSettings -&gt; PutRetentionSettingsResponse)
+-&gt; Lens
+     PutRetentionSettingsResponse
+     PutRetentionSettingsResponse
+     (Maybe RetentionSettings)
+     (Maybe RetentionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-type">PutRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529534"><span class="annot"><span class="annottext">Maybe RetentionSettings
+retentionSettings :: Maybe RetentionSettings
+$sel:retentionSettings:PutRetentionSettingsResponse' :: PutRetentionSettingsResponse -&gt; Maybe RetentionSettings
+</span><a href="#local-6989586621679529534"><span class="hs-identifier hs-var hs-var">retentionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+</span><a href="#local-6989586621679529534"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529533"><span class="annot"><span class="annottext">s :: PutRetentionSettingsResponse
+</span><a href="#local-6989586621679529533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-type">PutRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529532"><span class="annot"><span class="annottext">Maybe RetentionSettings
+</span><a href="#local-6989586621679529532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionSettingsResponse
+</span><a href="#local-6989586621679529533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionSettings:PutRetentionSettingsResponse' :: Maybe RetentionSettings
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AretentionSettings%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">retentionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionSettings
+</span><a href="#local-6989586621679529532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The timestamp representing the time at which the specified items are</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- permanently deleted, in ISO 8601 format.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_initiateDeletionTimestamp"><span class="hs-identifier hs-type">putRetentionSettingsResponse_initiateDeletionTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="putRetentionSettingsResponse_initiateDeletionTimestamp"><span class="annot"><span class="annottext">putRetentionSettingsResponse_initiateDeletionTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutRetentionSettingsResponse -&gt; f PutRetentionSettingsResponse
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_initiateDeletionTimestamp"><span class="hs-identifier hs-var hs-var">putRetentionSettingsResponse_initiateDeletionTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRetentionSettingsResponse -&gt; Maybe POSIX)
+-&gt; (PutRetentionSettingsResponse
+    -&gt; Maybe POSIX -&gt; PutRetentionSettingsResponse)
+-&gt; Lens
+     PutRetentionSettingsResponse
+     PutRetentionSettingsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-type">PutRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529531"><span class="annot"><span class="annottext">Maybe POSIX
+initiateDeletionTimestamp :: Maybe POSIX
+$sel:initiateDeletionTimestamp:PutRetentionSettingsResponse' :: PutRetentionSettingsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679529531"><span class="hs-identifier hs-var hs-var">initiateDeletionTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679529531"><span class="hs-identifier hs-var">initiateDeletionTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529530"><span class="annot"><span class="annottext">s :: PutRetentionSettingsResponse
+</span><a href="#local-6989586621679529530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-type">PutRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529529"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679529529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionSettingsResponse
+</span><a href="#local-6989586621679529530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiateDeletionTimestamp:PutRetentionSettingsResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AinitiateDeletionTimestamp%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">initiateDeletionTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679529529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PutRetentionSettingsResponse -&gt; f PutRetentionSettingsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PutRetentionSettingsResponse
+-&gt; f PutRetentionSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_httpStatus"><span class="hs-identifier hs-type">putRetentionSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span id="putRetentionSettingsResponse_httpStatus"><span class="annot"><span class="annottext">putRetentionSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutRetentionSettingsResponse -&gt; f PutRetentionSettingsResponse
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#putRetentionSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putRetentionSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRetentionSettingsResponse -&gt; Int)
+-&gt; (PutRetentionSettingsResponse
+    -&gt; Int -&gt; PutRetentionSettingsResponse)
+-&gt; Lens
+     PutRetentionSettingsResponse PutRetentionSettingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-type">PutRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529525"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutRetentionSettingsResponse' :: PutRetentionSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679529525"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529525"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529524"><span class="annot"><span class="annottext">s :: PutRetentionSettingsResponse
+</span><a href="#local-6989586621679529524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse%27"><span class="hs-identifier hs-type">PutRetentionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529523"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionSettingsResponse
+</span><a href="#local-6989586621679529524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRetentionSettingsResponse' :: Int
+</span><a href="Network.AWS.Chime.PutRetentionSettings.html#%24sel%3AhttpStatus%3APutRetentionSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutRetentionSettings.html#PutRetentionSettingsResponse"><span class="hs-identifier hs-type">PutRetentionSettingsResponse</span></a></span></span><span>
+</span><span id="line-196"></span></pre></body></html>

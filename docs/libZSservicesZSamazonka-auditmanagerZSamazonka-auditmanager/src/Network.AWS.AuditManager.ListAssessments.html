@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.ListAssessments</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of current and past assessments from Audit Manager.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.ListAssessments</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier">ListAssessments</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#newListAssessments"><span class="hs-identifier">newListAssessments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessments_nextToken"><span class="hs-identifier">listAssessments_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessments_maxResults"><span class="hs-identifier">listAssessments_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier">ListAssessmentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#newListAssessmentsResponse"><span class="hs-identifier">newListAssessmentsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_nextToken"><span class="hs-identifier">listAssessmentsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_assessmentMetadata"><span class="hs-identifier">listAssessmentsResponse_assessmentMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_httpStatus"><span class="hs-identifier">listAssessmentsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.html"><span class="hs-identifier">Network.AWS.AuditManager.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newListAssessments' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679300411"><span id="local-6989586621679300412"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessments"><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-var">ListAssessments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessments%27"><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments%27"><span class="hs-identifier hs-var">ListAssessments'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssessments%27"><span class="annot"><span class="annottext">ListAssessments -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AnextToken%3AListAssessments%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Represents the maximum number of results per page, or per API request</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAssessments%27"><span class="annot"><span class="annottext">ListAssessments -&gt; Maybe Natural
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AmaxResults%3AListAssessments%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300404"><span id="local-6989586621679300406"><span class="annot"><span class="annottext">ListAssessments -&gt; ListAssessments -&gt; Bool
+(ListAssessments -&gt; ListAssessments -&gt; Bool)
+-&gt; (ListAssessments -&gt; ListAssessments -&gt; Bool)
+-&gt; Eq ListAssessments
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssessments -&gt; ListAssessments -&gt; Bool
+$c/= :: ListAssessments -&gt; ListAssessments -&gt; Bool
+== :: ListAssessments -&gt; ListAssessments -&gt; Bool
+$c== :: ListAssessments -&gt; ListAssessments -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300395"><span id="local-6989586621679300397"><span id="local-6989586621679300399"><span id="local-6989586621679300401"><span class="annot"><span class="annottext">ReadPrec [ListAssessments]
+ReadPrec ListAssessments
+Int -&gt; ReadS ListAssessments
+ReadS [ListAssessments]
+(Int -&gt; ReadS ListAssessments)
+-&gt; ReadS [ListAssessments]
+-&gt; ReadPrec ListAssessments
+-&gt; ReadPrec [ListAssessments]
+-&gt; Read ListAssessments
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssessments]
+$creadListPrec :: ReadPrec [ListAssessments]
+readPrec :: ReadPrec ListAssessments
+$creadPrec :: ReadPrec ListAssessments
+readList :: ReadS [ListAssessments]
+$creadList :: ReadS [ListAssessments]
+readsPrec :: Int -&gt; ReadS ListAssessments
+$creadsPrec :: Int -&gt; ReadS ListAssessments
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300388"><span id="local-6989586621679300390"><span id="local-6989586621679300392"><span class="annot"><span class="annottext">Int -&gt; ListAssessments -&gt; ShowS
+[ListAssessments] -&gt; ShowS
+ListAssessments -&gt; String
+(Int -&gt; ListAssessments -&gt; ShowS)
+-&gt; (ListAssessments -&gt; String)
+-&gt; ([ListAssessments] -&gt; ShowS)
+-&gt; Show ListAssessments
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssessments] -&gt; ShowS
+$cshowList :: [ListAssessments] -&gt; ShowS
+show :: ListAssessments -&gt; String
+$cshow :: ListAssessments -&gt; String
+showsPrec :: Int -&gt; ListAssessments -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssessments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAssessments -&gt; Rep ListAssessments x)
+-&gt; (forall x. Rep ListAssessments x -&gt; ListAssessments)
+-&gt; Generic ListAssessments
+forall x. Rep ListAssessments x -&gt; ListAssessments
+forall x. ListAssessments -&gt; Rep ListAssessments x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAssessments x -&gt; ListAssessments
+$cfrom :: forall x. ListAssessments -&gt; Rep ListAssessments x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ListAssessments' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'nextToken', 'listAssessments_nextToken' - The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'maxResults', 'listAssessments_maxResults' - Represents the maximum number of results per page, or per API request</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#newListAssessments"><span class="hs-identifier hs-type">newListAssessments</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span>
+</span><span id="line-75"></span><span id="newListAssessments"><span class="annot"><span class="annottext">newListAssessments :: ListAssessments
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#newListAssessments"><span class="hs-identifier hs-var hs-var">newListAssessments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ListAssessments' :: Maybe Text -&gt; Maybe Natural -&gt; ListAssessments
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments%27"><span class="hs-identifier hs-type">ListAssessments'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessments' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AnextToken%3AListAssessments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessments' :: Maybe Natural
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AmaxResults%3AListAssessments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessments_nextToken"><span class="hs-identifier hs-type">listAssessments_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="listAssessments_nextToken"><span class="annot"><span class="annottext">listAssessments_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssessments -&gt; f ListAssessments
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessments_nextToken"><span class="hs-identifier hs-var hs-var">listAssessments_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessments -&gt; Maybe Text)
+-&gt; (ListAssessments -&gt; Maybe Text -&gt; ListAssessments)
+-&gt; Lens ListAssessments ListAssessments (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments%27"><span class="hs-identifier hs-type">ListAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300381"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssessments' :: ListAssessments -&gt; Maybe Text
+</span><a href="#local-6989586621679300381"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300381"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300380"><span class="annot"><span class="annottext">s :: ListAssessments
+</span><a href="#local-6989586621679300380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments%27"><span class="hs-identifier hs-type">ListAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300379"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessments
+</span><a href="#local-6989586621679300380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessments' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AnextToken%3AListAssessments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Represents the maximum number of results per page, or per API request</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessments_maxResults"><span class="hs-identifier hs-type">listAssessments_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listAssessments_maxResults"><span class="annot"><span class="annottext">listAssessments_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAssessments -&gt; f ListAssessments
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessments_maxResults"><span class="hs-identifier hs-var hs-var">listAssessments_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessments -&gt; Maybe Natural)
+-&gt; (ListAssessments -&gt; Maybe Natural -&gt; ListAssessments)
+-&gt; Lens
+     ListAssessments ListAssessments (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments%27"><span class="hs-identifier hs-type">ListAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300378"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAssessments' :: ListAssessments -&gt; Maybe Natural
+</span><a href="#local-6989586621679300378"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300378"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300377"><span class="annot"><span class="annottext">s :: ListAssessments
+</span><a href="#local-6989586621679300377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments%27"><span class="hs-identifier hs-type">ListAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300376"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessments
+</span><a href="#local-6989586621679300377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessments' :: Maybe Natural
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AmaxResults%3AListAssessments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679300372"><span class="annot"><span class="annottext">request :: ListAssessments -&gt; Request ListAssessments
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAssessments -&gt; Request ListAssessments
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679300368"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAssessments
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAssessments)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAssessments))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAssessments
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAssessments)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300365"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300364"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679300364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300363"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [AssessmentMetadataItem] -&gt; Int -&gt; ListAssessmentsResponse
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-var">ListAssessmentsResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [AssessmentMetadataItem]
+ -&gt; Int
+ -&gt; ListAssessmentsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [AssessmentMetadataItem] -&gt; Int -&gt; ListAssessmentsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [AssessmentMetadataItem] -&gt; Int -&gt; ListAssessmentsResponse)
+-&gt; Either String (Maybe [AssessmentMetadataItem])
+-&gt; Either String (Int -&gt; ListAssessmentsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [AssessmentMetadataItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentMetadata&quot;</span></span><span>
+</span><span id="line-101"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AssessmentMetadataItem]))
+-&gt; Maybe [AssessmentMetadataItem]
+-&gt; Either String (Maybe [AssessmentMetadataItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentMetadataItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAssessmentsResponse)
+-&gt; Either String Int -&gt; Either String ListAssessmentsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300354"><span id="local-6989586621679300356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679300347"><span class="annot"><span class="annottext">toHeaders :: ListAssessments -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssessments -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679300341"><span class="annot"><span class="annottext">toPath :: ListAssessments -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAssessments -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assessments&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments"><span class="hs-identifier hs-type">ListAssessments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679300337"><span class="annot"><span class="annottext">toQuery :: ListAssessments -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessments%27"><span class="hs-identifier hs-type">ListAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300334"><span id="local-6989586621679300335"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListAssessments' :: ListAssessments -&gt; Maybe Natural
+$sel:nextToken:ListAssessments' :: ListAssessments -&gt; Maybe Text
+</span><a href="#local-6989586621679300334"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300335"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679300334"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newListAssessmentsResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679300331"><span id="local-6989586621679300332"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessmentsResponse"><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-var">ListAssessmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessmentsResponse%27"><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-var">ListAssessmentsResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssessmentsResponse%27"><span class="annot"><span class="annottext">ListAssessmentsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AnextToken%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The metadata associated with the assessment.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AassessmentMetadata%3AListAssessmentsResponse%27"><span class="annot"><span class="annottext">ListAssessmentsResponse -&gt; Maybe [AssessmentMetadataItem]
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AassessmentMetadata%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var hs-var">assessmentMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentMetadataItem.html#AssessmentMetadataItem"><span class="hs-identifier hs-type">AssessmentMetadataItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAssessmentsResponse%27"><span class="annot"><span class="annottext">ListAssessmentsResponse -&gt; Int
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AhttpStatus%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300324"><span id="local-6989586621679300326"><span class="annot"><span class="annottext">ListAssessmentsResponse -&gt; ListAssessmentsResponse -&gt; Bool
+(ListAssessmentsResponse -&gt; ListAssessmentsResponse -&gt; Bool)
+-&gt; (ListAssessmentsResponse -&gt; ListAssessmentsResponse -&gt; Bool)
+-&gt; Eq ListAssessmentsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAssessmentsResponse -&gt; ListAssessmentsResponse -&gt; Bool
+$c/= :: ListAssessmentsResponse -&gt; ListAssessmentsResponse -&gt; Bool
+== :: ListAssessmentsResponse -&gt; ListAssessmentsResponse -&gt; Bool
+$c== :: ListAssessmentsResponse -&gt; ListAssessmentsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300316"><span id="local-6989586621679300318"><span id="local-6989586621679300320"><span id="local-6989586621679300322"><span class="annot"><span class="annottext">ReadPrec [ListAssessmentsResponse]
+ReadPrec ListAssessmentsResponse
+Int -&gt; ReadS ListAssessmentsResponse
+ReadS [ListAssessmentsResponse]
+(Int -&gt; ReadS ListAssessmentsResponse)
+-&gt; ReadS [ListAssessmentsResponse]
+-&gt; ReadPrec ListAssessmentsResponse
+-&gt; ReadPrec [ListAssessmentsResponse]
+-&gt; Read ListAssessmentsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAssessmentsResponse]
+$creadListPrec :: ReadPrec [ListAssessmentsResponse]
+readPrec :: ReadPrec ListAssessmentsResponse
+$creadPrec :: ReadPrec ListAssessmentsResponse
+readList :: ReadS [ListAssessmentsResponse]
+$creadList :: ReadS [ListAssessmentsResponse]
+readsPrec :: Int -&gt; ReadS ListAssessmentsResponse
+$creadsPrec :: Int -&gt; ReadS ListAssessmentsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300310"><span id="local-6989586621679300312"><span id="local-6989586621679300314"><span class="annot"><span class="annottext">Int -&gt; ListAssessmentsResponse -&gt; ShowS
+[ListAssessmentsResponse] -&gt; ShowS
+ListAssessmentsResponse -&gt; String
+(Int -&gt; ListAssessmentsResponse -&gt; ShowS)
+-&gt; (ListAssessmentsResponse -&gt; String)
+-&gt; ([ListAssessmentsResponse] -&gt; ShowS)
+-&gt; Show ListAssessmentsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAssessmentsResponse] -&gt; ShowS
+$cshowList :: [ListAssessmentsResponse] -&gt; ShowS
+show :: ListAssessmentsResponse -&gt; String
+$cshow :: ListAssessmentsResponse -&gt; String
+showsPrec :: Int -&gt; ListAssessmentsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAssessmentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAssessmentsResponse -&gt; Rep ListAssessmentsResponse x)
+-&gt; (forall x.
+    Rep ListAssessmentsResponse x -&gt; ListAssessmentsResponse)
+-&gt; Generic ListAssessmentsResponse
+forall x. Rep ListAssessmentsResponse x -&gt; ListAssessmentsResponse
+forall x. ListAssessmentsResponse -&gt; Rep ListAssessmentsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAssessmentsResponse x -&gt; ListAssessmentsResponse
+$cfrom :: forall x. ListAssessmentsResponse -&gt; Rep ListAssessmentsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'ListAssessmentsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'nextToken', 'listAssessmentsResponse_nextToken' - The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'assessmentMetadata', 'listAssessmentsResponse_assessmentMetadata' - The metadata associated with the assessment.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'listAssessmentsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#newListAssessmentsResponse"><span class="hs-identifier hs-type">newListAssessmentsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newListAssessmentsResponse"><span class="annot"><span class="annottext">newListAssessmentsResponse :: Int -&gt; ListAssessmentsResponse
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#newListAssessmentsResponse"><span class="hs-identifier hs-var hs-var">newListAssessmentsResponse</span></a></span></span><span> </span><span id="local-6989586621679300307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">ListAssessmentsResponse' :: Maybe Text
+-&gt; Maybe [AssessmentMetadataItem] -&gt; Int -&gt; ListAssessmentsResponse
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-type">ListAssessmentsResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentsResponse' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AnextToken%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentMetadata:ListAssessmentsResponse' :: Maybe [AssessmentMetadataItem]
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AassessmentMetadata%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var">assessmentMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentMetadataItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssessmentsResponse' :: Int
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AhttpStatus%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The pagination token used to fetch the next set of results.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_nextToken"><span class="hs-identifier hs-type">listAssessmentsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="listAssessmentsResponse_nextToken"><span class="annot"><span class="annottext">listAssessmentsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssessmentsResponse -&gt; f ListAssessmentsResponse
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssessmentsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentsResponse -&gt; Maybe Text)
+-&gt; (ListAssessmentsResponse
+    -&gt; Maybe Text -&gt; ListAssessmentsResponse)
+-&gt; Lens
+     ListAssessmentsResponse
+     ListAssessmentsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-type">ListAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300306"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssessmentsResponse' :: ListAssessmentsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679300306"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300306"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300305"><span class="annot"><span class="annottext">s :: ListAssessmentsResponse
+</span><a href="#local-6989586621679300305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-type">ListAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300304"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentsResponse
+</span><a href="#local-6989586621679300305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentsResponse' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AnextToken%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The metadata associated with the assessment.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_assessmentMetadata"><span class="hs-identifier hs-type">listAssessmentsResponse_assessmentMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentMetadataItem.html#AssessmentMetadataItem"><span class="hs-identifier hs-type">AssessmentMetadataItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="listAssessmentsResponse_assessmentMetadata"><span class="annot"><span class="annottext">listAssessmentsResponse_assessmentMetadata :: (Maybe [AssessmentMetadataItem]
+ -&gt; f (Maybe [AssessmentMetadataItem]))
+-&gt; ListAssessmentsResponse -&gt; f ListAssessmentsResponse
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_assessmentMetadata"><span class="hs-identifier hs-var hs-var">listAssessmentsResponse_assessmentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentsResponse -&gt; Maybe [AssessmentMetadataItem])
+-&gt; (ListAssessmentsResponse
+    -&gt; Maybe [AssessmentMetadataItem] -&gt; ListAssessmentsResponse)
+-&gt; Lens
+     ListAssessmentsResponse
+     ListAssessmentsResponse
+     (Maybe [AssessmentMetadataItem])
+     (Maybe [AssessmentMetadataItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-type">ListAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300303"><span class="annot"><span class="annottext">Maybe [AssessmentMetadataItem]
+assessmentMetadata :: Maybe [AssessmentMetadataItem]
+$sel:assessmentMetadata:ListAssessmentsResponse' :: ListAssessmentsResponse -&gt; Maybe [AssessmentMetadataItem]
+</span><a href="#local-6989586621679300303"><span class="hs-identifier hs-var hs-var">assessmentMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentMetadataItem]
+</span><a href="#local-6989586621679300303"><span class="hs-identifier hs-var">assessmentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300302"><span class="annot"><span class="annottext">s :: ListAssessmentsResponse
+</span><a href="#local-6989586621679300302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-type">ListAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300301"><span class="annot"><span class="annottext">Maybe [AssessmentMetadataItem]
+</span><a href="#local-6989586621679300301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentsResponse
+</span><a href="#local-6989586621679300302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentMetadata:ListAssessmentsResponse' :: Maybe [AssessmentMetadataItem]
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AassessmentMetadata%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var">assessmentMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentMetadataItem]
+</span><a href="#local-6989586621679300301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssessmentMetadataItem]
+  -&gt; f (Maybe [AssessmentMetadataItem]))
+ -&gt; ListAssessmentsResponse -&gt; f ListAssessmentsResponse)
+-&gt; ((Maybe [AssessmentMetadataItem]
+     -&gt; f (Maybe [AssessmentMetadataItem]))
+    -&gt; Maybe [AssessmentMetadataItem]
+    -&gt; f (Maybe [AssessmentMetadataItem]))
+-&gt; (Maybe [AssessmentMetadataItem]
+    -&gt; f (Maybe [AssessmentMetadataItem]))
+-&gt; ListAssessmentsResponse
+-&gt; f ListAssessmentsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AssessmentMetadataItem]
+  [AssessmentMetadataItem]
+  [AssessmentMetadataItem]
+  [AssessmentMetadataItem]
+-&gt; Iso
+     (Maybe [AssessmentMetadataItem])
+     (Maybe [AssessmentMetadataItem])
+     (Maybe [AssessmentMetadataItem])
+     (Maybe [AssessmentMetadataItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AssessmentMetadataItem]
+  [AssessmentMetadataItem]
+  [AssessmentMetadataItem]
+  [AssessmentMetadataItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_httpStatus"><span class="hs-identifier hs-type">listAssessmentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span id="listAssessmentsResponse_httpStatus"><span class="annot"><span class="annottext">listAssessmentsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAssessmentsResponse -&gt; f ListAssessmentsResponse
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#listAssessmentsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAssessmentsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentsResponse -&gt; Int)
+-&gt; (ListAssessmentsResponse -&gt; Int -&gt; ListAssessmentsResponse)
+-&gt; Lens ListAssessmentsResponse ListAssessmentsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-type">ListAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300297"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAssessmentsResponse' :: ListAssessmentsResponse -&gt; Int
+</span><a href="#local-6989586621679300297"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300297"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300296"><span class="annot"><span class="annottext">s :: ListAssessmentsResponse
+</span><a href="#local-6989586621679300296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse%27"><span class="hs-identifier hs-type">ListAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300295"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentsResponse
+</span><a href="#local-6989586621679300296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssessmentsResponse' :: Int
+</span><a href="Network.AWS.AuditManager.ListAssessments.html#%24sel%3AhttpStatus%3AListAssessmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.ListAssessments.html#ListAssessmentsResponse"><span class="hs-identifier hs-type">ListAssessmentsResponse</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

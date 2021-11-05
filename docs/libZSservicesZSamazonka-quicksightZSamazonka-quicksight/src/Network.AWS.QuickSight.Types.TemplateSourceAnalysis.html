@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.TemplateSourceAnalysis</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.TemplateSourceAnalysis</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetReference.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.DataSetReference</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The source analysis of the template.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTemplateSourceAnalysis' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679567749"><span id="local-6989586621679567750"></span></span><span class="hs-keyword">data</span><span> </span><span id="TemplateSourceAnalysis"><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-var">TemplateSourceAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemplateSourceAnalysis%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis%27"><span class="hs-identifier hs-var">TemplateSourceAnalysis'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3ATemplateSourceAnalysis%27"><span class="annot"><span class="annottext">TemplateSourceAnalysis -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#%24sel%3Aarn%3ATemplateSourceAnalysis%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A structure containing information about the dataset references used as</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- placeholders in the template.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdataSetReferences%3ATemplateSourceAnalysis%27"><span class="annot"><span class="annottext">TemplateSourceAnalysis -&gt; NonEmpty DataSetReference
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#%24sel%3AdataSetReferences%3ATemplateSourceAnalysis%27"><span class="hs-identifier hs-var hs-var">dataSetReferences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetReference.html#DataSetReference"><span class="hs-identifier hs-type">DataSetReference</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679567742"><span id="local-6989586621679567744"><span class="annot"><span class="annottext">TemplateSourceAnalysis -&gt; TemplateSourceAnalysis -&gt; Bool
+(TemplateSourceAnalysis -&gt; TemplateSourceAnalysis -&gt; Bool)
+-&gt; (TemplateSourceAnalysis -&gt; TemplateSourceAnalysis -&gt; Bool)
+-&gt; Eq TemplateSourceAnalysis
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TemplateSourceAnalysis -&gt; TemplateSourceAnalysis -&gt; Bool
+$c/= :: TemplateSourceAnalysis -&gt; TemplateSourceAnalysis -&gt; Bool
+== :: TemplateSourceAnalysis -&gt; TemplateSourceAnalysis -&gt; Bool
+$c== :: TemplateSourceAnalysis -&gt; TemplateSourceAnalysis -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679567733"><span id="local-6989586621679567735"><span id="local-6989586621679567737"><span id="local-6989586621679567739"><span class="annot"><span class="annottext">ReadPrec [TemplateSourceAnalysis]
+ReadPrec TemplateSourceAnalysis
+Int -&gt; ReadS TemplateSourceAnalysis
+ReadS [TemplateSourceAnalysis]
+(Int -&gt; ReadS TemplateSourceAnalysis)
+-&gt; ReadS [TemplateSourceAnalysis]
+-&gt; ReadPrec TemplateSourceAnalysis
+-&gt; ReadPrec [TemplateSourceAnalysis]
+-&gt; Read TemplateSourceAnalysis
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TemplateSourceAnalysis]
+$creadListPrec :: ReadPrec [TemplateSourceAnalysis]
+readPrec :: ReadPrec TemplateSourceAnalysis
+$creadPrec :: ReadPrec TemplateSourceAnalysis
+readList :: ReadS [TemplateSourceAnalysis]
+$creadList :: ReadS [TemplateSourceAnalysis]
+readsPrec :: Int -&gt; ReadS TemplateSourceAnalysis
+$creadsPrec :: Int -&gt; ReadS TemplateSourceAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679567726"><span id="local-6989586621679567728"><span id="local-6989586621679567730"><span class="annot"><span class="annottext">Int -&gt; TemplateSourceAnalysis -&gt; ShowS
+[TemplateSourceAnalysis] -&gt; ShowS
+TemplateSourceAnalysis -&gt; String
+(Int -&gt; TemplateSourceAnalysis -&gt; ShowS)
+-&gt; (TemplateSourceAnalysis -&gt; String)
+-&gt; ([TemplateSourceAnalysis] -&gt; ShowS)
+-&gt; Show TemplateSourceAnalysis
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TemplateSourceAnalysis] -&gt; ShowS
+$cshowList :: [TemplateSourceAnalysis] -&gt; ShowS
+show :: TemplateSourceAnalysis -&gt; String
+$cshow :: TemplateSourceAnalysis -&gt; String
+showsPrec :: Int -&gt; TemplateSourceAnalysis -&gt; ShowS
+$cshowsPrec :: Int -&gt; TemplateSourceAnalysis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TemplateSourceAnalysis -&gt; Rep TemplateSourceAnalysis x)
+-&gt; (forall x.
+    Rep TemplateSourceAnalysis x -&gt; TemplateSourceAnalysis)
+-&gt; Generic TemplateSourceAnalysis
+forall x. Rep TemplateSourceAnalysis x -&gt; TemplateSourceAnalysis
+forall x. TemplateSourceAnalysis -&gt; Rep TemplateSourceAnalysis x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TemplateSourceAnalysis x -&gt; TemplateSourceAnalysis
+$cfrom :: forall x. TemplateSourceAnalysis -&gt; Rep TemplateSourceAnalysis x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'TemplateSourceAnalysis' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'arn', 'templateSourceAnalysis_arn' - The Amazon Resource Name (ARN) of the resource.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'dataSetReferences', 'templateSourceAnalysis_dataSetReferences' - A structure containing information about the dataset references used as</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- placeholders in the template.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#newTemplateSourceAnalysis"><span class="hs-identifier hs-type">newTemplateSourceAnalysis</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'dataSetReferences'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetReference.html#DataSetReference"><span class="hs-identifier hs-type">DataSetReference</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span><span>
+</span><span id="line-57"></span><span id="newTemplateSourceAnalysis"><span class="annot"><span class="annottext">newTemplateSourceAnalysis :: Text -&gt; NonEmpty DataSetReference -&gt; TemplateSourceAnalysis
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#newTemplateSourceAnalysis"><span class="hs-identifier hs-var hs-var">newTemplateSourceAnalysis</span></a></span></span><span> </span><span id="local-6989586621679567720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679567720"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679567719"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679567719"><span class="hs-identifier hs-var">pDataSetReferences_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">TemplateSourceAnalysis' :: Text -&gt; NonEmpty DataSetReference -&gt; TemplateSourceAnalysis
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis%27"><span class="hs-identifier hs-type">TemplateSourceAnalysis'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:TemplateSourceAnalysis' :: Text
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#%24sel%3Aarn%3ATemplateSourceAnalysis%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679567720"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSetReferences:TemplateSourceAnalysis' :: NonEmpty DataSetReference
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#%24sel%3AdataSetReferences%3ATemplateSourceAnalysis%27"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference))
+-&gt; Tagged
+     (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference))
+ -&gt; Tagged
+      (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference)))
+-&gt; NonEmpty DataSetReference -&gt; NonEmpty DataSetReference
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679567719"><span class="hs-identifier hs-var">pDataSetReferences_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#templateSourceAnalysis_arn"><span class="hs-identifier hs-type">templateSourceAnalysis_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span id="templateSourceAnalysis_arn"><span class="annot"><span class="annottext">templateSourceAnalysis_arn :: (Text -&gt; f Text)
+-&gt; TemplateSourceAnalysis -&gt; f TemplateSourceAnalysis
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#templateSourceAnalysis_arn"><span class="hs-identifier hs-var hs-var">templateSourceAnalysis_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateSourceAnalysis -&gt; Text)
+-&gt; (TemplateSourceAnalysis -&gt; Text -&gt; TemplateSourceAnalysis)
+-&gt; Lens TemplateSourceAnalysis TemplateSourceAnalysis Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis%27"><span class="hs-identifier hs-type">TemplateSourceAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567713"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:TemplateSourceAnalysis' :: TemplateSourceAnalysis -&gt; Text
+</span><a href="#local-6989586621679567713"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679567713"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567712"><span class="annot"><span class="annottext">s :: TemplateSourceAnalysis
+</span><a href="#local-6989586621679567712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis%27"><span class="hs-identifier hs-type">TemplateSourceAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679567711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateSourceAnalysis
+</span><a href="#local-6989586621679567712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TemplateSourceAnalysis' :: Text
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#%24sel%3Aarn%3ATemplateSourceAnalysis%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679567711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | A structure containing information about the dataset references used as</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- placeholders in the template.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#templateSourceAnalysis_dataSetReferences"><span class="hs-identifier hs-type">templateSourceAnalysis_dataSetReferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetReference.html#DataSetReference"><span class="hs-identifier hs-type">DataSetReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="templateSourceAnalysis_dataSetReferences"><span class="annot"><span class="annottext">templateSourceAnalysis_dataSetReferences :: (NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; TemplateSourceAnalysis -&gt; f TemplateSourceAnalysis
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#templateSourceAnalysis_dataSetReferences"><span class="hs-identifier hs-var hs-var">templateSourceAnalysis_dataSetReferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateSourceAnalysis -&gt; NonEmpty DataSetReference)
+-&gt; (TemplateSourceAnalysis
+    -&gt; NonEmpty DataSetReference -&gt; TemplateSourceAnalysis)
+-&gt; Lens
+     TemplateSourceAnalysis
+     TemplateSourceAnalysis
+     (NonEmpty DataSetReference)
+     (NonEmpty DataSetReference)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis%27"><span class="hs-identifier hs-type">TemplateSourceAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567709"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+dataSetReferences :: NonEmpty DataSetReference
+$sel:dataSetReferences:TemplateSourceAnalysis' :: TemplateSourceAnalysis -&gt; NonEmpty DataSetReference
+</span><a href="#local-6989586621679567709"><span class="hs-identifier hs-var hs-var">dataSetReferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679567709"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567708"><span class="annot"><span class="annottext">s :: TemplateSourceAnalysis
+</span><a href="#local-6989586621679567708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis%27"><span class="hs-identifier hs-type">TemplateSourceAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567707"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679567707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateSourceAnalysis
+</span><a href="#local-6989586621679567708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetReferences:TemplateSourceAnalysis' :: NonEmpty DataSetReference
+</span><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#%24sel%3AdataSetReferences%3ATemplateSourceAnalysis%27"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679567707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+ -&gt; TemplateSourceAnalysis -&gt; f TemplateSourceAnalysis)
+-&gt; ((NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+    -&gt; NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; (NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; TemplateSourceAnalysis
+-&gt; f TemplateSourceAnalysis
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567702"><span id="local-6989586621679567704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567691"><span id="local-6989586621679567693"><span id="local-6989586621679567695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis"><span class="hs-identifier hs-type">TemplateSourceAnalysis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679567689"><span class="annot"><span class="annottext">toJSON :: TemplateSourceAnalysis -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateSourceAnalysis.html#TemplateSourceAnalysis%27"><span class="hs-identifier hs-type">TemplateSourceAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567686"><span id="local-6989586621679567687"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+Text
+dataSetReferences :: NonEmpty DataSetReference
+arn :: Text
+$sel:dataSetReferences:TemplateSourceAnalysis' :: TemplateSourceAnalysis -&gt; NonEmpty DataSetReference
+$sel:arn:TemplateSourceAnalysis' :: TemplateSourceAnalysis -&gt; Text
+</span><a href="#local-6989586621679567686"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-81"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679567687"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-83"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetReferences&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DataSetReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679567686"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span></pre></body></html>

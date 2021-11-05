@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newListGroupResources' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679179140"><span id="local-6989586621679179141"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupResources"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-var">ListGroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupResources%27"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-var">ListGroupResources'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679179149"><span id="local-6989586621679179150"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupResources"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-var">ListGroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupResources%27"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-var">ListGroupResources'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the ARN of the resource group</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Agroup%27%3AListGroupResources%27"><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3Agroup%27%3AListGroupResources%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -124,7 +124,7 @@
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AmaxResults%3AListGroupResources%27"><span class="annot"><span class="annottext">ListGroupResources -&gt; Maybe Natural
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AmaxResults%3AListGroupResources%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179130"><span id="local-6989586621679179132"><span class="annot"><span class="annottext">ListGroupResources -&gt; ListGroupResources -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179139"><span id="local-6989586621679179141"><span class="annot"><span class="annottext">ListGroupResources -&gt; ListGroupResources -&gt; Bool
 (ListGroupResources -&gt; ListGroupResources -&gt; Bool)
 -&gt; (ListGroupResources -&gt; ListGroupResources -&gt; Bool)
 -&gt; Eq ListGroupResources
@@ -133,7 +133,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupResources -&gt; ListGroupResources -&gt; Bool
 == :: ListGroupResources -&gt; ListGroupResources -&gt; Bool
 $c== :: ListGroupResources -&gt; ListGroupResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179121"><span id="local-6989586621679179123"><span id="local-6989586621679179125"><span id="local-6989586621679179127"><span class="annot"><span class="annottext">ReadPrec [ListGroupResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179130"><span id="local-6989586621679179132"><span id="local-6989586621679179134"><span id="local-6989586621679179136"><span class="annot"><span class="annottext">ReadPrec [ListGroupResources]
 ReadPrec ListGroupResources
 Int -&gt; ReadS ListGroupResources
 ReadS [ListGroupResources]
@@ -153,7 +153,7 @@ readList :: ReadS [ListGroupResources]
 $creadList :: ReadS [ListGroupResources]
 readsPrec :: Int -&gt; ReadS ListGroupResources
 $creadsPrec :: Int -&gt; ReadS ListGroupResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179114"><span id="local-6989586621679179116"><span id="local-6989586621679179118"><span class="annot"><span class="annottext">Int -&gt; ListGroupResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179123"><span id="local-6989586621679179125"><span id="local-6989586621679179127"><span class="annot"><span class="annottext">Int -&gt; ListGroupResources -&gt; ShowS
 [ListGroupResources] -&gt; ShowS
 ListGroupResources -&gt; String
 (Int -&gt; ListGroupResources -&gt; ShowS)
@@ -276,16 +276,16 @@ forall a. Maybe a
 -&gt; Lens
      ListGroupResources ListGroupResources (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179108"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179117"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':ListGroupResources' :: ListGroupResources -&gt; Maybe Text
-</span><a href="#local-6989586621679179108"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179108"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179107"><span class="annot"><span class="annottext">s :: ListGroupResources
-</span><a href="#local-6989586621679179107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179106"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
-</span><a href="#local-6989586621679179107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':ListGroupResources' :: Maybe Text
+</span><a href="#local-6989586621679179117"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179117"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179116"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679179116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679179116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':ListGroupResources' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3Agroup%27%3AListGroupResources%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | Filters, formatted as ResourceFilter objects, that you want to apply to</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- a @ListGroupResources@ operation. Filters the results to include only</span><span>
@@ -324,16 +324,16 @@ $sel:group':ListGroupResources' :: ListGroupResources -&gt; Maybe Text
      (Maybe [ResourceFilter])
      (Maybe [ResourceFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179105"><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179114"><span class="annot"><span class="annottext">Maybe [ResourceFilter]
 filters :: Maybe [ResourceFilter]
 $sel:filters:ListGroupResources' :: ListGroupResources -&gt; Maybe [ResourceFilter]
-</span><a href="#local-6989586621679179105"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
-</span><a href="#local-6989586621679179105"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179104"><span class="annot"><span class="annottext">s :: ListGroupResources
-</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179103"><span class="annot"><span class="annottext">Maybe [ResourceFilter]
-</span><a href="#local-6989586621679179103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
-</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListGroupResources' :: Maybe [ResourceFilter]
+</span><a href="#local-6989586621679179114"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+</span><a href="#local-6989586621679179114"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179113"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679179113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179112"><span class="annot"><span class="annottext">Maybe [ResourceFilter]
+</span><a href="#local-6989586621679179112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679179113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListGroupResources' :: Maybe [ResourceFilter]
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3Afilters%3AListGroupResources%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
-</span><a href="#local-6989586621679179103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
+</span><a href="#local-6989586621679179112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
  -&gt; ListGroupResources -&gt; f ListGroupResources)
 -&gt; ((Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
     -&gt; Maybe [ResourceFilter] -&gt; f (Maybe [ResourceFilter]))
@@ -369,16 +369,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListGroupResources ListGroupResources (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179099"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179108"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
-</span><a href="#local-6989586621679179099"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179099"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179098"><span class="annot"><span class="annottext">s :: ListGroupResources
-</span><a href="#local-6989586621679179098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179097"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
-</span><a href="#local-6989586621679179098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResources' :: Maybe Text
+</span><a href="#local-6989586621679179108"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179108"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179107"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679179107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179106"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679179107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResources' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | /__Deprecated - don\'t use this parameter. Use the @Group@ request field</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- instead.__/</span><span>
@@ -390,16 +390,16 @@ $sel:nextToken:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
 -&gt; Lens
      ListGroupResources ListGroupResources (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179096"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179105"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
-</span><a href="#local-6989586621679179096"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179096"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179095"><span class="annot"><span class="annottext">s :: ListGroupResources
-</span><a href="#local-6989586621679179095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179094"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
-</span><a href="#local-6989586621679179095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:ListGroupResources' :: Maybe Text
+</span><a href="#local-6989586621679179105"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179105"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179104"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:ListGroupResources' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AgroupName%3AListGroupResources%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
@@ -422,29 +422,29 @@ $sel:groupName:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179093"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179102"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListGroupResources' :: ListGroupResources -&gt; Maybe Natural
-</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179092"><span class="annot"><span class="annottext">s :: ListGroupResources
-</span><a href="#local-6989586621679179092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179091"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679179091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
-</span><a href="#local-6989586621679179092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupResources' :: Maybe Natural
+</span><a href="#local-6989586621679179102"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179102"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179101"><span class="annot"><span class="annottext">s :: ListGroupResources
+</span><a href="#local-6989586621679179101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179100"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679179101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupResources' :: Maybe Natural
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AmaxResults%3AListGroupResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679179091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679179087"><span class="annot"><span class="annottext">page :: ListGroupResources
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679179096"><span class="annot"><span class="annottext">page :: ListGroupResources
 -&gt; AWSResponse ListGroupResources -&gt; Maybe ListGroupResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679179085"><span class="annot"><span class="annottext">ListGroupResources
-</span><a href="#local-6989586621679179085"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679179084"><span class="annot"><span class="annottext">AWSResponse ListGroupResources
-</span><a href="#local-6989586621679179084"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679179094"><span class="annot"><span class="annottext">ListGroupResources
+</span><a href="#local-6989586621679179094"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679179093"><span class="annot"><span class="annottext">AWSResponse ListGroupResources
+</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-250"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-251"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
 ListGroupResourcesResponse
-</span><a href="#local-6989586621679179084"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
 -&gt; Getting (First Text) ListGroupResourcesResponse Text
 -&gt; Maybe Text
@@ -474,7 +474,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-257"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
 ListGroupResourcesResponse
-</span><a href="#local-6989586621679179084"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
 -&gt; Getting
      (First [ResourceIdentifier])
@@ -516,7 +516,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-263"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
 ListGroupResourcesResponse
-</span><a href="#local-6989586621679179084"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
 -&gt; Getting
      (First [ListGroupResourcesItem])
@@ -568,7 +568,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ListGroupResources
-</span><a href="#local-6989586621679179085"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679179094"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">ListGroupResources
 -&gt; (ListGroupResources -&gt; ListGroupResources) -&gt; ListGroupResources
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -583,7 +583,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupResources
 ListGroupResourcesResponse
-</span><a href="#local-6989586621679179084"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
 -&gt; Getting (First Text) ListGroupResourcesResponse Text
 -&gt; Maybe Text
@@ -609,12 +609,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-277"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-278"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-279"></span><span>      </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span>
-</span><span id="line-280"></span><span>  </span><span id="local-6989586621679179075"><span class="annot"><span class="annottext">request :: ListGroupResources -&gt; Request ListGroupResources
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679179084"><span class="annot"><span class="annottext">request :: ListGroupResources -&gt; Request ListGroupResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGroupResources -&gt; Request ListGroupResources
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679179071"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679179080"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListGroupResources
 -&gt; ClientResponse ClientBody
@@ -640,10 +640,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179068"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179068"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179067"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679179067"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179066"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179066"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179077"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179077"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179076"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179076"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179075"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
 -&gt; Maybe [QueryError]
 -&gt; Maybe Text
@@ -667,7 +667,7 @@ MonadResource m =&gt;
       -&gt; ListGroupResourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ListGroupResourcesItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -692,7 +692,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe [ResourceIdentifier] -&gt; Int -&gt; ListGroupResourcesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [QueryError]))
+</span><a href="#local-6989586621679179075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [QueryError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryErrors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [QueryError]))
@@ -711,7 +711,7 @@ forall a. Monoid a =&gt; a
      (Maybe [ResourceIdentifier] -&gt; Int -&gt; ListGroupResourcesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679179075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -722,7 +722,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListGroupResourcesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ResourceIdentifier]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -743,24 +743,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179068"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179077"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179057"><span id="local-6989586621679179059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179066"><span id="local-6989586621679179068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span></span><span>
 </span><span id="line-295"></span><span>
-</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-299"></span><span>  </span><span id="local-6989586621679179050"><span class="annot"><span class="annottext">toHeaders :: ListGroupResources -&gt; ResponseHeaders
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679179059"><span class="annot"><span class="annottext">toHeaders :: ListGroupResources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGroupResources -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179041"><span id="local-6989586621679179043"><span id="local-6989586621679179045"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-302"></span><span>  </span><span id="local-6989586621679179039"><span class="annot"><span class="annottext">toJSON :: ListGroupResources -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179033"><span id="local-6989586621679179034"><span id="local-6989586621679179035"><span id="local-6989586621679179036"><span id="local-6989586621679179037"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179050"><span id="local-6989586621679179052"><span id="local-6989586621679179054"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679179048"><span class="annot"><span class="annottext">toJSON :: ListGroupResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources%27"><span class="hs-identifier hs-type">ListGroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179042"><span id="local-6989586621679179043"><span id="local-6989586621679179044"><span id="local-6989586621679179045"><span id="local-6989586621679179046"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [ResourceFilter]
 Maybe Text
 maxResults :: Maybe Natural
@@ -773,7 +773,7 @@ $sel:groupName:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
 $sel:nextToken:ListGroupResources' :: ListGroupResources -&gt; Maybe Text
 $sel:filters:ListGroupResources' :: ListGroupResources -&gt; Maybe [ResourceFilter]
 $sel:group':ListGroupResources' :: ListGroupResources -&gt; Maybe Text
-</span><a href="#local-6989586621679179033"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679179042"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-304"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -785,47 +785,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179037"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179046"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourceFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ResourceFilter] -&gt; Pair) -&gt; Maybe [ResourceFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceFilter]
-</span><a href="#local-6989586621679179036"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179045"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179035"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179044"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-308"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179034"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179043"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679179033"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679179042"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-310"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-311"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-314"></span><span>  </span><span id="local-6989586621679179027"><span class="annot"><span class="annottext">toPath :: ListGroupResources -&gt; ByteString
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679179036"><span class="annot"><span class="annottext">toPath :: ListGroupResources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGroupResources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/list-group-resources&quot;</span></span><span>
 </span><span id="line-315"></span><span>
 </span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResources"><span class="hs-identifier hs-type">ListGroupResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-317"></span><span>  </span><span id="local-6989586621679179023"><span class="annot"><span class="annottext">toQuery :: ListGroupResources -&gt; QueryString
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679179032"><span class="annot"><span class="annottext">toQuery :: ListGroupResources -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListGroupResources -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -833,7 +833,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-318"></span><span>
 </span><span id="line-319"></span><span class="hs-comment">-- | /See:/ 'newListGroupResourcesResponse' smart constructor.</span><span>
-</span><span id="line-320"></span><span id="local-6989586621679179020"><span id="local-6989586621679179021"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupResourcesResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-var">ListGroupResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupResourcesResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-var">ListGroupResourcesResponse'</span></a></span></span><span>
+</span><span id="line-320"></span><span id="local-6989586621679179029"><span id="local-6989586621679179030"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupResourcesResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-var">ListGroupResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupResourcesResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-var">ListGroupResourcesResponse'</span></a></span></span><span>
 </span><span id="line-321"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of resources from which you can determine each resource\'s</span><span>
 </span><span id="line-322"></span><span>    </span><span class="hs-comment">-- identity, type, and group membership status.</span><span>
 </span><span id="line-323"></span><span>    </span><span id="%24sel%3Aresources%3AListGroupResourcesResponse%27"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; Maybe [ListGroupResourcesItem]
@@ -859,7 +859,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-339"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-340"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-341"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179011"><span id="local-6989586621679179013"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
+</span><span id="line-341"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179020"><span id="local-6989586621679179022"><span class="annot"><span class="annottext">ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
 (ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool)
 -&gt; (ListGroupResourcesResponse
     -&gt; ListGroupResourcesResponse -&gt; Bool)
@@ -869,7 +869,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
 == :: ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
 $c== :: ListGroupResourcesResponse -&gt; ListGroupResourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179003"><span id="local-6989586621679179005"><span id="local-6989586621679179007"><span id="local-6989586621679179009"><span class="annot"><span class="annottext">ReadPrec [ListGroupResourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179012"><span id="local-6989586621679179014"><span id="local-6989586621679179016"><span id="local-6989586621679179018"><span class="annot"><span class="annottext">ReadPrec [ListGroupResourcesResponse]
 ReadPrec ListGroupResourcesResponse
 Int -&gt; ReadS ListGroupResourcesResponse
 ReadS [ListGroupResourcesResponse]
@@ -889,7 +889,7 @@ readList :: ReadS [ListGroupResourcesResponse]
 $creadList :: ReadS [ListGroupResourcesResponse]
 readsPrec :: Int -&gt; ReadS ListGroupResourcesResponse
 $creadsPrec :: Int -&gt; ReadS ListGroupResourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178997"><span id="local-6989586621679178999"><span id="local-6989586621679179001"><span class="annot"><span class="annottext">Int -&gt; ListGroupResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179006"><span id="local-6989586621679179008"><span id="local-6989586621679179010"><span class="annot"><span class="annottext">Int -&gt; ListGroupResourcesResponse -&gt; ShowS
 [ListGroupResourcesResponse] -&gt; ShowS
 ListGroupResourcesResponse -&gt; String
 (Int -&gt; ListGroupResourcesResponse -&gt; ShowS)
@@ -952,8 +952,8 @@ ListGroupResourcesResponse -&gt; Rep ListGroupResourcesResponse x
 </span><span id="line-371"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-372"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span>
 </span><span id="line-373"></span><span id="newListGroupResourcesResponse"><span class="annot"><span class="annottext">newListGroupResourcesResponse :: Int -&gt; ListGroupResourcesResponse
-</span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#newListGroupResourcesResponse"><span class="hs-identifier hs-var hs-var">newListGroupResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679178994"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178994"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#newListGroupResourcesResponse"><span class="hs-identifier hs-var hs-var">newListGroupResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679179003"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179003"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-374"></span><span>  </span><span class="annot"><span class="annottext">ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem]
 -&gt; Maybe [QueryError]
 -&gt; Maybe Text
@@ -980,7 +980,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-380"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupResourcesResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178994"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679179003"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-381"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-382"></span><span>
 </span><span id="line-383"></span><span class="hs-comment">-- | An array of resources from which you can determine each resource\'s</span><span>
@@ -995,16 +995,16 @@ forall a. Maybe a
 -&gt; Lens'
      ListGroupResourcesResponse (Maybe [ListGroupResourcesItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178993"><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179002"><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
 resources :: Maybe [ListGroupResourcesItem]
 $sel:resources:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe [ListGroupResourcesItem]
-</span><a href="#local-6989586621679178993"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
-</span><a href="#local-6989586621679178993"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178992"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
-</span><a href="#local-6989586621679178992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178991"><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
-</span><a href="#local-6989586621679178991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
-</span><a href="#local-6989586621679178992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679179002"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679179002"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179001"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679179001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179000"><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679179000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679179001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem]
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3Aresources%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ListGroupResourcesItem]
-</span><a href="#local-6989586621679178991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ListGroupResourcesItem]
+</span><a href="#local-6989586621679179000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ListGroupResourcesItem]
   -&gt; f (Maybe [ListGroupResourcesItem]))
  -&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse)
 -&gt; ((Maybe [ListGroupResourcesItem]
@@ -1053,16 +1053,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [QueryError])
      (Maybe [QueryError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178990"><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178999"><span class="annot"><span class="annottext">Maybe [QueryError]
 queryErrors :: Maybe [QueryError]
 $sel:queryErrors:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe [QueryError]
-</span><a href="#local-6989586621679178990"><span class="hs-identifier hs-var hs-var">queryErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
-</span><a href="#local-6989586621679178990"><span class="hs-identifier hs-var">queryErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178989"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
-</span><a href="#local-6989586621679178989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178988"><span class="annot"><span class="annottext">Maybe [QueryError]
-</span><a href="#local-6989586621679178988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
-</span><a href="#local-6989586621679178989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryErrors:ListGroupResourcesResponse' :: Maybe [QueryError]
+</span><a href="#local-6989586621679178999"><span class="hs-identifier hs-var hs-var">queryErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178999"><span class="hs-identifier hs-var">queryErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178998"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178997"><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryErrors:ListGroupResourcesResponse' :: Maybe [QueryError]
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AqueryErrors%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">queryErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
-</span><a href="#local-6989586621679178988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+</span><a href="#local-6989586621679178997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
  -&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse)
 -&gt; ((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
     -&gt; Maybe [QueryError] -&gt; f (Maybe [QueryError]))
@@ -1096,16 +1096,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListGroupResourcesResponse)
 -&gt; Lens' ListGroupResourcesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178987"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178996"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679178987"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178987"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178986"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
-</span><a href="#local-6989586621679178986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178985"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
-</span><a href="#local-6989586621679178986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResourcesResponse' :: Maybe Text
+</span><a href="#local-6989586621679178996"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178996"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178995"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupResourcesResponse' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AnextToken%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-402"></span><span>
 </span><span id="line-403"></span><span class="hs-comment">-- | __/Deprecated - don\'t use this parameter. Use the @Resources@ response</span><span>
 </span><span id="line-404"></span><span class="hs-comment">-- field instead./__</span><span>
@@ -1117,16 +1117,16 @@ $sel:nextToken:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; M
     -&gt; Maybe [ResourceIdentifier] -&gt; ListGroupResourcesResponse)
 -&gt; Lens' ListGroupResourcesResponse (Maybe [ResourceIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178984"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178993"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
 resourceIdentifiers :: Maybe [ResourceIdentifier]
 $sel:resourceIdentifiers:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178984"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178984"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178983"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
-</span><a href="#local-6989586621679178983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178982"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
-</span><a href="#local-6989586621679178983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:ListGroupResourcesResponse' :: Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178993"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178993"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178992"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178991"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:ListGroupResourcesResponse' :: Maybe [ResourceIdentifier]
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AresourceIdentifiers%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+</span><a href="#local-6989586621679178991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
  -&gt; ListGroupResourcesResponse -&gt; f ListGroupResourcesResponse)
 -&gt; ((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
     -&gt; Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
@@ -1165,16 +1165,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListGroupResourcesResponse ListGroupResourcesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178981"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178990"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListGroupResourcesResponse' :: ListGroupResourcesResponse -&gt; Int
-</span><a href="#local-6989586621679178981"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178981"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178980"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
-</span><a href="#local-6989586621679178980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178979"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
-</span><a href="#local-6989586621679178980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupResourcesResponse' :: Int
+</span><a href="#local-6989586621679178990"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178990"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178989"><span class="annot"><span class="annottext">s :: ListGroupResourcesResponse
+</span><a href="#local-6989586621679178989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse%27"><span class="hs-identifier hs-type">ListGroupResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178988"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupResourcesResponse
+</span><a href="#local-6989586621679178989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupResourcesResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.ListGroupResources.html#%24sel%3AhttpStatus%3AListGroupResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-411"></span><span>
-</span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span></span><span>
+</span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.ListGroupResources.html#ListGroupResourcesResponse"><span class="hs-identifier hs-type">ListGroupResourcesResponse</span></a></span></span><span>
 </span><span id="line-413"></span></pre></body></html>

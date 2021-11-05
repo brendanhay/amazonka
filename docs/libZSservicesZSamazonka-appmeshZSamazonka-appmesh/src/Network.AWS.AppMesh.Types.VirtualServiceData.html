@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.VirtualServiceData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualServiceData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ResourceMetadata.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.ResourceMetadata</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceSpec.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualServiceSpec</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceStatus.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualServiceStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | An object that represents a virtual service returned by a describe</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newVirtualServiceData' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679342212"><span id="local-6989586621679342213"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualServiceData"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-var">VirtualServiceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualServiceData%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-var">VirtualServiceData'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the service mesh that the virtual service resides in.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmeshName%3AVirtualServiceData%27"><span class="annot"><span class="annottext">VirtualServiceData -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3AmeshName%3AVirtualServiceData%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Ametadata%3AVirtualServiceData%27"><span class="annot"><span class="annottext">VirtualServiceData -&gt; ResourceMetadata
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Ametadata%3AVirtualServiceData%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ResourceMetadata.html#ResourceMetadata"><span class="hs-identifier hs-type">ResourceMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The specifications of the virtual service.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aspec%3AVirtualServiceData%27"><span class="annot"><span class="annottext">VirtualServiceData -&gt; VirtualServiceSpec
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Aspec%3AVirtualServiceData%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceSpec.html#VirtualServiceSpec"><span class="hs-identifier hs-type">VirtualServiceSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The current status of the virtual service.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3AVirtualServiceData%27"><span class="annot"><span class="annottext">VirtualServiceData -&gt; VirtualServiceStatus
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Astatus%3AVirtualServiceData%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceStatus.html#VirtualServiceStatus"><span class="hs-identifier hs-type">VirtualServiceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the virtual service.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvirtualServiceName%3AVirtualServiceData%27"><span class="annot"><span class="annottext">VirtualServiceData -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3AvirtualServiceName%3AVirtualServiceData%27"><span class="hs-identifier hs-var hs-var">virtualServiceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342202"><span id="local-6989586621679342204"><span class="annot"><span class="annottext">VirtualServiceData -&gt; VirtualServiceData -&gt; Bool
+(VirtualServiceData -&gt; VirtualServiceData -&gt; Bool)
+-&gt; (VirtualServiceData -&gt; VirtualServiceData -&gt; Bool)
+-&gt; Eq VirtualServiceData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualServiceData -&gt; VirtualServiceData -&gt; Bool
+$c/= :: VirtualServiceData -&gt; VirtualServiceData -&gt; Bool
+== :: VirtualServiceData -&gt; VirtualServiceData -&gt; Bool
+$c== :: VirtualServiceData -&gt; VirtualServiceData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342193"><span id="local-6989586621679342195"><span id="local-6989586621679342197"><span id="local-6989586621679342199"><span class="annot"><span class="annottext">ReadPrec [VirtualServiceData]
+ReadPrec VirtualServiceData
+Int -&gt; ReadS VirtualServiceData
+ReadS [VirtualServiceData]
+(Int -&gt; ReadS VirtualServiceData)
+-&gt; ReadS [VirtualServiceData]
+-&gt; ReadPrec VirtualServiceData
+-&gt; ReadPrec [VirtualServiceData]
+-&gt; Read VirtualServiceData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualServiceData]
+$creadListPrec :: ReadPrec [VirtualServiceData]
+readPrec :: ReadPrec VirtualServiceData
+$creadPrec :: ReadPrec VirtualServiceData
+readList :: ReadS [VirtualServiceData]
+$creadList :: ReadS [VirtualServiceData]
+readsPrec :: Int -&gt; ReadS VirtualServiceData
+$creadsPrec :: Int -&gt; ReadS VirtualServiceData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342186"><span id="local-6989586621679342188"><span id="local-6989586621679342190"><span class="annot"><span class="annottext">Int -&gt; VirtualServiceData -&gt; ShowS
+[VirtualServiceData] -&gt; ShowS
+VirtualServiceData -&gt; String
+(Int -&gt; VirtualServiceData -&gt; ShowS)
+-&gt; (VirtualServiceData -&gt; String)
+-&gt; ([VirtualServiceData] -&gt; ShowS)
+-&gt; Show VirtualServiceData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualServiceData] -&gt; ShowS
+$cshowList :: [VirtualServiceData] -&gt; ShowS
+show :: VirtualServiceData -&gt; String
+$cshow :: VirtualServiceData -&gt; String
+showsPrec :: Int -&gt; VirtualServiceData -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualServiceData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VirtualServiceData -&gt; Rep VirtualServiceData x)
+-&gt; (forall x. Rep VirtualServiceData x -&gt; VirtualServiceData)
+-&gt; Generic VirtualServiceData
+forall x. Rep VirtualServiceData x -&gt; VirtualServiceData
+forall x. VirtualServiceData -&gt; Rep VirtualServiceData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VirtualServiceData x -&gt; VirtualServiceData
+$cfrom :: forall x. VirtualServiceData -&gt; Rep VirtualServiceData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'VirtualServiceData' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'meshName', 'virtualServiceData_meshName' - The name of the service mesh that the virtual service resides in.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'metadata', 'virtualServiceData_metadata' - Undocumented member.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'spec', 'virtualServiceData_spec' - The specifications of the virtual service.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'status', 'virtualServiceData_status' - The current status of the virtual service.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'virtualServiceName', 'virtualServiceData_virtualServiceName' - The name of the virtual service.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#newVirtualServiceData"><span class="hs-identifier hs-type">newVirtualServiceData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'metadata'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ResourceMetadata.html#ResourceMetadata"><span class="hs-identifier hs-type">ResourceMetadata</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'spec'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceSpec.html#VirtualServiceSpec"><span class="hs-identifier hs-type">VirtualServiceSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceStatus.html#VirtualServiceStatus"><span class="hs-identifier hs-type">VirtualServiceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'virtualServiceName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span>
+</span><span id="line-75"></span><span id="newVirtualServiceData"><span class="annot"><span class="annottext">newVirtualServiceData :: Text
+-&gt; ResourceMetadata
+-&gt; VirtualServiceSpec
+-&gt; VirtualServiceStatus
+-&gt; Text
+-&gt; VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#newVirtualServiceData"><span class="hs-identifier hs-var hs-var">newVirtualServiceData</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679342180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342180"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679342179"><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679342179"><span class="hs-identifier hs-var">pMetadata_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679342178"><span class="annot"><span class="annottext">VirtualServiceSpec
+</span><a href="#local-6989586621679342178"><span class="hs-identifier hs-var">pSpec_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679342177"><span class="annot"><span class="annottext">VirtualServiceStatus
+</span><a href="#local-6989586621679342177"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679342176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342176"><span class="hs-identifier hs-var">pVirtualServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">VirtualServiceData' :: Text
+-&gt; ResourceMetadata
+-&gt; VirtualServiceSpec
+-&gt; VirtualServiceStatus
+-&gt; Text
+-&gt; VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meshName:VirtualServiceData' :: Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3AmeshName%3AVirtualServiceData%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342180"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:metadata:VirtualServiceData' :: ResourceMetadata
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Ametadata%3AVirtualServiceData%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679342179"><span class="hs-identifier hs-var">pMetadata_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:spec:VirtualServiceData' :: VirtualServiceSpec
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Aspec%3AVirtualServiceData%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualServiceSpec
+</span><a href="#local-6989586621679342178"><span class="hs-identifier hs-var">pSpec_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:VirtualServiceData' :: VirtualServiceStatus
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Astatus%3AVirtualServiceData%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualServiceStatus
+</span><a href="#local-6989586621679342177"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualServiceName:VirtualServiceData' :: Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3AvirtualServiceName%3AVirtualServiceData%27"><span class="hs-identifier hs-var">virtualServiceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342176"><span class="hs-identifier hs-var">pVirtualServiceName_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the service mesh that the virtual service resides in.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_meshName"><span class="hs-identifier hs-type">virtualServiceData_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="virtualServiceData_meshName"><span class="annot"><span class="annottext">virtualServiceData_meshName :: (Text -&gt; f Text) -&gt; VirtualServiceData -&gt; f VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_meshName"><span class="hs-identifier hs-var hs-var">virtualServiceData_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualServiceData -&gt; Text)
+-&gt; (VirtualServiceData -&gt; Text -&gt; VirtualServiceData)
+-&gt; Lens VirtualServiceData VirtualServiceData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342172"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:VirtualServiceData' :: VirtualServiceData -&gt; Text
+</span><a href="#local-6989586621679342172"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342172"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342171"><span class="annot"><span class="annottext">s :: VirtualServiceData
+</span><a href="#local-6989586621679342171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342170"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679342171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:VirtualServiceData' :: Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3AmeshName%3AVirtualServiceData%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_metadata"><span class="hs-identifier hs-type">virtualServiceData_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ResourceMetadata.html#ResourceMetadata"><span class="hs-identifier hs-type">ResourceMetadata</span></a></span><span>
+</span><span id="line-95"></span><span id="virtualServiceData_metadata"><span class="annot"><span class="annottext">virtualServiceData_metadata :: (ResourceMetadata -&gt; f ResourceMetadata)
+-&gt; VirtualServiceData -&gt; f VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_metadata"><span class="hs-identifier hs-var hs-var">virtualServiceData_metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualServiceData -&gt; ResourceMetadata)
+-&gt; (VirtualServiceData -&gt; ResourceMetadata -&gt; VirtualServiceData)
+-&gt; Lens
+     VirtualServiceData
+     VirtualServiceData
+     ResourceMetadata
+     ResourceMetadata
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342168"><span class="annot"><span class="annottext">ResourceMetadata
+metadata :: ResourceMetadata
+$sel:metadata:VirtualServiceData' :: VirtualServiceData -&gt; ResourceMetadata
+</span><a href="#local-6989586621679342168"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679342168"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342167"><span class="annot"><span class="annottext">s :: VirtualServiceData
+</span><a href="#local-6989586621679342167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342166"><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679342166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679342167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:VirtualServiceData' :: ResourceMetadata
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Ametadata%3AVirtualServiceData%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceMetadata
+</span><a href="#local-6989586621679342166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The specifications of the virtual service.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_spec"><span class="hs-identifier hs-type">virtualServiceData_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceSpec.html#VirtualServiceSpec"><span class="hs-identifier hs-type">VirtualServiceSpec</span></a></span><span>
+</span><span id="line-99"></span><span id="virtualServiceData_spec"><span class="annot"><span class="annottext">virtualServiceData_spec :: (VirtualServiceSpec -&gt; f VirtualServiceSpec)
+-&gt; VirtualServiceData -&gt; f VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_spec"><span class="hs-identifier hs-var hs-var">virtualServiceData_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualServiceData -&gt; VirtualServiceSpec)
+-&gt; (VirtualServiceData -&gt; VirtualServiceSpec -&gt; VirtualServiceData)
+-&gt; Lens
+     VirtualServiceData
+     VirtualServiceData
+     VirtualServiceSpec
+     VirtualServiceSpec
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342164"><span class="annot"><span class="annottext">VirtualServiceSpec
+spec :: VirtualServiceSpec
+$sel:spec:VirtualServiceData' :: VirtualServiceData -&gt; VirtualServiceSpec
+</span><a href="#local-6989586621679342164"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceSpec
+</span><a href="#local-6989586621679342164"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342163"><span class="annot"><span class="annottext">s :: VirtualServiceData
+</span><a href="#local-6989586621679342163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342162"><span class="annot"><span class="annottext">VirtualServiceSpec
+</span><a href="#local-6989586621679342162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679342163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:VirtualServiceData' :: VirtualServiceSpec
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Aspec%3AVirtualServiceData%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualServiceSpec
+</span><a href="#local-6989586621679342162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The current status of the virtual service.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_status"><span class="hs-identifier hs-type">virtualServiceData_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceStatus.html#VirtualServiceStatus"><span class="hs-identifier hs-type">VirtualServiceStatus</span></a></span><span>
+</span><span id="line-103"></span><span id="virtualServiceData_status"><span class="annot"><span class="annottext">virtualServiceData_status :: (VirtualServiceStatus -&gt; f VirtualServiceStatus)
+-&gt; VirtualServiceData -&gt; f VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_status"><span class="hs-identifier hs-var hs-var">virtualServiceData_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualServiceData -&gt; VirtualServiceStatus)
+-&gt; (VirtualServiceData
+    -&gt; VirtualServiceStatus -&gt; VirtualServiceData)
+-&gt; Lens
+     VirtualServiceData
+     VirtualServiceData
+     VirtualServiceStatus
+     VirtualServiceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342160"><span class="annot"><span class="annottext">VirtualServiceStatus
+status :: VirtualServiceStatus
+$sel:status:VirtualServiceData' :: VirtualServiceData -&gt; VirtualServiceStatus
+</span><a href="#local-6989586621679342160"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceStatus
+</span><a href="#local-6989586621679342160"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342159"><span class="annot"><span class="annottext">s :: VirtualServiceData
+</span><a href="#local-6989586621679342159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342158"><span class="annot"><span class="annottext">VirtualServiceStatus
+</span><a href="#local-6989586621679342158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679342159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VirtualServiceData' :: VirtualServiceStatus
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3Astatus%3AVirtualServiceData%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualServiceStatus
+</span><a href="#local-6989586621679342158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the virtual service.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_virtualServiceName"><span class="hs-identifier hs-type">virtualServiceData_virtualServiceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="virtualServiceData_virtualServiceName"><span class="annot"><span class="annottext">virtualServiceData_virtualServiceName :: (Text -&gt; f Text) -&gt; VirtualServiceData -&gt; f VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#virtualServiceData_virtualServiceName"><span class="hs-identifier hs-var hs-var">virtualServiceData_virtualServiceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualServiceData -&gt; Text)
+-&gt; (VirtualServiceData -&gt; Text -&gt; VirtualServiceData)
+-&gt; Lens VirtualServiceData VirtualServiceData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342156"><span class="annot"><span class="annottext">Text
+virtualServiceName :: Text
+$sel:virtualServiceName:VirtualServiceData' :: VirtualServiceData -&gt; Text
+</span><a href="#local-6989586621679342156"><span class="hs-identifier hs-var hs-var">virtualServiceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342156"><span class="hs-identifier hs-var">virtualServiceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342155"><span class="annot"><span class="annottext">s :: VirtualServiceData
+</span><a href="#local-6989586621679342155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-type">VirtualServiceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679342155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualServiceName:VirtualServiceData' :: Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#%24sel%3AvirtualServiceName%3AVirtualServiceData%27"><span class="hs-identifier hs-var">virtualServiceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342151"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679342149"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualServiceData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VirtualServiceData)
+-&gt; Value
+-&gt; Parser VirtualServiceData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualServiceData&quot;</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342146"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; ResourceMetadata
+-&gt; VirtualServiceSpec
+-&gt; VirtualServiceStatus
+-&gt; Text
+-&gt; VirtualServiceData
+</span><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData%27"><span class="hs-identifier hs-var">VirtualServiceData'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; ResourceMetadata
+ -&gt; VirtualServiceSpec
+ -&gt; VirtualServiceStatus
+ -&gt; Text
+ -&gt; VirtualServiceData)
+-&gt; Parser Text
+-&gt; Parser
+     (ResourceMetadata
+      -&gt; VirtualServiceSpec
+      -&gt; VirtualServiceStatus
+      -&gt; Text
+      -&gt; VirtualServiceData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;meshName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ResourceMetadata
+   -&gt; VirtualServiceSpec
+   -&gt; VirtualServiceStatus
+   -&gt; Text
+   -&gt; VirtualServiceData)
+-&gt; Parser ResourceMetadata
+-&gt; Parser
+     (VirtualServiceSpec
+      -&gt; VirtualServiceStatus -&gt; Text -&gt; VirtualServiceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceMetadata
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (VirtualServiceSpec
+   -&gt; VirtualServiceStatus -&gt; Text -&gt; VirtualServiceData)
+-&gt; Parser VirtualServiceSpec
+-&gt; Parser (VirtualServiceStatus -&gt; Text -&gt; VirtualServiceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VirtualServiceSpec
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (VirtualServiceStatus -&gt; Text -&gt; VirtualServiceData)
+-&gt; Parser VirtualServiceStatus
+-&gt; Parser (Text -&gt; VirtualServiceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VirtualServiceStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; VirtualServiceData)
+-&gt; Parser Text -&gt; Parser VirtualServiceData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualServiceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342140"><span id="local-6989586621679342142"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342137"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span></span><span>
+</span><span id="line-125"></span></pre></body></html>

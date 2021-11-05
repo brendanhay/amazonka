@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- | Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679293833"><span id="local-6989586621679293834"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoTuneType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneType.html#AutoTuneType"><span class="hs-identifier hs-var">AutoTuneType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneType.html#AutoTuneType%27"><span class="hs-identifier hs-var">AutoTuneType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679293842"><span id="local-6989586621679293843"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoTuneType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneType.html#AutoTuneType"><span class="hs-identifier hs-var">AutoTuneType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneType.html#AutoTuneType%27"><span class="hs-identifier hs-var">AutoTuneType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoTuneType"><span class="annot"><span class="annottext">AutoTuneType -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneType.html#fromAutoTuneType"><span class="hs-identifier hs-var hs-var">fromAutoTuneType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293825"><span id="local-6989586621679293827"><span id="local-6989586621679293829"><span class="annot"><span class="annottext">Int -&gt; AutoTuneType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293834"><span id="local-6989586621679293836"><span id="local-6989586621679293838"><span class="annot"><span class="annottext">Int -&gt; AutoTuneType -&gt; ShowS
 [AutoTuneType] -&gt; ShowS
 AutoTuneType -&gt; String
 (Int -&gt; AutoTuneType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AutoTuneType -&gt; String
 showsPrec :: Int -&gt; AutoTuneType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoTuneType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679293816"><span id="local-6989586621679293818"><span id="local-6989586621679293820"><span id="local-6989586621679293822"><span class="annot"><span class="annottext">ReadPrec [AutoTuneType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679293825"><span id="local-6989586621679293827"><span id="local-6989586621679293829"><span id="local-6989586621679293831"><span class="annot"><span class="annottext">ReadPrec [AutoTuneType]
 ReadPrec AutoTuneType
 Int -&gt; ReadS AutoTuneType
 ReadS [AutoTuneType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AutoTuneType]
 readsPrec :: Int -&gt; ReadS AutoTuneType
 $creadsPrec :: Int -&gt; ReadS AutoTuneType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679293811"><span id="local-6989586621679293813"><span class="annot"><span class="annottext">AutoTuneType -&gt; AutoTuneType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679293820"><span id="local-6989586621679293822"><span class="annot"><span class="annottext">AutoTuneType -&gt; AutoTuneType -&gt; Bool
 (AutoTuneType -&gt; AutoTuneType -&gt; Bool)
 -&gt; (AutoTuneType -&gt; AutoTuneType -&gt; Bool) -&gt; Eq AutoTuneType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: AutoTuneType -&gt; AutoTuneType -&gt; Bool
 == :: AutoTuneType -&gt; AutoTuneType -&gt; Bool
 $c== :: AutoTuneType -&gt; AutoTuneType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679293795"><span id="local-6989586621679293797"><span id="local-6989586621679293799"><span id="local-6989586621679293801"><span id="local-6989586621679293803"><span id="local-6989586621679293805"><span id="local-6989586621679293807"><span class="annot"><span class="annottext">Eq AutoTuneType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679293804"><span id="local-6989586621679293806"><span id="local-6989586621679293808"><span id="local-6989586621679293810"><span id="local-6989586621679293812"><span id="local-6989586621679293814"><span id="local-6989586621679293816"><span class="annot"><span class="annottext">Eq AutoTuneType
 Eq AutoTuneType
 -&gt; (AutoTuneType -&gt; AutoTuneType -&gt; Ordering)
 -&gt; (AutoTuneType -&gt; AutoTuneType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. AutoTuneType -&gt; Rep AutoTuneType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293787"><span id="local-6989586621679293789"><span class="annot"><span class="annottext">Int -&gt; AutoTuneType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293796"><span id="local-6989586621679293798"><span class="annot"><span class="annottext">Int -&gt; AutoTuneType -&gt; Int
 AutoTuneType -&gt; Int
 (Int -&gt; AutoTuneType -&gt; Int)
 -&gt; (AutoTuneType -&gt; Int) -&gt; Hashable AutoTuneType
@@ -142,49 +142,49 @@ $chash :: AutoTuneType -&gt; Int
 hashWithSalt :: Int -&gt; AutoTuneType -&gt; Int
 $chashWithSalt :: Int -&gt; AutoTuneType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679293784"><span class="annot"><span class="annottext">AutoTuneType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679293793"><span class="annot"><span class="annottext">AutoTuneType -&gt; ()
 (AutoTuneType -&gt; ()) -&gt; NFData AutoTuneType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoTuneType -&gt; ()
 $crnf :: AutoTuneType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679293781"><span class="annot"><span class="annottext">Text -&gt; Either String AutoTuneType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679293790"><span class="annot"><span class="annottext">Text -&gt; Either String AutoTuneType
 (Text -&gt; Either String AutoTuneType) -&gt; FromText AutoTuneType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoTuneType
 $cfromText :: Text -&gt; Either String AutoTuneType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679293778"><span class="annot"><span class="annottext">AutoTuneType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679293787"><span class="annot"><span class="annottext">AutoTuneType -&gt; Text
 (AutoTuneType -&gt; Text) -&gt; ToText AutoTuneType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoTuneType -&gt; Text
 $ctoText :: AutoTuneType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293775"><span class="annot"><span class="annottext">AutoTuneType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293784"><span class="annot"><span class="annottext">AutoTuneType -&gt; ByteString
 (AutoTuneType -&gt; ByteString) -&gt; ToByteString AutoTuneType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoTuneType -&gt; ByteString
 $ctoBS :: AutoTuneType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293772"><span class="annot"><span class="annottext">AutoTuneType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293781"><span class="annot"><span class="annottext">AutoTuneType -&gt; ByteStringBuilder
 (AutoTuneType -&gt; ByteStringBuilder) -&gt; ToLog AutoTuneType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoTuneType -&gt; ByteStringBuilder
 $cbuild :: AutoTuneType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293769"><span class="annot"><span class="annottext">HeaderName -&gt; AutoTuneType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293778"><span class="annot"><span class="annottext">HeaderName -&gt; AutoTuneType -&gt; [Header]
 (HeaderName -&gt; AutoTuneType -&gt; [Header]) -&gt; ToHeader AutoTuneType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoTuneType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoTuneType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293766"><span class="annot"><span class="annottext">AutoTuneType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293775"><span class="annot"><span class="annottext">AutoTuneType -&gt; QueryString
 (AutoTuneType -&gt; QueryString) -&gt; ToQuery AutoTuneType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoTuneType -&gt; QueryString
 $ctoQuery :: AutoTuneType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293761"><span id="local-6989586621679293763"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoTuneType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293770"><span id="local-6989586621679293772"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoTuneType]
 Value -&gt; Parser AutoTuneType
 (Value -&gt; Parser AutoTuneType)
 -&gt; (Value -&gt; Parser [AutoTuneType]) -&gt; FromJSON AutoTuneType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoTuneType]
 parseJSON :: Value -&gt; Parser AutoTuneType
 $cparseJSON :: Value -&gt; Parser AutoTuneType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293756"><span id="local-6989586621679293758"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoTuneType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293765"><span id="local-6989586621679293767"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoTuneType]
 FromJSONKeyFunction AutoTuneType
 FromJSONKeyFunction AutoTuneType
 -&gt; FromJSONKeyFunction [AutoTuneType] -&gt; FromJSONKey AutoTuneType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoTuneType]
 fromJSONKey :: FromJSONKeyFunction AutoTuneType
 $cfromJSONKey :: FromJSONKeyFunction AutoTuneType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293747"><span id="local-6989586621679293749"><span id="local-6989586621679293751"><span id="local-6989586621679293753"><span class="annot"><span class="annottext">[AutoTuneType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293756"><span id="local-6989586621679293758"><span id="local-6989586621679293760"><span id="local-6989586621679293762"><span class="annot"><span class="annottext">[AutoTuneType] -&gt; Encoding
 [AutoTuneType] -&gt; Value
 AutoTuneType -&gt; Encoding
 AutoTuneType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: AutoTuneType -&gt; Encoding
 toJSON :: AutoTuneType -&gt; Value
 $ctoJSON :: AutoTuneType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293742"><span id="local-6989586621679293744"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoTuneType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293751"><span id="local-6989586621679293753"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoTuneType]
 ToJSONKeyFunction AutoTuneType
 ToJSONKeyFunction AutoTuneType
 -&gt; ToJSONKeyFunction [AutoTuneType] -&gt; ToJSONKey AutoTuneType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoTuneType]
 toJSONKey :: ToJSONKeyFunction AutoTuneType
 $ctoJSONKey :: ToJSONKeyFunction AutoTuneType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293739"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoTuneType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293748"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoTuneType
 ([Node] -&gt; Either String AutoTuneType) -&gt; FromXML AutoTuneType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoTuneType
 $cparseXML :: [Node] -&gt; Either String AutoTuneType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293736"><span class="annot"><span class="annottext">AutoTuneType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293745"><span class="annot"><span class="annottext">AutoTuneType -&gt; XML
 (AutoTuneType -&gt; XML) -&gt; ToXML AutoTuneType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoTuneType -&gt; XML

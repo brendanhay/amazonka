@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679381232"><span id="local-6989586621679381233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebhookFilterType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilterType.html#WebhookFilterType"><span class="hs-identifier hs-var">WebhookFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookFilterType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilterType.html#WebhookFilterType%27"><span class="hs-identifier hs-var">WebhookFilterType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679381241"><span id="local-6989586621679381242"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebhookFilterType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilterType.html#WebhookFilterType"><span class="hs-identifier hs-var">WebhookFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookFilterType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookFilterType.html#WebhookFilterType%27"><span class="hs-identifier hs-var">WebhookFilterType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWebhookFilterType"><span class="annot"><span class="annottext">WebhookFilterType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.WebhookFilterType.html#fromWebhookFilterType"><span class="hs-identifier hs-var hs-var">fromWebhookFilterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679381224"><span id="local-6989586621679381226"><span id="local-6989586621679381228"><span class="annot"><span class="annottext">Int -&gt; WebhookFilterType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679381233"><span id="local-6989586621679381235"><span id="local-6989586621679381237"><span class="annot"><span class="annottext">Int -&gt; WebhookFilterType -&gt; ShowS
 [WebhookFilterType] -&gt; ShowS
 WebhookFilterType -&gt; String
 (Int -&gt; WebhookFilterType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: WebhookFilterType -&gt; String
 showsPrec :: Int -&gt; WebhookFilterType -&gt; ShowS
 $cshowsPrec :: Int -&gt; WebhookFilterType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679381215"><span id="local-6989586621679381217"><span id="local-6989586621679381219"><span id="local-6989586621679381221"><span class="annot"><span class="annottext">ReadPrec [WebhookFilterType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679381224"><span id="local-6989586621679381226"><span id="local-6989586621679381228"><span id="local-6989586621679381230"><span class="annot"><span class="annottext">ReadPrec [WebhookFilterType]
 ReadPrec WebhookFilterType
 Int -&gt; ReadS WebhookFilterType
 ReadS [WebhookFilterType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [WebhookFilterType]
 readsPrec :: Int -&gt; ReadS WebhookFilterType
 $creadsPrec :: Int -&gt; ReadS WebhookFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679381210"><span id="local-6989586621679381212"><span class="annot"><span class="annottext">WebhookFilterType -&gt; WebhookFilterType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679381219"><span id="local-6989586621679381221"><span class="annot"><span class="annottext">WebhookFilterType -&gt; WebhookFilterType -&gt; Bool
 (WebhookFilterType -&gt; WebhookFilterType -&gt; Bool)
 -&gt; (WebhookFilterType -&gt; WebhookFilterType -&gt; Bool)
 -&gt; Eq WebhookFilterType
@@ -86,7 +86,7 @@ $c/= :: WebhookFilterType -&gt; WebhookFilterType -&gt; Bool
 == :: WebhookFilterType -&gt; WebhookFilterType -&gt; Bool
 $c== :: WebhookFilterType -&gt; WebhookFilterType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679381194"><span id="local-6989586621679381196"><span id="local-6989586621679381198"><span id="local-6989586621679381200"><span id="local-6989586621679381202"><span id="local-6989586621679381204"><span id="local-6989586621679381206"><span class="annot"><span class="annottext">Eq WebhookFilterType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679381203"><span id="local-6989586621679381205"><span id="local-6989586621679381207"><span id="local-6989586621679381209"><span id="local-6989586621679381211"><span id="local-6989586621679381213"><span id="local-6989586621679381215"><span class="annot"><span class="annottext">Eq WebhookFilterType
 Eq WebhookFilterType
 -&gt; (WebhookFilterType -&gt; WebhookFilterType -&gt; Ordering)
 -&gt; (WebhookFilterType -&gt; WebhookFilterType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. WebhookFilterType -&gt; Rep WebhookFilterType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679381186"><span id="local-6989586621679381188"><span class="annot"><span class="annottext">Int -&gt; WebhookFilterType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679381195"><span id="local-6989586621679381197"><span class="annot"><span class="annottext">Int -&gt; WebhookFilterType -&gt; Int
 WebhookFilterType -&gt; Int
 (Int -&gt; WebhookFilterType -&gt; Int)
 -&gt; (WebhookFilterType -&gt; Int) -&gt; Hashable WebhookFilterType
@@ -147,51 +147,51 @@ $chash :: WebhookFilterType -&gt; Int
 hashWithSalt :: Int -&gt; WebhookFilterType -&gt; Int
 $chashWithSalt :: Int -&gt; WebhookFilterType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679381183"><span class="annot"><span class="annottext">WebhookFilterType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679381192"><span class="annot"><span class="annottext">WebhookFilterType -&gt; ()
 (WebhookFilterType -&gt; ()) -&gt; NFData WebhookFilterType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WebhookFilterType -&gt; ()
 $crnf :: WebhookFilterType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679381180"><span class="annot"><span class="annottext">Text -&gt; Either String WebhookFilterType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679381189"><span class="annot"><span class="annottext">Text -&gt; Either String WebhookFilterType
 (Text -&gt; Either String WebhookFilterType)
 -&gt; FromText WebhookFilterType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WebhookFilterType
 $cfromText :: Text -&gt; Either String WebhookFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679381177"><span class="annot"><span class="annottext">WebhookFilterType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679381186"><span class="annot"><span class="annottext">WebhookFilterType -&gt; Text
 (WebhookFilterType -&gt; Text) -&gt; ToText WebhookFilterType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WebhookFilterType -&gt; Text
 $ctoText :: WebhookFilterType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679381174"><span class="annot"><span class="annottext">WebhookFilterType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679381183"><span class="annot"><span class="annottext">WebhookFilterType -&gt; ByteString
 (WebhookFilterType -&gt; ByteString) -&gt; ToByteString WebhookFilterType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WebhookFilterType -&gt; ByteString
 $ctoBS :: WebhookFilterType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679381171"><span class="annot"><span class="annottext">WebhookFilterType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679381180"><span class="annot"><span class="annottext">WebhookFilterType -&gt; ByteStringBuilder
 (WebhookFilterType -&gt; ByteStringBuilder) -&gt; ToLog WebhookFilterType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WebhookFilterType -&gt; ByteStringBuilder
 $cbuild :: WebhookFilterType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679381168"><span class="annot"><span class="annottext">HeaderName -&gt; WebhookFilterType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679381177"><span class="annot"><span class="annottext">HeaderName -&gt; WebhookFilterType -&gt; [Header]
 (HeaderName -&gt; WebhookFilterType -&gt; [Header])
 -&gt; ToHeader WebhookFilterType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WebhookFilterType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WebhookFilterType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679381165"><span class="annot"><span class="annottext">WebhookFilterType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679381174"><span class="annot"><span class="annottext">WebhookFilterType -&gt; QueryString
 (WebhookFilterType -&gt; QueryString) -&gt; ToQuery WebhookFilterType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WebhookFilterType -&gt; QueryString
 $ctoQuery :: WebhookFilterType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679381160"><span id="local-6989586621679381162"><span class="annot"><span class="annottext">Value -&gt; Parser [WebhookFilterType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679381169"><span id="local-6989586621679381171"><span class="annot"><span class="annottext">Value -&gt; Parser [WebhookFilterType]
 Value -&gt; Parser WebhookFilterType
 (Value -&gt; Parser WebhookFilterType)
 -&gt; (Value -&gt; Parser [WebhookFilterType])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [WebhookFilterType]
 parseJSON :: Value -&gt; Parser WebhookFilterType
 $cparseJSON :: Value -&gt; Parser WebhookFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679381155"><span id="local-6989586621679381157"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebhookFilterType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679381164"><span id="local-6989586621679381166"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebhookFilterType]
 FromJSONKeyFunction WebhookFilterType
 FromJSONKeyFunction WebhookFilterType
 -&gt; FromJSONKeyFunction [WebhookFilterType]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WebhookFilterType]
 fromJSONKey :: FromJSONKeyFunction WebhookFilterType
 $cfromJSONKey :: FromJSONKeyFunction WebhookFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679381146"><span id="local-6989586621679381148"><span id="local-6989586621679381150"><span id="local-6989586621679381152"><span class="annot"><span class="annottext">[WebhookFilterType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679381155"><span id="local-6989586621679381157"><span id="local-6989586621679381159"><span id="local-6989586621679381161"><span class="annot"><span class="annottext">[WebhookFilterType] -&gt; Encoding
 [WebhookFilterType] -&gt; Value
 WebhookFilterType -&gt; Encoding
 WebhookFilterType -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: WebhookFilterType -&gt; Encoding
 toJSON :: WebhookFilterType -&gt; Value
 $ctoJSON :: WebhookFilterType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679381141"><span id="local-6989586621679381143"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebhookFilterType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679381150"><span id="local-6989586621679381152"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebhookFilterType]
 ToJSONKeyFunction WebhookFilterType
 ToJSONKeyFunction WebhookFilterType
 -&gt; ToJSONKeyFunction [WebhookFilterType]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WebhookFilterType]
 toJSONKey :: ToJSONKeyFunction WebhookFilterType
 $ctoJSONKey :: ToJSONKeyFunction WebhookFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679381138"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebhookFilterType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679381147"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebhookFilterType
 ([Node] -&gt; Either String WebhookFilterType)
 -&gt; FromXML WebhookFilterType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WebhookFilterType
 $cparseXML :: [Node] -&gt; Either String WebhookFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679381135"><span class="annot"><span class="annottext">WebhookFilterType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679381144"><span class="annot"><span class="annottext">WebhookFilterType -&gt; XML
 (WebhookFilterType -&gt; XML) -&gt; ToXML WebhookFilterType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WebhookFilterType -&gt; XML

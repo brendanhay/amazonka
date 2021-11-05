@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.AssetModelStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.AssetModelStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelState.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.AssetModelState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ErrorDetails.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.ErrorDetails</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains current status information for an asset model. For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html Asset and model states&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAssetModelStatus' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679338219"><span id="local-6989586621679338220"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetModelStatus"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-var">AssetModelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetModelStatus%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus%27"><span class="hs-identifier hs-var">AssetModelStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains associated error information, if any.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aerror%3AAssetModelStatus%27"><span class="annot"><span class="annottext">AssetModelStatus -&gt; Maybe ErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#%24sel%3Aerror%3AAssetModelStatus%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The current state of the asset model.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astate%3AAssetModelStatus%27"><span class="annot"><span class="annottext">AssetModelStatus -&gt; AssetModelState
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#%24sel%3Astate%3AAssetModelStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelState.html#AssetModelState"><span class="hs-identifier hs-type">AssetModelState</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338212"><span id="local-6989586621679338214"><span class="annot"><span class="annottext">AssetModelStatus -&gt; AssetModelStatus -&gt; Bool
+(AssetModelStatus -&gt; AssetModelStatus -&gt; Bool)
+-&gt; (AssetModelStatus -&gt; AssetModelStatus -&gt; Bool)
+-&gt; Eq AssetModelStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssetModelStatus -&gt; AssetModelStatus -&gt; Bool
+$c/= :: AssetModelStatus -&gt; AssetModelStatus -&gt; Bool
+== :: AssetModelStatus -&gt; AssetModelStatus -&gt; Bool
+$c== :: AssetModelStatus -&gt; AssetModelStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338203"><span id="local-6989586621679338205"><span id="local-6989586621679338207"><span id="local-6989586621679338209"><span class="annot"><span class="annottext">ReadPrec [AssetModelStatus]
+ReadPrec AssetModelStatus
+Int -&gt; ReadS AssetModelStatus
+ReadS [AssetModelStatus]
+(Int -&gt; ReadS AssetModelStatus)
+-&gt; ReadS [AssetModelStatus]
+-&gt; ReadPrec AssetModelStatus
+-&gt; ReadPrec [AssetModelStatus]
+-&gt; Read AssetModelStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssetModelStatus]
+$creadListPrec :: ReadPrec [AssetModelStatus]
+readPrec :: ReadPrec AssetModelStatus
+$creadPrec :: ReadPrec AssetModelStatus
+readList :: ReadS [AssetModelStatus]
+$creadList :: ReadS [AssetModelStatus]
+readsPrec :: Int -&gt; ReadS AssetModelStatus
+$creadsPrec :: Int -&gt; ReadS AssetModelStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338196"><span id="local-6989586621679338198"><span id="local-6989586621679338200"><span class="annot"><span class="annottext">Int -&gt; AssetModelStatus -&gt; ShowS
+[AssetModelStatus] -&gt; ShowS
+AssetModelStatus -&gt; String
+(Int -&gt; AssetModelStatus -&gt; ShowS)
+-&gt; (AssetModelStatus -&gt; String)
+-&gt; ([AssetModelStatus] -&gt; ShowS)
+-&gt; Show AssetModelStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssetModelStatus] -&gt; ShowS
+$cshowList :: [AssetModelStatus] -&gt; ShowS
+show :: AssetModelStatus -&gt; String
+$cshow :: AssetModelStatus -&gt; String
+showsPrec :: Int -&gt; AssetModelStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssetModelStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssetModelStatus -&gt; Rep AssetModelStatus x)
+-&gt; (forall x. Rep AssetModelStatus x -&gt; AssetModelStatus)
+-&gt; Generic AssetModelStatus
+forall x. Rep AssetModelStatus x -&gt; AssetModelStatus
+forall x. AssetModelStatus -&gt; Rep AssetModelStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssetModelStatus x -&gt; AssetModelStatus
+$cfrom :: forall x. AssetModelStatus -&gt; Rep AssetModelStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'AssetModelStatus' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'error', 'assetModelStatus_error' - Contains associated error information, if any.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'state', 'assetModelStatus_state' - The current state of the asset model.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#newAssetModelStatus"><span class="hs-identifier hs-type">newAssetModelStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'state'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelState.html#AssetModelState"><span class="hs-identifier hs-type">AssetModelState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span><span>
+</span><span id="line-57"></span><span id="newAssetModelStatus"><span class="annot"><span class="annottext">newAssetModelStatus :: AssetModelState -&gt; AssetModelStatus
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#newAssetModelStatus"><span class="hs-identifier hs-var hs-var">newAssetModelStatus</span></a></span></span><span> </span><span id="local-6989586621679338190"><span class="annot"><span class="annottext">AssetModelState
+</span><a href="#local-6989586621679338190"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">AssetModelStatus' :: Maybe ErrorDetails -&gt; AssetModelState -&gt; AssetModelStatus
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus%27"><span class="hs-identifier hs-type">AssetModelStatus'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:error:AssetModelStatus' :: Maybe ErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#%24sel%3Aerror%3AAssetModelStatus%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:AssetModelStatus' :: AssetModelState
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#%24sel%3Astate%3AAssetModelStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetModelState
+</span><a href="#local-6989586621679338190"><span class="hs-identifier hs-var">pState_</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Contains associated error information, if any.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#assetModelStatus_error"><span class="hs-identifier hs-type">assetModelStatus_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="assetModelStatus_error"><span class="annot"><span class="annottext">assetModelStatus_error :: (Maybe ErrorDetails -&gt; f (Maybe ErrorDetails))
+-&gt; AssetModelStatus -&gt; f AssetModelStatus
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#assetModelStatus_error"><span class="hs-identifier hs-var hs-var">assetModelStatus_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetModelStatus -&gt; Maybe ErrorDetails)
+-&gt; (AssetModelStatus -&gt; Maybe ErrorDetails -&gt; AssetModelStatus)
+-&gt; Lens
+     AssetModelStatus
+     AssetModelStatus
+     (Maybe ErrorDetails)
+     (Maybe ErrorDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus%27"><span class="hs-identifier hs-type">AssetModelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338186"><span class="annot"><span class="annottext">Maybe ErrorDetails
+error :: Maybe ErrorDetails
+$sel:error:AssetModelStatus' :: AssetModelStatus -&gt; Maybe ErrorDetails
+</span><a href="#local-6989586621679338186"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetails
+</span><a href="#local-6989586621679338186"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338185"><span class="annot"><span class="annottext">s :: AssetModelStatus
+</span><a href="#local-6989586621679338185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus%27"><span class="hs-identifier hs-type">AssetModelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338184"><span class="annot"><span class="annottext">Maybe ErrorDetails
+</span><a href="#local-6989586621679338184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetModelStatus
+</span><a href="#local-6989586621679338185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:AssetModelStatus' :: Maybe ErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#%24sel%3Aerror%3AAssetModelStatus%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetails
+</span><a href="#local-6989586621679338184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The current state of the asset model.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#assetModelStatus_state"><span class="hs-identifier hs-type">assetModelStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelState.html#AssetModelState"><span class="hs-identifier hs-type">AssetModelState</span></a></span><span>
+</span><span id="line-69"></span><span id="assetModelStatus_state"><span class="annot"><span class="annottext">assetModelStatus_state :: (AssetModelState -&gt; f AssetModelState)
+-&gt; AssetModelStatus -&gt; f AssetModelStatus
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#assetModelStatus_state"><span class="hs-identifier hs-var hs-var">assetModelStatus_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetModelStatus -&gt; AssetModelState)
+-&gt; (AssetModelStatus -&gt; AssetModelState -&gt; AssetModelStatus)
+-&gt; Lens
+     AssetModelStatus AssetModelStatus AssetModelState AssetModelState
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus%27"><span class="hs-identifier hs-type">AssetModelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338182"><span class="annot"><span class="annottext">AssetModelState
+state :: AssetModelState
+$sel:state:AssetModelStatus' :: AssetModelStatus -&gt; AssetModelState
+</span><a href="#local-6989586621679338182"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetModelState
+</span><a href="#local-6989586621679338182"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338181"><span class="annot"><span class="annottext">s :: AssetModelStatus
+</span><a href="#local-6989586621679338181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus%27"><span class="hs-identifier hs-type">AssetModelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338180"><span class="annot"><span class="annottext">AssetModelState
+</span><a href="#local-6989586621679338180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetModelStatus
+</span><a href="#local-6989586621679338181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:AssetModelStatus' :: AssetModelState
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#%24sel%3Astate%3AAssetModelStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetModelState
+</span><a href="#local-6989586621679338180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679338175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetModelStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssetModelStatus)
+-&gt; Value
+-&gt; Parser AssetModelStatus
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssetModelStatus&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe ErrorDetails -&gt; AssetModelState -&gt; AssetModelStatus
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus%27"><span class="hs-identifier hs-var">AssetModelStatus'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ErrorDetails -&gt; AssetModelState -&gt; AssetModelStatus)
+-&gt; Parser (Maybe ErrorDetails)
+-&gt; Parser (AssetModelState -&gt; AssetModelStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (AssetModelState -&gt; AssetModelStatus)
+-&gt; Parser AssetModelState -&gt; Parser AssetModelStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AssetModelState
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338165"><span id="local-6989586621679338167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelStatus.html#AssetModelStatus"><span class="hs-identifier hs-type">AssetModelStatus</span></a></span></span><span>
+</span><span id="line-83"></span></pre></body></html>

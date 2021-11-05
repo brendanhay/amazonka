@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- beginning of the archive as required for progressive downloading.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- Otherwise it is placed normally at the end.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679991020"><span id="local-6989586621679991021"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mp4MoovPlacement"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4MoovPlacement.html#Mp4MoovPlacement"><span class="hs-identifier hs-var">Mp4MoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp4MoovPlacement%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4MoovPlacement.html#Mp4MoovPlacement%27"><span class="hs-identifier hs-var">Mp4MoovPlacement'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679991029"><span id="local-6989586621679991030"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mp4MoovPlacement"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4MoovPlacement.html#Mp4MoovPlacement"><span class="hs-identifier hs-var">Mp4MoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp4MoovPlacement%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4MoovPlacement.html#Mp4MoovPlacement%27"><span class="hs-identifier hs-var">Mp4MoovPlacement'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMp4MoovPlacement"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Mp4MoovPlacement.html#fromMp4MoovPlacement"><span class="hs-identifier hs-var hs-var">fromMp4MoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991012"><span id="local-6989586621679991014"><span id="local-6989586621679991016"><span class="annot"><span class="annottext">Int -&gt; Mp4MoovPlacement -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991021"><span id="local-6989586621679991023"><span id="local-6989586621679991025"><span class="annot"><span class="annottext">Int -&gt; Mp4MoovPlacement -&gt; ShowS
 [Mp4MoovPlacement] -&gt; ShowS
 Mp4MoovPlacement -&gt; String
 (Int -&gt; Mp4MoovPlacement -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: Mp4MoovPlacement -&gt; String
 showsPrec :: Int -&gt; Mp4MoovPlacement -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mp4MoovPlacement -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679991003"><span id="local-6989586621679991005"><span id="local-6989586621679991007"><span id="local-6989586621679991009"><span class="annot"><span class="annottext">ReadPrec [Mp4MoovPlacement]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679991012"><span id="local-6989586621679991014"><span id="local-6989586621679991016"><span id="local-6989586621679991018"><span class="annot"><span class="annottext">ReadPrec [Mp4MoovPlacement]
 ReadPrec Mp4MoovPlacement
 Int -&gt; ReadS Mp4MoovPlacement
 ReadS [Mp4MoovPlacement]
@@ -75,7 +75,7 @@ $creadList :: ReadS [Mp4MoovPlacement]
 readsPrec :: Int -&gt; ReadS Mp4MoovPlacement
 $creadsPrec :: Int -&gt; ReadS Mp4MoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679990998"><span id="local-6989586621679991000"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679991007"><span id="local-6989586621679991009"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool
 (Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool)
 -&gt; (Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool)
 -&gt; Eq Mp4MoovPlacement
@@ -85,7 +85,7 @@ $c/= :: Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool
 == :: Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool
 $c== :: Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679990982"><span id="local-6989586621679990984"><span id="local-6989586621679990986"><span id="local-6989586621679990988"><span id="local-6989586621679990990"><span id="local-6989586621679990992"><span id="local-6989586621679990994"><span class="annot"><span class="annottext">Eq Mp4MoovPlacement
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679990991"><span id="local-6989586621679990993"><span id="local-6989586621679990995"><span id="local-6989586621679990997"><span id="local-6989586621679990999"><span id="local-6989586621679991001"><span id="local-6989586621679991003"><span class="annot"><span class="annottext">Eq Mp4MoovPlacement
 Eq Mp4MoovPlacement
 -&gt; (Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Ordering)
 -&gt; (Mp4MoovPlacement -&gt; Mp4MoovPlacement -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. Mp4MoovPlacement -&gt; Rep Mp4MoovPlacement x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679990974"><span id="local-6989586621679990976"><span class="annot"><span class="annottext">Int -&gt; Mp4MoovPlacement -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679990983"><span id="local-6989586621679990985"><span class="annot"><span class="annottext">Int -&gt; Mp4MoovPlacement -&gt; Int
 Mp4MoovPlacement -&gt; Int
 (Int -&gt; Mp4MoovPlacement -&gt; Int)
 -&gt; (Mp4MoovPlacement -&gt; Int) -&gt; Hashable Mp4MoovPlacement
@@ -146,51 +146,51 @@ $chash :: Mp4MoovPlacement -&gt; Int
 hashWithSalt :: Int -&gt; Mp4MoovPlacement -&gt; Int
 $chashWithSalt :: Int -&gt; Mp4MoovPlacement -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679990971"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679990980"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; ()
 (Mp4MoovPlacement -&gt; ()) -&gt; NFData Mp4MoovPlacement
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mp4MoovPlacement -&gt; ()
 $crnf :: Mp4MoovPlacement -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679990968"><span class="annot"><span class="annottext">Text -&gt; Either String Mp4MoovPlacement
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679990977"><span class="annot"><span class="annottext">Text -&gt; Either String Mp4MoovPlacement
 (Text -&gt; Either String Mp4MoovPlacement)
 -&gt; FromText Mp4MoovPlacement
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mp4MoovPlacement
 $cfromText :: Text -&gt; Either String Mp4MoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679990965"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679990974"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; Text
 (Mp4MoovPlacement -&gt; Text) -&gt; ToText Mp4MoovPlacement
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mp4MoovPlacement -&gt; Text
 $ctoText :: Mp4MoovPlacement -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679990962"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679990971"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; ByteString
 (Mp4MoovPlacement -&gt; ByteString) -&gt; ToByteString Mp4MoovPlacement
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mp4MoovPlacement -&gt; ByteString
 $ctoBS :: Mp4MoovPlacement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679990959"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679990968"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; ByteStringBuilder
 (Mp4MoovPlacement -&gt; ByteStringBuilder) -&gt; ToLog Mp4MoovPlacement
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mp4MoovPlacement -&gt; ByteStringBuilder
 $cbuild :: Mp4MoovPlacement -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679990956"><span class="annot"><span class="annottext">HeaderName -&gt; Mp4MoovPlacement -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679990965"><span class="annot"><span class="annottext">HeaderName -&gt; Mp4MoovPlacement -&gt; [Header]
 (HeaderName -&gt; Mp4MoovPlacement -&gt; [Header])
 -&gt; ToHeader Mp4MoovPlacement
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mp4MoovPlacement -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mp4MoovPlacement -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679990953"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679990962"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; QueryString
 (Mp4MoovPlacement -&gt; QueryString) -&gt; ToQuery Mp4MoovPlacement
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mp4MoovPlacement -&gt; QueryString
 $ctoQuery :: Mp4MoovPlacement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679990948"><span id="local-6989586621679990950"><span class="annot"><span class="annottext">Value -&gt; Parser [Mp4MoovPlacement]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679990957"><span id="local-6989586621679990959"><span class="annot"><span class="annottext">Value -&gt; Parser [Mp4MoovPlacement]
 Value -&gt; Parser Mp4MoovPlacement
 (Value -&gt; Parser Mp4MoovPlacement)
 -&gt; (Value -&gt; Parser [Mp4MoovPlacement])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [Mp4MoovPlacement]
 parseJSON :: Value -&gt; Parser Mp4MoovPlacement
 $cparseJSON :: Value -&gt; Parser Mp4MoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679990943"><span id="local-6989586621679990945"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mp4MoovPlacement]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679990952"><span id="local-6989586621679990954"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mp4MoovPlacement]
 FromJSONKeyFunction Mp4MoovPlacement
 FromJSONKeyFunction Mp4MoovPlacement
 -&gt; FromJSONKeyFunction [Mp4MoovPlacement]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mp4MoovPlacement]
 fromJSONKey :: FromJSONKeyFunction Mp4MoovPlacement
 $cfromJSONKey :: FromJSONKeyFunction Mp4MoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679990934"><span id="local-6989586621679990936"><span id="local-6989586621679990938"><span id="local-6989586621679990940"><span class="annot"><span class="annottext">[Mp4MoovPlacement] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679990943"><span id="local-6989586621679990945"><span id="local-6989586621679990947"><span id="local-6989586621679990949"><span class="annot"><span class="annottext">[Mp4MoovPlacement] -&gt; Encoding
 [Mp4MoovPlacement] -&gt; Value
 Mp4MoovPlacement -&gt; Encoding
 Mp4MoovPlacement -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Mp4MoovPlacement -&gt; Encoding
 toJSON :: Mp4MoovPlacement -&gt; Value
 $ctoJSON :: Mp4MoovPlacement -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679990929"><span id="local-6989586621679990931"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mp4MoovPlacement]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679990938"><span id="local-6989586621679990940"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mp4MoovPlacement]
 ToJSONKeyFunction Mp4MoovPlacement
 ToJSONKeyFunction Mp4MoovPlacement
 -&gt; ToJSONKeyFunction [Mp4MoovPlacement]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mp4MoovPlacement]
 toJSONKey :: ToJSONKeyFunction Mp4MoovPlacement
 $ctoJSONKey :: ToJSONKeyFunction Mp4MoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679990926"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mp4MoovPlacement
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679990935"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mp4MoovPlacement
 ([Node] -&gt; Either String Mp4MoovPlacement)
 -&gt; FromXML Mp4MoovPlacement
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mp4MoovPlacement
 $cparseXML :: [Node] -&gt; Either String Mp4MoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679990923"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679990932"><span class="annot"><span class="annottext">Mp4MoovPlacement -&gt; XML
 (Mp4MoovPlacement -&gt; XML) -&gt; ToXML Mp4MoovPlacement
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mp4MoovPlacement -&gt; XML

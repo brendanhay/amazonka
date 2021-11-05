@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Request of UpdateSubscriber</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newUpdateSubscriber' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679215804"><span id="local-6989586621679215805"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSubscriber"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-var">UpdateSubscriber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSubscriber%27"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-var">UpdateSubscriber'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679215813"><span id="local-6989586621679215814"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSubscriber"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-var">UpdateSubscriber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSubscriber%27"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-var">UpdateSubscriber'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @accountId@ that is associated with the budget whose subscriber you</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- want to update.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AaccountId%3AUpdateSubscriber%27"><span class="annot"><span class="annottext">UpdateSubscriber -&gt; Text
@@ -70,7 +70,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AnewSubscriber%27%3AUpdateSubscriber%27"><span class="annot"><span class="annottext">UpdateSubscriber -&gt; Subscriber
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AnewSubscriber%27%3AUpdateSubscriber%27"><span class="hs-identifier hs-var hs-var">newSubscriber'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215794"><span id="local-6989586621679215796"><span class="annot"><span class="annottext">UpdateSubscriber -&gt; UpdateSubscriber -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215803"><span id="local-6989586621679215805"><span class="annot"><span class="annottext">UpdateSubscriber -&gt; UpdateSubscriber -&gt; Bool
 (UpdateSubscriber -&gt; UpdateSubscriber -&gt; Bool)
 -&gt; (UpdateSubscriber -&gt; UpdateSubscriber -&gt; Bool)
 -&gt; Eq UpdateSubscriber
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSubscriber -&gt; UpdateSubscriber -&gt; Bool
 == :: UpdateSubscriber -&gt; UpdateSubscriber -&gt; Bool
 $c== :: UpdateSubscriber -&gt; UpdateSubscriber -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215787"><span id="local-6989586621679215789"><span id="local-6989586621679215791"><span class="annot"><span class="annottext">Int -&gt; UpdateSubscriber -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215796"><span id="local-6989586621679215798"><span id="local-6989586621679215800"><span class="annot"><span class="annottext">Int -&gt; UpdateSubscriber -&gt; ShowS
 [UpdateSubscriber] -&gt; ShowS
 UpdateSubscriber -&gt; String
 (Int -&gt; UpdateSubscriber -&gt; ShowS)
@@ -142,16 +142,16 @@ $cfrom :: forall x. UpdateSubscriber -&gt; Rep UpdateSubscriber x
 -&gt; Subscriber
 -&gt; UpdateSubscriber
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#newUpdateSubscriber"><span class="hs-identifier hs-var hs-var">newUpdateSubscriber</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679215782"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679215781"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215781"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215780"><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">pNotification_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679215779"><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">pOldSubscriber_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679215778"><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var">pNewSubscriber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679215791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215791"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679215790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215790"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215789"><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679215789"><span class="hs-identifier hs-var">pNotification_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679215788"><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679215788"><span class="hs-identifier hs-var">pOldSubscriber_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679215787"><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679215787"><span class="hs-identifier hs-var">pNewSubscriber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">UpdateSubscriber' :: Text
 -&gt; Text
 -&gt; Notification
@@ -161,19 +161,19 @@ $cfrom :: forall x. UpdateSubscriber -&gt; Rep UpdateSubscriber x
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:UpdateSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AaccountId%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215791"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:UpdateSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AbudgetName%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215781"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215790"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:notification:UpdateSubscriber' :: Notification
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3Anotification%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">pNotification_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215789"><span class="hs-identifier hs-var">pNotification_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:oldSubscriber:UpdateSubscriber' :: Subscriber
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AoldSubscriber%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">oldSubscriber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">pOldSubscriber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215788"><span class="hs-identifier hs-var">pOldSubscriber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:newSubscriber':UpdateSubscriber' :: Subscriber
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AnewSubscriber%27%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">newSubscriber'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var">pNewSubscriber_</span></a></span><span>
+</span><a href="#local-6989586621679215787"><span class="hs-identifier hs-var">pNewSubscriber_</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The @accountId@ that is associated with the budget whose subscriber you</span><span>
@@ -184,16 +184,16 @@ $cfrom :: forall x. UpdateSubscriber -&gt; Rep UpdateSubscriber x
 -&gt; (UpdateSubscriber -&gt; Text -&gt; UpdateSubscriber)
 -&gt; Lens UpdateSubscriber UpdateSubscriber Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215775"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215784"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:UpdateSubscriber' :: UpdateSubscriber -&gt; Text
-</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215774"><span class="annot"><span class="annottext">s :: UpdateSubscriber
-</span><a href="#local-6989586621679215774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215773"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
-</span><a href="#local-6989586621679215774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UpdateSubscriber' :: Text
+</span><a href="#local-6989586621679215784"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215784"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215783"><span class="annot"><span class="annottext">s :: UpdateSubscriber
+</span><a href="#local-6989586621679215783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
+</span><a href="#local-6989586621679215783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UpdateSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AaccountId%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The name of the budget whose subscriber you want to update.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#updateSubscriber_budgetName"><span class="hs-identifier hs-type">updateSubscriber_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,16 +202,16 @@ $sel:accountId:UpdateSubscriber' :: UpdateSubscriber -&gt; Text
 -&gt; (UpdateSubscriber -&gt; Text -&gt; UpdateSubscriber)
 -&gt; Lens UpdateSubscriber UpdateSubscriber Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215772"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215781"><span class="annot"><span class="annottext">Text
 budgetName :: Text
 $sel:budgetName:UpdateSubscriber' :: UpdateSubscriber -&gt; Text
-</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215771"><span class="annot"><span class="annottext">s :: UpdateSubscriber
-</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215770"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
-</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:UpdateSubscriber' :: Text
+</span><a href="#local-6989586621679215781"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215781"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215780"><span class="annot"><span class="annottext">s :: UpdateSubscriber
+</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
+</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:UpdateSubscriber' :: Text
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AbudgetName%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The notification whose subscriber you want to update.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#updateSubscriber_notification"><span class="hs-identifier hs-type">updateSubscriber_notification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span>
@@ -221,16 +221,16 @@ $sel:budgetName:UpdateSubscriber' :: UpdateSubscriber -&gt; Text
 -&gt; (UpdateSubscriber -&gt; Notification -&gt; UpdateSubscriber)
 -&gt; Lens UpdateSubscriber UpdateSubscriber Notification Notification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215769"><span class="annot"><span class="annottext">Notification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215778"><span class="annot"><span class="annottext">Notification
 notification :: Notification
 $sel:notification:UpdateSubscriber' :: UpdateSubscriber -&gt; Notification
-</span><a href="#local-6989586621679215769"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679215769"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215768"><span class="annot"><span class="annottext">s :: UpdateSubscriber
-</span><a href="#local-6989586621679215768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215767"><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679215767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
-</span><a href="#local-6989586621679215768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:UpdateSubscriber' :: Notification
+</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215777"><span class="annot"><span class="annottext">s :: UpdateSubscriber
+</span><a href="#local-6989586621679215777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215776"><span class="annot"><span class="annottext">Notification
+</span><a href="#local-6989586621679215776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
+</span><a href="#local-6989586621679215777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:UpdateSubscriber' :: Notification
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3Anotification%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679215767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The previous subscriber that is associated with a budget notification.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#updateSubscriber_oldSubscriber"><span class="hs-identifier hs-type">updateSubscriber_oldSubscriber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span>
@@ -240,16 +240,16 @@ $sel:notification:UpdateSubscriber' :: UpdateSubscriber -&gt; Notification
 -&gt; (UpdateSubscriber -&gt; Subscriber -&gt; UpdateSubscriber)
 -&gt; Lens UpdateSubscriber UpdateSubscriber Subscriber Subscriber
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215766"><span class="annot"><span class="annottext">Subscriber
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215775"><span class="annot"><span class="annottext">Subscriber
 oldSubscriber :: Subscriber
 $sel:oldSubscriber:UpdateSubscriber' :: UpdateSubscriber -&gt; Subscriber
-</span><a href="#local-6989586621679215766"><span class="hs-identifier hs-var hs-var">oldSubscriber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215766"><span class="hs-identifier hs-var">oldSubscriber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215765"><span class="annot"><span class="annottext">s :: UpdateSubscriber
-</span><a href="#local-6989586621679215765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215764"><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
-</span><a href="#local-6989586621679215765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oldSubscriber:UpdateSubscriber' :: Subscriber
+</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var hs-var">oldSubscriber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var">oldSubscriber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215774"><span class="annot"><span class="annottext">s :: UpdateSubscriber
+</span><a href="#local-6989586621679215774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215773"><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679215773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
+</span><a href="#local-6989586621679215774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oldSubscriber:UpdateSubscriber' :: Subscriber
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AoldSubscriber%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">oldSubscriber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The updated subscriber that is associated with a budget notification.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#updateSubscriber_newSubscriber"><span class="hs-identifier hs-type">updateSubscriber_newSubscriber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span>
@@ -259,27 +259,27 @@ $sel:oldSubscriber:UpdateSubscriber' :: UpdateSubscriber -&gt; Subscriber
 -&gt; (UpdateSubscriber -&gt; Subscriber -&gt; UpdateSubscriber)
 -&gt; Lens UpdateSubscriber UpdateSubscriber Subscriber Subscriber
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215763"><span class="annot"><span class="annottext">Subscriber
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215772"><span class="annot"><span class="annottext">Subscriber
 newSubscriber' :: Subscriber
 $sel:newSubscriber':UpdateSubscriber' :: UpdateSubscriber -&gt; Subscriber
-</span><a href="#local-6989586621679215763"><span class="hs-identifier hs-var hs-var">newSubscriber'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215763"><span class="hs-identifier hs-var">newSubscriber'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215762"><span class="annot"><span class="annottext">s :: UpdateSubscriber
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215761"><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newSubscriber':UpdateSubscriber' :: Subscriber
+</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var hs-var">newSubscriber'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var">newSubscriber'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215771"><span class="annot"><span class="annottext">s :: UpdateSubscriber
+</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215770"><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriber
+</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newSubscriber':UpdateSubscriber' :: Subscriber
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AnewSubscriber%27%3AUpdateSubscriber%27"><span class="hs-identifier hs-var">newSubscriber'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-type">UpdateSubscriberResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679215757"><span class="annot"><span class="annottext">request :: UpdateSubscriber -&gt; Request UpdateSubscriber
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679215766"><span class="annot"><span class="annottext">request :: UpdateSubscriber -&gt; Request UpdateSubscriber
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSubscriber -&gt; Request UpdateSubscriber
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Budgets.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679215753"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679215762"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateSubscriber
 -&gt; ClientResponse ClientBody
@@ -303,10 +303,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215750"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215750"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215749"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679215749"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215748"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679215748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215759"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215758"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215758"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215757"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679215757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateSubscriberResponse
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-var">UpdateSubscriberResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateSubscriberResponse)
@@ -317,15 +317,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215750"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215759"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215741"><span id="local-6989586621679215743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215750"><span id="local-6989586621679215752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679215734"><span class="annot"><span class="annottext">toHeaders :: UpdateSubscriber -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679215743"><span class="annot"><span class="annottext">toHeaders :: UpdateSubscriber -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSubscriber -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -352,9 +352,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215724"><span id="local-6989586621679215726"><span id="local-6989586621679215728"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679215722"><span class="annot"><span class="annottext">toJSON :: UpdateSubscriber -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215716"><span id="local-6989586621679215717"><span id="local-6989586621679215718"><span id="local-6989586621679215719"><span id="local-6989586621679215720"><span class="annot"><span class="annottext">Text
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215733"><span id="local-6989586621679215735"><span id="local-6989586621679215737"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679215731"><span class="annot"><span class="annottext">toJSON :: UpdateSubscriber -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber%27"><span class="hs-identifier hs-type">UpdateSubscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215725"><span id="local-6989586621679215726"><span id="local-6989586621679215727"><span id="local-6989586621679215728"><span id="local-6989586621679215729"><span class="annot"><span class="annottext">Text
 Subscriber
 Notification
 newSubscriber' :: Subscriber
@@ -367,7 +367,7 @@ $sel:oldSubscriber:UpdateSubscriber' :: UpdateSubscriber -&gt; Subscriber
 $sel:notification:UpdateSubscriber' :: UpdateSubscriber -&gt; Notification
 $sel:budgetName:UpdateSubscriber' :: UpdateSubscriber -&gt; Text
 $sel:accountId:UpdateSubscriber' :: UpdateSubscriber -&gt; Text
-</span><a href="#local-6989586621679215716"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215725"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -379,28 +379,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215720"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215729"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BudgetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215719"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215728"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Notification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Notification -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Notification
-</span><a href="#local-6989586621679215718"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215727"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OldSubscriber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Subscriber -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215717"><span class="hs-identifier hs-var">oldSubscriber</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215726"><span class="hs-identifier hs-var">oldSubscriber</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -408,19 +408,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NewSubscriber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Subscriber -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679215716"><span class="hs-identifier hs-var">newSubscriber'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215725"><span class="hs-identifier hs-var">newSubscriber'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679215710"><span class="annot"><span class="annottext">toPath :: UpdateSubscriber -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679215719"><span class="annot"><span class="annottext">toPath :: UpdateSubscriber -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateSubscriber -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriber"><span class="hs-identifier hs-type">UpdateSubscriber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679215706"><span class="annot"><span class="annottext">toQuery :: UpdateSubscriber -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679215715"><span class="annot"><span class="annottext">toQuery :: UpdateSubscriber -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSubscriber -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -430,12 +430,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-185"></span><span class="hs-comment">-- | Response of UpdateSubscriber</span><span>
 </span><span id="line-186"></span><span class="hs-comment">--</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- /See:/ 'newUpdateSubscriberResponse' smart constructor.</span><span>
-</span><span id="line-188"></span><span id="local-6989586621679215703"><span id="local-6989586621679215704"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSubscriberResponse"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-var">UpdateSubscriberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSubscriberResponse%27"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-var">UpdateSubscriberResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span id="local-6989586621679215712"><span id="local-6989586621679215713"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSubscriberResponse"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-var">UpdateSubscriberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSubscriberResponse%27"><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-var">UpdateSubscriberResponse'</span></a></span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSubscriberResponse%27"><span class="annot"><span class="annottext">UpdateSubscriberResponse -&gt; Int
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AhttpStatus%3AUpdateSubscriberResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215698"><span id="local-6989586621679215700"><span class="annot"><span class="annottext">UpdateSubscriberResponse -&gt; UpdateSubscriberResponse -&gt; Bool
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215707"><span id="local-6989586621679215709"><span class="annot"><span class="annottext">UpdateSubscriberResponse -&gt; UpdateSubscriberResponse -&gt; Bool
 (UpdateSubscriberResponse -&gt; UpdateSubscriberResponse -&gt; Bool)
 -&gt; (UpdateSubscriberResponse -&gt; UpdateSubscriberResponse -&gt; Bool)
 -&gt; Eq UpdateSubscriberResponse
@@ -444,7 +444,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSubscriberResponse -&gt; UpdateSubscriberResponse -&gt; Bool
 == :: UpdateSubscriberResponse -&gt; UpdateSubscriberResponse -&gt; Bool
 $c== :: UpdateSubscriberResponse -&gt; UpdateSubscriberResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215690"><span id="local-6989586621679215692"><span id="local-6989586621679215694"><span id="local-6989586621679215696"><span class="annot"><span class="annottext">ReadPrec [UpdateSubscriberResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215699"><span id="local-6989586621679215701"><span id="local-6989586621679215703"><span id="local-6989586621679215705"><span class="annot"><span class="annottext">ReadPrec [UpdateSubscriberResponse]
 ReadPrec UpdateSubscriberResponse
 Int -&gt; ReadS UpdateSubscriberResponse
 ReadS [UpdateSubscriberResponse]
@@ -464,7 +464,7 @@ readList :: ReadS [UpdateSubscriberResponse]
 $creadList :: ReadS [UpdateSubscriberResponse]
 readsPrec :: Int -&gt; ReadS UpdateSubscriberResponse
 $creadsPrec :: Int -&gt; ReadS UpdateSubscriberResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215683"><span id="local-6989586621679215685"><span id="local-6989586621679215687"><span class="annot"><span class="annottext">Int -&gt; UpdateSubscriberResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215692"><span id="local-6989586621679215694"><span id="local-6989586621679215696"><span class="annot"><span class="annottext">Int -&gt; UpdateSubscriberResponse -&gt; ShowS
 [UpdateSubscriberResponse] -&gt; ShowS
 UpdateSubscriberResponse -&gt; String
 (Int -&gt; UpdateSubscriberResponse -&gt; ShowS)
@@ -510,14 +510,14 @@ UpdateSubscriberResponse -&gt; Rep UpdateSubscriberResponse x
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-type">UpdateSubscriberResponse</span></a></span><span>
 </span><span id="line-207"></span><span id="newUpdateSubscriberResponse"><span class="annot"><span class="annottext">newUpdateSubscriberResponse :: Int -&gt; UpdateSubscriberResponse
-</span><a href="Network.AWS.Budgets.UpdateSubscriber.html#newUpdateSubscriberResponse"><span class="hs-identifier hs-var hs-var">newUpdateSubscriberResponse</span></a></span></span><span> </span><span id="local-6989586621679215680"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Budgets.UpdateSubscriber.html#newUpdateSubscriberResponse"><span class="hs-identifier hs-var hs-var">newUpdateSubscriberResponse</span></a></span></span><span> </span><span id="local-6989586621679215689"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">UpdateSubscriberResponse' :: Int -&gt; UpdateSubscriberResponse
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-type">UpdateSubscriberResponse'</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSubscriberResponse' :: Int
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AhttpStatus%3AUpdateSubscriberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679215689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -528,16 +528,16 @@ UpdateSubscriberResponse -&gt; Rep UpdateSubscriberResponse x
 -&gt; (UpdateSubscriberResponse -&gt; Int -&gt; UpdateSubscriberResponse)
 -&gt; Lens UpdateSubscriberResponse UpdateSubscriberResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-type">UpdateSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215679"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-type">UpdateSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215688"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateSubscriberResponse' :: UpdateSubscriberResponse -&gt; Int
-</span><a href="#local-6989586621679215679"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215679"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215678"><span class="annot"><span class="annottext">s :: UpdateSubscriberResponse
-</span><a href="#local-6989586621679215678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-type">UpdateSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215677"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriberResponse
-</span><a href="#local-6989586621679215678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSubscriberResponse' :: Int
+</span><a href="#local-6989586621679215688"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215688"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215687"><span class="annot"><span class="annottext">s :: UpdateSubscriberResponse
+</span><a href="#local-6989586621679215687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse%27"><span class="hs-identifier hs-type">UpdateSubscriberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSubscriberResponse
+</span><a href="#local-6989586621679215687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSubscriberResponse' :: Int
 </span><a href="Network.AWS.Budgets.UpdateSubscriber.html#%24sel%3AhttpStatus%3AUpdateSubscriberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-type">UpdateSubscriberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-type">UpdateSubscriberResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-type">UpdateSubscriberResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.UpdateSubscriber.html#UpdateSubscriberResponse"><span class="hs-identifier hs-type">UpdateSubscriberResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

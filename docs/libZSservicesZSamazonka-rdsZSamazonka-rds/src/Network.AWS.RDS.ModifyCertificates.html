@@ -79,7 +79,7 @@
 </span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | /See:/ 'newModifyCertificates' smart constructor.</span><span>
-</span><span id="line-82"></span><span id="local-6989586621679784629"><span id="local-6989586621679784630"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCertificates"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-var">ModifyCertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCertificates%27"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-var">ModifyCertificates'</span></a></span></span><span>
+</span><span id="line-82"></span><span id="local-6989586621679784638"><span id="local-6989586621679784639"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCertificates"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-var">ModifyCertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCertificates%27"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-var">ModifyCertificates'</span></a></span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new default certificate identifier to override the current one with.</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- To determine the valid values, use the @describe-certificates@ CLI</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AremoveCustomerOverride%3AModifyCertificates%27"><span class="annot"><span class="annottext">ModifyCertificates -&gt; Maybe Bool
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3AremoveCustomerOverride%3AModifyCertificates%27"><span class="hs-identifier hs-var hs-var">removeCustomerOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784622"><span id="local-6989586621679784624"><span class="annot"><span class="annottext">ModifyCertificates -&gt; ModifyCertificates -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784631"><span id="local-6989586621679784633"><span class="annot"><span class="annottext">ModifyCertificates -&gt; ModifyCertificates -&gt; Bool
 (ModifyCertificates -&gt; ModifyCertificates -&gt; Bool)
 -&gt; (ModifyCertificates -&gt; ModifyCertificates -&gt; Bool)
 -&gt; Eq ModifyCertificates
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyCertificates -&gt; ModifyCertificates -&gt; Bool
 == :: ModifyCertificates -&gt; ModifyCertificates -&gt; Bool
 $c== :: ModifyCertificates -&gt; ModifyCertificates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784613"><span id="local-6989586621679784615"><span id="local-6989586621679784617"><span id="local-6989586621679784619"><span class="annot"><span class="annottext">ReadPrec [ModifyCertificates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784622"><span id="local-6989586621679784624"><span id="local-6989586621679784626"><span id="local-6989586621679784628"><span class="annot"><span class="annottext">ReadPrec [ModifyCertificates]
 ReadPrec ModifyCertificates
 Int -&gt; ReadS ModifyCertificates
 ReadS [ModifyCertificates]
@@ -121,7 +121,7 @@ readList :: ReadS [ModifyCertificates]
 $creadList :: ReadS [ModifyCertificates]
 readsPrec :: Int -&gt; ReadS ModifyCertificates
 $creadsPrec :: Int -&gt; ReadS ModifyCertificates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784606"><span id="local-6989586621679784608"><span id="local-6989586621679784610"><span class="annot"><span class="annottext">Int -&gt; ModifyCertificates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784615"><span id="local-6989586621679784617"><span id="local-6989586621679784619"><span class="annot"><span class="annottext">Int -&gt; ModifyCertificates -&gt; ShowS
 [ModifyCertificates] -&gt; ShowS
 ModifyCertificates -&gt; String
 (Int -&gt; ModifyCertificates -&gt; ShowS)
@@ -192,16 +192,16 @@ forall a. Maybe a
 -&gt; Lens
      ModifyCertificates ModifyCertificates (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784599"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784608"><span class="annot"><span class="annottext">Maybe Text
 certificateIdentifier :: Maybe Text
 $sel:certificateIdentifier:ModifyCertificates' :: ModifyCertificates -&gt; Maybe Text
-</span><a href="#local-6989586621679784599"><span class="hs-identifier hs-var hs-var">certificateIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784599"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784598"><span class="annot"><span class="annottext">s :: ModifyCertificates
-</span><a href="#local-6989586621679784598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784597"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificates
-</span><a href="#local-6989586621679784598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateIdentifier:ModifyCertificates' :: Maybe Text
+</span><a href="#local-6989586621679784608"><span class="hs-identifier hs-var hs-var">certificateIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679784608"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784607"><span class="annot"><span class="annottext">s :: ModifyCertificates
+</span><a href="#local-6989586621679784607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784606"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679784606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificates
+</span><a href="#local-6989586621679784607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateIdentifier:ModifyCertificates' :: Maybe Text
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3AcertificateIdentifier%3AModifyCertificates%27"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | A value that indicates whether to remove the override for the default</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- certificate. If the override is removed, the default certificate is the</span><span>
@@ -214,27 +214,27 @@ $sel:certificateIdentifier:ModifyCertificates' :: ModifyCertificates -&gt; Maybe
 -&gt; Lens
      ModifyCertificates ModifyCertificates (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784596"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784605"><span class="annot"><span class="annottext">Maybe Bool
 removeCustomerOverride :: Maybe Bool
 $sel:removeCustomerOverride:ModifyCertificates' :: ModifyCertificates -&gt; Maybe Bool
-</span><a href="#local-6989586621679784596"><span class="hs-identifier hs-var hs-var">removeCustomerOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679784596"><span class="hs-identifier hs-var">removeCustomerOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784595"><span class="annot"><span class="annottext">s :: ModifyCertificates
-</span><a href="#local-6989586621679784595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784594"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679784594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificates
-</span><a href="#local-6989586621679784595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeCustomerOverride:ModifyCertificates' :: Maybe Bool
+</span><a href="#local-6989586621679784605"><span class="hs-identifier hs-var hs-var">removeCustomerOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679784605"><span class="hs-identifier hs-var">removeCustomerOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784604"><span class="annot"><span class="annottext">s :: ModifyCertificates
+</span><a href="#local-6989586621679784604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784603"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679784603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificates
+</span><a href="#local-6989586621679784604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeCustomerOverride:ModifyCertificates' :: Maybe Bool
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3AremoveCustomerOverride%3AModifyCertificates%27"><span class="hs-identifier hs-var">removeCustomerOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679784594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679784590"><span class="annot"><span class="annottext">request :: ModifyCertificates -&gt; Request ModifyCertificates
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679784599"><span class="annot"><span class="annottext">request :: ModifyCertificates -&gt; Request ModifyCertificates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyCertificates -&gt; Request ModifyCertificates
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679784586"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679784595"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyCertificates
 -&gt; ClientResponse ClientBody
@@ -265,10 +265,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyCertificatesResult&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784583"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784583"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679784582"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679784582"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679784581"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679784581"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784592"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784592"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679784591"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679784591"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679784590"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679784590"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Certificate -&gt; Int -&gt; ModifyCertificatesResponse
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-var">ModifyCertificatesResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Certificate -&gt; Int -&gt; ModifyCertificatesResponse)
@@ -276,7 +276,7 @@ Text
 -&gt; Either String (Int -&gt; ModifyCertificatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679784581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Certificate)
+</span><a href="#local-6989586621679784590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Certificate)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span class="hs-special">)</span><span>
@@ -288,15 +288,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784583"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784592"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784573"><span id="local-6989586621679784575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784582"><span id="local-6989586621679784584"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679784566"><span class="annot"><span class="annottext">toHeaders :: ModifyCertificates -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679784575"><span class="annot"><span class="annottext">toHeaders :: ModifyCertificates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyCertificates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -304,21 +304,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679784561"><span class="annot"><span class="annottext">toPath :: ModifyCertificates -&gt; ByteString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679784570"><span class="annot"><span class="annottext">toPath :: ModifyCertificates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyCertificates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates"><span class="hs-identifier hs-type">ModifyCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679784557"><span class="annot"><span class="annottext">toQuery :: ModifyCertificates -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784554"><span id="local-6989586621679784555"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679784566"><span class="annot"><span class="annottext">toQuery :: ModifyCertificates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificates%27"><span class="hs-identifier hs-type">ModifyCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784563"><span id="local-6989586621679784564"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 removeCustomerOverride :: Maybe Bool
 certificateIdentifier :: Maybe Text
 $sel:removeCustomerOverride:ModifyCertificates' :: ModifyCertificates -&gt; Maybe Bool
 $sel:certificateIdentifier:ModifyCertificates' :: ModifyCertificates -&gt; Maybe Text
-</span><a href="#local-6989586621679784554"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679784563"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -339,24 +339,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784555"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784564"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RemoveCustomerOverride&quot;</span></span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679784554"><span class="hs-identifier hs-var">removeCustomerOverride</span></a></span><span>
+</span><a href="#local-6989586621679784563"><span class="hs-identifier hs-var">removeCustomerOverride</span></a></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newModifyCertificatesResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679784551"><span id="local-6989586621679784552"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCertificatesResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-var">ModifyCertificatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCertificatesResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-var">ModifyCertificatesResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span id="local-6989586621679784560"><span id="local-6989586621679784561"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCertificatesResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-var">ModifyCertificatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCertificatesResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-var">ModifyCertificatesResponse'</span></a></span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acertificate%3AModifyCertificatesResponse%27"><span class="annot"><span class="annottext">ModifyCertificatesResponse -&gt; Maybe Certificate
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3Acertificate%3AModifyCertificatesResponse%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyCertificatesResponse%27"><span class="annot"><span class="annottext">ModifyCertificatesResponse -&gt; Int
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3AhttpStatus%3AModifyCertificatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784545"><span id="local-6989586621679784547"><span class="annot"><span class="annottext">ModifyCertificatesResponse -&gt; ModifyCertificatesResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784554"><span id="local-6989586621679784556"><span class="annot"><span class="annottext">ModifyCertificatesResponse -&gt; ModifyCertificatesResponse -&gt; Bool
 (ModifyCertificatesResponse -&gt; ModifyCertificatesResponse -&gt; Bool)
 -&gt; (ModifyCertificatesResponse
     -&gt; ModifyCertificatesResponse -&gt; Bool)
@@ -366,7 +366,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyCertificatesResponse -&gt; ModifyCertificatesResponse -&gt; Bool
 == :: ModifyCertificatesResponse -&gt; ModifyCertificatesResponse -&gt; Bool
 $c== :: ModifyCertificatesResponse -&gt; ModifyCertificatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784537"><span id="local-6989586621679784539"><span id="local-6989586621679784541"><span id="local-6989586621679784543"><span class="annot"><span class="annottext">ReadPrec [ModifyCertificatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784546"><span id="local-6989586621679784548"><span id="local-6989586621679784550"><span id="local-6989586621679784552"><span class="annot"><span class="annottext">ReadPrec [ModifyCertificatesResponse]
 ReadPrec ModifyCertificatesResponse
 Int -&gt; ReadS ModifyCertificatesResponse
 ReadS [ModifyCertificatesResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [ModifyCertificatesResponse]
 $creadList :: ReadS [ModifyCertificatesResponse]
 readsPrec :: Int -&gt; ReadS ModifyCertificatesResponse
 $creadsPrec :: Int -&gt; ReadS ModifyCertificatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784531"><span id="local-6989586621679784533"><span id="local-6989586621679784535"><span class="annot"><span class="annottext">Int -&gt; ModifyCertificatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784540"><span id="local-6989586621679784542"><span id="local-6989586621679784544"><span class="annot"><span class="annottext">Int -&gt; ModifyCertificatesResponse -&gt; ShowS
 [ModifyCertificatesResponse] -&gt; ShowS
 ModifyCertificatesResponse -&gt; String
 (Int -&gt; ModifyCertificatesResponse -&gt; ShowS)
@@ -434,8 +434,8 @@ ModifyCertificatesResponse -&gt; Rep ModifyCertificatesResponse x
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span><span>
 </span><span id="line-193"></span><span id="newModifyCertificatesResponse"><span class="annot"><span class="annottext">newModifyCertificatesResponse :: Int -&gt; ModifyCertificatesResponse
-</span><a href="Network.AWS.RDS.ModifyCertificates.html#newModifyCertificatesResponse"><span class="hs-identifier hs-var hs-var">newModifyCertificatesResponse</span></a></span></span><span> </span><span id="local-6989586621679784528"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784528"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.ModifyCertificates.html#newModifyCertificatesResponse"><span class="hs-identifier hs-var hs-var">newModifyCertificatesResponse</span></a></span></span><span> </span><span id="local-6989586621679784537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">ModifyCertificatesResponse' :: Maybe Certificate -&gt; Int -&gt; ModifyCertificatesResponse
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificate:ModifyCertificatesResponse' :: Maybe Certificate
@@ -445,7 +445,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyCertificatesResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3AhttpStatus%3AModifyCertificatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784528"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679784537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -461,16 +461,16 @@ forall a. Maybe a
      (Maybe Certificate)
      (Maybe Certificate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784527"><span class="annot"><span class="annottext">Maybe Certificate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784536"><span class="annot"><span class="annottext">Maybe Certificate
 certificate :: Maybe Certificate
 $sel:certificate:ModifyCertificatesResponse' :: ModifyCertificatesResponse -&gt; Maybe Certificate
-</span><a href="#local-6989586621679784527"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679784527"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784526"><span class="annot"><span class="annottext">s :: ModifyCertificatesResponse
-</span><a href="#local-6989586621679784526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784525"><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679784525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificatesResponse
-</span><a href="#local-6989586621679784526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ModifyCertificatesResponse' :: Maybe Certificate
+</span><a href="#local-6989586621679784536"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
+</span><a href="#local-6989586621679784536"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784535"><span class="annot"><span class="annottext">s :: ModifyCertificatesResponse
+</span><a href="#local-6989586621679784535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784534"><span class="annot"><span class="annottext">Maybe Certificate
+</span><a href="#local-6989586621679784534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificatesResponse
+</span><a href="#local-6989586621679784535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ModifyCertificatesResponse' :: Maybe Certificate
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3Acertificate%3AModifyCertificatesResponse%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679784525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-205"></span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#modifyCertificatesResponse_httpStatus"><span class="hs-identifier hs-type">modifyCertificatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -482,16 +482,16 @@ $sel:certificate:ModifyCertificatesResponse' :: ModifyCertificatesResponse -&gt;
 -&gt; Lens
      ModifyCertificatesResponse ModifyCertificatesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784524"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784533"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyCertificatesResponse' :: ModifyCertificatesResponse -&gt; Int
-</span><a href="#local-6989586621679784524"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784524"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784523"><span class="annot"><span class="annottext">s :: ModifyCertificatesResponse
-</span><a href="#local-6989586621679784523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784522"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificatesResponse
-</span><a href="#local-6989586621679784523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyCertificatesResponse' :: Int
+</span><a href="#local-6989586621679784533"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784533"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784532"><span class="annot"><span class="annottext">s :: ModifyCertificatesResponse
+</span><a href="#local-6989586621679784532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse%27"><span class="hs-identifier hs-type">ModifyCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679784531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCertificatesResponse
+</span><a href="#local-6989586621679784532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyCertificatesResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyCertificates.html#%24sel%3AhttpStatus%3AModifyCertificatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyCertificates.html#ModifyCertificatesResponse"><span class="hs-identifier hs-type">ModifyCertificatesResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

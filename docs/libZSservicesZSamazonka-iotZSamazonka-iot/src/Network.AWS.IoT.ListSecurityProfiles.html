@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListSecurityProfiles' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679821040"><span id="local-6989586621679821041"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSecurityProfiles"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-var">ListSecurityProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSecurityProfiles%27"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-var">ListSecurityProfiles'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679821049"><span id="local-6989586621679821050"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSecurityProfiles"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-var">ListSecurityProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSecurityProfiles%27"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-var">ListSecurityProfiles'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the custom metric. Cannot be used with @dimensionName@.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AmetricName%3AListSecurityProfiles%27"><span class="annot"><span class="annottext">ListSecurityProfiles -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AmetricName%3AListSecurityProfiles%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListSecurityProfiles%27"><span class="annot"><span class="annottext">ListSecurityProfiles -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AmaxResults%3AListSecurityProfiles%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679821031"><span id="local-6989586621679821033"><span class="annot"><span class="annottext">ListSecurityProfiles -&gt; ListSecurityProfiles -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679821040"><span id="local-6989586621679821042"><span class="annot"><span class="annottext">ListSecurityProfiles -&gt; ListSecurityProfiles -&gt; Bool
 (ListSecurityProfiles -&gt; ListSecurityProfiles -&gt; Bool)
 -&gt; (ListSecurityProfiles -&gt; ListSecurityProfiles -&gt; Bool)
 -&gt; Eq ListSecurityProfiles
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSecurityProfiles -&gt; ListSecurityProfiles -&gt; Bool
 == :: ListSecurityProfiles -&gt; ListSecurityProfiles -&gt; Bool
 $c== :: ListSecurityProfiles -&gt; ListSecurityProfiles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821022"><span id="local-6989586621679821024"><span id="local-6989586621679821026"><span id="local-6989586621679821028"><span class="annot"><span class="annottext">ReadPrec [ListSecurityProfiles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821031"><span id="local-6989586621679821033"><span id="local-6989586621679821035"><span id="local-6989586621679821037"><span class="annot"><span class="annottext">ReadPrec [ListSecurityProfiles]
 ReadPrec ListSecurityProfiles
 Int -&gt; ReadS ListSecurityProfiles
 ReadS [ListSecurityProfiles]
@@ -104,7 +104,7 @@ readList :: ReadS [ListSecurityProfiles]
 $creadList :: ReadS [ListSecurityProfiles]
 readsPrec :: Int -&gt; ReadS ListSecurityProfiles
 $creadsPrec :: Int -&gt; ReadS ListSecurityProfiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821015"><span id="local-6989586621679821017"><span id="local-6989586621679821019"><span class="annot"><span class="annottext">Int -&gt; ListSecurityProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821024"><span id="local-6989586621679821026"><span id="local-6989586621679821028"><span class="annot"><span class="annottext">Int -&gt; ListSecurityProfiles -&gt; ShowS
 [ListSecurityProfiles] -&gt; ShowS
 ListSecurityProfiles -&gt; String
 (Int -&gt; ListSecurityProfiles -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
 -&gt; Lens
      ListSecurityProfiles ListSecurityProfiles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821009"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821018"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
-</span><a href="#local-6989586621679821009"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821009"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821008"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
-</span><a href="#local-6989586621679821008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821007"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
-</span><a href="#local-6989586621679821008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:ListSecurityProfiles' :: Maybe Text
+</span><a href="#local-6989586621679821018"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821018"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821017"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
+</span><a href="#local-6989586621679821017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821016"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
+</span><a href="#local-6989586621679821017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:ListSecurityProfiles' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AmetricName%3AListSecurityProfiles%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#listSecurityProfiles_nextToken"><span class="hs-identifier hs-type">listSecurityProfiles_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -203,16 +203,16 @@ $sel:metricName:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
 -&gt; Lens
      ListSecurityProfiles ListSecurityProfiles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821006"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821015"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
-</span><a href="#local-6989586621679821006"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821006"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821005"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
-</span><a href="#local-6989586621679821005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821004"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
-</span><a href="#local-6989586621679821005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityProfiles' :: Maybe Text
+</span><a href="#local-6989586621679821015"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821015"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821014"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
+</span><a href="#local-6989586621679821014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821013"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
+</span><a href="#local-6989586621679821014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityProfiles' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AnextToken%3AListSecurityProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | A filter to limit results to the security profiles that use the defined</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- dimension. Cannot be used with @metricName@</span><span>
@@ -224,16 +224,16 @@ $sel:nextToken:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
 -&gt; Lens
      ListSecurityProfiles ListSecurityProfiles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821003"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821012"><span class="annot"><span class="annottext">Maybe Text
 dimensionName :: Maybe Text
 $sel:dimensionName:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
-</span><a href="#local-6989586621679821003"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821003"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821002"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
-</span><a href="#local-6989586621679821002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821001"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
-</span><a href="#local-6989586621679821002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionName:ListSecurityProfiles' :: Maybe Text
+</span><a href="#local-6989586621679821012"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821012"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821011"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
+</span><a href="#local-6989586621679821011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821010"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
+</span><a href="#local-6989586621679821011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionName:ListSecurityProfiles' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AdimensionName%3AListSecurityProfiles%27"><span class="hs-identifier hs-var">dimensionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679821001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#listSecurityProfiles_maxResults"><span class="hs-identifier hs-type">listSecurityProfiles_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -247,29 +247,29 @@ $sel:dimensionName:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Tex
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821000"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821009"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Natural
-</span><a href="#local-6989586621679821000"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679821000"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820999"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
-</span><a href="#local-6989586621679820999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820998"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
-</span><a href="#local-6989586621679820999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSecurityProfiles' :: Maybe Natural
+</span><a href="#local-6989586621679821009"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679821009"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821008"><span class="annot"><span class="annottext">s :: ListSecurityProfiles
+</span><a href="#local-6989586621679821008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821007"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679821007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfiles
+</span><a href="#local-6989586621679821008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSecurityProfiles' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AmaxResults%3AListSecurityProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679820994"><span class="annot"><span class="annottext">page :: ListSecurityProfiles
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679821003"><span class="annot"><span class="annottext">page :: ListSecurityProfiles
 -&gt; AWSResponse ListSecurityProfiles -&gt; Maybe ListSecurityProfiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679820992"><span class="annot"><span class="annottext">ListSecurityProfiles
-</span><a href="#local-6989586621679820992"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679820991"><span class="annot"><span class="annottext">AWSResponse ListSecurityProfiles
-</span><a href="#local-6989586621679820991"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679821001"><span class="annot"><span class="annottext">ListSecurityProfiles
+</span><a href="#local-6989586621679821001"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679821000"><span class="annot"><span class="annottext">AWSResponse ListSecurityProfiles
+</span><a href="#local-6989586621679821000"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSecurityProfiles
 ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679821000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
 -&gt; Getting (First Text) ListSecurityProfilesResponse Text
 -&gt; Maybe Text
@@ -299,7 +299,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSecurityProfiles
 ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679821000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
 -&gt; Getting
      (First [SecurityProfileIdentifier])
@@ -358,7 +358,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ListSecurityProfiles
-</span><a href="#local-6989586621679820992"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679821001"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListSecurityProfiles
 -&gt; (ListSecurityProfiles -&gt; ListSecurityProfiles)
 -&gt; ListSecurityProfiles
@@ -374,7 +374,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSecurityProfiles
 ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679821000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
 -&gt; Getting (First Text) ListSecurityProfilesResponse Text
 -&gt; Maybe Text
@@ -400,12 +400,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679820981"><span class="annot"><span class="annottext">request :: ListSecurityProfiles -&gt; Request ListSecurityProfiles
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679820990"><span class="annot"><span class="annottext">request :: ListSecurityProfiles -&gt; Request ListSecurityProfiles
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSecurityProfiles -&gt; Request ListSecurityProfiles
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679820977"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679820986"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListSecurityProfiles
 -&gt; ClientResponse ClientBody
@@ -431,10 +431,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679820974"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820974"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679820973"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679820973"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679820972"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679820983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679820982"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679820982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679820981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679820981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [SecurityProfileIdentifier]
 -&gt; Int
@@ -451,7 +451,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListSecurityProfilesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679820981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -463,7 +463,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListSecurityProfilesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679820981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [SecurityProfileIdentifier]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -485,15 +485,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820974"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820963"><span id="local-6989586621679820965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820972"><span id="local-6989586621679820974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679820956"><span class="annot"><span class="annottext">toHeaders :: ListSecurityProfiles -&gt; ResponseHeaders
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679820965"><span class="annot"><span class="annottext">toHeaders :: ListSecurityProfiles -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSecurityProfiles -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -501,15 +501,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679820951"><span class="annot"><span class="annottext">toPath :: ListSecurityProfiles -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679820960"><span class="annot"><span class="annottext">toPath :: ListSecurityProfiles -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSecurityProfiles -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/security-profiles&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles"><span class="hs-identifier hs-type">ListSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679820947"><span class="annot"><span class="annottext">toQuery :: ListSecurityProfiles -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820942"><span id="local-6989586621679820943"><span id="local-6989586621679820944"><span id="local-6989586621679820945"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679820956"><span class="annot"><span class="annottext">toQuery :: ListSecurityProfiles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfiles%27"><span class="hs-identifier hs-type">ListSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820951"><span id="local-6989586621679820952"><span id="local-6989586621679820953"><span id="local-6989586621679820954"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 dimensionName :: Maybe Text
@@ -519,7 +519,7 @@ $sel:maxResults:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Natura
 $sel:dimensionName:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
 $sel:nextToken:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
 $sel:metricName:ListSecurityProfiles' :: ListSecurityProfiles -&gt; Maybe Text
-</span><a href="#local-6989586621679820942"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679820951"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -527,26 +527,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;metricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820945"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679820954"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820944"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679820953"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;dimensionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820943"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679820952"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820942"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679820951"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newListSecurityProfilesResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621679820939"><span id="local-6989586621679820940"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSecurityProfilesResponse"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-var">ListSecurityProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSecurityProfilesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-var">ListSecurityProfilesResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621679820948"><span id="local-6989586621679820949"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSecurityProfilesResponse"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-var">ListSecurityProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSecurityProfilesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-var">ListSecurityProfilesResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that can be used to retrieve the next set of results, or @null@</span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-comment">-- if there are no additional results.</span><span>
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AnextToken%3AListSecurityProfilesResponse%27"><span class="annot"><span class="annottext">ListSecurityProfilesResponse -&gt; Maybe Text
@@ -558,7 +558,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSecurityProfilesResponse%27"><span class="annot"><span class="annottext">ListSecurityProfilesResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AhttpStatus%3AListSecurityProfilesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820932"><span id="local-6989586621679820934"><span class="annot"><span class="annottext">ListSecurityProfilesResponse
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820941"><span id="local-6989586621679820943"><span class="annot"><span class="annottext">ListSecurityProfilesResponse
 -&gt; ListSecurityProfilesResponse -&gt; Bool
 (ListSecurityProfilesResponse
  -&gt; ListSecurityProfilesResponse -&gt; Bool)
@@ -574,7 +574,7 @@ $c/= :: ListSecurityProfilesResponse
 -&gt; ListSecurityProfilesResponse -&gt; Bool
 $c== :: ListSecurityProfilesResponse
 -&gt; ListSecurityProfilesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820924"><span id="local-6989586621679820926"><span id="local-6989586621679820928"><span id="local-6989586621679820930"><span class="annot"><span class="annottext">ReadPrec [ListSecurityProfilesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820933"><span id="local-6989586621679820935"><span id="local-6989586621679820937"><span id="local-6989586621679820939"><span class="annot"><span class="annottext">ReadPrec [ListSecurityProfilesResponse]
 ReadPrec ListSecurityProfilesResponse
 Int -&gt; ReadS ListSecurityProfilesResponse
 ReadS [ListSecurityProfilesResponse]
@@ -594,7 +594,7 @@ readList :: ReadS [ListSecurityProfilesResponse]
 $creadList :: ReadS [ListSecurityProfilesResponse]
 readsPrec :: Int -&gt; ReadS ListSecurityProfilesResponse
 $creadsPrec :: Int -&gt; ReadS ListSecurityProfilesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820918"><span id="local-6989586621679820920"><span id="local-6989586621679820922"><span class="annot"><span class="annottext">Int -&gt; ListSecurityProfilesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820927"><span id="local-6989586621679820929"><span id="local-6989586621679820931"><span class="annot"><span class="annottext">Int -&gt; ListSecurityProfilesResponse -&gt; ShowS
 [ListSecurityProfilesResponse] -&gt; ShowS
 ListSecurityProfilesResponse -&gt; String
 (Int -&gt; ListSecurityProfilesResponse -&gt; ShowS)
@@ -645,8 +645,8 @@ ListSecurityProfilesResponse -&gt; Rep ListSecurityProfilesResponse x
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span>
 </span><span id="line-206"></span><span id="newListSecurityProfilesResponse"><span class="annot"><span class="annottext">newListSecurityProfilesResponse :: Int -&gt; ListSecurityProfilesResponse
-</span><a href="Network.AWS.IoT.ListSecurityProfiles.html#newListSecurityProfilesResponse"><span class="hs-identifier hs-var hs-var">newListSecurityProfilesResponse</span></a></span></span><span> </span><span id="local-6989586621679820915"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListSecurityProfiles.html#newListSecurityProfilesResponse"><span class="hs-identifier hs-var hs-var">newListSecurityProfilesResponse</span></a></span></span><span> </span><span id="local-6989586621679820924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse' :: Maybe Text
 -&gt; Maybe [SecurityProfileIdentifier]
 -&gt; Int
@@ -663,7 +663,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSecurityProfilesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AhttpStatus%3AListSecurityProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679820924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | A token that can be used to retrieve the next set of results, or @null@</span><span>
@@ -676,16 +676,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListSecurityProfilesResponse)
 -&gt; Lens' ListSecurityProfilesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820914"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820923"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSecurityProfilesResponse' :: ListSecurityProfilesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679820914"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820914"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820913"><span class="annot"><span class="annottext">s :: ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820912"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityProfilesResponse' :: Maybe Text
+</span><a href="#local-6989586621679820923"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679820923"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820922"><span class="annot"><span class="annottext">s :: ListSecurityProfilesResponse
+</span><a href="#local-6989586621679820922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679820921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
+</span><a href="#local-6989586621679820922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSecurityProfilesResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AnextToken%3AListSecurityProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | A list of security profile identifiers (names and ARNs).</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#listSecurityProfilesResponse_securityProfileIdentifiers"><span class="hs-identifier hs-type">listSecurityProfilesResponse_securityProfileIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileIdentifier.html#SecurityProfileIdentifier"><span class="hs-identifier hs-type">SecurityProfileIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -699,16 +699,16 @@ $sel:nextToken:ListSecurityProfilesResponse' :: ListSecurityProfilesResponse -&g
 -&gt; Lens'
      ListSecurityProfilesResponse (Maybe [SecurityProfileIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820911"><span class="annot"><span class="annottext">Maybe [SecurityProfileIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820920"><span class="annot"><span class="annottext">Maybe [SecurityProfileIdentifier]
 securityProfileIdentifiers :: Maybe [SecurityProfileIdentifier]
 $sel:securityProfileIdentifiers:ListSecurityProfilesResponse' :: ListSecurityProfilesResponse -&gt; Maybe [SecurityProfileIdentifier]
-</span><a href="#local-6989586621679820911"><span class="hs-identifier hs-var hs-var">securityProfileIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityProfileIdentifier]
-</span><a href="#local-6989586621679820911"><span class="hs-identifier hs-var">securityProfileIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820910"><span class="annot"><span class="annottext">s :: ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820909"><span class="annot"><span class="annottext">Maybe [SecurityProfileIdentifier]
-</span><a href="#local-6989586621679820909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileIdentifiers:ListSecurityProfilesResponse' :: Maybe [SecurityProfileIdentifier]
+</span><a href="#local-6989586621679820920"><span class="hs-identifier hs-var hs-var">securityProfileIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityProfileIdentifier]
+</span><a href="#local-6989586621679820920"><span class="hs-identifier hs-var">securityProfileIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820919"><span class="annot"><span class="annottext">s :: ListSecurityProfilesResponse
+</span><a href="#local-6989586621679820919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820918"><span class="annot"><span class="annottext">Maybe [SecurityProfileIdentifier]
+</span><a href="#local-6989586621679820918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
+</span><a href="#local-6989586621679820919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileIdentifiers:ListSecurityProfilesResponse' :: Maybe [SecurityProfileIdentifier]
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AsecurityProfileIdentifiers%3AListSecurityProfilesResponse%27"><span class="hs-identifier hs-var">securityProfileIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityProfileIdentifier]
-</span><a href="#local-6989586621679820909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SecurityProfileIdentifier]
+</span><a href="#local-6989586621679820918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SecurityProfileIdentifier]
   -&gt; f (Maybe [SecurityProfileIdentifier]))
  -&gt; ListSecurityProfilesResponse -&gt; f ListSecurityProfilesResponse)
 -&gt; ((Maybe [SecurityProfileIdentifier]
@@ -751,16 +751,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListSecurityProfilesResponse ListSecurityProfilesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820906"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820915"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListSecurityProfilesResponse' :: ListSecurityProfilesResponse -&gt; Int
-</span><a href="#local-6989586621679820906"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820906"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820905"><span class="annot"><span class="annottext">s :: ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820904"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
-</span><a href="#local-6989586621679820905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSecurityProfilesResponse' :: Int
+</span><a href="#local-6989586621679820915"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820915"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820914"><span class="annot"><span class="annottext">s :: ListSecurityProfilesResponse
+</span><a href="#local-6989586621679820914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse%27"><span class="hs-identifier hs-type">ListSecurityProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820913"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSecurityProfilesResponse
+</span><a href="#local-6989586621679820914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSecurityProfilesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListSecurityProfiles.html#%24sel%3AhttpStatus%3AListSecurityProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListSecurityProfiles.html#ListSecurityProfilesResponse"><span class="hs-identifier hs-type">ListSecurityProfilesResponse</span></a></span></span><span>
 </span><span id="line-228"></span></pre></body></html>

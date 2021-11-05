@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInvalidationList' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679393187"><span id="local-6989586621679393188"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidationList"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-var">InvalidationList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidationList%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-var">InvalidationList'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679393196"><span id="local-6989586621679393197"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidationList"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-var">InvalidationList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidationList%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-var">InvalidationList'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains one @InvalidationSummary@ element for each</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- invalidation batch created by the current account.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aitems%3AInvalidationList%27"><span class="annot"><span class="annottext">InvalidationList -&gt; Maybe [InvalidationSummary]
@@ -57,7 +57,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aquantity%3AInvalidationList%27"><span class="annot"><span class="annottext">InvalidationList -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3Aquantity%3AInvalidationList%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393176"><span id="local-6989586621679393178"><span class="annot"><span class="annottext">InvalidationList -&gt; InvalidationList -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393185"><span id="local-6989586621679393187"><span class="annot"><span class="annottext">InvalidationList -&gt; InvalidationList -&gt; Bool
 (InvalidationList -&gt; InvalidationList -&gt; Bool)
 -&gt; (InvalidationList -&gt; InvalidationList -&gt; Bool)
 -&gt; Eq InvalidationList
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InvalidationList -&gt; InvalidationList -&gt; Bool
 == :: InvalidationList -&gt; InvalidationList -&gt; Bool
 $c== :: InvalidationList -&gt; InvalidationList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393167"><span id="local-6989586621679393169"><span id="local-6989586621679393171"><span id="local-6989586621679393173"><span class="annot"><span class="annottext">ReadPrec [InvalidationList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393176"><span id="local-6989586621679393178"><span id="local-6989586621679393180"><span id="local-6989586621679393182"><span class="annot"><span class="annottext">ReadPrec [InvalidationList]
 ReadPrec InvalidationList
 Int -&gt; ReadS InvalidationList
 ReadS [InvalidationList]
@@ -86,7 +86,7 @@ readList :: ReadS [InvalidationList]
 $creadList :: ReadS [InvalidationList]
 readsPrec :: Int -&gt; ReadS InvalidationList
 $creadsPrec :: Int -&gt; ReadS InvalidationList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393160"><span id="local-6989586621679393162"><span id="local-6989586621679393164"><span class="annot"><span class="annottext">Int -&gt; InvalidationList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393169"><span id="local-6989586621679393171"><span id="local-6989586621679393173"><span class="annot"><span class="annottext">Int -&gt; InvalidationList -&gt; ShowS
 [InvalidationList] -&gt; ShowS
 InvalidationList -&gt; String
 (Int -&gt; InvalidationList -&gt; ShowS)
@@ -150,14 +150,14 @@ $cfrom :: forall x. InvalidationList -&gt; Rep InvalidationList x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span>
 </span><span id="line-92"></span><span id="newInvalidationList"><span class="annot"><span class="annottext">newInvalidationList :: Text -&gt; Int -&gt; Bool -&gt; Int -&gt; InvalidationList
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#newInvalidationList"><span class="hs-identifier hs-var hs-var">newInvalidationList</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679393154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393154"><span class="hs-identifier hs-var">pMarker_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679393153"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393153"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679393152"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679393152"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679393151"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393151"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679393163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393163"><span class="hs-identifier hs-var">pMarker_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679393162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393162"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679393161"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679393161"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679393160"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393160"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">InvalidationList' :: Maybe [InvalidationSummary]
 -&gt; Maybe Text -&gt; Text -&gt; Int -&gt; Bool -&gt; Int -&gt; InvalidationList
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span>
@@ -171,16 +171,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:marker:InvalidationList' :: Text
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3Amarker%3AInvalidationList%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393154"><span class="hs-identifier hs-var">pMarker_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393163"><span class="hs-identifier hs-var">pMarker_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:InvalidationList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3AmaxItems%3AInvalidationList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393153"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393162"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:InvalidationList' :: Bool
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3AisTruncated%3AInvalidationList%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679393152"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393161"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:quantity:InvalidationList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3Aquantity%3AInvalidationList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393151"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679393160"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | A complex type that contains one @InvalidationSummary@ element for each</span><span>
@@ -197,16 +197,16 @@ forall a. Maybe a
      (Maybe [InvalidationSummary])
      (Maybe [InvalidationSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393147"><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393156"><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
 items :: Maybe [InvalidationSummary]
 $sel:items:InvalidationList' :: InvalidationList -&gt; Maybe [InvalidationSummary]
-</span><a href="#local-6989586621679393147"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
-</span><a href="#local-6989586621679393147"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393146"><span class="annot"><span class="annottext">s :: InvalidationList
-</span><a href="#local-6989586621679393146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393145"><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
-</span><a href="#local-6989586621679393145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
-</span><a href="#local-6989586621679393146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:InvalidationList' :: Maybe [InvalidationSummary]
+</span><a href="#local-6989586621679393156"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
+</span><a href="#local-6989586621679393156"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393155"><span class="annot"><span class="annottext">s :: InvalidationList
+</span><a href="#local-6989586621679393155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393154"><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
+</span><a href="#local-6989586621679393154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
+</span><a href="#local-6989586621679393155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:InvalidationList' :: Maybe [InvalidationSummary]
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3Aitems%3AInvalidationList%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
-</span><a href="#local-6989586621679393145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InvalidationSummary] -&gt; f (Maybe [InvalidationSummary]))
+</span><a href="#local-6989586621679393154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InvalidationSummary] -&gt; f (Maybe [InvalidationSummary]))
  -&gt; InvalidationList -&gt; f InvalidationList)
 -&gt; ((Maybe [InvalidationSummary]
      -&gt; f (Maybe [InvalidationSummary]))
@@ -246,16 +246,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (InvalidationList -&gt; Maybe Text -&gt; InvalidationList)
 -&gt; Lens InvalidationList InvalidationList (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393140"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393149"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:InvalidationList' :: InvalidationList -&gt; Maybe Text
-</span><a href="#local-6989586621679393140"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393140"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393139"><span class="annot"><span class="annottext">s :: InvalidationList
-</span><a href="#local-6989586621679393139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393138"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
-</span><a href="#local-6989586621679393139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:InvalidationList' :: Maybe Text
+</span><a href="#local-6989586621679393149"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393149"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393148"><span class="annot"><span class="annottext">s :: InvalidationList
+</span><a href="#local-6989586621679393148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
+</span><a href="#local-6989586621679393148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:InvalidationList' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3AnextMarker%3AInvalidationList%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The value that you provided for the @Marker@ request parameter.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#invalidationList_marker"><span class="hs-identifier hs-type">invalidationList_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -264,16 +264,16 @@ $sel:nextMarker:InvalidationList' :: InvalidationList -&gt; Maybe Text
 -&gt; (InvalidationList -&gt; Text -&gt; InvalidationList)
 -&gt; Lens InvalidationList InvalidationList Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393136"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393145"><span class="annot"><span class="annottext">Text
 marker :: Text
 $sel:marker:InvalidationList' :: InvalidationList -&gt; Text
-</span><a href="#local-6989586621679393136"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393136"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393135"><span class="annot"><span class="annottext">s :: InvalidationList
-</span><a href="#local-6989586621679393135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393134"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
-</span><a href="#local-6989586621679393135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:InvalidationList' :: Text
+</span><a href="#local-6989586621679393145"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393145"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393144"><span class="annot"><span class="annottext">s :: InvalidationList
+</span><a href="#local-6989586621679393144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
+</span><a href="#local-6989586621679393144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:InvalidationList' :: Text
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3Amarker%3AInvalidationList%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The value that you provided for the @MaxItems@ request parameter.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#invalidationList_maxItems"><span class="hs-identifier hs-type">invalidationList_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -282,16 +282,16 @@ $sel:marker:InvalidationList' :: InvalidationList -&gt; Text
 -&gt; (InvalidationList -&gt; Int -&gt; InvalidationList)
 -&gt; Lens InvalidationList InvalidationList Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393132"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393141"><span class="annot"><span class="annottext">Int
 maxItems :: Int
 $sel:maxItems:InvalidationList' :: InvalidationList -&gt; Int
-</span><a href="#local-6989586621679393132"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393132"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393131"><span class="annot"><span class="annottext">s :: InvalidationList
-</span><a href="#local-6989586621679393131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393130"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
-</span><a href="#local-6989586621679393131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:InvalidationList' :: Int
+</span><a href="#local-6989586621679393141"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393141"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393140"><span class="annot"><span class="annottext">s :: InvalidationList
+</span><a href="#local-6989586621679393140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393139"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
+</span><a href="#local-6989586621679393140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:InvalidationList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3AmaxItems%3AInvalidationList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | A flag that indicates whether more invalidation batch requests remain to</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- be listed. If your results were truncated, you can make a follow-up</span><span>
@@ -303,16 +303,16 @@ $sel:maxItems:InvalidationList' :: InvalidationList -&gt; Int
 -&gt; (InvalidationList -&gt; Bool -&gt; InvalidationList)
 -&gt; Lens InvalidationList InvalidationList Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393128"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393137"><span class="annot"><span class="annottext">Bool
 isTruncated :: Bool
 $sel:isTruncated:InvalidationList' :: InvalidationList -&gt; Bool
-</span><a href="#local-6989586621679393128"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679393128"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393127"><span class="annot"><span class="annottext">s :: InvalidationList
-</span><a href="#local-6989586621679393127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393126"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
-</span><a href="#local-6989586621679393127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:InvalidationList' :: Bool
+</span><a href="#local-6989586621679393137"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679393137"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393136"><span class="annot"><span class="annottext">s :: InvalidationList
+</span><a href="#local-6989586621679393136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393135"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679393135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
+</span><a href="#local-6989586621679393136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:InvalidationList' :: Bool
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3AisTruncated%3AInvalidationList%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The number of invalidation batches that were created by the current</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- account.</span><span>
@@ -322,21 +322,21 @@ $sel:isTruncated:InvalidationList' :: InvalidationList -&gt; Bool
 -&gt; (InvalidationList -&gt; Int -&gt; InvalidationList)
 -&gt; Lens InvalidationList InvalidationList Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393124"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393133"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:InvalidationList' :: InvalidationList -&gt; Int
-</span><a href="#local-6989586621679393124"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393124"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393123"><span class="annot"><span class="annottext">s :: InvalidationList
-</span><a href="#local-6989586621679393123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393122"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
-</span><a href="#local-6989586621679393123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:InvalidationList' :: Int
+</span><a href="#local-6989586621679393133"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393133"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393132"><span class="annot"><span class="annottext">s :: InvalidationList
+</span><a href="#local-6989586621679393132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-type">InvalidationList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393131"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationList
+</span><a href="#local-6989586621679393132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:InvalidationList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#%24sel%3Aquantity%3AInvalidationList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679393119"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InvalidationList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393117"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679393128"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InvalidationList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393126"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Maybe [InvalidationSummary]
 -&gt; Maybe Text -&gt; Text -&gt; Int -&gt; Bool -&gt; Int -&gt; InvalidationList
 </span><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList%27"><span class="hs-identifier hs-var">InvalidationList'</span></a></span><span>
@@ -348,7 +348,7 @@ $sel:quantity:InvalidationList' :: InvalidationList -&gt; Int
      (Maybe Text -&gt; Text -&gt; Int -&gt; Bool -&gt; Int -&gt; InvalidationList)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -377,7 +377,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; Int -&gt; Bool -&gt; Int -&gt; InvalidationList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -386,7 +386,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; Bool -&gt; Int -&gt; InvalidationList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -395,7 +395,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Bool -&gt; Int -&gt; InvalidationList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
@@ -403,7 +403,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Bool -&gt; Either String (Int -&gt; InvalidationList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -411,12 +411,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Int -&gt; Either String InvalidationList
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679393126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393107"><span id="local-6989586621679393109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393116"><span id="local-6989586621679393118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationList.html#InvalidationList"><span class="hs-identifier hs-type">InvalidationList</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

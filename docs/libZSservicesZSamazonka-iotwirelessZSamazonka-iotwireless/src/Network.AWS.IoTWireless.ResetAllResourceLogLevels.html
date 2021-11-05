@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.ResetAllResourceLogLevels</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes the log-level overrides for all resources; both wireless devices</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- and wireless gateways.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.ResetAllResourceLogLevels</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier">ResetAllResourceLogLevels</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#newResetAllResourceLogLevels"><span class="hs-identifier">newResetAllResourceLogLevels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse"><span class="hs-identifier">ResetAllResourceLogLevelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#newResetAllResourceLogLevelsResponse"><span class="hs-identifier">newResetAllResourceLogLevelsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#resetAllResourceLogLevelsResponse_httpStatus"><span class="hs-identifier">resetAllResourceLogLevelsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types</span></a></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newResetAllResourceLogLevels' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679282825"><span id="local-6989586621679282826"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetAllResourceLogLevels"><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-var">ResetAllResourceLogLevels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetAllResourceLogLevels%27"><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels%27"><span class="hs-identifier hs-var">ResetAllResourceLogLevels'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282820"><span id="local-6989586621679282822"><span class="annot"><span class="annottext">ResetAllResourceLogLevels -&gt; ResetAllResourceLogLevels -&gt; Bool
+(ResetAllResourceLogLevels -&gt; ResetAllResourceLogLevels -&gt; Bool)
+-&gt; (ResetAllResourceLogLevels -&gt; ResetAllResourceLogLevels -&gt; Bool)
+-&gt; Eq ResetAllResourceLogLevels
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResetAllResourceLogLevels -&gt; ResetAllResourceLogLevels -&gt; Bool
+$c/= :: ResetAllResourceLogLevels -&gt; ResetAllResourceLogLevels -&gt; Bool
+== :: ResetAllResourceLogLevels -&gt; ResetAllResourceLogLevels -&gt; Bool
+$c== :: ResetAllResourceLogLevels -&gt; ResetAllResourceLogLevels -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282811"><span id="local-6989586621679282813"><span id="local-6989586621679282815"><span id="local-6989586621679282817"><span class="annot"><span class="annottext">ReadPrec [ResetAllResourceLogLevels]
+ReadPrec ResetAllResourceLogLevels
+Int -&gt; ReadS ResetAllResourceLogLevels
+ReadS [ResetAllResourceLogLevels]
+(Int -&gt; ReadS ResetAllResourceLogLevels)
+-&gt; ReadS [ResetAllResourceLogLevels]
+-&gt; ReadPrec ResetAllResourceLogLevels
+-&gt; ReadPrec [ResetAllResourceLogLevels]
+-&gt; Read ResetAllResourceLogLevels
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResetAllResourceLogLevels]
+$creadListPrec :: ReadPrec [ResetAllResourceLogLevels]
+readPrec :: ReadPrec ResetAllResourceLogLevels
+$creadPrec :: ReadPrec ResetAllResourceLogLevels
+readList :: ReadS [ResetAllResourceLogLevels]
+$creadList :: ReadS [ResetAllResourceLogLevels]
+readsPrec :: Int -&gt; ReadS ResetAllResourceLogLevels
+$creadsPrec :: Int -&gt; ReadS ResetAllResourceLogLevels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282804"><span id="local-6989586621679282806"><span id="local-6989586621679282808"><span class="annot"><span class="annottext">Int -&gt; ResetAllResourceLogLevels -&gt; ShowS
+[ResetAllResourceLogLevels] -&gt; ShowS
+ResetAllResourceLogLevels -&gt; String
+(Int -&gt; ResetAllResourceLogLevels -&gt; ShowS)
+-&gt; (ResetAllResourceLogLevels -&gt; String)
+-&gt; ([ResetAllResourceLogLevels] -&gt; ShowS)
+-&gt; Show ResetAllResourceLogLevels
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResetAllResourceLogLevels] -&gt; ShowS
+$cshowList :: [ResetAllResourceLogLevels] -&gt; ShowS
+show :: ResetAllResourceLogLevels -&gt; String
+$cshow :: ResetAllResourceLogLevels -&gt; String
+showsPrec :: Int -&gt; ResetAllResourceLogLevels -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResetAllResourceLogLevels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResetAllResourceLogLevels -&gt; Rep ResetAllResourceLogLevels x)
+-&gt; (forall x.
+    Rep ResetAllResourceLogLevels x -&gt; ResetAllResourceLogLevels)
+-&gt; Generic ResetAllResourceLogLevels
+forall x.
+Rep ResetAllResourceLogLevels x -&gt; ResetAllResourceLogLevels
+forall x.
+ResetAllResourceLogLevels -&gt; Rep ResetAllResourceLogLevels x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResetAllResourceLogLevels x -&gt; ResetAllResourceLogLevels
+$cfrom :: forall x.
+ResetAllResourceLogLevels -&gt; Rep ResetAllResourceLogLevels x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ResetAllResourceLogLevels' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#newResetAllResourceLogLevels"><span class="hs-identifier hs-type">newResetAllResourceLogLevels</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span><span>
+</span><span id="line-58"></span><span id="newResetAllResourceLogLevels"><span class="annot"><span class="annottext">newResetAllResourceLogLevels :: ResetAllResourceLogLevels
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#newResetAllResourceLogLevels"><span class="hs-identifier hs-var hs-var">newResetAllResourceLogLevels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ResetAllResourceLogLevels
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels%27"><span class="hs-identifier hs-var">ResetAllResourceLogLevels'</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-63"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679282796"><span class="annot"><span class="annottext">request :: ResetAllResourceLogLevels -&gt; Request ResetAllResourceLogLevels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ResetAllResourceLogLevels -&gt; Request ResetAllResourceLogLevels
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679282792"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ResetAllResourceLogLevels
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ResetAllResourceLogLevels)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse ResetAllResourceLogLevels))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ResetAllResourceLogLevels
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ResetAllResourceLogLevels)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282789"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282789"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282788"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679282788"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282787"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679282787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ResetAllResourceLogLevelsResponse
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-var">ResetAllResourceLogLevelsResponse'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ResetAllResourceLogLevelsResponse)
+-&gt; Either String Int
+-&gt; Either String ResetAllResourceLogLevelsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282789"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282780"><span id="local-6989586621679282782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679282773"><span class="annot"><span class="annottext">toHeaders :: ResetAllResourceLogLevels -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResetAllResourceLogLevels -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679282768"><span class="annot"><span class="annottext">toPath :: ResetAllResourceLogLevels -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResetAllResourceLogLevels -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/log-levels&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevels"><span class="hs-identifier hs-type">ResetAllResourceLogLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679282764"><span class="annot"><span class="annottext">toQuery :: ResetAllResourceLogLevels -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ResetAllResourceLogLevels -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | /See:/ 'newResetAllResourceLogLevelsResponse' smart constructor.</span><span>
+</span><span id="line-87"></span><span id="local-6989586621679282761"><span id="local-6989586621679282762"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetAllResourceLogLevelsResponse"><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-var">ResetAllResourceLogLevelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetAllResourceLogLevelsResponse%27"><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-var">ResetAllResourceLogLevelsResponse'</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResetAllResourceLogLevelsResponse%27"><span class="annot"><span class="annottext">ResetAllResourceLogLevelsResponse -&gt; Int
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#%24sel%3AhttpStatus%3AResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282756"><span id="local-6989586621679282758"><span class="annot"><span class="annottext">ResetAllResourceLogLevelsResponse
+-&gt; ResetAllResourceLogLevelsResponse -&gt; Bool
+(ResetAllResourceLogLevelsResponse
+ -&gt; ResetAllResourceLogLevelsResponse -&gt; Bool)
+-&gt; (ResetAllResourceLogLevelsResponse
+    -&gt; ResetAllResourceLogLevelsResponse -&gt; Bool)
+-&gt; Eq ResetAllResourceLogLevelsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResetAllResourceLogLevelsResponse
+-&gt; ResetAllResourceLogLevelsResponse -&gt; Bool
+$c/= :: ResetAllResourceLogLevelsResponse
+-&gt; ResetAllResourceLogLevelsResponse -&gt; Bool
+== :: ResetAllResourceLogLevelsResponse
+-&gt; ResetAllResourceLogLevelsResponse -&gt; Bool
+$c== :: ResetAllResourceLogLevelsResponse
+-&gt; ResetAllResourceLogLevelsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282748"><span id="local-6989586621679282750"><span id="local-6989586621679282752"><span id="local-6989586621679282754"><span class="annot"><span class="annottext">ReadPrec [ResetAllResourceLogLevelsResponse]
+ReadPrec ResetAllResourceLogLevelsResponse
+Int -&gt; ReadS ResetAllResourceLogLevelsResponse
+ReadS [ResetAllResourceLogLevelsResponse]
+(Int -&gt; ReadS ResetAllResourceLogLevelsResponse)
+-&gt; ReadS [ResetAllResourceLogLevelsResponse]
+-&gt; ReadPrec ResetAllResourceLogLevelsResponse
+-&gt; ReadPrec [ResetAllResourceLogLevelsResponse]
+-&gt; Read ResetAllResourceLogLevelsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResetAllResourceLogLevelsResponse]
+$creadListPrec :: ReadPrec [ResetAllResourceLogLevelsResponse]
+readPrec :: ReadPrec ResetAllResourceLogLevelsResponse
+$creadPrec :: ReadPrec ResetAllResourceLogLevelsResponse
+readList :: ReadS [ResetAllResourceLogLevelsResponse]
+$creadList :: ReadS [ResetAllResourceLogLevelsResponse]
+readsPrec :: Int -&gt; ReadS ResetAllResourceLogLevelsResponse
+$creadsPrec :: Int -&gt; ReadS ResetAllResourceLogLevelsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282742"><span id="local-6989586621679282744"><span id="local-6989586621679282746"><span class="annot"><span class="annottext">Int -&gt; ResetAllResourceLogLevelsResponse -&gt; ShowS
+[ResetAllResourceLogLevelsResponse] -&gt; ShowS
+ResetAllResourceLogLevelsResponse -&gt; String
+(Int -&gt; ResetAllResourceLogLevelsResponse -&gt; ShowS)
+-&gt; (ResetAllResourceLogLevelsResponse -&gt; String)
+-&gt; ([ResetAllResourceLogLevelsResponse] -&gt; ShowS)
+-&gt; Show ResetAllResourceLogLevelsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResetAllResourceLogLevelsResponse] -&gt; ShowS
+$cshowList :: [ResetAllResourceLogLevelsResponse] -&gt; ShowS
+show :: ResetAllResourceLogLevelsResponse -&gt; String
+$cshow :: ResetAllResourceLogLevelsResponse -&gt; String
+showsPrec :: Int -&gt; ResetAllResourceLogLevelsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResetAllResourceLogLevelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResetAllResourceLogLevelsResponse
+ -&gt; Rep ResetAllResourceLogLevelsResponse x)
+-&gt; (forall x.
+    Rep ResetAllResourceLogLevelsResponse x
+    -&gt; ResetAllResourceLogLevelsResponse)
+-&gt; Generic ResetAllResourceLogLevelsResponse
+forall x.
+Rep ResetAllResourceLogLevelsResponse x
+-&gt; ResetAllResourceLogLevelsResponse
+forall x.
+ResetAllResourceLogLevelsResponse
+-&gt; Rep ResetAllResourceLogLevelsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResetAllResourceLogLevelsResponse x
+-&gt; ResetAllResourceLogLevelsResponse
+$cfrom :: forall x.
+ResetAllResourceLogLevelsResponse
+-&gt; Rep ResetAllResourceLogLevelsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'ResetAllResourceLogLevelsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'httpStatus', 'resetAllResourceLogLevelsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#newResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-type">newResetAllResourceLogLevelsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse</span></a></span><span>
+</span><span id="line-106"></span><span id="newResetAllResourceLogLevelsResponse"><span class="annot"><span class="annottext">newResetAllResourceLogLevelsResponse :: Int -&gt; ResetAllResourceLogLevelsResponse
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#newResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-var hs-var">newResetAllResourceLogLevelsResponse</span></a></span></span><span> </span><span id="local-6989586621679282739"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282739"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">ResetAllResourceLogLevelsResponse' :: Int -&gt; ResetAllResourceLogLevelsResponse
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ResetAllResourceLogLevelsResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#%24sel%3AhttpStatus%3AResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282739"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#resetAllResourceLogLevelsResponse_httpStatus"><span class="hs-identifier hs-type">resetAllResourceLogLevelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-114"></span><span id="resetAllResourceLogLevelsResponse_httpStatus"><span class="annot"><span class="annottext">resetAllResourceLogLevelsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ResetAllResourceLogLevelsResponse
+-&gt; f ResetAllResourceLogLevelsResponse
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#resetAllResourceLogLevelsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">resetAllResourceLogLevelsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetAllResourceLogLevelsResponse -&gt; Int)
+-&gt; (ResetAllResourceLogLevelsResponse
+    -&gt; Int -&gt; ResetAllResourceLogLevelsResponse)
+-&gt; Lens
+     ResetAllResourceLogLevelsResponse
+     ResetAllResourceLogLevelsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282736"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ResetAllResourceLogLevelsResponse' :: ResetAllResourceLogLevelsResponse -&gt; Int
+</span><a href="#local-6989586621679282736"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282736"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282735"><span class="annot"><span class="annottext">s :: ResetAllResourceLogLevelsResponse
+</span><a href="#local-6989586621679282735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetAllResourceLogLevelsResponse
+</span><a href="#local-6989586621679282735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResetAllResourceLogLevelsResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#%24sel%3AhttpStatus%3AResetAllResourceLogLevelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679282732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.ResetAllResourceLogLevels.html#ResetAllResourceLogLevelsResponse"><span class="hs-identifier hs-type">ResetAllResourceLogLevelsResponse</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

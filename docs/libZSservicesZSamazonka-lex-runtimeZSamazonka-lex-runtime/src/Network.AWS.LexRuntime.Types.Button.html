@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Slack, etc.)</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newButton' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679172506"><span id="local-6989586621679172507"></span></span><span class="hs-keyword">data</span><span> </span><span id="Button"><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-var">Button</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Button%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-var">Button'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679172515"><span id="local-6989586621679172516"></span></span><span class="hs-keyword">data</span><span> </span><span id="Button"><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-var">Button</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Button%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-var">Button'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Text that is visible to the user on the button.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Atext%3AButton%27"><span class="annot"><span class="annottext">Button -&gt; Text
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#%24sel%3Atext%3AButton%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalue%3AButton%27"><span class="annot"><span class="annottext">Button -&gt; Text
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#%24sel%3Avalue%3AButton%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172499"><span id="local-6989586621679172501"><span class="annot"><span class="annottext">Button -&gt; Button -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172508"><span id="local-6989586621679172510"><span class="annot"><span class="annottext">Button -&gt; Button -&gt; Bool
 (Button -&gt; Button -&gt; Bool)
 -&gt; (Button -&gt; Button -&gt; Bool) -&gt; Eq Button
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Button -&gt; Button -&gt; Bool
 == :: Button -&gt; Button -&gt; Bool
 $c== :: Button -&gt; Button -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172490"><span id="local-6989586621679172492"><span id="local-6989586621679172494"><span id="local-6989586621679172496"><span class="annot"><span class="annottext">ReadPrec [Button]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172499"><span id="local-6989586621679172501"><span id="local-6989586621679172503"><span id="local-6989586621679172505"><span class="annot"><span class="annottext">ReadPrec [Button]
 ReadPrec Button
 Int -&gt; ReadS Button
 ReadS [Button]
@@ -65,7 +65,7 @@ readList :: ReadS [Button]
 $creadList :: ReadS [Button]
 readsPrec :: Int -&gt; ReadS Button
 $creadsPrec :: Int -&gt; ReadS Button
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172483"><span id="local-6989586621679172485"><span id="local-6989586621679172487"><span class="annot"><span class="annottext">Int -&gt; Button -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172492"><span id="local-6989586621679172494"><span id="local-6989586621679172496"><span class="annot"><span class="annottext">Int -&gt; Button -&gt; ShowS
 [Button] -&gt; ShowS
 Button -&gt; String
 (Int -&gt; Button -&gt; ShowS)
@@ -108,15 +108,15 @@ $cfrom :: forall x. Button -&gt; Rep Button x
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span>
 </span><span id="line-59"></span><span id="newButton"><span class="annot"><span class="annottext">newButton :: Text -&gt; Text -&gt; Button
-</span><a href="Network.AWS.LexRuntime.Types.Button.html#newButton"><span class="hs-identifier hs-var hs-var">newButton</span></a></span></span><span> </span><span id="local-6989586621679172477"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172477"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span id="local-6989586621679172476"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexRuntime.Types.Button.html#newButton"><span class="hs-identifier hs-var hs-var">newButton</span></a></span></span><span> </span><span id="local-6989586621679172486"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172486"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span id="local-6989586621679172485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Button' :: Text -&gt; Text -&gt; Button
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Button' :: Text
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#%24sel%3Atext%3AButton%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172477"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Button' :: Text
+</span><a href="#local-6989586621679172486"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Button' :: Text
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#%24sel%3Avalue%3AButton%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Text that is visible to the user on the button.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#button_text"><span class="hs-identifier hs-type">button_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -124,16 +124,16 @@ $cfrom :: forall x. Button -&gt; Rep Button x
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#button_text"><span class="hs-identifier hs-var hs-var">button_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Button -&gt; Text)
 -&gt; (Button -&gt; Text -&gt; Button) -&gt; Lens Button Button Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172472"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172481"><span class="annot"><span class="annottext">Text
 text :: Text
 $sel:text:Button' :: Button -&gt; Text
-</span><a href="#local-6989586621679172472"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172472"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172471"><span class="annot"><span class="annottext">s :: Button
-</span><a href="#local-6989586621679172471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172470"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Button
-</span><a href="#local-6989586621679172471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Button' :: Text
+</span><a href="#local-6989586621679172481"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172481"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172480"><span class="annot"><span class="annottext">s :: Button
+</span><a href="#local-6989586621679172480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Button
+</span><a href="#local-6989586621679172480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Button' :: Text
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#%24sel%3Atext%3AButton%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The value sent to Amazon Lex when a user chooses the button. For</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- example, consider button text \&quot;NYC.\&quot; When the user chooses the button,</span><span>
@@ -143,45 +143,45 @@ $sel:text:Button' :: Button -&gt; Text
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#button_value"><span class="hs-identifier hs-var hs-var">button_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Button -&gt; Text)
 -&gt; (Button -&gt; Text -&gt; Button) -&gt; Lens Button Button Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172468"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172477"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Button' :: Button -&gt; Text
-</span><a href="#local-6989586621679172468"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172468"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172467"><span class="annot"><span class="annottext">s :: Button
-</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172466"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Button
-</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Button' :: Text
+</span><a href="#local-6989586621679172477"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172477"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172476"><span class="annot"><span class="annottext">s :: Button
+</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-type">Button'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Button
+</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Button' :: Text
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#%24sel%3Avalue%3AButton%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679172466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172463"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679172461"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Button
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172472"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679172470"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Button
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Button) -&gt; Value -&gt; Parser Button
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Button&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172458"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172467"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Button
 </span><a href="Network.AWS.LexRuntime.Types.Button.html#Button%27"><span class="hs-identifier hs-var">Button'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Button) -&gt; Parser Text -&gt; Parser (Text -&gt; Button)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;text&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; Button) -&gt; Parser Text -&gt; Parser Button
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172452"><span id="local-6989586621679172454"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172461"><span id="local-6989586621679172463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

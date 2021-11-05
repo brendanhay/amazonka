@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679394961"><span id="local-6989586621679394962"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AggregatedSourceStatusType"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-var">AggregatedSourceStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregatedSourceStatusType%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType%27"><span class="hs-identifier hs-var">AggregatedSourceStatusType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679394970"><span id="local-6989586621679394971"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AggregatedSourceStatusType"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-var">AggregatedSourceStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregatedSourceStatusType%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType%27"><span class="hs-identifier hs-var">AggregatedSourceStatusType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAggregatedSourceStatusType"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; Text
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#fromAggregatedSourceStatusType"><span class="hs-identifier hs-var hs-var">fromAggregatedSourceStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394953"><span id="local-6989586621679394955"><span id="local-6989586621679394957"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatusType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394962"><span id="local-6989586621679394964"><span id="local-6989586621679394966"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatusType -&gt; ShowS
 [AggregatedSourceStatusType] -&gt; ShowS
 AggregatedSourceStatusType -&gt; String
 (Int -&gt; AggregatedSourceStatusType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AggregatedSourceStatusType -&gt; String
 showsPrec :: Int -&gt; AggregatedSourceStatusType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AggregatedSourceStatusType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679394944"><span id="local-6989586621679394946"><span id="local-6989586621679394948"><span id="local-6989586621679394950"><span class="annot"><span class="annottext">ReadPrec [AggregatedSourceStatusType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679394953"><span id="local-6989586621679394955"><span id="local-6989586621679394957"><span id="local-6989586621679394959"><span class="annot"><span class="annottext">ReadPrec [AggregatedSourceStatusType]
 ReadPrec AggregatedSourceStatusType
 Int -&gt; ReadS AggregatedSourceStatusType
 ReadS [AggregatedSourceStatusType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AggregatedSourceStatusType]
 readsPrec :: Int -&gt; ReadS AggregatedSourceStatusType
 $creadsPrec :: Int -&gt; ReadS AggregatedSourceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679394939"><span id="local-6989586621679394941"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679394948"><span id="local-6989586621679394950"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
 (AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool)
 -&gt; (AggregatedSourceStatusType
     -&gt; AggregatedSourceStatusType -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
 == :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
 $c== :: AggregatedSourceStatusType -&gt; AggregatedSourceStatusType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679394923"><span id="local-6989586621679394925"><span id="local-6989586621679394927"><span id="local-6989586621679394929"><span id="local-6989586621679394931"><span id="local-6989586621679394933"><span id="local-6989586621679394935"><span class="annot"><span class="annottext">Eq AggregatedSourceStatusType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679394932"><span id="local-6989586621679394934"><span id="local-6989586621679394936"><span id="local-6989586621679394938"><span id="local-6989586621679394940"><span id="local-6989586621679394942"><span id="local-6989586621679394944"><span class="annot"><span class="annottext">Eq AggregatedSourceStatusType
 Eq AggregatedSourceStatusType
 -&gt; (AggregatedSourceStatusType
     -&gt; AggregatedSourceStatusType -&gt; Ordering)
@@ -156,7 +156,7 @@ AggregatedSourceStatusType -&gt; Rep AggregatedSourceStatusType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394915"><span id="local-6989586621679394917"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatusType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394924"><span id="local-6989586621679394926"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatusType -&gt; Int
 AggregatedSourceStatusType -&gt; Int
 (Int -&gt; AggregatedSourceStatusType -&gt; Int)
 -&gt; (AggregatedSourceStatusType -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: AggregatedSourceStatusType -&gt; Int
 hashWithSalt :: Int -&gt; AggregatedSourceStatusType -&gt; Int
 $chashWithSalt :: Int -&gt; AggregatedSourceStatusType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679394912"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679394921"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ()
 (AggregatedSourceStatusType -&gt; ())
 -&gt; NFData AggregatedSourceStatusType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AggregatedSourceStatusType -&gt; ()
 $crnf :: AggregatedSourceStatusType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679394909"><span class="annot"><span class="annottext">Text -&gt; Either String AggregatedSourceStatusType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679394918"><span class="annot"><span class="annottext">Text -&gt; Either String AggregatedSourceStatusType
 (Text -&gt; Either String AggregatedSourceStatusType)
 -&gt; FromText AggregatedSourceStatusType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AggregatedSourceStatusType
 $cfromText :: Text -&gt; Either String AggregatedSourceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679394906"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679394915"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; Text
 (AggregatedSourceStatusType -&gt; Text)
 -&gt; ToText AggregatedSourceStatusType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AggregatedSourceStatusType -&gt; Text
 $ctoText :: AggregatedSourceStatusType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679394903"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679394912"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ByteString
 (AggregatedSourceStatusType -&gt; ByteString)
 -&gt; ToByteString AggregatedSourceStatusType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AggregatedSourceStatusType -&gt; ByteString
 $ctoBS :: AggregatedSourceStatusType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679394900"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679394909"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; ByteStringBuilder
 (AggregatedSourceStatusType -&gt; ByteStringBuilder)
 -&gt; ToLog AggregatedSourceStatusType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AggregatedSourceStatusType -&gt; ByteStringBuilder
 $cbuild :: AggregatedSourceStatusType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679394897"><span class="annot"><span class="annottext">HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679394906"><span class="annot"><span class="annottext">HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header]
 (HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header])
 -&gt; ToHeader AggregatedSourceStatusType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AggregatedSourceStatusType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679394894"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679394903"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; QueryString
 (AggregatedSourceStatusType -&gt; QueryString)
 -&gt; ToQuery AggregatedSourceStatusType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AggregatedSourceStatusType -&gt; QueryString
 $ctoQuery :: AggregatedSourceStatusType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679394889"><span id="local-6989586621679394891"><span class="annot"><span class="annottext">Value -&gt; Parser [AggregatedSourceStatusType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679394898"><span id="local-6989586621679394900"><span class="annot"><span class="annottext">Value -&gt; Parser [AggregatedSourceStatusType]
 Value -&gt; Parser AggregatedSourceStatusType
 (Value -&gt; Parser AggregatedSourceStatusType)
 -&gt; (Value -&gt; Parser [AggregatedSourceStatusType])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [AggregatedSourceStatusType]
 parseJSON :: Value -&gt; Parser AggregatedSourceStatusType
 $cparseJSON :: Value -&gt; Parser AggregatedSourceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394884"><span id="local-6989586621679394886"><span class="annot"><span class="annottext">FromJSONKeyFunction [AggregatedSourceStatusType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394893"><span id="local-6989586621679394895"><span class="annot"><span class="annottext">FromJSONKeyFunction [AggregatedSourceStatusType]
 FromJSONKeyFunction AggregatedSourceStatusType
 FromJSONKeyFunction AggregatedSourceStatusType
 -&gt; FromJSONKeyFunction [AggregatedSourceStatusType]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AggregatedSourceStatusType]
 fromJSONKey :: FromJSONKeyFunction AggregatedSourceStatusType
 $cfromJSONKey :: FromJSONKeyFunction AggregatedSourceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394875"><span id="local-6989586621679394877"><span id="local-6989586621679394879"><span id="local-6989586621679394881"><span class="annot"><span class="annottext">[AggregatedSourceStatusType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394884"><span id="local-6989586621679394886"><span id="local-6989586621679394888"><span id="local-6989586621679394890"><span class="annot"><span class="annottext">[AggregatedSourceStatusType] -&gt; Encoding
 [AggregatedSourceStatusType] -&gt; Value
 AggregatedSourceStatusType -&gt; Encoding
 AggregatedSourceStatusType -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: AggregatedSourceStatusType -&gt; Encoding
 toJSON :: AggregatedSourceStatusType -&gt; Value
 $ctoJSON :: AggregatedSourceStatusType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394870"><span id="local-6989586621679394872"><span class="annot"><span class="annottext">ToJSONKeyFunction [AggregatedSourceStatusType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394879"><span id="local-6989586621679394881"><span class="annot"><span class="annottext">ToJSONKeyFunction [AggregatedSourceStatusType]
 ToJSONKeyFunction AggregatedSourceStatusType
 ToJSONKeyFunction AggregatedSourceStatusType
 -&gt; ToJSONKeyFunction [AggregatedSourceStatusType]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AggregatedSourceStatusType]
 toJSONKey :: ToJSONKeyFunction AggregatedSourceStatusType
 $ctoJSONKey :: ToJSONKeyFunction AggregatedSourceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394867"><span class="annot"><span class="annottext">[Node] -&gt; Either String AggregatedSourceStatusType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394876"><span class="annot"><span class="annottext">[Node] -&gt; Either String AggregatedSourceStatusType
 ([Node] -&gt; Either String AggregatedSourceStatusType)
 -&gt; FromXML AggregatedSourceStatusType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AggregatedSourceStatusType
 $cparseXML :: [Node] -&gt; Either String AggregatedSourceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679394864"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679394873"><span class="annot"><span class="annottext">AggregatedSourceStatusType -&gt; XML
 (AggregatedSourceStatusType -&gt; XML)
 -&gt; ToXML AggregatedSourceStatusType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- violation reason.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPartialMatch' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679246859"><span id="local-6989586621679246860"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartialMatch"><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-var">PartialMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartialMatch%27"><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-var">PartialMatch'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679246868"><span id="local-6989586621679246869"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartialMatch"><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-var">PartialMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartialMatch%27"><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-var">PartialMatch'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The violation reason.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtargetViolationReasons%3APartialMatch%27"><span class="annot"><span class="annottext">PartialMatch -&gt; Maybe [Text]
 </span><a href="Network.AWS.FMS.Types.PartialMatch.html#%24sel%3AtargetViolationReasons%3APartialMatch%27"><span class="hs-identifier hs-var hs-var">targetViolationReasons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Areference%3APartialMatch%27"><span class="annot"><span class="annottext">PartialMatch -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.PartialMatch.html#%24sel%3Areference%3APartialMatch%27"><span class="hs-identifier hs-var hs-var">reference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246852"><span id="local-6989586621679246854"><span class="annot"><span class="annottext">PartialMatch -&gt; PartialMatch -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246861"><span id="local-6989586621679246863"><span class="annot"><span class="annottext">PartialMatch -&gt; PartialMatch -&gt; Bool
 (PartialMatch -&gt; PartialMatch -&gt; Bool)
 -&gt; (PartialMatch -&gt; PartialMatch -&gt; Bool) -&gt; Eq PartialMatch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PartialMatch -&gt; PartialMatch -&gt; Bool
 == :: PartialMatch -&gt; PartialMatch -&gt; Bool
 $c== :: PartialMatch -&gt; PartialMatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246843"><span id="local-6989586621679246845"><span id="local-6989586621679246847"><span id="local-6989586621679246849"><span class="annot"><span class="annottext">ReadPrec [PartialMatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246852"><span id="local-6989586621679246854"><span id="local-6989586621679246856"><span id="local-6989586621679246858"><span class="annot"><span class="annottext">ReadPrec [PartialMatch]
 ReadPrec PartialMatch
 Int -&gt; ReadS PartialMatch
 ReadS [PartialMatch]
@@ -64,7 +64,7 @@ readList :: ReadS [PartialMatch]
 $creadList :: ReadS [PartialMatch]
 readsPrec :: Int -&gt; ReadS PartialMatch
 $creadsPrec :: Int -&gt; ReadS PartialMatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246836"><span id="local-6989586621679246838"><span id="local-6989586621679246840"><span class="annot"><span class="annottext">Int -&gt; PartialMatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246845"><span id="local-6989586621679246847"><span id="local-6989586621679246849"><span class="annot"><span class="annottext">Int -&gt; PartialMatch -&gt; ShowS
 [PartialMatch] -&gt; ShowS
 PartialMatch -&gt; String
 (Int -&gt; PartialMatch -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (PartialMatch -&gt; Maybe [Text] -&gt; PartialMatch)
 -&gt; Lens PartialMatch PartialMatch (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246827"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246836"><span class="annot"><span class="annottext">Maybe [Text]
 targetViolationReasons :: Maybe [Text]
 $sel:targetViolationReasons:PartialMatch' :: PartialMatch -&gt; Maybe [Text]
-</span><a href="#local-6989586621679246827"><span class="hs-identifier hs-var hs-var">targetViolationReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679246827"><span class="hs-identifier hs-var">targetViolationReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246826"><span class="annot"><span class="annottext">s :: PartialMatch
-</span><a href="#local-6989586621679246826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246825"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679246825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartialMatch
-</span><a href="#local-6989586621679246826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetViolationReasons:PartialMatch' :: Maybe [Text]
+</span><a href="#local-6989586621679246836"><span class="hs-identifier hs-var hs-var">targetViolationReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679246836"><span class="hs-identifier hs-var">targetViolationReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246835"><span class="annot"><span class="annottext">s :: PartialMatch
+</span><a href="#local-6989586621679246835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246834"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679246834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartialMatch
+</span><a href="#local-6989586621679246835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetViolationReasons:PartialMatch' :: Maybe [Text]
 </span><a href="Network.AWS.FMS.Types.PartialMatch.html#%24sel%3AtargetViolationReasons%3APartialMatch%27"><span class="hs-identifier hs-var">targetViolationReasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679246825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679246834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PartialMatch -&gt; f PartialMatch)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -161,19 +161,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PartialMatch -&gt; Maybe Text -&gt; PartialMatch)
 -&gt; Lens PartialMatch PartialMatch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246820"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246829"><span class="annot"><span class="annottext">Maybe Text
 reference :: Maybe Text
 $sel:reference:PartialMatch' :: PartialMatch -&gt; Maybe Text
-</span><a href="#local-6989586621679246820"><span class="hs-identifier hs-var hs-var">reference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246820"><span class="hs-identifier hs-var">reference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246819"><span class="annot"><span class="annottext">s :: PartialMatch
-</span><a href="#local-6989586621679246819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246818"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartialMatch
-</span><a href="#local-6989586621679246819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reference:PartialMatch' :: Maybe Text
+</span><a href="#local-6989586621679246829"><span class="hs-identifier hs-var hs-var">reference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246829"><span class="hs-identifier hs-var">reference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246828"><span class="annot"><span class="annottext">s :: PartialMatch
+</span><a href="#local-6989586621679246828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-type">PartialMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartialMatch
+</span><a href="#local-6989586621679246828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reference:PartialMatch' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.PartialMatch.html#%24sel%3Areference%3APartialMatch%27"><span class="hs-identifier hs-var">reference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679246827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246815"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679246813"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartialMatch
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246824"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679246822"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartialMatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PartialMatch) -&gt; Value -&gt; Parser PartialMatch
@@ -181,15 +181,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PartialMatch&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246810"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246819"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; PartialMatch
 </span><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch%27"><span class="hs-identifier hs-var">PartialMatch'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; PartialMatch)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; PartialMatch)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679246819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetViolationReasons&quot;</span></span><span>
@@ -204,13 +204,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser PartialMatch
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679246819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Reference&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246803"><span id="local-6989586621679246805"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246812"><span id="local-6989586621679246814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PartialMatch.html#PartialMatch"><span class="hs-identifier hs-type">PartialMatch</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

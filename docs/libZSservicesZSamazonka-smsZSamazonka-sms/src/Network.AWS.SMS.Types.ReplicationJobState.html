@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679246043"><span id="local-6989586621679246044"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationJobState"><span class="annot"><a href="Network.AWS.SMS.Types.ReplicationJobState.html#ReplicationJobState"><span class="hs-identifier hs-var">ReplicationJobState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationJobState%27"><span class="annot"><a href="Network.AWS.SMS.Types.ReplicationJobState.html#ReplicationJobState%27"><span class="hs-identifier hs-var">ReplicationJobState'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679246052"><span id="local-6989586621679246053"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationJobState"><span class="annot"><a href="Network.AWS.SMS.Types.ReplicationJobState.html#ReplicationJobState"><span class="hs-identifier hs-var">ReplicationJobState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationJobState%27"><span class="annot"><a href="Network.AWS.SMS.Types.ReplicationJobState.html#ReplicationJobState%27"><span class="hs-identifier hs-var">ReplicationJobState'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationJobState"><span class="annot"><span class="annottext">ReplicationJobState -&gt; Text
 </span><a href="Network.AWS.SMS.Types.ReplicationJobState.html#fromReplicationJobState"><span class="hs-identifier hs-var hs-var">fromReplicationJobState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246035"><span id="local-6989586621679246037"><span id="local-6989586621679246039"><span class="annot"><span class="annottext">Int -&gt; ReplicationJobState -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246044"><span id="local-6989586621679246046"><span id="local-6989586621679246048"><span class="annot"><span class="annottext">Int -&gt; ReplicationJobState -&gt; ShowS
 [ReplicationJobState] -&gt; ShowS
 ReplicationJobState -&gt; String
 (Int -&gt; ReplicationJobState -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ReplicationJobState -&gt; String
 showsPrec :: Int -&gt; ReplicationJobState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplicationJobState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679246026"><span id="local-6989586621679246028"><span id="local-6989586621679246030"><span id="local-6989586621679246032"><span class="annot"><span class="annottext">ReadPrec [ReplicationJobState]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679246035"><span id="local-6989586621679246037"><span id="local-6989586621679246039"><span id="local-6989586621679246041"><span class="annot"><span class="annottext">ReadPrec [ReplicationJobState]
 ReadPrec ReplicationJobState
 Int -&gt; ReadS ReplicationJobState
 ReadS [ReplicationJobState]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ReplicationJobState]
 readsPrec :: Int -&gt; ReadS ReplicationJobState
 $creadsPrec :: Int -&gt; ReadS ReplicationJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246021"><span id="local-6989586621679246023"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ReplicationJobState -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246030"><span id="local-6989586621679246032"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ReplicationJobState -&gt; Bool
 (ReplicationJobState -&gt; ReplicationJobState -&gt; Bool)
 -&gt; (ReplicationJobState -&gt; ReplicationJobState -&gt; Bool)
 -&gt; Eq ReplicationJobState
@@ -88,7 +88,7 @@ $c/= :: ReplicationJobState -&gt; ReplicationJobState -&gt; Bool
 == :: ReplicationJobState -&gt; ReplicationJobState -&gt; Bool
 $c== :: ReplicationJobState -&gt; ReplicationJobState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246005"><span id="local-6989586621679246007"><span id="local-6989586621679246009"><span id="local-6989586621679246011"><span id="local-6989586621679246013"><span id="local-6989586621679246015"><span id="local-6989586621679246017"><span class="annot"><span class="annottext">Eq ReplicationJobState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246014"><span id="local-6989586621679246016"><span id="local-6989586621679246018"><span id="local-6989586621679246020"><span id="local-6989586621679246022"><span id="local-6989586621679246024"><span id="local-6989586621679246026"><span class="annot"><span class="annottext">Eq ReplicationJobState
 Eq ReplicationJobState
 -&gt; (ReplicationJobState -&gt; ReplicationJobState -&gt; Ordering)
 -&gt; (ReplicationJobState -&gt; ReplicationJobState -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. ReplicationJobState -&gt; Rep ReplicationJobState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245997"><span id="local-6989586621679245999"><span class="annot"><span class="annottext">Int -&gt; ReplicationJobState -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246006"><span id="local-6989586621679246008"><span class="annot"><span class="annottext">Int -&gt; ReplicationJobState -&gt; Int
 ReplicationJobState -&gt; Int
 (Int -&gt; ReplicationJobState -&gt; Int)
 -&gt; (ReplicationJobState -&gt; Int) -&gt; Hashable ReplicationJobState
@@ -151,53 +151,53 @@ $chash :: ReplicationJobState -&gt; Int
 hashWithSalt :: Int -&gt; ReplicationJobState -&gt; Int
 $chashWithSalt :: Int -&gt; ReplicationJobState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245994"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246003"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ()
 (ReplicationJobState -&gt; ()) -&gt; NFData ReplicationJobState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplicationJobState -&gt; ()
 $crnf :: ReplicationJobState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245991"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationJobState
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246000"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationJobState
 (Text -&gt; Either String ReplicationJobState)
 -&gt; FromText ReplicationJobState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplicationJobState
 $cfromText :: Text -&gt; Either String ReplicationJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245988"><span class="annot"><span class="annottext">ReplicationJobState -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245997"><span class="annot"><span class="annottext">ReplicationJobState -&gt; Text
 (ReplicationJobState -&gt; Text) -&gt; ToText ReplicationJobState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplicationJobState -&gt; Text
 $ctoText :: ReplicationJobState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245985"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245994"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ByteString
 (ReplicationJobState -&gt; ByteString)
 -&gt; ToByteString ReplicationJobState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplicationJobState -&gt; ByteString
 $ctoBS :: ReplicationJobState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245982"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245991"><span class="annot"><span class="annottext">ReplicationJobState -&gt; ByteStringBuilder
 (ReplicationJobState -&gt; ByteStringBuilder)
 -&gt; ToLog ReplicationJobState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplicationJobState -&gt; ByteStringBuilder
 $cbuild :: ReplicationJobState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245979"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationJobState -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245988"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationJobState -&gt; [Header]
 (HeaderName -&gt; ReplicationJobState -&gt; [Header])
 -&gt; ToHeader ReplicationJobState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplicationJobState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplicationJobState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245976"><span class="annot"><span class="annottext">ReplicationJobState -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245985"><span class="annot"><span class="annottext">ReplicationJobState -&gt; QueryString
 (ReplicationJobState -&gt; QueryString) -&gt; ToQuery ReplicationJobState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplicationJobState -&gt; QueryString
 $ctoQuery :: ReplicationJobState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245971"><span id="local-6989586621679245973"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationJobState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245980"><span id="local-6989586621679245982"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationJobState]
 Value -&gt; Parser ReplicationJobState
 (Value -&gt; Parser ReplicationJobState)
 -&gt; (Value -&gt; Parser [ReplicationJobState])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplicationJobState]
 parseJSON :: Value -&gt; Parser ReplicationJobState
 $cparseJSON :: Value -&gt; Parser ReplicationJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245966"><span id="local-6989586621679245968"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationJobState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245975"><span id="local-6989586621679245977"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationJobState]
 FromJSONKeyFunction ReplicationJobState
 FromJSONKeyFunction ReplicationJobState
 -&gt; FromJSONKeyFunction [ReplicationJobState]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplicationJobState]
 fromJSONKey :: FromJSONKeyFunction ReplicationJobState
 $cfromJSONKey :: FromJSONKeyFunction ReplicationJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679245957"><span id="local-6989586621679245959"><span id="local-6989586621679245961"><span id="local-6989586621679245963"><span class="annot"><span class="annottext">[ReplicationJobState] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679245966"><span id="local-6989586621679245968"><span id="local-6989586621679245970"><span id="local-6989586621679245972"><span class="annot"><span class="annottext">[ReplicationJobState] -&gt; Encoding
 [ReplicationJobState] -&gt; Value
 ReplicationJobState -&gt; Encoding
 ReplicationJobState -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ReplicationJobState -&gt; Encoding
 toJSON :: ReplicationJobState -&gt; Value
 $ctoJSON :: ReplicationJobState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679245952"><span id="local-6989586621679245954"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationJobState]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679245961"><span id="local-6989586621679245963"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationJobState]
 ToJSONKeyFunction ReplicationJobState
 ToJSONKeyFunction ReplicationJobState
 -&gt; ToJSONKeyFunction [ReplicationJobState]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplicationJobState]
 toJSONKey :: ToJSONKeyFunction ReplicationJobState
 $ctoJSONKey :: ToJSONKeyFunction ReplicationJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679245949"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationJobState
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679245958"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationJobState
 ([Node] -&gt; Either String ReplicationJobState)
 -&gt; FromXML ReplicationJobState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplicationJobState
 $cparseXML :: [Node] -&gt; Either String ReplicationJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679245946"><span class="annot"><span class="annottext">ReplicationJobState -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679245955"><span class="annot"><span class="annottext">ReplicationJobState -&gt; XML
 (ReplicationJobState -&gt; XML) -&gt; ToXML ReplicationJobState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReplicationJobState -&gt; XML

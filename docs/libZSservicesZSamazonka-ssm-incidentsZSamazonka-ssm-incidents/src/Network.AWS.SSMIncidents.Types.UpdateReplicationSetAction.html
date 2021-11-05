@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.AddRegionAction.html"><span class="hs-identifier">Network.AWS.SSMIncidents.Types.AddRegionAction</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.DeleteRegionAction.html"><span class="hs-identifier">Network.AWS.SSMIncidents.Types.DeleteRegionAction</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Details used when updating the replication set.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUpdateReplicationSetAction' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679217109"><span id="local-6989586621679217110"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateReplicationSetAction"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-var">UpdateReplicationSetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateReplicationSetAction%27"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction%27"><span class="hs-identifier hs-var">UpdateReplicationSetAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the Region that you\'re adding to the replication set.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AaddRegionAction%3AUpdateReplicationSetAction%27"><span class="annot"><span class="annottext">UpdateReplicationSetAction -&gt; Maybe AddRegionAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#%24sel%3AaddRegionAction%3AUpdateReplicationSetAction%27"><span class="hs-identifier hs-var hs-var">addRegionAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.AddRegionAction.html#AddRegionAction"><span class="hs-identifier hs-type">AddRegionAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Details about the Region that you\'re deleting to the replication set.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeleteRegionAction%3AUpdateReplicationSetAction%27"><span class="annot"><span class="annottext">UpdateReplicationSetAction -&gt; Maybe DeleteRegionAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#%24sel%3AdeleteRegionAction%3AUpdateReplicationSetAction%27"><span class="hs-identifier hs-var hs-var">deleteRegionAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.DeleteRegionAction.html#DeleteRegionAction"><span class="hs-identifier hs-type">DeleteRegionAction</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217102"><span id="local-6989586621679217104"><span class="annot"><span class="annottext">UpdateReplicationSetAction -&gt; UpdateReplicationSetAction -&gt; Bool
+(UpdateReplicationSetAction -&gt; UpdateReplicationSetAction -&gt; Bool)
+-&gt; (UpdateReplicationSetAction
+    -&gt; UpdateReplicationSetAction -&gt; Bool)
+-&gt; Eq UpdateReplicationSetAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateReplicationSetAction -&gt; UpdateReplicationSetAction -&gt; Bool
+$c/= :: UpdateReplicationSetAction -&gt; UpdateReplicationSetAction -&gt; Bool
+== :: UpdateReplicationSetAction -&gt; UpdateReplicationSetAction -&gt; Bool
+$c== :: UpdateReplicationSetAction -&gt; UpdateReplicationSetAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217093"><span id="local-6989586621679217095"><span id="local-6989586621679217097"><span id="local-6989586621679217099"><span class="annot"><span class="annottext">ReadPrec [UpdateReplicationSetAction]
+ReadPrec UpdateReplicationSetAction
+Int -&gt; ReadS UpdateReplicationSetAction
+ReadS [UpdateReplicationSetAction]
+(Int -&gt; ReadS UpdateReplicationSetAction)
+-&gt; ReadS [UpdateReplicationSetAction]
+-&gt; ReadPrec UpdateReplicationSetAction
+-&gt; ReadPrec [UpdateReplicationSetAction]
+-&gt; Read UpdateReplicationSetAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateReplicationSetAction]
+$creadListPrec :: ReadPrec [UpdateReplicationSetAction]
+readPrec :: ReadPrec UpdateReplicationSetAction
+$creadPrec :: ReadPrec UpdateReplicationSetAction
+readList :: ReadS [UpdateReplicationSetAction]
+$creadList :: ReadS [UpdateReplicationSetAction]
+readsPrec :: Int -&gt; ReadS UpdateReplicationSetAction
+$creadsPrec :: Int -&gt; ReadS UpdateReplicationSetAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217086"><span id="local-6989586621679217088"><span id="local-6989586621679217090"><span class="annot"><span class="annottext">Int -&gt; UpdateReplicationSetAction -&gt; ShowS
+[UpdateReplicationSetAction] -&gt; ShowS
+UpdateReplicationSetAction -&gt; String
+(Int -&gt; UpdateReplicationSetAction -&gt; ShowS)
+-&gt; (UpdateReplicationSetAction -&gt; String)
+-&gt; ([UpdateReplicationSetAction] -&gt; ShowS)
+-&gt; Show UpdateReplicationSetAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateReplicationSetAction] -&gt; ShowS
+$cshowList :: [UpdateReplicationSetAction] -&gt; ShowS
+show :: UpdateReplicationSetAction -&gt; String
+$cshow :: UpdateReplicationSetAction -&gt; String
+showsPrec :: Int -&gt; UpdateReplicationSetAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateReplicationSetAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateReplicationSetAction -&gt; Rep UpdateReplicationSetAction x)
+-&gt; (forall x.
+    Rep UpdateReplicationSetAction x -&gt; UpdateReplicationSetAction)
+-&gt; Generic UpdateReplicationSetAction
+forall x.
+Rep UpdateReplicationSetAction x -&gt; UpdateReplicationSetAction
+forall x.
+UpdateReplicationSetAction -&gt; Rep UpdateReplicationSetAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateReplicationSetAction x -&gt; UpdateReplicationSetAction
+$cfrom :: forall x.
+UpdateReplicationSetAction -&gt; Rep UpdateReplicationSetAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'UpdateReplicationSetAction' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'addRegionAction', 'updateReplicationSetAction_addRegionAction' - Details about the Region that you\'re adding to the replication set.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'deleteRegionAction', 'updateReplicationSetAction_deleteRegionAction' - Details about the Region that you\'re deleting to the replication set.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#newUpdateReplicationSetAction"><span class="hs-identifier hs-type">newUpdateReplicationSetAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span><span>
+</span><span id="line-52"></span><span id="newUpdateReplicationSetAction"><span class="annot"><span class="annottext">newUpdateReplicationSetAction :: UpdateReplicationSetAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#newUpdateReplicationSetAction"><span class="hs-identifier hs-var hs-var">newUpdateReplicationSetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">UpdateReplicationSetAction' :: Maybe AddRegionAction
+-&gt; Maybe DeleteRegionAction -&gt; UpdateReplicationSetAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction%27"><span class="hs-identifier hs-type">UpdateReplicationSetAction'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addRegionAction:UpdateReplicationSetAction' :: Maybe AddRegionAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#%24sel%3AaddRegionAction%3AUpdateReplicationSetAction%27"><span class="hs-identifier hs-var">addRegionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe AddRegionAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteRegionAction:UpdateReplicationSetAction' :: Maybe DeleteRegionAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#%24sel%3AdeleteRegionAction%3AUpdateReplicationSetAction%27"><span class="hs-identifier hs-var">deleteRegionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRegionAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Details about the Region that you\'re adding to the replication set.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#updateReplicationSetAction_addRegionAction"><span class="hs-identifier hs-type">updateReplicationSetAction_addRegionAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.AddRegionAction.html#AddRegionAction"><span class="hs-identifier hs-type">AddRegionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="updateReplicationSetAction_addRegionAction"><span class="annot"><span class="annottext">updateReplicationSetAction_addRegionAction :: (Maybe AddRegionAction -&gt; f (Maybe AddRegionAction))
+-&gt; UpdateReplicationSetAction -&gt; f UpdateReplicationSetAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#updateReplicationSetAction_addRegionAction"><span class="hs-identifier hs-var hs-var">updateReplicationSetAction_addRegionAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationSetAction -&gt; Maybe AddRegionAction)
+-&gt; (UpdateReplicationSetAction
+    -&gt; Maybe AddRegionAction -&gt; UpdateReplicationSetAction)
+-&gt; Lens
+     UpdateReplicationSetAction
+     UpdateReplicationSetAction
+     (Maybe AddRegionAction)
+     (Maybe AddRegionAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction%27"><span class="hs-identifier hs-type">UpdateReplicationSetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217077"><span class="annot"><span class="annottext">Maybe AddRegionAction
+addRegionAction :: Maybe AddRegionAction
+$sel:addRegionAction:UpdateReplicationSetAction' :: UpdateReplicationSetAction -&gt; Maybe AddRegionAction
+</span><a href="#local-6989586621679217077"><span class="hs-identifier hs-var hs-var">addRegionAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddRegionAction
+</span><a href="#local-6989586621679217077"><span class="hs-identifier hs-var">addRegionAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217076"><span class="annot"><span class="annottext">s :: UpdateReplicationSetAction
+</span><a href="#local-6989586621679217076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction%27"><span class="hs-identifier hs-type">UpdateReplicationSetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217075"><span class="annot"><span class="annottext">Maybe AddRegionAction
+</span><a href="#local-6989586621679217075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationSetAction
+</span><a href="#local-6989586621679217076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addRegionAction:UpdateReplicationSetAction' :: Maybe AddRegionAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#%24sel%3AaddRegionAction%3AUpdateReplicationSetAction%27"><span class="hs-identifier hs-var">addRegionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddRegionAction
+</span><a href="#local-6989586621679217075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Details about the Region that you\'re deleting to the replication set.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#updateReplicationSetAction_deleteRegionAction"><span class="hs-identifier hs-type">updateReplicationSetAction_deleteRegionAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.DeleteRegionAction.html#DeleteRegionAction"><span class="hs-identifier hs-type">DeleteRegionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="updateReplicationSetAction_deleteRegionAction"><span class="annot"><span class="annottext">updateReplicationSetAction_deleteRegionAction :: (Maybe DeleteRegionAction -&gt; f (Maybe DeleteRegionAction))
+-&gt; UpdateReplicationSetAction -&gt; f UpdateReplicationSetAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#updateReplicationSetAction_deleteRegionAction"><span class="hs-identifier hs-var hs-var">updateReplicationSetAction_deleteRegionAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationSetAction -&gt; Maybe DeleteRegionAction)
+-&gt; (UpdateReplicationSetAction
+    -&gt; Maybe DeleteRegionAction -&gt; UpdateReplicationSetAction)
+-&gt; Lens
+     UpdateReplicationSetAction
+     UpdateReplicationSetAction
+     (Maybe DeleteRegionAction)
+     (Maybe DeleteRegionAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction%27"><span class="hs-identifier hs-type">UpdateReplicationSetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217073"><span class="annot"><span class="annottext">Maybe DeleteRegionAction
+deleteRegionAction :: Maybe DeleteRegionAction
+$sel:deleteRegionAction:UpdateReplicationSetAction' :: UpdateReplicationSetAction -&gt; Maybe DeleteRegionAction
+</span><a href="#local-6989586621679217073"><span class="hs-identifier hs-var hs-var">deleteRegionAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRegionAction
+</span><a href="#local-6989586621679217073"><span class="hs-identifier hs-var">deleteRegionAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217072"><span class="annot"><span class="annottext">s :: UpdateReplicationSetAction
+</span><a href="#local-6989586621679217072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction%27"><span class="hs-identifier hs-type">UpdateReplicationSetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217071"><span class="annot"><span class="annottext">Maybe DeleteRegionAction
+</span><a href="#local-6989586621679217071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationSetAction
+</span><a href="#local-6989586621679217072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteRegionAction:UpdateReplicationSetAction' :: Maybe DeleteRegionAction
+</span><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#%24sel%3AdeleteRegionAction%3AUpdateReplicationSetAction%27"><span class="hs-identifier hs-var">deleteRegionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRegionAction
+</span><a href="#local-6989586621679217071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217067"><span id="local-6989586621679217069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217056"><span id="local-6989586621679217058"><span id="local-6989586621679217060"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction"><span class="hs-identifier hs-type">UpdateReplicationSetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679217054"><span class="annot"><span class="annottext">toJSON :: UpdateReplicationSetAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.html#UpdateReplicationSetAction%27"><span class="hs-identifier hs-type">UpdateReplicationSetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217051"><span id="local-6989586621679217052"><span class="annot"><span class="annottext">Maybe AddRegionAction
+Maybe DeleteRegionAction
+deleteRegionAction :: Maybe DeleteRegionAction
+addRegionAction :: Maybe AddRegionAction
+$sel:deleteRegionAction:UpdateReplicationSetAction' :: UpdateReplicationSetAction -&gt; Maybe DeleteRegionAction
+$sel:addRegionAction:UpdateReplicationSetAction' :: UpdateReplicationSetAction -&gt; Maybe AddRegionAction
+</span><a href="#local-6989586621679217051"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-75"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addRegionAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AddRegionAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>              </span><span class="annot"><span class="annottext">(AddRegionAction -&gt; Pair) -&gt; Maybe AddRegionAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddRegionAction
+</span><a href="#local-6989586621679217052"><span class="hs-identifier hs-var">addRegionAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deleteRegionAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeleteRegionAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>              </span><span class="annot"><span class="annottext">(DeleteRegionAction -&gt; Pair)
+-&gt; Maybe DeleteRegionAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRegionAction
+</span><a href="#local-6989586621679217051"><span class="hs-identifier hs-var">deleteRegionAction</span></a></span><span>
+</span><span id="line-79"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span></pre></body></html>

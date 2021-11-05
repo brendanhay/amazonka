@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- hyperparameter tuning job searches.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newIntegerParameterRange' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680311900"><span id="local-6989586621680311901"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntegerParameterRange"><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-var">IntegerParameterRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntegerParameterRange%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-var">IntegerParameterRange'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680311909"><span id="local-6989586621680311910"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntegerParameterRange"><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-var">IntegerParameterRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntegerParameterRange%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-var">IntegerParameterRange'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scale that hyperparameter tuning uses to search the hyperparameter</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- range. For information about choosing a hyperparameter scale, see</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type Hyperparameter Scaling&gt;.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AmaxValue%3AIntegerParameterRange%27"><span class="annot"><span class="annottext">IntegerParameterRange -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3AmaxValue%3AIntegerParameterRange%27"><span class="hs-identifier hs-var hs-var">maxValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680311891"><span id="local-6989586621680311893"><span class="annot"><span class="annottext">IntegerParameterRange -&gt; IntegerParameterRange -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680311900"><span id="local-6989586621680311902"><span class="annot"><span class="annottext">IntegerParameterRange -&gt; IntegerParameterRange -&gt; Bool
 (IntegerParameterRange -&gt; IntegerParameterRange -&gt; Bool)
 -&gt; (IntegerParameterRange -&gt; IntegerParameterRange -&gt; Bool)
 -&gt; Eq IntegerParameterRange
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IntegerParameterRange -&gt; IntegerParameterRange -&gt; Bool
 == :: IntegerParameterRange -&gt; IntegerParameterRange -&gt; Bool
 $c== :: IntegerParameterRange -&gt; IntegerParameterRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311882"><span id="local-6989586621680311884"><span id="local-6989586621680311886"><span id="local-6989586621680311888"><span class="annot"><span class="annottext">ReadPrec [IntegerParameterRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311891"><span id="local-6989586621680311893"><span id="local-6989586621680311895"><span id="local-6989586621680311897"><span class="annot"><span class="annottext">ReadPrec [IntegerParameterRange]
 ReadPrec IntegerParameterRange
 Int -&gt; ReadS IntegerParameterRange
 ReadS [IntegerParameterRange]
@@ -89,7 +89,7 @@ readList :: ReadS [IntegerParameterRange]
 $creadList :: ReadS [IntegerParameterRange]
 readsPrec :: Int -&gt; ReadS IntegerParameterRange
 $creadsPrec :: Int -&gt; ReadS IntegerParameterRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311875"><span id="local-6989586621680311877"><span id="local-6989586621680311879"><span class="annot"><span class="annottext">Int -&gt; IntegerParameterRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311884"><span id="local-6989586621680311886"><span id="local-6989586621680311888"><span class="annot"><span class="annottext">Int -&gt; IntegerParameterRange -&gt; ShowS
 [IntegerParameterRange] -&gt; ShowS
 IntegerParameterRange -&gt; String
 (Int -&gt; IntegerParameterRange -&gt; ShowS)
@@ -157,10 +157,10 @@ $cfrom :: forall x. IntegerParameterRange -&gt; Rep IntegerParameterRange x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span>
 </span><span id="line-102"></span><span id="newIntegerParameterRange"><span class="annot"><span class="annottext">newIntegerParameterRange :: Text -&gt; Text -&gt; Text -&gt; IntegerParameterRange
-</span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#newIntegerParameterRange"><span class="hs-identifier hs-var hs-var">newIntegerParameterRange</span></a></span></span><span> </span><span id="local-6989586621680311869"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311869"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680311868"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311868"><span class="hs-identifier hs-var">pMinValue_</span></a></span></span><span> </span><span id="local-6989586621680311867"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311867"><span class="hs-identifier hs-var">pMaxValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#newIntegerParameterRange"><span class="hs-identifier hs-var hs-var">newIntegerParameterRange</span></a></span></span><span> </span><span id="local-6989586621680311878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311878"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680311877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311877"><span class="hs-identifier hs-var">pMinValue_</span></a></span></span><span> </span><span id="local-6989586621680311876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311876"><span class="hs-identifier hs-var">pMaxValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">IntegerParameterRange' :: Maybe HyperParameterScalingType
 -&gt; Text -&gt; Text -&gt; Text -&gt; IntegerParameterRange
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span>
@@ -171,13 +171,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:IntegerParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3Aname%3AIntegerParameterRange%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311869"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311878"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:minValue:IntegerParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3AminValue%3AIntegerParameterRange%27"><span class="hs-identifier hs-var">minValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311868"><span class="hs-identifier hs-var">pMinValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311877"><span class="hs-identifier hs-var">pMinValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxValue:IntegerParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3AmaxValue%3AIntegerParameterRange%27"><span class="hs-identifier hs-var">maxValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311867"><span class="hs-identifier hs-var">pMaxValue_</span></a></span><span>
+</span><a href="#local-6989586621680311876"><span class="hs-identifier hs-var">pMaxValue_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The scale that hyperparameter tuning uses to search the hyperparameter</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
      (Maybe HyperParameterScalingType)
      (Maybe HyperParameterScalingType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311863"><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311872"><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
 scalingType :: Maybe HyperParameterScalingType
 $sel:scalingType:IntegerParameterRange' :: IntegerParameterRange -&gt; Maybe HyperParameterScalingType
-</span><a href="#local-6989586621680311863"><span class="hs-identifier hs-var hs-var">scalingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
-</span><a href="#local-6989586621680311863"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311862"><span class="annot"><span class="annottext">s :: IntegerParameterRange
-</span><a href="#local-6989586621680311862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311861"><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
-</span><a href="#local-6989586621680311861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
-</span><a href="#local-6989586621680311862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingType:IntegerParameterRange' :: Maybe HyperParameterScalingType
+</span><a href="#local-6989586621680311872"><span class="hs-identifier hs-var hs-var">scalingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
+</span><a href="#local-6989586621680311872"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311871"><span class="annot"><span class="annottext">s :: IntegerParameterRange
+</span><a href="#local-6989586621680311871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311870"><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
+</span><a href="#local-6989586621680311870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
+</span><a href="#local-6989586621680311871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingType:IntegerParameterRange' :: Maybe HyperParameterScalingType
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3AscalingType%3AIntegerParameterRange%27"><span class="hs-identifier hs-var">scalingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
-</span><a href="#local-6989586621680311861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The name of the hyperparameter to search.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#integerParameterRange_name"><span class="hs-identifier hs-type">integerParameterRange_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -231,16 +231,16 @@ $sel:scalingType:IntegerParameterRange' :: IntegerParameterRange -&gt; Maybe Hyp
 -&gt; (IntegerParameterRange -&gt; Text -&gt; IntegerParameterRange)
 -&gt; Lens IntegerParameterRange IntegerParameterRange Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311859"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311868"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
-</span><a href="#local-6989586621680311859"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311859"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311858"><span class="annot"><span class="annottext">s :: IntegerParameterRange
-</span><a href="#local-6989586621680311858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311857"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
-</span><a href="#local-6989586621680311858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:IntegerParameterRange' :: Text
+</span><a href="#local-6989586621680311868"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311868"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311867"><span class="annot"><span class="annottext">s :: IntegerParameterRange
+</span><a href="#local-6989586621680311867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311866"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
+</span><a href="#local-6989586621680311867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:IntegerParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3Aname%3AIntegerParameterRange%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The minimum value of the hyperparameter to search.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#integerParameterRange_minValue"><span class="hs-identifier hs-type">integerParameterRange_minValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -250,16 +250,16 @@ $sel:name:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
 -&gt; (IntegerParameterRange -&gt; Text -&gt; IntegerParameterRange)
 -&gt; Lens IntegerParameterRange IntegerParameterRange Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311855"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311864"><span class="annot"><span class="annottext">Text
 minValue :: Text
 $sel:minValue:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
-</span><a href="#local-6989586621680311855"><span class="hs-identifier hs-var hs-var">minValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311855"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311854"><span class="annot"><span class="annottext">s :: IntegerParameterRange
-</span><a href="#local-6989586621680311854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311853"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
-</span><a href="#local-6989586621680311854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minValue:IntegerParameterRange' :: Text
+</span><a href="#local-6989586621680311864"><span class="hs-identifier hs-var hs-var">minValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311864"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311863"><span class="annot"><span class="annottext">s :: IntegerParameterRange
+</span><a href="#local-6989586621680311863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311862"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
+</span><a href="#local-6989586621680311863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minValue:IntegerParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3AminValue%3AIntegerParameterRange%27"><span class="hs-identifier hs-var">minValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The maximum value of the hyperparameter to search.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#integerParameterRange_maxValue"><span class="hs-identifier hs-type">integerParameterRange_maxValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -269,19 +269,19 @@ $sel:minValue:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
 -&gt; (IntegerParameterRange -&gt; Text -&gt; IntegerParameterRange)
 -&gt; Lens IntegerParameterRange IntegerParameterRange Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311851"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311860"><span class="annot"><span class="annottext">Text
 maxValue :: Text
 $sel:maxValue:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
-</span><a href="#local-6989586621680311851"><span class="hs-identifier hs-var hs-var">maxValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311851"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311850"><span class="annot"><span class="annottext">s :: IntegerParameterRange
-</span><a href="#local-6989586621680311850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311849"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
-</span><a href="#local-6989586621680311850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxValue:IntegerParameterRange' :: Text
+</span><a href="#local-6989586621680311860"><span class="hs-identifier hs-var hs-var">maxValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311860"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311859"><span class="annot"><span class="annottext">s :: IntegerParameterRange
+</span><a href="#local-6989586621680311859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311858"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegerParameterRange
+</span><a href="#local-6989586621680311859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxValue:IntegerParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#%24sel%3AmaxValue%3AIntegerParameterRange%27"><span class="hs-identifier hs-var">maxValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311846"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621680311844"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IntegerParameterRange
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311855"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680311853"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IntegerParameterRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IntegerParameterRange)
@@ -291,8 +291,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IntegerParameterRange&quot;</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680311841"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680311850"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680311850"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
 -&gt; Text -&gt; Text -&gt; Text -&gt; IntegerParameterRange
 </span><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-var">IntegerParameterRange'</span></a></span><span>
@@ -302,7 +302,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; IntegerParameterRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HyperParameterScalingType)
+</span><a href="#local-6989586621680311850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HyperParameterScalingType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingType&quot;</span></span><span class="hs-special">)</span><span>
@@ -310,7 +310,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; IntegerParameterRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680311850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,7 +318,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; IntegerParameterRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680311850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,19 +326,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser IntegerParameterRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680311850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311834"><span id="local-6989586621680311836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311843"><span id="local-6989586621680311845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311823"><span id="local-6989586621680311825"><span id="local-6989586621680311827"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621680311821"><span class="annot"><span class="annottext">toJSON :: IntegerParameterRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311816"><span id="local-6989586621680311817"><span id="local-6989586621680311818"><span id="local-6989586621680311819"><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311832"><span id="local-6989586621680311834"><span id="local-6989586621680311836"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621680311830"><span class="annot"><span class="annottext">toJSON :: IntegerParameterRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.IntegerParameterRange.html#IntegerParameterRange%27"><span class="hs-identifier hs-type">IntegerParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311825"><span id="local-6989586621680311826"><span id="local-6989586621680311827"><span id="local-6989586621680311828"><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
 Text
 maxValue :: Text
 minValue :: Text
@@ -348,7 +348,7 @@ $sel:maxValue:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
 $sel:minValue:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
 $sel:name:IntegerParameterRange' :: IntegerParameterRange -&gt; Text
 $sel:scalingType:IntegerParameterRange' :: IntegerParameterRange -&gt; Maybe HyperParameterScalingType
-</span><a href="#local-6989586621680311816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680311825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -361,28 +361,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe HyperParameterScalingType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterScalingType
-</span><a href="#local-6989586621680311819"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311828"><span class="hs-identifier hs-var">scalingType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311818"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311827"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311817"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311826"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311816"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311825"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span></pre></body></html>

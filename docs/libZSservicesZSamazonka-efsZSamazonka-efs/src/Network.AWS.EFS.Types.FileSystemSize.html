@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- necessarily the exact size the file system was at any instant in time.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newFileSystemSize' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679186145"><span id="local-6989586621679186146"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSystemSize"><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-var">FileSystemSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemSize%27"><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-var">FileSystemSize'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679186154"><span id="local-6989586621679186155"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSystemSize"><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-var">FileSystemSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemSize%27"><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-var">FileSystemSize'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The latest known metered size (in bytes) of data stored in the</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Infrequent Access storage class.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AvalueInIA%3AFileSystemSize%27"><span class="annot"><span class="annottext">FileSystemSize -&gt; Maybe Natural
@@ -52,7 +52,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Avalue%3AFileSystemSize%27"><span class="annot"><span class="annottext">FileSystemSize -&gt; Natural
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#%24sel%3Avalue%3AFileSystemSize%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186136"><span id="local-6989586621679186138"><span class="annot"><span class="annottext">FileSystemSize -&gt; FileSystemSize -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186145"><span id="local-6989586621679186147"><span class="annot"><span class="annottext">FileSystemSize -&gt; FileSystemSize -&gt; Bool
 (FileSystemSize -&gt; FileSystemSize -&gt; Bool)
 -&gt; (FileSystemSize -&gt; FileSystemSize -&gt; Bool) -&gt; Eq FileSystemSize
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FileSystemSize -&gt; FileSystemSize -&gt; Bool
 == :: FileSystemSize -&gt; FileSystemSize -&gt; Bool
 $c== :: FileSystemSize -&gt; FileSystemSize -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186127"><span id="local-6989586621679186129"><span id="local-6989586621679186131"><span id="local-6989586621679186133"><span class="annot"><span class="annottext">ReadPrec [FileSystemSize]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186136"><span id="local-6989586621679186138"><span id="local-6989586621679186140"><span id="local-6989586621679186142"><span class="annot"><span class="annottext">ReadPrec [FileSystemSize]
 ReadPrec FileSystemSize
 Int -&gt; ReadS FileSystemSize
 ReadS [FileSystemSize]
@@ -80,7 +80,7 @@ readList :: ReadS [FileSystemSize]
 $creadList :: ReadS [FileSystemSize]
 readsPrec :: Int -&gt; ReadS FileSystemSize
 $creadsPrec :: Int -&gt; ReadS FileSystemSize
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186120"><span id="local-6989586621679186122"><span id="local-6989586621679186124"><span class="annot"><span class="annottext">Int -&gt; FileSystemSize -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186129"><span id="local-6989586621679186131"><span id="local-6989586621679186133"><span class="annot"><span class="annottext">Int -&gt; FileSystemSize -&gt; ShowS
 [FileSystemSize] -&gt; ShowS
 FileSystemSize -&gt; String
 (Int -&gt; FileSystemSize -&gt; ShowS)
@@ -131,8 +131,8 @@ $cfrom :: forall x. FileSystemSize -&gt; Rep FileSystemSize x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span>
 </span><span id="line-77"></span><span id="newFileSystemSize"><span class="annot"><span class="annottext">newFileSystemSize :: Natural -&gt; FileSystemSize
-</span><a href="Network.AWS.EFS.Types.FileSystemSize.html#newFileSystemSize"><span class="hs-identifier hs-var hs-var">newFileSystemSize</span></a></span></span><span> </span><span id="local-6989586621679186114"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EFS.Types.FileSystemSize.html#newFileSystemSize"><span class="hs-identifier hs-var hs-var">newFileSystemSize</span></a></span></span><span> </span><span id="local-6989586621679186123"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679186123"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">FileSystemSize' :: Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe POSIX -&gt; Natural -&gt; FileSystemSize
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span>
@@ -150,7 +150,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:FileSystemSize' :: Natural
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#%24sel%3Avalue%3AFileSystemSize%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679186123"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The latest known metered size (in bytes) of data stored in the</span><span>
@@ -163,16 +163,16 @@ forall a. Maybe a
 -&gt; Lens
      FileSystemSize FileSystemSize (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186110"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186119"><span class="annot"><span class="annottext">Maybe Natural
 valueInIA :: Maybe Natural
 $sel:valueInIA:FileSystemSize' :: FileSystemSize -&gt; Maybe Natural
-</span><a href="#local-6989586621679186110"><span class="hs-identifier hs-var hs-var">valueInIA</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186110"><span class="hs-identifier hs-var">valueInIA</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186109"><span class="annot"><span class="annottext">s :: FileSystemSize
-</span><a href="#local-6989586621679186109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186108"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
-</span><a href="#local-6989586621679186109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valueInIA:FileSystemSize' :: Maybe Natural
+</span><a href="#local-6989586621679186119"><span class="hs-identifier hs-var hs-var">valueInIA</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679186119"><span class="hs-identifier hs-var">valueInIA</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186118"><span class="annot"><span class="annottext">s :: FileSystemSize
+</span><a href="#local-6989586621679186118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186117"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679186117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
+</span><a href="#local-6989586621679186118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valueInIA:FileSystemSize' :: Maybe Natural
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#%24sel%3AvalueInIA%3AFileSystemSize%27"><span class="hs-identifier hs-var">valueInIA</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The latest known metered size (in bytes) of data stored in the Standard</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- storage class.</span><span>
@@ -184,16 +184,16 @@ $sel:valueInIA:FileSystemSize' :: FileSystemSize -&gt; Maybe Natural
 -&gt; Lens
      FileSystemSize FileSystemSize (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186106"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186115"><span class="annot"><span class="annottext">Maybe Natural
 valueInStandard :: Maybe Natural
 $sel:valueInStandard:FileSystemSize' :: FileSystemSize -&gt; Maybe Natural
-</span><a href="#local-6989586621679186106"><span class="hs-identifier hs-var hs-var">valueInStandard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186106"><span class="hs-identifier hs-var">valueInStandard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186105"><span class="annot"><span class="annottext">s :: FileSystemSize
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186104"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valueInStandard:FileSystemSize' :: Maybe Natural
+</span><a href="#local-6989586621679186115"><span class="hs-identifier hs-var hs-var">valueInStandard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679186115"><span class="hs-identifier hs-var">valueInStandard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186114"><span class="annot"><span class="annottext">s :: FileSystemSize
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186113"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679186113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valueInStandard:FileSystemSize' :: Maybe Natural
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#%24sel%3AvalueInStandard%3AFileSystemSize%27"><span class="hs-identifier hs-var">valueInStandard</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The time at which the size of data, returned in the @Value@ field, was</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- determined. The value is the integer number of seconds since</span><span>
@@ -205,16 +205,16 @@ $sel:valueInStandard:FileSystemSize' :: FileSystemSize -&gt; Maybe Natural
 -&gt; (FileSystemSize -&gt; Maybe POSIX -&gt; FileSystemSize)
 -&gt; Lens FileSystemSize FileSystemSize (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186102"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186111"><span class="annot"><span class="annottext">Maybe POSIX
 timestamp :: Maybe POSIX
 $sel:timestamp:FileSystemSize' :: FileSystemSize -&gt; Maybe POSIX
-</span><a href="#local-6989586621679186102"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679186102"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186101"><span class="annot"><span class="annottext">s :: FileSystemSize
-</span><a href="#local-6989586621679186101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186100"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679186100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
-</span><a href="#local-6989586621679186101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:FileSystemSize' :: Maybe POSIX
+</span><a href="#local-6989586621679186111"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679186111"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186110"><span class="annot"><span class="annottext">s :: FileSystemSize
+</span><a href="#local-6989586621679186110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186109"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679186109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
+</span><a href="#local-6989586621679186110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:FileSystemSize' :: Maybe POSIX
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#%24sel%3Atimestamp%3AFileSystemSize%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679186100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679186109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; FileSystemSize -&gt; f FileSystemSize)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -239,19 +239,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (FileSystemSize -&gt; Natural -&gt; FileSystemSize)
 -&gt; Lens FileSystemSize FileSystemSize Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186095"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186104"><span class="annot"><span class="annottext">Natural
 value :: Natural
 $sel:value:FileSystemSize' :: FileSystemSize -&gt; Natural
-</span><a href="#local-6989586621679186095"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679186095"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186094"><span class="annot"><span class="annottext">s :: FileSystemSize
-</span><a href="#local-6989586621679186094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186093"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679186093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
-</span><a href="#local-6989586621679186094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:FileSystemSize' :: Natural
+</span><a href="#local-6989586621679186104"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679186104"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186103"><span class="annot"><span class="annottext">s :: FileSystemSize
+</span><a href="#local-6989586621679186103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-type">FileSystemSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186102"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679186102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemSize
+</span><a href="#local-6989586621679186103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:FileSystemSize' :: Natural
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#%24sel%3Avalue%3AFileSystemSize%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679186093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186090"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679186088"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSystemSize
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186099"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679186097"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSystemSize
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FileSystemSize)
@@ -261,8 +261,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FileSystemSize&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186085"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186094"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe POSIX -&gt; Natural -&gt; FileSystemSize
 </span><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize%27"><span class="hs-identifier hs-var">FileSystemSize'</span></a></span><span>
@@ -273,7 +273,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Natural -&gt; Maybe POSIX -&gt; Natural -&gt; FileSystemSize)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679186094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValueInIA&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,7 +282,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; Natural -&gt; FileSystemSize)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679186094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValueInStandard&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,7 +290,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Natural -&gt; FileSystemSize)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679186094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,13 +298,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser FileSystemSize
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679186094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186078"><span id="local-6989586621679186080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186087"><span id="local-6989586621679186089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemSize.html#FileSystemSize"><span class="hs-identifier hs-type">FileSystemSize</span></a></span></span><span>
 </span><span id="line-121"></span></pre></body></html>

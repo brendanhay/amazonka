@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679368957"><span id="local-6989586621679368958"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QuotaPeriodType"><span class="annot"><a href="Network.AWS.APIGateway.Types.QuotaPeriodType.html#QuotaPeriodType"><span class="hs-identifier hs-var">QuotaPeriodType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QuotaPeriodType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.QuotaPeriodType.html#QuotaPeriodType%27"><span class="hs-identifier hs-var">QuotaPeriodType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679368966"><span id="local-6989586621679368967"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QuotaPeriodType"><span class="annot"><a href="Network.AWS.APIGateway.Types.QuotaPeriodType.html#QuotaPeriodType"><span class="hs-identifier hs-var">QuotaPeriodType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QuotaPeriodType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.QuotaPeriodType.html#QuotaPeriodType%27"><span class="hs-identifier hs-var">QuotaPeriodType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQuotaPeriodType"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.QuotaPeriodType.html#fromQuotaPeriodType"><span class="hs-identifier hs-var hs-var">fromQuotaPeriodType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368949"><span id="local-6989586621679368951"><span id="local-6989586621679368953"><span class="annot"><span class="annottext">Int -&gt; QuotaPeriodType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368958"><span id="local-6989586621679368960"><span id="local-6989586621679368962"><span class="annot"><span class="annottext">Int -&gt; QuotaPeriodType -&gt; ShowS
 [QuotaPeriodType] -&gt; ShowS
 QuotaPeriodType -&gt; String
 (Int -&gt; QuotaPeriodType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: QuotaPeriodType -&gt; String
 showsPrec :: Int -&gt; QuotaPeriodType -&gt; ShowS
 $cshowsPrec :: Int -&gt; QuotaPeriodType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679368940"><span id="local-6989586621679368942"><span id="local-6989586621679368944"><span id="local-6989586621679368946"><span class="annot"><span class="annottext">ReadPrec [QuotaPeriodType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679368949"><span id="local-6989586621679368951"><span id="local-6989586621679368953"><span id="local-6989586621679368955"><span class="annot"><span class="annottext">ReadPrec [QuotaPeriodType]
 ReadPrec QuotaPeriodType
 Int -&gt; ReadS QuotaPeriodType
 ReadS [QuotaPeriodType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [QuotaPeriodType]
 readsPrec :: Int -&gt; ReadS QuotaPeriodType
 $creadsPrec :: Int -&gt; ReadS QuotaPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368935"><span id="local-6989586621679368937"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368944"><span id="local-6989586621679368946"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool
 (QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool)
 -&gt; (QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool)
 -&gt; Eq QuotaPeriodType
@@ -83,7 +83,7 @@ $c/= :: QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool
 == :: QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool
 $c== :: QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679368919"><span id="local-6989586621679368921"><span id="local-6989586621679368923"><span id="local-6989586621679368925"><span id="local-6989586621679368927"><span id="local-6989586621679368929"><span id="local-6989586621679368931"><span class="annot"><span class="annottext">Eq QuotaPeriodType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679368928"><span id="local-6989586621679368930"><span id="local-6989586621679368932"><span id="local-6989586621679368934"><span id="local-6989586621679368936"><span id="local-6989586621679368938"><span id="local-6989586621679368940"><span class="annot"><span class="annottext">Eq QuotaPeriodType
 Eq QuotaPeriodType
 -&gt; (QuotaPeriodType -&gt; QuotaPeriodType -&gt; Ordering)
 -&gt; (QuotaPeriodType -&gt; QuotaPeriodType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. QuotaPeriodType -&gt; Rep QuotaPeriodType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368911"><span id="local-6989586621679368913"><span class="annot"><span class="annottext">Int -&gt; QuotaPeriodType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368920"><span id="local-6989586621679368922"><span class="annot"><span class="annottext">Int -&gt; QuotaPeriodType -&gt; Int
 QuotaPeriodType -&gt; Int
 (Int -&gt; QuotaPeriodType -&gt; Int)
 -&gt; (QuotaPeriodType -&gt; Int) -&gt; Hashable QuotaPeriodType
@@ -144,50 +144,50 @@ $chash :: QuotaPeriodType -&gt; Int
 hashWithSalt :: Int -&gt; QuotaPeriodType -&gt; Int
 $chashWithSalt :: Int -&gt; QuotaPeriodType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679368908"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679368917"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; ()
 (QuotaPeriodType -&gt; ()) -&gt; NFData QuotaPeriodType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: QuotaPeriodType -&gt; ()
 $crnf :: QuotaPeriodType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368905"><span class="annot"><span class="annottext">Text -&gt; Either String QuotaPeriodType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368914"><span class="annot"><span class="annottext">Text -&gt; Either String QuotaPeriodType
 (Text -&gt; Either String QuotaPeriodType) -&gt; FromText QuotaPeriodType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String QuotaPeriodType
 $cfromText :: Text -&gt; Either String QuotaPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368902"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368911"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; Text
 (QuotaPeriodType -&gt; Text) -&gt; ToText QuotaPeriodType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: QuotaPeriodType -&gt; Text
 $ctoText :: QuotaPeriodType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368899"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368908"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; ByteString
 (QuotaPeriodType -&gt; ByteString) -&gt; ToByteString QuotaPeriodType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: QuotaPeriodType -&gt; ByteString
 $ctoBS :: QuotaPeriodType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368896"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368905"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; ByteStringBuilder
 (QuotaPeriodType -&gt; ByteStringBuilder) -&gt; ToLog QuotaPeriodType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: QuotaPeriodType -&gt; ByteStringBuilder
 $cbuild :: QuotaPeriodType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368893"><span class="annot"><span class="annottext">HeaderName -&gt; QuotaPeriodType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368902"><span class="annot"><span class="annottext">HeaderName -&gt; QuotaPeriodType -&gt; [Header]
 (HeaderName -&gt; QuotaPeriodType -&gt; [Header])
 -&gt; ToHeader QuotaPeriodType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; QuotaPeriodType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; QuotaPeriodType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368890"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368899"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; QueryString
 (QuotaPeriodType -&gt; QueryString) -&gt; ToQuery QuotaPeriodType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: QuotaPeriodType -&gt; QueryString
 $ctoQuery :: QuotaPeriodType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368885"><span id="local-6989586621679368887"><span class="annot"><span class="annottext">Value -&gt; Parser [QuotaPeriodType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368894"><span id="local-6989586621679368896"><span class="annot"><span class="annottext">Value -&gt; Parser [QuotaPeriodType]
 Value -&gt; Parser QuotaPeriodType
 (Value -&gt; Parser QuotaPeriodType)
 -&gt; (Value -&gt; Parser [QuotaPeriodType]) -&gt; FromJSON QuotaPeriodType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [QuotaPeriodType]
 parseJSON :: Value -&gt; Parser QuotaPeriodType
 $cparseJSON :: Value -&gt; Parser QuotaPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368880"><span id="local-6989586621679368882"><span class="annot"><span class="annottext">FromJSONKeyFunction [QuotaPeriodType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368889"><span id="local-6989586621679368891"><span class="annot"><span class="annottext">FromJSONKeyFunction [QuotaPeriodType]
 FromJSONKeyFunction QuotaPeriodType
 FromJSONKeyFunction QuotaPeriodType
 -&gt; FromJSONKeyFunction [QuotaPeriodType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [QuotaPeriodType]
 fromJSONKey :: FromJSONKeyFunction QuotaPeriodType
 $cfromJSONKey :: FromJSONKeyFunction QuotaPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368871"><span id="local-6989586621679368873"><span id="local-6989586621679368875"><span id="local-6989586621679368877"><span class="annot"><span class="annottext">[QuotaPeriodType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368880"><span id="local-6989586621679368882"><span id="local-6989586621679368884"><span id="local-6989586621679368886"><span class="annot"><span class="annottext">[QuotaPeriodType] -&gt; Encoding
 [QuotaPeriodType] -&gt; Value
 QuotaPeriodType -&gt; Encoding
 QuotaPeriodType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: QuotaPeriodType -&gt; Encoding
 toJSON :: QuotaPeriodType -&gt; Value
 $ctoJSON :: QuotaPeriodType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368866"><span id="local-6989586621679368868"><span class="annot"><span class="annottext">ToJSONKeyFunction [QuotaPeriodType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368875"><span id="local-6989586621679368877"><span class="annot"><span class="annottext">ToJSONKeyFunction [QuotaPeriodType]
 ToJSONKeyFunction QuotaPeriodType
 ToJSONKeyFunction QuotaPeriodType
 -&gt; ToJSONKeyFunction [QuotaPeriodType] -&gt; ToJSONKey QuotaPeriodType
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [QuotaPeriodType]
 toJSONKey :: ToJSONKeyFunction QuotaPeriodType
 $ctoJSONKey :: ToJSONKeyFunction QuotaPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368863"><span class="annot"><span class="annottext">[Node] -&gt; Either String QuotaPeriodType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368872"><span class="annot"><span class="annottext">[Node] -&gt; Either String QuotaPeriodType
 ([Node] -&gt; Either String QuotaPeriodType)
 -&gt; FromXML QuotaPeriodType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String QuotaPeriodType
 $cparseXML :: [Node] -&gt; Either String QuotaPeriodType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679368860"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679368869"><span class="annot"><span class="annottext">QuotaPeriodType -&gt; XML
 (QuotaPeriodType -&gt; XML) -&gt; ToXML QuotaPeriodType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: QuotaPeriodType -&gt; XML

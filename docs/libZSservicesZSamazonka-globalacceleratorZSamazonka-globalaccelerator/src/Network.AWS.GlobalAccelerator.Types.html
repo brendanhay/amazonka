@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.GlobalAccelerator.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AssociatedListenerFoundException"><span class="hs-identifier">_AssociatedListenerFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointAlreadyExistsException"><span class="hs-identifier">_EndpointAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidArgumentException"><span class="hs-identifier">_InvalidArgumentException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AssociatedEndpointGroupFoundException"><span class="hs-identifier">_AssociatedEndpointGroupFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AcceleratorNotDisabledException"><span class="hs-identifier">_AcceleratorNotDisabledException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointNotFoundException"><span class="hs-identifier">_EndpointNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_ListenerNotFoundException"><span class="hs-identifier">_ListenerNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidNextTokenException"><span class="hs-identifier">_InvalidNextTokenException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InternalServiceErrorException"><span class="hs-identifier">_InternalServiceErrorException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointGroupAlreadyExistsException"><span class="hs-identifier">_EndpointGroupAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_ByoipCidrNotFoundException"><span class="hs-identifier">_ByoipCidrNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_IncorrectCidrStateException"><span class="hs-identifier">_IncorrectCidrStateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidPortRangeException"><span class="hs-identifier">_InvalidPortRangeException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointGroupNotFoundException"><span class="hs-identifier">_EndpointGroupNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AcceleratorNotFoundException"><span class="hs-identifier">_AcceleratorNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AcceleratorStatus</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorStatus.html#AcceleratorStatus"><span class="hs-identifier">AcceleratorStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ByoipCidrState</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier">ByoipCidrState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ClientAffinity</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ClientAffinity.html#ClientAffinity"><span class="hs-identifier">ClientAffinity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingAcceleratorStatus</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html#CustomRoutingAcceleratorStatus"><span class="hs-identifier">CustomRoutingAcceleratorStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingDestinationTrafficState</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState"><span class="hs-identifier">CustomRoutingDestinationTrafficState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingProtocol</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingProtocol.html#CustomRoutingProtocol"><span class="hs-identifier">CustomRoutingProtocol</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HealthCheckProtocol</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.HealthCheckProtocol.html#HealthCheckProtocol"><span class="hs-identifier">HealthCheckProtocol</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HealthState</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.HealthState.html#HealthState"><span class="hs-identifier">HealthState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IpAddressType</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier">IpAddressType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Protocol</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Protocol.html#Protocol"><span class="hs-identifier">Protocol</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Accelerator</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#Accelerator"><span class="hs-identifier">Accelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#newAccelerator"><span class="hs-identifier">newAccelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_status"><span class="hs-identifier">accelerator_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_acceleratorArn"><span class="hs-identifier">accelerator_acceleratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_enabled"><span class="hs-identifier">accelerator_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_createdTime"><span class="hs-identifier">accelerator_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_lastModifiedTime"><span class="hs-identifier">accelerator_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_ipAddressType"><span class="hs-identifier">accelerator_ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_name"><span class="hs-identifier">accelerator_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_ipSets"><span class="hs-identifier">accelerator_ipSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#accelerator_dnsName"><span class="hs-identifier">accelerator_dnsName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AcceleratorAttributes</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes.html#AcceleratorAttributes"><span class="hs-identifier">AcceleratorAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes.html#newAcceleratorAttributes"><span class="hs-identifier">newAcceleratorAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes.html#acceleratorAttributes_flowLogsS3Prefix"><span class="hs-identifier">acceleratorAttributes_flowLogsS3Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes.html#acceleratorAttributes_flowLogsEnabled"><span class="hs-identifier">acceleratorAttributes_flowLogsEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes.html#acceleratorAttributes_flowLogsS3Bucket"><span class="hs-identifier">acceleratorAttributes_flowLogsS3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ByoipCidr</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidr.html#ByoipCidr"><span class="hs-identifier">ByoipCidr</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidr.html#newByoipCidr"><span class="hs-identifier">newByoipCidr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidr.html#byoipCidr_state"><span class="hs-identifier">byoipCidr_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidr.html#byoipCidr_cidr"><span class="hs-identifier">byoipCidr_cidr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidr.html#byoipCidr_events"><span class="hs-identifier">byoipCidr_events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ByoipCidrEvent</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent.html#ByoipCidrEvent"><span class="hs-identifier">ByoipCidrEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent.html#newByoipCidrEvent"><span class="hs-identifier">newByoipCidrEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent.html#byoipCidrEvent_message"><span class="hs-identifier">byoipCidrEvent_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent.html#byoipCidrEvent_timestamp"><span class="hs-identifier">byoipCidrEvent_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CidrAuthorizationContext</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext.html#CidrAuthorizationContext"><span class="hs-identifier">CidrAuthorizationContext</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext.html#newCidrAuthorizationContext"><span class="hs-identifier">newCidrAuthorizationContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext.html#cidrAuthorizationContext_message"><span class="hs-identifier">cidrAuthorizationContext_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext.html#cidrAuthorizationContext_signature"><span class="hs-identifier">cidrAuthorizationContext_signature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingAccelerator</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#CustomRoutingAccelerator"><span class="hs-identifier">CustomRoutingAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#newCustomRoutingAccelerator"><span class="hs-identifier">newCustomRoutingAccelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_status"><span class="hs-identifier">customRoutingAccelerator_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_acceleratorArn"><span class="hs-identifier">customRoutingAccelerator_acceleratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_enabled"><span class="hs-identifier">customRoutingAccelerator_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_createdTime"><span class="hs-identifier">customRoutingAccelerator_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_lastModifiedTime"><span class="hs-identifier">customRoutingAccelerator_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_ipAddressType"><span class="hs-identifier">customRoutingAccelerator_ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_name"><span class="hs-identifier">customRoutingAccelerator_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_ipSets"><span class="hs-identifier">customRoutingAccelerator_ipSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html#customRoutingAccelerator_dnsName"><span class="hs-identifier">customRoutingAccelerator_dnsName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingAcceleratorAttributes</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes.html#CustomRoutingAcceleratorAttributes"><span class="hs-identifier">CustomRoutingAcceleratorAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes.html#newCustomRoutingAcceleratorAttributes"><span class="hs-identifier">newCustomRoutingAcceleratorAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes.html#customRoutingAcceleratorAttributes_flowLogsS3Prefix"><span class="hs-identifier">customRoutingAcceleratorAttributes_flowLogsS3Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes.html#customRoutingAcceleratorAttributes_flowLogsEnabled"><span class="hs-identifier">customRoutingAcceleratorAttributes_flowLogsEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes.html#customRoutingAcceleratorAttributes_flowLogsS3Bucket"><span class="hs-identifier">customRoutingAcceleratorAttributes_flowLogsS3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingDestinationConfiguration</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration.html#CustomRoutingDestinationConfiguration"><span class="hs-identifier">CustomRoutingDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration.html#newCustomRoutingDestinationConfiguration"><span class="hs-identifier">newCustomRoutingDestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration.html#customRoutingDestinationConfiguration_fromPort"><span class="hs-identifier">customRoutingDestinationConfiguration_fromPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration.html#customRoutingDestinationConfiguration_toPort"><span class="hs-identifier">customRoutingDestinationConfiguration_toPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration.html#customRoutingDestinationConfiguration_protocols"><span class="hs-identifier">customRoutingDestinationConfiguration_protocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingDestinationDescription</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription.html#CustomRoutingDestinationDescription"><span class="hs-identifier">CustomRoutingDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription.html#newCustomRoutingDestinationDescription"><span class="hs-identifier">newCustomRoutingDestinationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription.html#customRoutingDestinationDescription_fromPort"><span class="hs-identifier">customRoutingDestinationDescription_fromPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription.html#customRoutingDestinationDescription_protocols"><span class="hs-identifier">customRoutingDestinationDescription_protocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription.html#customRoutingDestinationDescription_toPort"><span class="hs-identifier">customRoutingDestinationDescription_toPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingEndpointConfiguration</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration.html#CustomRoutingEndpointConfiguration"><span class="hs-identifier">CustomRoutingEndpointConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration.html#newCustomRoutingEndpointConfiguration"><span class="hs-identifier">newCustomRoutingEndpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration.html#customRoutingEndpointConfiguration_endpointId"><span class="hs-identifier">customRoutingEndpointConfiguration_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingEndpointDescription</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription.html#CustomRoutingEndpointDescription"><span class="hs-identifier">CustomRoutingEndpointDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription.html#newCustomRoutingEndpointDescription"><span class="hs-identifier">newCustomRoutingEndpointDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription.html#customRoutingEndpointDescription_endpointId"><span class="hs-identifier">customRoutingEndpointDescription_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingEndpointGroup</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup.html#CustomRoutingEndpointGroup"><span class="hs-identifier">CustomRoutingEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup.html#newCustomRoutingEndpointGroup"><span class="hs-identifier">newCustomRoutingEndpointGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup.html#customRoutingEndpointGroup_endpointGroupArn"><span class="hs-identifier">customRoutingEndpointGroup_endpointGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup.html#customRoutingEndpointGroup_endpointGroupRegion"><span class="hs-identifier">customRoutingEndpointGroup_endpointGroupRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup.html#customRoutingEndpointGroup_endpointDescriptions"><span class="hs-identifier">customRoutingEndpointGroup_endpointDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup.html#customRoutingEndpointGroup_destinationDescriptions"><span class="hs-identifier">customRoutingEndpointGroup_destinationDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomRoutingListener</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingListener.html#CustomRoutingListener"><span class="hs-identifier">CustomRoutingListener</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingListener.html#newCustomRoutingListener"><span class="hs-identifier">newCustomRoutingListener</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingListener.html#customRoutingListener_portRanges"><span class="hs-identifier">customRoutingListener_portRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingListener.html#customRoutingListener_listenerArn"><span class="hs-identifier">customRoutingListener_listenerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DestinationPortMapping</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#DestinationPortMapping"><span class="hs-identifier">DestinationPortMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#newDestinationPortMapping"><span class="hs-identifier">newDestinationPortMapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_destinationSocketAddress"><span class="hs-identifier">destinationPortMapping_destinationSocketAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_acceleratorArn"><span class="hs-identifier">destinationPortMapping_acceleratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_endpointGroupArn"><span class="hs-identifier">destinationPortMapping_endpointGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_endpointGroupRegion"><span class="hs-identifier">destinationPortMapping_endpointGroupRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_ipAddressType"><span class="hs-identifier">destinationPortMapping_ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_acceleratorSocketAddresses"><span class="hs-identifier">destinationPortMapping_acceleratorSocketAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_endpointId"><span class="hs-identifier">destinationPortMapping_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html#destinationPortMapping_destinationTrafficState"><span class="hs-identifier">destinationPortMapping_destinationTrafficState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EndpointConfiguration</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier">EndpointConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointConfiguration.html#newEndpointConfiguration"><span class="hs-identifier">newEndpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointConfiguration.html#endpointConfiguration_weight"><span class="hs-identifier">endpointConfiguration_weight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointConfiguration.html#endpointConfiguration_clientIPPreservationEnabled"><span class="hs-identifier">endpointConfiguration_clientIPPreservationEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointConfiguration.html#endpointConfiguration_endpointId"><span class="hs-identifier">endpointConfiguration_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EndpointDescription</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html#EndpointDescription"><span class="hs-identifier">EndpointDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html#newEndpointDescription"><span class="hs-identifier">newEndpointDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html#endpointDescription_healthReason"><span class="hs-identifier">endpointDescription_healthReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html#endpointDescription_weight"><span class="hs-identifier">endpointDescription_weight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html#endpointDescription_clientIPPreservationEnabled"><span class="hs-identifier">endpointDescription_clientIPPreservationEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html#endpointDescription_healthState"><span class="hs-identifier">endpointDescription_healthState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html#endpointDescription_endpointId"><span class="hs-identifier">endpointDescription_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EndpointGroup</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#EndpointGroup"><span class="hs-identifier">EndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#newEndpointGroup"><span class="hs-identifier">newEndpointGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_thresholdCount"><span class="hs-identifier">endpointGroup_thresholdCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_healthCheckPath"><span class="hs-identifier">endpointGroup_healthCheckPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_healthCheckIntervalSeconds"><span class="hs-identifier">endpointGroup_healthCheckIntervalSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_endpointGroupArn"><span class="hs-identifier">endpointGroup_endpointGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_healthCheckProtocol"><span class="hs-identifier">endpointGroup_healthCheckProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_endpointGroupRegion"><span class="hs-identifier">endpointGroup_endpointGroupRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_trafficDialPercentage"><span class="hs-identifier">endpointGroup_trafficDialPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_healthCheckPort"><span class="hs-identifier">endpointGroup_healthCheckPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_portOverrides"><span class="hs-identifier">endpointGroup_portOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html#endpointGroup_endpointDescriptions"><span class="hs-identifier">endpointGroup_endpointDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IpSet</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.IpSet.html#IpSet"><span class="hs-identifier">IpSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.IpSet.html#newIpSet"><span class="hs-identifier">newIpSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.IpSet.html#ipSet_ipFamily"><span class="hs-identifier">ipSet_ipFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.IpSet.html#ipSet_ipAddresses"><span class="hs-identifier">ipSet_ipAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Listener</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Listener.html#newListener"><span class="hs-identifier">newListener</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Listener.html#listener_portRanges"><span class="hs-identifier">listener_portRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Listener.html#listener_listenerArn"><span class="hs-identifier">listener_listenerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Listener.html#listener_protocol"><span class="hs-identifier">listener_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Listener.html#listener_clientAffinity"><span class="hs-identifier">listener_clientAffinity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PortMapping</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#PortMapping"><span class="hs-identifier">PortMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#newPortMapping"><span class="hs-identifier">newPortMapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#portMapping_destinationSocketAddress"><span class="hs-identifier">portMapping_destinationSocketAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#portMapping_protocols"><span class="hs-identifier">portMapping_protocols</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#portMapping_endpointGroupArn"><span class="hs-identifier">portMapping_endpointGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#portMapping_endpointId"><span class="hs-identifier">portMapping_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#portMapping_destinationTrafficState"><span class="hs-identifier">portMapping_destinationTrafficState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html#portMapping_acceleratorPort"><span class="hs-identifier">portMapping_acceleratorPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PortOverride</span></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortOverride.html#PortOverride"><span class="hs-identifier">PortOverride</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortOverride.html#newPortOverride"><span class="hs-identifier">newPortOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortOverride.html#portOverride_endpointPort"><span class="hs-identifier">portOverride_endpointPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortOverride.html#portOverride_listenerPort"><span class="hs-identifier">portOverride_listenerPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PortRange</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html#PortRange"><span class="hs-identifier">PortRange</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html#newPortRange"><span class="hs-identifier">newPortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html#portRange_fromPort"><span class="hs-identifier">portRange_fromPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html#portRange_toPort"><span class="hs-identifier">portRange_toPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SocketAddress</span></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.SocketAddress.html#SocketAddress"><span class="hs-identifier">SocketAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.SocketAddress.html#newSocketAddress"><span class="hs-identifier">newSocketAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.SocketAddress.html#socketAddress_ipAddress"><span class="hs-identifier">socketAddress_ipAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.SocketAddress.html#socketAddress_port"><span class="hs-identifier">socketAddress_port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.Accelerator</span></a></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes</span></a></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.AcceleratorStatus.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.AcceleratorStatus</span></a></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidr.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.ByoipCidr</span></a></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent</span></a></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ByoipCidrState.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.ByoipCidrState</span></a></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext</span></a></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.ClientAffinity.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.ClientAffinity</span></a></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes</span></a></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus</span></a></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration</span></a></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription</span></a></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState</span></a></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration</span></a></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription</span></a></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup</span></a></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingListener.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingListener</span></a></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingProtocol.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingProtocol</span></a></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.DestinationPortMapping.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.DestinationPortMapping</span></a></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointConfiguration.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.EndpointConfiguration</span></a></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointDescription.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.EndpointDescription</span></a></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.EndpointGroup.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.EndpointGroup</span></a></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.HealthCheckProtocol.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.HealthCheckProtocol</span></a></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.HealthState.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.HealthState</span></a></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.IpAddressType.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.IpAddressType</span></a></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.IpSet.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.IpSet</span></a></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Listener.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.Listener</span></a></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortMapping.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.PortMapping</span></a></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortOverride.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.PortOverride</span></a></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.PortRange</span></a></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Protocol.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.Protocol</span></a></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.SocketAddress.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.SocketAddress</span></a></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Tag.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.Tag</span></a></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | API version @2018-08-08@ of the Amazon Global Accelerator SDK configuration.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-299"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;GlobalAccelerator&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;globalaccelerator&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;globalaccelerator&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2018-08-08&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-308"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-312"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;GlobalAccelerator&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679239797"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-315"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-316"></span><span>    </span><span id="local-6989586621679239797"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679239797"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-318"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679239791"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-322"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-323"></span><span>    </span><span id="local-6989586621679239791"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679239791"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679239790"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-324"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-325"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-326"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-327"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-330"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-332"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-333"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-334"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-335"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-337"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-338"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-339"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-341"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-343"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-344"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-345"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-346"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-347"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-348"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-350"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-351"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-352"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-353"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-354"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-355"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-356"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-359"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-360"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-361"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-362"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-363"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-364"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-365"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-366"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-367"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-368"></span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- | You don\'t have access permission.</span><span>
+</span><span id="line-370"></span><span id="local-6989586621679239785"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239785"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239785"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-371"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-372"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-373"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-374"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | The accelerator that you specified has a listener associated with it.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- You must remove all dependent resources from an accelerator before you</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- can delete it.</span><span>
+</span><span id="line-379"></span><span id="local-6989586621679239783"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AssociatedListenerFoundException"><span class="hs-identifier hs-type">_AssociatedListenerFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239783"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239783"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-380"></span><span id="_AssociatedListenerFoundException"><span class="annot"><span class="annottext">_AssociatedListenerFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_AssociatedListenerFoundException"><span class="hs-identifier hs-var hs-var">_AssociatedListenerFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-381"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-382"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-383"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AssociatedListenerFoundException&quot;</span></span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- | The endpoint that you specified doesn\'t exist.</span><span>
+</span><span id="line-386"></span><span id="local-6989586621679239782"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointAlreadyExistsException"><span class="hs-identifier hs-type">_EndpointAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239782"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239782"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-387"></span><span id="_EndpointAlreadyExistsException"><span class="annot"><span class="annottext">_EndpointAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_EndpointAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-388"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;EndpointAlreadyExistsException&quot;</span></span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- | An argument that you specified is invalid.</span><span>
+</span><span id="line-393"></span><span id="local-6989586621679239781"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidArgumentException"><span class="hs-identifier hs-type">_InvalidArgumentException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239781"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239781"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-394"></span><span id="_InvalidArgumentException"><span class="annot"><span class="annottext">_InvalidArgumentException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidArgumentException"><span class="hs-identifier hs-var hs-var">_InvalidArgumentException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-395"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-396"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidArgumentException&quot;</span></span><span>
+</span><span id="line-398"></span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- | The listener that you specified has an endpoint group associated with</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- it. You must remove all dependent resources from a listener before you</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- can delete it.</span><span>
+</span><span id="line-402"></span><span id="local-6989586621679239780"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AssociatedEndpointGroupFoundException"><span class="hs-identifier hs-type">_AssociatedEndpointGroupFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239780"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239780"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-403"></span><span id="_AssociatedEndpointGroupFoundException"><span class="annot"><span class="annottext">_AssociatedEndpointGroupFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_AssociatedEndpointGroupFoundException"><span class="hs-identifier hs-var hs-var">_AssociatedEndpointGroupFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-404"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-405"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-406"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AssociatedEndpointGroupFoundException&quot;</span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- | The accelerator that you specified could not be disabled.</span><span>
+</span><span id="line-409"></span><span id="local-6989586621679239779"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AcceleratorNotDisabledException"><span class="hs-identifier hs-type">_AcceleratorNotDisabledException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239779"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239779"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-410"></span><span id="_AcceleratorNotDisabledException"><span class="annot"><span class="annottext">_AcceleratorNotDisabledException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_AcceleratorNotDisabledException"><span class="hs-identifier hs-var hs-var">_AcceleratorNotDisabledException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-411"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-412"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-413"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AcceleratorNotDisabledException&quot;</span></span><span>
+</span><span id="line-414"></span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- | You can\'t use both of those options.</span><span>
+</span><span id="line-416"></span><span id="local-6989586621679239778"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239778"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239778"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-417"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-418"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-420"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | The endpoint that you specified doesn\'t exist.</span><span>
+</span><span id="line-423"></span><span id="local-6989586621679239777"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointNotFoundException"><span class="hs-identifier hs-type">_EndpointNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239777"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239777"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-424"></span><span id="_EndpointNotFoundException"><span class="annot"><span class="annottext">_EndpointNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointNotFoundException"><span class="hs-identifier hs-var hs-var">_EndpointNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-425"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-427"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;EndpointNotFoundException&quot;</span></span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- | The listener that you specified doesn\'t exist.</span><span>
+</span><span id="line-430"></span><span id="local-6989586621679239776"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_ListenerNotFoundException"><span class="hs-identifier hs-type">_ListenerNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239776"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239776"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-431"></span><span id="_ListenerNotFoundException"><span class="annot"><span class="annottext">_ListenerNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_ListenerNotFoundException"><span class="hs-identifier hs-var hs-var">_ListenerNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-432"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-434"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ListenerNotFoundException&quot;</span></span><span>
+</span><span id="line-435"></span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- | There isn\'t another item to return.</span><span>
+</span><span id="line-437"></span><span id="local-6989586621679239775"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-type">_InvalidNextTokenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239775"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239775"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-438"></span><span id="_InvalidNextTokenException"><span class="annot"><span class="annottext">_InvalidNextTokenException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-var hs-var">_InvalidNextTokenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-439"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-441"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidNextTokenException&quot;</span></span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- | There was an internal error for AWS Global Accelerator.</span><span>
+</span><span id="line-444"></span><span id="local-6989586621679239774"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InternalServiceErrorException"><span class="hs-identifier hs-type">_InternalServiceErrorException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239774"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239774"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-445"></span><span id="_InternalServiceErrorException"><span class="annot"><span class="annottext">_InternalServiceErrorException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_InternalServiceErrorException"><span class="hs-identifier hs-var hs-var">_InternalServiceErrorException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-446"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-447"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServiceErrorException&quot;</span></span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- | The endpoint group that you specified already exists.</span><span>
+</span><span id="line-451"></span><span id="local-6989586621679239773"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointGroupAlreadyExistsException"><span class="hs-identifier hs-type">_EndpointGroupAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239773"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239773"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-452"></span><span id="_EndpointGroupAlreadyExistsException"><span class="annot"><span class="annottext">_EndpointGroupAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointGroupAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_EndpointGroupAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-453"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-455"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;EndpointGroupAlreadyExistsException&quot;</span></span><span>
+</span><span id="line-456"></span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- | The CIDR that you specified was not found or is incorrect.</span><span>
+</span><span id="line-458"></span><span id="local-6989586621679239772"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_ByoipCidrNotFoundException"><span class="hs-identifier hs-type">_ByoipCidrNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239772"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239772"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-459"></span><span id="_ByoipCidrNotFoundException"><span class="annot"><span class="annottext">_ByoipCidrNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_ByoipCidrNotFoundException"><span class="hs-identifier hs-var hs-var">_ByoipCidrNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-460"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ByoipCidrNotFoundException&quot;</span></span><span>
+</span><span id="line-463"></span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- | The CIDR that you specified is not valid for this action. For example,</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- the state of the CIDR might be incorrect for this action.</span><span>
+</span><span id="line-466"></span><span id="local-6989586621679239771"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_IncorrectCidrStateException"><span class="hs-identifier hs-type">_IncorrectCidrStateException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239771"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239771"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-467"></span><span id="_IncorrectCidrStateException"><span class="annot"><span class="annottext">_IncorrectCidrStateException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_IncorrectCidrStateException"><span class="hs-identifier hs-var hs-var">_IncorrectCidrStateException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-468"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-469"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-470"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;IncorrectCidrStateException&quot;</span></span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- | The port numbers that you specified are not valid numbers or are not</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- unique for this accelerator.</span><span>
+</span><span id="line-474"></span><span id="local-6989586621679239770"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidPortRangeException"><span class="hs-identifier hs-type">_InvalidPortRangeException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239770"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239770"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-475"></span><span id="_InvalidPortRangeException"><span class="annot"><span class="annottext">_InvalidPortRangeException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_InvalidPortRangeException"><span class="hs-identifier hs-var hs-var">_InvalidPortRangeException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-476"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-477"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidPortRangeException&quot;</span></span><span>
+</span><span id="line-479"></span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- | The endpoint group that you specified doesn\'t exist.</span><span>
+</span><span id="line-481"></span><span id="local-6989586621679239769"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointGroupNotFoundException"><span class="hs-identifier hs-type">_EndpointGroupNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239769"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239769"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-482"></span><span id="_EndpointGroupNotFoundException"><span class="annot"><span class="annottext">_EndpointGroupNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_EndpointGroupNotFoundException"><span class="hs-identifier hs-var hs-var">_EndpointGroupNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-483"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;EndpointGroupNotFoundException&quot;</span></span><span>
+</span><span id="line-486"></span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- | The accelerator that you specified doesn\'t exist.</span><span>
+</span><span id="line-488"></span><span id="local-6989586621679239768"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_AcceleratorNotFoundException"><span class="hs-identifier hs-type">_AcceleratorNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239768"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239768"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-489"></span><span id="_AcceleratorNotFoundException"><span class="annot"><span class="annottext">_AcceleratorNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_AcceleratorNotFoundException"><span class="hs-identifier hs-var hs-var">_AcceleratorNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-490"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-491"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-492"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AcceleratorNotFoundException&quot;</span></span><span>
+</span><span id="line-493"></span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- | Processing your request would cause you to exceed an AWS Global</span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- Accelerator limit.</span><span>
+</span><span id="line-496"></span><span id="local-6989586621679239767"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239767"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239767"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-497"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-498"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-499"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-500"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-501"></span></pre></body></html>

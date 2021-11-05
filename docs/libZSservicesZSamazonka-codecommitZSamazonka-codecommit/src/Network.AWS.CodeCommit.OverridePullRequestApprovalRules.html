@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newOverridePullRequestApprovalRules' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679359279"><span id="local-6989586621679359280"></span></span><span class="hs-keyword">data</span><span> </span><span id="OverridePullRequestApprovalRules"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-var">OverridePullRequestApprovalRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OverridePullRequestApprovalRules%27"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">OverridePullRequestApprovalRules'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679359288"><span id="local-6989586621679359289"></span></span><span class="hs-keyword">data</span><span> </span><span id="OverridePullRequestApprovalRules"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-var">OverridePullRequestApprovalRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OverridePullRequestApprovalRules%27"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">OverridePullRequestApprovalRules'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated ID of the pull request for which you want to</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- override all approval rule requirements. To get this information, use</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- GetPullRequest.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AoverrideStatus%3AOverridePullRequestApprovalRules%27"><span class="annot"><span class="annottext">OverridePullRequestApprovalRules -&gt; OverrideStatus
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#%24sel%3AoverrideStatus%3AOverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var hs-var">overrideStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OverrideStatus.html#OverrideStatus"><span class="hs-identifier hs-type">OverrideStatus</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359271"><span id="local-6989586621679359273"><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359280"><span id="local-6989586621679359282"><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
 -&gt; OverridePullRequestApprovalRules -&gt; Bool
 (OverridePullRequestApprovalRules
  -&gt; OverridePullRequestApprovalRules -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: OverridePullRequestApprovalRules
 -&gt; OverridePullRequestApprovalRules -&gt; Bool
 $c== :: OverridePullRequestApprovalRules
 -&gt; OverridePullRequestApprovalRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359262"><span id="local-6989586621679359264"><span id="local-6989586621679359266"><span id="local-6989586621679359268"><span class="annot"><span class="annottext">ReadPrec [OverridePullRequestApprovalRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359271"><span id="local-6989586621679359273"><span id="local-6989586621679359275"><span id="local-6989586621679359277"><span class="annot"><span class="annottext">ReadPrec [OverridePullRequestApprovalRules]
 ReadPrec OverridePullRequestApprovalRules
 Int -&gt; ReadS OverridePullRequestApprovalRules
 ReadS [OverridePullRequestApprovalRules]
@@ -99,7 +99,7 @@ readList :: ReadS [OverridePullRequestApprovalRules]
 $creadList :: ReadS [OverridePullRequestApprovalRules]
 readsPrec :: Int -&gt; ReadS OverridePullRequestApprovalRules
 $creadsPrec :: Int -&gt; ReadS OverridePullRequestApprovalRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359255"><span id="local-6989586621679359257"><span id="local-6989586621679359259"><span class="annot"><span class="annottext">Int -&gt; OverridePullRequestApprovalRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359264"><span id="local-6989586621679359266"><span id="local-6989586621679359268"><span class="annot"><span class="annottext">Int -&gt; OverridePullRequestApprovalRules -&gt; ShowS
 [OverridePullRequestApprovalRules] -&gt; ShowS
 OverridePullRequestApprovalRules -&gt; String
 (Int -&gt; OverridePullRequestApprovalRules -&gt; ShowS)
@@ -166,24 +166,24 @@ OverridePullRequestApprovalRules
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span>
 </span><span id="line-92"></span><span id="newOverridePullRequestApprovalRules"><span class="annot"><span class="annottext">newOverridePullRequestApprovalRules :: Text -&gt; Text -&gt; OverrideStatus -&gt; OverridePullRequestApprovalRules
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#newOverridePullRequestApprovalRules"><span class="hs-identifier hs-var hs-var">newOverridePullRequestApprovalRules</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679359250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359250"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679359249"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359249"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679359248"><span class="annot"><span class="annottext">OverrideStatus
-</span><a href="#local-6989586621679359248"><span class="hs-identifier hs-var">pOverrideStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679359259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359259"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679359258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359258"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679359257"><span class="annot"><span class="annottext">OverrideStatus
+</span><a href="#local-6989586621679359257"><span class="hs-identifier hs-var">pOverrideStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">OverridePullRequestApprovalRules' :: Text -&gt; Text -&gt; OverrideStatus -&gt; OverridePullRequestApprovalRules
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pullRequestId:OverridePullRequestApprovalRules' :: Text
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#%24sel%3ApullRequestId%3AOverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359250"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679359259"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:revisionId:OverridePullRequestApprovalRules' :: Text
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#%24sel%3ArevisionId%3AOverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359249"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679359258"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:overrideStatus:OverridePullRequestApprovalRules' :: OverrideStatus
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#%24sel%3AoverrideStatus%3AOverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">overrideStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OverrideStatus
-</span><a href="#local-6989586621679359248"><span class="hs-identifier hs-var">pOverrideStatus_</span></a></span><span>
+</span><a href="#local-6989586621679359257"><span class="hs-identifier hs-var">pOverrideStatus_</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The system-generated ID of the pull request for which you want to</span><span>
@@ -202,16 +202,16 @@ OverridePullRequestApprovalRules
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359245"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359254"><span class="annot"><span class="annottext">Text
 pullRequestId :: Text
 $sel:pullRequestId:OverridePullRequestApprovalRules' :: OverridePullRequestApprovalRules -&gt; Text
-</span><a href="#local-6989586621679359245"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359245"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359244"><span class="annot"><span class="annottext">s :: OverridePullRequestApprovalRules
-</span><a href="#local-6989586621679359244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359243"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
-</span><a href="#local-6989586621679359244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:OverridePullRequestApprovalRules' :: Text
+</span><a href="#local-6989586621679359254"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359254"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359253"><span class="annot"><span class="annottext">s :: OverridePullRequestApprovalRules
+</span><a href="#local-6989586621679359253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
+</span><a href="#local-6989586621679359253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:OverridePullRequestApprovalRules' :: Text
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#%24sel%3ApullRequestId%3AOverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The system-generated ID of the most recent revision of the pull request.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- You cannot override approval rules for anything but the most recent</span><span>
@@ -229,16 +229,16 @@ $sel:pullRequestId:OverridePullRequestApprovalRules' :: OverridePullRequestAppro
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359242"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359251"><span class="annot"><span class="annottext">Text
 revisionId :: Text
 $sel:revisionId:OverridePullRequestApprovalRules' :: OverridePullRequestApprovalRules -&gt; Text
-</span><a href="#local-6989586621679359242"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359242"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359241"><span class="annot"><span class="annottext">s :: OverridePullRequestApprovalRules
-</span><a href="#local-6989586621679359241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
-</span><a href="#local-6989586621679359241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:OverridePullRequestApprovalRules' :: Text
+</span><a href="#local-6989586621679359251"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359251"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359250"><span class="annot"><span class="annottext">s :: OverridePullRequestApprovalRules
+</span><a href="#local-6989586621679359250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
+</span><a href="#local-6989586621679359250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:OverridePullRequestApprovalRules' :: Text
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#%24sel%3ArevisionId%3AOverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Whether you want to set aside approval rule requirements for the pull</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- request (OVERRIDE) or revoke a previous override and apply approval rule</span><span>
@@ -256,16 +256,16 @@ $sel:revisionId:OverridePullRequestApprovalRules' :: OverridePullRequestApproval
      OverrideStatus
      OverrideStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359239"><span class="annot"><span class="annottext">OverrideStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359248"><span class="annot"><span class="annottext">OverrideStatus
 overrideStatus :: OverrideStatus
 $sel:overrideStatus:OverridePullRequestApprovalRules' :: OverridePullRequestApprovalRules -&gt; OverrideStatus
-</span><a href="#local-6989586621679359239"><span class="hs-identifier hs-var hs-var">overrideStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverrideStatus
-</span><a href="#local-6989586621679359239"><span class="hs-identifier hs-var">overrideStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359238"><span class="annot"><span class="annottext">s :: OverridePullRequestApprovalRules
-</span><a href="#local-6989586621679359238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359237"><span class="annot"><span class="annottext">OverrideStatus
-</span><a href="#local-6989586621679359237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
-</span><a href="#local-6989586621679359238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrideStatus:OverridePullRequestApprovalRules' :: OverrideStatus
+</span><a href="#local-6989586621679359248"><span class="hs-identifier hs-var hs-var">overrideStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverrideStatus
+</span><a href="#local-6989586621679359248"><span class="hs-identifier hs-var">overrideStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359247"><span class="annot"><span class="annottext">s :: OverridePullRequestApprovalRules
+</span><a href="#local-6989586621679359247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359246"><span class="annot"><span class="annottext">OverrideStatus
+</span><a href="#local-6989586621679359246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OverridePullRequestApprovalRules
+</span><a href="#local-6989586621679359247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrideStatus:OverridePullRequestApprovalRules' :: OverrideStatus
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#%24sel%3AoverrideStatus%3AOverridePullRequestApprovalRules%27"><span class="hs-identifier hs-var">overrideStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OverrideStatus
-</span><a href="#local-6989586621679359237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -274,7 +274,7 @@ $sel:overrideStatus:OverridePullRequestApprovalRules' :: OverridePullRequestAppr
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">OverridePullRequestApprovalRulesResponse</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679359233"><span class="annot"><span class="annottext">request :: OverridePullRequestApprovalRules
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679359242"><span class="annot"><span class="annottext">request :: OverridePullRequestApprovalRules
 -&gt; Request OverridePullRequestApprovalRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; OverridePullRequestApprovalRules
@@ -282,7 +282,7 @@ $sel:overrideStatus:OverridePullRequestApprovalRules' :: OverridePullRequestAppr
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679359229"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679359238"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy OverridePullRequestApprovalRules
 -&gt; ClientResponse ClientBody
@@ -312,18 +312,18 @@ OverridePullRequestApprovalRulesResponse
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">OverridePullRequestApprovalRulesResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679359222"><span id="local-6989586621679359224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679359231"><span id="local-6989586621679359233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679359219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679359228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679359215"><span class="annot"><span class="annottext">toHeaders :: OverridePullRequestApprovalRules -&gt; [Header]
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679359224"><span class="annot"><span class="annottext">toHeaders :: OverridePullRequestApprovalRules -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; OverridePullRequestApprovalRules -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -350,9 +350,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359205"><span id="local-6989586621679359207"><span id="local-6989586621679359209"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679359203"><span class="annot"><span class="annottext">toJSON :: OverridePullRequestApprovalRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359199"><span id="local-6989586621679359200"><span id="local-6989586621679359201"><span class="annot"><span class="annottext">Text
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359214"><span id="local-6989586621679359216"><span id="local-6989586621679359218"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679359212"><span class="annot"><span class="annottext">toJSON :: OverridePullRequestApprovalRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules%27"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359208"><span id="local-6989586621679359209"><span id="local-6989586621679359210"><span class="annot"><span class="annottext">Text
 OverrideStatus
 overrideStatus :: OverrideStatus
 revisionId :: Text
@@ -360,7 +360,7 @@ pullRequestId :: Text
 $sel:overrideStatus:OverridePullRequestApprovalRules' :: OverridePullRequestApprovalRules -&gt; OverrideStatus
 $sel:revisionId:OverridePullRequestApprovalRules' :: OverridePullRequestApprovalRules -&gt; Text
 $sel:pullRequestId:OverridePullRequestApprovalRules' :: OverridePullRequestApprovalRules -&gt; Text
-</span><a href="#local-6989586621679359199"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679359208"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -373,14 +373,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359201"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679359210"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359200"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679359209"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -388,12 +388,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;overrideStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OverrideStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OverrideStatus
-</span><a href="#local-6989586621679359199"><span class="hs-identifier hs-var">overrideStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359208"><span class="hs-identifier hs-var">overrideStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679359193"><span class="annot"><span class="annottext">toPath :: OverridePullRequestApprovalRules -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679359202"><span class="annot"><span class="annottext">toPath :: OverridePullRequestApprovalRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; OverridePullRequestApprovalRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -403,7 +403,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRules"><span class="hs-identifier hs-type">OverridePullRequestApprovalRules</span></a></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679359189"><span class="annot"><span class="annottext">toQuery :: OverridePullRequestApprovalRules -&gt; QueryString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679359198"><span class="annot"><span class="annottext">toQuery :: OverridePullRequestApprovalRules -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; OverridePullRequestApprovalRules -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -411,10 +411,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newOverridePullRequestApprovalRulesResponse' smart constructor.</span><span>
-</span><span id="line-181"></span><span id="local-6989586621679359186"><span id="local-6989586621679359187"></span></span><span class="hs-keyword">data</span><span> </span><span id="OverridePullRequestApprovalRulesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse"><span class="hs-identifier hs-var">OverridePullRequestApprovalRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OverridePullRequestApprovalRulesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">OverridePullRequestApprovalRulesResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span id="local-6989586621679359195"><span id="local-6989586621679359196"></span></span><span class="hs-keyword">data</span><span> </span><span id="OverridePullRequestApprovalRulesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse"><span class="hs-identifier hs-var">OverridePullRequestApprovalRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OverridePullRequestApprovalRulesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">OverridePullRequestApprovalRulesResponse'</span></a></span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359182"><span id="local-6989586621679359184"><span class="annot"><span class="annottext">OverridePullRequestApprovalRulesResponse
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359191"><span id="local-6989586621679359193"><span class="annot"><span class="annottext">OverridePullRequestApprovalRulesResponse
 -&gt; OverridePullRequestApprovalRulesResponse -&gt; Bool
 (OverridePullRequestApprovalRulesResponse
  -&gt; OverridePullRequestApprovalRulesResponse -&gt; Bool)
@@ -430,7 +430,7 @@ $c/= :: OverridePullRequestApprovalRulesResponse
 -&gt; OverridePullRequestApprovalRulesResponse -&gt; Bool
 $c== :: OverridePullRequestApprovalRulesResponse
 -&gt; OverridePullRequestApprovalRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359174"><span id="local-6989586621679359176"><span id="local-6989586621679359178"><span id="local-6989586621679359180"><span class="annot"><span class="annottext">ReadPrec [OverridePullRequestApprovalRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359183"><span id="local-6989586621679359185"><span id="local-6989586621679359187"><span id="local-6989586621679359189"><span class="annot"><span class="annottext">ReadPrec [OverridePullRequestApprovalRulesResponse]
 ReadPrec OverridePullRequestApprovalRulesResponse
 Int -&gt; ReadS OverridePullRequestApprovalRulesResponse
 ReadS [OverridePullRequestApprovalRulesResponse]
@@ -450,7 +450,7 @@ readList :: ReadS [OverridePullRequestApprovalRulesResponse]
 $creadList :: ReadS [OverridePullRequestApprovalRulesResponse]
 readsPrec :: Int -&gt; ReadS OverridePullRequestApprovalRulesResponse
 $creadsPrec :: Int -&gt; ReadS OverridePullRequestApprovalRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359168"><span id="local-6989586621679359170"><span id="local-6989586621679359172"><span class="annot"><span class="annottext">Int -&gt; OverridePullRequestApprovalRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359177"><span id="local-6989586621679359179"><span id="local-6989586621679359181"><span class="annot"><span class="annottext">Int -&gt; OverridePullRequestApprovalRulesResponse -&gt; ShowS
 [OverridePullRequestApprovalRulesResponse] -&gt; ShowS
 OverridePullRequestApprovalRulesResponse -&gt; String
 (Int -&gt; OverridePullRequestApprovalRulesResponse -&gt; ShowS)
@@ -500,6 +500,6 @@ OverridePullRequestApprovalRulesResponse
 </span><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse%27"><span class="hs-identifier hs-var">OverridePullRequestApprovalRulesResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679359164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679359173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.OverridePullRequestApprovalRules.html#OverridePullRequestApprovalRulesResponse"><span class="hs-identifier hs-type">OverridePullRequestApprovalRulesResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

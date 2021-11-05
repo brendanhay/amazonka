@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- effective tag policy, including details on any noncompliant tag keys.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newComplianceDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679156143"><span id="local-6989586621679156144"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComplianceDetails"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-var">ComplianceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceDetails%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-var">ComplianceDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679156152"><span id="local-6989586621679156153"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComplianceDetails"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-var">ComplianceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceDetails%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-var">ComplianceDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | These are keys defined in the effective policy that are on the resource</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- with either incorrect case treatment or noncompliant values.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AkeysWithNoncompliantValues%3AComplianceDetails%27"><span class="annot"><span class="annottext">ComplianceDetails -&gt; Maybe [Text]
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AnoncompliantKeys%3AComplianceDetails%27"><span class="annot"><span class="annottext">ComplianceDetails -&gt; Maybe [Text]
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#%24sel%3AnoncompliantKeys%3AComplianceDetails%27"><span class="hs-identifier hs-var hs-var">noncompliantKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156135"><span id="local-6989586621679156137"><span class="annot"><span class="annottext">ComplianceDetails -&gt; ComplianceDetails -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156144"><span id="local-6989586621679156146"><span class="annot"><span class="annottext">ComplianceDetails -&gt; ComplianceDetails -&gt; Bool
 (ComplianceDetails -&gt; ComplianceDetails -&gt; Bool)
 -&gt; (ComplianceDetails -&gt; ComplianceDetails -&gt; Bool)
 -&gt; Eq ComplianceDetails
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComplianceDetails -&gt; ComplianceDetails -&gt; Bool
 == :: ComplianceDetails -&gt; ComplianceDetails -&gt; Bool
 $c== :: ComplianceDetails -&gt; ComplianceDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156126"><span id="local-6989586621679156128"><span id="local-6989586621679156130"><span id="local-6989586621679156132"><span class="annot"><span class="annottext">ReadPrec [ComplianceDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156135"><span id="local-6989586621679156137"><span id="local-6989586621679156139"><span id="local-6989586621679156141"><span class="annot"><span class="annottext">ReadPrec [ComplianceDetails]
 ReadPrec ComplianceDetails
 Int -&gt; ReadS ComplianceDetails
 ReadS [ComplianceDetails]
@@ -69,7 +69,7 @@ readList :: ReadS [ComplianceDetails]
 $creadList :: ReadS [ComplianceDetails]
 readsPrec :: Int -&gt; ReadS ComplianceDetails
 $creadsPrec :: Int -&gt; ReadS ComplianceDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156119"><span id="local-6989586621679156121"><span id="local-6989586621679156123"><span class="annot"><span class="annottext">Int -&gt; ComplianceDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156128"><span id="local-6989586621679156130"><span id="local-6989586621679156132"><span class="annot"><span class="annottext">Int -&gt; ComplianceDetails -&gt; ShowS
 [ComplianceDetails] -&gt; ShowS
 ComplianceDetails -&gt; String
 (Int -&gt; ComplianceDetails -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; Lens
      ComplianceDetails ComplianceDetails (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156110"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156119"><span class="annot"><span class="annottext">Maybe [Text]
 keysWithNoncompliantValues :: Maybe [Text]
 $sel:keysWithNoncompliantValues:ComplianceDetails' :: ComplianceDetails -&gt; Maybe [Text]
-</span><a href="#local-6989586621679156110"><span class="hs-identifier hs-var hs-var">keysWithNoncompliantValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156110"><span class="hs-identifier hs-var">keysWithNoncompliantValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156109"><span class="annot"><span class="annottext">s :: ComplianceDetails
-</span><a href="#local-6989586621679156109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156108"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceDetails
-</span><a href="#local-6989586621679156109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keysWithNoncompliantValues:ComplianceDetails' :: Maybe [Text]
+</span><a href="#local-6989586621679156119"><span class="hs-identifier hs-var hs-var">keysWithNoncompliantValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679156119"><span class="hs-identifier hs-var">keysWithNoncompliantValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156118"><span class="annot"><span class="annottext">s :: ComplianceDetails
+</span><a href="#local-6989586621679156118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156117"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679156117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceDetails
+</span><a href="#local-6989586621679156118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keysWithNoncompliantValues:ComplianceDetails' :: Maybe [Text]
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#%24sel%3AkeysWithNoncompliantValues%3AComplianceDetails%27"><span class="hs-identifier hs-var">keysWithNoncompliantValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679156117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ComplianceDetails -&gt; f ComplianceDetails)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -176,16 +176,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ComplianceDetails ComplianceDetails (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156103"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156112"><span class="annot"><span class="annottext">Maybe Bool
 complianceStatus :: Maybe Bool
 $sel:complianceStatus:ComplianceDetails' :: ComplianceDetails -&gt; Maybe Bool
-</span><a href="#local-6989586621679156103"><span class="hs-identifier hs-var hs-var">complianceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679156103"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156102"><span class="annot"><span class="annottext">s :: ComplianceDetails
-</span><a href="#local-6989586621679156102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156101"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679156101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceDetails
-</span><a href="#local-6989586621679156102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceStatus:ComplianceDetails' :: Maybe Bool
+</span><a href="#local-6989586621679156112"><span class="hs-identifier hs-var hs-var">complianceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679156112"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156111"><span class="annot"><span class="annottext">s :: ComplianceDetails
+</span><a href="#local-6989586621679156111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156110"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679156110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceDetails
+</span><a href="#local-6989586621679156111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceStatus:ComplianceDetails' :: Maybe Bool
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#%24sel%3AcomplianceStatus%3AComplianceDetails%27"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679156101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679156110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | These tag keys on the resource are noncompliant with the effective tag</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- policy.</span><span>
@@ -197,16 +197,16 @@ $sel:complianceStatus:ComplianceDetails' :: ComplianceDetails -&gt; Maybe Bool
 -&gt; Lens
      ComplianceDetails ComplianceDetails (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156099"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156108"><span class="annot"><span class="annottext">Maybe [Text]
 noncompliantKeys :: Maybe [Text]
 $sel:noncompliantKeys:ComplianceDetails' :: ComplianceDetails -&gt; Maybe [Text]
-</span><a href="#local-6989586621679156099"><span class="hs-identifier hs-var hs-var">noncompliantKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156099"><span class="hs-identifier hs-var">noncompliantKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156098"><span class="annot"><span class="annottext">s :: ComplianceDetails
-</span><a href="#local-6989586621679156098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156097"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceDetails
-</span><a href="#local-6989586621679156098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncompliantKeys:ComplianceDetails' :: Maybe [Text]
+</span><a href="#local-6989586621679156108"><span class="hs-identifier hs-var hs-var">noncompliantKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679156108"><span class="hs-identifier hs-var">noncompliantKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156107"><span class="annot"><span class="annottext">s :: ComplianceDetails
+</span><a href="#local-6989586621679156107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-type">ComplianceDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156106"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679156106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceDetails
+</span><a href="#local-6989586621679156107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncompliantKeys:ComplianceDetails' :: Maybe [Text]
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#%24sel%3AnoncompliantKeys%3AComplianceDetails%27"><span class="hs-identifier hs-var">noncompliantKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679156106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ComplianceDetails -&gt; f ComplianceDetails)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -223,8 +223,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679156092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComplianceDetails
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156103"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679156101"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComplianceDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ComplianceDetails)
@@ -234,8 +234,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ComplianceDetails&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156089"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679156089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156098"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; ComplianceDetails
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails%27"><span class="hs-identifier hs-var">ComplianceDetails'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; ComplianceDetails)
@@ -243,7 +243,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe [Text] -&gt; ComplianceDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679156089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679156098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeysWithNoncompliantValues&quot;</span></span><span>
@@ -259,7 +259,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text] -&gt; ComplianceDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679156089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679156098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComplianceStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,7 +267,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser ComplianceDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679156089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679156098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NoncompliantKeys&quot;</span></span><span>
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156082"><span id="local-6989586621679156084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156091"><span id="local-6989586621679156093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.html#ComplianceDetails"><span class="hs-identifier hs-type">ComplianceDetails</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

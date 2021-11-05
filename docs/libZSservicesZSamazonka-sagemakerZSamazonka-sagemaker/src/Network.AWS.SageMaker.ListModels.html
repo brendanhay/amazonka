@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListModels' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621680378251"><span id="local-6989586621680378252"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListModels"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-var">ListModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListModels%27"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-var">ListModels'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621680378260"><span id="local-6989586621680378261"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListModels"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-var">ListModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListModels%27"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-var">ListModels'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string in the model name. This filter returns only models whose name</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- contains the specified string.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AnameContains%3AListModels%27"><span class="annot"><span class="annottext">ListModels -&gt; Maybe Text
@@ -84,7 +84,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AsortBy%3AListModels%27"><span class="annot"><span class="annottext">ListModels -&gt; Maybe ModelSortKey
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AsortBy%3AListModels%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSortKey.html#ModelSortKey"><span class="hs-identifier hs-type">ModelSortKey</span></a></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680378239"><span id="local-6989586621680378241"><span class="annot"><span class="annottext">ListModels -&gt; ListModels -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680378248"><span id="local-6989586621680378250"><span class="annot"><span class="annottext">ListModels -&gt; ListModels -&gt; Bool
 (ListModels -&gt; ListModels -&gt; Bool)
 -&gt; (ListModels -&gt; ListModels -&gt; Bool) -&gt; Eq ListModels
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListModels -&gt; ListModels -&gt; Bool
 == :: ListModels -&gt; ListModels -&gt; Bool
 $c== :: ListModels -&gt; ListModels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378230"><span id="local-6989586621680378232"><span id="local-6989586621680378234"><span id="local-6989586621680378236"><span class="annot"><span class="annottext">ReadPrec [ListModels]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378239"><span id="local-6989586621680378241"><span id="local-6989586621680378243"><span id="local-6989586621680378245"><span class="annot"><span class="annottext">ReadPrec [ListModels]
 ReadPrec ListModels
 Int -&gt; ReadS ListModels
 ReadS [ListModels]
@@ -112,7 +112,7 @@ readList :: ReadS [ListModels]
 $creadList :: ReadS [ListModels]
 readsPrec :: Int -&gt; ReadS ListModels
 $creadsPrec :: Int -&gt; ReadS ListModels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378223"><span id="local-6989586621680378225"><span id="local-6989586621680378227"><span class="annot"><span class="annottext">Int -&gt; ListModels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378232"><span id="local-6989586621680378234"><span id="local-6989586621680378236"><span class="annot"><span class="annottext">Int -&gt; ListModels -&gt; ShowS
 [ListModels] -&gt; ShowS
 ListModels -&gt; String
 (Int -&gt; ListModels -&gt; ShowS)
@@ -214,16 +214,16 @@ forall a. Maybe a
 -&gt; (ListModels -&gt; Maybe Text -&gt; ListModels)
 -&gt; Lens ListModels ListModels (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378217"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378226"><span class="annot"><span class="annottext">Maybe Text
 nameContains :: Maybe Text
 $sel:nameContains:ListModels' :: ListModels -&gt; Maybe Text
-</span><a href="#local-6989586621680378217"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378217"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378216"><span class="annot"><span class="annottext">s :: ListModels
-</span><a href="#local-6989586621680378216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378215"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListModels' :: Maybe Text
+</span><a href="#local-6989586621680378226"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378226"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378225"><span class="annot"><span class="annottext">s :: ListModels
+</span><a href="#local-6989586621680378225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListModels' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AnameContains%3AListModels%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | A filter that returns only models with a creation time greater than or</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- equal to the specified time (timestamp).</span><span>
@@ -233,16 +233,16 @@ $sel:nameContains:ListModels' :: ListModels -&gt; Maybe Text
 -&gt; (ListModels -&gt; Maybe POSIX -&gt; ListModels)
 -&gt; Lens ListModels ListModels (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378214"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378223"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeAfter :: Maybe POSIX
 $sel:creationTimeAfter:ListModels' :: ListModels -&gt; Maybe POSIX
-</span><a href="#local-6989586621680378214"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378214"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378213"><span class="annot"><span class="annottext">s :: ListModels
-</span><a href="#local-6989586621680378213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378212"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListModels' :: Maybe POSIX
+</span><a href="#local-6989586621680378223"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378223"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378222"><span class="annot"><span class="annottext">s :: ListModels
+</span><a href="#local-6989586621680378222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378221"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListModels' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AcreationTimeAfter%3AListModels%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListModels -&gt; f ListModels)
+</span><a href="#local-6989586621680378221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListModels -&gt; f ListModels)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -267,16 +267,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ListModels -&gt; Maybe Text -&gt; ListModels)
 -&gt; Lens ListModels ListModels (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378208"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378217"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListModels' :: ListModels -&gt; Maybe Text
-</span><a href="#local-6989586621680378208"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378208"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378207"><span class="annot"><span class="annottext">s :: ListModels
-</span><a href="#local-6989586621680378207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378206"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListModels' :: Maybe Text
+</span><a href="#local-6989586621680378217"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378217"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378216"><span class="annot"><span class="annottext">s :: ListModels
+</span><a href="#local-6989586621680378216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListModels' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AnextToken%3AListModels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The sort order for results. The default is @Descending@.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#listModels_sortOrder"><span class="hs-identifier hs-type">listModels_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OrderKey.html#OrderKey"><span class="hs-identifier hs-type">OrderKey</span></a></span><span class="hs-special">)</span><span>
@@ -286,16 +286,16 @@ $sel:nextToken:ListModels' :: ListModels -&gt; Maybe Text
 -&gt; (ListModels -&gt; Maybe OrderKey -&gt; ListModels)
 -&gt; Lens ListModels ListModels (Maybe OrderKey) (Maybe OrderKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378205"><span class="annot"><span class="annottext">Maybe OrderKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378214"><span class="annot"><span class="annottext">Maybe OrderKey
 sortOrder :: Maybe OrderKey
 $sel:sortOrder:ListModels' :: ListModels -&gt; Maybe OrderKey
-</span><a href="#local-6989586621680378205"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680378205"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378204"><span class="annot"><span class="annottext">s :: ListModels
-</span><a href="#local-6989586621680378204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378203"><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680378203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListModels' :: Maybe OrderKey
+</span><a href="#local-6989586621680378214"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
+</span><a href="#local-6989586621680378214"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378213"><span class="annot"><span class="annottext">s :: ListModels
+</span><a href="#local-6989586621680378213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378212"><span class="annot"><span class="annottext">Maybe OrderKey
+</span><a href="#local-6989586621680378212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListModels' :: Maybe OrderKey
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AsortOrder%3AListModels%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680378203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | A filter that returns only models created before the specified time</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- (timestamp).</span><span>
@@ -305,16 +305,16 @@ $sel:sortOrder:ListModels' :: ListModels -&gt; Maybe OrderKey
 -&gt; (ListModels -&gt; Maybe POSIX -&gt; ListModels)
 -&gt; Lens ListModels ListModels (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378202"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378211"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeBefore :: Maybe POSIX
 $sel:creationTimeBefore:ListModels' :: ListModels -&gt; Maybe POSIX
-</span><a href="#local-6989586621680378202"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378202"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378201"><span class="annot"><span class="annottext">s :: ListModels
-</span><a href="#local-6989586621680378201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378200"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListModels' :: Maybe POSIX
+</span><a href="#local-6989586621680378211"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378211"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378210"><span class="annot"><span class="annottext">s :: ListModels
+</span><a href="#local-6989586621680378210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378209"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680378209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListModels' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AcreationTimeBefore%3AListModels%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListModels -&gt; f ListModels)
+</span><a href="#local-6989586621680378209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListModels -&gt; f ListModels)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -337,16 +337,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ListModels -&gt; Maybe Natural -&gt; ListModels)
 -&gt; Lens ListModels ListModels (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378199"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378208"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListModels' :: ListModels -&gt; Maybe Natural
-</span><a href="#local-6989586621680378199"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680378199"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378198"><span class="annot"><span class="annottext">s :: ListModels
-</span><a href="#local-6989586621680378198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378197"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680378197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListModels' :: Maybe Natural
+</span><a href="#local-6989586621680378208"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680378208"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378207"><span class="annot"><span class="annottext">s :: ListModels
+</span><a href="#local-6989586621680378207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378206"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680378206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListModels' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AmaxResults%3AListModels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680378197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Sorts the list of results. The default is @CreationTime@.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#listModels_sortBy"><span class="hs-identifier hs-type">listModels_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSortKey.html#ModelSortKey"><span class="hs-identifier hs-type">ModelSortKey</span></a></span><span class="hs-special">)</span><span>
@@ -357,28 +357,28 @@ $sel:maxResults:ListModels' :: ListModels -&gt; Maybe Natural
 -&gt; Lens
      ListModels ListModels (Maybe ModelSortKey) (Maybe ModelSortKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378196"><span class="annot"><span class="annottext">Maybe ModelSortKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378205"><span class="annot"><span class="annottext">Maybe ModelSortKey
 sortBy :: Maybe ModelSortKey
 $sel:sortBy:ListModels' :: ListModels -&gt; Maybe ModelSortKey
-</span><a href="#local-6989586621680378196"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelSortKey
-</span><a href="#local-6989586621680378196"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378195"><span class="annot"><span class="annottext">s :: ListModels
-</span><a href="#local-6989586621680378195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378194"><span class="annot"><span class="annottext">Maybe ModelSortKey
-</span><a href="#local-6989586621680378194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListModels' :: Maybe ModelSortKey
+</span><a href="#local-6989586621680378205"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelSortKey
+</span><a href="#local-6989586621680378205"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378204"><span class="annot"><span class="annottext">s :: ListModels
+</span><a href="#local-6989586621680378204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378203"><span class="annot"><span class="annottext">Maybe ModelSortKey
+</span><a href="#local-6989586621680378203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListModels' :: Maybe ModelSortKey
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AsortBy%3AListModels%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelSortKey
-</span><a href="#local-6989586621680378194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621680378190"><span class="annot"><span class="annottext">page :: ListModels -&gt; AWSResponse ListModels -&gt; Maybe ListModels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680378188"><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378188"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680378187"><span class="annot"><span class="annottext">AWSResponse ListModels
-</span><a href="#local-6989586621680378187"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621680378199"><span class="annot"><span class="annottext">page :: ListModels -&gt; AWSResponse ListModels -&gt; Maybe ListModels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680378197"><span class="annot"><span class="annottext">ListModels
+</span><a href="#local-6989586621680378197"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680378196"><span class="annot"><span class="annottext">AWSResponse ListModels
+</span><a href="#local-6989586621680378196"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-157"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListModels
 ListModelsResponse
-</span><a href="#local-6989586621680378187"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680378196"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">ListModelsResponse
 -&gt; Getting (First Text) ListModelsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -403,7 +403,7 @@ forall a. Maybe a
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListModels
 ListModelsResponse
-</span><a href="#local-6989586621680378187"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
+</span><a href="#local-6989586621680378196"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
 -&gt; Getting [ModelSummary] ListModelsResponse [ModelSummary]
 -&gt; [ModelSummary]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -421,7 +421,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ListModels
-</span><a href="#local-6989586621680378188"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680378197"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ListModels -&gt; (ListModels -&gt; ListModels) -&gt; ListModels
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -434,7 +434,7 @@ Lens ListModels ListModels (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListModels
 ListModelsResponse
-</span><a href="#local-6989586621680378187"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680378196"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">ListModelsResponse
 -&gt; Getting (First Text) ListModelsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -454,12 +454,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621680378177"><span class="annot"><span class="annottext">request :: ListModels -&gt; Request ListModels
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621680378186"><span class="annot"><span class="annottext">request :: ListModels -&gt; Request ListModels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListModels -&gt; Request ListModels
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621680378173"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621680378182"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListModels
 -&gt; ClientResponse ClientBody
@@ -483,10 +483,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680378170"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680378170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680378169"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680378169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680378168"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680378168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680378179"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378179"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680378178"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680378178"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680378177"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680378177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [ModelSummary] -&gt; ListModelsResponse
 </span><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-var">ListModelsResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [ModelSummary] -&gt; ListModelsResponse)
@@ -494,7 +494,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [ModelSummary] -&gt; ListModelsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680378168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680378177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -507,12 +507,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680378170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378179"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either String ([ModelSummary] -&gt; ListModelsResponse)
 -&gt; Either String [ModelSummary] -&gt; Either String ListModelsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680378168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ModelSummary])
+</span><a href="#local-6989586621680378177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ModelSummary])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Models&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [ModelSummary])
@@ -523,12 +523,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378159"><span id="local-6989586621680378161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378168"><span id="local-6989586621680378170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span></span></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621680378152"><span class="annot"><span class="annottext">toHeaders :: ListModels -&gt; ResponseHeaders
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621680378161"><span class="annot"><span class="annottext">toHeaders :: ListModels -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListModels -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -553,9 +553,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378142"><span id="local-6989586621680378144"><span id="local-6989586621680378146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621680378140"><span class="annot"><span class="annottext">toJSON :: ListModels -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378132"><span id="local-6989586621680378133"><span id="local-6989586621680378134"><span id="local-6989586621680378135"><span id="local-6989586621680378136"><span id="local-6989586621680378137"><span id="local-6989586621680378138"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378151"><span id="local-6989586621680378153"><span id="local-6989586621680378155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621680378149"><span class="annot"><span class="annottext">toJSON :: ListModels -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels%27"><span class="hs-identifier hs-type">ListModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378141"><span id="local-6989586621680378142"><span id="local-6989586621680378143"><span id="local-6989586621680378144"><span id="local-6989586621680378145"><span id="local-6989586621680378146"><span id="local-6989586621680378147"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe ModelSortKey
@@ -574,7 +574,7 @@ $sel:sortOrder:ListModels' :: ListModels -&gt; Maybe OrderKey
 $sel:nextToken:ListModels' :: ListModels -&gt; Maybe Text
 $sel:creationTimeAfter:ListModels' :: ListModels -&gt; Maybe POSIX
 $sel:nameContains:ListModels' :: ListModels -&gt; Maybe Text
-</span><a href="#local-6989586621680378132"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680378141"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -586,7 +586,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378138"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680378147"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -594,21 +594,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378137"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680378146"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378136"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680378145"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrderKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderKey -&gt; Pair) -&gt; Maybe OrderKey -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680378135"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680378144"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -616,33 +616,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680378134"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680378143"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680378133"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680378142"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelSortKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ModelSortKey -&gt; Pair) -&gt; Maybe ModelSortKey -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelSortKey
-</span><a href="#local-6989586621680378132"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><a href="#local-6989586621680378141"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
 </span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621680378126"><span class="annot"><span class="annottext">toPath :: ListModels -&gt; ByteString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621680378135"><span class="annot"><span class="annottext">toPath :: ListModels -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListModels -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModels"><span class="hs-identifier hs-type">ListModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621680378122"><span class="annot"><span class="annottext">toQuery :: ListModels -&gt; QueryString
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621680378131"><span class="annot"><span class="annottext">toQuery :: ListModels -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListModels -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -650,7 +650,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | /See:/ 'newListModelsResponse' smart constructor.</span><span>
-</span><span id="line-222"></span><span id="local-6989586621680378119"><span id="local-6989586621680378120"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListModelsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-var">ListModelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListModelsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-var">ListModelsResponse'</span></a></span></span><span>
+</span><span id="line-222"></span><span id="local-6989586621680378128"><span id="local-6989586621680378129"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListModelsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-var">ListModelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListModelsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-var">ListModelsResponse'</span></a></span></span><span>
 </span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response is truncated, Amazon SageMaker returns this token. To</span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-comment">-- retrieve the next set of models, use it in the subsequent request.</span><span>
 </span><span id="line-225"></span><span>    </span><span id="%24sel%3AnextToken%3AListModelsResponse%27"><span class="annot"><span class="annottext">ListModelsResponse -&gt; Maybe Text
@@ -662,7 +662,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-229"></span><span>    </span><span id="%24sel%3Amodels%3AListModelsResponse%27"><span class="annot"><span class="annottext">ListModelsResponse -&gt; [ModelSummary]
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3Amodels%3AListModelsResponse%27"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680378112"><span id="local-6989586621680378114"><span class="annot"><span class="annottext">ListModelsResponse -&gt; ListModelsResponse -&gt; Bool
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680378121"><span id="local-6989586621680378123"><span class="annot"><span class="annottext">ListModelsResponse -&gt; ListModelsResponse -&gt; Bool
 (ListModelsResponse -&gt; ListModelsResponse -&gt; Bool)
 -&gt; (ListModelsResponse -&gt; ListModelsResponse -&gt; Bool)
 -&gt; Eq ListModelsResponse
@@ -671,7 +671,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListModelsResponse -&gt; ListModelsResponse -&gt; Bool
 == :: ListModelsResponse -&gt; ListModelsResponse -&gt; Bool
 $c== :: ListModelsResponse -&gt; ListModelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378104"><span id="local-6989586621680378106"><span id="local-6989586621680378108"><span id="local-6989586621680378110"><span class="annot"><span class="annottext">ReadPrec [ListModelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378113"><span id="local-6989586621680378115"><span id="local-6989586621680378117"><span id="local-6989586621680378119"><span class="annot"><span class="annottext">ReadPrec [ListModelsResponse]
 ReadPrec ListModelsResponse
 Int -&gt; ReadS ListModelsResponse
 ReadS [ListModelsResponse]
@@ -691,7 +691,7 @@ readList :: ReadS [ListModelsResponse]
 $creadList :: ReadS [ListModelsResponse]
 readsPrec :: Int -&gt; ReadS ListModelsResponse
 $creadsPrec :: Int -&gt; ReadS ListModelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378098"><span id="local-6989586621680378100"><span id="local-6989586621680378102"><span class="annot"><span class="annottext">Int -&gt; ListModelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680378107"><span id="local-6989586621680378109"><span id="local-6989586621680378111"><span class="annot"><span class="annottext">Int -&gt; ListModelsResponse -&gt; ShowS
 [ListModelsResponse] -&gt; ShowS
 ListModelsResponse -&gt; String
 (Int -&gt; ListModelsResponse -&gt; ShowS)
@@ -736,8 +736,8 @@ $cfrom :: forall x. ListModelsResponse -&gt; Rep ListModelsResponse x
 </span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-250"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span>
 </span><span id="line-251"></span><span id="newListModelsResponse"><span class="annot"><span class="annottext">newListModelsResponse :: Int -&gt; ListModelsResponse
-</span><a href="Network.AWS.SageMaker.ListModels.html#newListModelsResponse"><span class="hs-identifier hs-var hs-var">newListModelsResponse</span></a></span></span><span> </span><span id="local-6989586621680378095"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680378095"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListModels.html#newListModelsResponse"><span class="hs-identifier hs-var hs-var">newListModelsResponse</span></a></span></span><span> </span><span id="local-6989586621680378104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="annottext">ListModelsResponse' :: Maybe Text -&gt; Int -&gt; [ModelSummary] -&gt; ListModelsResponse
 </span><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span>
 </span><span id="line-253"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListModelsResponse' :: Maybe Text
@@ -746,7 +746,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListModelsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AhttpStatus%3AListModelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680378095"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680378104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:models:ListModelsResponse' :: [ModelSummary]
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3Amodels%3AListModelsResponse%27"><span class="hs-identifier hs-var">models</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ModelSummary]
 forall a. Monoid a =&gt; a
@@ -762,16 +762,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ListModelsResponse -&gt; Maybe Text -&gt; ListModelsResponse)
 -&gt; Lens' ListModelsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378094"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378103"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListModelsResponse' :: ListModelsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680378094"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378094"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378093"><span class="annot"><span class="annottext">s :: ListModelsResponse
-</span><a href="#local-6989586621680378093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378092"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
-</span><a href="#local-6989586621680378093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListModelsResponse' :: Maybe Text
+</span><a href="#local-6989586621680378103"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378103"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378102"><span class="annot"><span class="annottext">s :: ListModelsResponse
+</span><a href="#local-6989586621680378102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680378101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
+</span><a href="#local-6989586621680378102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListModelsResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AnextToken%3AListModelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680378092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-264"></span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#listModelsResponse_httpStatus"><span class="hs-identifier hs-type">listModelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -780,16 +780,16 @@ $sel:nextToken:ListModelsResponse' :: ListModelsResponse -&gt; Maybe Text
 -&gt; (ListModelsResponse -&gt; Int -&gt; ListModelsResponse)
 -&gt; Lens ListModelsResponse ListModelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378091"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378100"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListModelsResponse' :: ListModelsResponse -&gt; Int
-</span><a href="#local-6989586621680378091"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680378091"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378090"><span class="annot"><span class="annottext">s :: ListModelsResponse
-</span><a href="#local-6989586621680378090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378089"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680378089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
-</span><a href="#local-6989586621680378090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListModelsResponse' :: Int
+</span><a href="#local-6989586621680378100"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378100"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378099"><span class="annot"><span class="annottext">s :: ListModelsResponse
+</span><a href="#local-6989586621680378099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680378098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
+</span><a href="#local-6989586621680378099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListModelsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3AhttpStatus%3AListModelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680378089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680378098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | An array of @ModelSummary@ objects, each of which lists a model.</span><span>
 </span><span id="line-268"></span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#listModelsResponse_models"><span class="hs-identifier hs-type">listModelsResponse_models</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">]</span><span>
@@ -799,16 +799,16 @@ $sel:httpStatus:ListModelsResponse' :: ListModelsResponse -&gt; Int
 -&gt; (ListModelsResponse -&gt; [ModelSummary] -&gt; ListModelsResponse)
 -&gt; Lens' ListModelsResponse [ModelSummary]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378088"><span class="annot"><span class="annottext">[ModelSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680378097"><span class="annot"><span class="annottext">[ModelSummary]
 models :: [ModelSummary]
 $sel:models:ListModelsResponse' :: ListModelsResponse -&gt; [ModelSummary]
-</span><a href="#local-6989586621680378088"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ModelSummary]
-</span><a href="#local-6989586621680378088"><span class="hs-identifier hs-var">models</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378087"><span class="annot"><span class="annottext">s :: ListModelsResponse
-</span><a href="#local-6989586621680378087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378086"><span class="annot"><span class="annottext">[ModelSummary]
-</span><a href="#local-6989586621680378086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
-</span><a href="#local-6989586621680378087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:models:ListModelsResponse' :: [ModelSummary]
+</span><a href="#local-6989586621680378097"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ModelSummary]
+</span><a href="#local-6989586621680378097"><span class="hs-identifier hs-var">models</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680378096"><span class="annot"><span class="annottext">s :: ListModelsResponse
+</span><a href="#local-6989586621680378096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse%27"><span class="hs-identifier hs-type">ListModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680378095"><span class="annot"><span class="annottext">[ModelSummary]
+</span><a href="#local-6989586621680378095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListModelsResponse
+</span><a href="#local-6989586621680378096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:models:ListModelsResponse' :: [ModelSummary]
 </span><a href="Network.AWS.SageMaker.ListModels.html#%24sel%3Amodels%3AListModelsResponse%27"><span class="hs-identifier hs-var">models</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ModelSummary]
-</span><a href="#local-6989586621680378086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ModelSummary] -&gt; f [ModelSummary])
+</span><a href="#local-6989586621680378095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ModelSummary] -&gt; f [ModelSummary])
  -&gt; ListModelsResponse -&gt; f ListModelsResponse)
 -&gt; (([ModelSummary] -&gt; f [ModelSummary])
     -&gt; [ModelSummary] -&gt; f [ModelSummary])
@@ -821,5 +821,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680378092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListModels.html#ListModelsResponse"><span class="hs-identifier hs-type">ListModelsResponse</span></a></span></span><span>
 </span><span id="line-272"></span></pre></body></html>

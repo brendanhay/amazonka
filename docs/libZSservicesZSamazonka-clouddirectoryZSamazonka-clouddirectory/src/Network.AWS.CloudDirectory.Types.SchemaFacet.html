@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A facet.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSchemaFacet' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679328218"><span id="local-6989586621679328219"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaFacet"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-var">SchemaFacet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaFacet%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-var">SchemaFacet'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679328227"><span id="local-6989586621679328228"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaFacet"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-var">SchemaFacet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaFacet%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-var">SchemaFacet'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the facet. If this value is set, SchemaArn must also be set.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AfacetName%3ASchemaFacet%27"><span class="annot"><span class="annottext">SchemaFacet -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#%24sel%3AfacetName%3ASchemaFacet%27"><span class="hs-identifier hs-var hs-var">facetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AschemaArn%3ASchemaFacet%27"><span class="annot"><span class="annottext">SchemaFacet -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#%24sel%3AschemaArn%3ASchemaFacet%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328211"><span id="local-6989586621679328213"><span class="annot"><span class="annottext">SchemaFacet -&gt; SchemaFacet -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328220"><span id="local-6989586621679328222"><span class="annot"><span class="annottext">SchemaFacet -&gt; SchemaFacet -&gt; Bool
 (SchemaFacet -&gt; SchemaFacet -&gt; Bool)
 -&gt; (SchemaFacet -&gt; SchemaFacet -&gt; Bool) -&gt; Eq SchemaFacet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SchemaFacet -&gt; SchemaFacet -&gt; Bool
 == :: SchemaFacet -&gt; SchemaFacet -&gt; Bool
 $c== :: SchemaFacet -&gt; SchemaFacet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328202"><span id="local-6989586621679328204"><span id="local-6989586621679328206"><span id="local-6989586621679328208"><span class="annot"><span class="annottext">ReadPrec [SchemaFacet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328211"><span id="local-6989586621679328213"><span id="local-6989586621679328215"><span id="local-6989586621679328217"><span class="annot"><span class="annottext">ReadPrec [SchemaFacet]
 ReadPrec SchemaFacet
 Int -&gt; ReadS SchemaFacet
 ReadS [SchemaFacet]
@@ -66,7 +66,7 @@ readList :: ReadS [SchemaFacet]
 $creadList :: ReadS [SchemaFacet]
 readsPrec :: Int -&gt; ReadS SchemaFacet
 $creadsPrec :: Int -&gt; ReadS SchemaFacet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328195"><span id="local-6989586621679328197"><span id="local-6989586621679328199"><span class="annot"><span class="annottext">Int -&gt; SchemaFacet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328204"><span id="local-6989586621679328206"><span id="local-6989586621679328208"><span class="annot"><span class="annottext">Int -&gt; SchemaFacet -&gt; ShowS
 [SchemaFacet] -&gt; ShowS
 SchemaFacet -&gt; String
 (Int -&gt; SchemaFacet -&gt; ShowS)
@@ -130,16 +130,16 @@ forall a. Maybe a
 -&gt; (SchemaFacet -&gt; Maybe Text -&gt; SchemaFacet)
 -&gt; Lens SchemaFacet SchemaFacet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328186"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328195"><span class="annot"><span class="annottext">Maybe Text
 facetName :: Maybe Text
 $sel:facetName:SchemaFacet' :: SchemaFacet -&gt; Maybe Text
-</span><a href="#local-6989586621679328186"><span class="hs-identifier hs-var hs-var">facetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328186"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328185"><span class="annot"><span class="annottext">s :: SchemaFacet
-</span><a href="#local-6989586621679328185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328184"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679328185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetName:SchemaFacet' :: Maybe Text
+</span><a href="#local-6989586621679328195"><span class="hs-identifier hs-var hs-var">facetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328195"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328194"><span class="annot"><span class="annottext">s :: SchemaFacet
+</span><a href="#local-6989586621679328194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328193"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
+</span><a href="#local-6989586621679328194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetName:SchemaFacet' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#%24sel%3AfacetName%3ASchemaFacet%27"><span class="hs-identifier hs-var">facetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The ARN of the schema that contains the facet with no minor component.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- See arns and</span><span>
@@ -152,19 +152,19 @@ $sel:facetName:SchemaFacet' :: SchemaFacet -&gt; Maybe Text
 -&gt; (SchemaFacet -&gt; Maybe Text -&gt; SchemaFacet)
 -&gt; Lens SchemaFacet SchemaFacet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328182"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328191"><span class="annot"><span class="annottext">Maybe Text
 schemaArn :: Maybe Text
 $sel:schemaArn:SchemaFacet' :: SchemaFacet -&gt; Maybe Text
-</span><a href="#local-6989586621679328182"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328182"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328181"><span class="annot"><span class="annottext">s :: SchemaFacet
-</span><a href="#local-6989586621679328181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328180"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679328181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:SchemaFacet' :: Maybe Text
+</span><a href="#local-6989586621679328191"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328191"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328190"><span class="annot"><span class="annottext">s :: SchemaFacet
+</span><a href="#local-6989586621679328190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
+</span><a href="#local-6989586621679328190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:SchemaFacet' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#%24sel%3AschemaArn%3ASchemaFacet%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679328175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaFacet
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328186"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679328184"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaFacet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SchemaFacet) -&gt; Value -&gt; Parser SchemaFacet
@@ -172,15 +172,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SchemaFacet&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328172"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SchemaFacet
 </span><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-var">SchemaFacet'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SchemaFacet)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SchemaFacet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679328181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FacetName&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,24 +188,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SchemaFacet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679328181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328166"><span id="local-6989586621679328168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328175"><span id="local-6989586621679328177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328155"><span id="local-6989586621679328157"><span id="local-6989586621679328159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679328153"><span class="annot"><span class="annottext">toJSON :: SchemaFacet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328150"><span id="local-6989586621679328151"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328164"><span id="local-6989586621679328166"><span id="local-6989586621679328168"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679328162"><span class="annot"><span class="annottext">toJSON :: SchemaFacet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet%27"><span class="hs-identifier hs-type">SchemaFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328159"><span id="local-6989586621679328160"><span class="annot"><span class="annottext">Maybe Text
 schemaArn :: Maybe Text
 facetName :: Maybe Text
 $sel:schemaArn:SchemaFacet' :: SchemaFacet -&gt; Maybe Text
 $sel:facetName:SchemaFacet' :: SchemaFacet -&gt; Maybe Text
-</span><a href="#local-6989586621679328150"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679328159"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -217,14 +217,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328151"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328160"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328150"><span class="hs-identifier hs-var">schemaArn</span></a></span><span>
+</span><a href="#local-6989586621679328159"><span class="hs-identifier hs-var">schemaArn</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

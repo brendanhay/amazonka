@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span id="local-6989586621679619665"><span id="local-6989586621679619666"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RegionName"><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-var">RegionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-var">RegionName'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679619674"><span id="local-6989586621679619675"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RegionName"><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName"><span class="hs-identifier hs-var">RegionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RegionName.html#RegionName%27"><span class="hs-identifier hs-var">RegionName'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRegionName"><span class="annot"><span class="annottext">RegionName -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.RegionName.html#fromRegionName"><span class="hs-identifier hs-var hs-var">fromRegionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679619657"><span id="local-6989586621679619659"><span id="local-6989586621679619661"><span class="annot"><span class="annottext">Int -&gt; RegionName -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679619666"><span id="local-6989586621679619668"><span id="local-6989586621679619670"><span class="annot"><span class="annottext">Int -&gt; RegionName -&gt; ShowS
 [RegionName] -&gt; ShowS
 RegionName -&gt; String
 (Int -&gt; RegionName -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: RegionName -&gt; String
 showsPrec :: Int -&gt; RegionName -&gt; ShowS
 $cshowsPrec :: Int -&gt; RegionName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679619648"><span id="local-6989586621679619650"><span id="local-6989586621679619652"><span id="local-6989586621679619654"><span class="annot"><span class="annottext">ReadPrec [RegionName]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679619657"><span id="local-6989586621679619659"><span id="local-6989586621679619661"><span id="local-6989586621679619663"><span class="annot"><span class="annottext">ReadPrec [RegionName]
 ReadPrec RegionName
 Int -&gt; ReadS RegionName
 ReadS [RegionName]
@@ -85,7 +85,7 @@ $creadList :: ReadS [RegionName]
 readsPrec :: Int -&gt; ReadS RegionName
 $creadsPrec :: Int -&gt; ReadS RegionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679619643"><span id="local-6989586621679619645"><span class="annot"><span class="annottext">RegionName -&gt; RegionName -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679619652"><span id="local-6989586621679619654"><span class="annot"><span class="annottext">RegionName -&gt; RegionName -&gt; Bool
 (RegionName -&gt; RegionName -&gt; Bool)
 -&gt; (RegionName -&gt; RegionName -&gt; Bool) -&gt; Eq RegionName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ $c/= :: RegionName -&gt; RegionName -&gt; Bool
 == :: RegionName -&gt; RegionName -&gt; Bool
 $c== :: RegionName -&gt; RegionName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679619627"><span id="local-6989586621679619629"><span id="local-6989586621679619631"><span id="local-6989586621679619633"><span id="local-6989586621679619635"><span id="local-6989586621679619637"><span id="local-6989586621679619639"><span class="annot"><span class="annottext">Eq RegionName
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679619636"><span id="local-6989586621679619638"><span id="local-6989586621679619640"><span id="local-6989586621679619642"><span id="local-6989586621679619644"><span id="local-6989586621679619646"><span id="local-6989586621679619648"><span class="annot"><span class="annottext">Eq RegionName
 Eq RegionName
 -&gt; (RegionName -&gt; RegionName -&gt; Ordering)
 -&gt; (RegionName -&gt; RegionName -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. RegionName -&gt; Rep RegionName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679619619"><span id="local-6989586621679619621"><span class="annot"><span class="annottext">Int -&gt; RegionName -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679619628"><span id="local-6989586621679619630"><span class="annot"><span class="annottext">Int -&gt; RegionName -&gt; Int
 RegionName -&gt; Int
 (Int -&gt; RegionName -&gt; Int)
 -&gt; (RegionName -&gt; Int) -&gt; Hashable RegionName
@@ -154,49 +154,49 @@ $chash :: RegionName -&gt; Int
 hashWithSalt :: Int -&gt; RegionName -&gt; Int
 $chashWithSalt :: Int -&gt; RegionName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679619616"><span class="annot"><span class="annottext">RegionName -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679619625"><span class="annot"><span class="annottext">RegionName -&gt; ()
 (RegionName -&gt; ()) -&gt; NFData RegionName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RegionName -&gt; ()
 $crnf :: RegionName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679619613"><span class="annot"><span class="annottext">Text -&gt; Either String RegionName
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679619622"><span class="annot"><span class="annottext">Text -&gt; Either String RegionName
 (Text -&gt; Either String RegionName) -&gt; FromText RegionName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RegionName
 $cfromText :: Text -&gt; Either String RegionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679619610"><span class="annot"><span class="annottext">RegionName -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679619619"><span class="annot"><span class="annottext">RegionName -&gt; Text
 (RegionName -&gt; Text) -&gt; ToText RegionName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RegionName -&gt; Text
 $ctoText :: RegionName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679619607"><span class="annot"><span class="annottext">RegionName -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679619616"><span class="annot"><span class="annottext">RegionName -&gt; ByteString
 (RegionName -&gt; ByteString) -&gt; ToByteString RegionName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RegionName -&gt; ByteString
 $ctoBS :: RegionName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679619604"><span class="annot"><span class="annottext">RegionName -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679619613"><span class="annot"><span class="annottext">RegionName -&gt; ByteStringBuilder
 (RegionName -&gt; ByteStringBuilder) -&gt; ToLog RegionName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RegionName -&gt; ByteStringBuilder
 $cbuild :: RegionName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679619601"><span class="annot"><span class="annottext">HeaderName -&gt; RegionName -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679619610"><span class="annot"><span class="annottext">HeaderName -&gt; RegionName -&gt; [Header]
 (HeaderName -&gt; RegionName -&gt; [Header]) -&gt; ToHeader RegionName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RegionName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RegionName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679619598"><span class="annot"><span class="annottext">RegionName -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679619607"><span class="annot"><span class="annottext">RegionName -&gt; QueryString
 (RegionName -&gt; QueryString) -&gt; ToQuery RegionName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RegionName -&gt; QueryString
 $ctoQuery :: RegionName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679619593"><span id="local-6989586621679619595"><span class="annot"><span class="annottext">Value -&gt; Parser [RegionName]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679619602"><span id="local-6989586621679619604"><span class="annot"><span class="annottext">Value -&gt; Parser [RegionName]
 Value -&gt; Parser RegionName
 (Value -&gt; Parser RegionName)
 -&gt; (Value -&gt; Parser [RegionName]) -&gt; FromJSON RegionName
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [RegionName]
 parseJSON :: Value -&gt; Parser RegionName
 $cparseJSON :: Value -&gt; Parser RegionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679619588"><span id="local-6989586621679619590"><span class="annot"><span class="annottext">FromJSONKeyFunction [RegionName]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679619597"><span id="local-6989586621679619599"><span class="annot"><span class="annottext">FromJSONKeyFunction [RegionName]
 FromJSONKeyFunction RegionName
 FromJSONKeyFunction RegionName
 -&gt; FromJSONKeyFunction [RegionName] -&gt; FromJSONKey RegionName
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RegionName]
 fromJSONKey :: FromJSONKeyFunction RegionName
 $cfromJSONKey :: FromJSONKeyFunction RegionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679619579"><span id="local-6989586621679619581"><span id="local-6989586621679619583"><span id="local-6989586621679619585"><span class="annot"><span class="annottext">[RegionName] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679619588"><span id="local-6989586621679619590"><span id="local-6989586621679619592"><span id="local-6989586621679619594"><span class="annot"><span class="annottext">[RegionName] -&gt; Encoding
 [RegionName] -&gt; Value
 RegionName -&gt; Encoding
 RegionName -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: RegionName -&gt; Encoding
 toJSON :: RegionName -&gt; Value
 $ctoJSON :: RegionName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679619574"><span id="local-6989586621679619576"><span class="annot"><span class="annottext">ToJSONKeyFunction [RegionName]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679619583"><span id="local-6989586621679619585"><span class="annot"><span class="annottext">ToJSONKeyFunction [RegionName]
 ToJSONKeyFunction RegionName
 ToJSONKeyFunction RegionName
 -&gt; ToJSONKeyFunction [RegionName] -&gt; ToJSONKey RegionName
@@ -253,13 +253,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RegionName]
 toJSONKey :: ToJSONKeyFunction RegionName
 $ctoJSONKey :: ToJSONKeyFunction RegionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679619571"><span class="annot"><span class="annottext">[Node] -&gt; Either String RegionName
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679619580"><span class="annot"><span class="annottext">[Node] -&gt; Either String RegionName
 ([Node] -&gt; Either String RegionName) -&gt; FromXML RegionName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RegionName
 $cparseXML :: [Node] -&gt; Either String RegionName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679619568"><span class="annot"><span class="annottext">RegionName -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679619577"><span class="annot"><span class="annottext">RegionName -&gt; XML
 (RegionName -&gt; XML) -&gt; ToXML RegionName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RegionName -&gt; XML

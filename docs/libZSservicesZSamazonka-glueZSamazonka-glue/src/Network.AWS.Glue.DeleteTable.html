@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDeleteTable' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679733825"><span id="local-6989586621679733826"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTable"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-var">DeleteTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTable%27"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-var">DeleteTable'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679733834"><span id="local-6989586621679733835"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTable"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-var">DeleteTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTable%27"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-var">DeleteTable'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the table resides. If none is provided,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AcatalogId%3ADeleteTable%27"><span class="annot"><span class="annottext">DeleteTable -&gt; Maybe Text
@@ -73,7 +73,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Aname%3ADeleteTable%27"><span class="annot"><span class="annottext">DeleteTable -&gt; Text
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3Aname%3ADeleteTable%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679733817"><span id="local-6989586621679733819"><span class="annot"><span class="annottext">DeleteTable -&gt; DeleteTable -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679733826"><span id="local-6989586621679733828"><span class="annot"><span class="annottext">DeleteTable -&gt; DeleteTable -&gt; Bool
 (DeleteTable -&gt; DeleteTable -&gt; Bool)
 -&gt; (DeleteTable -&gt; DeleteTable -&gt; Bool) -&gt; Eq DeleteTable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTable -&gt; DeleteTable -&gt; Bool
 == :: DeleteTable -&gt; DeleteTable -&gt; Bool
 $c== :: DeleteTable -&gt; DeleteTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733808"><span id="local-6989586621679733810"><span id="local-6989586621679733812"><span id="local-6989586621679733814"><span class="annot"><span class="annottext">ReadPrec [DeleteTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733817"><span id="local-6989586621679733819"><span id="local-6989586621679733821"><span id="local-6989586621679733823"><span class="annot"><span class="annottext">ReadPrec [DeleteTable]
 ReadPrec DeleteTable
 Int -&gt; ReadS DeleteTable
 ReadS [DeleteTable]
@@ -101,7 +101,7 @@ readList :: ReadS [DeleteTable]
 $creadList :: ReadS [DeleteTable]
 readsPrec :: Int -&gt; ReadS DeleteTable
 $creadsPrec :: Int -&gt; ReadS DeleteTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733801"><span id="local-6989586621679733803"><span id="local-6989586621679733805"><span class="annot"><span class="annottext">Int -&gt; DeleteTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733810"><span id="local-6989586621679733812"><span id="local-6989586621679733814"><span class="annot"><span class="annottext">Int -&gt; DeleteTable -&gt; ShowS
 [DeleteTable] -&gt; ShowS
 DeleteTable -&gt; String
 (Int -&gt; DeleteTable -&gt; ShowS)
@@ -150,9 +150,9 @@ $cfrom :: forall x. DeleteTable -&gt; Rep DeleteTable x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span>
 </span><span id="line-97"></span><span id="newDeleteTable"><span class="annot"><span class="annottext">newDeleteTable :: Text -&gt; Text -&gt; DeleteTable
-</span><a href="Network.AWS.Glue.DeleteTable.html#newDeleteTable"><span class="hs-identifier hs-var hs-var">newDeleteTable</span></a></span></span><span> </span><span id="local-6989586621679733796"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733796"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679733795"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733795"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteTable.html#newDeleteTable"><span class="hs-identifier hs-var hs-var">newDeleteTable</span></a></span></span><span> </span><span id="local-6989586621679733805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679733805"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679733804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679733804"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">DeleteTable' :: Maybe Text -&gt; Text -&gt; Text -&gt; DeleteTable
 </span><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:DeleteTable' :: Maybe Text
@@ -161,10 +161,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:DeleteTable' :: Text
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3AdatabaseName%3ADeleteTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733796"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679733805"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeleteTable' :: Text
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3Aname%3ADeleteTable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733795"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679733804"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The ID of the Data Catalog where the table resides. If none is provided,</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (DeleteTable -&gt; Maybe Text -&gt; DeleteTable)
 -&gt; Lens DeleteTable DeleteTable (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733792"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733801"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:DeleteTable' :: DeleteTable -&gt; Maybe Text
-</span><a href="#local-6989586621679733792"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679733792"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733791"><span class="annot"><span class="annottext">s :: DeleteTable
-</span><a href="#local-6989586621679733791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733790"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679733790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
-</span><a href="#local-6989586621679733791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:DeleteTable' :: Maybe Text
+</span><a href="#local-6989586621679733801"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679733801"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733800"><span class="annot"><span class="annottext">s :: DeleteTable
+</span><a href="#local-6989586621679733800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733799"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679733799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
+</span><a href="#local-6989586621679733800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:DeleteTable' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3AcatalogId%3ADeleteTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679733790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679733799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The name of the catalog database in which the table resides. For Hive</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
@@ -194,16 +194,16 @@ $sel:catalogId:DeleteTable' :: DeleteTable -&gt; Maybe Text
 -&gt; (DeleteTable -&gt; Text -&gt; DeleteTable)
 -&gt; Lens DeleteTable DeleteTable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733789"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733798"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:DeleteTable' :: DeleteTable -&gt; Text
-</span><a href="#local-6989586621679733789"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733789"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733788"><span class="annot"><span class="annottext">s :: DeleteTable
-</span><a href="#local-6989586621679733788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733787"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
-</span><a href="#local-6989586621679733788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DeleteTable' :: Text
+</span><a href="#local-6989586621679733798"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679733798"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733797"><span class="annot"><span class="annottext">s :: DeleteTable
+</span><a href="#local-6989586621679733797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679733796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
+</span><a href="#local-6989586621679733797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DeleteTable' :: Text
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3AdatabaseName%3ADeleteTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679733796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The name of the table to be deleted. For Hive compatibility, this name</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- is entirely lowercase.</span><span>
@@ -213,25 +213,25 @@ $sel:databaseName:DeleteTable' :: DeleteTable -&gt; Text
 -&gt; (DeleteTable -&gt; Text -&gt; DeleteTable)
 -&gt; Lens DeleteTable DeleteTable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733786"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733795"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteTable' :: DeleteTable -&gt; Text
-</span><a href="#local-6989586621679733786"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733786"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733785"><span class="annot"><span class="annottext">s :: DeleteTable
-</span><a href="#local-6989586621679733785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733784"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
-</span><a href="#local-6989586621679733785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteTable' :: Text
+</span><a href="#local-6989586621679733795"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679733795"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733794"><span class="annot"><span class="annottext">s :: DeleteTable
+</span><a href="#local-6989586621679733794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733793"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679733793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
+</span><a href="#local-6989586621679733794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteTable' :: Text
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3Aname%3ADeleteTable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679733793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679733780"><span class="annot"><span class="annottext">request :: DeleteTable -&gt; Request DeleteTable
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679733789"><span class="annot"><span class="annottext">request :: DeleteTable -&gt; Request DeleteTable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTable -&gt; Request DeleteTable
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679733776"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679733785"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTable
 -&gt; ClientResponse ClientBody
@@ -255,10 +255,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679733773"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733773"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679733772"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679733772"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679733771"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679733771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679733782"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679733782"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679733781"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679733781"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679733780"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679733780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteTableResponse
 </span><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-var">DeleteTableResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteTableResponse)
@@ -269,15 +269,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733773"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679733782"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733764"><span id="local-6989586621679733766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733773"><span id="local-6989586621679733775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679733757"><span class="annot"><span class="annottext">toHeaders :: DeleteTable -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679733766"><span class="annot"><span class="annottext">toHeaders :: DeleteTable -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTable -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -302,9 +302,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733747"><span id="local-6989586621679733749"><span id="local-6989586621679733751"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679733745"><span class="annot"><span class="annottext">toJSON :: DeleteTable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733741"><span id="local-6989586621679733742"><span id="local-6989586621679733743"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733756"><span id="local-6989586621679733758"><span id="local-6989586621679733760"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679733754"><span class="annot"><span class="annottext">toJSON :: DeleteTable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733750"><span id="local-6989586621679733751"><span id="local-6989586621679733752"><span class="annot"><span class="annottext">Maybe Text
 Text
 name :: Text
 databaseName :: Text
@@ -312,7 +312,7 @@ catalogId :: Maybe Text
 $sel:name:DeleteTable' :: DeleteTable -&gt; Text
 $sel:databaseName:DeleteTable' :: DeleteTable -&gt; Text
 $sel:catalogId:DeleteTable' :: DeleteTable -&gt; Maybe Text
-</span><a href="#local-6989586621679733741"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679733750"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -324,33 +324,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679733743"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679733752"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733742"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679733751"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679733741"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679733750"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679733735"><span class="annot"><span class="annottext">toPath :: DeleteTable -&gt; ByteString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679733744"><span class="annot"><span class="annottext">toPath :: DeleteTable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTable -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679733731"><span class="annot"><span class="annottext">toQuery :: DeleteTable -&gt; QueryString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679733740"><span class="annot"><span class="annottext">toQuery :: DeleteTable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTable -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -358,12 +358,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newDeleteTableResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679733728"><span id="local-6989586621679733729"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTableResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-var">DeleteTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTableResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-var">DeleteTableResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679733737"><span id="local-6989586621679733738"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTableResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-var">DeleteTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTableResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-var">DeleteTableResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="annot"><span class="annottext">DeleteTableResponse -&gt; Int
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679733723"><span id="local-6989586621679733725"><span class="annot"><span class="annottext">DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679733732"><span id="local-6989586621679733734"><span class="annot"><span class="annottext">DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
 (DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool)
 -&gt; (DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool)
 -&gt; Eq DeleteTableResponse
@@ -372,7 +372,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
 == :: DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
 $c== :: DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733715"><span id="local-6989586621679733717"><span id="local-6989586621679733719"><span id="local-6989586621679733721"><span class="annot"><span class="annottext">ReadPrec [DeleteTableResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733724"><span id="local-6989586621679733726"><span id="local-6989586621679733728"><span id="local-6989586621679733730"><span class="annot"><span class="annottext">ReadPrec [DeleteTableResponse]
 ReadPrec DeleteTableResponse
 Int -&gt; ReadS DeleteTableResponse
 ReadS [DeleteTableResponse]
@@ -392,7 +392,7 @@ readList :: ReadS [DeleteTableResponse]
 $creadList :: ReadS [DeleteTableResponse]
 readsPrec :: Int -&gt; ReadS DeleteTableResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTableResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733709"><span id="local-6989586621679733711"><span id="local-6989586621679733713"><span class="annot"><span class="annottext">Int -&gt; DeleteTableResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733718"><span id="local-6989586621679733720"><span id="local-6989586621679733722"><span class="annot"><span class="annottext">Int -&gt; DeleteTableResponse -&gt; ShowS
 [DeleteTableResponse] -&gt; ShowS
 DeleteTableResponse -&gt; String
 (Int -&gt; DeleteTableResponse -&gt; ShowS)
@@ -432,12 +432,12 @@ $cfrom :: forall x. DeleteTableResponse -&gt; Rep DeleteTableResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newDeleteTableResponse"><span class="annot"><span class="annottext">newDeleteTableResponse :: Int -&gt; DeleteTableResponse
-</span><a href="Network.AWS.Glue.DeleteTable.html#newDeleteTableResponse"><span class="hs-identifier hs-var hs-var">newDeleteTableResponse</span></a></span></span><span> </span><span id="local-6989586621679733706"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteTable.html#newDeleteTableResponse"><span class="hs-identifier hs-var hs-var">newDeleteTableResponse</span></a></span></span><span> </span><span id="local-6989586621679733715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679733715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">DeleteTableResponse' :: Int -&gt; DeleteTableResponse
 </span><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTableResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679733715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#deleteTableResponse_httpStatus"><span class="hs-identifier hs-type">deleteTableResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -446,16 +446,16 @@ $cfrom :: forall x. DeleteTableResponse -&gt; Rep DeleteTableResponse x
 -&gt; (DeleteTableResponse -&gt; Int -&gt; DeleteTableResponse)
 -&gt; Lens DeleteTableResponse DeleteTableResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733705"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733714"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteTableResponse' :: DeleteTableResponse -&gt; Int
-</span><a href="#local-6989586621679733705"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733705"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733704"><span class="annot"><span class="annottext">s :: DeleteTableResponse
-</span><a href="#local-6989586621679733704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733703"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTableResponse
-</span><a href="#local-6989586621679733704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTableResponse' :: Int
+</span><a href="#local-6989586621679733714"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679733714"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733713"><span class="annot"><span class="annottext">s :: DeleteTableResponse
+</span><a href="#local-6989586621679733713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679733712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTableResponse
+</span><a href="#local-6989586621679733713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTableResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteTable.html#%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679733712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

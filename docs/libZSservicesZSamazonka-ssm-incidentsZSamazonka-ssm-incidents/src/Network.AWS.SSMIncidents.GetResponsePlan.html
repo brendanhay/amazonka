@@ -1,0 +1,780 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSMIncidents.GetResponsePlan</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the details of the specified response plan.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMIncidents.GetResponsePlan</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier">GetResponsePlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#newGetResponsePlan"><span class="hs-identifier">newGetResponsePlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlan_arn"><span class="hs-identifier">getResponsePlan_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier">GetResponsePlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#newGetResponsePlanResponse"><span class="hs-identifier">newGetResponsePlanResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_actions"><span class="hs-identifier">getResponsePlanResponse_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_displayName"><span class="hs-identifier">getResponsePlanResponse_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_chatChannel"><span class="hs-identifier">getResponsePlanResponse_chatChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_engagements"><span class="hs-identifier">getResponsePlanResponse_engagements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_httpStatus"><span class="hs-identifier">getResponsePlanResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_arn"><span class="hs-identifier">getResponsePlanResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_incidentTemplate"><span class="hs-identifier">getResponsePlanResponse_incidentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_name"><span class="hs-identifier">getResponsePlanResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.html"><span class="hs-identifier">Network.AWS.SSMIncidents.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetResponsePlan' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679220202"><span id="local-6989586621679220203"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResponsePlan"><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-var">GetResponsePlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResponsePlan%27"><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan%27"><span class="hs-identifier hs-var">GetResponsePlan'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the response plan.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aarn%3AGetResponsePlan%27"><span class="annot"><span class="annottext">GetResponsePlan -&gt; Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aarn%3AGetResponsePlan%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220196"><span id="local-6989586621679220198"><span class="annot"><span class="annottext">GetResponsePlan -&gt; GetResponsePlan -&gt; Bool
+(GetResponsePlan -&gt; GetResponsePlan -&gt; Bool)
+-&gt; (GetResponsePlan -&gt; GetResponsePlan -&gt; Bool)
+-&gt; Eq GetResponsePlan
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResponsePlan -&gt; GetResponsePlan -&gt; Bool
+$c/= :: GetResponsePlan -&gt; GetResponsePlan -&gt; Bool
+== :: GetResponsePlan -&gt; GetResponsePlan -&gt; Bool
+$c== :: GetResponsePlan -&gt; GetResponsePlan -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220187"><span id="local-6989586621679220189"><span id="local-6989586621679220191"><span id="local-6989586621679220193"><span class="annot"><span class="annottext">ReadPrec [GetResponsePlan]
+ReadPrec GetResponsePlan
+Int -&gt; ReadS GetResponsePlan
+ReadS [GetResponsePlan]
+(Int -&gt; ReadS GetResponsePlan)
+-&gt; ReadS [GetResponsePlan]
+-&gt; ReadPrec GetResponsePlan
+-&gt; ReadPrec [GetResponsePlan]
+-&gt; Read GetResponsePlan
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResponsePlan]
+$creadListPrec :: ReadPrec [GetResponsePlan]
+readPrec :: ReadPrec GetResponsePlan
+$creadPrec :: ReadPrec GetResponsePlan
+readList :: ReadS [GetResponsePlan]
+$creadList :: ReadS [GetResponsePlan]
+readsPrec :: Int -&gt; ReadS GetResponsePlan
+$creadsPrec :: Int -&gt; ReadS GetResponsePlan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220180"><span id="local-6989586621679220182"><span id="local-6989586621679220184"><span class="annot"><span class="annottext">Int -&gt; GetResponsePlan -&gt; ShowS
+[GetResponsePlan] -&gt; ShowS
+GetResponsePlan -&gt; String
+(Int -&gt; GetResponsePlan -&gt; ShowS)
+-&gt; (GetResponsePlan -&gt; String)
+-&gt; ([GetResponsePlan] -&gt; ShowS)
+-&gt; Show GetResponsePlan
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResponsePlan] -&gt; ShowS
+$cshowList :: [GetResponsePlan] -&gt; ShowS
+show :: GetResponsePlan -&gt; String
+$cshow :: GetResponsePlan -&gt; String
+showsPrec :: Int -&gt; GetResponsePlan -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResponsePlan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResponsePlan -&gt; Rep GetResponsePlan x)
+-&gt; (forall x. Rep GetResponsePlan x -&gt; GetResponsePlan)
+-&gt; Generic GetResponsePlan
+forall x. Rep GetResponsePlan x -&gt; GetResponsePlan
+forall x. GetResponsePlan -&gt; Rep GetResponsePlan x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResponsePlan x -&gt; GetResponsePlan
+$cfrom :: forall x. GetResponsePlan -&gt; Rep GetResponsePlan x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'GetResponsePlan' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'arn', 'getResponsePlan_arn' - The Amazon Resource Name (ARN) of the response plan.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#newGetResponsePlan"><span class="hs-identifier hs-type">newGetResponsePlan</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span>
+</span><span id="line-75"></span><span id="newGetResponsePlan"><span class="annot"><span class="annottext">newGetResponsePlan :: Text -&gt; GetResponsePlan
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#newGetResponsePlan"><span class="hs-identifier hs-var hs-var">newGetResponsePlan</span></a></span></span><span> </span><span id="local-6989586621679220175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220175"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">GetResponsePlan' :: Text -&gt; GetResponsePlan
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan%27"><span class="hs-identifier hs-type">GetResponsePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetResponsePlan' :: Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aarn%3AGetResponsePlan%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220175"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the response plan.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlan_arn"><span class="hs-identifier hs-type">getResponsePlan_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="getResponsePlan_arn"><span class="annot"><span class="annottext">getResponsePlan_arn :: (Text -&gt; f Text) -&gt; GetResponsePlan -&gt; f GetResponsePlan
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlan_arn"><span class="hs-identifier hs-var hs-var">getResponsePlan_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlan -&gt; Text)
+-&gt; (GetResponsePlan -&gt; Text -&gt; GetResponsePlan)
+-&gt; Lens GetResponsePlan GetResponsePlan Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan%27"><span class="hs-identifier hs-type">GetResponsePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220172"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GetResponsePlan' :: GetResponsePlan -&gt; Text
+</span><a href="#local-6989586621679220172"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220172"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220171"><span class="annot"><span class="annottext">s :: GetResponsePlan
+</span><a href="#local-6989586621679220171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan%27"><span class="hs-identifier hs-type">GetResponsePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220170"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlan
+</span><a href="#local-6989586621679220171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetResponsePlan' :: Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aarn%3AGetResponsePlan%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679220166"><span class="annot"><span class="annottext">request :: GetResponsePlan -&gt; Request GetResponsePlan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetResponsePlan -&gt; Request GetResponsePlan
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSMIncidents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679220162"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetResponsePlan
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetResponsePlan)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetResponsePlan))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetResponsePlan
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetResponsePlan)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220159"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679220158"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679220158"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679220157"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Action]
+-&gt; Maybe Text
+-&gt; Maybe ChatChannel
+-&gt; Maybe [Text]
+-&gt; Int
+-&gt; Text
+-&gt; IncidentTemplate
+-&gt; Text
+-&gt; GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-var">GetResponsePlanResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Action]
+ -&gt; Maybe Text
+ -&gt; Maybe ChatChannel
+ -&gt; Maybe [Text]
+ -&gt; Int
+ -&gt; Text
+ -&gt; IncidentTemplate
+ -&gt; Text
+ -&gt; GetResponsePlanResponse)
+-&gt; Either String (Maybe [Action])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ChatChannel
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; Text
+      -&gt; IncidentTemplate
+      -&gt; Text
+      -&gt; GetResponsePlanResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Action]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Action]))
+-&gt; Maybe [Action] -&gt; Either String (Maybe [Action])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ChatChannel
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; Text
+   -&gt; IncidentTemplate
+   -&gt; Text
+   -&gt; GetResponsePlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ChatChannel
+      -&gt; Maybe [Text]
+      -&gt; Int
+      -&gt; Text
+      -&gt; IncidentTemplate
+      -&gt; Text
+      -&gt; GetResponsePlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ChatChannel
+   -&gt; Maybe [Text]
+   -&gt; Int
+   -&gt; Text
+   -&gt; IncidentTemplate
+   -&gt; Text
+   -&gt; GetResponsePlanResponse)
+-&gt; Either String (Maybe ChatChannel)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Int
+      -&gt; Text
+      -&gt; IncidentTemplate
+      -&gt; Text
+      -&gt; GetResponsePlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ChatChannel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;chatChannel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Int
+   -&gt; Text
+   -&gt; IncidentTemplate
+   -&gt; Text
+   -&gt; GetResponsePlanResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Int
+      -&gt; Text -&gt; IncidentTemplate -&gt; Text -&gt; GetResponsePlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;engagements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text -&gt; IncidentTemplate -&gt; Text -&gt; GetResponsePlanResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text -&gt; IncidentTemplate -&gt; Text -&gt; GetResponsePlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220159"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; IncidentTemplate -&gt; Text -&gt; GetResponsePlanResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (IncidentTemplate -&gt; Text -&gt; GetResponsePlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (IncidentTemplate -&gt; Text -&gt; GetResponsePlanResponse)
+-&gt; Either String IncidentTemplate
+-&gt; Either String (Text -&gt; GetResponsePlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String IncidentTemplate
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;incidentTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; GetResponsePlanResponse)
+-&gt; Either String Text -&gt; Either String GetResponsePlanResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220147"><span id="local-6989586621679220149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679220140"><span class="annot"><span class="annottext">toHeaders :: GetResponsePlan -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResponsePlan -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679220134"><span class="annot"><span class="annottext">toPath :: GetResponsePlan -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetResponsePlan -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/getResponsePlan&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan"><span class="hs-identifier hs-type">GetResponsePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679220130"><span class="annot"><span class="annottext">toQuery :: GetResponsePlan -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlan%27"><span class="hs-identifier hs-type">GetResponsePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220128"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GetResponsePlan' :: GetResponsePlan -&gt; Text
+</span><a href="#local-6989586621679220128"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220128"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newGetResponsePlanResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679220125"><span id="local-6989586621679220126"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResponsePlanResponse"><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-var">GetResponsePlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResponsePlanResponse%27"><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-var">GetResponsePlanResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The actions that this response plan takes at the beginning of the</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- incident.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3Aactions%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; Maybe [Action]
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aactions%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The long format name of the response plan. Can contain spaces.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AdisplayName%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AdisplayName%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The AWS Chatbot chat channel used for collaboration during an incident.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AchatChannel%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; Maybe ChatChannel
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AchatChannel%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">chatChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.ChatChannel.html#ChatChannel"><span class="hs-identifier hs-type">ChatChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The contacts and escalation plans that the response plan engages during</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- an incident.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3Aengagements%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aengagements%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">engagements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; Int
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AhttpStatus%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The ARN of the response plan.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3Aarn%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aarn%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | Details used to create the incident when using this response plan.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AincidentTemplate%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; IncidentTemplate
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AincidentTemplate%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">incidentTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.IncidentTemplate.html#IncidentTemplate"><span class="hs-identifier hs-type">IncidentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The short format name of the response plan. Can\'t contain spaces.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aname%3AGetResponsePlanResponse%27"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aname%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220113"><span id="local-6989586621679220115"><span class="annot"><span class="annottext">GetResponsePlanResponse -&gt; GetResponsePlanResponse -&gt; Bool
+(GetResponsePlanResponse -&gt; GetResponsePlanResponse -&gt; Bool)
+-&gt; (GetResponsePlanResponse -&gt; GetResponsePlanResponse -&gt; Bool)
+-&gt; Eq GetResponsePlanResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResponsePlanResponse -&gt; GetResponsePlanResponse -&gt; Bool
+$c/= :: GetResponsePlanResponse -&gt; GetResponsePlanResponse -&gt; Bool
+== :: GetResponsePlanResponse -&gt; GetResponsePlanResponse -&gt; Bool
+$c== :: GetResponsePlanResponse -&gt; GetResponsePlanResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220105"><span id="local-6989586621679220107"><span id="local-6989586621679220109"><span id="local-6989586621679220111"><span class="annot"><span class="annottext">ReadPrec [GetResponsePlanResponse]
+ReadPrec GetResponsePlanResponse
+Int -&gt; ReadS GetResponsePlanResponse
+ReadS [GetResponsePlanResponse]
+(Int -&gt; ReadS GetResponsePlanResponse)
+-&gt; ReadS [GetResponsePlanResponse]
+-&gt; ReadPrec GetResponsePlanResponse
+-&gt; ReadPrec [GetResponsePlanResponse]
+-&gt; Read GetResponsePlanResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResponsePlanResponse]
+$creadListPrec :: ReadPrec [GetResponsePlanResponse]
+readPrec :: ReadPrec GetResponsePlanResponse
+$creadPrec :: ReadPrec GetResponsePlanResponse
+readList :: ReadS [GetResponsePlanResponse]
+$creadList :: ReadS [GetResponsePlanResponse]
+readsPrec :: Int -&gt; ReadS GetResponsePlanResponse
+$creadsPrec :: Int -&gt; ReadS GetResponsePlanResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220099"><span id="local-6989586621679220101"><span id="local-6989586621679220103"><span class="annot"><span class="annottext">Int -&gt; GetResponsePlanResponse -&gt; ShowS
+[GetResponsePlanResponse] -&gt; ShowS
+GetResponsePlanResponse -&gt; String
+(Int -&gt; GetResponsePlanResponse -&gt; ShowS)
+-&gt; (GetResponsePlanResponse -&gt; String)
+-&gt; ([GetResponsePlanResponse] -&gt; ShowS)
+-&gt; Show GetResponsePlanResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResponsePlanResponse] -&gt; ShowS
+$cshowList :: [GetResponsePlanResponse] -&gt; ShowS
+show :: GetResponsePlanResponse -&gt; String
+$cshow :: GetResponsePlanResponse -&gt; String
+showsPrec :: Int -&gt; GetResponsePlanResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResponsePlanResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetResponsePlanResponse -&gt; Rep GetResponsePlanResponse x)
+-&gt; (forall x.
+    Rep GetResponsePlanResponse x -&gt; GetResponsePlanResponse)
+-&gt; Generic GetResponsePlanResponse
+forall x. Rep GetResponsePlanResponse x -&gt; GetResponsePlanResponse
+forall x. GetResponsePlanResponse -&gt; Rep GetResponsePlanResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResponsePlanResponse x -&gt; GetResponsePlanResponse
+$cfrom :: forall x. GetResponsePlanResponse -&gt; Rep GetResponsePlanResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'GetResponsePlanResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'actions', 'getResponsePlanResponse_actions' - The actions that this response plan takes at the beginning of the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- incident.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'displayName', 'getResponsePlanResponse_displayName' - The long format name of the response plan. Can contain spaces.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'chatChannel', 'getResponsePlanResponse_chatChannel' - The AWS Chatbot chat channel used for collaboration during an incident.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'engagements', 'getResponsePlanResponse_engagements' - The contacts and escalation plans that the response plan engages during</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- an incident.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'getResponsePlanResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'arn', 'getResponsePlanResponse_arn' - The ARN of the response plan.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'incidentTemplate', 'getResponsePlanResponse_incidentTemplate' - Details used to create the incident when using this response plan.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'name', 'getResponsePlanResponse_name' - The short format name of the response plan. Can\'t contain spaces.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#newGetResponsePlanResponse"><span class="hs-identifier hs-type">newGetResponsePlanResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'incidentTemplate'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.IncidentTemplate.html#IncidentTemplate"><span class="hs-identifier hs-type">IncidentTemplate</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span>
+</span><span id="line-181"></span><span id="newGetResponsePlanResponse"><span class="annot"><span class="annottext">newGetResponsePlanResponse :: Int -&gt; Text -&gt; IncidentTemplate -&gt; Text -&gt; GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#newGetResponsePlanResponse"><span class="hs-identifier hs-var hs-var">newGetResponsePlanResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679220096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220096"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679220095"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220095"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679220094"><span class="annot"><span class="annottext">IncidentTemplate
+</span><a href="#local-6989586621679220094"><span class="hs-identifier hs-var">pIncidentTemplate_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679220093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220093"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">GetResponsePlanResponse' :: Maybe [Action]
+-&gt; Maybe Text
+-&gt; Maybe ChatChannel
+-&gt; Maybe [Text]
+-&gt; Int
+-&gt; Text
+-&gt; IncidentTemplate
+-&gt; Text
+-&gt; GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actions:GetResponsePlanResponse' :: Maybe [Action]
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aactions%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:displayName:GetResponsePlanResponse' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AdisplayName%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:chatChannel:GetResponsePlanResponse' :: Maybe ChatChannel
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AchatChannel%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">chatChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChatChannel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:engagements:GetResponsePlanResponse' :: Maybe [Text]
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aengagements%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">engagements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetResponsePlanResponse' :: Int
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AhttpStatus%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220096"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:GetResponsePlanResponse' :: Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aarn%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220095"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:incidentTemplate:GetResponsePlanResponse' :: IncidentTemplate
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AincidentTemplate%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">incidentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IncidentTemplate
+</span><a href="#local-6989586621679220094"><span class="hs-identifier hs-var">pIncidentTemplate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:GetResponsePlanResponse' :: Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aname%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220093"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The actions that this response plan takes at the beginning of the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- incident.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_actions"><span class="hs-identifier hs-type">getResponsePlanResponse_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="getResponsePlanResponse_actions"><span class="annot"><span class="annottext">getResponsePlanResponse_actions :: (Maybe [Action] -&gt; f (Maybe [Action]))
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_actions"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; Maybe [Action])
+-&gt; (GetResponsePlanResponse
+    -&gt; Maybe [Action] -&gt; GetResponsePlanResponse)
+-&gt; Lens
+     GetResponsePlanResponse
+     GetResponsePlanResponse
+     (Maybe [Action])
+     (Maybe [Action])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220092"><span class="annot"><span class="annottext">Maybe [Action]
+actions :: Maybe [Action]
+$sel:actions:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; Maybe [Action]
+</span><a href="#local-6989586621679220092"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679220092"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220091"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220090"><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679220090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:GetResponsePlanResponse' :: Maybe [Action]
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aactions%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679220090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Action] -&gt; f (Maybe [Action]))
+ -&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse)
+-&gt; ((Maybe [Action] -&gt; f (Maybe [Action]))
+    -&gt; Maybe [Action] -&gt; f (Maybe [Action]))
+-&gt; (Maybe [Action] -&gt; f (Maybe [Action]))
+-&gt; GetResponsePlanResponse
+-&gt; f GetResponsePlanResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Action] [Action] [Action] [Action]
+-&gt; Iso
+     (Maybe [Action]) (Maybe [Action]) (Maybe [Action]) (Maybe [Action])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Action] [Action] [Action] [Action]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The long format name of the response plan. Can contain spaces.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_displayName"><span class="hs-identifier hs-type">getResponsePlanResponse_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="getResponsePlanResponse_displayName"><span class="annot"><span class="annottext">getResponsePlanResponse_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_displayName"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; Maybe Text)
+-&gt; (GetResponsePlanResponse
+    -&gt; Maybe Text -&gt; GetResponsePlanResponse)
+-&gt; Lens
+     GetResponsePlanResponse
+     GetResponsePlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220086"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679220086"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220086"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220085"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:GetResponsePlanResponse' :: Maybe Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AdisplayName%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The AWS Chatbot chat channel used for collaboration during an incident.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_chatChannel"><span class="hs-identifier hs-type">getResponsePlanResponse_chatChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.ChatChannel.html#ChatChannel"><span class="hs-identifier hs-type">ChatChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="getResponsePlanResponse_chatChannel"><span class="annot"><span class="annottext">getResponsePlanResponse_chatChannel :: (Maybe ChatChannel -&gt; f (Maybe ChatChannel))
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_chatChannel"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_chatChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; Maybe ChatChannel)
+-&gt; (GetResponsePlanResponse
+    -&gt; Maybe ChatChannel -&gt; GetResponsePlanResponse)
+-&gt; Lens
+     GetResponsePlanResponse
+     GetResponsePlanResponse
+     (Maybe ChatChannel)
+     (Maybe ChatChannel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220083"><span class="annot"><span class="annottext">Maybe ChatChannel
+chatChannel :: Maybe ChatChannel
+$sel:chatChannel:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; Maybe ChatChannel
+</span><a href="#local-6989586621679220083"><span class="hs-identifier hs-var hs-var">chatChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChatChannel
+</span><a href="#local-6989586621679220083"><span class="hs-identifier hs-var">chatChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220082"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220081"><span class="annot"><span class="annottext">Maybe ChatChannel
+</span><a href="#local-6989586621679220081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chatChannel:GetResponsePlanResponse' :: Maybe ChatChannel
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AchatChannel%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">chatChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChatChannel
+</span><a href="#local-6989586621679220081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The contacts and escalation plans that the response plan engages during</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- an incident.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_engagements"><span class="hs-identifier hs-type">getResponsePlanResponse_engagements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="getResponsePlanResponse_engagements"><span class="annot"><span class="annottext">getResponsePlanResponse_engagements :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_engagements"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_engagements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; Maybe [Text])
+-&gt; (GetResponsePlanResponse
+    -&gt; Maybe [Text] -&gt; GetResponsePlanResponse)
+-&gt; Lens
+     GetResponsePlanResponse
+     GetResponsePlanResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220080"><span class="annot"><span class="annottext">Maybe [Text]
+engagements :: Maybe [Text]
+$sel:engagements:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679220080"><span class="hs-identifier hs-var hs-var">engagements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679220080"><span class="hs-identifier hs-var">engagements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220079"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220078"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679220078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engagements:GetResponsePlanResponse' :: Maybe [Text]
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aengagements%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">engagements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679220078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetResponsePlanResponse
+-&gt; f GetResponsePlanResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_httpStatus"><span class="hs-identifier hs-type">getResponsePlanResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="getResponsePlanResponse_httpStatus"><span class="annot"><span class="annottext">getResponsePlanResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; Int)
+-&gt; (GetResponsePlanResponse -&gt; Int -&gt; GetResponsePlanResponse)
+-&gt; Lens GetResponsePlanResponse GetResponsePlanResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220077"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; Int
+</span><a href="#local-6989586621679220077"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220077"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220076"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetResponsePlanResponse' :: Int
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AhttpStatus%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The ARN of the response plan.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_arn"><span class="hs-identifier hs-type">getResponsePlanResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-221"></span><span id="getResponsePlanResponse_arn"><span class="annot"><span class="annottext">getResponsePlanResponse_arn :: (Text -&gt; f Text)
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_arn"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; Text)
+-&gt; (GetResponsePlanResponse -&gt; Text -&gt; GetResponsePlanResponse)
+-&gt; Lens GetResponsePlanResponse GetResponsePlanResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220074"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; Text
+</span><a href="#local-6989586621679220074"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220074"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220073"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetResponsePlanResponse' :: Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aarn%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Details used to create the incident when using this response plan.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_incidentTemplate"><span class="hs-identifier hs-type">getResponsePlanResponse_incidentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.IncidentTemplate.html#IncidentTemplate"><span class="hs-identifier hs-type">IncidentTemplate</span></a></span><span>
+</span><span id="line-225"></span><span id="getResponsePlanResponse_incidentTemplate"><span class="annot"><span class="annottext">getResponsePlanResponse_incidentTemplate :: (IncidentTemplate -&gt; f IncidentTemplate)
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_incidentTemplate"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_incidentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; IncidentTemplate)
+-&gt; (GetResponsePlanResponse
+    -&gt; IncidentTemplate -&gt; GetResponsePlanResponse)
+-&gt; Lens
+     GetResponsePlanResponse
+     GetResponsePlanResponse
+     IncidentTemplate
+     IncidentTemplate
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220071"><span class="annot"><span class="annottext">IncidentTemplate
+incidentTemplate :: IncidentTemplate
+$sel:incidentTemplate:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; IncidentTemplate
+</span><a href="#local-6989586621679220071"><span class="hs-identifier hs-var hs-var">incidentTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IncidentTemplate
+</span><a href="#local-6989586621679220071"><span class="hs-identifier hs-var">incidentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220070"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220069"><span class="annot"><span class="annottext">IncidentTemplate
+</span><a href="#local-6989586621679220069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:incidentTemplate:GetResponsePlanResponse' :: IncidentTemplate
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3AincidentTemplate%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">incidentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IncidentTemplate
+</span><a href="#local-6989586621679220069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The short format name of the response plan. Can\'t contain spaces.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_name"><span class="hs-identifier hs-type">getResponsePlanResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-229"></span><span id="getResponsePlanResponse_name"><span class="annot"><span class="annottext">getResponsePlanResponse_name :: (Text -&gt; f Text)
+-&gt; GetResponsePlanResponse -&gt; f GetResponsePlanResponse
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#getResponsePlanResponse_name"><span class="hs-identifier hs-var hs-var">getResponsePlanResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResponsePlanResponse -&gt; Text)
+-&gt; (GetResponsePlanResponse -&gt; Text -&gt; GetResponsePlanResponse)
+-&gt; Lens GetResponsePlanResponse GetResponsePlanResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220068"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetResponsePlanResponse' :: GetResponsePlanResponse -&gt; Text
+</span><a href="#local-6989586621679220068"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220068"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220067"><span class="annot"><span class="annottext">s :: GetResponsePlanResponse
+</span><a href="#local-6989586621679220067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse%27"><span class="hs-identifier hs-type">GetResponsePlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResponsePlanResponse
+</span><a href="#local-6989586621679220067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetResponsePlanResponse' :: Text
+</span><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#%24sel%3Aname%3AGetResponsePlanResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.GetResponsePlan.html#GetResponsePlanResponse"><span class="hs-identifier hs-type">GetResponsePlanResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

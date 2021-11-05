@@ -96,7 +96,7 @@
 </span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | /See:/ 'newSimulatePrincipalPolicy' smart constructor.</span><span>
-</span><span id="line-99"></span><span id="local-6989586621679436350"><span id="local-6989586621679436351"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimulatePrincipalPolicy"><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-var">SimulatePrincipalPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulatePrincipalPolicy%27"><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">SimulatePrincipalPolicy'</span></a></span></span><span>
+</span><span id="line-99"></span><span id="local-6989586621679436359"><span id="local-6989586621679436360"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimulatePrincipalPolicy"><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-var">SimulatePrincipalPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulatePrincipalPolicy%27"><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">SimulatePrincipalPolicy'</span></a></span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional list of additional policy documents to include in the</span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-comment">-- simulation. Each document is specified as a string containing the</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">-- complete, valid JSON text of an IAM policy.</span><span>
@@ -306,7 +306,7 @@
 </span><span id="line-295"></span><span>    </span><span id="%24sel%3AactionNames%3ASimulatePrincipalPolicy%27"><span class="annot"><span class="annottext">SimulatePrincipalPolicy -&gt; [Text]
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AactionNames%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var hs-var">actionNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-296"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436333"><span id="local-6989586621679436335"><span class="annot"><span class="annottext">SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy -&gt; Bool
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436342"><span id="local-6989586621679436344"><span class="annot"><span class="annottext">SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy -&gt; Bool
 (SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy -&gt; Bool)
 -&gt; (SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy -&gt; Bool)
 -&gt; Eq SimulatePrincipalPolicy
@@ -315,7 +315,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy -&gt; Bool
 == :: SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy -&gt; Bool
 $c== :: SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436324"><span id="local-6989586621679436326"><span id="local-6989586621679436328"><span id="local-6989586621679436330"><span class="annot"><span class="annottext">ReadPrec [SimulatePrincipalPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436333"><span id="local-6989586621679436335"><span id="local-6989586621679436337"><span id="local-6989586621679436339"><span class="annot"><span class="annottext">ReadPrec [SimulatePrincipalPolicy]
 ReadPrec SimulatePrincipalPolicy
 Int -&gt; ReadS SimulatePrincipalPolicy
 ReadS [SimulatePrincipalPolicy]
@@ -335,7 +335,7 @@ readList :: ReadS [SimulatePrincipalPolicy]
 $creadList :: ReadS [SimulatePrincipalPolicy]
 readsPrec :: Int -&gt; ReadS SimulatePrincipalPolicy
 $creadsPrec :: Int -&gt; ReadS SimulatePrincipalPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436317"><span id="local-6989586621679436319"><span id="local-6989586621679436321"><span class="annot"><span class="annottext">Int -&gt; SimulatePrincipalPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436326"><span id="local-6989586621679436328"><span id="local-6989586621679436330"><span class="annot"><span class="annottext">Int -&gt; SimulatePrincipalPolicy -&gt; ShowS
 [SimulatePrincipalPolicy] -&gt; ShowS
 SimulatePrincipalPolicy -&gt; String
 (Int -&gt; SimulatePrincipalPolicy -&gt; ShowS)
@@ -571,8 +571,8 @@ $cfrom :: forall x. SimulatePrincipalPolicy -&gt; Rep SimulatePrincipalPolicy x
 </span><span id="line-504"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-505"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span>
 </span><span id="line-506"></span><span id="newSimulatePrincipalPolicy"><span class="annot"><span class="annottext">newSimulatePrincipalPolicy :: Text -&gt; SimulatePrincipalPolicy
-</span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#newSimulatePrincipalPolicy"><span class="hs-identifier hs-var hs-var">newSimulatePrincipalPolicy</span></a></span></span><span> </span><span id="local-6989586621679436312"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436312"><span class="hs-identifier hs-var">pPolicySourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#newSimulatePrincipalPolicy"><span class="hs-identifier hs-var hs-var">newSimulatePrincipalPolicy</span></a></span></span><span> </span><span id="local-6989586621679436321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436321"><span class="hs-identifier hs-var">pPolicySourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-507"></span><span>  </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -631,7 +631,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-520"></span><span>      </span><span class="annot"><span class="annottext">$sel:policySourceArn:SimulatePrincipalPolicy' :: Text
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3ApolicySourceArn%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436312"><span class="hs-identifier hs-var">pPolicySourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436321"><span class="hs-identifier hs-var">pPolicySourceArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-521"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionNames:SimulatePrincipalPolicy' :: [Text]
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AactionNames%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">actionNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -665,16 +665,16 @@ forall a. Monoid a =&gt; a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436310"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436319"><span class="annot"><span class="annottext">Maybe [Text]
 policyInputList :: Maybe [Text]
 $sel:policyInputList:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe [Text]
-</span><a href="#local-6989586621679436310"><span class="hs-identifier hs-var hs-var">policyInputList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436310"><span class="hs-identifier hs-var">policyInputList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436309"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436308"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyInputList:SimulatePrincipalPolicy' :: Maybe [Text]
+</span><a href="#local-6989586621679436319"><span class="hs-identifier hs-var hs-var">policyInputList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679436319"><span class="hs-identifier hs-var">policyInputList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436318"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436317"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679436317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyInputList:SimulatePrincipalPolicy' :: Maybe [Text]
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3ApolicyInputList%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">policyInputList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679436317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; SimulatePrincipalPolicy -&gt; f SimulatePrincipalPolicy)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -724,16 +724,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436304"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436313"><span class="annot"><span class="annottext">Maybe Text
 resourcePolicy :: Maybe Text
 $sel:resourcePolicy:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679436304"><span class="hs-identifier hs-var hs-var">resourcePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436304"><span class="hs-identifier hs-var">resourcePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436303"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436302"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcePolicy:SimulatePrincipalPolicy' :: Maybe Text
+</span><a href="#local-6989586621679436313"><span class="hs-identifier hs-var hs-var">resourcePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436313"><span class="hs-identifier hs-var">resourcePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436312"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcePolicy:SimulatePrincipalPolicy' :: Maybe Text
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AresourcePolicy%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">resourcePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-565"></span><span>
 </span><span id="line-566"></span><span class="hs-comment">-- | The ARN of the IAM user that you want to specify as the simulated caller</span><span>
 </span><span id="line-567"></span><span class="hs-comment">-- of the API operations. If you do not specify a @CallerArn@, it defaults</span><span>
@@ -766,16 +766,16 @@ $sel:resourcePolicy:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436301"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436310"><span class="annot"><span class="annottext">Maybe Text
 callerArn :: Maybe Text
 $sel:callerArn:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679436301"><span class="hs-identifier hs-var hs-var">callerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436301"><span class="hs-identifier hs-var">callerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436300"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436299"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerArn:SimulatePrincipalPolicy' :: Maybe Text
+</span><a href="#local-6989586621679436310"><span class="hs-identifier hs-var hs-var">callerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436310"><span class="hs-identifier hs-var">callerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436309"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerArn:SimulatePrincipalPolicy' :: Maybe Text
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AcallerArn%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">callerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-587"></span><span>
 </span><span id="line-588"></span><span class="hs-comment">-- | Specifies the type of simulation to run. Different API operations that</span><span>
 </span><span id="line-589"></span><span class="hs-comment">-- support resource-based policies require different combinations of</span><span>
@@ -830,16 +830,16 @@ $sel:callerArn:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436298"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436307"><span class="annot"><span class="annottext">Maybe Text
 resourceHandlingOption :: Maybe Text
 $sel:resourceHandlingOption:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679436298"><span class="hs-identifier hs-var hs-var">resourceHandlingOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436298"><span class="hs-identifier hs-var">resourceHandlingOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436297"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436296"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceHandlingOption:SimulatePrincipalPolicy' :: Maybe Text
+</span><a href="#local-6989586621679436307"><span class="hs-identifier hs-var hs-var">resourceHandlingOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436307"><span class="hs-identifier hs-var">resourceHandlingOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436306"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceHandlingOption:SimulatePrincipalPolicy' :: Maybe Text
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AresourceHandlingOption%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">resourceHandlingOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-631"></span><span>
 </span><span id="line-632"></span><span class="hs-comment">-- | A list of ARNs of Amazon Web Services resources to include in the</span><span>
 </span><span id="line-633"></span><span class="hs-comment">-- simulation. If this parameter is not provided, then the value defaults</span><span>
@@ -869,16 +869,16 @@ $sel:resourceHandlingOption:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy 
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436295"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436304"><span class="annot"><span class="annottext">Maybe [Text]
 resourceArns :: Maybe [Text]
 $sel:resourceArns:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe [Text]
-</span><a href="#local-6989586621679436295"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436295"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436294"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436293"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArns:SimulatePrincipalPolicy' :: Maybe [Text]
+</span><a href="#local-6989586621679436304"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679436304"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436303"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436302"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679436302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArns:SimulatePrincipalPolicy' :: Maybe [Text]
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AresourceArns%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679436302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; SimulatePrincipalPolicy -&gt; f SimulatePrincipalPolicy)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -936,16 +936,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436292"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436301"><span class="annot"><span class="annottext">Maybe [Text]
 permissionsBoundaryPolicyInputList :: Maybe [Text]
 $sel:permissionsBoundaryPolicyInputList:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe [Text]
-</span><a href="#local-6989586621679436292"><span class="hs-identifier hs-var hs-var">permissionsBoundaryPolicyInputList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436292"><span class="hs-identifier hs-var">permissionsBoundaryPolicyInputList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436291"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436290"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionsBoundaryPolicyInputList:SimulatePrincipalPolicy' :: Maybe [Text]
+</span><a href="#local-6989586621679436301"><span class="hs-identifier hs-var hs-var">permissionsBoundaryPolicyInputList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679436301"><span class="hs-identifier hs-var">permissionsBoundaryPolicyInputList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436300"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436299"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679436299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionsBoundaryPolicyInputList:SimulatePrincipalPolicy' :: Maybe [Text]
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3ApermissionsBoundaryPolicyInputList%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">permissionsBoundaryPolicyInputList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679436299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; SimulatePrincipalPolicy -&gt; f SimulatePrincipalPolicy)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -978,16 +978,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436289"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436298"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679436289"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436289"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436288"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436287"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:SimulatePrincipalPolicy' :: Maybe Text
+</span><a href="#local-6989586621679436298"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436298"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436297"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:SimulatePrincipalPolicy' :: Maybe Text
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3Amarker%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-689"></span><span>
 </span><span id="line-690"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
 </span><span id="line-691"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
@@ -1010,16 +1010,16 @@ $sel:marker:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436286"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436295"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Natural
-</span><a href="#local-6989586621679436286"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679436286"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436285"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436284"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679436284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:SimulatePrincipalPolicy' :: Maybe Natural
+</span><a href="#local-6989586621679436295"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679436295"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436294"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436293"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679436293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:SimulatePrincipalPolicy' :: Maybe Natural
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AmaxItems%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679436284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-701"></span><span>
 </span><span id="line-702"></span><span class="hs-comment">-- | A list of context keys and corresponding values for the simulation to</span><span>
 </span><span id="line-703"></span><span class="hs-comment">-- use. Whenever a context key is evaluated in one of the simulated IAM</span><span>
@@ -1036,16 +1036,16 @@ $sel:maxItems:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Na
      (Maybe [ContextEntry])
      (Maybe [ContextEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436283"><span class="annot"><span class="annottext">Maybe [ContextEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436292"><span class="annot"><span class="annottext">Maybe [ContextEntry]
 contextEntries :: Maybe [ContextEntry]
 $sel:contextEntries:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe [ContextEntry]
-</span><a href="#local-6989586621679436283"><span class="hs-identifier hs-var hs-var">contextEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContextEntry]
-</span><a href="#local-6989586621679436283"><span class="hs-identifier hs-var">contextEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436282"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436281"><span class="annot"><span class="annottext">Maybe [ContextEntry]
-</span><a href="#local-6989586621679436281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextEntries:SimulatePrincipalPolicy' :: Maybe [ContextEntry]
+</span><a href="#local-6989586621679436292"><span class="hs-identifier hs-var hs-var">contextEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContextEntry]
+</span><a href="#local-6989586621679436292"><span class="hs-identifier hs-var">contextEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436291"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436290"><span class="annot"><span class="annottext">Maybe [ContextEntry]
+</span><a href="#local-6989586621679436290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextEntries:SimulatePrincipalPolicy' :: Maybe [ContextEntry]
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AcontextEntries%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">contextEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContextEntry]
-</span><a href="#local-6989586621679436281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContextEntry] -&gt; f (Maybe [ContextEntry]))
+</span><a href="#local-6989586621679436290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContextEntry] -&gt; f (Maybe [ContextEntry]))
  -&gt; SimulatePrincipalPolicy -&gt; f SimulatePrincipalPolicy)
 -&gt; ((Maybe [ContextEntry] -&gt; f (Maybe [ContextEntry]))
     -&gt; Maybe [ContextEntry] -&gt; f (Maybe [ContextEntry]))
@@ -1088,16 +1088,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436280"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436289"><span class="annot"><span class="annottext">Maybe Text
 resourceOwner :: Maybe Text
 $sel:resourceOwner:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679436280"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436280"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436279"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436278"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwner:SimulatePrincipalPolicy' :: Maybe Text
+</span><a href="#local-6989586621679436289"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436289"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436288"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwner:SimulatePrincipalPolicy' :: Maybe Text
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AresourceOwner%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-720"></span><span>
 </span><span id="line-721"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a user, group, or role whose policies</span><span>
 </span><span id="line-722"></span><span class="hs-comment">-- you want to include in the simulation. If you specify a user, group, or</span><span>
@@ -1120,16 +1120,16 @@ $sel:resourceOwner:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; May
 -&gt; (SimulatePrincipalPolicy -&gt; Text -&gt; SimulatePrincipalPolicy)
 -&gt; Lens SimulatePrincipalPolicy SimulatePrincipalPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436277"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436286"><span class="annot"><span class="annottext">Text
 policySourceArn :: Text
 $sel:policySourceArn:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Text
-</span><a href="#local-6989586621679436277"><span class="hs-identifier hs-var hs-var">policySourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436277"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436276"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436275"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policySourceArn:SimulatePrincipalPolicy' :: Text
+</span><a href="#local-6989586621679436286"><span class="hs-identifier hs-var hs-var">policySourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436286"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436285"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policySourceArn:SimulatePrincipalPolicy' :: Text
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3ApolicySourceArn%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-737"></span><span>
 </span><span id="line-738"></span><span class="hs-comment">-- | A list of names of API operations to evaluate in the simulation. Each</span><span>
 </span><span id="line-739"></span><span class="hs-comment">-- operation is evaluated for each resource. Each operation must include</span><span>
@@ -1142,16 +1142,16 @@ $sel:policySourceArn:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; T
 -&gt; Lens
      SimulatePrincipalPolicy SimulatePrincipalPolicy [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436274"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436283"><span class="annot"><span class="annottext">[Text]
 actionNames :: [Text]
 $sel:actionNames:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; [Text]
-</span><a href="#local-6989586621679436274"><span class="hs-identifier hs-var hs-var">actionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679436274"><span class="hs-identifier hs-var">actionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436273"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436272"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679436272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionNames:SimulatePrincipalPolicy' :: [Text]
+</span><a href="#local-6989586621679436283"><span class="hs-identifier hs-var hs-var">actionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679436283"><span class="hs-identifier hs-var">actionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436282"><span class="annot"><span class="annottext">s :: SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436281"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679436281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionNames:SimulatePrincipalPolicy' :: [Text]
 </span><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#%24sel%3AactionNames%3ASimulatePrincipalPolicy%27"><span class="hs-identifier hs-var">actionNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679436272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679436281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; SimulatePrincipalPolicy -&gt; f SimulatePrincipalPolicy)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -1163,18 +1163,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-743"></span><span>
 </span><span id="line-744"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-745"></span><span>  </span><span id="local-6989586621679436268"><span class="annot"><span class="annottext">page :: SimulatePrincipalPolicy
+</span><span id="line-745"></span><span>  </span><span id="local-6989586621679436277"><span class="annot"><span class="annottext">page :: SimulatePrincipalPolicy
 -&gt; AWSResponse SimulatePrincipalPolicy
 -&gt; Maybe SimulatePrincipalPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679436266"><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436266"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679436265"><span class="annot"><span class="annottext">AWSResponse SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436265"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679436275"><span class="annot"><span class="annottext">SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436275"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679436274"><span class="annot"><span class="annottext">AWSResponse SimulatePrincipalPolicy
+</span><a href="#local-6989586621679436274"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-746"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-747"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SimulatePrincipalPolicy
 SimulatePolicyResponse
-</span><a href="#local-6989586621679436265"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679436274"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-748"></span><span>            </span><span class="annot"><span class="annottext">SimulatePolicyResponse
 -&gt; Getting (First Bool) SimulatePolicyResponse Bool -&gt; Maybe Bool
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -1203,7 +1203,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-753"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SimulatePrincipalPolicy
 SimulatePolicyResponse
-</span><a href="#local-6989586621679436265"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679436274"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-754"></span><span>            </span><span class="annot"><span class="annottext">SimulatePolicyResponse
 -&gt; Getting (First Text) SimulatePolicyResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -1235,7 +1235,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-759"></span><span>        </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
-</span><a href="#local-6989586621679436266"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679436275"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-760"></span><span>          </span><span class="annot"><span class="annottext">SimulatePrincipalPolicy
 -&gt; (SimulatePrincipalPolicy -&gt; SimulatePrincipalPolicy)
 -&gt; SimulatePrincipalPolicy
@@ -1254,7 +1254,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SimulatePrincipalPolicy
 SimulatePolicyResponse
-</span><a href="#local-6989586621679436265"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679436274"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-762"></span><span>          </span><span class="annot"><span class="annottext">SimulatePolicyResponse
 -&gt; Getting (First Text) SimulatePolicyResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -1278,13 +1278,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-765"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-766"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-767"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.Types.SimulatePolicyResponse.html#SimulatePolicyResponse"><span class="hs-identifier hs-type">SimulatePolicyResponse</span></a></span><span>
-</span><span id="line-768"></span><span>  </span><span id="local-6989586621679436255"><span class="annot"><span class="annottext">request :: SimulatePrincipalPolicy -&gt; Request SimulatePrincipalPolicy
+</span><span id="line-768"></span><span>  </span><span id="local-6989586621679436264"><span class="annot"><span class="annottext">request :: SimulatePrincipalPolicy -&gt; Request SimulatePrincipalPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; SimulatePrincipalPolicy -&gt; Request SimulatePrincipalPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-769"></span><span>  </span><span id="local-6989586621679436251"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-769"></span><span>  </span><span id="local-6989586621679436260"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SimulatePrincipalPolicy
 -&gt; ClientResponse ClientBody
@@ -1315,20 +1315,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-771"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SimulatePrincipalPolicyResult&quot;</span></span><span>
-</span><span id="line-772"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679436248"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679436247"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679436246"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679436246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String SimulatePolicyResponse
+</span><span id="line-772"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679436257"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679436256"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679436256"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679436255"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679436255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String SimulatePolicyResponse
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679436246"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436255"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-773"></span><span>
-</span><span id="line-774"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436241"><span id="local-6989586621679436243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span></span></span><span>
+</span><span id="line-774"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436250"><span id="local-6989586621679436252"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span></span></span><span>
 </span><span id="line-775"></span><span>
-</span><span id="line-776"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span></span><span>
+</span><span id="line-776"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span></span><span>
 </span><span id="line-777"></span><span>
 </span><span id="line-778"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-779"></span><span>  </span><span id="local-6989586621679436234"><span class="annot"><span class="annottext">toHeaders :: SimulatePrincipalPolicy -&gt; ResponseHeaders
+</span><span id="line-779"></span><span>  </span><span id="local-6989586621679436243"><span class="annot"><span class="annottext">toHeaders :: SimulatePrincipalPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SimulatePrincipalPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -1336,15 +1336,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-780"></span><span>
 </span><span id="line-781"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-782"></span><span>  </span><span id="local-6989586621679436229"><span class="annot"><span class="annottext">toPath :: SimulatePrincipalPolicy -&gt; ByteString
+</span><span id="line-782"></span><span>  </span><span id="local-6989586621679436238"><span class="annot"><span class="annottext">toPath :: SimulatePrincipalPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SimulatePrincipalPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-783"></span><span>
 </span><span id="line-784"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy"><span class="hs-identifier hs-type">SimulatePrincipalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-785"></span><span>  </span><span id="local-6989586621679436225"><span class="annot"><span class="annottext">toQuery :: SimulatePrincipalPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436212"><span id="local-6989586621679436213"><span id="local-6989586621679436214"><span id="local-6989586621679436215"><span id="local-6989586621679436216"><span id="local-6989586621679436217"><span id="local-6989586621679436218"><span id="local-6989586621679436219"><span id="local-6989586621679436220"><span id="local-6989586621679436221"><span id="local-6989586621679436222"><span id="local-6989586621679436223"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-785"></span><span>  </span><span id="local-6989586621679436234"><span class="annot"><span class="annottext">toQuery :: SimulatePrincipalPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.SimulatePrincipalPolicy.html#SimulatePrincipalPolicy%27"><span class="hs-identifier hs-type">SimulatePrincipalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436221"><span id="local-6989586621679436222"><span id="local-6989586621679436223"><span id="local-6989586621679436224"><span id="local-6989586621679436225"><span id="local-6989586621679436226"><span id="local-6989586621679436227"><span id="local-6989586621679436228"><span id="local-6989586621679436229"><span id="local-6989586621679436230"><span id="local-6989586621679436231"><span id="local-6989586621679436232"><span class="annot"><span class="annottext">[Text]
 Maybe Natural
 Maybe [Text]
 Maybe [ContextEntry]
@@ -1374,7 +1374,7 @@ $sel:resourceHandlingOption:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy 
 $sel:callerArn:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
 $sel:resourcePolicy:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe Text
 $sel:policyInputList:SimulatePrincipalPolicy' :: SimulatePrincipalPolicy -&gt; Maybe [Text]
-</span><a href="#local-6989586621679436212"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679436221"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-786"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1406,24 +1406,24 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-794"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436223"><span class="hs-identifier hs-var">policyInputList</span></a></span><span>
+</span><a href="#local-6989586621679436232"><span class="hs-identifier hs-var">policyInputList</span></a></span><span>
 </span><span id="line-795"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-796"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ResourcePolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436222"><span class="hs-identifier hs-var">resourcePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436231"><span class="hs-identifier hs-var">resourcePolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-797"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CallerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436221"><span class="hs-identifier hs-var">callerArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436230"><span class="hs-identifier hs-var">callerArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-798"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ResourceHandlingOption&quot;</span></span><span>
 </span><span id="line-799"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436220"><span class="hs-identifier hs-var">resourceHandlingOption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436229"><span class="hs-identifier hs-var">resourceHandlingOption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-800"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ResourceArns&quot;</span></span><span>
 </span><span id="line-801"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -1439,7 +1439,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436219"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436228"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-803"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PermissionsBoundaryPolicyInputList&quot;</span></span><span>
 </span><span id="line-804"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -1456,18 +1456,18 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-806"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679436218"><span class="hs-identifier hs-var">permissionsBoundaryPolicyInputList</span></a></span><span>
+</span><a href="#local-6989586621679436227"><span class="hs-identifier hs-var">permissionsBoundaryPolicyInputList</span></a></span><span>
 </span><span id="line-807"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-808"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436217"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436226"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-809"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679436216"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436225"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-810"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ContextEntries&quot;</span></span><span>
 </span><span id="line-811"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -1485,18 +1485,18 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [ContextEntry] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContextEntry]
-</span><a href="#local-6989586621679436215"><span class="hs-identifier hs-var">contextEntries</span></a></span><span>
+</span><a href="#local-6989586621679436224"><span class="hs-identifier hs-var">contextEntries</span></a></span><span>
 </span><span id="line-814"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-815"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ResourceOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436214"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436223"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-816"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicySourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679436213"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679436222"><span class="hs-identifier hs-var">policySourceArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-817"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ActionNames&quot;</span></span><span>
 </span><span id="line-818"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -1507,6 +1507,6 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679436212"><span class="hs-identifier hs-var">actionNames</span></a></span><span>
+</span><a href="#local-6989586621679436221"><span class="hs-identifier hs-var">actionNames</span></a></span><span>
 </span><span id="line-819"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-820"></span></pre></body></html>

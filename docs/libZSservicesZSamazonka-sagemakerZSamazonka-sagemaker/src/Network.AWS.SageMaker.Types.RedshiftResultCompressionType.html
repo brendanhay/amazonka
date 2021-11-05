@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | The compression used for Redshift query results.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680336347"><span id="local-6989586621680336348"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedshiftResultCompressionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultCompressionType.html#RedshiftResultCompressionType"><span class="hs-identifier hs-var">RedshiftResultCompressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftResultCompressionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultCompressionType.html#RedshiftResultCompressionType%27"><span class="hs-identifier hs-var">RedshiftResultCompressionType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680336356"><span id="local-6989586621680336357"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedshiftResultCompressionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultCompressionType.html#RedshiftResultCompressionType"><span class="hs-identifier hs-var">RedshiftResultCompressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftResultCompressionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultCompressionType.html#RedshiftResultCompressionType%27"><span class="hs-identifier hs-var">RedshiftResultCompressionType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRedshiftResultCompressionType"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.RedshiftResultCompressionType.html#fromRedshiftResultCompressionType"><span class="hs-identifier hs-var hs-var">fromRedshiftResultCompressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680336339"><span id="local-6989586621680336341"><span id="local-6989586621680336343"><span class="annot"><span class="annottext">Int -&gt; RedshiftResultCompressionType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680336348"><span id="local-6989586621680336350"><span id="local-6989586621680336352"><span class="annot"><span class="annottext">Int -&gt; RedshiftResultCompressionType -&gt; ShowS
 [RedshiftResultCompressionType] -&gt; ShowS
 RedshiftResultCompressionType -&gt; String
 (Int -&gt; RedshiftResultCompressionType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: RedshiftResultCompressionType -&gt; String
 showsPrec :: Int -&gt; RedshiftResultCompressionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RedshiftResultCompressionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680336330"><span id="local-6989586621680336332"><span id="local-6989586621680336334"><span id="local-6989586621680336336"><span class="annot"><span class="annottext">ReadPrec [RedshiftResultCompressionType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680336339"><span id="local-6989586621680336341"><span id="local-6989586621680336343"><span id="local-6989586621680336345"><span class="annot"><span class="annottext">ReadPrec [RedshiftResultCompressionType]
 ReadPrec RedshiftResultCompressionType
 Int -&gt; ReadS RedshiftResultCompressionType
 ReadS [RedshiftResultCompressionType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [RedshiftResultCompressionType]
 readsPrec :: Int -&gt; ReadS RedshiftResultCompressionType
 $creadsPrec :: Int -&gt; ReadS RedshiftResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680336325"><span id="local-6989586621680336327"><span class="annot"><span class="annottext">RedshiftResultCompressionType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680336334"><span id="local-6989586621680336336"><span class="annot"><span class="annottext">RedshiftResultCompressionType
 -&gt; RedshiftResultCompressionType -&gt; Bool
 (RedshiftResultCompressionType
  -&gt; RedshiftResultCompressionType -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: RedshiftResultCompressionType
 $c== :: RedshiftResultCompressionType
 -&gt; RedshiftResultCompressionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680336309"><span id="local-6989586621680336311"><span id="local-6989586621680336313"><span id="local-6989586621680336315"><span id="local-6989586621680336317"><span id="local-6989586621680336319"><span id="local-6989586621680336321"><span class="annot"><span class="annottext">Eq RedshiftResultCompressionType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680336318"><span id="local-6989586621680336320"><span id="local-6989586621680336322"><span id="local-6989586621680336324"><span id="local-6989586621680336326"><span id="local-6989586621680336328"><span id="local-6989586621680336330"><span class="annot"><span class="annottext">Eq RedshiftResultCompressionType
 Eq RedshiftResultCompressionType
 -&gt; (RedshiftResultCompressionType
     -&gt; RedshiftResultCompressionType -&gt; Ordering)
@@ -180,7 +180,7 @@ RedshiftResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680336301"><span id="local-6989586621680336303"><span class="annot"><span class="annottext">Int -&gt; RedshiftResultCompressionType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680336310"><span id="local-6989586621680336312"><span class="annot"><span class="annottext">Int -&gt; RedshiftResultCompressionType -&gt; Int
 RedshiftResultCompressionType -&gt; Int
 (Int -&gt; RedshiftResultCompressionType -&gt; Int)
 -&gt; (RedshiftResultCompressionType -&gt; Int)
@@ -191,56 +191,56 @@ $chash :: RedshiftResultCompressionType -&gt; Int
 hashWithSalt :: Int -&gt; RedshiftResultCompressionType -&gt; Int
 $chashWithSalt :: Int -&gt; RedshiftResultCompressionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680336298"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680336307"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; ()
 (RedshiftResultCompressionType -&gt; ())
 -&gt; NFData RedshiftResultCompressionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RedshiftResultCompressionType -&gt; ()
 $crnf :: RedshiftResultCompressionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680336295"><span class="annot"><span class="annottext">Text -&gt; Either String RedshiftResultCompressionType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680336304"><span class="annot"><span class="annottext">Text -&gt; Either String RedshiftResultCompressionType
 (Text -&gt; Either String RedshiftResultCompressionType)
 -&gt; FromText RedshiftResultCompressionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RedshiftResultCompressionType
 $cfromText :: Text -&gt; Either String RedshiftResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680336292"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680336301"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; Text
 (RedshiftResultCompressionType -&gt; Text)
 -&gt; ToText RedshiftResultCompressionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RedshiftResultCompressionType -&gt; Text
 $ctoText :: RedshiftResultCompressionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680336289"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680336298"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; ByteString
 (RedshiftResultCompressionType -&gt; ByteString)
 -&gt; ToByteString RedshiftResultCompressionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RedshiftResultCompressionType -&gt; ByteString
 $ctoBS :: RedshiftResultCompressionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680336286"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680336295"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; ByteStringBuilder
 (RedshiftResultCompressionType -&gt; ByteStringBuilder)
 -&gt; ToLog RedshiftResultCompressionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RedshiftResultCompressionType -&gt; ByteStringBuilder
 $cbuild :: RedshiftResultCompressionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680336283"><span class="annot"><span class="annottext">HeaderName -&gt; RedshiftResultCompressionType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680336292"><span class="annot"><span class="annottext">HeaderName -&gt; RedshiftResultCompressionType -&gt; [Header]
 (HeaderName -&gt; RedshiftResultCompressionType -&gt; [Header])
 -&gt; ToHeader RedshiftResultCompressionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RedshiftResultCompressionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RedshiftResultCompressionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680336280"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680336289"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; QueryString
 (RedshiftResultCompressionType -&gt; QueryString)
 -&gt; ToQuery RedshiftResultCompressionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RedshiftResultCompressionType -&gt; QueryString
 $ctoQuery :: RedshiftResultCompressionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680336275"><span id="local-6989586621680336277"><span class="annot"><span class="annottext">Value -&gt; Parser [RedshiftResultCompressionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680336284"><span id="local-6989586621680336286"><span class="annot"><span class="annottext">Value -&gt; Parser [RedshiftResultCompressionType]
 Value -&gt; Parser RedshiftResultCompressionType
 (Value -&gt; Parser RedshiftResultCompressionType)
 -&gt; (Value -&gt; Parser [RedshiftResultCompressionType])
@@ -252,7 +252,7 @@ $cparseJSONList :: Value -&gt; Parser [RedshiftResultCompressionType]
 parseJSON :: Value -&gt; Parser RedshiftResultCompressionType
 $cparseJSON :: Value -&gt; Parser RedshiftResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680336270"><span id="local-6989586621680336272"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedshiftResultCompressionType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680336279"><span id="local-6989586621680336281"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedshiftResultCompressionType]
 FromJSONKeyFunction RedshiftResultCompressionType
 FromJSONKeyFunction RedshiftResultCompressionType
 -&gt; FromJSONKeyFunction [RedshiftResultCompressionType]
@@ -264,7 +264,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RedshiftResultCompressionType]
 fromJSONKey :: FromJSONKeyFunction RedshiftResultCompressionType
 $cfromJSONKey :: FromJSONKeyFunction RedshiftResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680336261"><span id="local-6989586621680336263"><span id="local-6989586621680336265"><span id="local-6989586621680336267"><span class="annot"><span class="annottext">[RedshiftResultCompressionType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680336270"><span id="local-6989586621680336272"><span id="local-6989586621680336274"><span id="local-6989586621680336276"><span class="annot"><span class="annottext">[RedshiftResultCompressionType] -&gt; Encoding
 [RedshiftResultCompressionType] -&gt; Value
 RedshiftResultCompressionType -&gt; Encoding
 RedshiftResultCompressionType -&gt; Value
@@ -288,7 +288,7 @@ $ctoEncoding :: RedshiftResultCompressionType -&gt; Encoding
 toJSON :: RedshiftResultCompressionType -&gt; Value
 $ctoJSON :: RedshiftResultCompressionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680336256"><span id="local-6989586621680336258"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedshiftResultCompressionType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680336265"><span id="local-6989586621680336267"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedshiftResultCompressionType]
 ToJSONKeyFunction RedshiftResultCompressionType
 ToJSONKeyFunction RedshiftResultCompressionType
 -&gt; ToJSONKeyFunction [RedshiftResultCompressionType]
@@ -300,14 +300,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RedshiftResultCompressionType]
 toJSONKey :: ToJSONKeyFunction RedshiftResultCompressionType
 $ctoJSONKey :: ToJSONKeyFunction RedshiftResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680336253"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedshiftResultCompressionType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680336262"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedshiftResultCompressionType
 ([Node] -&gt; Either String RedshiftResultCompressionType)
 -&gt; FromXML RedshiftResultCompressionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RedshiftResultCompressionType
 $cparseXML :: [Node] -&gt; Either String RedshiftResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680336250"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680336259"><span class="annot"><span class="annottext">RedshiftResultCompressionType -&gt; XML
 (RedshiftResultCompressionType -&gt; XML)
 -&gt; ToXML RedshiftResultCompressionType
 forall a. (a -&gt; XML) -&gt; ToXML a

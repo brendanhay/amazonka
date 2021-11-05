@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679267742"><span id="local-6989586621679267743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodegroupStatus"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-var">NodegroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupStatus%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-var">NodegroupStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679267751"><span id="local-6989586621679267752"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodegroupStatus"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupStatus.html#NodegroupStatus"><span class="hs-identifier hs-var">NodegroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupStatus%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupStatus.html#NodegroupStatus%27"><span class="hs-identifier hs-var">NodegroupStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodegroupStatus"><span class="annot"><span class="annottext">NodegroupStatus -&gt; Text
 </span><a href="Network.AWS.EKS.Types.NodegroupStatus.html#fromNodegroupStatus"><span class="hs-identifier hs-var hs-var">fromNodegroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267734"><span id="local-6989586621679267736"><span id="local-6989586621679267738"><span class="annot"><span class="annottext">Int -&gt; NodegroupStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267743"><span id="local-6989586621679267745"><span id="local-6989586621679267747"><span class="annot"><span class="annottext">Int -&gt; NodegroupStatus -&gt; ShowS
 [NodegroupStatus] -&gt; ShowS
 NodegroupStatus -&gt; String
 (Int -&gt; NodegroupStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: NodegroupStatus -&gt; String
 showsPrec :: Int -&gt; NodegroupStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; NodegroupStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679267725"><span id="local-6989586621679267727"><span id="local-6989586621679267729"><span id="local-6989586621679267731"><span class="annot"><span class="annottext">ReadPrec [NodegroupStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679267734"><span id="local-6989586621679267736"><span id="local-6989586621679267738"><span id="local-6989586621679267740"><span class="annot"><span class="annottext">ReadPrec [NodegroupStatus]
 ReadPrec NodegroupStatus
 Int -&gt; ReadS NodegroupStatus
 ReadS [NodegroupStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [NodegroupStatus]
 readsPrec :: Int -&gt; ReadS NodegroupStatus
 $creadsPrec :: Int -&gt; ReadS NodegroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679267720"><span id="local-6989586621679267722"><span class="annot"><span class="annottext">NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679267729"><span id="local-6989586621679267731"><span class="annot"><span class="annottext">NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
 (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
 -&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
 -&gt; Eq NodegroupStatus
@@ -87,7 +87,7 @@ $c/= :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
 == :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
 $c== :: NodegroupStatus -&gt; NodegroupStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679267704"><span id="local-6989586621679267706"><span id="local-6989586621679267708"><span id="local-6989586621679267710"><span id="local-6989586621679267712"><span id="local-6989586621679267714"><span id="local-6989586621679267716"><span class="annot"><span class="annottext">Eq NodegroupStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679267713"><span id="local-6989586621679267715"><span id="local-6989586621679267717"><span id="local-6989586621679267719"><span id="local-6989586621679267721"><span id="local-6989586621679267723"><span id="local-6989586621679267725"><span class="annot"><span class="annottext">Eq NodegroupStatus
 Eq NodegroupStatus
 -&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Ordering)
 -&gt; (NodegroupStatus -&gt; NodegroupStatus -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. NodegroupStatus -&gt; Rep NodegroupStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267696"><span id="local-6989586621679267698"><span class="annot"><span class="annottext">Int -&gt; NodegroupStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267705"><span id="local-6989586621679267707"><span class="annot"><span class="annottext">Int -&gt; NodegroupStatus -&gt; Int
 NodegroupStatus -&gt; Int
 (Int -&gt; NodegroupStatus -&gt; Int)
 -&gt; (NodegroupStatus -&gt; Int) -&gt; Hashable NodegroupStatus
@@ -148,50 +148,50 @@ $chash :: NodegroupStatus -&gt; Int
 hashWithSalt :: Int -&gt; NodegroupStatus -&gt; Int
 $chashWithSalt :: Int -&gt; NodegroupStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679267693"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679267702"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ()
 (NodegroupStatus -&gt; ()) -&gt; NFData NodegroupStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NodegroupStatus -&gt; ()
 $crnf :: NodegroupStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679267690"><span class="annot"><span class="annottext">Text -&gt; Either String NodegroupStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679267699"><span class="annot"><span class="annottext">Text -&gt; Either String NodegroupStatus
 (Text -&gt; Either String NodegroupStatus) -&gt; FromText NodegroupStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NodegroupStatus
 $cfromText :: Text -&gt; Either String NodegroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679267687"><span class="annot"><span class="annottext">NodegroupStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679267696"><span class="annot"><span class="annottext">NodegroupStatus -&gt; Text
 (NodegroupStatus -&gt; Text) -&gt; ToText NodegroupStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NodegroupStatus -&gt; Text
 $ctoText :: NodegroupStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679267684"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679267693"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ByteString
 (NodegroupStatus -&gt; ByteString) -&gt; ToByteString NodegroupStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NodegroupStatus -&gt; ByteString
 $ctoBS :: NodegroupStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679267681"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679267690"><span class="annot"><span class="annottext">NodegroupStatus -&gt; ByteStringBuilder
 (NodegroupStatus -&gt; ByteStringBuilder) -&gt; ToLog NodegroupStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NodegroupStatus -&gt; ByteStringBuilder
 $cbuild :: NodegroupStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679267678"><span class="annot"><span class="annottext">HeaderName -&gt; NodegroupStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679267687"><span class="annot"><span class="annottext">HeaderName -&gt; NodegroupStatus -&gt; [Header]
 (HeaderName -&gt; NodegroupStatus -&gt; [Header])
 -&gt; ToHeader NodegroupStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NodegroupStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NodegroupStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679267675"><span class="annot"><span class="annottext">NodegroupStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679267684"><span class="annot"><span class="annottext">NodegroupStatus -&gt; QueryString
 (NodegroupStatus -&gt; QueryString) -&gt; ToQuery NodegroupStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NodegroupStatus -&gt; QueryString
 $ctoQuery :: NodegroupStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679267670"><span id="local-6989586621679267672"><span class="annot"><span class="annottext">Value -&gt; Parser [NodegroupStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679267679"><span id="local-6989586621679267681"><span class="annot"><span class="annottext">Value -&gt; Parser [NodegroupStatus]
 Value -&gt; Parser NodegroupStatus
 (Value -&gt; Parser NodegroupStatus)
 -&gt; (Value -&gt; Parser [NodegroupStatus]) -&gt; FromJSON NodegroupStatus
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [NodegroupStatus]
 parseJSON :: Value -&gt; Parser NodegroupStatus
 $cparseJSON :: Value -&gt; Parser NodegroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679267665"><span id="local-6989586621679267667"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodegroupStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679267674"><span id="local-6989586621679267676"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodegroupStatus]
 FromJSONKeyFunction NodegroupStatus
 FromJSONKeyFunction NodegroupStatus
 -&gt; FromJSONKeyFunction [NodegroupStatus]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NodegroupStatus]
 fromJSONKey :: FromJSONKeyFunction NodegroupStatus
 $cfromJSONKey :: FromJSONKeyFunction NodegroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679267656"><span id="local-6989586621679267658"><span id="local-6989586621679267660"><span id="local-6989586621679267662"><span class="annot"><span class="annottext">[NodegroupStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679267665"><span id="local-6989586621679267667"><span id="local-6989586621679267669"><span id="local-6989586621679267671"><span class="annot"><span class="annottext">[NodegroupStatus] -&gt; Encoding
 [NodegroupStatus] -&gt; Value
 NodegroupStatus -&gt; Encoding
 NodegroupStatus -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: NodegroupStatus -&gt; Encoding
 toJSON :: NodegroupStatus -&gt; Value
 $ctoJSON :: NodegroupStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679267651"><span id="local-6989586621679267653"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodegroupStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679267660"><span id="local-6989586621679267662"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodegroupStatus]
 ToJSONKeyFunction NodegroupStatus
 ToJSONKeyFunction NodegroupStatus
 -&gt; ToJSONKeyFunction [NodegroupStatus] -&gt; ToJSONKey NodegroupStatus
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NodegroupStatus]
 toJSONKey :: ToJSONKeyFunction NodegroupStatus
 $ctoJSONKey :: ToJSONKeyFunction NodegroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679267648"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodegroupStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679267657"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodegroupStatus
 ([Node] -&gt; Either String NodegroupStatus)
 -&gt; FromXML NodegroupStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NodegroupStatus
 $cparseXML :: [Node] -&gt; Either String NodegroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679267645"><span class="annot"><span class="annottext">NodegroupStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679267654"><span class="annot"><span class="annottext">NodegroupStatus -&gt; XML
 (NodegroupStatus -&gt; XML) -&gt; ToXML NodegroupStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NodegroupStatus -&gt; XML
